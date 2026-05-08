@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-pazar-red: #E63946;
+  --color-pazar-dark: #1D1D1D;
+  --color-pazar-cream: #FFFDF7;
+  --color-pazar-accent: #F4A261;
+  --color-pazar-teal: #2A9D8F;
+  --color-background: #FFFDF7;
+  --color-foreground: #1D1D1D;
+}
+
+body {
+  background: #FFFDF7;
+  color: #1D1D1D;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* Turkish-market friendly typography */
+h1, h2, h3 { font-weight: 700; letter-spacing: -0.02em; }
+
+/* Smooth scroll for Turkish UX preference */
+html { scroll-behavior: smooth; }
+
+/* Tool card hover */
+.tool-card { transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); }
+.tool-card:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.1); }
