@@ -130,7 +130,7 @@ export default function HomePage() {
       <section className="bg-gradient-to-r from-pazar-red to-red-600 text-white py-16">
         <div className="max-w-3xl mx-auto text-center px-4">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">Aradığın araç burada</h2>
-          <p className="text-red-100 mb-8">770'den fazla araç, 590'dan fazla rehber. Hepsi ücretsiz.</p>
+          <p className="text-red-100 mb-8">770'ten fazla araç, 590'dan fazla rehber. Hepsi ücretsiz.</p>
           <Link href="/tools" className="inline-block bg-white text-pazar-red px-8 py-3 rounded-xl font-semibold hover:bg-gray-100 transition">
             Hemen Başla →
           </Link>

@@ -12,7 +12,7 @@ export default function AboutPage() {
       <div className="prose prose-lg max-w-none text-gray-600 space-y-6">
         <p className="text-lg">
           ToolPazar, herkesin ücretsiz kullanabileceği çevrimiçi araçları bir araya getiren Türkiye merkezli bir platformdur.
-          Hesap makinelerinden yazı stillerine, döviz çeviriciden birim dönüştürücülere kadar 25'ten fazla araç sunuyoruz.
+          Hesap makinelerinden yazı stillerine, döviz çeviriciden birim dönüştürücülere, yapay zeka araçlarından PDF düzenleyicilerine kadar 770'ten fazla araç sunuyoruz.
         </p>
         <h2 className="text-2xl font-semibold text-gray-800">Misyonumuz</h2>
         <p>

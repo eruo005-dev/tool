@@ -3,7 +3,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "ToolPazar — 770+ Ücretsiz Çevrimiçi Araç",
-  description: "770'den fazla ücretsiz çevrimiçi araç ve 590'den fazla rehber. Hesap makineleri, dönüştürücüler, yazı araçları ve daha fazlası — hepsi Türkçe, hepsi ücretsiz.",
+  description: "770'ten fazla ücretsiz çevrimiçi araç ve 590'dan fazla rehber. Hesap makineleri, dönüştürücüler, yazı araçları ve daha fazlası — hepsi Türkçe, hepsi ücretsiz.",
   keywords: "ücretsiz araçlar, online hesaplama, PDF araçları, görsel araçları, yazı stili, KDV hesaplama, Türkçe araçlar, AI araçları",
   robots: "index, follow",
   openGraph: {
