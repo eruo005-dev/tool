@@ -46,10 +46,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </a>
             <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-tekno-muted">
               <a href="/araclar" className="hover:text-tekno-cyan transition">Araçlar</a>
+              <a href="/kategoriler" className="hover:text-tekno-cyan transition">Kategoriler</a>
               <a href="/oyunlar" className="hover:text-tekno-cyan transition">Oyunlar</a>
               <a href="/rehberler" className="hover:text-tekno-cyan transition">Rehberler</a>
-              <a href="/araclar?kategori=yazi" className="hover:text-tekno-cyan transition">Yazı Stilleri</a>
-              <a href="/araclar?kategori=hesap" className="hover:text-tekno-cyan transition">Hesaplamalar</a>
               <a href="/hakkinda" className="hover:text-tekno-cyan transition">Hakkımızda</a>
             </nav>
           </div>

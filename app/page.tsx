@@ -20,12 +20,6 @@ export default function HomePage() {
   const popular = tools.slice(0, 12);
   const fontTools = tools.filter((t) => t.category === "text" || t.category === "yazi");
 
-  const showcaseCats = ["hesap", "text", "ai", "dosya", "gelistirici", "saglik"];
-  const byShowcase: Record<string, typeof tools> = {};
-  showcaseCats.forEach(cat => {
-    byShowcase[cat] = tools.filter(t => t.category === cat).slice(0, 4);
-  });
-
   return (
     <div>
       {/* Hero — dark tech with cyan glow */}
@@ -84,43 +78,30 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Category Bubbles — new design */}
+      {/* Category Grid — links to dedicated page */}
       <div className="max-w-6xl mx-auto px-4 py-20">
         <div className="flex items-center justify-between mb-10">
           <h2 className="text-2xl md:text-3xl font-bold text-tekno-text">
-            Kategoriler
+            📂 Kategoriler
           </h2>
-          <Link href="/araclar" className="text-tekno-cyan hover:text-tekno-cyan-dim font-medium text-sm transition">
-            Tümünü Gör →
+          <Link href="/kategoriler" className="text-tekno-cyan hover:text-tekno-cyan-dim font-medium text-sm transition">
+            Tüm {Object.keys(categories).length} Kategori →
           </Link>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {showcaseCats.filter(c => byShowcase[c]?.length > 0).map((catId) => {
-            const catTools = byShowcase[catId] || [];
-            const catInfo = Object.values(categories).find(c => c.id === catId);
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
+          {Object.entries(categories).map(([key, cat]) => {
+            const count = tools.filter(t => t.category === key).length;
             return (
               <Link
-                key={catId}
-                href={`/araclar?kategori=${catId}`}
-                className="panel p-6 hover:border-tekno-cyan/50 hover:shadow-lg hover:shadow-cyan-500/5 transition group"
+                key={key}
+                href={`/araclar?kategori=${cat.id}`}
+                className="panel p-4 hover:border-tekno-cyan/50 hover:shadow-lg hover:shadow-cyan-500/5 transition group text-center"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-2xl">{catInfo?.icon}</span>
-                  <h3 className="font-semibold text-tekno-text group-hover:text-tekno-cyan transition-colors">
-                    {catInfo?.title || catId}
-                  </h3>
-                </div>
-                <div className="space-y-2">
-                  {catTools.slice(0, 3).map((t) => (
-                    <div key={t.slug} className="text-sm text-tekno-muted flex items-center gap-2">
-                      <span className="w-1 h-1 rounded-full bg-tekno-cyan/40" />
-                      {t.titleTr}
-                    </div>
-                  ))}
-                </div>
-                <div className="text-sm text-tekno-cyan font-medium mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                  {catTools.length}+ araç →
-                </div>
+                <span className="text-2xl block mb-2">{cat.icon}</span>
+                <h3 className="font-semibold text-sm text-tekno-text group-hover:text-tekno-cyan transition-colors">
+                  {cat.title}
+                </h3>
+                <span className="text-xs text-tekno-muted">{count} araç</span>
               </Link>
             );
           })}
