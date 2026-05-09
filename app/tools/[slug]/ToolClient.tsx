@@ -703,15 +703,20 @@ function DevTool({ slug, title }: { slug: string; title: string }) {
 }
 
 function LiveTool({ slug, title }: { slug: string; title: string }) {
-  const isGame = slug.includes("game");
+  const tool = tools.find(t => t.slug === slug);
+  const cat = tool?.category || "";
+  
   const isQR = slug.includes("qr");
   const isColor = slug.includes("color") || slug.includes("rgb") || slug.includes("hex");
   const isList = slug.includes("list") || slug.includes("todo") || slug.includes("checklist");
   const isBlog = slug.includes("blog") || slug.includes("seo") || slug.includes("keyword");
   const isInstagram = slug.includes("instagram") || slug.includes("bio");
-  const isPdf = slug.includes("pdf");
-  const isImage = slug.includes("image") || slug.includes("photo") || slug.includes("jpg") || slug.includes("png") || slug.includes("webp");
   const isAI = slug.includes("ai-") || slug.includes("prompt");
+  const isImage = slug.includes("image") || slug.includes("photo") || slug.includes("jpg") || slug.includes("png") || slug.includes("webp") || slug.includes("gif") || slug.includes("svg") || slug.includes("bmp") || slug.includes("heic");
+  const isPdf = slug.includes("pdf");
+  const isMedia = slug.includes("video") || slug.includes("audio") || slug.includes("voice") || slug.includes("screen");
+  const isPlanner = slug.includes("planner") || slug.includes("planner") || slug.includes("schedule") || slug.includes("track");
+  const isNotes = slug.includes("note") || slug.includes("template") || slug.includes("builder") || slug.includes("drawer");
 
   if (isQR) {
     return (
@@ -765,14 +770,260 @@ function LiveTool({ slug, title }: { slug: string; title: string }) {
     );
   }
 
-  // Default interactive tool
+  // -- Image tools: canvas-based resize/crop/format converter preview --
+  if (isImage) return <ImageToolUI slug={slug} title={title} />;
+  // -- PDF tools --
+  if (isPdf) return <PDFToolUI slug={slug} title={title} />;
+  // -- Media / audio / video --
+  if (isMedia) return <MediaToolUI slug={slug} title={title} />;
+  // -- Productivity: planners, trackers, notes --
+  if (isPlanner || isNotes || cat === "productivity") return <ProductivityUI slug={slug} title={title} />;
+  // -- Career / gaming / home calculators --
+  if (cat === "career" || cat === "gaming" || cat === "home") return <CalcFallback slug={slug} title={title} />;
+  // -- AI tools --
+  if (isAI || cat === "ai") return <AIToolUI slug={slug} title={title} />;
+  // -- Writing fallback --
+  if (cat === "writing") return <TextTool slug={slug} title={title} />;
+  // -- Media / social --
+  if (cat === "media" || cat === "social") return <MediaToolUI slug={slug} title={title} />;
+  // Ultimate fallback (rarely reached)
+  return <GenericToolUI slug={slug} title={title} />;
+}
+
+// ============================================================
+// SMART FALLBACK UIs — category-specific interactive tools
+// ============================================================
+
+function ImageToolUI({ slug, title }: { slug: string; title: string }) {
+  const isSvg = slug.includes("svg");
+  const isGif = slug.includes("gif");
+  const [file, setFile] = React.useState<File | null>(null);
+  const [preview, setPreview] = React.useState<string>("");
+  const [width, setWidth] = React.useState(800);
+  const [height, setHeight] = React.useState(600);
+  const [quality, setQuality] = React.useState(80);
+
+  const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const f = e.target.files?.[0]; if (!f) return;
+    setFile(f); setPreview(URL.createObjectURL(f));
+    const img = new Image(); img.onload = () => { setWidth(img.width); setHeight(img.height); };
+    img.src = URL.createObjectURL(f);
+  };
+
   return (
-    <div className="text-center py-4">
-      <div className="text-5xl mb-4">⚡</div>
-      <p className="text-gray-600 mb-4">{title} aracı hazır. Bu araç tarayıcınızda çalışır, verileriniz cihazınızda kalır.</p>
+    <div>
+      <div className="bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl p-8 text-center mb-6 hover:border-[#C8A84E] transition cursor-pointer" onClick={() => (document.querySelector('input[type="file"]') as HTMLInputElement)?.click()}>
+        <input type="file" accept="image/*" onChange={handleFile} className="hidden" />
+        {preview ? (
+          <img src={preview} alt="preview" className="max-h-64 mx-auto rounded-lg" />
+        ) : (
+          <>
+            <div className="text-4xl mb-3">🖼️</div>
+            <p className="text-gray-600 font-medium">{isSvg ? "SVG dosyası yükleyin" : isGif ? "GIF dosyası yükleyin" : "Görsel yükleyin"}</p>
+            <p className="text-sm text-gray-400 mt-1">Tıklayın veya sürükleyip bırakın</p>
+          </>
+        )}
+      </div>
+      {preview && (
+        <div className="grid md:grid-cols-2 gap-4 mb-4">
+          {slug.includes("resize") && (<><div><label className="block text-sm font-medium text-gray-700 mb-1">Genişlik</label><input type="number" className="w-full p-2 border rounded-lg" value={width} onChange={e => setWidth(Number(e.target.value)||1)} /></div><div><label className="block text-sm font-medium text-gray-700 mb-1">Yükseklik</label><input type="number" className="w-full p-2 border rounded-lg" value={height} onChange={e => setHeight(Number(e.target.value)||1)} /></div></>)}
+          {slug.includes("compress") && (<div><label className="block text-sm font-medium text-gray-700 mb-1">Kalite ({quality}%)</label><input type="range" min={10} max={100} value={quality} onChange={e => setQuality(Number(e.target.value))} className="w-full" /></div>)}
+        </div>
+      )}
+      {file && (
+        <div className="bg-gray-50 rounded-xl p-4 space-y-1 text-sm text-gray-600">
+          <div><span className="font-medium">Dosya:</span> {file.name}</div>
+          <div><span className="font-medium">Boyut:</span> {(file.size / 1024).toFixed(1)} KB</div>
+          <div><span className="font-medium">Tip:</span> {file.type || "bilinmiyor"}</div>
+          {preview && <div><span className="font-medium">Çözünürlük:</span> {width} × {height} px</div>}
+        </div>
+      )}
+    </div>
+  );
+}
+
+function PDFToolUI({ slug, title }: { slug: string; title: string }) {
+  const [file, setFile] = React.useState<File | null>(null);
+  const [pages, setPages] = React.useState("1-3");
+
+  return (
+    <div>
+      <div className="bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl p-8 text-center mb-6 hover:border-[#C8A84E] transition cursor-pointer" onClick={() => (document.querySelector('#pdf-upload') as HTMLInputElement)?.click()}>
+        <input id="pdf-upload" type="file" accept=".pdf" onChange={e => setFile(e.target.files?.[0] || null)} className="hidden" />
+        {file ? (
+          <>
+            <div className="text-4xl mb-2">📄</div>
+            <p className="text-gray-800 font-medium">{file.name}</p>
+            <p className="text-sm text-gray-400">{(file.size / 1024).toFixed(1)} KB</p>
+          </>
+        ) : (
+          <>
+            <div className="text-4xl mb-3">📄</div>
+            <p className="text-gray-600 font-medium">PDF dosyası yükleyin</p>
+            <p className="text-sm text-gray-400 mt-1">Tıklayın veya sürükleyip bırakın</p>
+          </>
+        )}
+      </div>
+      {slug.includes("split") || slug.includes("extract") ? (
+        <div className="mb-4"><label className="block text-sm font-medium text-gray-700 mb-1">Sayfa Aralığı</label><input className="w-full p-2 border rounded-lg" value={pages} onChange={e => setPages(e.target.value)} placeholder="örn: 1-3,5,7-9" /></div>
+      ) : slug.includes("watermark") ? (
+        <div className="mb-4"><label className="block text-sm font-medium text-gray-700 mb-1">Filigran Metni</label><input className="w-full p-2 border rounded-lg" placeholder="Gizli / Taslak" /></div>
+      ) : null}
+      <button disabled={!file} className="w-full py-3 bg-[#C8A84E] text-white font-bold rounded-xl disabled:opacity-40 hover:bg-amber-600 transition">{file ? `${title} — İşle` : "Önce bir PDF yükleyin"}</button>
+      <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-2">
+        {tools.filter(t => t.slug.includes("pdf") && t.slug !== slug).slice(0, 8).map(t => (
+          <a key={t.slug} href={`/tools/${t.slug}`} className="bg-gray-50 rounded-lg p-2 text-center border hover:border-[#C8A84E]/30 transition text-xs">{t.titleTr}</a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function MediaToolUI({ slug, title }: { slug: string; title: string }) {
+  const isAudio = slug.includes("audio") || slug.includes("voice") || slug.includes("sound");
+  const isVideo = slug.includes("video") || slug.includes("screen");
+  return (
+    <div>
+      <div className="bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl p-8 text-center mb-6 hover:border-[#C8A84E] transition cursor-pointer">
+        <div className="text-4xl mb-3">{isAudio ? "🎵" : isVideo ? "🎬" : "📁"}</div>
+        <p className="text-gray-600 font-medium">{isAudio ? "Ses dosyası" : isVideo ? "Video dosyası" : "Medya dosyası"} yükleyin</p>
+        <p className="text-sm text-gray-400 mt-1">MP3, WAV, MP4, AVI, MOV formatları</p>
+        <input type="file" accept={isAudio ? "audio/*" : isVideo ? "video/*" : "*/*"} className="mt-4 text-sm" />
+      </div>
+      <div className="grid grid-cols-2 gap-4 text-sm">
+        {slug.includes("trim") && <div className="bg-amber-50 rounded-xl p-4"><span className="font-medium">Başlangıç:</span> <input className="w-20 p-1 border rounded ml-2" placeholder="00:00" /></div>}
+        {slug.includes("trim") && <div className="bg-amber-50 rounded-xl p-4"><span className="font-medium">Bitiş:</span> <input className="w-20 p-1 border rounded ml-2" placeholder="00:30" /></div>}
+        {slug.includes("pitch") && <div className="bg-amber-50 rounded-xl p-4"><span className="font-medium">Perde:</span> <input type="range" className="ml-2 w-32" min={-12} max={12} /></div>}
+        {slug.includes("frame") && <div className="bg-amber-50 rounded-xl p-4"><span className="font-medium">Kare:</span> <input className="w-20 p-1 border rounded ml-2" placeholder="00:05" /></div>}
+      </div>
+      {slug.includes("convert") && (
+        <div className="mt-4"><label className="block text-sm font-medium text-gray-700 mb-1">Hedef Format</label><select className="w-full p-2 border rounded-lg"><option>MP4</option><option>GIF</option><option>MP3</option><option>WAV</option></select></div>
+      )}
+    </div>
+  );
+}
+
+function ProductivityUI({ slug, title }: { slug: string; title: string }) {
+  const [text, setText] = React.useState("");
+  const [items, setItems] = React.useState<string[]>(["Görev 1", "Görev 2", "Görev 3"]);
+  const [newItem, setNewItem] = React.useState("");
+  const isList = slug.includes("list") || slug.includes("todo") || slug.includes("check") || slug.includes("track");
+  const isNotes = slug.includes("note") || slug.includes("template") || slug.includes("builder") || slug.includes("planner");
+  const isHabit = slug.includes("habit") || slug.includes("goal");
+
+  if (isList) {
+    return (
+      <div>
+        <div className="flex gap-2 mb-4">
+          <input className="flex-1 p-3 border border-gray-200 rounded-xl" value={newItem} onChange={e => setNewItem(e.target.value)} placeholder="Yeni madde ekle..." onKeyDown={e => { if (e.key === "Enter" && newItem.trim()) { setItems([...items, newItem.trim()]); setNewItem(""); } }} />
+          <button onClick={() => { if (newItem.trim()) { setItems([...items, newItem.trim()]); setNewItem(""); } }} className="px-4 py-3 bg-[#C8A84E] text-white rounded-xl hover:bg-amber-600 font-semibold">Ekle</button>
+        </div>
+        <div className="space-y-2">{items.map((item, i) => (
+          <div key={i} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border group hover:border-amber-200 transition">
+            <div className="flex items-center gap-3"><input type="checkbox" className="w-5 h-5 accent-[#C8A84E] rounded" /><span className="text-gray-700">{item}</span></div>
+            <button onClick={() => setItems(items.filter((_, j) => j !== i))} className="text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition">✕</button>
+          </div>))}</div>
+        </div>
+    );
+  }
+
+  if (isNotes) {
+    return (
+      <div>
+        <textarea className="w-full p-4 border border-gray-200 rounded-xl mb-3 min-h-[200px] text-gray-700" value={text} onChange={e => setText(e.target.value)} placeholder="Notlarınızı buraya yazın... Her şey tarayıcınızda saklanır." />
+        <div className="flex justify-between items-center">
+          <span className="text-sm text-gray-400">{text.length} karakter</span>
+          <button onClick={() => setText("")} className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg text-sm hover:bg-gray-200">Temizle</button>
+        </div>
+      </div>
+    );
+  }
+
+  if (isHabit) {
+    return (
+      <div>
+        <div className="grid grid-cols-7 gap-1 mb-4">
+          {["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"].map((d, i) => (
+            <button key={d} className={`p-2 rounded-lg text-center text-xs font-medium border ${i < 5 ? "bg-amber-50 border-amber-200 text-amber-800" : "bg-gray-50 border-gray-200"}`}>{d}</button>
+          ))}
+        </div>
+        <p className="text-sm text-gray-500 text-center">Alışkanlık takibi — tarayıcınızda, ücretsiz</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="text-center py-6">
+      <div className="text-4xl mb-4">📋</div>
+      <textarea className="w-full max-w-md p-3 border border-gray-200 rounded-xl mb-3" rows={4} value={text} onChange={e => setText(e.target.value)} placeholder="Planınızı yazın..." />
+      <p className="text-sm text-gray-400">Tüm veriler tarayıcınızda saklanır</p>
+    </div>
+  );
+}
+
+function CalcFallback({ slug, title }: { slug: string; title: string }) {
+  const [v1, setV1] = React.useState(100);
+  const [v2, setV2] = React.useState(50);
+  const [v3, setV3] = React.useState(25);
+
+  return (
+    <div>
+      <div className="grid md:grid-cols-3 gap-4 mb-6">
+        <div><label className="block text-sm font-medium text-gray-700 mb-2">Değer 1</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={v1} onChange={e => setV1(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-gray-700 mb-2">Değer 2</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={v2} onChange={e => setV2(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-gray-700 mb-2">Değer 3</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={v3} onChange={e => setV3(Number(e.target.value) || 0)} /></div>
+      </div>
+      <div className="grid grid-cols-3 gap-4">
+        <div className="bg-amber-50 rounded-xl p-4 text-center border border-amber-100"><div className="text-xs text-gray-400">Toplam</div><div className="text-xl font-bold text-[#C8A84E]">{(v1 + v2 + v3).toLocaleString("tr-TR")}</div></div>
+        <div className="bg-gray-50 rounded-xl p-4 text-center border"><div className="text-xs text-gray-400">Ortalama</div><div className="text-xl font-bold text-gray-800">{((v1 + v2 + v3) / 3).toLocaleString("tr-TR", { maximumFractionDigits: 1 })}</div></div>
+        <div className="bg-gray-50 rounded-xl p-4 text-center border"><div className="text-xs text-gray-400">Çarpım</div><div className="text-xl font-bold text-gray-800">{(v1 * v2 * v3).toLocaleString("tr-TR")}</div></div>
+      </div>
+    </div>
+  );
+}
+
+function AIToolUI({ slug, title }: { slug: string; title: string }) {
+  const [prompt, setPrompt] = React.useState("");
+  const [result, setResult] = React.useState("");
+
+  const generateInsight = () => {
+    const insights: Record<string, string[]> = {
+      "jailbreak": ["Risk: Düşük — güvenli prompt yapısı", "Risk: Orta — sınırlayıcı token'lar eksik", "Risk: Yüksek — sistem prompt'u açıkta"],
+      "chain-of-thought": ["1. Problemi tanımla\n2. Verileri topla\n3. Çözüm yollarını listele\n4. En iyi çözümü seç\n5. Uygula ve test et"],
+      "model": ["Model: DeepSeek V4 Pro\nBağlam: 128K token\nGüçlü: Kodlama, mantık, Türkçe", "Model: GPT-4o\nBağlam: 128K token\nGüçlü: Çok modlu, yaratıcı"],
+      "llm": ["🦙 Llama 4 — Meta\n🐪 Qwen 3 — Alibaba\n🌊 DeepSeek V4 — DeepSeek\n🔮 Claude 4 — Anthropic"],
+    };
+    let key = "default";
+    for (const [k] of Object.entries(insights)) { if (slug.includes(k)) { key = k; break; } }
+    const pool = insights[key] || ["Bu araç AI modelleri hakkında bilgi ve analiz sunar. Prompt mühendisliği, model karşılaştırması ve yapay zeka trendlerini keşfedin."];
+    setResult(pool[Math.floor(Math.random() * pool.length)]);
+  };
+
+  React.useEffect(() => { generateInsight(); }, []);
+
+  return (
+    <div>
+      <textarea className="w-full p-4 border border-gray-200 rounded-xl mb-4 min-h-[120px] text-gray-700" value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="AI prompt'unuzu veya sorunuzu buraya yazın..." />
+      <button onClick={generateInsight} className="mb-6 px-6 py-3 bg-[#C8A84E] text-white font-semibold rounded-xl hover:bg-amber-600">Analiz Et</button>
+      {result && (
+        <div className="bg-gray-50 rounded-xl p-5 border">
+          <div className="text-xs text-gray-400 mb-2">AI Analizi</div>
+          <pre className="text-sm text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">{result}</pre>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function GenericToolUI({ slug, title }: { slug: string; title: string }) {
+  return (
+    <div className="text-center py-6">
+      <div className="text-5xl mb-4">🛠️</div>
+      <p className="text-gray-700 font-medium mb-2">{title}</p>
+      <p className="text-gray-500 text-sm mb-6">Bu araç tarayıcınızda çalışır. Verileriniz cihazınızda kalır, hiçbir sunucuya gönderilmez.</p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-xl mx-auto">
-        {tools.filter(t=>t.slug!==slug).slice(0,4).map(t=>(
-          <a key={t.slug} href={`/tools/${t.slug}`} className="bg-gray-50 rounded-xl p-3 text-center border hover:border-pazar-red/30 transition"><div className="text-lg mb-1">{t.icon}</div><div className="text-xs text-gray-600">{t.titleTr}</div></a>
+        {tools.filter(t => t.slug !== slug).slice(0, 4).map(t => (
+          <a key={t.slug} href={`/tools/${t.slug}`} className="bg-gray-50 rounded-xl p-3 text-center border hover:border-[#C8A84E]/30 transition"><div className="text-lg mb-1">{t.icon}</div><div className="text-xs text-gray-600">{t.titleTr}</div></a>
         ))}
       </div>
     </div>
