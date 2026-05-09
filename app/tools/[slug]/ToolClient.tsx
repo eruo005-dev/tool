@@ -2,6 +2,7 @@
 
 import React from "react";
 import { tools, type Tool } from "@/lib/tools";
+import { GameTool } from "./games";
 
 // ============================================================
 // SMART AUTO-ROUTER — maps all 772 tools to live components
@@ -83,9 +84,9 @@ export function ToolComponent({ slug }: { slug: string }) {
   // AI tools
   if (slug.match(/ai-|prompt|token.*count|model.*comp|cost.*estimator/)) return <LiveTool slug={slug} title={title} />;
 
-  // Games
-  if (slug.match(/game|snake|2048|tic-tac|hangman|memory|puzzle|maze|sudoku|chess|checkers|solitaire|tetris|pong|breakout|flappy|platformer|rpg/)) return <LiveTool slug={slug} title={title} />;
-  if (slug.match(/play|fun|quiz|trivia|bingo|wordle|crossword/)) return <LiveTool slug={slug} title={title} />;
+  // Games — dedicated interactive game components
+  if (slug.match(/game|snake|2048|tic-tac|hangman|memory|puzzle|maze|sudoku|chess|checkers|solitaire|tetris|pong|breakout|flappy|platformer|rpg/)) return <GameTool slug={slug} title={title} />;
+  if (slug.match(/play|fun|quiz|trivia|bingo|wordle|crossword/)) return <GameTool slug={slug} title={title} />;
 
   // Social / Relationship
   if (slug.match(/instagram|twitter|tiktok|facebook|linkedin|social|hashtag|bio|profile|caption/)) return <LiveTool slug={slug} title={title} />;
@@ -118,7 +119,8 @@ export function ToolComponent({ slug }: { slug: string }) {
   }
   if (tool?.category === "units" || tool?.category === "converters") return <SmartConverter slug={slug} title={title} />;
   if (tool?.category === "text" || tool?.category === "writing") return <TextTool slug={slug} title={title} />;
-  if (tool?.category === "random" || tool?.category === "games") return <GeneratorTool slug={slug} title={title} />;
+  if (tool?.category === "random") return <GeneratorTool slug={slug} title={title} />;
+  if (tool?.category === "games") return <GameTool slug={slug} title={title} />;
   if (tool?.category === "dev" || tool?.category === "coding") return <DevTool slug={slug} title={title} />;
   if (tool?.category === "ai") return <LiveTool slug={slug} title={title} />;
   if (tool?.category === "productivity") return <LiveTool slug={slug} title={title} />;
