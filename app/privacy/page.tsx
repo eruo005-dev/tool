@@ -1,5 +1,17 @@
 import type { Metadata } from "next";
-export const metadata: Metadata = { title: "Gizlilik Politikası — TeknoAraç", description: "TeknoAraç gizlilik politikası. Verilerinizi nasıl koruduğumuzu öğrenin." };
+export const metadata: Metadata = {
+  title: "Gizlilik Politikası | TeknoAraç",
+  description: "TeknoAraç gizlilik politikası. Hiçbir kişisel veri toplamıyor, depolamıyor veya paylaşmıyoruz. Reklamsız, takipsiz.",
+  alternates: { canonical: "https://teknoarac.com/gizlilik" },
+  openGraph: {
+    title: "Gizlilik Politikası | TeknoAraç",
+    description: "Hiçbir kişisel veri toplamıyor, depolamıyor veya paylaşmıyoruz.",
+    url: "https://teknoarac.com/gizlilik",
+    siteName: "TeknoAraç", locale: "tr_TR", type: "website",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
+  },
+  twitter: { card: "summary_large_image", title: "Gizlilik Politikası", images: ["/og-image.svg"] },
+};
 
 export default function PrivacyPage() {
   return (

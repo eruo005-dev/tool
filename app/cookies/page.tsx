@@ -1,5 +1,17 @@
 import type { Metadata } from "next";
-export const metadata: Metadata = { title: "Çerez Politikası — TeknoAraç" };
+export const metadata: Metadata = {
+  title: "Çerez Politikası | TeknoAraç",
+  description: "TeknoAraç çerez politikası. Sadece tema tercihi için zorunlu çerez kullanıyoruz. Takip, reklam veya analitik çerezi kullanmıyoruz.",
+  alternates: { canonical: "https://teknoarac.com/cerezler" },
+  openGraph: {
+    title: "Çerez Politikası | TeknoAraç",
+    description: "Takip yok, reklam yok, analitik yok — sadece tema tercihi.",
+    url: "https://teknoarac.com/cerezler",
+    siteName: "TeknoAraç", locale: "tr_TR", type: "website",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
+  },
+  twitter: { card: "summary_large_image", title: "Çerez Politikası", images: ["/og-image.svg"] },
+};
 
 export default function CookiesPage() {
   return (

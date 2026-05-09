@@ -3,7 +3,7 @@ import "./globals.css";
 
 const SITE_NAME = "TeknoAraç";
 const SITE_URL = "https://teknoarac.com";
-const SITE_DESC = "Türkiye'nin Dijital Araç Kutusu — 771+ ücretsiz çevrimiçi araç, 591 rehber ve 19 oyun. KD Hesaplama, metin araçları, PDF araçları ve daha fazlası.";
+const SITE_DESC = "Türkiye'nin Dijital Araç Kutusu — 743+ ücretsiz çevrimiçi araç, 591 rehber ve 19 oyun. KD Hesaplama, metin araçları, PDF araçları ve daha fazlası.";
 const SITE_KEYWORDS = ["ücretsiz araçlar", "online araçlar", "hesaplama", "metin stilleri", "PDF araçları", "görsel araçları", "Türkçe araçlar", "dönüştürücü", "teknoaraç"];
 
 export const metadata: Metadata = {
@@ -37,6 +37,28 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="tr">
+      <head>
+
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              name: "TeknoAraç",
+              url: "https://teknoarac.com",
+              description: "Türkiye'nin reklamsız, ücretsiz dijital araç kutusu.",
+              inLanguage: "tr",
+              potentialAction: {
+                "@type": "SearchAction",
+                target: "https://teknoarac.com/araclar?ara={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            })
+          }}
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-tekno-dark">
         <header className="bg-tekno-deeper/90 backdrop-blur-md border-b border-tekno-border sticky top-0 z-50">
           <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
@@ -96,7 +118,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             © {new Date().getFullYear()} TeknoAraç. Tüm araçlar ücretsizdir. 🇹🇷
           </div>
         </footer>
-      </body>
+          <script dangerouslySetInnerHTML={{ __html: `if ('serviceWorker' in navigator) { navigator.serviceWorker.register('/sw.js'); }` }} />
+  </body>
     </html>
   );
 }

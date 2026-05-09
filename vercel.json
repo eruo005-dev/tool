@@ -1,7 +1,59 @@
 {
-  "framework": "nextjs",
-  "outputDirectory": ".next",
-  "buildCommand": "npm run build",
-  "devCommand": "next dev",
-  "installCommand": "npm install"
+  "redirects": [
+    {
+      "source": "/tools",
+      "destination": "/araclar",
+      "permanent": true
+    },
+    {
+      "source": "/tools/:slug",
+      "destination": "/araclar/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/guides",
+      "destination": "/rehberler",
+      "permanent": true
+    },
+    {
+      "source": "/guides/:slug",
+      "destination": "/rehberler/:slug",
+      "permanent": true
+    },
+    {
+      "source": "/games",
+      "destination": "/oyunlar",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/hakkinda",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/iletisim",
+      "permanent": true
+    },
+    {
+      "source": "/privacy",
+      "destination": "/gizlilik",
+      "permanent": true
+    },
+    {
+      "source": "/terms",
+      "destination": "/kullanim-sartlari",
+      "permanent": true
+    },
+    {
+      "source": "/cookies",
+      "destination": "/cerezler",
+      "permanent": true
+    },
+    {
+      "source": "/categories",
+      "destination": "/kategoriler",
+      "permanent": true
+    }
+  ]
 }

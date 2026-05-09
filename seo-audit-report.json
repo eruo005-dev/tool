@@ -1,0 +1,375 @@
+{
+  "phase1_inventory": {
+    "totalTools": 771,
+    "categories": 26,
+    "byCategory": {
+      "money": 87,
+      "productivity": 34,
+      "health": 40,
+      "text": 56,
+      "dev": 121,
+      "units": 17,
+      "random": 12,
+      "converters": 79,
+      "writing": 27,
+      "career": 50,
+      "home": 53,
+      "media": 18,
+      "ai": 55,
+      "gaming": 23,
+      "automotive": 16,
+      "cooking": 13,
+      "parenting": 13,
+      "pets": 11,
+      "social": 1,
+      "games": 19,
+      "sosyal": 4,
+      "medya": 1,
+      "icerik": 1,
+      "dosya": 15,
+      "hesap": 4,
+      "gelistirici": 1
+    }
+  },
+  "phase2_thin": {
+    "count": 28,
+    "tools": [
+      {
+        "slug": "fps-to-frame-time",
+        "title": "FPS'den Kare Süresine Hesaplayıcı"
+      },
+      {
+        "slug": "ping-latency-tier",
+        "title": "Ping Gecikme Seviyesi Kontrolcüsü"
+      },
+      {
+        "slug": "loot-drop-probability",
+        "title": "Loot Düşme Olasılığı Hesaplayıcı"
+      },
+      {
+        "slug": "minecraft-enchantment-level",
+        "title": "Minecraft Büyü XP Hesaplayıcı"
+      },
+      {
+        "slug": "mtg-mana-curve-analyzer",
+        "title": "MTG Mana Eğrisi Analizörü"
+      },
+      {
+        "slug": "layover-risk-checker",
+        "title": "Aktarma Risk Kontrolcüsü"
+      },
+      {
+        "slug": "passport-expiry-checker",
+        "title": "Pasaport Geçerlilik Kontrolcüsü"
+      },
+      {
+        "slug": "wedding-guest-list-splitter",
+        "title": "Düğün Davetli Listesi Bölücü"
+      },
+      {
+        "slug": "save-the-date-timing",
+        "title": "Davetiye Zamanlama Rehberi"
+      },
+      {
+        "slug": "wedding-registry-prioritizer",
+        "title": "Düğün Hediyesi Önceliklendirici"
+      },
+      {
+        "slug": "usda-hardiness-zone-lookup",
+        "title": "USDA Sertlik Bölgesi Sorgulama"
+      },
+      {
+        "slug": "planting-calendar-by-zone",
+        "title": "USDA Bölgesine Göre Dikim Takvimi"
+      },
+      {
+        "slug": "companion-plant-checker",
+        "title": "Uyumlu Bitki Denetleyicisi"
+      },
+      {
+        "slug": "plant-watering-schedule",
+        "title": "Bitki Sulama Takvimi"
+      },
+      {
+        "slug": "drill-bit-size-lookup",
+        "title": "Matkap Ucu Boyutu Sorgulama"
+      },
+      {
+        "slug": "gaming-pc-spec-recommender",
+        "title": "Oyun Bilgisayarı Özellik Önerici"
+      },
+      {
+        "slug": "distance-between-cities",
+        "title": "Şehirler Arası Mesafe"
+      },
+      {
+        "slug": "youtube-baslik",
+        "title": "YouTube Başlık Oluşturucu"
+      },
+      {
+        "slug": "tweet-yazici",
+        "title": "Tweet Yazıcı"
+      },
+      {
+        "slug": "urun-aciklamasi",
+        "title": "Ürün Açıklaması Oluşturucu"
+      },
+      {
+        "slug": "gorsel-boyutlandir",
+        "title": "Görsel Boyutlandırıcı"
+      },
+      {
+        "slug": "gorsel-sikistir",
+        "title": "Görsel Sıkıştırıcı"
+      },
+      {
+        "slug": "arka-plan-kaldir",
+        "title": "Arka Plan Kaldırıcı"
+      },
+      {
+        "slug": "profil-fotografi",
+        "title": "Profil Fotoğrafı Yuvarlatıcı"
+      },
+      {
+        "slug": "teklif-olusturucu",
+        "title": "Teklif Oluşturucu"
+      },
+      {
+        "slug": "fatura-sablonu",
+        "title": "Fatura Şablonu Oluşturucu"
+      },
+      {
+        "slug": "barkod-olusturucu",
+        "title": "Barkod Oluşturucu"
+      },
+      {
+        "slug": "link-kisaltici",
+        "title": "Link Kısaltıcı"
+      }
+    ]
+  },
+  "phase3_duplicates": {
+    "titleDups": [
+      {
+        "title": "konut kredisi hesaplayıcı",
+        "slugs": [
+          "mortgage-calculator",
+          "home-equity-loan-calculator"
+        ]
+      },
+      {
+        "title": "taşıt kredisi hesaplayıcı",
+        "slugs": [
+          "car-loan-calculator",
+          "auto-loan-calculator"
+        ]
+      },
+      {
+        "title": "çevrimiçi kronometre",
+        "slugs": [
+          "stopwatch",
+          "online-stopwatch"
+        ]
+      },
+      {
+        "title": "görsel boyutlandırıcı",
+        "slugs": [
+          "image-resizer",
+          "gorsel-boyutlandir"
+        ]
+      },
+      {
+        "title": "görsel sıkıştırıcı",
+        "slugs": [
+          "image-compressor",
+          "gorsel-sikistir"
+        ]
+      },
+      {
+        "title": "pdf birleştir",
+        "slugs": [
+          "merge-pdf",
+          "pdf-birlestir"
+        ]
+      },
+      {
+        "title": "pdf düzenleyici",
+        "slugs": [
+          "pdf-organizer",
+          "pdf-editor"
+        ]
+      },
+      {
+        "title": "css gradyan oluşturucu",
+        "slugs": [
+          "gradient-generator",
+          "css-gradient-generator"
+        ]
+      },
+      {
+        "title": "barkod oluşturucu",
+        "slugs": [
+          "barcode-generator",
+          "barkod-olusturucu"
+        ]
+      },
+      {
+        "title": "html tablo oluşturucu",
+        "slugs": [
+          "table-generator",
+          "html-table-generator"
+        ]
+      },
+      {
+        "title": "romen rakamı dönüştürücü",
+        "slugs": [
+          "roman-numeral-converter",
+          "roman-numerals-converter"
+        ]
+      },
+      {
+        "title": "alıntı oluşturucu",
+        "slugs": [
+          "quote-generator",
+          "citation-generator"
+        ]
+      }
+    ],
+    "descDups": 0
+  },
+  "phase4_missingMeta": [
+    {
+      "file": "araclar\\page.tsx",
+      "hasTitle": false,
+      "hasDesc": false,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "cerezler\\page.tsx",
+      "hasTitle": false,
+      "hasDesc": false,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "cookies\\page.tsx",
+      "hasTitle": true,
+      "hasDesc": false,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "gizlilik\\page.tsx",
+      "hasTitle": false,
+      "hasDesc": false,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "hakkinda\\page.tsx",
+      "hasTitle": false,
+      "hasDesc": false,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "iletisim\\page.tsx",
+      "hasTitle": false,
+      "hasDesc": false,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "kullanim-sartlari\\page.tsx",
+      "hasTitle": false,
+      "hasDesc": false,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "oyunlar\\page.tsx",
+      "hasTitle": false,
+      "hasDesc": false,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "privacy\\page.tsx",
+      "hasTitle": true,
+      "hasDesc": true,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "rehberler\\page.tsx",
+      "hasTitle": false,
+      "hasDesc": false,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "terms\\page.tsx",
+      "hasTitle": true,
+      "hasDesc": true,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "araclar\\[slug]\\page.tsx",
+      "hasTitle": false,
+      "hasDesc": false,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "guides\\[slug]\\page.tsx",
+      "hasTitle": true,
+      "hasDesc": true,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "rehberler\\[slug]\\page.tsx",
+      "hasTitle": false,
+      "hasDesc": false,
+      "hasOG": false,
+      "hasKeywords": false
+    },
+    {
+      "file": "tools\\[slug]\\page.tsx",
+      "hasTitle": true,
+      "hasDesc": true,
+      "hasOG": false,
+      "hasKeywords": false
+    }
+  ],
+  "phase5_orphanLinks": {
+    "externalLinks": [
+      "https://..."
+    ]
+  },
+  "phase6_performance": {
+    "toolClientKB": "72.1",
+    "toolsLibKB": "369.4",
+    "largeGuides": 148
+  },
+  "phase7_schema": {
+    "ldInLayout": false,
+    "pagesWithLD": 0
+  },
+  "phase8_mobile": {
+    "hasViewportMeta": true,
+    "hasTailwindResponsive": true
+  },
+  "phase9_quality": {
+    "englishTitles": 40,
+    "englishGuides": 5
+  },
+  "phase10_missing": {
+    "manifestExists": true,
+    "swExists": false,
+    "hasSecurityHeaders": true,
+    "redirects": 0
+  }
+}

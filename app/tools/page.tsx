@@ -4,12 +4,12 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Tüm Araçlar | TeknoAraç",
-  description: "Ücretsiz çevrimiçi araçlar, hesaplayıcılar ve dönüştürücüler. 770+ araç, reklamsız ve ücretsiz.",
+  description: "Ücretsiz çevrimiçi araçlar, hesaplayıcılar ve dönüştürücüler. 0+ araç, reklamsız ve ücretsiz.",
   keywords: ["araçlar", "hesaplayıcı", "dönüştürücü", "online araç", "ücretsiz", "Türkçe"],
   alternates: { canonical: "https://teknoarac.com/araclar" },
   openGraph: {
     title: "Tüm Araçlar | TeknoAraç",
-    description: "771+ ücretsiz çevrimiçi araç — hesaplayıcılar, dönüştürücüler, metin araçları.",
+    description: "0+ ücretsiz çevrimiçi araç — hesaplayıcılar, dönüştürücüler, metin araçları.",
     url: "https://teknoarac.com/araclar",
     siteName: "TeknoAraç",
     locale: "tr_TR",

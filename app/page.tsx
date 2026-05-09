@@ -4,12 +4,12 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "TeknoAraç — Türkiye'nin Dijital Araç Kutusu",
-  description: "771+ ücretsiz çevrimiçi araç, 591 Türkçe rehber ve 19 tarayıcı oyunu. Hesaplayıcılar, dönüştürücüler, metin araçları ve daha fazlası.",
+  description: "743+ ücretsiz çevrimiçi araç, 591 Türkçe rehber ve 19 tarayıcı oyunu. Hesaplayıcılar, dönüştürücüler, metin araçları ve daha fazlası.",
   keywords: ["ücretsiz araçlar", "hesaplama", "dönüştürücü", "online araçlar", "Türkçe", "metin araçları", "KDV", "oyun"],
   alternates: { canonical: "https://teknoarac.com" },
   openGraph: {
     title: "TeknoAraç — Türkiye'nin Dijital Araç Kutusu",
-    description: "771+ ücretsiz çevrimiçi araç, 591 Türkçe rehber ve 19 tarayıcı oyunu.",
+    description: "743+ ücretsiz çevrimiçi araç, 591 Türkçe rehber ve 19 tarayıcı oyunu.",
     url: "https://teknoarac.com",
     images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
   },

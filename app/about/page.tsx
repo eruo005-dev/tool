@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Hakkımızda | TeknoAraç",
-  description: "TeknoAraç, Türkiye'nin dijital araç kutusu. 770+ ücretsiz çevrimiçi araç, tamamen Türkçe, reklamsız.",
+  description: "TeknoAraç, Türkiye'nin dijital araç kutusu. 0+ ücretsiz çevrimiçi araç, tamamen Türkçe, reklamsız.",
   keywords: ["hakkımızda", "TeknoAraç", "Türkçe araçlar", "ücretsiz araçlar"],
   alternates: { canonical: "https://teknoarac.com/hakkinda" },
   openGraph: {

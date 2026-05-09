@@ -1,5 +1,17 @@
 import type { Metadata } from "next";
-export const metadata: Metadata = { title: "Kullanım Şartları — TeknoAraç", description: "TeknoAraç kullanım şartları ve koşulları." };
+export const metadata: Metadata = {
+  title: "Kullanım Şartları | TeknoAraç",
+  description: "TeknoAraç kullanım şartları. Hizmet koşullarımız, yasal uyarılar ve sorumluluk reddi beyanımızı inceleyin.",
+  alternates: { canonical: "https://teknoarac.com/kullanim-sartlari" },
+  openGraph: {
+    title: "Kullanım Şartları | TeknoAraç",
+    description: "TeknoAraç kullanım şartları ve hizmet koşulları.",
+    url: "https://teknoarac.com/kullanim-sartlari",
+    siteName: "TeknoAraç", locale: "tr_TR", type: "website",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
+  },
+  twitter: { card: "summary_large_image", title: "Kullanım Şartları", images: ["/og-image.svg"] },
+};
 
 export default function TermsPage() {
   return (

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllToolSlugs } from "@/lib/tools";
+import { tools } from "@/lib/tools";
 import fs from "fs";
 import path from "path";
 
@@ -29,8 +29,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: BASE_URL + "/cerezler", lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  const toolPages: MetadataRoute.Sitemap = getAllToolSlugs().map((slug: string) => ({
-    url: BASE_URL + "/araclar/" + slug,
+  const toolPages: MetadataRoute.Sitemap = tools.map((t) => ({
+    url: BASE_URL + "/araclar/" + t.slug,
     lastModified: new Date(),
     changeFrequency: "monthly" as const,
     priority: 0.7,
