@@ -1,0 +1,371 @@
+{
+  "phases": {
+    "1": {
+      "title": "Inventory & Accuracy",
+      "findings": [
+        {
+          "severity": "info",
+          "item": "Tool count",
+          "detail": "743 tools, 20 categories",
+          "status": "ok"
+        },
+        {
+          "severity": "info",
+          "item": "Duplicate slugs",
+          "detail": "None",
+          "status": "ok"
+        },
+        {
+          "severity": "medium",
+          "item": "Descriptions >160 chars (SERP truncation)",
+          "detail": "53 tools",
+          "status": "warn"
+        }
+      ]
+    },
+    "2": {
+      "title": "Content Quality",
+      "findings": [
+        {
+          "severity": "low",
+          "item": "Title-description mismatch",
+          "detail": "174 tools where title says calculator but desc doesn't",
+          "status": "warn"
+        },
+        {
+          "severity": "high",
+          "item": "Guides with mostly English content",
+          "detail": "complete-guide-to-mortgage-calculations-2026.tsx(TR:0.0%), how-to-use-openhands.tsx(TR:0.0%), json-format-rules-every-developer-should-know.tsx(TR:0.0%), password-security-guide-with-real-entropy-examples.tsx(TR:0.0%), regex-cheat-sheet-all-patterns-explained.tsx(TR:0.0%)",
+          "status": "broken"
+        }
+      ]
+    },
+    "3": {
+      "title": "Duplicate & Cannibalization",
+      "findings": [
+        {
+          "severity": "high",
+          "item": "Highly similar tool titles (cannibalization risk)",
+          "detail": "loan-calculator ≈ simple-loan-calculator (hesaplayıcı, kredi) | 30-year-mortgage-calculator ≈ 15-year-mortgage-calculator (hesaplayıcı, mortgage, yıllık) | reading-time-estimator ≈ research-paper-reading-time (okuma, süresi, tahmincisi) | calorie-calculator ≈ calorie-deficit-calculator (hesaplayıcı, kalori) | word-counter ≈ word-frequency-counter (kelime, sayacı) | coin-flip ≈ coin-flipper (tura, yazı) | unix-timestamp-converter ≈ time-converter (dönüştürücü, zaman) | unix-timestamp-converter ≈ timestamp-converter (damgası, dönüştürücü, zaman) | color-extractor ≈ color-palette-extractor (renk, çıkarıcı) | percentage-calculator ≈ percentage-change-calculator (hesaplayıcı, yüzde) | ovulation-calculator ≈ ovulation-window-calculator (hesaplayıcı, yumurtlama) | time-converter ≈ timestamp-converter (dönüştürücü, zaman) | email-subject-line-tester ≈ email-subject-line-analyzer (eposta, konu, satırı) | html-entity-encoder-decoder ≈ html-encoder-decoder (html, kodlayıcı, çözücü) | contrast-checker ≈ color-contrast-checker (denetleyici, kontrast)",
+          "status": "broken"
+        },
+        {
+          "severity": "info",
+          "item": "Dual-language routes",
+          "detail": "/tools + /araclar, /guides + /rehberler, etc. — should canonical to Turkish",
+          "status": "ok"
+        }
+      ]
+    },
+    "4": {
+      "title": "Technical SEO",
+      "findings": [
+        {
+          "severity": "info",
+          "item": "Sitemap coverage",
+          "detail": "Tools:✅ Guides:✅ Categories:❌",
+          "status": "ok"
+        },
+        {
+          "severity": "info",
+          "item": "Custom 404 page",
+          "detail": "exists",
+          "status": "ok"
+        },
+        {
+          "severity": "low",
+          "item": "Loading states",
+          "detail": "0/17 pages have loading.tsx",
+          "status": "warn"
+        },
+        {
+          "severity": "medium",
+          "item": "Error boundaries",
+          "detail": "0/17 routes have error.tsx",
+          "status": "warn"
+        },
+        {
+          "severity": "medium",
+          "item": "PWA manifest",
+          "detail": "exists",
+          "status": "ok"
+        },
+        {
+          "severity": "high",
+          "item": "Security headers (CSP, HSTS, X-Frame, etc.)",
+          "detail": "configured",
+          "status": "ok"
+        }
+      ]
+    },
+    "5": {
+      "title": "Internal Linking & Structure",
+      "findings": [
+        {
+          "severity": "info",
+          "item": "Homepage internal links",
+          "detail": "5 unique paths linked",
+          "status": "warn"
+        },
+        {
+          "severity": "medium",
+          "item": "Breadcrumbs component",
+          "detail": "MISSING",
+          "status": "broken"
+        },
+        {
+          "severity": "high",
+          "item": "Related tools cross-linking",
+          "detail": "MISSING — no cross-links between tool pages",
+          "status": "broken"
+        },
+        {
+          "severity": "low",
+          "item": "Footer link count",
+          "detail": "0 links",
+          "status": "warn"
+        },
+        {
+          "severity": "medium",
+          "item": "Potentially orphan pages",
+          "detail": "13 pages, e.g. /about, /cerezler, /contact, /cookies, /games",
+          "status": "warn"
+        }
+      ]
+    },
+    "6": {
+      "title": "Performance & Bundle Size",
+      "findings": [
+        {
+          "severity": "info",
+          "item": "Large source files (>50KB)",
+          "detail": "\\lib\\tools.ts(358.5KB), \\app\\tools\\[slug]\\ToolClient.tsx(72.1KB)",
+          "status": "ok"
+        },
+        {
+          "severity": "low",
+          "item": "Unoptimized static images",
+          "detail": "7 files: favicon.svg, file.svg, globe.svg, next.svg, og-image.svg, vercel.svg, window.svg",
+          "status": "info"
+        },
+        {
+          "severity": "low",
+          "item": "Font optimization",
+          "detail": "No next/font optimization",
+          "status": "warn"
+        }
+      ]
+    },
+    "7": {
+      "title": "Open Graph & Social",
+      "findings": [
+        {
+          "severity": "high",
+          "item": "og:image file",
+          "detail": "exists",
+          "status": "ok"
+        },
+        {
+          "severity": "medium",
+          "item": "Twitter card tags",
+          "detail": "present on some pages",
+          "status": "ok"
+        },
+        {
+          "severity": "high",
+          "item": "Tool page Open Graph tags",
+          "detail": "shared metadata",
+          "status": "ok"
+        }
+      ]
+    },
+    "8": {
+      "title": "Structured Data (JSON-LD)",
+      "findings": [
+        {
+          "severity": "info",
+          "item": "WebSite schema",
+          "detail": "present",
+          "status": "ok"
+        },
+        {
+          "severity": "high",
+          "item": "SoftwareApplication schema on tool pages",
+          "detail": "MISSING — each tool page should have WebApplication LD",
+          "status": "broken"
+        },
+        {
+          "severity": "high",
+          "item": "Article schema on guide pages",
+          "detail": "MISSING",
+          "status": "broken"
+        },
+        {
+          "severity": "medium",
+          "item": "BreadcrumbList schema",
+          "detail": "MISSING",
+          "status": "broken"
+        },
+        {
+          "severity": "low",
+          "item": "FAQ schema",
+          "detail": "not present (nice-to-have)",
+          "status": "info"
+        }
+      ]
+    },
+    "9": {
+      "title": "Mobile & UX",
+      "findings": [
+        {
+          "severity": "high",
+          "item": "Viewport meta",
+          "detail": "configured",
+          "status": "ok"
+        },
+        {
+          "severity": "info",
+          "item": "Responsive breakpoints",
+          "detail": "18 media queries",
+          "status": "ok"
+        },
+        {
+          "severity": "low",
+          "item": "Touch target sizes",
+          "detail": "check minimum 44x44px targets",
+          "status": "warn"
+        },
+        {
+          "severity": "low",
+          "item": "Font units",
+          "detail": "rem/Tailwind units used",
+          "status": "ok"
+        },
+        {
+          "severity": "low",
+          "item": "Dark mode support",
+          "detail": "CSS variables/class toggle",
+          "status": "ok"
+        }
+      ]
+    },
+    "10": {
+      "title": "Edge & Advanced",
+      "findings": [
+        {
+          "severity": "info",
+          "item": "Vercel redirects",
+          "detail": "11 rules",
+          "status": "ok"
+        },
+        {
+          "severity": "medium",
+          "item": "Service Worker",
+          "detail": "present",
+          "status": "ok"
+        },
+        {
+          "severity": "low",
+          "item": "llms.txt (AI discoverability)",
+          "detail": "present",
+          "status": "ok"
+        },
+        {
+          "severity": "medium",
+          "item": "Breadcrumbs UX",
+          "detail": "MISSING",
+          "status": "broken"
+        },
+        {
+          "severity": "medium",
+          "item": "Canonical URLs",
+          "detail": "9/17 pages have canonical",
+          "status": "warn"
+        },
+        {
+          "severity": "medium",
+          "item": "Hreflang tags",
+          "detail": "present",
+          "status": "ok"
+        },
+        {
+          "severity": "low",
+          "item": "Analytics / Web Vitals",
+          "detail": "none (by design — no tracking)",
+          "status": "info"
+        },
+        {
+          "severity": "low",
+          "item": "Content freshness signals",
+          "detail": "lastModified dates present",
+          "status": "ok"
+        }
+      ]
+    }
+  },
+  "summary": {
+    "totalFindings": 42,
+    "bySeverity": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 3,
+      "ok": 21,
+      "warn": 10,
+      "broken": 8
+    },
+    "topIssues": [
+      {
+        "severity": "high",
+        "item": "Guides with mostly English content",
+        "detail": "complete-guide-to-mortgage-calculations-2026.tsx(TR:0.0%), how-to-use-openhands.tsx(TR:0.0%), json-format-rules-every-developer-should-know.tsx(TR:0.0%), password-security-guide-with-real-entropy-examples.tsx(TR:0.0%), regex-cheat-sheet-all-patterns-explained.tsx(TR:0.0%)",
+        "status": "broken"
+      },
+      {
+        "severity": "high",
+        "item": "Highly similar tool titles (cannibalization risk)",
+        "detail": "loan-calculator ≈ simple-loan-calculator (hesaplayıcı, kredi) | 30-year-mortgage-calculator ≈ 15-year-mortgage-calculator (hesaplayıcı, mortgage, yıllık) | reading-time-estimator ≈ research-paper-reading-time (okuma, süresi, tahmincisi) | calorie-calculator ≈ calorie-deficit-calculator (hesaplayıcı, kalori) | word-counter ≈ word-frequency-counter (kelime, sayacı) | coin-flip ≈ coin-flipper (tura, yazı) | unix-timestamp-converter ≈ time-converter (dönüştürücü, zaman) | unix-timestamp-converter ≈ timestamp-converter (damgası, dönüştürücü, zaman) | color-extractor ≈ color-palette-extractor (renk, çıkarıcı) | percentage-calculator ≈ percentage-change-calculator (hesaplayıcı, yüzde) | ovulation-calculator ≈ ovulation-window-calculator (hesaplayıcı, yumurtlama) | time-converter ≈ timestamp-converter (dönüştürücü, zaman) | email-subject-line-tester ≈ email-subject-line-analyzer (eposta, konu, satırı) | html-entity-encoder-decoder ≈ html-encoder-decoder (html, kodlayıcı, çözücü) | contrast-checker ≈ color-contrast-checker (denetleyici, kontrast)",
+        "status": "broken"
+      },
+      {
+        "severity": "medium",
+        "item": "Breadcrumbs component",
+        "detail": "MISSING",
+        "status": "broken"
+      },
+      {
+        "severity": "high",
+        "item": "Related tools cross-linking",
+        "detail": "MISSING — no cross-links between tool pages",
+        "status": "broken"
+      },
+      {
+        "severity": "high",
+        "item": "SoftwareApplication schema on tool pages",
+        "detail": "MISSING — each tool page should have WebApplication LD",
+        "status": "broken"
+      },
+      {
+        "severity": "high",
+        "item": "Article schema on guide pages",
+        "detail": "MISSING",
+        "status": "broken"
+      },
+      {
+        "severity": "medium",
+        "item": "BreadcrumbList schema",
+        "detail": "MISSING",
+        "status": "broken"
+      },
+      {
+        "severity": "medium",
+        "item": "Breadcrumbs UX",
+        "detail": "MISSING",
+        "status": "broken"
+      }
+    ],
+    "recommendation": "Site is in good shape — focus on content quality"
+  },
+  "timestamp": "2026-05-09T21:25:25.705Z"
+}

@@ -1,4 +1,4 @@
-// TeknoAraç araç kaydı — 771 Türkçe araç
+// TeknoAraç araç kaydı — 743 Türkçe araç
 // Removed US-centric tools (401k, IRA, RV/boat loans, US tax, etc.)
 
 export interface Tool {
@@ -118,7 +118,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "simple-loan-calculator",
-    titleTr: "Basit Kredi Hesaplayıcı",
+    titleTr: "Temel Kredi Hesaplama Aracı",
     titleEn: "Simple Loan Calculator",
     descriptionTr: "Sadece üç girişli basit kredi hesaplayıcı: tutar, oran ve vade. Temiz rakamlar, jargon yok, anında aylık ödeme.",
     descriptionEn: "Simple loan calculator with only three inputs: amount, rate, and term. Clean numbers, no jargon, instant monthly payment.",
@@ -128,7 +128,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "30-year-mortgage-calculator",
-    titleTr: "30 Yıllık Mortgage Hesaplayıcı",
+    titleTr: "30 Yıllık Konut Kredisi Planlayıcı",
     titleEn: "30-Year Mortgage Calculator",
     descriptionTr: "30 yıl sabit faizli ipotek için aylık ödemeleri tahmin edin: anapara, faiz, emlak vergisi ve sigorta dahil.",
     descriptionEn: "Estimate monthly payments on a 30-year fixed-rate mortgage, including principal, interest, property tax, and insurance.",
@@ -1708,7 +1708,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "html-entity-encoder-decoder",
-    titleTr: "HTML Varlık Kodlayıcı ve Çözücü",
+    titleTr: "HTML Karakter Dönüştürücü",
     titleEn: "HTML Entity Encoder & Decoder",
     descriptionTr: "HTML varlıklarını (&amp;, &lt;, &#169;) kodlayın veya çözün. Herhangi bir metni yapıştırın ve tek tıkla ham ve kaçışlı arasında geçiş yapın.",
     descriptionEn: "Encode or decode HTML entities like &amp;, &lt;, &#169;. Paste any text and flip between raw and escaped in one click.",
@@ -1858,7 +1858,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "contrast-checker",
-    titleTr: "Kontrast Denetleyici",
+    titleTr: "Erişilebilirlik Kontrolü",
     titleEn: "Contrast Checker",
     descriptionTr: "Renk kontrastını WCAG AA ve AAA hedeflerine göre normal ve büyük metin için kontrol edin. Canlı önizleme ve geçti/kaldı rozetleri.",
     descriptionEn: "Check color contrast against WCAG AA and AAA targets for normal and large text. Live preview and pass/fail badges.",
@@ -2738,7 +2738,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "ai-image-prompt-builder",
-    titleTr: "Yapay Zeka Görsel Komut Oluşturucu",
+    titleTr: "AI Görsel İstemi Oluşturucu",
     titleEn: "AI Image Prompt Builder",
     descriptionTr: "Yapılandırılmış görsel istemleri oluşturun: konu, stil, kamera, aydınlatma ve olumsuz istem. Doğrudan Midjourney, DALL·E veya Stable Diffusion'a yapıştırın.",
     descriptionEn: "Build structured image prompts: subject, style, camera, lighting, and negative prompt. Paste straight into Midjourney, DALL·E, or Stable Diffusion.",
@@ -2988,7 +2988,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "word-frequency-counter",
-    titleTr: "Kelime Sıklığı Sayacı",
+    titleTr: "Kelime Sıklığı Analiz Aracı",
     titleEn: "Word Frequency Counter",
     descriptionTr: "Herhangi bir metni yapıştırarak en yaygın kelimeleri, sayıları ve yüzdeleri görün. İsteğe bağlı olarak durdurma kelimelerini filtreler.",
     descriptionEn: "Paste any text to see the most common words, counts, and percentages. Filters stop-words optional.",
@@ -3068,7 +3068,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "sitemap-url-generator",
-    titleTr: "Site Haritası URL Oluşturucu",
+    titleTr: "Site Haritası Bağlantı Üretici",
     titleEn: "Sitemap URL Generator",
     descriptionTr: "Bir URL listesi yapıştırın ve changefreq, priority ve lastmod ile geçerli bir sitemap.xml alın. Google Search Console için hazır.",
     descriptionEn: "Paste a list of URLs and get a valid sitemap.xml with changefreq, priority, and lastmod. Ready for Google Search Console.",
@@ -3418,7 +3418,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "agent-json-validator",
-    titleTr: "Agent JSON Doğrulayıcı",
+    titleTr: "Ajan JSON Kalite Kontrolü",
     titleEn: "Agent JSON Validator",
     descriptionTr: "Araç çağrısı veya ajan çıktısı JSON'ını yapıştırın — ayrıştırın, güzel yazdırın, hataları vurgulayın ve anahtarları ve derinliği sayın.",
     descriptionEn: "Paste tool-call or agent-output JSON — parse, pretty-print, highlight errors, and count keys and depth.",
@@ -3428,7 +3428,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "ai-regex-generator",
-    titleTr: "Yapay Zeka Regex Oluşturucu",
+    titleTr: "Yapay Zeka Desen Üretici",
     titleEn: "AI Regex Generator",
     descriptionTr: "Eşleştirmek istediğinizi düz İngilizceyle tanımlayın — kurallı bir regex (e-posta, URL, telefon, UUID vb.) ve canlı bir test alın.",
     descriptionEn: "Describe what you want to match in plain English — get a canonical regex (email, URL, phone, UUID, etc.) plus a live test.",
@@ -3478,7 +3478,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "ai-output-length-estimator",
-    titleTr: "Yapay Zeka Çıktı Uzunluğu Tahmincisi",
+    titleTr: "AI Çıktı Hacmi Tahmin Aracı",
     titleEn: "AI Output Length Estimator",
     descriptionTr: "Bir LLM'nin özetler, yeniden yazmalar, kod veya denemeler için kaç token üreteceğini tahmin edin — max_tokens'ınızı bütçeleyin.",
     descriptionEn: "Predict how many tokens an LLM will generate for summaries, rewrites, code, or essays — budget your max_tokens.",
@@ -3588,7 +3588,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "home-equity-loan-calculator",
-    titleTr: "Konut Sermayesi Hesaplayıcı",
+    titleTr: "Konut Sermayesi Hesaplama Aracı",
     titleEn: "Home Equity Loan Calculator",
     descriptionTr: "Ev sermayenize karşı maksimum borçlanma — aylık HELOC ödemesi, toplam faiz ve LTV kontrolü tek bir yerde.",
     descriptionEn: "Max borrowable against your home equity — monthly HELOC payment, total interest, and LTV check in one place.",
@@ -3648,7 +3648,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "ovulation-window-calculator",
-    titleTr: "Yumurtlama Dönemi Hesaplayıcı",
+    titleTr: "Yumurtlama Takvimi",
     titleEn: "Ovulation Window Calculator",
     descriptionTr: "Son adet tarihi ve döngü uzunluğuna göre doğurgan pencere, olası yumurtlama günü ve bir sonraki adet tahmini.",
     descriptionEn: "Fertile window, likely ovulation day, and next period estimate from last period date and cycle length.",
@@ -4818,7 +4818,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "research-paper-reading-time",
-    titleTr: "Araştırma Makalesi Okuma Süresi Tahmincisi",
+    titleTr: "Akademik Makale Okuma Süresi Ölçer",
     titleEn: "Research Paper Reading Time Estimator",
     descriptionTr: "Akademik bir makaleyi yoğunluk ve yönteme göre okumak ne kadar sürer? Üç aşamalı okuma stratejisi ipuçları.",
     descriptionEn: "How long to read an academic paper by density and method. Three-pass strategy tips.",
@@ -5198,7 +5198,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "pet-travel-cost-estimator",
-    titleTr: "Evcil Hayvan Seyahat Maliyeti Hesaplayıcı",
+    titleTr: "Evcil Hayvan Seyahat Planlayıcı",
     titleEn: "Pet Travel Cost Estimator",
     descriptionTr: "Evcil hayvan seyahat maliyeti: ulaşım türü (araba/kabin/kargo), oteller, malzemeler. Pansiyon karşılaştırması.",
     descriptionEn: "Pet travel cost by mode (car / cabin / cargo), hotels, supplies. Boarding comparison.",
@@ -5208,7 +5208,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "pet-insurance-cost-estimator",
-    titleTr: "Evcil Hayvan Sigorta Maliyeti Hesaplayıcı",
+    titleTr: "Evcil Hayvan Sigorta Planlayıcı",
     titleEn: "Pet Insurance Cost Estimator",
     descriptionTr: "Evcil hayvan türü, yaş, cins riski, teminat seviyesi ve muafiyete göre yaklaşık aylık prim.",
     descriptionEn: "Rough monthly premium by pet type, age, breed risk, coverage level, and deductible.",
@@ -5598,7 +5598,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "pc-rental-vs-buy-calculator",
-    titleTr: "Oyun Bilgisayarı Kiralama vs Satın Alma Hesaplayıcı",
+    titleTr: "Bilgisayar Kiralama Karşılaştırma",
     titleEn: "Gaming PC Rent vs Buy Calculator",
     descriptionTr: "Bir oyun PC'sine sahip olmanın yıllık maliyeti ile etkinlikler için (LAN partileri, turnuvalar) kiralamanın karşılaştırması. Amortisman, bakım ve yeniden satış değeri hesabını içerir.",
     descriptionEn: "Compare annualized cost of owning a gaming PC vs renting for events (LAN parties, tournaments). Includes depreciation, maintenance, and resale-value math.",
@@ -6068,7 +6068,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "zone-2-heart-rate-calculator",
-    titleTr: "Bölge 2 Kalp Atış Hızı Hesaplayıcı",
+    titleTr: "Bölge 2 Nabız Antrenman Hesaplayıcı",
     titleEn: "Zone 2 Heart Rate Calculator",
     descriptionTr: "Bölge 2 kardiyo hedef kalp atış hızını Karvonen, Maffetone (180 - yaş) veya %maks-KH yöntemleriyle hesapla. Uzun ömür araştırmalarıyla desteklenen kardiyo aralığı.",
     descriptionEn: "Calculate your zone 2 cardio target heart rate using Karvonen, Maffetone (180 - age), or %max-HR methods. The longevity-research-backed cardio range.",
@@ -6338,7 +6338,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "percentage-change-calculator",
-    titleTr: "Yüzde Değişim Hesaplayıcı",
+    titleTr: "Yüzde Değişim Ölçer",
     titleEn: "Percentage Change Calculator",
     descriptionTr: "İki değer arasındaki yüzde değişimini hesaplar. Yönü (↑/↓) ve mutlak farkı gösterir. Standart finans formülü.",
     descriptionEn: "Calculate the percent change between two values. Shows direction (↑/↓) and absolute delta. Standard finance formula.",
@@ -6468,7 +6468,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "coin-flipper",
-    titleTr: "Yazı Tura At",
+    titleTr: "Yazı Tura Atma Aracı",
     titleEn: "Coin Flipper",
     descriptionTr: "Geçmiş kaydı olan ücretsiz animasyonlu yazı tura atıcı. Math.random değil, kriptografik olarak güvenli rastgelelik. Ücretsiz, yalnızca tarayıcıda.",
     descriptionEn: "Free animated coin flipper with run history. Cryptographically-secure randomness, not Math.random. Free, browser-only.",
@@ -6528,7 +6528,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "html-encoder-decoder",
-    titleTr: "HTML Kodlayıcı / Kod Çözücü",
+    titleTr: "HTML Dönüştürme Aracı",
     titleEn: "HTML Encoder / Decoder",
     descriptionTr: "HTML özel karakterlerini varlıklara kodlayın veya geri çözün. Üç kodlama seviyesi. Ücretsiz, yalnızca tarayıcıda.",
     descriptionEn: "Encode HTML special characters to entities, or decode them back. Three encoding levels. Free, browser-only.",
@@ -6848,7 +6848,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "color-contrast-checker",
-    titleTr: "Renk Kontrast Denetleyici",
+    titleTr: "Renk Erişilebilirlik Testi",
     titleEn: "Color Contrast Checker",
     descriptionTr: "WCAG 2.x kontrast denetleyicisi. Ön plan ve arka planı AA/AAA erişilebilirlik standartlarına göre test edin.",
     descriptionEn: "WCAG 2.x contrast checker. Test foreground vs background against AA / AAA accessibility standards.",
@@ -6898,7 +6898,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "xml-sitemap-generator",
-    titleTr: "XML Site Haritası Oluşturucu",
+    titleTr: "XML Site Haritası Oluşturma Aracı",
     titleEn: "XML Sitemap Generator",
     descriptionTr: "URL listesinden sitemap.xml oluşturun. lastmod'u bugüne ayarlar, öncelik ve changefreq uygular. İndirin veya kopyalayın.",
     descriptionEn: "Generate sitemap.xml from a URL list. Sets lastmod to today, applies priority and changefreq. Download or copy.",
@@ -6988,7 +6988,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "calorie-deficit-calculator",
-    titleTr: "Kalori Açığı Hesaplayıcı",
+    titleTr: "Kalori Açığı Planlayıcı",
     titleEn: "Calorie Deficit Calculator",
     descriptionTr: "Kilo kaybı için kalori hedefi hesaplayın. BMR + aktivite + yavaş/orta/agresif tempo.",
     descriptionEn: "Calculate calorie target for weight loss. BMR + activity + slow/moderate/aggressive pace.",
@@ -7018,7 +7018,7 @@ export const tools: Tool[] = [
   },
   {
     slug: "color-palette-extractor",
-    titleTr: "Renk Paleti Çıkarıcı",
+    titleTr: "Renk Paleti Çıkarma Aracı",
     titleEn: "Color Palette Extractor",
     descriptionTr: "Herhangi bir görselden baskın renkleri çıkarın. Histogram tabanlı, tarayıcıda çalışır. Hex kopyalamak için renk örneklerine tıklayın.",
     descriptionEn: "Extract dominant colors from any image. Histogram-based, runs in browser. Click swatches to copy hex.",

@@ -1,234 +1,237 @@
 export const intro = (
   <>
     <p>
-      JSON is the lingua franca of web APIs &mdash; and almost every developer learns it
-      by osmosis from copy-pasted examples rather than the spec. That works until it
-      doesn&rsquo;t: a trailing comma, a single quote, or an unescaped backslash breaks a
-      production payload at 2 AM, and the parser error message is unhelpful.
+      JSON, web API'lerin ortak dilidir &mdash; ve neredeyse her geliştirici onu
+      spesifikasyon yerine kopyala-yapıştır örneklerden osmoz yoluyla öğrenir. Bu, ta ki
+      işe yaramayana kadar işe yarar: sonda bir virgül, tek tırnak işareti veya kaçış
+      karakteri eklenmemiş bir ters bölü, gece 2'de bir üretim yükünü bozar ve
+      ayrıştırıcı hata mesajı işe yaramazdır.
     </p>
     <p>
-      This is a complete reference for the rules of strict JSON (RFC 8259), the relaxed
-      variants you&rsquo;ll encounter (JSON5, JSONC), the encoding edges that catch
-      people, and the patterns for handling huge documents, schemas, and security risks.
-      It&rsquo;s organized as a working reference &mdash; jump to what you need.
+      Bu, katı JSON (RFC 8259) kuralları, karşılaşacağınız esnek varyantlar (JSON5,
+      JSONC), insanları yanıltan kodlama uç durumları ve büyük belgeleri, şemaları ve
+      güvenlik risklerini ele alma kalıpları için eksiksiz bir referanstır. Çalışan bir
+      referans olarak düzenlenmiştir &mdash; ihtiyacınız olana atlayın.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "spec", label: "RFC 8259: the strict spec" },
-  { id: "syntax-rules", label: "The 6 hard rules" },
-  { id: "string-escaping", label: "String escaping rules" },
-  { id: "numbers", label: "Number representation gotchas" },
-  { id: "json5-jsonc", label: "JSON5 and JSONC: when to use each" },
-  { id: "common-errors", label: "Top 10 parser errors and fixes" },
-  { id: "schema", label: "JSON Schema: validation beyond syntax" },
-  { id: "large-files", label: "Handling huge JSON (streaming)" },
-  { id: "encoding", label: "UTF-8, BOMs, and binary data" },
-  { id: "security", label: "Security: prototype pollution, DoS, JSONP" },
-  { id: "performance", label: "Performance tips" },
-  { id: "anti-patterns", label: "Anti-patterns and footguns" },
+  { id: "spec", label: "RFC 8259: katı spesifikasyon" },
+  { id: "syntax-rules", label: "6 katı kural" },
+  { id: "string-escaping", label: "String kaçış kuralları" },
+  { id: "numbers", label: "Sayı temsilindeki tuzaklar" },
+  { id: "json5-jsonc", label: "JSON5 ve JSONC: hangisini ne zaman kullanmalı" },
+  { id: "common-errors", label: "En yaygın 10 ayrıştırıcı hatası ve çözümleri" },
+  { id: "schema", label: "JSON Şeması: sözdiziminin ötesinde doğrulama" },
+  { id: "large-files", label: "Büyük JSON'ları işleme (akış)" },
+  { id: "encoding", label: "UTF-8, BOM'lar ve ikili veri" },
+  { id: "security", label: "Güvenlik: prototip kirliliği, DoS, JSONP" },
+  { id: "performance", label: "Performans ipuçları" },
+  { id: "anti-patterns", label: "Anti-kalıplar ve tuzaklar" },
 ];
 
 export const body = (
   <>
-    <h2 id="spec">RFC 8259: the strict spec</h2>
+    <h2 id="spec">RFC 8259: katı spesifikasyon</h2>
     <p>
-      JSON was originally specified by Douglas Crockford in 2002 (RFC 4627), updated to
-      RFC 7159 in 2014, and finalized as RFC 8259 in 2017 (also published as ECMA-404
-      and ISO/IEC 21778). RFC 8259 is the current authoritative spec; if your tool
-      claims &ldquo;JSON support&rdquo; without specifying a variant, it should mean
-      RFC 8259. The spec is short &mdash; about 16 pages including examples &mdash;
-      and worth reading once.
+      JSON ilk olarak 2002'de Douglas Crockford tarafından belirtilmiş (RFC 4627),
+      2014'te RFC 7159'a güncellenmiş ve 2017'de RFC 8259 olarak son halini almıştır
+      (ayrıca ECMA-404 ve ISO/IEC 21778 olarak da yayınlanmıştır). RFC 8259 mevcut
+      yetkili spesifikasyondur; aracınız bir varyant belirtmeden &ldquo;JSON desteği&rdquo;
+      iddiasındaysa, RFC 8259'u kastetmelidir. Spesifikasyon kısadır &mdash; örnekler
+      dahil yaklaşık 16 sayfa &mdash; ve bir kez okumaya değer.
     </p>
     <p>
-      Strict JSON is intentionally minimal. There are exactly six value types: object,
-      array, string, number, boolean, null. No comments. No trailing commas. No
-      unquoted keys. No single-quoted strings. No <code>undefined</code>. No date type.
-      No binary type. No comments (yes, this is worth saying twice). The minimalism is a
-      feature: it makes JSON safe to parse with simple parsers in every language.
+      Katı JSON kasıtlı olarak minimaldir. Tam olarak altı değer türü vardır: nesne,
+      dizi, string, sayı, boolean, null. Yorum yok. Sonda virgül yok. Tırnaksız anahtar
+      yok. Tek tırnaklı string yok. <code>undefined</code> yok. Tarih türü yok.
+      İkili tür yok. Yorum yok (evet, bunu iki kez söylemeye değer). Minimalizm bir
+      özelliktir: JSON'u her dilde basit ayrıştırıcılarla ayrıştırmayı güvenli kılar.
     </p>
 
-    <h2 id="syntax-rules">The 6 hard rules</h2>
+    <h2 id="syntax-rules">6 katı kural</h2>
     <ol>
       <li>
-        <strong>Keys must be strings, double-quoted.</strong> <code>{`{"name": "alice"}`}</code>{" "}
-        is valid; <code>{`{name: "alice"}`}</code> and <code>{`{'name': 'alice'}`}</code> are not.
+        <strong>Anahtarlar string olmalı ve çift tırnaklı olmalıdır.</strong> <code>{`{"name": "alice"}`}</code>{" "}
+        geçerlidir; <code>{`{name: "alice"}`}</code> ve <code>{`{'name': 'alice'}`}</code> geçersizdir.
       </li>
       <li>
-        <strong>No trailing commas.</strong> <code>{`{"a": 1, "b": 2,}`}</code> is invalid.{" "}
-        <code>{`[1, 2, 3,]`}</code> is invalid. The most common parser-error cause among
-        humans copy-pasting JSON.
+        <strong>Sonda virgül yok.</strong> <code>{`{"a": 1, "b": 2,}`}</code> geçersizdir.{" "}
+        <code>{`[1, 2, 3,]`}</code> geçersizdir. JSON kopyalayıp yapıştıran insanlar arasında
+        en yaygın ayrıştırıcı hatası nedenidir.
       </li>
       <li>
-        <strong>No comments.</strong> Neither <code>// line</code> nor <code>{`/* block */`}</code>{" "}
-        are allowed in strict JSON. If you need comments, use JSON5/JSONC or convention
-        like a <code>__comment</code> key.
+        <strong>Yorum yok.</strong> Katı JSON'da ne <code>// satır</code> ne de <code>{`/* blok */`}</code>{" "}
+        izin verilir. Yorumlara ihtiyacınız varsa, JSON5/JSONC veya bir <code>__comment</code> anahtarı
+        gibi bir kural kullanın.
       </li>
       <li>
-        <strong>Strings use double quotes only.</strong>{" "}
-        <code>{`{"name": 'alice'}`}</code> is invalid. ECMAScript and Python both allow
-        single-quoted strings in source code, which makes this a frequent paste-mistake.
+        <strong>Stringler yalnızca çift tırnak kullanır.</strong>{" "}
+        <code>{`{"name": 'alice'}`}</code> geçersizdir. ECMAScript ve Python, kaynak kodunda
+        tek tırnaklı stringlere izin verir, bu da bunu sık bir yapıştırma hatası yapar.
       </li>
       <li>
-        <strong>Strings must escape certain characters.</strong> Within double quotes,
-        you must escape: <code>{`"`}</code> as <code>{`\\"`}</code>, <code>\</code> as{" "}
-        <code>{`\\\\`}</code>, control chars (0-31) as <code>{`\\uXXXX`}</code> or named
-        escapes. Forward slashes <em>may</em> be escaped (<code>{`\\/`}</code>) but
-        don&rsquo;t need to be.
+        <strong>Stringler belirli karakterleri kaçırmalıdır.</strong> Çift tırnak içinde,
+        şunları kaçırmalısınız: <code>&quot;</code> {'->'} <code>\&quot;</code>, <code>\\</code> (ters eğik çizgi),
+        <code>\\\\</code> (çift ters eğik), kontrol karakterleri (0-31) {'->'} <code>\\uXXXX</code> veya adlandırılmış
+        kaçışlar. Eğik çizgiler <em>kaçırılabilir</em> (<code>\\/</code>) ancak
+        kaçırılmaları gerekmez.
       </li>
       <li>
-        <strong>Numbers follow specific format.</strong> Decimal only (no hex, octal).
-        No leading zeros except <code>0.x</code>. No <code>+</code> sign. <code>NaN</code>{" "}
-        and <code>Infinity</code> are NOT allowed (a major gotcha for JavaScript output).
+        <strong>Sayılar belirli bir formatı takip eder.</strong> Yalnızca ondalık (hex, octal yok).
+        <code>0.x</code> dışında başta sıfır yok. <code>+</code> işareti yok. <code>NaN</code>{" "}
+        ve <code>Infinity</code>'ye İZİN VERİLMEZ (JavaScript çıktısı için büyük bir tuzak).
       </li>
     </ol>
 
-    <h2 id="string-escaping">String escaping rules</h2>
+    <h2 id="string-escaping">String kaçış kuralları</h2>
     <p>
-      The full list of escapes inside a JSON string:
+      Bir JSON stringi içindeki kaçışların tam listesi:
     </p>
     <ul>
       <li><code>{`\\"`}</code> &rarr; <code>{`"`}</code></li>
       <li><code>{`\\\\`}</code> &rarr; <code>\</code></li>
-      <li><code>{`\\/`}</code> &rarr; <code>/</code> (optional)</li>
-      <li><code>{`\\b`}</code> &rarr; backspace (U+0008)</li>
-      <li><code>{`\\f`}</code> &rarr; form feed (U+000C)</li>
-      <li><code>{`\\n`}</code> &rarr; newline (U+000A)</li>
-      <li><code>{`\\r`}</code> &rarr; carriage return (U+000D)</li>
-      <li><code>{`\\t`}</code> &rarr; tab (U+0009)</li>
-      <li><code>{`\\uXXXX`}</code> &rarr; any Unicode code point as 4 hex digits</li>
+      <li><code>{`\\/`}</code> &rarr; <code>/</code> (isteğe bağlı)</li>
+      <li><code>{`\\b`}</code> &rarr; geri al (U+0008)</li>
+      <li><code>{`\\f`}</code> &rarr; form besleme (U+000C)</li>
+      <li><code>{`\\n`}</code> &rarr; yeni satır (U+000A)</li>
+      <li><code>{`\\r`}</code> &rarr; satır başı (U+000D)</li>
+      <li><code>{`\\t`}</code> &rarr; sekme (U+0009)</li>
+      <li><code>{`\\uXXXX`}</code> &rarr; 4 hex basamaklı herhangi bir Unicode kod noktası</li>
     </ul>
     <p>
-      <strong>Code points above U+FFFF</strong>: use a UTF-16 surrogate pair. The
-      laughing-with-tears emoji (U+1F602) is encoded as{" "}
-      <code>{`\\uD83D\\uDE02`}</code>. Most parsers handle this transparently.
+      <strong>U+FFFF üzerindeki kod noktaları</strong>: bir UTF-16 vekil çifti kullanın.
+      Gözyaşlarıyla gülen emoji (U+1F602) şu şekilde kodlanır:{" "}
+      <code>{`\\uD83D\\uDE02`}</code>. Çoğu ayrıştırıcı bunu şeffaf bir şekilde işler.
     </p>
     <p>
-      <strong>Single quotes don&rsquo;t need escaping</strong> &mdash; they have no
-      special meaning in JSON strings. <code>{`"don't"`}</code> is valid;{" "}
-      <code>{`"don\\'t"`}</code> is also valid (the escape is unnecessary but not
-      forbidden).
+      <strong>Tek tırnakların kaçırılması gerekmez</strong> &mdash; JSON stringlerinde özel
+      bir anlamları yoktur. <code>{`"don't"`}</code> geçerlidir;{" "}
+      <code>{`"don\\'t"`}</code> da geçerlidir (kaçış gereksizdir ancak
+      yasak değildir).
     </p>
 
-    <h2 id="numbers">Number representation gotchas</h2>
+    <h2 id="numbers">Sayı temsilindeki tuzaklar</h2>
     <p>
-      JSON numbers are 64-bit floats by spec (IEEE 754 doubles). Implications:
+      JSON sayıları, spesifikasyona göre 64-bit kayan noktalı sayılardır (IEEE 754 çift
+      duyarlıklı). Sonuçları:
     </p>
     <ul>
       <li>
-        <strong>Integer precision loss above 2^53</strong>. JavaScript&rsquo;s{" "}
-        <code>Number.MAX_SAFE_INTEGER</code> is 9007199254740991. A 64-bit ID like
-        <code> 12345678901234567890</code> rounds to the nearest representable double.
-        Workaround: send big IDs as JSON strings (<code>&quot;12345678901234567890&quot;</code>),
-        not numbers.
+        <strong>2^53'ün üzerinde tamsayı hassasiyeti kaybı</strong>. JavaScript'in{" "}
+        <code>Number.MAX_SAFE_INTEGER</code> değeri 9007199254740991'dir.{" "}
+        <code>12345678901234567890</code> gibi 64-bit bir ID, temsil edilebilir en yakın
+        çift duyarlıklı sayıya yuvarlanır. Çözüm: büyük ID'leri JSON stringleri olarak gönderin
+        (<code>&quot;12345678901234567890&quot;</code>), sayı olarak değil.
       </li>
       <li>
-        <strong>Floating-point classics</strong>. <code>0.1 + 0.2</code> serializes as
-        <code> 0.30000000000000004</code>. Money should be in cents (integer) or
-        explicitly serialized as a string with fixed precision.
+        <strong>Klasik kayan nokta sorunları</strong>. <code>0.1 + 0.2</code> şu şekilde
+        serileştirilir: <code>0.30000000000000004</code>. Para, sent (tamsayı) olarak veya
+        sabit hassasiyetle bir string olarak açıkça serileştirilmelidir.
       </li>
       <li>
-        <strong>NaN and Infinity are NOT valid JSON</strong>. JavaScript&rsquo;s
-        <code> JSON.stringify(NaN)</code> returns <code>&quot;null&quot;</code>. If
-        you need to transmit special floats, use a string sentinel like
-        <code> &quot;Infinity&quot;</code> and parse on the receiving side.
+        <strong>NaN ve Infinity geçerli JSON değildir</strong>. JavaScript'in
+        <code> JSON.stringify(NaN)</code> ifadesi <code>&quot;null&quot;</code> döndürür. Özel
+        kayan noktalı sayılar iletmeniz gerekiyorsa, <code>&quot;Infinity&quot;</code> gibi bir
+        string sentinel kullanın ve alıcı tarafta ayrıştırın.
       </li>
       <li>
-        <strong>No leading + or trailing decimal</strong>. <code>+1</code> is invalid;
-        write <code>1</code>. <code>1.</code> is invalid; write <code>1.0</code> or
-        just <code>1</code>.
+        <strong>Başta + veya sonda ondalık nokta yok</strong>. <code>+1</code> geçersizdir;
+        <code>1</code> yazın. <code>1.</code> geçersizdir; <code>1.0</code> veya
+        sadece <code>1</code> yazın.
       </li>
     </ul>
 
-    <h2 id="json5-jsonc">JSON5 and JSONC: when to use each</h2>
+    <h2 id="json5-jsonc">JSON5 ve JSONC: hangisini ne zaman kullanmalı</h2>
     <p>
-      Two relaxed variants are common in tooling but never in APIs:
+      Araçlarda yaygın olan ancak API'lerde asla kullanılmayan iki esnek varyant:
     </p>
     <ul>
       <li>
-        <strong>JSONC (JSON with Comments)</strong>: JSON + <code>// line</code> and
-        <code> {`/* block */`}</code> comments. Used by VS Code settings, tsconfig.json,
-        ESLint configs. Simple to support; most JSON parsers can be extended to strip
-        comments before parsing.
+        <strong>JSONC (Yorumlu JSON)</strong>: JSON + <code>// satır</code> ve
+        <code> {`/* blok */`}</code> yorumları. VS Code ayarları, tsconfig.json,
+        ESLint yapılandırmaları tarafından kullanılır. Desteklemesi basittir; çoğu JSON
+        ayrıştırıcısı, ayrıştırmadan önce yorumları kaldıracak şekilde genişletilebilir.
       </li>
       <li>
-        <strong>JSON5</strong>: JSONC plus unquoted keys, single quotes, trailing commas,
-        hex numbers, leading/trailing decimals, and a few more conveniences. Used by
-        some Babel configs, RollupJS, and config files where humans hand-edit. The
-        spec is at json5.org. Use the <code>json5</code> npm package or equivalent.
+        <strong>JSON5</strong>: JSONC artı tırnaksız anahtarlar, tek tırnaklar, sonda virgüller,
+        hex sayılar, başta/sonda ondalık noktalar ve birkaç kolaylık daha. Bazı Babel
+        yapılandırmaları, RollupJS ve insanların elle düzenlediği yapılandırma dosyaları
+        tarafından kullanılır. Spesifikasyon json5.org adresindedir. <code>json5</code> npm
+        paketini veya eşdeğerini kullanın.
       </li>
     </ul>
     <p>
-      Rule of thumb: <strong>API payloads always use strict JSON</strong>. <strong>Hand-
-      edited config files</strong> can use JSONC (most tools support it) or JSON5 (if you
-      want the convenience). Never assume a parser handles JSON5 unless documented.
+      Temel kural: <strong>API yükleri her zaman katı JSON kullanır</strong>. <strong>Elle
+      düzenlenen yapılandırma dosyaları</strong> JSONC (çoğu araç destekler) veya JSON5
+      (kolaylık istiyorsanız) kullanabilir. Belgelenmedikçe bir ayrıştırıcının JSON5'i
+      işlediğini asla varsaymayın.
     </p>
 
-    <h2 id="common-errors">Top 10 parser errors and fixes</h2>
+    <h2 id="common-errors">En yaygın 10 ayrıştırıcı hatası ve çözümleri</h2>
     <ol>
       <li>
-        <strong>&ldquo;Unexpected token X in JSON at position N&rdquo;</strong>. Look at
-        position N in your input. Almost always: trailing comma, single quote, unquoted
-        key, or unescaped character in a string. Use the <a href="/tools/json-formatter">
-          JSON formatter</a> &mdash; it points at the exact offending character.
+        <strong>&ldquo;JSON'da N konumunda beklenmeyen X belirteci&rdquo;</strong>. Girişinizdeki
+        N konumuna bakın. Neredeyse her zaman: sonda virgül, tek tırnak, tırnaksız anahtar
+        veya bir string içinde kaçırılmamış karakter. <a href="/tools/json-formatter">
+          JSON biçimlendiriciyi</a> kullanın &mdash; tam olarak hatalı karakteri işaret eder.
       </li>
       <li>
-        <strong>&ldquo;Unexpected end of JSON input&rdquo;</strong>. Truncated input.
-        Check the source: copied incomplete payload, network response cut off, file write
-        not flushed.
+        <strong>&ldquo;JSON girişinin beklenmeyen sonu&rdquo;</strong>. Kesilmiş giriş.
+        Kaynağı kontrol edin: eksik kopyalanmış yük, kesilmiş ağ yanıtı, yazılmamış dosya
+        yazma.
       </li>
       <li>
-        <strong>&ldquo;Unterminated string&rdquo;</strong>. Missing closing quote, or an
-        unescaped backslash creating a broken escape sequence. Check for{" "}
-        <code>\</code> followed by a character that doesn&rsquo;t form a valid escape.
+        <strong>&ldquo;Sonlandırılmamış string&rdquo;</strong>. Eksik kapanış tırnağı veya
+        bozuk bir kaçış dizisi oluşturan kaçırılmamış bir ters bölü. Geçerli bir kaçış
+        oluşturmayan bir karakterin ardından gelen <code>\</code> olup olmadığını kontrol edin.
       </li>
       <li>
-        <strong>&ldquo;Duplicate keys&rdquo;</strong>. RFC 8259 doesn&rsquo;t require
-        rejection but recommends behavior is implementation-defined. Most parsers keep the
-        last value silently. Don&rsquo;t produce JSON with duplicate keys; if you receive
-        it, that&rsquo;s a bug at the source.
+        <strong>&ldquo;Yinelenen anahtarlar&rdquo;</strong>. RFC 8259 reddetmeyi gerektirmez
+        ancak davranışın uygulama tanımlı olmasını önerir. Çoğu ayrıştırıcı son değeri sessizce
+        tutar. Yinelenen anahtarlara sahip JSON üretmeyin; alırsanız, bu kaynakta bir hatadır.
       </li>
       <li>
-        <strong>BOM (Byte Order Mark) at start</strong>. Some Windows tools save UTF-8
-        with BOM (the bytes <code>EF BB BF</code> at the start). RFC 8259 forbids it.
-        Strip it before parsing: <code>{`text.replace(/^\\uFEFF/, '')`}</code>.
+        <strong>Başlangıçta BOM (Bayt Sırası İşareti)</strong>. Bazı Windows araçları UTF-8'i
+        BOM ile kaydeder (başlangıçta <code>EF BB BF</code> baytları). RFC 8259 bunu yasaklar.
+        Ayrıştırmadan önce kaldırın: <code>{`text.replace(/^\\uFEFF/, '')`}</code>.
       </li>
       <li>
-        <strong>Single-quoted strings</strong>. Convert to double quotes. Not just the
-        outer quotes &mdash; any <code>{`"`}</code> inside the string must be escaped.
+        <strong>Tek tırnaklı stringler</strong>. Çift tırnağa dönüştürün. Yalnızca dış
+        tırnaklar değil &mdash; stringin içindeki herhangi bir <code>{`"`}</code> kaçırılmalıdır.
       </li>
       <li>
-        <strong>Comments left in</strong>. Strip them before parsing as strict JSON, or
-        switch to a JSONC-aware parser. Don&rsquo;t use regex to strip; comments inside
-        strings will be matched incorrectly.
+        <strong>İçeride kalmış yorumlar</strong>. Katı JSON olarak ayrıştırmadan önce kaldırın
+        veya JSONC uyumlu bir ayrıştırıcıya geçin. Kaldırmak için regex kullanmayın; stringlerin
+        içindeki yorumlar yanlış eşleşecektir.
       </li>
       <li>
-        <strong>Trailing commas</strong>. Strip them: regex <code>{`/,(\\s*[}\\]])/g`}</code> &rarr;{" "}
-        <code>{`$1`}</code>. Be careful: this same regex inside a string would corrupt
-        data. Use a JSON5 parser if you can.
+        <strong>Sonda virgüller</strong>. Kaldırın: regex <code>{`/,(\\s*[}\\]])/g`}</code> &rarr;{" "}
+        <code>{`$1`}</code>. Dikkatli olun: aynı regex bir stringin içinde veriyi bozabilir.
+        Mümkünse bir JSON5 ayrıştırıcısı kullanın.
       </li>
       <li>
-        <strong>Wrong content-type</strong>. Server sends JSON with{" "}
-        <code>Content-Type: text/html</code>. Browsers try to parse as HTML and fail.
-        Check the headers; most fetch errors that look like &ldquo;invalid JSON&rdquo;
-        are content-type bugs.
+        <strong>Yanlış içerik türü</strong>. Sunucu JSON'u{" "}
+        <code>Content-Type: text/html</code> ile gönderir. Tarayıcılar HTML olarak ayrıştırmaya
+        çalışır ve başarısız olur. Başlıkları kontrol edin; &ldquo;geçersiz JSON&rdquo; gibi
+        görünen çoğu getirme hatası, içerik türü hatalarıdır.
       </li>
       <li>
-        <strong>NaN / Infinity in output</strong>. Code that produces these (uninitialized
-        floats, division by zero) crashes downstream parsers. Sanitize before
-        serializing: replace with null or a string sentinel.
+        <strong>Çıktıda NaN / Infinity</strong>. Bunları üreten kod (başlatılmamış
+        kayan noktalı sayılar, sıfıra bölme) aşağı akış ayrıştırıcılarını çökertir.
+        Serileştirmeden önce temizleyin: null veya bir string sentinel ile değiştirin.
       </li>
     </ol>
 
-    <h2 id="schema">JSON Schema: validation beyond syntax</h2>
+    <h2 id="schema">JSON Şeması: sözdiziminin ötesinde doğrulama</h2>
     <p>
-      <code>JSON.parse</code> only catches SYNTAX errors. A valid JSON document can still
-      have wrong shape: missing required fields, fields of the wrong type, values out of
-      range. JSON Schema is the standard way to declare expected shape and validate
-      programmatically.
+      <code>JSON.parse</code> yalnızca SÖZDİZİMİ hatalarını yakalar. Geçerli bir JSON belgesi
+      yine de yanlış şekle sahip olabilir: eksik zorunlu alanlar, yanlış türde alanlar,
+      aralık dışı değerler. JSON Şeması, beklenen şekli bildirmenin ve programlı olarak
+      doğrulamanın standart yoludur.
     </p>
-    <p>Example schema for a user object:</p>
+    <p>Bir kullanıcı nesnesi için örnek şema:</p>
     <pre>{`{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "object",
@@ -242,193 +245,192 @@ export const body = (
   "additionalProperties": false
 }`}</pre>
     <p>
-      <strong>Validators by language</strong>: Ajv (JavaScript/TypeScript &mdash; fastest
-      and most popular), jsonschema (Python), NJsonSchema (.NET), justify (Java),
-      json_schemer (Ruby). All implement the same Draft 2020-12 spec; switching between
-      languages is mostly mechanical.
+      <strong>Dile göre doğrulayıcılar</strong>: Ajv (JavaScript/TypeScript &mdash; en hızlı
+      ve en popüler), jsonschema (Python), NJsonSchema (.NET), justify (Java),
+      json_schemer (Ruby). Hepsi aynı Draft 2020-12 spesifikasyonunu uygular; diller
+      arasında geçiş yapmak çoğunlukla mekaniktir.
     </p>
     <p>
-      <strong>OpenAPI relationship</strong>: OpenAPI 3.x uses JSON Schema for request /
-      response shapes. Generate types and validators from your OpenAPI spec; never
-      hand-write both.
+      <strong>OpenAPI ilişkisi</strong>: OpenAPI 3.x, istek/yanıt şekilleri için JSON Şeması
+      kullanır. OpenAPI spesifikasyonunuzdan türler ve doğrulayıcılar oluşturun; ikisini de
+      asla elle yazmayın.
     </p>
     <p>
-      <strong>Alternatives in TypeScript</strong>: Zod, io-ts, yup, valibot. Define schema
-      in TypeScript code (gets type inference), validate at runtime, no separate schema
-      file. Better DX for TS-heavy codebases; less interoperable with non-TS consumers.
+      <strong>TypeScript'te alternatifler</strong>: Zod, io-ts, yup, valibot. Şemayı
+      TypeScript kodunda tanımlayın (tür çıkarımı alır), çalışma zamanında doğrulayın, ayrı
+      bir şema dosyası gerekmez. TS ağırlıklı kod tabanları için daha iyi geliştirici deneyimi;
+      TS olmayan tüketicilerle daha az birlikte çalışabilirlik.
     </p>
 
-    <h2 id="large-files">Handling huge JSON (streaming)</h2>
+    <h2 id="large-files">Büyük JSON'ları işleme (akış)</h2>
     <p>
-      <code>JSON.parse</code> loads the entire document into memory. For files over
-      ~100MB, this becomes prohibitive. Streaming parsers process one token at a time:
+      <code>JSON.parse</code> tüm belgeyi belleğe yükler. ~100MB üzerindeki dosyalar için
+      bu imkansız hale gelir. Akış ayrıştırıcıları her seferinde bir belirteç işler:
     </p>
     <ul>
       <li>
-        <strong>jq</strong> (CLI): handles 100GB JSON files routinely.{" "}
-        <code>jq .users[] huge.json</code> emits each user as it&rsquo;s parsed.
+        <strong>jq</strong> (CLI): 100GB JSON dosyalarını rutin olarak işler.{" "}
+        <code>jq .users[] huge.json</code> her kullanıcıyı ayrıştırıldıkça yayar.
       </li>
       <li>
         <strong>Python ijson</strong>: <code>for item in ijson.items(file, &quot;users.item&quot;)</code>{" "}
-        iterates without loading the document.
+        belgeyi yüklemeden yineler.
       </li>
       <li>
         <strong>Node JSONStream</strong>:{" "}
         <code>fs.createReadStream(...).pipe(JSONStream.parse(&apos;users.*&apos;)).on(&apos;data&apos;, ...)</code>.
       </li>
       <li>
-        <strong>Go encoding/json Decoder</strong>: token-stream API for memory-efficient
-        parsing.
+        <strong>Go encoding/json Decoder</strong>: bellek verimli ayrıştırma için belirteç-akışı API'si.
       </li>
     </ul>
     <p>
-      <strong>NDJSON / JSONL</strong>: an alternative format where each line is a
-      separate JSON object. Trivial to stream (read line by line, parse each).
-      Standard for log aggregation, ML training data, and large data exports. File
-      extension <code>.ndjson</code> or <code>.jsonl</code>.
+      <strong>NDJSON / JSONL</strong>: her satırın ayrı bir JSON nesnesi olduğu alternatif bir
+      biçim. Akışı önemsizdir (satır satır okuyun, her birini ayrıştırın).
+      Günlük toplama, ML eğitim verileri ve büyük veri dışa aktarımları için standarttır. Dosya
+      uzantısı <code>.ndjson</code> veya <code>.jsonl</code>.
     </p>
 
-    <h2 id="encoding">UTF-8, BOMs, and binary data</h2>
+    <h2 id="encoding">UTF-8, BOM'lar ve ikili veri</h2>
     <p>
-      RFC 8259 requires UTF-8 encoding (with optional UTF-16 / UTF-32 in older RFC 7159).
-      Network JSON should always be UTF-8 without BOM.
+      RFC 8259, UTF-8 kodlaması gerektirir (eski RFC 7159'da isteğe bağlı UTF-16 / UTF-32 ile).
+      Ağ JSON'u her zaman BOM'suz UTF-8 olmalıdır.
     </p>
     <p>
-      <strong>Binary data</strong> doesn&rsquo;t fit natively. Conventions:
+      <strong>İkili veri</strong> yerel olarak sığmaz. Kurallar:
     </p>
     <ul>
       <li>
-        <strong>Base64-encode</strong>: most common. Adds 33% size overhead. See the{" "}
-        <a href="/tools/base64-encoder-decoder">Base64 encoder</a>.
+        <strong>Base64 kodlama</strong>: en yaygın. %33 boyut ek yükü ekler.{" "}
+        <a href="/tools/base64-encoder-decoder">Base64 kodlayıcıya</a> bakın.
       </li>
-      <li><strong>Hex-encode</strong>: simpler but 100% size overhead.</li>
+      <li><strong>Hex kodlama</strong>: daha basit ancak %100 boyut ek yükü.</li>
       <li>
-        <strong>Out-of-band</strong>: send a URL or signed reference; client fetches the
-        binary separately. Best for files over ~10KB.
+        <strong>Bant dışı</strong>: bir URL veya imzalı referans gönderin; istemci ikiliyi
+        ayrı olarak getirir. ~10KB üzerindeki dosyalar için en iyisi.
       </li>
     </ul>
 
-    <h2 id="security">Security: prototype pollution, DoS, JSONP</h2>
+    <h2 id="security">Güvenlik: prototip kirliliği, DoS, JSONP</h2>
     <p>
-      <strong>Prototype pollution</strong>: untrusted JSON with keys like
-      <code> __proto__</code>, <code>constructor</code>, <code>prototype</code> can
-      modify the JavaScript Object prototype if you blindly merge into objects. Mitigate
-      with safe-merge libraries (Lodash 4.17.21+ is safe), or use Object.create(null) for
-      destination objects.
+      <strong>Prototip kirliliği</strong>: <code>__proto__</code>, <code>constructor</code>, <code>prototype</code>
+      gibi anahtarlara sahip güvenilmeyen JSON, nesnelere körü körüne birleştirirseniz
+      JavaScript Nesne prototipini değiştirebilir. Güvenli birleştirme kütüphaneleriyle
+      (Lodash 4.17.21+ güvenlidir) azaltın veya hedef nesneler için Object.create(null) kullanın.
     </p>
     <p>
-      <strong>Parser DoS</strong>: very deep nesting (10,000+ levels) can blow the stack
-      in some parsers. Limit input size and depth. Most modern parsers default to
-      reasonable limits.
+      <strong>Ayrıştırıcı DoS</strong>: çok derin iç içe geçme (10.000+ seviye) bazı
+      ayrıştırıcılarda yığını patlatabilir. Giriş boyutunu ve derinliğini sınırlayın. Çoğu
+      modern ayrıştırıcı varsayılan olarak makul sınırlara sahiptir.
     </p>
     <p>
-      <strong>JSON hijacking (historical)</strong>: a security issue with top-level JSON
-      arrays in old browsers. Modern browsers fixed this. Don&rsquo;t worry about it
-      unless supporting IE 5/6.
+      <strong>JSON hijacking (tarihsel)</strong>: eski tarayıcılarda üst düzey JSON
+      dizileriyle ilgili bir güvenlik sorunu. Modern tarayıcılar bunu düzeltti. IE 5/6
+      desteklemiyorsanız endişelenmeyin.
     </p>
     <p>
-      <strong>JSONP</strong>: JSON wrapped in a callback function for cross-origin loading
-      via <code>&lt;script&gt;</code>. Largely obsolete due to CORS support in all modern
-      browsers. JSONP runs arbitrary JavaScript &mdash; if the data source is
-      compromised, you have an XSS. Avoid for new code; use CORS or fetch with proper
-      Access-Control-Allow-Origin headers.
+      <strong>JSONP</strong>: <code>&lt;script&gt;</code> aracılığıyla çapraz kaynak yükleme
+      için bir geri çağırma işlevine sarılmış JSON. Tüm modern tarayıcılarda CORS desteği
+      nedeniyle büyük ölçüde geçersizdir. JSONP, rastgele JavaScript çalıştırır &mdash; veri
+      kaynağı tehlikeye girerse, bir XSS'niz olur. Yeni kod için kaçının; uygun
+      Access-Control-Allow-Origin başlıklarıyla CORS veya fetch kullanın.
     </p>
 
-    <h2 id="performance">Performance tips</h2>
+    <h2 id="performance">Performans ipuçları</h2>
     <ul>
       <li>
-        <strong>Avoid double-parsing</strong>. <code>JSON.parse(JSON.parse(s))</code>{" "}
-        happens when someone serialized JSON, then JSON-encoded the result as a string.
-        Parse once. Better fix: stop double-encoding upstream.
+        <strong>Çift ayrıştırmadan kaçının</strong>. <code>JSON.parse(JSON.parse(s))</code>{" "}
+        birisi JSON'u serileştirdiğinde, ardından sonucu bir string olarak JSON kodladığında
+        olur. Bir kez ayrıştırın. Daha iyi çözüm: yukarı akışta çift kodlamayı durdurun.
       </li>
       <li>
-        <strong>Consider message size</strong>. JSON over HTTP is gzip/brotli compressed
-        in transit. Field-name length matters less than the spec implies. But for stored
-        JSON (databases, files): shorter field names compound. Compromise: readable in
-        APIs, abbreviated in hot-path internal storage.
+        <strong>Mesaj boyutunu göz önünde bulundurun</strong>. HTTP üzerinden JSON, aktarım
+        sırasında gzip/brotli sıkıştırılır. Alan adı uzunluğu, spesifikasyonun ima ettiğinden
+        daha az önemlidir. Ancak depolanan JSON (veritabanları, dosyalar) için: daha kısa alan
+        adları birikir. Uzlaşma: API'lerde okunabilir, sıcak yol dahili depolamada kısaltılmış.
       </li>
       <li>
-        <strong>Streaming for files over 10MB</strong>. <code>JSON.parse</code> on a 100MB
-        string takes 5-15 seconds and may freeze the browser tab.
+        <strong>10MB üzeri dosyalar için akış</strong>. 100MB'lık bir string üzerinde <code>JSON.parse</code>
+        5-15 saniye sürer ve tarayıcı sekmesini dondurabilir.
       </li>
       <li>
-        <strong>Use protobuf or CBOR for binary-heavy or high-frequency payloads</strong>.
-        Both are 2-5x smaller and faster than JSON. Trade-off: not human-readable, requires
-        schema.
+        <strong>İkili ağırlıklı veya yüksek frekanslı yükler için protobuf veya CBOR kullanın</strong>.
+        Her ikisi de JSON'dan 2-5 kat daha küçük ve daha hızlıdır. Ödünleşim: insan tarafından
+        okunamaz, şema gerektirir.
       </li>
     </ul>
 
-    <h2 id="anti-patterns">Anti-patterns and footguns</h2>
+    <h2 id="anti-patterns">Anti-kalıplar ve tuzaklar</h2>
     <ul>
       <li>
-        <strong>Stringly-typed dates</strong>. JSON has no Date type, so dates become
-        strings. Multiple formats compete: ISO 8601 (<code>2026-01-15T12:00:00Z</code>{" "}
-        &mdash; preferred), Unix timestamp (number of seconds), JavaScript Date string
-        format. Pick one in your API contract; don&rsquo;t mix. ISO 8601 is the
-        interoperable choice.
+        <strong>String türüne dönüştürülmüş tarihler</strong>. JSON'un Date türü yoktur, bu
+        nedenle tarihler string haline gelir. Birden çok biçim rekabet eder: ISO 8601 (<code>2026-01-15T12:00:00Z</code>{" "}
+        &mdash; tercih edilen), Unix zaman damgası (saniye sayısı), JavaScript Date string
+        biçimi. API sözleşmenizde birini seçin; karıştırmayın. ISO 8601,
+        birlikte çalışabilir seçimdir.
       </li>
       <li>
-        <strong>Money as floats</strong>. Use integer cents or string-encoded decimals.
-        Floats lose precision; <code>0.1 + 0.2 = 0.30000000000000004</code>.
+        <strong>Kayan noktalı sayı olarak para</strong>. Tamsayı sent veya string kodlu
+        ondalık sayılar kullanın. Kayan noktalı sayılar hassasiyet kaybeder; <code>0.1 + 0.2 = 0.30000000000000004</code>.
       </li>
       <li>
-        <strong>Big integers as numbers</strong>. IDs over 2^53 lose precision. Send as
-        strings.
+        <strong>Sayı olarak büyük tamsayılar</strong>. 2^53'ün üzerindeki ID'ler hassasiyet
+        kaybeder. String olarak gönderin.
       </li>
       <li>
-        <strong>Comments in JSON files served as JSON content-type</strong>. Strip them
-        before serving, or change content-type to <code>application/jsonc</code> (not
-        widely recognized) or convention <code>application/x-jsonc</code>.
+        <strong>JSON içerik türü olarak sunulan JSON dosyalarındaki yorumlar</strong>. Sunmadan
+        önce kaldırın veya içerik türünü <code>application/jsonc</code> (yaygın olarak
+        tanınmaz) veya kural <code>application/x-jsonc</code> olarak değiştirin.
       </li>
       <li>
-        <strong>Mutating during iteration</strong>. Some parsers (Python json) return
-        plain dicts; others return ordered dicts; behavior varies. Don&rsquo;t mutate
-        what you&rsquo;re iterating; iterate a copy.
+        <strong>Yineleme sırasında mutasyona uğratma</strong>. Bazı ayrıştırıcılar (Python json)
+        düz sözlükler döndürür; diğerleri sıralı sözlükler döndürür; davranış değişir.
+        Yinelediğiniz şeyi mutasyona uğratmayın; bir kopyasını yineleyin.
       </li>
       <li>
-        <strong>Trusting key order</strong>. RFC 8259 says objects are
-        &ldquo;unordered.&rdquo; Most parsers preserve insertion order in practice (V8,
-        Python 3.7+, Go); some don&rsquo;t. Don&rsquo;t depend on order for correctness.
+        <strong>Anahtar sırasına güvenmek</strong>. RFC 8259, nesnelerin
+        &ldquo;sırasız&rdquo; olduğunu söyler. Çoğu ayrıştırıcı pratikte ekleme sırasını korur
+        (V8, Python 3.7+, Go); bazıları korumaz. Doğruluk için sıraya güvenmeyin.
       </li>
     </ul>
 
-    <h2>The 80/20 takeaway</h2>
+    <h2>80/20 çıkarımı</h2>
     <p>
-      The six rules cover almost all parse errors you&rsquo;ll encounter. The schema
-      validation pattern (Ajv, Zod, JSON Schema) catches the rest at the contract level
-      so bugs surface early. For huge documents, switch to streaming parsers or NDJSON.
-      For binary data, Base64-encode or send out-of-band. Always validate untrusted JSON
-      before merging into objects (prototype pollution).
+      Altı kural, karşılaşacağınız neredeyse tüm ayrıştırma hatalarını kapsar. Şema
+      doğrulama kalıbı (Ajv, Zod, JSON Şeması), geri kalanını sözleşme düzeyinde yakalar,
+      böylece hatalar erken ortaya çıkar. Büyük belgeler için akış ayrıştırıcılarına veya
+      NDJSON'a geçin. İkili veriler için Base64 kodlayın veya bant dışı gönderin. Güvenilmeyen
+      JSON'u nesnelere birleştirmeden önce her zaman doğrulayın (prototip kirliliği).
     </p>
     <p>
-      Use the <a href="/tools/json-formatter">JSON formatter</a> for one-off
-      pretty-printing and validation; <code>jq</code> for command-line workflows; Ajv or
-      Zod for runtime validation. Read RFC 8259 once. Bookmark this page. Most JSON
-      headaches go away.
+      Tek seferlik güzel yazdırma ve doğrulama için <a href="/tools/json-formatter">JSON
+      biçimlendiriciyi</a> kullanın; komut satırı iş akışları için <code>jq</code>; çalışma
+      zamanı doğrulaması için Ajv veya Zod. RFC 8259'u bir kez okuyun. Bu sayfayı yer imlerine
+      ekleyin. JSON baş ağrılarının çoğu geçer.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Format and validate JSON instantly in the browser",
+  label: "JSON'u tarayıcıda anında biçimlendirin ve doğrulayın",
   targetSlug: "json-formatter",
 };
 
 export const faq = [
   {
-    q: "Why does my JSON parser say 'Unexpected token'?",
-    a: "Five common causes, in order of frequency: (1) Trailing comma after the last item in an object or array — strict JSON forbids it. (2) Single-quoted strings instead of double-quoted. (3) Unquoted keys (valid in JavaScript object literals; invalid in JSON). (4) Unescaped backslash inside a string creating a broken escape sequence. (5) Comments — strict JSON has no comments. The 'position N' in the error message points at the exact character; paste your JSON into a formatter to see line:column.",
+    q: "JSON ayrıştırıcım neden 'Beklenmeyen belirteç' diyor?",
+    a: "Sıklık sırasına göre beş yaygın neden: (1) Bir nesne veya dizideki son öğeden sonra sonda virgül — katı JSON bunu yasaklar. (2) Çift tırnaklı yerine tek tırnaklı stringler. (3) Tırnaksız anahtarlar (JavaScript nesne değişmezlerinde geçerlidir; JSON'da geçersizdir). (4) Bir string içinde bozuk bir kaçış dizisi oluşturan kaçırılmamış ters bölü. (5) Yorumlar — katı JSON'da yorum yoktur. Hata mesajındaki 'N konumu' tam olarak karakteri işaret eder; satır:sütun görmek için JSON'unuzu bir biçimlendiriciye yapıştırın.",
   },
   {
-    q: "What's the difference between JSON, JSON5, and JSONC?",
-    a: "JSON (RFC 8259) is the strict standard used in APIs: no comments, no trailing commas, double-quoted keys only. JSONC (JSON with Comments) adds // and /* */ comments and trailing commas; used by VS Code settings and tsconfig.json. JSON5 is JSONC plus unquoted keys, single-quoted strings, hex numbers, and a few other conveniences; used in some build tool configs. Rule of thumb: APIs always strict JSON; hand-edited config files can use JSONC or JSON5. Never assume a parser supports JSON5 unless documented.",
+    q: "JSON, JSON5 ve JSONC arasındaki fark nedir?",
+    a: "JSON (RFC 8259), API'lerde kullanılan katı standarttır: yorum yok, sonda virgül yok, yalnızca çift tırnaklı anahtarlar. JSONC (Yorumlu JSON), // ve /* */ yorumları ve sonda virgüller ekler; VS Code ayarları ve tsconfig.json tarafından kullanılır. JSON5, JSONC artı tırnaksız anahtarlar, tek tırnaklı stringler, hex sayılar ve diğer birkaç kolaylıktır; bazı derleme aracı yapılandırmalarında kullanılır. Temel kural: API'ler her zaman katı JSON; elle düzenlenen yapılandırma dosyaları JSONC veya JSON5 kullanabilir. Belgelenmedikçe bir ayrıştırıcının JSON5'i desteklediğini asla varsaymayın.",
   },
   {
-    q: "How do I handle JSON files larger than 100MB?",
-    a: "JSON.parse and equivalent loaders read the entire document into memory — typically 2-5x the file size for object representation. For files >100MB, use streaming parsers: jq (CLI, handles 100GB easily), Python ijson, Node JSONStream, Go encoding/json Decoder. Alternative format: NDJSON (newline-delimited JSON) where each line is a separate JSON object — trivial to stream by reading line-by-line. NDJSON is standard for log aggregation, ML training data, and large data exports.",
+    q: "100MB'den büyük JSON dosyalarını nasıl işlerim?",
+    a: "JSON.parse ve eşdeğer yükleyiciler tüm belgeyi belleğe okur — tipik olarak nesne temsili için dosya boyutunun 2-5 katı. >100MB dosyalar için akış ayrıştırıcıları kullanın: jq (CLI, 100GB'ı kolayca işler), Python ijson, Node JSONStream, Go encoding/json Decoder. Alternatif biçim: NDJSON (yeni satırla ayrılmış JSON) burada her satır ayrı bir JSON nesnesidir — satır satır okuyarak akışı önemsizdir. NDJSON, günlük toplama, ML eğitim verileri ve büyük veri dışa aktarımları için standarttır.",
   },
   {
-    q: "Why does my JSON have wrong numbers (precision loss)?",
-    a: "JSON numbers are IEEE 754 64-bit floats per spec. JavaScript's Number.MAX_SAFE_INTEGER is 2^53 - 1 = 9007199254740991. Bigger integers (long IDs from databases, blockchain transaction IDs, Twitter snowflake IDs) round to the nearest representable float — silent data corruption. Fix: send big integers as JSON strings, parse as BigInt or library-specific big-integer types on the receiving side. Money has the same problem: 0.1 + 0.2 = 0.30000000000000004. Store money as integer cents (or smaller units), or as strings with fixed precision; never as floats.",
+    q: "JSON'um neden yanlış sayılara sahip (hassasiyet kaybı)?",
+    a: "JSON sayıları, spesifikasyona göre IEEE 754 64-bit kayan noktalı sayılardır. JavaScript'in Number.MAX_SAFE_INTEGER değeri 2^53 - 1 = 9007199254740991'dir. Daha büyük tamsayılar (veritabanlarından uzun ID'ler, blok zinciri işlem ID'leri, Twitter snowflake ID'leri) temsil edilebilir en yakın kayan noktalı sayıya yuvarlanır — sessiz veri bozulması. Çözüm: büyük tamsayıları JSON stringleri olarak gönderin, alıcı tarafta BigInt veya kütüphaneye özgü büyük tamsayı türleri olarak ayrıştırın. Para aynı soruna sahiptir: 0.1 + 0.2 = 0.30000000000000004. Parayı tamsayı sent (veya daha küçük birimler) olarak veya sabit hassasiyetli stringler olarak saklayın; asla kayan noktalı sayı olarak değil.",
   },
 ];

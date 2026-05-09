@@ -1,4 +1,4 @@
-import { tools, categories } from "@/lib/tools";
+import { tools, type Tool, categories } from "@/lib/tools";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { ToolComponent } from "./ToolClient";
@@ -28,6 +28,37 @@ export default async function ToolPage({ params }: Props) {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
+      {/* JSON-LD Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "SoftwareApplication",
+            name: tool.titleTr,
+            description: tool.descriptionTr,
+            applicationCategory: "WebApplication",
+            operatingSystem: "Web",
+            url: `https://teknoarac.com/araclar/${tool.slug}`,
+            offers: { "@type": "Offer", price: "0", priceCurrency: "TRY" },
+          })
+        }}
+      />
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://teknoarac.com" },
+              { "@type": "ListItem", position: 2, name: "Araçlar", item: "https://teknoarac.com/araclar" },
+              { "@type": "ListItem", position: 3, name: tool.titleTr },
+            ],
+          })
+        }}
+      />
       {/* Breadcrumb */}
       <div className="flex items-center gap-2 text-sm text-tekno-muted mb-8">
         <a href="/" className="hover:text-tekno-cyan">Ana Sayfa</a>

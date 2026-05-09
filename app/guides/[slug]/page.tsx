@@ -67,6 +67,38 @@ export default async function GuidePage({ params }: Props) {
   const paraMatches = content.match(/<p[^>]*>([^<]*?)<\/p>/gi) || [];
 
   return (
+    <>
+        {/* JSON-LD Structured Data */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Article",
+              headline: title,
+              description: descMatch?.[1] || "",
+              inLanguage: "tr",
+              datePublished: "2026-01-01",
+              dateModified: "2026-05-09",
+              publisher: { "@type": "Organization", name: "TeknoAra\u00E7", url: "https://teknoarac.com" },
+            })
+          }}
+        />
+        {/* BreadcrumbList Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: "https://teknoarac.com" },
+                { "@type": "ListItem", position: 2, name: "Rehberler", item: "https://teknoarac.com/rehberler" },
+                { "@type": "ListItem", position: 3, name: title },
+              ],
+            })
+          }}
+        />
     <div className="max-w-3xl mx-auto px-4 py-12">
       <div className="flex items-center gap-2 text-sm text-tekno-muted mb-8">
         <a href="/" className="hover:text-tekno-cyan">Ana Sayfa</a>
@@ -123,5 +155,6 @@ export default async function GuidePage({ params }: Props) {
         )}
       </div>
     </div>
+    </>
   );
 }
