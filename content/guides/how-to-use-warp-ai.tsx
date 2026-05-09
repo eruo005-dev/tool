@@ -36,3 +36,4 @@ winget install Warp.Warp
     <p>Modern bir CLI deneyimi ve kabuk semantiğini gerçekten anlayan bir AI işbirlikçisi isteyen, terminal ağırlıklı mühendisler, SRE'ler ve DevOps çalışanları.</p>
   </>
 );
+===END FILE===

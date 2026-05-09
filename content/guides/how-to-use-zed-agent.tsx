@@ -35,3 +35,4 @@ curl -f https://zed.dev/install.sh | sh
     <p>Hızlı, yerel, açık kaynaklı bir editör içinde Cursor sınıfı ajan özellikleri isteyen geliştiriciler ve IDE'lerinden ayrılmadan gerçek zamanlı çift programlamaya değer veren ekipler için.</p>
   </>
 );
+===END FILE===
