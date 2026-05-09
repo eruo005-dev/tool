@@ -1,4 +1,4 @@
-// Auto-generated from FreeToolArena pages.ts — 792 tools adapted for TeknoAraç
+// TeknoAraç araç kaydı — 771 Türkçe araç
 // Removed US-centric tools (401k, IRA, RV/boat loans, US tax, etc.)
 
 export interface Tool {
@@ -7449,6 +7449,12 @@ export const tools: Tool[] = [
 ];
 
 // ===== USER ADDITIONS: AI Writing, PDF, Image, Business Tools =====
+
+/** Sitemap için tüm araç slug'larını döndürür */
+export function getAllToolSlugs(): string[] {
+  return allTools.map((t: any) => t.slug);
+}
+
 export const newTools: Tool[] = [
   { slug: "ai-baslik-olusturucu", titleTr: "AI Başlık Oluşturucu", titleEn: "AI Başlık Oluşturucu", descriptionTr: "Yapay zeka ile SEO uyumlu başlıklar oluşturun.", descriptionEn: "Yapay zeka ile SEO uyumlu başlıklar oluşturun.", category: "ai", icon: "🤖", keyword: "ai başlık oluşturucu" },
   { slug: "ai-blog-fikir", titleTr: "AI Blog Fikir Üretici", titleEn: "AI Blog Fikir Üretici", descriptionTr: "Blogunuz için yapay zeka destekli içerik fikirleri.", descriptionEn: "Blogunuz için yapay zeka destekli içerik fikirleri.", category: "ai", icon: "💡", keyword: "ai blog fikir üretici" },

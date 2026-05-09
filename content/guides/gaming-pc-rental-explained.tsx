@@ -3,168 +3,165 @@
 export const intro = (
   <>
     <p>
-      Gaming PC rental — including event rental for tournaments and LAN parties — is
-      a smaller-than-expected market that fills specific gaps cleanly. This guide
-      covers the rental landscape: who rents, when it&rsquo;s worth it, and what
-      typical pricing looks like.
+      Oyun bilgisayarı kiralama — turnuvalar ve LAN partileri için etkinlik kiralaması dahil —
+      belirli boşlukları temiz bir şekilde dolduran, beklenenden daha küçük bir pazardır. Bu rehber,
+      kiralama ortamını kapsar: kim kiralar, ne zaman buna değer ve tipik fiyatlandırma nasıl görünür.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "categories", label: "Rental categories" },
-  { id: "pricing", label: "Typical rental pricing" },
-  { id: "events", label: "Event rentals (LAN parties, tournaments)" },
-  { id: "monthly", label: "Monthly subscription rentals" },
-  { id: "cloud", label: "Cloud gaming as alternative" },
+  { id: "categories", label: "Kiralama kategorileri" },
+  { id: "pricing", label: "Tipik kiralama fiyatlandırması" },
+  { id: "events", label: "Etkinlik kiralamaları (LAN partileri, turnuvalar)" },
+  { id: "monthly", label: "Aylık abonelik kiralamaları" },
+  { id: "cloud", label: "Alternatif olarak bulut oyun" },
 ];
 
 export const body = (
   <>
-    <h2 id="categories">Rental categories</h2>
+    <h2 id="categories">Kiralama kategorileri</h2>
     <ul>
       <li>
-        <strong>Event rental (1-day to 2-week):</strong> for tournaments, LAN parties,
-        gaming conventions, content creation. Rental services bring in or ship a
-        configured PC.
+        <strong>Etkinlik kiralaması (1 gün - 2 hafta):</strong> turnuvalar, LAN partileri,
+        oyun kongreleri, içerik oluşturma için. Kiralama hizmetleri, yapılandırılmış bir
+        bilgisayarı getirir veya gönderir.
       </li>
       <li>
-        <strong>Monthly subscription:</strong> long-term rental as alternative to
-        ownership. Useful for short-term assignments, students, anyone in temporary
-        living situations.
+        <strong>Aylık abonelik:</strong> sahipliğe alternatif olarak uzun vadeli kiralama.
+        Kısa süreli görevler, öğrenciler, geçici yaşam durumundaki herkes için kullanışlıdır.
       </li>
       <li>
-        <strong>Try-before-buy:</strong> some retailers offer 30-day return windows
-        on pre-built gaming PCs that effectively act as rentals.
+        <strong>Satın almadan önce dene:</strong> bazı perakendeciler, önceden monte edilmiş
+        oyun bilgisayarlarında etkili bir şekilde kiralama gibi çalışan 30 günlük iade pencereleri sunar.
       </li>
       <li>
-        <strong>Cloud gaming services:</strong> a different category — you keep your
-        existing display + peripherals; the PC computation runs in a data center.
+        <strong>Bulut oyun hizmetleri:</strong> farklı bir kategori — mevcut ekranınızı ve
+        çevre birimlerinizi korursunuz; bilgisayar hesaplaması bir veri merkezinde çalışır.
       </li>
     </ul>
 
-    <h2 id="pricing">Typical rental pricing</h2>
+    <h2 id="pricing">Tipik kiralama fiyatlandırması</h2>
     <ul>
       <li>
-        <strong>4-hour event rental:</strong> $100-300 depending on tier (RTX 4060
-        budget vs RTX 4080 high-end).
+        <strong>4 saatlik etkinlik kiralaması:</strong> seviyeye bağlı olarak 100-300 $ (RTX 4060
+        bütçe vs RTX 4080 üst seviye).
       </li>
       <li>
-        <strong>Daily rental:</strong> $80-200/day for a typical gaming PC.
+        <strong>Günlük kiralama:</strong> Tipik bir oyun bilgisayarı için günlük 80-200 $.
       </li>
       <li>
-        <strong>Weekly rental:</strong> $300-700/week.
+        <strong>Haftalık kiralama:</strong> Haftalık 300-700 $.
       </li>
       <li>
-        <strong>Monthly subscription:</strong> $80-200/month for mainstream gaming;
-        $200-400/month for high-end. Rent-A-Center and dedicated services like Aaron&rsquo;s
-        offer rent-to-own paths.
+        <strong>Aylık abonelik:</strong> Ana akım oyun için aylık 80-200 $;
+        üst seviye için aylık 200-400 $. Rent-A-Center ve Aaron's gibi özel hizmetler
+        kirala-sahip-ol yolları sunar.
       </li>
       <li>
-        <strong>Cloud gaming (GeForce Now Premium, Boosteroid Premium):</strong>{" "}
-        $10-20/month. Different value proposition — you trade ownership of the PC for
-        ongoing service fees and need a stable internet connection.
+        <strong>Bulut oyun (GeForce Now Premium, Boosteroid Premium):</strong>{" "}
+        Aylık 10-20 $. Farklı bir değer önerisi — bilgisayar sahipliğini devam eden
+        hizmet ücretleriyle takas edersiniz ve istikrarlı bir internet bağlantısına ihtiyacınız vardır.
       </li>
     </ul>
 
-    <h2 id="events">Event rentals — LAN parties, tournaments</h2>
+    <h2 id="events">Etkinlik kiralamaları — LAN partileri, turnuvalar</h2>
     <p>
-      The realistic situations where event rental beats ownership:
+      Etkinlik kiralamasının sahipliğe karşı kazandığı gerçekçi durumlar:
     </p>
     <ul>
       <li>
-        <strong>One-off tournament.</strong> You don&rsquo;t game daily but want
-        tournament-grade hardware for one weekend.
+        <strong>Tek seferlik turnuva.</strong> Her gün oyun oynamıyorsunuz ancak bir hafta sonu
+        için turnuva seviyesinde donanım istiyorsunuz.
       </li>
       <li>
-        <strong>Travel-friendly setup.</strong> You don&rsquo;t want to lug a desktop
-        to an event; the rental is at the venue.
+        <strong>Seyahat dostu kurulum.</strong> Bir etkinliğe masaüstü bilgisayar taşımak
+        istemiyorsunuz; kiralama mekanda.
       </li>
       <li>
-        <strong>Multi-machine LAN.</strong> Rent 4-6 matched machines for a single
-        weekend instead of buying 6 PCs you&rsquo;ll only use occasionally.
+        <strong>Çok makineli LAN.</strong> Sadece ara sıra kullanacağınız 6 bilgisayar satın almak
+        yerine tek bir hafta sonu için 4-6 uyumlu makine kiralayın.
       </li>
       <li>
-        <strong>Esports team practice space.</strong> Some teams rent rather than
-        commit capital to PCs that&rsquo;ll be obsolete in 3 years.
+        <strong>Espor takımı antrenman alanı.</strong> Bazı takımlar, 3 yıl içinde eskiyecek
+        bilgisayarlara sermaye bağlamak yerine kiralar.
       </li>
     </ul>
     <p>
-      Where event rental loses: anyone who games daily. The math doesn&rsquo;t work
-      vs annualized ownership cost above ~6 events/year. See our{" "}
-      <a href="/tools/pc-rental-vs-buy-calculator">rent vs buy calculator</a>.
+      Etkinlik kiralamasının kaybettiği yer: her gün oyun oynayan herkes. Matematik, yıllık
+      sahiplik maliyetine karşı yılda ~6 etkinliğin üzerinde işe yaramaz.{" "}
+      <a href="/tools/pc-rental-vs-buy-calculator">Kirala vs satın al hesaplayıcımıza</a> bakın.
     </p>
 
-    <h2 id="monthly">Monthly subscription rentals</h2>
+    <h2 id="monthly">Aylık abonelik kiralamaları</h2>
     <p>
-      Long-term rental is niche but real. The use cases:
+      Uzun vadeli kiralama niş ancak gerçektir. Kullanım durumları:
     </p>
     <ul>
       <li>
-        <strong>Student / temporary housing:</strong> moves often, doesn&rsquo;t want
-        to ship a PC each time.
+        <strong>Öğrenci / geçici konaklama:</strong> sık sık taşınır, her seferinde
+        bir bilgisayar göndermek istemez.
       </li>
       <li>
-        <strong>Short-term assignment:</strong> 6-month consultancy, internship.
+        <strong>Kısa süreli görev:</strong> 6 aylık danışmanlık, staj.
       </li>
       <li>
-        <strong>Cash flow constraints:</strong> can&rsquo;t buy outright; rent-to-own
-        spreads cost.
+        <strong>Nakit akışı kısıtlamaları:</strong> peşin satın alamaz; kirala-sahip-ol
+        maliyeti yayar.
       </li>
     </ul>
     <p>
-      The math vs ownership: monthly rentals are typically 3-5× the annualized cost
-      of ownership. You pay for the flexibility. Beyond 12 months, ownership wins
-      decisively.
+      Sahipliğe karşı matematik: aylık kiralamalar tipik olarak yıllık sahiplik maliyetinin
+      3-5 katıdır. Esneklik için ödersiniz. 12 aydan sonra, sahiplik kesin olarak kazanır.
     </p>
 
-    <h2 id="cloud">Cloud gaming as a rental alternative</h2>
+    <h2 id="cloud">Kiralama alternatifi olarak bulut oyun</h2>
     <p>
-      Cloud gaming services (GeForce Now, Boosteroid, Shadow PC) are a fundamentally
-      different value proposition:
+      Bulut oyun hizmetleri (GeForce Now, Boosteroid, Shadow PC) temelde farklı bir
+      değer önerisidir:
     </p>
     <ul>
       <li>
-        <strong>Pros:</strong> $10-20/month for mainstream tiers, no upfront cost,
-        no upgrades needed, plays on any device with a screen.
+        <strong>Artıları:</strong> Ana akım seviyeler için aylık 10-20 $, peşin maliyet yok,
+        yükseltme gerekmez, ekranı olan herhangi bir cihazda çalışır.
       </li>
       <li>
-        <strong>Cons:</strong> requires stable 50+ Mbps low-latency internet, doesn&rsquo;t
-        support all games, performance ceiling lower than top-end PCs, ongoing
-        subscription with no path to ownership.
+        <strong>Eksileri:</strong> istikrarlı 50+ Mbps düşük gecikmeli internet gerektirir,
+        tüm oyunları desteklemez, performans tavanı üst düzey bilgisayarlardan düşüktür,
+        sahipliğe giden yolu olmayan devam eden abonelik.
       </li>
       <li>
-        <strong>Best for:</strong> casual gamers, people in stable home internet
-        situations, anyone who doesn&rsquo;t want to maintain hardware.
+        <strong>En iyi olduğu yer:</strong> sıradan oyuncular, istikrarlı ev interneti
+        durumundaki kişiler, donanım bakımı yapmak istemeyen herkes.
       </li>
       <li>
-        <strong>Worst for:</strong> competitive multiplayer (latency), modders, anyone
-        in rural / low-bandwidth situations.
+        <strong>En kötü olduğu yer:</strong> rekabetçi çok oyunculu (gecikme), mod yapımcıları,
+        kırsal / düşük bant genişliği durumundaki herkes.
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Rent vs buy calculator (event use cases)",
+  label: "Kirala vs satın al hesaplayıcısı (etkinlik kullanım durumları)",
   targetSlug: "pc-rental-vs-buy-calculator",
 };
 
 export const faq = [
   {
-    q: "How much does gaming PC rental cost?",
-    a: "Event-rental (4-hour): $100-300. Daily: $80-200. Weekly: $300-700. Monthly subscription: $80-200/mo mainstream, $200-400/mo high-end. Cloud gaming services like GeForce Now Premium: $10-20/mo (different value prop — no PC ownership).",
+    q: "Oyun bilgisayarı kiralamanın maliyeti nedir?",
+    a: "Etkinlik kiralaması (4 saat): 100-300 $. Günlük: 80-200 $. Haftalık: 300-700 $. Aylık abonelik: Ana akım için aylık 80-200 $, üst seviye için aylık 200-400 $. GeForce Now Premium gibi bulut oyun hizmetleri: Aylık 10-20 $ (farklı değer önerisi — bilgisayar sahipliği yok).",
   },
   {
-    q: "Should I buy or rent a gaming PC for events?",
-    a: "Use our calculator. For 4 or fewer events/year at $180/event rental, renting wins. For 6+ events/year, ownership wins. Daily users always own. Cloud gaming wins for users with stable home internet who don't need top-end performance.",
+    q: "Etkinlikler için oyun bilgisayarı satın almalı mıyım yoksa kiralamalı mıyım?",
+    a: "Hesaplayıcımızı kullanın. Etkinlik başına 180 $ kiralama ile yılda 4 veya daha az etkinlik için kiralama kazanır. Yılda 6+ etkinlik için sahiplik kazanır. Günlük kullanıcılar her zaman sahiplenir. İstikrarlı ev interneti olan ve üst düzey performansa ihtiyaç duymayan kullanıcılar için bulut oyun kazanır.",
   },
   {
-    q: "Can you lease a gaming PC instead of buying?",
-    a: "Yes — Rent-A-Center, Aaron's, and dedicated services offer monthly rentals or rent-to-own paths. Typically 3-5× the annualized cost of ownership. Useful for cash-flow constraints, students, short-term assignments. Beyond 12 months, ownership wins decisively.",
+    q: "Satın almak yerine oyun bilgisayarı kiralayabilir miyim?",
+    a: "Evet — Rent-A-Center, Aaron's ve özel hizmetler aylık kiralamalar veya kirala-sahip-ol yolları sunar. Tipik olarak yıllık sahiplik maliyetinin 3-5 katı. Nakit akışı kısıtlamaları, öğrenciler, kısa süreli görevler için kullanışlıdır. 12 aydan sonra, sahiplik kesin olarak kazanır.",
   },
   {
-    q: "Best gaming PC rental for tournaments and LAN parties?",
-    a: "Event rental services that bring or ship matched-spec machines to your venue. Pricing $100-300 per machine for a 4-hour event. Useful when you need 4-6 machines for one weekend and don't want to buy them. Specifically search for 'gaming PC rental + [your city]' to find local services.",
+    q: "Turnuvalar ve LAN partileri için en iyi oyun bilgisayarı kiralaması?",
+    a: "Mekanınıza uyumlu özellikte makineler getiren veya gönderen etkinlik kiralama hizmetleri. 4 saatlik bir etkinlik için makine başına 100-300 $ fiyatlandırma. Bir hafta sonu için 4-6 makineye ihtiyacınız olduğunda ve bunları satın almak istemediğinizde kullanışlıdır. Yerel hizmetleri bulmak için özellikle 'oyun bilgisayarı kiralama + [şehriniz]' araması yapın.",
   },
 ];

@@ -1,434 +1,445 @@
 export const intro = (
   <>
     <p>
-      2026 yılı için şifre güvenliği konusunda eksiksiz bir rehber: entropi gerçekte nasıl çalışır,
-      neden &ldquo;P@ssw0rd123!&rdquo; zayıftır, neden &ldquo;correct horse battery
-      staple&rdquo; artık yeterli değildir ve mevcut saldırı yetenekleri karşısında hangi şifre
-      uzunluğu ve yapısı yeterlidir.
+      A complete reference for password security in 2026: how entropy actually works,
+      why &ldquo;P@ssw0rd123!&rdquo; is weak, why &ldquo;correct horse battery
+      staple&rdquo; is no longer enough, and what password length and structure are
+      sufficient given current attack capabilities.
     </p>
     <p>
-      Çoğu şifre tavsiyesi 2005 yılından kalma olup tehdit modelinin nasıl değiştiğini görmezden
-      gelir: kaba kuvvet artık darboğaz değildir (CSPRNG'ler ve uzunluk onu yener);
-      yeniden kullanım, kimlik avı ve kimlik bilgisi doldurma asıl sorundur. Bu rehber önce
-      matematiği, ardından pratik tavsiyeleri ele alır &mdash; her ikisi de halk bilgeliğine değil,
-      mevcut saldırgan yeteneklerine dayanır.
+      Most password advice is recycled from 2005 and ignores how the threat model
+      changed: brute-force is no longer the bottleneck (CSPRNGs and length defeat it);
+      reuse, phishing, and credential stuffing are. This guide walks through the math
+      first, then the practical guidance &mdash; both grounded in current attacker
+      capabilities, not folk wisdom.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "entropy-formula", label: "Entropi gerçekte ne anlama gelir" },
-  { id: "real-numbers", label: "Yapıya göre gerçek entropi (örneklerle)" },
-  { id: "attacker-speeds", label: "2026'da saldırgan hızları" },
-  { id: "diceware", label: "Diceware parolaları: matematik ve nasıl yapılır" },
-  { id: "managers", label: "Şifre yöneticileri: hangisi kullanılmalı" },
-  { id: "two-factor", label: "İki faktörlü kimlik doğrulama: neden önemlidir" },
-  { id: "common-myths", label: "Ölmeyen mitler" },
-  { id: "real-attacks", label: "Gerçek saldırılar: şifreler gerçekte nasıl sızdırılır" },
-  { id: "policies", label: "İyi şifre politikaları nasıl görünür" },
-  { id: "site-categories", label: "Site türüne göre uzunluk önerileri" },
-  { id: "checklist", label: "Kişisel güvenlik kontrol listesi" },
+  { id: "entropy-formula", label: "What entropy actually means" },
+  { id: "real-numbers", label: "Real entropy by structure (with examples)" },
+  { id: "attacker-speeds", label: "Attacker speeds in 2026" },
+  { id: "diceware", label: "Diceware passphrases: math and how-to" },
+  { id: "managers", label: "Password managers: which to use" },
+  { id: "two-factor", label: "Two-factor authentication: why it matters" },
+  { id: "common-myths", label: "Myths that won't die" },
+  { id: "real-attacks", label: "Real attacks: how passwords actually leak" },
+  { id: "policies", label: "What good password policies look like" },
+  { id: "site-categories", label: "Length recommendations by site type" },
+  { id: "checklist", label: "Personal security checklist" },
 ];
 
 export const body = (
   <>
-    <h2 id="entropy-formula">Entropi gerçekte ne anlama gelir</h2>
+    <h2 id="entropy-formula">What entropy actually means</h2>
     <p>
-      Şifre entropisi, öngörülemezliği bit cinsinden ölçer. Formül:
+      Password entropy measures unpredictability in bits. Formula:
     </p>
-    <pre>{`entropi = log2(havuz_boyutu) × uzunluk`}</pre>
+    <pre>{`entropy = log2(pool_size) × length`}</pre>
     <p>
-      Burada <code>havuz_boyutu</code> olası karakter sayısı ve
-      <code> uzunluk</code> şifre uzunluğudur. 26 harfli bir havuzdan 10 karakterli bir şifre:
-      log2(26) &times; 10 = 4,7 &times; 10 = 47 bit.
-    </p>
-    <p>
-      Bitler arama alanını ikiye katlar: 1 bit = 2 seçenek, 10 bit = 1.024 seçenek, 80 bit
-      = ~1,2 sekstilyon seçenek. Her ek bit, kaba kuvvetle kırma süresini ortalama ikiye katlar.
+      Where <code>pool_size</code> is the number of possible characters and
+      <code> length</code> is the password length. A 10-character password from a
+      26-letter pool: log2(26) &times; 10 = 4.7 &times; 10 = 47 bits.
     </p>
     <p>
-      <strong>Kritik uyarı</strong>: bu formül, karakterlerin eşit şekilde RASTGELE olduğunu varsayar.
-      &ldquo;qwerasdfzxcv&rdquo; şifresi teknik olarak 26'lık bir havuzdan 12 karakter kullanır (teorik olarak 56 bit),
-      ancak herhangi bir makul saldırganın ilk 10.000 şifresi arasındadır (~13 bit etkili). Formül size
-      mümkün olan maksimum entropiyi söyler; şifrenin buna ulaşıp ulaşmadığı nasıl oluşturulduğuna bağlıdır.
+      Bits double the search space: 1 bit = 2 options, 10 bits = 1,024 options, 80 bits
+      = ~1.2 sextillion options. Each additional bit doubles the average time to
+      brute-force.
+    </p>
+    <p>
+      <strong>Critical caveat</strong>: this formula assumes characters are uniformly
+      RANDOM. A password of &ldquo;qwerasdfzxcv&rdquo; technically uses 12 chars from a
+      26-pool (56 bits theoretical), but is in any sensible attacker&rsquo;s top 10,000
+      passwords (~13 bits effective). The formula tells you the maximum possible entropy;
+      whether the password achieves it depends on how it was generated.
     </p>
 
-    <h2 id="real-numbers">Şifre yapısına göre gerçek entropi</h2>
+    <h2 id="real-numbers">Real entropy by password structure</h2>
     <table>
       <thead>
         <tr>
-          <th>Şifre yapısı</th>
-          <th>Teorik entropi</th>
-          <th>Gerçek dünya entropisi</th>
-          <th>Kırma süresi (çevrimdışı GPU)</th>
+          <th>Password structure</th>
+          <th>Theoretical entropy</th>
+          <th>Real-world entropy</th>
+          <th>Crack time (offline GPU)</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>&ldquo;password&rdquo; (ilk 100 listesi)</td>
-          <td>38 bit</td>
-          <td>~7 bit</td>
-          <td>Anında (herhangi bir saldırgan sözlüğünde)</td>
+          <td>&ldquo;password&rdquo; (top-100 list)</td>
+          <td>38 bits</td>
+          <td>~7 bits</td>
+          <td>Instant (in any attacker dictionary)</td>
         </tr>
         <tr>
-          <td>&ldquo;P@ssw0rd123!&rdquo; (leet-speak yaygın kelime)</td>
-          <td>78 bit</td>
-          <td>~25 bit</td>
-          <td>Saniyeler (kural tabanlı sözlük saldırısı)</td>
+          <td>&ldquo;P@ssw0rd123!&rdquo; (leet-speak common word)</td>
+          <td>78 bits</td>
+          <td>~25 bits</td>
+          <td>Seconds (rule-based dictionary attack)</td>
         </tr>
         <tr>
-          <td>&ldquo;Tr1nity@2026&rdquo; (isim + yıl + sembol)</td>
-          <td>78 bit</td>
-          <td>~32 bit</td>
-          <td>Saatler</td>
+          <td>&ldquo;Tr1nity@2026&rdquo; (name + year + symbol)</td>
+          <td>78 bits</td>
+          <td>~32 bits</td>
+          <td>Hours</td>
         </tr>
         <tr>
-          <td>10 rastgele a-z karakteri</td>
-          <td>47 bit</td>
-          <td>47 bit</td>
-          <td>~3 gün (10⁹ tahmin/sn)</td>
+          <td>10 random a-z characters</td>
+          <td>47 bits</td>
+          <td>47 bits</td>
+          <td>~3 days at 10⁹ guesses/sec</td>
         </tr>
         <tr>
-          <td>10 rastgele a-zA-Z0-9</td>
-          <td>60 bit</td>
-          <td>60 bit</td>
-          <td>~36 yıl</td>
+          <td>10 random a-zA-Z0-9</td>
+          <td>60 bits</td>
+          <td>60 bits</td>
+          <td>~36 years</td>
         </tr>
         <tr>
-          <td>16 rastgele a-zA-Z0-9 + semboller (94 havuz)</td>
-          <td>105 bit</td>
-          <td>105 bit</td>
-          <td>10²² yıl (kırılamaz)</td>
+          <td>16 random a-zA-Z0-9 + symbols (94 pool)</td>
+          <td>105 bits</td>
+          <td>105 bits</td>
+          <td>10²² years (uncrackable)</td>
         </tr>
         <tr>
-          <td>20 rastgele karakter (94 havuz)</td>
-          <td>131 bit</td>
-          <td>131 bit</td>
-          <td>Evrenin ısı ölümü kadar kırılamaz</td>
+          <td>20 random characters (94 pool)</td>
+          <td>131 bits</td>
+          <td>131 bits</td>
+          <td>Heat-death-of-universe uncrackable</td>
         </tr>
         <tr>
-          <td>Diceware 4 rastgele kelime (7.776 kelimelik liste)</td>
-          <td>52 bit</td>
-          <td>52 bit</td>
-          <td>~yıl (10⁹/sn)</td>
+          <td>Diceware 4 random words (7,776-word list)</td>
+          <td>52 bits</td>
+          <td>52 bits</td>
+          <td>~year at 10⁹/sec</td>
         </tr>
         <tr>
-          <td>Diceware 6 rastgele kelime</td>
-          <td>77 bit</td>
-          <td>77 bit</td>
-          <td>~10⁶ yıl (10⁹/sn)</td>
+          <td>Diceware 6 random words</td>
+          <td>77 bits</td>
+          <td>77 bits</td>
+          <td>~10⁶ years at 10⁹/sec</td>
         </tr>
         <tr>
-          <td>Diceware 7 rastgele kelime</td>
-          <td>91 bit</td>
-          <td>91 bit</td>
-          <td>~10¹¹ yıl</td>
+          <td>Diceware 7 random words</td>
+          <td>91 bits</td>
+          <td>91 bits</td>
+          <td>~10¹¹ years</td>
         </tr>
       </tbody>
     </table>
     <p>
-      <strong>Çıkarımın özeti</strong>: insan tarafından seçilen şifreler, teorik entropilerinin
-      %60-80'ini kaybeder çünkü insanlar rastgele değildir. CSPRNG tarafından oluşturulan şifreler
-      (veya gerçek diceware atışları) teorik entropilerine ulaşır.
+      <strong>The shape of the takeaway</strong>: human-chosen passwords lose 60-80% of
+      their theoretical entropy because humans aren&rsquo;t random. CSPRNG-generated
+      passwords (or true diceware rolls) achieve their theoretical entropy.
     </p>
 
-    <h2 id="attacker-speeds">2026'da saldırgan hızları</h2>
+    <h2 id="attacker-speeds">Attacker speeds in 2026</h2>
     <p>
-      Kaba kuvvet hızları, hash algoritmasına ve donanıma bağlıdır. Gerçek sayılar:
+      Brute-force speeds depend on the hash algorithm and hardware. Real numbers:
     </p>
     <ul>
       <li>
-        <strong>MD5 (eski, kırık)</strong>: Tek bir üst düzey GPU'da (RTX 5090 veya benzeri) ~10¹¹ tahmin/sn.
-        Küme: 10¹³+. MD5, saldırganlar için tuzsuz olarak uygundur.
+        <strong>MD5 (legacy, broken)</strong>: ~10¹¹ guesses/sec on a single high-end GPU
+        (RTX 5090 or similar). Cluster: 10¹³+. MD5 is unsalted-friendly to attackers.
       </li>
       <li>
-        <strong>SHA-1 (kullanımdan kaldırıldı)</strong>: ~3 &times; 10¹⁰ tahmin/sn.
+        <strong>SHA-1 (deprecated)</strong>: ~3 &times; 10¹⁰ guesses/sec.
       </li>
       <li>
-        <strong>bcrypt maliyet 12 (varsayılan)</strong>: GPU'da ~30.000 tahmin/sn. Yavaş olacak şekilde
-        tasarlanmıştır. İyi korunan hizmetlerin çoğu bcrypt veya Argon2 kullanır.
+        <strong>bcrypt cost 12 (default)</strong>: ~30,000 guesses/sec on a GPU. Designed
+        to be slow. Most well-secured services use bcrypt or Argon2.
       </li>
       <li>
-        <strong>Argon2id (modern öneri)</strong>: Tipik parametrelerde ~10.000 tahmin/sn. Bellek yoğun,
-        GPU'ya dayanıklı.
+        <strong>Argon2id (modern recommendation)</strong>: ~10,000 guesses/sec at typical
+        parameters. Memory-hard, GPU-resistant.
       </li>
       <li>
-        <strong>scrypt</strong>: Parametrelere bağlı olarak ~50.000 tahmin/sn.
+        <strong>scrypt</strong>: ~50,000 guesses/sec depending on parameters.
       </li>
     </ul>
     <p>
-      <strong>Anlamı</strong>: Argon2id ile korunan 60 bit entropili şifreler, çevrimdışı kaba kuvvete
-      karşı esasen sonsuza kadar dayanır. MD5 ile korunan aynı şifreler günler içinde düşer. Hash
-      algoritması, şifre uzunluğu kadar önemlidir.
+      <strong>Implication</strong>: 60-bit entropy passwords protected by Argon2id
+      survive offline brute force essentially indefinitely. Same passwords protected by
+      MD5 fall in days. The hash algorithm matters as much as the password length.
     </p>
 
-    <h2 id="diceware">Diceware parolaları: matematik ve nasıl yapılır</h2>
+    <h2 id="diceware">Diceware passphrases: math and how-to</h2>
     <p>
-      Diceware, 7.776 kelimelik bir listeden kelimeler seçmek için fiziksel zar kullanır. Her kelime
-      log2(7.776) = 12,92 bit entropi sağlar. 5 zar atışı 5 haneli bir sayı üretir; bu sayı bir
-      kelimeye karşılık gelir.
+      Diceware uses physical dice to choose words from a 7,776-word list. Each word
+      contributes log2(7,776) = 12.92 bits of entropy. 5-die rolls produce a 5-digit
+      number; the number maps to a word.
     </p>
     <p>
-      <strong>Nasıl yapılır</strong>:
+      <strong>How to do it</strong>:
     </p>
     <ol>
-      <li>EFF uzun kelime listesini alın (eff.org/dice). 7.776 girişi vardır.</li>
-      <li>5 standart zar atın (veya bir zarı 5 kez). Değerleri soldan sağa 5 haneli bir sayı olarak okuyun, örn. 41524.</li>
-      <li>Listede bu sayıyı bulun. Bu sizin ilk kelimenizdir.</li>
-      <li>İstenen entropi için 5-7 kez tekrarlayın.</li>
-      <li>Kelimeleri boşluk veya benzersiz bir ayırıcı ile birleştirin: &ldquo;outlast-recolor-magnetic-finance-clutch-glaze&rdquo;.</li>
+      <li>Get the EFF long word list (eff.org/dice). It has 7,776 entries.</li>
+      <li>Roll 5 standard dice (or one die 5 times). Read the values left-to-right as a 5-digit number, e.g., 41524.</li>
+      <li>Look up that number in the list. That&rsquo;s your first word.</li>
+      <li>Repeat 5-7 times for the desired entropy.</li>
+      <li>Concatenate words with spaces or a unique separator: &ldquo;outlast-recolor-magnetic-finance-clutch-glaze&rdquo;.</li>
     </ol>
     <p>
-      <strong>Modern öneri</strong>: Sıradan şifreler için 6 kelime (77 bit), önemli şifreler için (ana şifre, bankacılık, hassas
-      hesaplar) 7 kelime (91 bit). Bir ayırıcı karakter eklemek veya bir kelimeyi büyük harfle yazmak birkaç ekstra bit
-      ekler ve kelime listesi tabanlı herhangi bir sözlük saldırısını kırar.
+      <strong>Modern recommendation</strong>: 6 words (77 bits) for ordinary passwords,
+      7 words (91 bits) for important ones (master password, banking, sensitive
+      accounts). Adding a separator character or capitalizing one word adds a few extra
+      bits and breaks any word-list-based dictionary attack.
     </p>
     <p>
-      <strong>Neden fiziksel zar?</strong> Bilgisayar tabanlı RNG'ler, CSPRNG'ler ise genellikle sorunsuzdur (tarayıcılarda
-      <code>crypto.getRandomValues()</code>, Python'da <code>secrets.choice()</code>). Ancak zarlar, kötü amaçlı yazılım
-      tarafından sessizce tehlikeye atılamayacak denetlenebilir rastgelelik sağlar.
+      <strong>Why physical dice?</strong> Computer-based RNGs are generally fine if
+      they&rsquo;re CSPRNGs (<code>crypto.getRandomValues()</code> in browsers,{" "}
+      <code>secrets.choice()</code> in Python). But dice provide audit-able randomness
+      that can&rsquo;t be silently compromised by malware.
     </p>
 
-    <h2 id="managers">Şifre yöneticileri: hangisi kullanılmalı</h2>
+    <h2 id="managers">Password managers: which to use</h2>
     <p>
-      Bir şifre yöneticisi, ölçekte gerçekten önemli olan tek şifre sorununu çözer:
-      <strong>yeniden kullanım</strong>. Bir yönetici olmadan, insanlar tipik olarak yüzlerce hesapta 5-10 şifreyi
-      yeniden kullanır; bir ihlal hepsini tehlikeye atar. Bir yönetici ile: her hesap benzersiz bir rastgele 20+ karakterli
-      şifre alır ve bir ana parola kasayı korur.
+      A password manager solves the only password problem that actually matters at scale:
+      <strong>reuse</strong>. Without a manager, humans typically reuse 5-10 passwords
+      across hundreds of accounts; one breach compromises all of them. With a manager:
+      every account gets a unique random 20+ char password, and one master passphrase
+      protects the vault.
     </p>
     <p>
-      <strong>En iyi seviye (önerilen)</strong>:
+      <strong>Top tier (recommended)</strong>:
     </p>
     <ul>
       <li>
-        <strong>Bitwarden</strong>: açık kaynak, bireysel kullanım için ücretsiz, premium için yılda 10 dolar.
-        Denetlenmiş, kendi barındırma seçeneği, güçlü şifreleme. Maliyet / özellikler / güven dengesi en iyisi.
+        <strong>Bitwarden</strong>: open-source, free for individual use, $10/year for
+        premium. Audited, host-it-yourself option, strong cryptography. Best balance of
+        cost / features / trust.
       </li>
       <li>
-        <strong>1Password</strong>: Bireysel için yılda 36 dolar, aile için yılda 60 dolar. Şık kullanıcı arayüzü,
-        tescilli ancak iyi denetlenmiş. Seyahat modu (sınırlarda kasaları gizler) benzersizdir.
+        <strong>1Password</strong>: $36/year individual, $60/year family. Polished UX,
+        proprietary but well-audited. Travel mode (hides vaults at borders) is unique.
       </li>
       <li>
-        <strong>KeePassXC</strong>: açık kaynak, ücretsiz, tamamen çevrimdışı. Kasayı yerel bir dosya olarak saklar.
-        Paranoyak kullanıcılar için en iyisi; kendi bulutunuz (Dropbox vb.) ile senkronize edin.
+        <strong>KeePassXC</strong>: open-source, free, fully offline. Stores vault as a
+        local file. Best for paranoid users; sync via your own cloud (Dropbox, etc.).
       </li>
     </ul>
     <p>
-      <strong>Tarayıcıya yerleşik (kabul edilebilir ancak daha az güvenli)</strong>: Chrome, Firefox,
-      Safari. Ücretsiz, kullanışlı. Kötü amaçlı yazılımlara karşı özel yöneticilerden daha az korumalıdır çünkü
-      kasa anahtarlarına tarayıcıda yerleşik saldırganların erişmesi daha kolaydır.
+      <strong>Browser-built-in (acceptable but less secure)</strong>: Chrome, Firefox,
+      Safari. Free, convenient. Less protected against malware than dedicated managers
+      because vault keys are easier for browser-resident attackers to access.
     </p>
     <p>
-      <strong>Kaçının</strong>: LastPass (zayıf ifşa ile birden çok ihlal), güvenlik denetimine açık olmayan
-      herhangi bir şifre yöneticisi, şifreleri düz metin olarak saklayan herhangi bir şey.
+      <strong>Avoid</strong>: LastPass (multiple breaches with poor disclosure), any
+      password manager not opened to security audit, anything storing passwords in plain
+      text.
     </p>
 
-    <h2 id="two-factor">İki faktörlü kimlik doğrulama: neden önemlidir</h2>
+    <h2 id="two-factor">Two-factor authentication: why it matters</h2>
     <p>
-      130 bitlik bir şifre bile kimlik avına (kullanıcının sahte bir siteye şifresini yazması) ve kimlik
-      bilgisi doldurmaya (saldırganın şifreyi başka bir ihlalden alması) karşı savunmasızdır. İki faktörlü
-      kimlik doğrulama (2FA), ikinci bir kimlik kanıtı ekler.
+      Even a 130-bit password is vulnerable to phishing (the user types it into a fake
+      site) and credential stuffing (attacker has the password from a different breach).
+      Two-factor authentication (2FA) adds a second proof of identity.
     </p>
     <p>
-      <strong>Güvenliğe göre sıralanmış yöntemler</strong>:
+      <strong>Methods, ranked by security</strong>:
     </p>
     <ol>
       <li>
-        <strong>Donanım güvenlik anahtarları (YubiKey, Titan)</strong>: 25-75 dolarlık USB veya NFC çubuğu.
-        Tasarım gereği kimlik avına dayanıklıdır; anahtar, isteği gerçek alan adına göre kriptografik olarak
-        imzalar. Yüksek riskli hesaplar (e-posta, finans, yönetici) için altın standarttır.
+        <strong>Hardware security keys (YubiKey, Titan)</strong>: $25-75 USB or NFC dongle.
+        Phishing-resistant by design; the key cryptographically signs the request scoped
+        to the real domain. The gold standard for high-stakes accounts (email, financial,
+        admin).
       </li>
       <li>
-        <strong>Passkeys (FIDO2/WebAuthn)</strong>: Modern işletim sistemlerine (iOS, Android,
-        macOS, Windows 11) yerleşiktir. Güvenlik anahtarlarıyla aynı kriptografik güçte; cihaz biyometrisini
-        kullanır. Kimlik doğrulamanın geleceği; büyük sitelerde kullanıma sunuluyor.
+        <strong>Passkeys (FIDO2/WebAuthn)</strong>: built-in to modern OSes (iOS, Android,
+        macOS, Windows 11). Same cryptographic strength as security keys; uses device
+        biometrics. The future of authentication; rolling out across major sites.
       </li>
       <li>
-        <strong>TOTP uygulamaları (Authy, Google Authenticator, 1Password)</strong>: Her 30 saniyede bir
-        değişen 6 haneli kod. Kimlik bilgisi doldurmaya karşı güçlü; karmaşık kimlik avına (gerçek zamanlı
-        aktarma saldırıları) karşı savunmasızdır. Güvenlik anahtarlarının desteklenmediği yerlerde bunu kullanın.
+        <strong>TOTP apps (Authy, Google Authenticator, 1Password)</strong>: 6-digit code
+        rotating every 30 seconds. Strong against credential stuffing; vulnerable to
+        sophisticated phishing (real-time relay attacks). Use this where security keys
+        aren&rsquo;t supported.
       </li>
       <li>
-        <strong>SMS</strong>: İkinci bir faktör, ancak SIM değiştirme saldırılarına karşı savunmasızdır (bir
-        saldırgan, operatörünüzü numaranızı aktarmaya ikna eder). Hiç yoktan iyidir; TOTP'den kötüdür.
-        Yüksek riskli hesaplar için kaçının.
+        <strong>SMS</strong>: a second factor, but vulnerable to SIM swap attacks (an
+        attacker convinces your carrier to transfer your number). Better than nothing;
+        worse than TOTP. Avoid for high-stakes accounts.
       </li>
     </ol>
     <p>
-      <strong>Pratik öneri</strong>: 2FA'yı sunulduğu her yerde etkinleştirin. E-posta, şifre yöneticisi ana
-      şifresi, bankacılık ve alan adı kayıt kuruluşu için passkeys veya donanım anahtarları kullanın. Diğer
-      her şey için TOTP. SMS yalnızca başka seçenek yoksa.
+      <strong>Practical recommendation</strong>: enable 2FA everywhere offered. Use
+      passkeys or hardware keys for email, password manager master, banking, and
+      domain registrar. TOTP for everything else. SMS only if no other option exists.
     </p>
 
-    <h2 id="common-myths">Ölmeyen mitler</h2>
+    <h2 id="common-myths">Myths that won&rsquo;t die</h2>
     <ul>
       <li>
-        <strong>&ldquo;Şifreleri her 90 günde bir değiştirin&rdquo;</strong>. NIST kılavuzu
-        (SP 800-63B), 2017'den beri zorunlu rotasyona KARŞI açıkça tavsiyede bulunur. Zorunlu
-        rotasyon daha zayıf şifreler üretir (insanlar &ldquo;1&rdquo; sonra &ldquo;2&rdquo; ekler...).
-        Bilinen bir ihlalden sonra rotasyon yapın, bir programa göre değil.
+        <strong>&ldquo;Change passwords every 90 days&rdquo;</strong>. NIST guidance
+        (SP 800-63B) explicitly recommends AGAINST mandatory rotation since 2017. Forced
+        rotation produces weaker passwords (humans add &ldquo;1&rdquo; then
+        &ldquo;2&rdquo;...). Rotate after a known breach, not on a schedule.
       </li>
       <li>
-        <strong>&ldquo;Bileşim kuralları şifreleri daha güçlü yapar&rdquo;</strong>. &ldquo;1 büyük harf,
-        1 sayı, 1 sembol&rdquo; kuralı, saldırganların önce denemeyi bildiği belirli kalıpları zorlar.
-        Modern kılavuz: yalnızca uzunluk gerektirin.
+        <strong>&ldquo;Composition rules make passwords stronger&rdquo;</strong>. The
+        &ldquo;1 uppercase, 1 number, 1 symbol&rdquo; convention forces specific patterns
+        attackers know to try first. Modern guidance: require length only.
       </li>
       <li>
-        <strong>&ldquo;İpucu soruları güvenliği artırır&rdquo;</strong>. Annenin kızlık soyadı, ilk araba,
-        favori öğretmen &mdash; tümü sosyal medyadan kolayca tahmin edilebilir veya toplanabilir.
-        NIST SP 800-63B, mevcut kılavuzda bunları yasaklar.
+        <strong>&ldquo;Hint questions improve security&rdquo;</strong>. Mother&rsquo;s
+        maiden name, first car, favorite teacher &mdash; all easily guessed or harvested
+        from social media. NIST SP 800-63B forbids them in current guidance.
       </li>
       <li>
-        <strong>&ldquo;Ana şifreyi yeniden kullanmayın&rdquo;</strong>. Önemsiz derecede doğru,
-        ancak özellikle: şifre yöneticinizin ana şifresi, sahip olduğunuz en yüksek değerli sırdır.
-        Benzersiz, uzun bir parola kullanın. Ezberleyin. Bir kasada saklamak üzere kağıda yazın (yöneticide değil).
+        <strong>&ldquo;Don&rsquo;t reuse master password&rdquo;</strong>. Trivially true,
+        but specifically: your password manager master is the highest-value secret you
+        own. Use a unique, long passphrase. Memorize it. Write it down on paper and store
+        in a safe (not in the manager).
       </li>
       <li>
-        <strong>&ldquo;HTTPS şifremi güvende yapar&rdquo;</strong>. HTTPS, şifrenizi aktarım sırasında
-        korur. Alıcı sunucunun tehlikeye atılmasına, şifrenin kötü niyetli bir klona avlanmasına veya şifre
-        yöneticisine saldırılmasına karşı koruma sağlamaz. Çok katmanlı savunma.
+        <strong>&ldquo;HTTPS makes my password secure&rdquo;</strong>. HTTPS protects
+        your password in transit. It doesn&rsquo;t protect against the receiving server
+        being compromised, the password being phished into a malicious clone, or the
+        password manager being attacked. Multi-layer defense.
       </li>
     </ul>
 
-    <h2 id="real-attacks">Gerçek saldırılar: şifreler gerçekte nasıl sızdırılır</h2>
+    <h2 id="real-attacks">Real attacks: how passwords actually leak</h2>
     <p>
-      Modern saldırganlar nadiren tek bir hesaba kaba kuvvet uygular. Gerçek saldırı modelleri:
+      Modern attackers rarely brute-force a single account. Real attack patterns:
     </p>
     <ol>
       <li>
-        <strong>Veritabanı ihlalleri</strong>: saldırgan bir sunucuyu tehlikeye atar, kullanıcı tablosunu
-        boşaltır. Hash'ler zayıfsa (MD5, SHA-1, tuzsuz), şifreler çevrimdışı olarak kurtarılır.
+        <strong>Database breaches</strong>: attacker compromises a server, dumps the user
+        table. If hashes are weak (MD5, SHA-1, unsalted), passwords are recovered offline.
         Have I Been Pwned (<a href="https://haveibeenpwned.com">haveibeenpwned.com</a>)
-        12+ milyar sızdırılmış kimlik bilgisini kataloglar.
+        catalogs 12+ billion breached credentials.
       </li>
       <li>
-        <strong>Kimlik bilgisi doldurma</strong>: saldırgan, bir ihlalden sızdırılmış kullanıcı adları+şifreleri
-        alır ve bunları diğer sitelerde dener. 2024-2025'te çoğu tüketici sitesindeki saldırıların ~%85'i
-        kimlik bilgisi doldurmadır. Savunma: site başına benzersiz şifreler.
+        <strong>Credential stuffing</strong>: attacker takes leaked usernames+passwords
+        from one breach and tries them on other sites. ~85% of attacks on most consumer
+        sites in 2024-2025 are credential stuffing. Defense: unique passwords per site.
       </li>
       <li>
-        <strong>Kimlik avı</strong>: saldırgan sahte bir giriş sayfası gönderir, kullanıcı gerçek
-        kimlik bilgilerini girer. Kurumsal ihlallerin %90'ından fazlası burada başlar. Savunma: passkeys / donanım
-        anahtarları (kimlik avına dayanıklı), eğitim, 2FA.
+        <strong>Phishing</strong>: attacker sends fake login page, user enters real
+        credentials. 90%+ of corporate breaches start here. Defense: passkeys / hardware
+        keys (phishing-resistant), education, 2FA.
       </li>
       <li>
-        <strong>Kötü amaçlı yazılım</strong>: keylogger, tarayıcı uzantısı hırsızı, şifre yöneticisi
-        saldırganı. Savunma: işletim sistemini ve tarayıcıyı güncel tutun, şifre yöneticisi bütünlüğünü
-        doğrulayın, en yüksek riskli hesaplar için donanım anahtarları kullanın.
+        <strong>Malware</strong>: keylogger, browser-extension stealer, password-manager
+        attacker. Defense: keep OS and browser patched, verify password manager
+        integrity, use hardware keys for highest-stakes accounts.
       </li>
       <li>
-        <strong>Sosyal mühendislik</strong>: bir müşteri hizmetleri temsilcisini hesabı sıfırlamaya
-        ikna etmek. Savunma: hesap kurtarma 2FA'sını etkinleştirin, güvenilir kişiler belirleyin, benzersiz
-        kurtarma e-postaları kullanın.
+        <strong>Social engineering</strong>: convincing a customer service rep to reset
+        the account. Defense: enable account-recovery 2FA, set up trusted contacts, use
+        unique recovery emails.
       </li>
       <li>
-        <strong>SIM değiştirme</strong>: saldırgan, operatörü numaranızı taşımaya ikna eder.
-        Savunma: SMS yerine TOTP / donanım anahtarları, operatör düzeyinde PIN'ler.
+        <strong>SIM swap</strong>: attacker convinces carrier to port your number.
+        Defense: TOTP / hardware keys instead of SMS, carrier-level PINs.
       </li>
     </ol>
     <p>
-      Dikkat edin: saf kaba kuvvet ilk 6'da değil. Gerçek saldırılar, entropiyi yeniden kullanım,
-      kimlik avı veya sosyal mühendislik yoluyla atlar. Bu nedenle şifre yöneticileri + 2FA,
-      &ldquo;gerçekten güçlü bir şifre&rdquo; seçmekten daha önemlidir.
+      Notice: pure brute-force isn&rsquo;t in the top 6. Real attacks bypass entropy via
+      reuse, phishing, or social engineering. That&rsquo;s why password managers + 2FA
+      matter more than choosing &ldquo;a really strong password.&rdquo;
     </p>
 
-    <h2 id="policies">İyi şifre politikaları nasıl görünür</h2>
+    <h2 id="policies">What good password policies look like</h2>
     <p>
-      Şifre kuralları belirleyen kuruluşlar için mevcut NIST kılavuzu (SP 800-63B):
+      For organizations setting password rules, current NIST guidance (SP 800-63B):
     </p>
     <ul>
-      <li>Minimum 8 karakter (12+ önerilir).</li>
-      <li>En az 64 karaktere izin verin.</li>
-      <li>TÜM yazdırılabilir Unicode'a (boşluklar ve emoji dahil) izin verin.</li>
-      <li>Bilinen ihlal listelerindeki şifreleri reddedin (HIBP API).</li>
-      <li>Bağlama özgü listelerdeki şifreleri reddedin (hizmet adınız, yaygın kullanıcı adları).</li>
-      <li>Bileşim kuralı YOK.</li>
-      <li>Zorunlu rotasyon YOK.</li>
-      <li>İpucu sorusu YOK.</li>
-      <li>Hash'leme için Argon2id, bcrypt maliyet 12+ veya scrypt kullanın. Asla MD5 veya SHA-1 kullanmayın.</li>
-      <li>Yönetici veya ayrıcalıklı erişime sahip herhangi bir hesap için 2FA gerektirin.</li>
-      <li>IP başına / kullanıcı başına başarısız denemelere dayalı kilitlenme politikaları, hız sınırlaması ile.</li>
+      <li>Minimum 8 characters (12+ recommended).</li>
+      <li>Allow at least 64 characters.</li>
+      <li>Allow ALL printable Unicode (including spaces and emoji).</li>
+      <li>Reject passwords on known-breach lists (HIBP API).</li>
+      <li>Reject passwords on context-specific lists (your service name, common usernames).</li>
+      <li>NO composition rules.</li>
+      <li>NO mandatory rotation.</li>
+      <li>NO hint questions.</li>
+      <li>Use Argon2id, bcrypt cost 12+, or scrypt for hashing. Never MD5 or SHA-1.</li>
+      <li>Require 2FA for any account with admin or privileged access.</li>
+      <li>Lockout policies based on failed attempts per IP / per user, with rate-limiting.</li>
     </ul>
 
-    <h2 id="site-categories">Site türüne göre uzunluk önerileri</h2>
+    <h2 id="site-categories">Length recommendations by site type</h2>
     <ul>
       <li>
-        <strong>Tek kullanımlık / düşük riskli (forumlar, haber siteleri, ücretsiz denemeler)</strong>: 12+
-        rastgele karakter.
+        <strong>Throwaway / low-stakes (forums, news sites, free trials)</strong>: 12+
+        random characters.
       </li>
       <li>
-        <strong>Sıradan (e-posta, sosyal medya, perakende, iş araçları)</strong>: 16+
-        rastgele karakter.
+        <strong>Ordinary (email, social media, retail, work tools)</strong>: 16+ random
+        characters.
       </li>
       <li>
-        <strong>Finansal (bankalar, aracı kurumlar, kripto borsaları)</strong>: 20+
-        rastgele karakter + donanım anahtarı veya passkey ile 2FA.
+        <strong>Financial (banks, brokerages, crypto exchanges)</strong>: 20+ random
+        characters + 2FA via hardware key or passkey.
       </li>
       <li>
-        <strong>Kritik (şifre yöneticisi ana şifresi, birincil e-posta, alan adı kayıt kuruluşu)</strong>:
-        diceware parolası 7+ kelime VEYA 24+ rastgele karakter + donanım anahtarı 2FA.
+        <strong>Critical (password manager master, primary email, domain registrar)</strong>:
+        diceware passphrase 7+ words OR 24+ random characters + hardware key 2FA.
       </li>
       <li>
-        <strong>Sunucu / SSH / API anahtarları</strong>: ed25519 veya RSA-4096 anahtarları, şifreler değil.
-        Özel anahtarlarda parolalar 7+ diceware kelimesi.
+        <strong>Server / SSH / API keys</strong>: ed25519 or RSA-4096 keys, not passwords.
+        Passphrases on private keys 7+ diceware words.
       </li>
     </ul>
 
-    <h2 id="checklist">Kişisel güvenlik kontrol listesi</h2>
+    <h2 id="checklist">Personal security checklist</h2>
     <ol>
-      <li>Bir şifre yöneticisi kurun (Bitwarden ücretsiz yeterlidir).</li>
-      <li>7 kelimelik bir diceware ana parolası belirleyin. Ezberleyin. Bir kasada kağıda saklayın.</li>
-      <li>Şifre yöneticisinde 2FA'yı etkinleştirin (donanım anahtarı veya passkey).</li>
-      <li>Mevcut şifreleri denetleyin: yeniden kullanılan var mı? Benzersiz 20+ karakterli şifreler oluşturun ve saklayın.</li>
-      <li>Tüm e-posta adreslerinizle <a href="https://haveibeenpwned.com">haveibeenpwned.com</a> adresinde eski ihlalleri denetleyin.</li>
-      <li>E-postada 2FA'yı etkinleştirin (diğer her şey için kurtarma vektörü). Donanım anahtarı veya passkey kullanın.</li>
-      <li>Bankacılık, aracı kurumlar ve alan adı kayıt kuruluşunda 2FA'yı etkinleştirin.</li>
-      <li>Hesap kurtarma 2FA'sı kurun: güvenilir kişiler, yazdırılmış kurtarma kodları, doğrulanmış yedek telefon.</li>
-      <li>Mümkün olan her yerde SMS 2FA'yı TOTP ile değiştirin.</li>
-      <li>Kullanılmayan uygulama izinlerini gözden geçirin ve iptal edin (Google, Apple, GitHub OAuth izinleri).</li>
-      <li>E-postanızı içeren yeni ihlaller için periyodik olarak kontrol edin (HIBP uyarı gönderebilir).</li>
+      <li>Install a password manager (Bitwarden free is fine).</li>
+      <li>Set a 7-word diceware master passphrase. Memorize it. Store on paper in a safe.</li>
+      <li>Enable 2FA on the password manager (hardware key or passkey).</li>
+      <li>Audit existing passwords: any reused? Get unique 20+ char ones generated and stored.</li>
+      <li>Audit old breaches at <a href="https://haveibeenpwned.com">haveibeenpwned.com</a> with all your email addresses.</li>
+      <li>Enable 2FA on email (the recovery vector for everything else). Use hardware key or passkey.</li>
+      <li>Enable 2FA on banking, brokerages, and domain registrar.</li>
+      <li>Set up account-recovery 2FA: trusted contacts, recovery codes printed, verified backup phone.</li>
+      <li>Replace SMS 2FA with TOTP wherever possible.</li>
+      <li>Review and revoke unused app permissions (Google, Apple, GitHub OAuth grants).</li>
+      <li>Check periodically for new breaches involving your email (HIBP can alert).</li>
     </ol>
 
-    <h2>80/20 çıkarımı</h2>
+    <h2>The 80/20 takeaway</h2>
     <p>
-      Matematik açıktır: 80+ bit gerçek entropi, kaba kuvvetle kırılamaz. 130+
-      bit sonsuza kadar kırılamaz. <a href="/tools/password-generator">Şifre
-      oluşturucu</a> varsayılan olarak 130 bitlik şifreler üretir. Zor sorunlar güç
-      değildir &mdash; bunlar yeniden kullanım (bir şifre yöneticisi ile çözün), kimlik avı
-      (donanım anahtarları / passkeys ile çözün) ve eski ihlallerdir (HIBP denetimi ve
-      gelecekte benzersiz şifreler ile çözün).
+      The math is clear: 80+ bits of true entropy is uncrackable by brute force. 130+
+      bits is uncrackable forever. The <a href="/tools/password-generator">password
+      generator</a> outputs 130-bit passwords by default. The hard problems aren&rsquo;t
+      strength &mdash; they&rsquo;re reuse (solve with a password manager), phishing
+      (solve with hardware keys / passkeys), and old breaches (solve with HIBP audit and
+      unique passwords going forward).
     </p>
     <p>
-      Üç şey yaparsanız: (1) benzersiz 20+ karakterli şifrelerle bir şifre yöneticisi kullanın,
-      (2) e-postanızda ve şifre yöneticinizde donanım anahtarı veya passkey 2FA'sını etkinleştirin,
-      (3) her 6 ayda bir yeni ihlaller için HIBP'yi kontrol edin &mdash; gerçek dünya saldırı
-      vektörlerinin %95'ini halletmiş olursunuz. Kalan %5 (karmaşık kimlik avı, tedarik zinciri
-      kötü amaçlı yazılımı) kurumsal savunmalar gerektirir; bireyler için bu üç adım sizi güvenlik
-      duruşunda ilk %1'e sokar.
+      If you do three things: (1) use a password manager with unique 20+ char passwords,
+      (2) enable hardware-key or passkey 2FA on your email and password manager,
+      (3) check HIBP every 6 months for new breaches &mdash; you&rsquo;ve handled 95% of
+      real-world attack vectors. The remaining 5% (sophisticated phishing, supply-chain
+      malware) requires organizational defenses; for individuals, those three steps put
+      you in the top 1% of security posture.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Kriptografik olarak rastgele 130 bitlik şifreler oluşturun",
+  label: "Generate cryptographically random 130-bit passwords",
   targetSlug: "password-generator",
 };
 
 export const faq = [
   {
-    q: "12 karakterlik rastgele bir şifreyi kırmak ne kadar sürer?",
-    a: "Karakter havuzuna ve hash algoritmasına bağlıdır. 12 rastgele alfanümerik karakter (a-zA-Z0-9, 62 havuz) = ~71 bit entropi. Tüketici GPU'sunda 10¹¹ tahmin/sn ile MD5'e (kırık hash) karşı: ortalama ~750 yıl. bcrypt maliyet 12'ye ~30.000 tahmin/sn ile: ~10¹⁵ yıl (ısı ölümü kırılamaz). Aynı şifre Argon2id'e karşı: benzer. Hash algoritması, şifre uzunluğu kadar önemlidir. Çoğu modern hizmet bcrypt veya Argon2id kullanır. Kamu hizmeti: herhangi bir sızıntı olup olmadığını bilmek için hesaplarınızda HIBP şifre izlemeyi etkinleştirin.",
+    q: "How long does it take to crack a 12-character random password?",
+    a: "Depends on character pool and hash algorithm. 12 random alphanumeric chars (a-zA-Z0-9, 62 pool) = ~71 bits entropy. Against MD5 (broken hash) at 10¹¹ guesses/sec on consumer GPU: ~750 years average. Against bcrypt cost 12 at ~30,000 guesses/sec: ~10¹⁵ years (heat-death uncrackable). Same password against Argon2id: similar. The hash algorithm matters as much as the password length. Most modern services use bcrypt or Argon2id. Public service: enable HIBP password monitoring on your accounts to know if any leak.",
   },
   {
-    q: "'correct horse battery staple' hala güçlü bir parola mı?",
-    a: "Yalnızca ~44 bit entropidir (küçük bir listeden 4 rastgele kelime) ve artık saldırgan sözlüklerinde birebir yer alacak kadar ünlüdür. Modern kılavuz: 7.776 kelimelik EFF diceware listesinden 6-7 rastgele kelime = 77-91 bit. Kelime listesi sözlük saldırılarına karşı direnç için bir ayırıcı karakter ekleyin veya bir kelimeyi büyük harfle yazın. Fiziksel zar veya bir CSPRNG (tarayıcılarda crypto.getRandomValues) ile oluşturun. Sonucu ezberleyin. Bunu hafızadan yazmanız gereken her şey için kullanın: şifre yöneticisi ana şifresi, tam disk şifreleme.",
+    q: "Is 'correct horse battery staple' still a strong passphrase?",
+    a: "It's only ~44 bits entropy (4 random words from a small list), and it's now famous enough to be in attacker dictionaries verbatim. Modern guidance: 6-7 random words from the 7,776-word EFF diceware list = 77-91 bits. Add a separator character or capitalize one word for resistance to word-list dictionary attacks. Generate with physical dice or a CSPRNG (crypto.getRandomValues in browsers). Memorize the result. Use this for anything you must type from memory: password manager master, full-disk encryption.",
   },
   {
-    q: "Güçlü bir şifre oluşturmanın en güvenli yolu nedir?",
-    a: "Bir şifre yöneticisinin yerleşik oluşturucusunu VEYA bir CSPRNG tabanlı aracı (Web Crypto'nun getRandomValues'ını kullanan şifre oluşturucumuz gibi) kullanın. Her ikisi de kriptografik olarak rastgele çıktı üretir. ASLA Math.random() (tahmin edilebilir), şifrenizi sunucularına gönderen çevrimiçi siteler (genellikle günlüğe kaydedilir) veya kendi 'rastgele görünen' dizinizi (insanlar rastgele değildir) kullanmayın. Ezberlemeniz gereken şifreler için: 6-7 kelimelik bir parola oluşturmak üzere EFF diceware kelime listesini kullanarak fiziksel zar atın. Oluşturduktan sonra entropiyi doğrulayın; KeePassXC gibi araçlar, kelime listesi saldırılarını hesaba katan entropi tahminleri gösterir.",
+    q: "What's the safest way to generate a strong password?",
+    a: "Use a password manager's built-in generator OR a CSPRNG-based tool (like our password generator that uses Web Crypto's getRandomValues). Both produce cryptographically random output. NEVER use Math.random() (predictable), online sites that send your password to their server (often logged), or your own 'random-looking' string (humans aren't random). For passwords you must memorize: roll physical dice using the EFF diceware word list to generate a 6-7 word passphrase. Verify the entropy after generation; tools like KeePassXC show entropy estimates that account for word-list attacks.",
   },
   {
-    q: "Modern şifre politikalarının çoğu neden bileşim kurallarını atlıyor?",
-    a: "NIST SP 800-63B (2017+), bileşim kurallarına ('1 büyük harf, 1 rakam, 1 sembol içermelidir') KARŞI açıkça tavsiyede bulunur. Nedenleri: (1) Saldırganların önce denemeyi bildiği belirli kalıpları zorlarlar ('Password1!' çoğu kuralı karşılar). (2) İnsan yaratıcılığını sınırlayarak daha zayıf şifreler üretirler. (3) Kullanıcıların şifreleri yazmasına veya siteler arasında küçük varyasyonları yeniden kullanmasına neden olurlar. Modern politika: yalnızca uzunluk gerektirin (12+ karakter), bilinen ihlal şifrelerini reddedin (HIBP API), tüm yazdırılabilir Unicode'a izin verin. Sonuç: daha az kullanıcı sürtüşmesiyle daha güçlü gerçek dünya şifreleri.",
+    q: "Why do most modern password policies skip composition rules?",
+    a: "NIST SP 800-63B (2017+) explicitly recommends AGAINST composition rules ('must contain 1 uppercase, 1 digit, 1 symbol'). Reasons: (1) They force specific patterns attackers know to try first ('Password1!' satisfies most rules). (2) They produce weaker passwords by limiting human creativity. (3) They cause users to write down passwords or reuse minor variations across sites. Modern policy: require length only (12+ chars), reject known-breach passwords (HIBP API), allow all printable Unicode. The result: stronger real-world passwords with less user friction.",
   },
 ];

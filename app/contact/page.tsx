@@ -1,5 +1,20 @@
 import type { Metadata } from "next";
-export const metadata: Metadata = { title: "İletişim — TeknoAraç", description: "TeknoAraç ile iletişime geçin. Araç önerileri, sorular ve geri bildirim için bize yazın." };
+export const metadata: Metadata = {
+  title: "İletişim | TeknoAraç",
+  description: "TeknoAraç ile iletişime geçin — öneri, şikayet ve işbirliği için bize ulaşın.",
+  keywords: ["iletişim", "destek", "geri bildirim", "TeknoAraç"],
+  alternates: { canonical: "https://teknoarac.com/iletisim" },
+  openGraph: {
+    title: "İletişim | TeknoAraç",
+    description: "TeknoAraç ile iletişime geçin — öneri, şikayet ve işbirliği için bize ulaşın.",
+    url: "https://teknoarac.com/iletisim",
+    siteName: "TeknoAraç",
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: "TeknoAraç" }],
+  },
+  twitter: { card: "summary_large_image", title: "İletişim", description: "TeknoAraç ile iletişime geçin.", images: ["/og-image.svg"] },
+};
 
 export default function ContactPage() {
   return (

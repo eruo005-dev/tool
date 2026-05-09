@@ -1,8 +1,20 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hakkımızda — TeknoAraç",
+  title: "Hakkımızda | TeknoAraç",
   description: "TeknoAraç, Türkiye'nin dijital araç kutusu. 770+ ücretsiz çevrimiçi araç, tamamen Türkçe, reklamsız.",
+  keywords: ["hakkımızda", "TeknoAraç", "Türkçe araçlar", "ücretsiz araçlar"],
+  alternates: { canonical: "https://teknoarac.com/hakkinda" },
+  openGraph: {
+    title: "Hakkımızda | TeknoAraç",
+    description: "TeknoAraç, Türkiye'nin dijital araç kutusu.",
+    url: "https://teknoarac.com/hakkinda",
+    siteName: "TeknoAraç",
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
+  },
+  twitter: { card: "summary_large_image", title: "Hakkımızda", images: ["/og-image.svg"] },
 };
 
 export default function AboutPage() {

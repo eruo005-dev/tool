@@ -2,20 +2,32 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    OpenHands (eski adıyla OpenDevin), kendinizin çalıştırdığı açık kaynaklı, otonom bir kodlama aracısıdır. Bir depoyu işaret eder, ona bir görev verirsiniz; plan yapar, dosyaları düzenler, bir kabuk çalıştırır ve görev başarılı olana kadar tekrarlar. Devin'e en yakın açık kaynak alternatifidir — karşılığında altyapıyı ve API anahtarını siz sağlarsınız.
+    OpenHands (the project formerly known as OpenDevin) is an open-source
+    autonomous coding agent you run yourself. You point it at a repo, give
+    it a task, and it plans, edits files, runs a shell, and iterates until
+    the task passes. It&rsquo;s the closest open-source equivalent to Devin,
+    with the tradeoff that you provide the infrastructure and the API key.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>OpenHands aslında nedir</h2>
+    <h2>What OpenHands actually is</h2>
     <p>
-      OpenHands, All Hands AI ekibi ve geniş bir katkıda bulunanlar topluluğu tarafından sürdürülen bir Python + TypeScript projesidir. Bir web arayüzü, başsız bir mod ve bir dizi aracı kişiliği sunar (varsayılan CodeActAgent'dır). Aracı, sandbox'lanmış bir Docker konteyneri içinde çalışır; bu, ana makinenize dokunmadan ona gerçek bir kabuk, bir tarayıcı ve bir dosya düzenleyici sağlar. Siz <a href="/learn/llm">LLM</a>'yi getirirsiniz — Anthropic, OpenAI, Groq, LiteLLM aracılığıyla yerel modeller veya OpenAI uyumlu herhangi bir şeyle konuşur.
+      OpenHands is a Python + TypeScript project maintained by the All Hands
+      AI team and a large contributor base. It ships a web UI, a headless
+      mode, and a set of agent personas (CodeActAgent is the default). The
+      agent runs inside a sandboxed Docker container, which gives it a real
+      shell, a browser, and a file editor without touching your host. You
+      bring the <a href="/learn/llm">LLM</a> &mdash; it talks to Anthropic, OpenAI, Groq, local models
+      via LiteLLM, or anything OpenAI-compatible.
     </p>
 
-    <h2>Kurulum</h2>
+    <h2>Setting it up</h2>
     <p>
-      En hızlı yol, önceden oluşturulmuş Docker imajıdır. Docker Desktop (veya motor + compose) ve kullanmayı planladığınız model için bir API anahtarına ihtiyacınız vardır.
+      The fastest path is the prebuilt Docker image. You need Docker
+      Desktop (or engine + compose) and an API key for whichever model
+      you plan to use.
     </p>
     <pre>{`docker run -it --rm --pull=always \\
   -e SANDBOX_RUNTIME_CONTAINER_IMAGE=docker.all-hands.dev/all-hands-ai/runtime:latest \\
@@ -26,27 +38,55 @@ export const body: ReactElement = (
   --name openhands-app \\
   docker.all-hands.dev/all-hands-ai/openhands:latest`}</pre>
     <p>
-      <code>http://localhost:3000</code> adresini açın, API anahtarınızı ayarlar sayfasına yapıştırın, bir model seçin (Claude Opus 4.7 ve GPT-5 en yetenekli seçeneklerdir) ve kullanmaya başlayın.
+      Open <code>http://localhost:3000</code>, paste your API key on the
+      settings page, pick a model (Claude Opus 4.7 and GPT-5 are the
+      strongest choices), and you&rsquo;re live.
     </p>
 
-    <h2>İlk oturumunuz</h2>
+    <h2>Your first session</h2>
     <p>
-      Bir depoyu çekmek için GitHub bağlayıcısını kullanın veya <code>-v /path/to/repo:/workspace</code> ile yerel bir klasörü bağlayın. Küçük bir şeyle başlayın: "<code>{`{ "ok": true }`}</code> döndüren bir <code>/health</code> uç noktası ve geçen bir test ekleyin." Olay akışını izleyin — düşündüğünü, <code>ls</code> çalıştırdığını, dosyaları açtığını, düzenlemeler yaptığını, testleri çalıştırdığını ve başarısızlıkta yeniden denediğini göreceksiniz. Çığırından çıkarsa, durdur düğmesine basın. Döngü budur.
+      Use the GitHub connector to pull in a repo, or mount a local folder
+      with <code>-v /path/to/repo:/workspace</code>. Start with something
+      contained: &ldquo;add a <code>/health</code> endpoint that returns
+      <code>{`{ "ok": true }`}</code> and a passing test.&rdquo; Watch the
+      event stream &mdash; you&rsquo;ll see it think, run <code>ls</code>,
+      open files, make edits, run tests, and retry on failure. If it
+      goes off the rails, click stop. That&rsquo;s the whole loop.
     </p>
 
-    <h2>Gerçekçi bir iş akışı</h2>
+    <h2>A realistic workflow</h2>
     <p>
-      OpenHands'i bir dalda çalışan bir stajyer olarak düşünün. Bir özellik dalı oluşturun, görevi kısa bir brifing olarak yazın (ne, nerede, kısıtlamalar, tamamlama kriterleri) ve çalışmasına izin verin. Değişiklikleri bir PR gibi inceleyin — testleri yerel olarak çalıştırın, ilgisiz düzenlemeleri tarayın, commit mesajlarına bakın. Birkaç dosyadan daha büyük herhangi bir şey için, görevi alt görevlere bölün ve bağlamı dar ve ucuz tutmak için bunları ayrı oturumlar olarak çalıştırın.
+      Treat OpenHands like a junior on a branch. Create a feature branch,
+      write the task as a short brief (what, where, constraints, done
+      criteria), and let it work. Review the diff like a PR &mdash; run
+      the tests locally, skim for unrelated edits, look at the commit
+      messages. For anything bigger than a couple of files, break it into
+      sub-tasks and run them as separate sessions so the context stays
+      tight and cheap.
     </p>
 
-    <h2>Tuzaklar ve sınırlamalar</h2>
+    <h2>Gotchas and limits</h2>
     <p>
-      En büyüğü maliyettir — döngü yapan bir aracı, token'ları hızla tüketir. Ayarlarda maksimum bir yineleme sınırı belirleyin (20–40 makul bir başlangıç sınırıdır) ve API panelinizi izleyin. Docker içinde Docker gereksinimi gerçektir; Windows/WSL'de ara sıra soket izni sorunlarıyla karşılaşırsınız — kullanıcınızı <code>docker</code> grubuna ekleyerek düzeltin. Ayrıca, testleri olmayan depolarda "bitti" sinyali olmadığı için zorlanır. Kendi çalışmasını doğrulaması için bir yol verin.
+      The big one is cost &mdash; an agent that loops burns tokens fast.
+      Set a max-iterations cap in settings (20&ndash;40 is a reasonable
+      starting ceiling) and watch your API dashboard. The Docker-in-Docker
+      requirement is real; on Windows/WSL you&rsquo;ll occasionally hit
+      socket permission issues &mdash; fix them by adding your user to the
+      <code>docker</code> group. It also struggles on repos with no tests
+      because it has no signal for &ldquo;done.&rdquo; Give it a way to
+      verify its own work.
     </p>
 
-    <h2>Ne ZAMAN kullanılmamalı</h2>
+    <h2>When NOT to use it</h2>
     <p>
-      Tek dosyalı otomatik tamamlama için OpenHands'i atlayın — GitHub Copilot veya Cursor daha hızlıdır. Belirleyici düzenlemeler gerektiren üretim olayları için atlayın — terminalde Claude Code kullanan bir insan, bir planlama aracısından gecikme açısından daha iyidir. Ve sandbox belgelerini okuyup model sağlayıcınızın veri politikasının risk toleransınıza uyup uymadığına karar verene kadar, sırlarla dolu özel bir depoya yöneltmeyin. Operasyon işi olmayan barındırılan alternatifler için Devin ve Replit Agent kılavuzlarımıza bakın.
+      Skip OpenHands for single-file autocomplete &mdash; GitHub Copilot or
+      Cursor is faster. Skip it for production incidents where you need
+      deterministic edits &mdash; a human with Claude Code in the terminal
+      will beat a planning agent on latency. And don&rsquo;t point it at a
+      private repo full of secrets until you&rsquo;ve read the sandbox docs
+      and decided whether your model provider&rsquo;s data policy matches
+      your risk tolerance. For hosted alternatives without the ops work,
+      see our guides on Devin and Replit Agent.
     </p>
   </>
 );

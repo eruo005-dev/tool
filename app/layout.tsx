@@ -1,16 +1,32 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
+const SITE_NAME = "TeknoAraç";
+const SITE_URL = "https://teknoarac.com";
+const SITE_DESC = "Türkiye'nin Dijital Araç Kutusu — 771+ ücretsiz çevrimiçi araç, 591 rehber ve 19 oyun. KD Hesaplama, metin araçları, PDF araçları ve daha fazlası.";
+const SITE_KEYWORDS = ["ücretsiz araçlar", "online araçlar", "hesaplama", "metin stilleri", "PDF araçları", "görsel araçları", "Türkçe araçlar", "dönüştürücü", "teknoaraç"];
+
 export const metadata: Metadata = {
-  title: "TeknoAraç — Türkiye'nin Dijital Araç Kutusu",
-  description: "770'ten fazla ücretsiz çevrimiçi araç, 590'dan fazla rehber. KD Hesaplama, metin araçları, oyunlar ve çok daha fazlası.",
-  keywords: "ücretsiz araçlar, online araçlar, KD hesaplama, metin stilleri, PDF araçları, görsel araçları, Türkçe araçlar",
-  robots: "index, follow",
+  title: SITE_NAME + " — " + SITE_DESC.split(" —")[0],
+  description: SITE_DESC,
+  keywords: SITE_KEYWORDS,
+  metadataBase: new URL(SITE_URL),
+  alternates: { canonical: SITE_URL },
+  robots: { index: true, follow: true },
   openGraph: {
-    title: "TeknoAraç — Türkiye'nin Dijital Araç Kutusu",
-    description: "770'den fazla ücretsiz çevrimiçi araç. Sadece Türkiye için, sadece Türkçe.",
-    type: "website",
+    title: SITE_NAME + " — " + SITE_DESC.split(" —")[0],
+    description: SITE_DESC,
+    url: SITE_URL,
+    siteName: SITE_NAME,
     locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630, alt: SITE_NAME }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE_NAME,
+    description: SITE_DESC,
+    images: ["/og-image.svg"],
   },
 };
 

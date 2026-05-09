@@ -1,0 +1,48 @@
+# TeknoAraç - Türkiye'nin Dijital Araç Kutusu
+
+> 771+ ücretsiz çevrimiçi araç, 591 rehber ve 19 tarayıcı oyunu.
+> Türkçe, reklamsız, kayıt gerektirmez.
+
+## Site Yapısı
+
+- Ana Sayfa: https://teknoarac.com
+- Araçlar: https://teknoarac.com/araclar
+- Kategoriler: https://teknoarac.com/araclar?kategori=yazi | ?kategori=hesap | ?kategori=goruntu | ?kategori=pdf | ?kategori=gelistirici
+- Rehberler: https://teknoarac.com/rehberler
+- Oyunlar: https://teknoarac.com/oyunlar
+- Hakkımızda: https://teknoarac.com/hakkinda
+- İletişim: https://teknoarac.com/iletisim
+
+## Politikalar
+
+- Gizlilik: https://teknoarac.com/gizlilik
+- Kullanım Şartları: https://teknoarac.com/kullanim-sartlari
+- Çerezler: https://teknoarac.com/cerezler
+
+## Teknik Detaylar
+
+- Framework: Next.js 16 + TypeScript + Tailwind CSS v4
+- Hosting: Vercel
+- Statik site, tüm araçlar istemci tarafında çalışır
+- 8 yeniden kullanılabilir bileşen motoru ile 771 araca güç sağlar
+- 2.684 statik sayfa
+
+## API / Veri
+
+- Araç kaydı: lib/tools.ts (771 araç, Türkçe başlık/açıklama)
+- Rehber kaydı: content/guides/registry.tsx (591 rehber)
+- Akıllı yönlendirici: app/tools/[slug]/ToolClient.tsx
+- Oyun bileşenleri: app/tools/[slug]/games.tsx
+
+## Kategoriler
+
+- Metin araçları (~50)
+- Hesaplama araçları (~400)
+- Dönüştürücüler (~60)
+- Görüntü araçları (~15)
+- PDF araçları (~10)
+- Geliştirici araçları (~50)
+- Medya araçları (~12)
+- Üretken araçlar (~30)
+- Zamanlayıcı araçları (~10)
+- Oyunlar (19)

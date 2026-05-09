@@ -10,7 +10,7 @@ export const body: ReactElement = (
   <>
     <h2>Pydantic AI aslında nedir</h2>
     <p>
-      Model API'leri (OpenAI, Anthropic, Gemini, Groq, Ollama, Bedrock) etrafında ince, tipli bir sarmalayıcıdır ve her yanıtı bir Pydantic modelinden geçmeye zorlar. Bir <code>result_type</code> ile bir <code>Agent</code> tanımlar, araçları dekore edilmiş Python fonksiyonları olarak bağlarsınız ve çerçeve JSON-şeması oluşturma, doğrulama ve yeniden deneme döngülerini halleder. Sonuç, <code>response[&quot;choices&quot;][0][...]</code> yerine tam IDE otomatik tamamlama ile <code>.attribute</code> erişebileceğiniz bir nesnedir.
+      Model API'leri (OpenAI, Anthropic, Gemini, Groq, Ollama, Bedrock) etrafında ince, tipli bir sarmalayıcıdır ve her yanıtı bir Pydantic modelinden geçmeye zorlar. Bir <code>result_type</code> ile bir <code>Agent</code> tanımlar, araçları dekore edilmiş Python fonksiyonları olarak bağlarsınız ve çerçeve JSON-şeması oluşturma, doğrulama ve yeniden deneme döngülerini halleder. Sonuç, <code>response["choices"][0][...]</code> yerine tam IDE otomatik tamamlama ile <code>.attribute</code> erişebileceğiniz bir nesnedir.
     </p>
     <p>
       LangChain ile karşılaştırıldığında daha küçük, daha katı ve gerçekten tiplidir. Ham API çağrılarına kıyasla size yapılandırılmış çıktı, şema uyuşmazlığında otomatik yeniden denemeler ve <code>deps_type</code> sistemi aracılığıyla bağımlılıkları (veritabanı oturumları, API istemcileri) asmak için standart bir yer sağlar.
@@ -23,7 +23,7 @@ export const body: ReactElement = (
 pip install "pydantic-ai[openai]"
 pip install "pydantic-ai[anthropic]"`}</pre>
     <p>
-      Sağlayıcı API anahtarını ortam değişkenlerinize ayarlayın (<code>OPENAI_API_KEY</code>, <code> ANTHROPIC_API_KEY</code>, vb.). Python 3.9 veya daha yeni.
+      Sağlayıcı API anahtarını ortam değişkenlerinize ayarlayın (<code>OPENAI_API_KEY</code>, <code>ANTHROPIC_API_KEY</code>, vb.). Python 3.9 veya daha yeni.
     </p>
 
     <h2>İlk çalışan örnek</h2>
@@ -48,7 +48,7 @@ result = agent.run_sync(
 print(result.data)
 # Invoice(vendor='Acme Corp', total=1249.0, currency='EUR', due_date='2026-05-15')`}</pre>
     <p>
-      JSON ayrıştırma yok, <code> json.loads</code> etrafında try/except yok, &ldquo;model yine düz metin döndürdü&rdquo; yok. Model geçersiz JSON veya yanlış şekil üretirse, Pydantic AI varsayılan olarak <code>retries=1</code>'e kadar doğrulama hatasını geri bildirim olarak kullanarak yeniden dener.
+      JSON ayrıştırma yok, <code>json.loads</code> etrafında try/except yok, &ldquo;model yine düz metin döndürdü&rdquo; yok. Model geçersiz JSON veya yanlış şekil üretirse, Pydantic AI varsayılan olarak <code>retries=1</code>'e kadar doğrulama hatasını geri bildirim olarak kullanarak yeniden dener.
     </p>
 
     <h2>Gerçek bir iş akışı &mdash; araçlar ve bağımlılıklar</h2>
@@ -84,10 +84,10 @@ async def handle_ticket(db, question: str):
 
     <h2>Tuzaklar</h2>
     <p>
-      <strong><a href="/learn/stream">Akış</a> ve yapılandırılmış çıktı temiz bir şekilde bir araya gelmez.</strong> Token akışı istiyorsanız, <code> result_type</code>'ı bırakın ve düz dizeleri akışlayın veya kısmi doğrulama API'si ile <code> run_stream</code>'ı kullanın ve erken parçaların doğrulanamayabileceğini kabul edin.
+      <strong><a href="/learn/stream">Akış</a> ve yapılandırılmış çıktı temiz bir şekilde bir araya gelmez.</strong> Token akışı istiyorsanız, <code>result_type</code>'ı bırakın ve düz dizeleri akışlayın veya kısmi doğrulama API'si ile <code>run_stream</code>'ı kullanın ve erken parçaların doğrulanamayabileceğini kabul edin.
     </p>
     <p>
-      <strong>Yeniden denemeler maliyetleri gizler.</strong> Bir doğrulama hatası, o tur için token faturanızı ikiye katlar. Özellikle pahalı modellerle istemleri ayarlarken sonuçlardaki <code> usage</code> alanını izleyin.
+      <strong>Yeniden denemeler maliyetleri gizler.</strong> Bir doğrulama hatası, o tur için token faturanızı ikiye katlar. Özellikle pahalı modellerle istemleri ayarlarken sonuçlardaki <code>usage</code> alanını izleyin.
     </p>
     <p>
       <strong>Araç docstring'leri istemdir.</strong> Fonksiyon docstring'i ve parametre türleri, modelin gördüğü JSON şeması haline gelir. Özensiz docstring'ler özensiz araç çağrıları üretir. Onlara API belgeleri gibi davranın.

@@ -4,8 +4,20 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "Rehberler — TeknoAraç",
+  title: "Rehberler | TeknoAraç",
   description: "Ücretsiz çevrimiçi araç rehberleri. 590+ kılavuz, ipucu ve nasıl yapılır makalesi.",
+  keywords: ["rehber", "öğretici", "nasıl yapılır", "Türkçe rehberler", "kılavuz"],
+  alternates: { canonical: "https://teknoarac.com/rehberler" },
+  openGraph: {
+    title: "Rehberler | TeknoAraç",
+    description: "591 ücretsiz Türkçe rehber — yazılım, teknoloji, sağlık ve daha fazlası.",
+    url: "https://teknoarac.com/rehberler",
+    siteName: "TeknoAraç",
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
+  },
+  twitter: { card: "summary_large_image", title: "Rehberler", images: ["/og-image.svg"] },
 };
 
 export default function GuidesPage() {

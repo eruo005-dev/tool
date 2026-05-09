@@ -1,65 +1,65 @@
 export const intro = (
   <>
     <p>
-      There's a limit to how much you can save by cutting expenses. There's no limit to how much you can earn. For most people, focusing on increasing income pays off far more than clipping coupons. These are the real levers.
+      Tasarruf ederek ne kadar para biriktirebileceğinizin bir sınırı vardır. Kazanabileceğiniz miktarın ise bir sınırı yoktur. Çoğu insan için, geliri artırmaya odaklanmak, kupon biriktirmekten çok daha fazla kazandırır. Bunlar gerçek kaldıraçlardır.
     </p>
     <p>
-      Roughly ordered by impact and speed. Pick one or two and be consistent.
+      Kabaca etki ve hızlarına göre sıralanmıştır. Bir veya iki tanesini seçin ve tutarlı olun.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Ask for a raise</h2>
+    <h2>1. Zam isteyin</h2>
     <p>
-      The fastest income increase is often at your current job. Research market rates, build a case, ask with specific numbers. Getting 10-20% from this conversation is common. See <a href="/guides/how-to-negotiate-salary">salary negotiation guide</a>.
+      En hızlı gelir artışı genellikle mevcut işinizdedir. Piyasa oranlarını araştırın, bir gerekçe oluşturun, belirli rakamlarla isteyin. Bu görüşmeden %10-20 almak yaygındır. Bkz. <a href="/guides/how-to-negotiate-salary">maaş pazarlığı rehberi</a>.
     </p>
 
-    <h2>2. Switch jobs strategically</h2>
+    <h2>2. Stratejik olarak iş değiştirin</h2>
     <p>
-      Most people's biggest raises come from job changes. 15-30% jumps are routine, more for strong performers. Internal raises are capped at 3-5% per year. Staying too long kills lifetime earnings.
+      Çoğu insanın en büyük zamları iş değişikliklerinden gelir. %15-30 sıçramalar olağandır, güçlü performans gösterenler için daha fazlası mümkündür. Şirket içi zamlar yılda %3-5 ile sınırlıdır. Çok uzun süre kalmak, yaşam boyu kazancı öldürür.
     </p>
 
-    <h2>3. Get promoted</h2>
+    <h2>3. Terfi alın</h2>
     <p>
-      Each level up typically pays 20-40% more. Work at the next level for 6+ months before asking. See <a href="/guides/how-to-get-promoted">promotion guide</a>.
+      Her bir üst seviye tipik olarak %20-40 daha fazla öder. Sormadan önce 6+ ay boyunca bir sonraki seviyede çalışın. Bkz. <a href="/guides/how-to-get-promoted">terfi rehberi</a>.
     </p>
 
-    <h2>4. Develop a high-impact skill</h2>
+    <h2>4. Yüksek etkili bir beceri geliştirin</h2>
     <p>
-      Sales, software, data, design, writing — skills that drive measurable revenue command higher pay. A year of focused work on a popular skill can double your earning power.
+      Satış, yazılım, veri, tasarım, yazarlık — ölçülebilir gelir sağlayan beceriler daha yüksek ücret getirir. Popüler bir beceri üzerinde bir yıl odaklanmış çalışma, kazanç potansiyelinizi ikiye katlayabilir.
     </p>
 
-    <h2>5. Start a side hustle</h2>
+    <h2>5. Bir yan iş kurun</h2>
     <p>
-      Service first, then product. Even $500-1000 a month adds up fast. See{" "}
-      <a href="/guides/best-side-hustles-for-beginners">side hustle guide</a>.
+      Önce hizmet, sonra ürün. Ayda 500-1000 dolar bile hızla birikir. Bkz.{" "}
+      <a href="/guides/best-side-hustles-for-beginners">yan iş rehberi</a>.
     </p>
 
-    <h2>6. Consult in your area of expertise</h2>
+    <h2>6. Uzmanlık alanınızda danışmanlık yapın</h2>
     <p>
-      Your day-job expertise is worth $100-500/hour to someone else's business. LinkedIn + a clear offer + 30 cold emails usually lands the first client. The hourly rate surprise is often the biggest eye-opener.
+      Günlük işinizdeki uzmanlığınız, başka birinin işi için saatte 100-500 dolar değerindedir. LinkedIn + net bir teklif + 30 soğuk e-posta genellikle ilk müşteriyi getirir. Saatlik ücret sürprizi genellikle en büyük göz açıcıdır.
     </p>
 
-    <h2>7. Build an audience, then monetize</h2>
+    <h2>7. Bir kitle oluşturun, ardından para kazanın</h2>
     <p>
-      A small loyal audience (5-10k true fans) on YouTube, Twitter, newsletters, or podcasts turns into a real income stream. Multi-year build. Extremely durable once built.
+      YouTube, Twitter, bültenler veya podcast'lerde küçük bir sadık kitle (5-10 bin gerçek hayran) gerçek bir gelir akışına dönüşür. Yıllar süren bir inşa sürecidir. Bir kez inşa edildiğinde son derece dayanıklıdır.
     </p>
 
-    <h2>8. Raise your prices</h2>
+    <h2>8. Fiyatlarınızı yükseltin</h2>
     <p>
-      If you freelance or consult, your prices are almost certainly too low. Try a 20% increase on your next offer. Most clients will pay it. Fear of losing clients is usually bigger than the actual risk.
+      Serbest çalışıyor veya danışmanlık yapıyorsanız, fiyatlarınız neredeyse kesinlikle çok düşüktür. Bir sonraki teklifinizde %20'lik bir artış deneyin. Çoğu müşteri bunu ödeyecektir. Müşteri kaybetme korkusu genellikle gerçek riskten daha büyüktür.
     </p>
 
-    <h2>9. Move to a higher-paying city or work remotely</h2>
+    <h2>9. Daha yüksek maaşlı bir şehre taşının veya uzaktan çalışın</h2>
     <p>
-      Same job in SF vs. Omaha = 50-80% salary difference. Remote work often lets you earn coastal salaries while living cheaply. Geography is still a huge lever in knowledge work.
+      Aynı iş SF'ye karşı Omaha'da = %50-80 maaş farkı. Uzaktan çalışma genellikle düşük maliyetle yaşarken kıyı şehirleri maaşları almanızı sağlar. Coğrafya, bilgi işlerinde hala büyük bir kaldıraçtır.
     </p>
 
-    <h2>10. Invest in yourself</h2>
+    <h2>10. Kendinize yatırım yapın</h2>
     <p>
-      Books, courses, coaching, conferences. A $500 self-investment regularly returns thousands. The highest <a href="/learn/roi">ROI</a> category of spending. For income types that compound, see <a href="/guides/how-to-make-passive-income">passive income guide</a>.
+      Kitaplar, kurslar, koçluk, konferanslar. 500 dolarlık bir kendine yatırım düzenli olarak binlerce dolar getirir. Harcama kategorileri arasında en yüksek <a href="/learn/roi">ROI</a>'ye sahip olanıdır. Bileşik getiri sağlayan gelir türleri için bkz. <a href="/guides/how-to-make-passive-income">pasif gelir rehberi</a>.
     </p>
   </>
 );

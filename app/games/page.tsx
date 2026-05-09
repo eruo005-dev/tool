@@ -3,10 +3,20 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Tarayıcı Oyunları — TeknoAraç",
+  title: "Tarayıcı Oyunları | TeknoAraç",
   description: "Ücretsiz tarayıcı oyunları. Yılan Oyunu, Mayın Tarlası, Adam Asmaca, Pong ve daha fazlası. İndirme yok, hemen oyna!",
-  keywords: "tarayıcı oyunları, ücretsiz oyunlar, online oyun, snake game, mayın tarlası, adam asmaca",
-  robots: "index, follow",
+  keywords: ["tarayıcı oyunları", "ücretsiz oyunlar", "online oyun", "snake", "mayın tarlası", "tetris"],
+  alternates: { canonical: "https://teknoarac.com/oyunlar" },
+  openGraph: {
+    title: "Tarayıcı Oyunları | TeknoAraç",
+    description: "19 ücretsiz tarayıcı oyunu — indirme yok, hemen oyna!",
+    url: "https://teknoarac.com/oyunlar",
+    siteName: "TeknoAraç",
+    locale: "tr_TR",
+    type: "website",
+    images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
+  },
+  twitter: { card: "summary_large_image", title: "Tarayıcı Oyunları", images: ["/og-image.svg"] },
 };
 
 const gameIcons: Record<string, string> = {

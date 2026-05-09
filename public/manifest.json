@@ -1,0 +1,16 @@
+{
+  "name": "TeknoAraç - Türkiye'nin Dijital Araç Kutusu",
+  "short_name": "TeknoAraç",
+  "description": "771+ ücretsiz çevrimiçi araç, 591 rehber ve 19 oyun. Tamamen Türkçe, reklamsız.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0A1628",
+  "theme_color": "#00E5FF",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

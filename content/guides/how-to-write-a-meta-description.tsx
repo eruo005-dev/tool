@@ -1,113 +1,105 @@
 export const intro = (
   <>
     <p>
-      A <a href="/learn/meta-description">meta description</a> is the snippet Google shows under your page title in the search results.
-      It doesn&rsquo;t directly rank your page, but it is the ad copy for your listing. A good
-      meta description can double click-through rate against a bad one — and doubling <a href="/learn/ctr">CTR</a> on a
-      page that already ranks is often the highest-<a href="/learn/roi">ROI</a> SEO work you will ever do.
+      <a href="/learn/meta-description">Meta açıklama</a>, Google'ın arama sonuçlarında sayfa başlığınızın altında gösterdiği kısa metindir.
+      Sayfanızı doğrudan sıralamaz, ancak listeniz için reklam metni görevi görür. İyi bir
+      meta açıklama, kötü bir meta açıklamaya kıyasla tıklama oranını iki katına çıkarabilir — ve halihazırda sıralamada olan bir sayfada <a href="/learn/ctr">TO</a>'yu iki katına çıkarmak, yapacağınız en yüksek <a href="/learn/roi">ROI</a>'li SEO çalışmasıdır.
     </p>
     <p>
-      This guide covers the rules that actually matter in 2026: length, intent matching, the
-      brackets and modifiers that earn clicks, and the mistakes that cause Google to ignore your
-      description and auto-generate one instead.
+      Bu kılavuz, 2026'da gerçekten önemli olan kuralları kapsar: uzunluk, niyet eşleştirme,
+      tıklama kazandıran parantezler ve değiştiriciler ile Google'ın açıklamanızı görmezden gelip
+      otomatik olarak bir tane oluşturmasına neden olan hatalar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>What a meta description is (and isn&rsquo;t)</h2>
+    <h2>Meta açıklama nedir (ve ne değildir)</h2>
     <p>
-      A meta description is a short HTML tag in the <code>&lt;head&gt;</code> of your page:{" "}
-      <code>&lt;meta name=&quot;description&quot; content=&quot;...&quot; /&gt;</code>. It is
-      not a ranking factor. Search engines may or may not display it — if they think the body
-      text of your page answers the query better, they will use that instead. Your job is to
-      write a description so tightly matched to the query that Google has no reason to swap it.
+      Meta açıklama, sayfanızın <code>&lt;head&gt;</code> bölümünde bulunan kısa bir HTML etiketidir:{" "}
+      <code>&lt;meta name=&quot;description&quot; content=&quot;...&quot; /&gt;</code>. Bu bir
+      sıralama faktörü değildir. Arama motorları bunu görüntüleyebilir veya görüntülemeyebilir — eğer sayfanızın gövde metninin sorguyu daha iyi yanıtladığını düşünürlerse, onu kullanırlar. Göreviniz, Google'ın değiştirmek için hiçbir nedeni olmayacak şekilde sorguyla sıkı sıkıya eşleşen bir açıklama yazmaktır.
     </p>
 
-    <h2>Optimal length</h2>
+    <h2>En uygun uzunluk</h2>
     <p>
-      Aim for 150–160 characters for desktop and around 120 characters for mobile-first queries.
-      Longer descriptions get truncated with an ellipsis — Google cuts the sentence mid-word,
-      which looks unprofessional. Use our{" "}
-      <a href="/tools/meta-description-length-checker">meta description length checker</a> to see
-      exactly where the cutoff lands on desktop and mobile as you type.
+      Masaüstü için 150–160 karakter ve mobil öncelikli sorgular için yaklaşık 120 karakter hedefleyin.
+      Daha uzun açıklamalar üç nokta ile kesilir — Google cümleyi kelimenin ortasında keser,
+      bu da profesyonelce görünmez. Yazarken kesintinin masaüstünde ve mobilde tam olarak nerede olduğunu görmek için{" "}
+      <a href="/tools/meta-description-length-checker">meta açıklama uzunluk denetleyicimizi</a> kullanın.
     </p>
 
-    <h2>Front-load the keyword</h2>
+    <h2>Anahtar kelimeyi öne koyun</h2>
     <p>
-      Google bolds words in the description that match the user&rsquo;s query. Put the primary
-      keyword in the first 60 characters so it bolds on both desktop and mobile. After that, write
-      for humans — benefit, differentiator, and a verb that invites a click.
+      Google, kullanıcının sorgusuyla eşleşen kelimeleri açıklamada kalın yapar. Birincil
+      anahtar kelimeyi ilk 60 karaktere koyun, böylece hem masaüstünde hem de mobilde kalın görünür. Bundan sonra, insanlar için yazın — fayda, farklılaştırıcı ve tıklamaya davet eden bir fiil.
     </p>
 
-    <h2>The four-part formula</h2>
+    <h2>Dört parçalı formül</h2>
     <p>
-      A reliable structure: <strong>what it is</strong> (1 sentence) + <strong>who it&rsquo;s for</strong>{" "}
-      (1 phrase) + <strong>the benefit</strong> (1 phrase) + <strong>the call to action</strong>{" "}
-      (2–3 words). Example: &ldquo;Free online PDF merger. Combine up to 50 PDFs in your browser —
-      no uploads, no watermarks. Try it in seconds.&rdquo;
+      Güvenilir bir yapı: <strong>ne olduğu</strong> (1 cümle) + <strong>kimin için olduğu</strong>{" "}
+      (1 ifade) + <strong>faydası</strong> (1 ifade) + <strong>harekete geçirici mesaj</strong>{" "}
+      (2–3 kelime). Örnek: &ldquo;Ücretsiz çevrimiçi PDF birleştirici. Tarayıcınızda 50 adede kadar PDF'i birleştirin —
+      yükleme yok, filigran yok. Saniyeler içinde deneyin.&rdquo;
     </p>
 
-    <h2>Match the query intent, not just the keyword</h2>
+    <h2>Sorgu niyetini eşleştirin, sadece anahtar kelimeyi değil</h2>
     <p>
-      The same keyword can have different intents. &ldquo;Best budget laptop&rdquo; is a comparison
-      query; the description should promise a shortlist. &ldquo;Buy budget laptop&rdquo; is
-      transactional; the description should promise price and availability. Before you write,
-      search the keyword yourself — note the intent the top three results are serving and match it.
+      Aynı anahtar kelimenin farklı niyetleri olabilir. &ldquo;En iyi bütçe dizüstü bilgisayar&rdquo; bir karşılaştırma
+      sorgusudur; açıklama kısa bir liste vaat etmelidir. &ldquo;Bütçe dizüstü bilgisayar satın al&rdquo; ise
+      işlemseldir; açıklama fiyat ve bulunabilirlik vaat etmelidir. Yazmadan önce,
+      anahtar kelimeyi kendiniz arayın — ilk üç sonucun hangi niyete hizmet ettiğini not edin ve onu eşleştirin.
     </p>
 
-    <h2>Use specific numbers and modifiers</h2>
+    <h2>Belirli sayılar ve değiştiriciler kullanın</h2>
     <p>
-      Descriptions with &ldquo;free,&rdquo; &ldquo;2026,&rdquo; &ldquo;in 60 seconds,&rdquo; or
-      concrete numbers outperform vague copy. &ldquo;Learn SEO&rdquo; is weak. &ldquo;Learn SEO in
-      15 minutes with our free 2026 checklist&rdquo; is a click.
+      &ldquo;Ücretsiz,&rdquo; &ldquo;2026,&rdquo; &ldquo;60 saniyede,&rdquo; veya
+      somut sayılar içeren açıklamalar, belirsiz metinlerden daha iyi performans gösterir. &ldquo;SEO öğrenin&rdquo; zayıftır. &ldquo;Ücretsiz 2026 kontrol listemizle 15 dakikada SEO öğrenin&rdquo; bir tıklamadır.
     </p>
 
-    <h2>Avoid quotes and special characters</h2>
+    <h2>Tırnak işaretlerinden ve özel karakterlerden kaçının</h2>
     <p>
-      Double quotes in a description can break the HTML tag if un-escaped. Use single quotes or
-      em-dashes instead. Pipes and ampersands are fine. Emojis work on some queries and get
-      stripped on others — worth testing on your highest-traffic pages, not worth relying on.
+      Açıklamadaki çift tırnak işaretleri, kaçış karakteri kullanılmazsa HTML etiketini bozabilir. Bunun yerine tek tırnak veya
+      uzun çizgi kullanın. Dikey çubuklar ve ve işaretleri sorunsuzdur. Emojiler bazı sorgularda çalışır ve bazılarında
+      kaldırılır — en yüksek trafikli sayfalarınızda test etmeye değer, ancak güvenmeye değmez.
     </p>
 
-    <h2>Write one per page — no duplicates</h2>
+    <h2>Sayfa başına bir tane yazın — kopya olmasın</h2>
     <p>
-      Duplicate meta descriptions across a site tell Google you have no unique value on any of
-      the pages. Every indexable page should have its own description written for its own query.
-      If you have 200 pages and can&rsquo;t hand-write 200 descriptions, write templated
-      descriptions with at least one unique variable (product name, city, etc.) per page.
+      Bir sitede yinelenen meta açıklamalar, Google'a sayfaların hiçbirinde benzersiz bir değeriniz olmadığını söyler.
+      Dizine eklenebilir her sayfanın, kendi sorgusu için yazılmış kendi açıklaması olmalıdır.
+      200 sayfanız varsa ve 200 açıklamayı elle yazamıyorsanız, sayfa başına en az bir benzersiz değişken (ürün adı, şehir vb.) içeren şablon
+      açıklamalar yazın.
     </p>
 
-    <h2>Test and iterate from Search Console</h2>
+    <h2>Search Console'dan test edin ve iyileştirin</h2>
     <p>
-      Once a page is live, watch its CTR in Google Search Console. Any page ranking in positions
-      4–10 with below-average CTR is a candidate for a meta description rewrite. Ship a change,
-      wait two weeks, and compare. This is the tightest SEO feedback loop you have.
+      Bir sayfa yayına girdikten sonra, Google Search Console'da TO'sunu izleyin. 4–10. sıralarda yer alan ve ortalamanın altında TO'ya sahip herhangi bir sayfa, meta açıklama yeniden yazımı için adaydır. Bir değişiklik yapın,
+      iki hafta bekleyin ve karşılaştırın. Bu, sahip olduğunuz en sıkı SEO geri bildirim döngüsüdür.
     </p>
 
-    <h2>Common mistakes that kill CTR</h2>
+    <h2>TO'yu öldüren yaygın hatalar</h2>
     <p>
-      Writing for robots (keyword stuffing), using the same description as the title tag, leaving
-      the description blank so Google auto-generates a random sentence, and writing descriptions
-      that don&rsquo;t match the landing page&rsquo;s content — users bounce back to search
-      results, and Google notices. Keep the promise specific, and make sure the page delivers it.
+      Robotlar için yazmak (anahtar kelime doldurma), başlık etiketiyle aynı açıklamayı kullanmak,
+      açıklamayı boş bırakarak Google'ın rastgele bir cümle oluşturmasına izin vermek ve
+      açıklamaların açılış sayfasının içeriğiyle eşleşmemesi — kullanıcılar arama sonuçlarına geri döner
+      ve Google bunu fark eder. Vaadi spesifik tutun ve sayfanın bunu yerine getirdiğinden emin olun.
     </p>
 
-    <h2>Pair the description with a strong title</h2>
+    <h2>Açıklamayı güçlü bir başlıkla eşleştirin</h2>
     <p>
-      A great description is wasted under a weak title. Run both through our{" "}
-      <a href="/tools/title-tag-length-checker">title tag length checker</a> together — the title
-      sets expectation, the description confirms fit. And if you need a full set of SEO tags at
-      once, the <a href="/tools/meta-tag-generator">meta tag generator</a> outputs title,
-      description, and Open Graph in one pass.
+      Harika bir açıklama, zayıf bir başlık altında boşa gider. İkisini de{" "}
+      <a href="/tools/title-tag-length-checker">başlık etiketi uzunluk denetleyicimizden</a> birlikte geçirin — başlık
+      beklentiyi belirler, açıklama uyumu onaylar. Ve aynı anda eksiksiz bir SEO etiketi setine ihtiyacınız varsa,{" "}
+      <a href="/tools/meta-tag-generator">meta etiket oluşturucu</a> tek seferde başlık,
+      açıklama ve Open Graph çıktısı verir.
     </p>
 
     <p>
-      Related reading: <a href="/guides/seo-basics-for-beginners">SEO basics for beginners</a>,{" "}
-      <a href="/guides/how-to-start-a-blog">how to start a blog</a>, and{" "}
-      <a href="/guides/how-to-use-utm-parameters">how to use UTM parameters</a> to measure which
-      descriptions are earning real traffic.
+      İlgili okumalar: <a href="/guides/seo-basics-for-beginners">Yeni başlayanlar için SEO temelleri</a>,{" "}
+      <a href="/guides/how-to-start-a-blog">blog nasıl başlatılır</a> ve{" "}
+      <a href="/guides/how-to-use-utm-parameters">hangi açıklamaların gerçek trafik kazandırdığını ölçmek için UTM parametreleri nasıl kullanılır</a>.
     </p>
   </>
 );

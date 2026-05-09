@@ -1,73 +1,73 @@
 export const intro = (
   <>
     <p>
-      If you've ever freelanced, sold a service, or made money from a side hustle, you've probably written an invoice — and if you did it in a word processor, you likely missed something important. A professional invoice takes less than ten minutes to create, gets paid faster than a plain email, and leaves a paper trail your April tax return will thank you for.
+      Eğer hiç serbest çalıştıysanız, bir hizmet sattıysanız veya ek işten para kazandıysanız, muhtemelen bir fatura yazmışsınızdır — ve bunu bir kelime işlemcide yaptıysanız, büyük ihtimalle önemli bir şeyi atlamışsınızdır. Profesyonel bir fatura oluşturmak on dakikadan az sürer, düz bir e-postadan daha hızlı ödenir ve Nisan ayındaki vergi beyannamenizin size minnettar kalacağı bir kağıt izi bırakır.
     </p>
     <p>
-      This guide covers what a simple invoice must include, what to leave out, how to set payment terms that actually get you paid, and the small touches that make your invoice look like it came from a real business — because it did.
+      Bu rehber, basit bir faturanın neleri mutlaka içermesi gerektiğini, nelerin dışarıda bırakılması gerektiğini, sizi gerçekten ödeyecek ödeme koşullarının nasıl belirleneceğini ve faturanızın gerçek bir işletmeden gelmiş gibi görünmesini sağlayacak küçük dokunuşları kapsar — çünkü öyle.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>What every invoice must include</h2>
+    <h2>Her faturanın mutlaka içermesi gerekenler</h2>
     <p>
-      At minimum: the word "Invoice," a unique invoice number, the issue date, your business name and contact info, your client's name and contact info, a line-by-line list of what you're billing for, a subtotal, any tax, the total amount due, and payment instructions. Skip any of these and your client's accounting team will send it back with questions — which delays your payment by a week.
+      En azından: "Fatura" kelimesi, benzersiz bir fatura numarası, düzenlenme tarihi, işletme adınız ve iletişim bilgileriniz, müşterinizin adı ve iletişim bilgileri, faturalandırdığınız kalemlerin satır satır listesi, bir ara toplam, varsa vergi, ödenecek toplam tutar ve ödeme talimatları. Bunlardan herhangi birini atlarsanız, müşterinizin muhasebe ekibi sorularla geri gönderecektir — bu da ödemenizi bir hafta geciktirir.
     </p>
 
-    <h2>Number your invoices sequentially</h2>
+    <h2>Faturalarınızı sırayla numaralandırın</h2>
     <p>
-      Start at 001 (or 1001 if you don't want your first client to know they're your first) and increment. Never reuse a number. When a tax authority asks to see your records, the first thing they check is sequential numbering — gaps or duplicates suggest something is being hidden. Our <a href="/tools/invoice-generator">invoice generator</a> handles this automatically if you let it.
+      001'den başlayın (ilk müşterinizin sizin ilk müşteriniz olduğunu bilmesini istemiyorsanız 1001'den) ve artırın. Asla bir numarayı tekrar kullanmayın. Bir vergi dairesi kayıtlarınızı görmek istediğinde kontrol ettiği ilk şey sıralı numaralandırmadır — boşluklar veya tekrarlar bir şeyin gizlendiğini düşündürür. Bizim <a href="/tools/invoice-generator">fatura oluşturucumuz</a>, izin verirseniz bunu otomatik olarak halleder.
     </p>
 
-    <h2>Set payment terms that fit the work</h2>
+    <h2>İşe uygun ödeme koşulları belirleyin</h2>
     <p>
-      The default "Net 30" (pay within 30 days) is a habit from corporate accounting departments. For small clients, Net 7 or Net 14 is more reasonable and gets you paid faster. For large projects, 50% upfront plus 50% on delivery is normal. Write the terms clearly on the invoice — "Payment due within 14 days of issue date" — and add the exact due date so nobody has to do math.
+      Varsayılan "Net 30" (30 gün içinde öde) kurumsal muhasebe departmanlarından kalma bir alışkanlıktır. Küçük müşteriler için Net 7 veya Net 14 daha makuldür ve paranızı daha hızlı almanızı sağlar. Büyük projeler için %50 peşin artı teslimatta %50 normaldir. Koşulları faturada açıkça yazın — "Ödeme, düzenlenme tarihinden itibaren 14 gün içinde vadesi gelir" — ve kimsenin matematik yapmasına gerek kalmaması için kesin vade tarihini ekleyin.
     </p>
 
-    <h2>Describe the work in detail</h2>
+    <h2>İşi ayrıntılı olarak tanımlayın</h2>
     <p>
-      "Consulting, 2,000 TL" is a weak line item — it looks arbitrary to an auditor and invites negotiation. "Landing page design, 12 hours × 85 TL/hour = 1,020 TL" is specific. Break the work into 2–6 items with quantity, unit price, and description. If you're pricing for the first time, find your number with our <a href="/tools/freelance-rate-calculator">freelance rate calculator</a> or <a href="/tools/hourly-rate-calculator">hourly rate calculator</a>.
+      "Danışmanlık, 2.000 TL" zayıf bir satır kalemidir — bir denetçiye keyfi görünür ve pazarlığa davetiye çıkarır. "Açılış sayfası tasarımı, 12 saat × 85 TL/saat = 1.020 TL" spesifiktir. İşi, miktar, birim fiyat ve açıklama ile 2-6 kaleme bölün. İlk kez fiyatlandırma yapıyorsanız, numaranızı bizim <a href="/tools/freelance-rate-calculator">serbest çalışan ücret hesaplayıcımız</a> veya <a href="/tools/hourly-rate-calculator">saatlik ücret hesaplayıcımız</a> ile bulun.
     </p>
 
-    <h2>Handle taxes correctly</h2>
+    <h2>Vergileri doğru şekilde ele alın</h2>
     <p>
-      Tax rules vary by country and how you're registered. In the US, sole proprietors usually don't charge sales tax on services but may on goods — check your state. In the UK and EU, VAT depends on whether you're registered and where your client is. List tax on its own line with the rate, never bury it inside a line item. If you're not charging tax, a line that says "Tax: 0.00 TL" is better than omitting the line — it answers the question before it's asked.
+      Vergi kuralları ülkeye ve nasıl kayıtlı olduğunuza göre değişir. ABD'de, şahıs şirketleri genellikle hizmetlerde satış vergisi talep etmez ancak mallarda talep edebilir — eyaletinizi kontrol edin. İngiltere ve AB'de KDV, kayıtlı olup olmadığınıza ve müşterinizin nerede olduğuna bağlıdır. Vergiyi oranıyla birlikte kendi satırında listeleyin, asla bir satır kaleminin içine gömmeyin. Vergi talep etmiyorsanız, "Vergi: 0,00 TL" yazan bir satır, satırı tamamen atlamaktan daha iyidir — soruyu daha sorulmadan cevaplar.
     </p>
 
-    <h2>Include multiple payment options</h2>
+    <h2>Birden fazla ödeme seçeneği ekleyin</h2>
     <p>
-      The easier you make it to pay, the faster you get paid. At minimum: bank transfer details (or a payment link) and a platform option like Wise or PayPal for international clients. For US domestic, Zelle, ACH, or a simple Stripe invoice link works well. Include clear instructions — account number, bank code, and the reference/memo field where they should write your invoice number.
+      Ödemeyi ne kadar kolaylaştırırsanız, paranızı o kadar hızlı alırsınız. En azından: banka havalesi bilgileri (veya bir ödeme bağlantısı) ve uluslararası müşteriler için Wise veya PayPal gibi bir platform seçeneği. ABD içi için Zelle, ACH veya basit bir Stripe fatura bağlantısı iyi çalışır. Açık talimatlar ekleyin — hesap numarası, banka kodu ve fatura numaranızı yazmaları gereken referans/açıklama alanı.
     </p>
 
-    <h2>Record what was delivered</h2>
+    <h2>Teslim edileni kaydedin</h2>
     <p>
-      A one-line project note ("Delivered via Dropbox on April 22, 2026 — 12 files") closes the loop and creates a record. This matters if a dispute arises six months later about whether the work was actually completed.
+      Tek satırlık bir proje notu ("22 Nisan 2026'da Dropbox üzerinden teslim edildi — 12 dosya") döngüyü kapatır ve bir kayıt oluşturur. Bu, altı ay sonra işin gerçekten tamamlanıp tamamlanmadığı konusunda bir anlaşmazlık çıkarsa önemlidir.
     </p>
 
-    <h2>Send as PDF, not a Word document</h2>
+    <h2>Word belgesi değil, PDF olarak gönderin</h2>
     <p>
-      A PDF can't be edited — the client can't accidentally (or intentionally) change the amount. Word documents reflow on the recipient's device and often look unprofessional. Create the PDF once, attach it to a short email, and keep a copy in a folder organized by year.
+      Bir PDF düzenlenemez — müşteri tutarı kazara (veya kasıtlı olarak) değiştiremez. Word belgeleri alıcının cihazında yeniden akar ve genellikle profesyonel görünmez. PDF'i bir kez oluşturun, kısa bir e-postaya ekleyin ve yıla göre düzenlenmiş bir klasörde bir kopyasını saklayın.
     </p>
 
-    <h2>Follow up politely and on time</h2>
+    <h2>Kibarca ve zamanında takip edin</h2>
     <p>
-      Most unpaid invoices aren't rejected, they're forgotten. Send a friendly reminder two days before the due date, another on the due date, and a more formal note seven days after it's overdue. Keep a professional tone — the client who pays late this quarter is often the one who pays best next quarter. Use our <a href="/tools/deadline-calculator">deadline calculator</a> to track when each invoice crosses each threshold.
+      Ödenmemiş faturaların çoğu reddedilmez, unutulur. Vade tarihinden iki gün önce dostça bir hatırlatma, vade tarihinde bir tane daha ve vadesi geçtikten yedi gün sonra daha resmi bir not gönderin. Profesyonel bir üslup koruyun — bu çeyrekte geç ödeyen müşteri, genellikle gelecek çeyrekte en iyi ödeyen müşteridir. Her faturanın her eşiği ne zaman geçtiğini takip etmek için <a href="/tools/deadline-calculator">son tarih hesaplayıcımızı</a> kullanın.
     </p>
 
-    <h2>Keep records for at least five years</h2>
+    <h2>Kayıtları en az beş yıl saklayın</h2>
     <p>
-      Tax authorities in most countries can audit five to seven years back. Keep every invoice you've sent — a PDF is fine — in a clearly named folder. At year-end, that file makes up 80% of your income documentation.
+      Çoğu ülkedeki vergi daireleri beş ila yedi yıl geriye dönük denetim yapabilir. Gönderdiğiniz her faturayı — bir PDF yeterlidir — açıkça adlandırılmış bir klasörde saklayın. Yıl sonunda, bu dosya gelir belgelerinizin %80'ini oluşturur.
     </p>
 
-    <h2>Use a template, don't reinvent the wheel</h2>
+    <h2>Bir şablon kullanın, tekerleği yeniden icat etmeyin</h2>
     <p>
-      Don't create an invoice from scratch every time. Save a clean template with your business info, logo, and payment instructions. For each job, you only update the invoice number, client, items, and total. Our <a href="/tools/invoice-generator">invoice generator</a> produces a print-ready version in under a minute.
+      Her seferinde sıfırdan bir fatura oluşturmayın. İşletme bilgileriniz, logonuz ve ödeme talimatlarınızla temiz bir şablon kaydedin. Her iş için sadece fatura numarasını, müşteriyi, kalemleri ve toplamı güncellersiniz. Bizim <a href="/tools/invoice-generator">fatura oluşturucumuz</a> bir dakikadan kısa sürede baskıya hazır bir versiyon üretir.
     </p>
 
     <p>
-      Related: <a href="/guides/how-to-price-freelance-work">how to price freelance work</a>, <a href="/guides/how-to-save-on-taxes">how to save on taxes</a>, and <a href="/guides/how-to-calculate-profit-margin">how to calculate profit margin</a> so you know what each invoice earns you after costs.
+      İlgili: <a href="/guides/how-to-price-freelance-work">serbest çalışma işlerine nasıl fiyat verilir</a>, <a href="/guides/how-to-save-on-taxes">vergilerden nasıl tasarruf edilir</a> ve <a href="/guides/how-to-calculate-profit-margin">kar marjı nasıl hesaplanır</a> böylece her faturanın maliyetlerden sonra size ne kazandırdığını bilirsiniz.
     </p>
   </>
 );

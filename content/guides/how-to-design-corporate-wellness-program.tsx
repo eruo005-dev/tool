@@ -1,54 +1,54 @@
 import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
-  <p>Most corporate wellness programs are a step challenge, a fruit bowl, and an annual survey nobody reads. Here is how to build a program that actually moves metrics without embarrassing your remote workers or getting sued.</p>
+  <p>Çoğu kurumsal sağlıklı yaşam programı bir adım yarışması, bir meyve tabağı ve kimsenin okumadığı yıllık bir ankettir. İşte uzaktan çalışanlarınızı utandırmadan veya dava edilmeden gerçekten metrikleri hareket ettiren bir programın nasıl oluşturulacağı.</p>
 );
 
 export const body: ReactElement = (
   <>
-    <p>A wellness program is not a morale poster; it is a benefits investment. If you are designing a program as an HR leader or founder, start with outcomes and work backward, not from the flashiest vendor pitch deck.</p>
+    <p>Bir sağlıklı yaşam programı bir moral posteri değildir; bir yan haklar yatırımıdır. Bir İK lideri veya kurucu olarak bir program tasarlıyorsanız, en gösterişli satıcı sunum dosyasından değil, sonuçlardan başlayın ve geriye doğru çalışın.</p>
 
-    <h2>Define metrics first</h2>
-    <p>Before choosing a single vendor, decide what you are measuring. The four most defensible metrics:</p>
+    <h2>Önce metrikleri tanımlayın</h2>
+    <p>Tek bir satıcı seçmeden önce, neyi ölçtüğünüze karar verin. En savunulabilir dört metrik:</p>
     <ul>
-      <li>Participation rate &mdash; what percentage of eligible employees engage at least once per month.</li>
-      <li>Sick day reduction &mdash; annual absenteeism trends.</li>
-      <li>Healthcare claim cost trend &mdash; especially for preventable chronic conditions.</li>
-      <li>Voluntary turnover &mdash; wellness benefits correlate with retention in engaged populations.</li>
+      <li>Katılım oranı &mdash; uygun çalışanların yüzde kaçı ayda en az bir kez katılım gösteriyor.</li>
+      <li>Hasta günü azaltımı &mdash; yıllık işe gelmeme eğilimleri.</li>
+      <li>Sağlık sigortası talep maliyeti eğilimi &mdash; özellikle önlenebilir kronik rahatsızlıklar için.</li>
+      <li>Gönüllü işten ayrılma &mdash; sa��lıklı yaşam yan hakları, katılımcı popülasyonlarda elde tutma ile ilişkilidir.</li>
     </ul>
-    <p>If you cannot tie your program to at least two of these, you are buying decoration.</p>
+    <p>Programınızı bunlardan en az ikisine bağlayamıyorsanız, dekorasyon satın alıyorsunuz demektir.</p>
 
-    <h2>Three-tier budget framework</h2>
-    <p>A realistic annual spend ranges from $150 to $500 per employee, scaling by tier:</p>
+    <h2>Üç kademeli bütçe çerçevesi</h2>
+    <p>Gerçekçi bir yıllık harcama, çalışan başına 150 ila 500 dolar arasında değişir ve kademeye göre ölçeklenir:</p>
     <ul>
-      <li>Free tier: gym discounts, an Employee Assistance Program (EAP), meditation app access, basic education.</li>
-      <li>Mid tier: health coaching, biometric screenings, a subsidized wearable, targeted chronic condition programs.</li>
-      <li>High tier: on-site or near-site clinics, dedicated mental health benefits beyond EAP, executive physicals, fertility and family support.</li>
+      <li>Ücretsiz kademe: spor salonu indirimleri, bir Çalışan Destek Programı (ÇDP), meditasyon uygulaması erişimi, temel eğitim.</li>
+      <li>Orta kademe: sağlık koçluğu, biyometrik taramalar, sübvansiyonlu bir giyilebilir cihaz, hedeflenmiş kronik rahatsızlık programları.</li>
+      <li>Yüksek kademe: işyerinde veya işyerine yakın klinikler, ÇDP'nin ötesinde özel ruh sağlığı yan hakları, yönetici sağlık kontrolleri, doğurganlık ve aile desteği.</li>
     </ul>
-    <p>You do not have to start at tier three. A well-run tier one always beats a poorly run tier three.</p>
+    <p>Üçüncü kademeden başlamak zorunda değilsiniz. İyi yönetilen bir birinci kademe, her zaman kötü yönetilen bir üçüncü kademeyi yener.</p>
 
-    <h2>Do not be tone-deaf</h2>
-    <p>Step challenges exclude employees with mobility limitations, chronic pain, or pregnancy complications. Weight loss competitions harm anyone in eating disorder recovery. Mandatory biometric screenings create legitimate privacy concerns. Design for your entire workforce, not the marathon runner on the product team. That means remote-friendly options, accessibility accommodations, culturally diverse food content, and participation paths that do not require a Fitbit or a commute.</p>
+    <h2>Duyarsız olmayın</h2>
+    <p>Adım yarışmaları, hareket kısıtlılığı, kronik ağrı veya hamilelik komplikasyonları olan çalışanları dışlar. Kilo verme yarışmaları, yeme bozukluğu iyileşmesi sürecindeki herkese zarar verir. Zorunlu biyometrik taramalar meşru gizlilik endişeleri yaratır. Tüm iş gücünüz için tasarım yapın, ürün ekibindeki maraton koşucusu için değil. Bu, uzaktan çalışmaya uygun seçenekler, erişilebilirlik düzenlemeleri, kültürel olarak çeşitli yemek içerikleri ve bir Fitbit veya işe gidip gelme gerektirmeyen katılım yolları anlamına gelir.</p>
 
-    <h2>Incentives that actually work</h2>
-    <p>Small gift cards work for a week. Premium discounts work for a year and are the most legally tested incentive structure under HIPAA and the ADA. Cash bonuses tied to biometric outcomes (rather than participation) create legal risk and backfire culturally. Whatever you offer, the incentive must be achievable through a reasonable alternative so employees who cannot meet a biometric target are not penalized.</p>
+    <h2>Gerçekten işe yarayan teşvikler</h2>
+    <p>Küçük hediye kartları bir hafta işe yarar. Prim indirimleri bir yıl işe yarar ve HIPAA ve ADA kapsamında en yasal olarak test edilmiş teşvik yapısıdır. Katılımdan ziyade biyometrik sonuçlara bağlı nakit ikramiyeler yasal risk oluşturur ve kültürel olarak ters teper. Ne sunarsanız sunun, teşvik, biyometrik bir hedefi karşılayamayan çalışanların cezalandırılmaması için makul bir alternatif yoluyla ulaşılabilir olmalıdır.</p>
 
-    <h2>Inclusivity and accessibility</h2>
-    <p>Remote workers need programs that do not assume a headquarters campus. Ensure coaching is primarily virtual, mental health providers accept your insurance network, and wellness content is captioned. If 30% of your workforce is hourly, a wellness benefit accessible only during a paid workday is the only benefit that will be used.</p>
+    <h2>Kapsayıcılık ve erişilebilirlik</h2>
+    <p>Uzaktan çalışanların, bir genel merkez kampüsü varsaymayan programlara ihtiyacı vardır. Koçluğun öncelikle sanal olduğundan, ruh sağlığı sağlayıcılarının sigorta ağınızı kabul ettiğinden ve sağlıklı yaşam içeriğinin altyazılı olduğundan emin olun. İş gücünüzün %30'u saatlik ücretliyse, yalnızca ücretli bir iş gününde erişilebilen bir sağlıklı yaşam yan hakkı, kullanılacak tek yan haktır.</p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <ul>
-      <li>One-size-fits-all programs that ignore job function, age, and life stage.</li>
-      <li>Measuring vanity metrics like newsletter open rates instead of claims data.</li>
-      <li>Lack of executive participation &mdash; employees notice when leadership skips everything they promote.</li>
-      <li>Wellness washing: using a meditation app to mask understaffing, toxic management, or unrealistic deadlines.</li>
-      <li>Skipping legal review of incentive structures, data collection, and ADA regulations.</li>
+      <li>İş fonksiyonunu, yaşı ve yaşam evresini göz ardı eden herkese uyan tek tip programlar.</li>
+      <li>Talep verileri yerine bülten açılma oranları gibi gösteriş metriklerini ölçmek.</li>
+      <li>Yönetici katılımının olmaması &mdash; çalışanlar, liderliğin tanıttıkları her şeyi atladığını fark eder.</li>
+      <li>Sağlıklı yaşam aklaması: yetersiz personel alımını, toksik yönetimi veya gerçekçi olmayan teslim tarihlerini maskelemek için bir meditasyon uygulaması kullanmak.</li>
+      <li>Teşvik yapılarının, veri toplamanın ve ADA düzenlemelerinin yasal incelemesini atlamak.</li>
     </ul>
 
-    <h2>Before you launch</h2>
-    <p>Show the program to employment counsel, especially regarding incentive design, biometric data handling, and accommodations. Pilot with a subset of employees, collect honest feedback, and iterate before a company-wide rollout. A mediocre program launched carefully is better than an ambitious program that alienates half your workforce in month one.</p>
+    <h2>Başlatmadan önce</h2>
+    <p>Programı, özellikle teşvik tasarımı, biyometrik veri işleme ve düzenlemelerle ilgili olarak iş hukuku danışmanına gösterin. Bir çalışan alt kümesiyle pilot uygulama yapın, dürüst geri bildirim toplayın ve şirket genelinde kullanıma sunmadan önce yineleyin. Dikkatlice başlatılan vasat bir program, ilk ayda iş gücünüzün yarısını yabancılaştıran iddialı bir programdan daha iyidir.</p>
 
-    <h2>Conclusion</h2>
-    <p>The best corporate wellness programs are boring: good benefits, real mental health access, inclusive design, and a culture where people can actually use what you offer. Skip the gamification theater, measure what matters, and get legal review before you write the first check.</p>
+    <h2>Sonuç</h2>
+    <p>En iyi kurumsal sağlıklı yaşam programları sıkıcıdır: iyi yan haklar, gerçek ruh sağlığı erişimi, kapsayıcı tasarım ve insanların sunduklarınızı gerçekten kullanabileceği bir kültür. Oyunlaştırma tiyatrosunu atlayın, önemli olanı ölçün ve ilk çeki yazmadan önce yasal inceleme alın.</p>
   </>
 );
