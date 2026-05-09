@@ -2,7 +2,7 @@
  * fix-jsx.js — Fix common JSX syntax errors in translated guides
  */
 const fs = require("fs");
-const dir = "C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
+const dir = "C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
 
 const ERROR_FILES = [
   "how-to-switch-careers.tsx",

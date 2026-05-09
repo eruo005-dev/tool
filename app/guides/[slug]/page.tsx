@@ -38,8 +38,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const title = GUIDE_TITLES[slug] || slug.replace(/-/g, " ");
   return {
-    title: `${title} — ToolPazar Rehber`,
-    description: `${title} hakkında kapsamlı rehber — ToolPazar.`,
+    title: `${title} — TeknoAraç Rehber`,
+    description: `${title} hakkında kapsamlı rehber — TeknoAraç.`,
   };
 }
 
@@ -68,25 +68,25 @@ export default async function GuidePage({ params }: Props) {
 
   return (
     <div className="max-w-3xl mx-auto px-4 py-12">
-      <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-        <a href="/" className="hover:text-pazar-red">Ana Sayfa</a>
+      <div className="flex items-center gap-2 text-sm text-tekno-muted mb-8">
+        <a href="/" className="hover:text-tekno-cyan">Ana Sayfa</a>
         <span>/</span>
-        <a href="/guides" className="hover:text-pazar-red">Rehberler</a>
+        <a href="/guides" className="hover:text-tekno-cyan">Rehberler</a>
         <span>/</span>
-        <span className="text-gray-600">{title}</span>
+        <span className="text-tekno-muted">{title}</span>
       </div>
 
-      <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-2">
+      <h1 className="text-3xl md:text-4xl font-bold text-tekno-text mb-2">
         {h1Match?.[1] || title}
       </h1>
       {descMatch && (
-        <p className="text-lg text-gray-500 mb-8">{descMatch[1]}</p>
+        <p className="text-lg text-tekno-muted mb-8">{descMatch[1]}</p>
       )}
 
-      <div className="prose prose-lg max-w-none text-gray-600">
-        <div className="bg-green-50 border border-green-200 rounded-xl p-5 mb-8">
-          <p className="text-green-800 text-sm font-medium">
-            📖 Bu rehber ToolPazar ekibi tarafından hazırlanmıştır. Tüm araçlarımız ücretsiz ve reklamsızdır.
+      <div className="prose prose-lg max-w-none text-tekno-muted">
+        <div className="bg-tekno-cyan/10 border border-tekno-cyan/20 rounded-xl p-5 mb-8">
+          <p className="text-tekno-cyan text-sm font-medium">
+            📖 Bu rehber TeknoAraç ekibi tarafından hazırlanmıştır. Tüm araçlarımız ücretsiz ve reklamsızdır.
           </p>
         </div>
 
@@ -96,9 +96,9 @@ export default async function GuidePage({ params }: Props) {
             if (!text) return null;
             return (
               <div key={i} className="mb-6">
-                <h3 className="text-lg font-semibold text-gray-800 mb-2">{text}</h3>
+                <h3 className="text-lg font-semibold text-tekno-text mb-2">{text}</h3>
                 {paraMatches[i] && (
-                  <p className="text-gray-600">{(paraMatches[i].replace(/<[^>]+>/g, "").trim())}</p>
+                  <p className="text-tekno-muted">{(paraMatches[i].replace(/<[^>]+>/g, "").trim())}</p>
                 )}
               </div>
             );
@@ -106,8 +106,8 @@ export default async function GuidePage({ params }: Props) {
         ) : (
           <div className="space-y-4">
             <p>{title} hakkında kapsamlı rehberimize hoş geldiniz. Bu rehberde konuyla ilgili en güncel bilgileri, pratik ipuçlarını ve adım adım talimatları bulacaksınız.</p>
-            <p>ToolPazar olarak, tüm araçlarımızı ve rehberlerimizi ücretsiz sunuyoruz. Amacımız, herkesin ihtiyaç duyduğu bilgiye ve araçlara kolayca ulaşabilmesi.</p>
-            <p>Diğer rehberlerimize göz atmak için <a href="/guides" className="text-pazar-red hover:underline">rehberler sayfamızı</a> ziyaret edebilirsiniz.</p>
+            <p>TeknoAraç olarak, tüm araçlarımızı ve rehberlerimizi ücretsiz sunuyoruz. Amacımız, herkesin ihtiyaç duyduğu bilgiye ve araçlara kolayca ulaşabilmesi.</p>
+            <p>Diğer rehberlerimize göz atmak için <a href="/guides" className="text-tekno-cyan hover:underline">rehberler sayfamızı</a> ziyaret edebilirsiniz.</p>
           </div>
         )}
       </div>

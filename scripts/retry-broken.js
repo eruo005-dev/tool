@@ -1,9 +1,9 @@
 const fs = require("fs");
 const API_KEY = "sk-5c4dab92b6e2461fa7e2d036b1d318e5";
 const FTA = "C:/Users/eruo0/Desktop/project/freetoolarena/content/guides";
-const TGT = "C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
+const TGT = "C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
 
-const broken = JSON.parse(fs.readFileSync("C:/Users/eruo0/Desktop/project/toolpazar/scripts/broken-list.json", "utf-8"));
+const broken = JSON.parse(fs.readFileSync("C:/Users/eruo0/Desktop/project/teknoarac/scripts/broken-list.json", "utf-8"));
 console.log(broken.length + " files to fix\n");
 
 async function translate(file) {

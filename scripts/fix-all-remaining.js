@@ -5,7 +5,7 @@ const { execSync } = require("child_process");
 const fs = require("fs");
 const API_KEY = "sk-5c4dab92b6e2461fa7e2d036b1d318e5";
 const FTA = "C:/Users/eruo0/Desktop/project/freetoolarena/content/guides";
-const TGT = "C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
+const TGT = "C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
 const CONCURRENT = 4;
 
 async function translateFile(file) {
@@ -31,7 +31,7 @@ async function translateFile(file) {
 function getErrorFiles() {
   try {
     const out = execSync("npx tsc --noEmit 2>&1", { 
-      cwd: "C:/Users/eruo0/Desktop/project/toolpazar", 
+      cwd: "C:/Users/eruo0/Desktop/project/teknoarac", 
       timeout: 90000,
       encoding: "utf-8",
       stdio: "pipe"

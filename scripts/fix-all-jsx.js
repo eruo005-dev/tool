@@ -1,5 +1,5 @@
 const fs = require("fs");
-const dir = "C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
+const dir = "C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
 const allFiles = fs.readdirSync(dir).filter(f => f.endsWith(".tsx") && f !== "registry.tsx");
 let fixed = 0;
 

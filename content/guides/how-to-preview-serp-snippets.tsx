@@ -14,7 +14,7 @@ export const body: ReactElement = (
     <p>
       Standart bir Google SERP snippet'i üç görünür öğeye sahiptir: en üstte ekmek kırıntısı benzeri bir URL (önceden tam URL), altında tıklanabilir başlık olan mavi bir başlık ve en altta gri bir açıklama paragrafı. İsteğe bağlı eklemeler arasında sitelinkler (alt sayfa bağlantıları girintili), bir favicon (mobilde), bir yazar görseli veya site adı ve yıldız derecelendirmeleri, SSS akordeonları, fiyat veya stok durumu gibi zengin sonuçlar bulunur. Temel snippet yaklaşık 3-4 satır dikey alan kaplar; zengin snippet'ler bunu ikiye katlayabilir.
     </p>
-    <pre>{`toolpazar.com &gt; tools &gt; json-formatter
+    <pre>{`teknoarac.com &gt; tools &gt; json-formatter
 Free <a href="/tools/json-formatter">JSON Formatter</a> - Beautify, Validate, Minify
 Format and validate JSON instantly in your browser. Paste, format,
 validate against schema, convert to YAML. No login required.`}</pre>
@@ -36,7 +36,7 @@ validate against schema, convert to YAML. No login required.`}</pre>
 
     <h2>URL görüntüleme ve ekmek kırıntıları</h2>
     <p>
-      Google, çoğu modern SERP düzeninde URL'leri ekmek kırıntılarına dönüştürür. <code>https://toolpazar.com/tools/json-formatter</code> gibi bir URL, <code>toolpazar.com &gt; tools &gt; json-formatter</code> olarak görüntülenir. Ekmek kırıntısı site yapısını ortaya çıkarır ve varsayılan URL bölümlemesini geçersiz kılan BreadcrumbList yapılandırılmış verisi eklenerek özelleştirilebilir. Bu, derin URL yollarına sahip siteler için önemlidir: temiz bir ekmek kırıntısı hiyerarşisi yapı ve kategori sinyali verir.
+      Google, çoğu modern SERP düzeninde URL'leri ekmek kırıntılarına dönüştürür. <code>https://teknoarac.com/tools/json-formatter</code> gibi bir URL, <code>teknoarac.com &gt; tools &gt; json-formatter</code> olarak görüntülenir. Ekmek kırıntısı site yapısını ortaya çıkarır ve varsayılan URL bölümlemesini geçersiz kılan BreadcrumbList yapılandırılmış verisi eklenerek özelleştirilebilir. Bu, derin URL yollarına sahip siteler için önemlidir: temiz bir ekmek kırıntısı hiyerarşisi yapı ve kategori sinyali verir.
     </p>
 
     <h2>Sorgu terimi vurgulama</h2>

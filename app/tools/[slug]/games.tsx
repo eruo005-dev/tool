@@ -79,10 +79,10 @@ export function SnakeGame() {
 
   return (<div className="text-center">
     <div className="flex justify-between items-center mb-4 max-w-[400px] mx-auto">
-      <div className="bg-amber-100 text-amber-800 px-4 py-1.5 rounded-full font-bold text-lg">Skor: {score}</div>
-      {!started && <button onClick={init} className="px-6 py-2 bg-[#C8A84E] text-white font-bold rounded-xl hover:bg-amber-600 text-lg">Başlat</button>}
+      <div className="bg-tekno-cyan/10 text-tekno-cyan px-4 py-1.5 rounded-full font-bold text-lg">Skor: {score}</div>
+      {!started && <button onClick={init} className="px-6 py-2 bg-[#C8A84E] text-white font-bold rounded-xl hover:bg-tekno-cyan/10 text-lg">Başlat</button>}
     </div>
-    <canvas ref={canvasRef} width={W} height={H} className="mx-auto rounded-xl border-2 border-amber-200 bg-[#1a1a2e]" />
+    <canvas ref={canvasRef} width={W} height={H} className="mx-auto rounded-xl border-2 border-tekno-border bg-[#1a1a2e]" />
     {gameOver && <div className="mt-4 space-y-2"><p className="text-lg font-bold text-red-500">Oyun Bitti!</p><button onClick={init} className="px-6 py-2 bg-[#C8A84E] text-white font-bold rounded-xl">Tekrar Oyna</button></div>}
     <p className="text-sm text-gray-400 mt-3">Yön tuşları ile hareket edin</p>
   </div>);
@@ -137,13 +137,13 @@ export function Game2048() {
     }; window.addEventListener("keydown",k); return ()=>window.removeEventListener("keydown",k);
   },[started,gameOver,move]);
 
-  const colors:Record<number,string>={2:"bg-yellow-100",4:"bg-yellow-200",8:"bg-orange-300",16:"bg-orange-400",32:"bg-red-400",64:"bg-red-500",128:"bg-amber-300",256:"bg-amber-400",512:"bg-amber-500",1024:"bg-yellow-400",2048:"bg-[#C8A84E]"};
+  const colors:Record<number,string>={2:"bg-yellow-100",4:"bg-yellow-200",8:"bg-orange-300",16:"bg-orange-400",32:"bg-red-400",64:"bg-red-500",128:"bg-tekno-cyan/10",256:"bg-tekno-cyan/10",512:"bg-tekno-cyan/10",1024:"bg-yellow-400",2048:"bg-[#C8A84E]"};
 
-  if(!started) return (<div className="text-center"><button onClick={init} className="px-8 py-4 bg-[#C8A84E] text-white font-bold text-xl rounded-xl hover:bg-amber-600">2048 Başlat</button></div>);
+  if(!started) return (<div className="text-center"><button onClick={init} className="px-8 py-4 bg-[#C8A84E] text-white font-bold text-xl rounded-xl hover:bg-tekno-cyan/10">2048 Başlat</button></div>);
 
   return (<div className="text-center">
     <div className="flex justify-between items-center mb-4 max-w-[300px] mx-auto">
-      <div className="bg-amber-100 text-amber-800 px-4 py-1.5 rounded-full font-bold text-lg">{score}</div>
+      <div className="bg-tekno-cyan/10 text-tekno-cyan px-4 py-1.5 rounded-full font-bold text-lg">{score}</div>
       <button onClick={init} className="text-sm px-3 py-1.5 bg-gray-200 rounded-lg hover:bg-gray-300">Yeni</button>
     </div>
     <div className="grid grid-cols-4 gap-2 max-w-[300px] mx-auto bg-gray-200 p-3 rounded-xl">
@@ -215,7 +215,7 @@ export function RockPaperScissors() {
   return (<div className="text-center">
     <div className="flex justify-center gap-8 text-lg font-bold mb-6"><span className="text-green-600">Sen: {score}</span><span className="text-red-500">PC: {pc}</span></div>
     {result&&<div className="mb-6"><div className="flex justify-center gap-8 text-3xl mb-2"><span>{pl==="Taş"?"🪨":pl==="Kağıt"?"📄":"✂️"}</span><span>vs</span><span>{cp==="Taş"?"🪨":cp==="Kağıt"?"📄":"✂️"}</span></div><div className={`text-xl font-bold ${result.includes("Kazan")?"text-green-600":result.includes("Kayb")?"text-red-500":"text-gray-600"}`}>{result}</div></div>}
-    <div className="flex justify-center gap-4">{["Taş","Kağıt","Makas"].map(p=>(<button key={p} onClick={()=>play(p)} className="px-5 py-3 bg-gray-100 hover:bg-amber-100 rounded-xl text-2xl border border-gray-200">{p==="Taş"?"🪨":p==="Kağıt"?"📄":"✂️"}</button>))}</div>
+    <div className="flex justify-center gap-4">{["Taş","Kağıt","Makas"].map(p=>(<button key={p} onClick={()=>play(p)} className="px-5 py-3 bg-gray-100 hover:bg-tekno-cyan/10 rounded-xl text-2xl border border-gray-200">{p==="Taş"?"🪨":p==="Kağıt"?"📄":"✂️"}</button>))}</div>
   </div>);
 }
 
@@ -261,7 +261,7 @@ export function Minesweeper() {
   return (<div className="text-center">
     <div className="mb-4">{gameOver&&<span className="text-red-500 font-bold">Mayına Bastın!</span>}{win&&<span className="text-green-600 font-bold">Kazandınız!</span>}{(gameOver||win)&&<button onClick={init} className="ml-4 px-4 py-1.5 bg-[#C8A84E] text-white rounded-lg text-sm">Yeni</button>}</div>
     <div className="inline-grid gap-0.5" style={{gridTemplateColumns:`repeat(${size},minmax(0,1fr))`}}>
-      {board.map((r,i)=>r.map((c,j)=>(<button key={`${i}-${j}`} onClick={()=>reveal(i,j)} onContextMenu={(e)=>flag(e,i,j)} className={`w-10 h-10 text-xs font-bold rounded flex items-center justify-center border ${c.r?(c.m?"bg-red-500":"bg-gray-100"):c.f?"bg-amber-100":"bg-gray-200 hover:bg-gray-300"}`}>
+      {board.map((r,i)=>r.map((c,j)=>(<button key={`${i}-${j}`} onClick={()=>reveal(i,j)} onContextMenu={(e)=>flag(e,i,j)} className={`w-10 h-10 text-xs font-bold rounded flex items-center justify-center border ${c.r?(c.m?"bg-red-500":"bg-gray-100"):c.f?"bg-tekno-cyan/10":"bg-gray-200 hover:bg-gray-300"}`}>
         {c.r?c.m?"💣":c.n?<span className={colors[c.n]}>{c.n}</span>:"" :c.f?"🚩":""}
       </button>)))}
     </div>
@@ -298,7 +298,7 @@ export function Pong() {
   if(!started) return (<div className="text-center"><button onClick={init} className="px-8 py-4 bg-[#C8A84E] text-white font-bold text-xl rounded-xl">Pong Başlat</button></div>);
   return (<div className="text-center">
     <div className="flex justify-between max-w-[400px] mx-auto mb-4"><span className="text-lg font-bold text-green-600">Sen: {score}</span><span className="text-lg font-bold text-red-500">PC: {pScore}</span></div>
-    <canvas ref={canvasRef} width={W} height={H} className="mx-auto rounded-xl border-2 border-amber-200 bg-[#1a1a2e]" />
+    <canvas ref={canvasRef} width={W} height={H} className="mx-auto rounded-xl border-2 border-tekno-border bg-[#1a1a2e]" />
     {gameOver&&<div className="mt-4"><p className="text-lg font-bold" style={{color:score>=5?"#22c55e":"#ef4444"}}>{score>=5?"Kazandınız!":"Kaybettiniz!"}</p><button onClick={init} className="mt-2 px-6 py-2 bg-[#C8A84E] text-white font-bold rounded-xl">Tekrar Oyna</button></div>}
     <p className="text-sm text-gray-400 mt-3">Fare ile paddle'ı hareket ettirin</p>
   </div>);
@@ -330,7 +330,7 @@ export function ConnectFour() {
 
   return (<div className="text-center">
     <div className="mb-4 text-lg font-bold text-gray-700">{winner?winner==="B"?"Beraberlik!":`${winner==="R"?"🔴":"🟡"} Kazandı!`:`Sıra: ${turn==="R"?"🔴":"🟡"}`}</div>
-    <div className="inline-grid gap-1.5 bg-blue-100 p-3 rounded-xl">{board.map((r,i)=>(<React.Fragment key={i}>{r.map((c,j)=>(<button key={j} onClick={()=>drop(j)} className={`w-12 h-12 rounded-full border-2 ${c?"border-gray-400":"border-blue-300 hover:border-amber-400"} ${c==="R"?"bg-red-500":c==="Y"?"bg-yellow-400":""}`}/>))}</React.Fragment>))}</div>
+    <div className="inline-grid gap-1.5 bg-blue-100 p-3 rounded-xl">{board.map((r,i)=>(<React.Fragment key={i}>{r.map((c,j)=>(<button key={j} onClick={()=>drop(j)} className={`w-12 h-12 rounded-full border-2 ${c?"border-gray-400":"border-blue-300 hover:border-tekno-border"} ${c==="R"?"bg-red-500":c==="Y"?"bg-yellow-400":""}`}/>))}</React.Fragment>))}</div>
     {winner&&<button onClick={reset} className="mt-4 px-6 py-2 bg-[#C8A84E] text-white font-bold rounded-xl">Yeni Oyun</button>}
   </div>);
 }
@@ -378,7 +378,7 @@ export function FifteenPuzzle() {
 
   return (<div className="text-center">
     <div className="mb-4"><span className="text-gray-600 font-medium">Hamle: {moves}</span>{win&&<span className="ml-3 text-green-600 font-bold">Tamam!</span>}</div>
-    <div className="grid grid-cols-4 gap-1.5 max-w-[260px] mx-auto bg-gray-200 p-2 rounded-xl">{tiles.map((t,i)=>(<button key={i} onClick={()=>move(i)} className={`w-14 h-14 rounded-lg font-bold text-lg flex items-center justify-center transition ${t===0?"bg-transparent":"bg-[#C8A84E] text-white hover:bg-amber-600"}`}>{t||""}</button>))}</div>
+    <div className="grid grid-cols-4 gap-1.5 max-w-[260px] mx-auto bg-gray-200 p-2 rounded-xl">{tiles.map((t,i)=>(<button key={i} onClick={()=>move(i)} className={`w-14 h-14 rounded-lg font-bold text-lg flex items-center justify-center transition ${t===0?"bg-transparent":"bg-[#C8A84E] text-white hover:bg-tekno-cyan/10"}`}>{t||""}</button>))}</div>
     <button onClick={shuffle} className="mt-4 px-6 py-2 bg-gray-100 hover:bg-gray-200 rounded-lg text-sm">Karıştır</button>
   </div>);
 }
@@ -514,7 +514,7 @@ function WhackAMole() {
 
   return (<div className="text-center">
     <div className="flex justify-between mb-4 max-w-[280px] mx-auto"><span className="font-bold text-[#C8A84E]">Skor: {score}</span><span className="font-bold" style={{color:time<10?"#ef4444":"#6b7280"}}>{time}s</span></div>
-    <div className="grid grid-cols-3 gap-2 max-w-[280px] mx-auto bg-amber-50 p-3 rounded-xl">{[...Array(9)].map((_,i)=>(<button key={i} onClick={()=>{if(mole===i){setScore(s=>s+1);setMole(null);}}} className="w-20 h-20 bg-amber-800 rounded-full flex items-center justify-center text-3xl transition">{mole===i?"🐹":""}</button>))}</div>
+    <div className="grid grid-cols-3 gap-2 max-w-[280px] mx-auto bg-tekno-cyan/10 p-3 rounded-xl">{[...Array(9)].map((_,i)=>(<button key={i} onClick={()=>{if(mole===i){setScore(s=>s+1);setMole(null);}}} className="w-20 h-20 bg-tekno-cyan/10 rounded-full flex items-center justify-center text-3xl transition">{mole===i?"🐹":""}</button>))}</div>
   </div>);
 }
 
@@ -542,7 +542,7 @@ function LightsOut() {
   return (<div className="text-center">
     <div className="mb-4 text-gray-600">Hamle: {moves}{won&&<span className="ml-3 text-green-600 font-bold">Kazandınız!</span>}</div>
     <div className="inline-grid gap-1" style={{gridTemplateColumns:`repeat(${size},1fr)`}}>
-      {grid.map((r,i)=>r.map((c,j)=>(<button key={`${i}-${j}`} onClick={()=>click(i,j)} className={`w-12 h-12 rounded transition ${c?"bg-amber-400":"bg-gray-800"}`}/>)))}
+      {grid.map((r,i)=>r.map((c,j)=>(<button key={`${i}-${j}`} onClick={()=>click(i,j)} className={`w-12 h-12 rounded transition ${c?"bg-tekno-cyan/10":"bg-gray-800"}`}/>)))}
     </div>
     {won&&<button onClick={()=>{const g=[...Array(size)].map(()=>Array(size).fill(false));for(let k=0;k<10;k++){const r=Math.floor(Math.random()*size),c=Math.floor(Math.random()*size);toggle(g,r,c);}setGrid(g);setMoves(0);setWon(false);}} className="mt-4 px-6 py-2 bg-[#C8A84E] text-white font-bold rounded-xl">Yeni Oyun</button>}
   </div>);
@@ -574,7 +574,7 @@ function TowerOfHanoi() {
   return (<div className="text-center">
     <div className="mb-4"><span className="text-gray-600">Hamle: {moves} | Disk: {n} | Min: {Math.pow(2,n)-1}</span>{won&&<span className="ml-3 text-green-600 font-bold">Tamam!</span>}</div>
     <div className="flex justify-center items-end gap-4 h-32">
-      {pegs.map((peg,i)=>(<button key={i} onClick={()=>clickPeg(i)} className={`flex flex-col-reverse items-center w-20 min-h-[120px] rounded-t-lg border-b-4 ${sel===i?"border-[#C8A84E] bg-amber-50":"border-gray-300 bg-gray-100 hover:bg-gray-200"}`}>
+      {pegs.map((peg,i)=>(<button key={i} onClick={()=>clickPeg(i)} className={`flex flex-col-reverse items-center w-20 min-h-[120px] rounded-t-lg border-b-4 ${sel===i?"border-[#C8A84E] bg-tekno-cyan/10":"border-gray-300 bg-gray-100 hover:bg-gray-200"}`}>
         {peg.map((d,j)=>(<div key={j} className="h-4 mb-0.5 rounded" style={{width:`${d*14+8}px`,backgroundColor:["#ef4444","#3b82f6","#eab308","#22c55e","#a855f7","#ec4899"][d-1]}}/>))}
         <div className="text-xs text-gray-400 mt-1 mb-1">{i+1}</div>
       </button>))}
@@ -604,7 +604,7 @@ function WordleClone() {
 
   const getColor=(letter:string,i:number,r:number):string=>{
     if(target[i]===letter)return "bg-green-500 text-white";
-    if(target.includes(letter))return "bg-amber-400 text-white";
+    if(target.includes(letter))return "bg-tekno-cyan/10 text-white";
     return "bg-gray-300";
   };
 

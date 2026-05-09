@@ -8,9 +8,9 @@ type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const tool = tools.find((t) => t.slug === slug);
-  if (!tool) return { title: "Araç Bulunamadı — ToolPazar" };
+  if (!tool) return { title: "Araç Bulunamadı — TeknoAraç" };
   return {
-    title: `${tool.titleTr} — ToolPazar`,
+    title: `${tool.titleTr} — TeknoAraç`,
     description: tool.descriptionTr,
   };
 }
@@ -29,42 +29,42 @@ export default async function ToolPage({ params }: Props) {
   return (
     <div className="max-w-4xl mx-auto px-4 py-12">
       {/* Breadcrumb */}
-      <div className="flex items-center gap-2 text-sm text-gray-400 mb-8">
-        <a href="/" className="hover:text-pazar-red">Ana Sayfa</a>
+      <div className="flex items-center gap-2 text-sm text-tekno-muted mb-8">
+        <a href="/" className="hover:text-tekno-cyan">Ana Sayfa</a>
         <span>/</span>
-        <a href="/tools" className="hover:text-pazar-red">Araçlar</a>
+        <a href="/tools" className="hover:text-tekno-cyan">Araçlar</a>
         <span>/</span>
-        <span className="text-gray-600">{tool.titleTr}</span>
+        <span className="text-tekno-muted">{tool.titleTr}</span>
       </div>
 
       {/* Tool Header */}
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-3">
           <span className="text-3xl">{tool.icon}</span>
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800">{tool.titleTr}</h1>
+          <h1 className="text-3xl md:text-4xl font-bold text-tekno-text">{tool.titleTr}</h1>
         </div>
-        <p className="text-lg text-gray-500">{tool.descriptionTr}</p>
+        <p className="text-lg text-tekno-muted">{tool.descriptionTr}</p>
         <div className="flex items-center gap-2 mt-3">
-          <span className="text-xs bg-gray-100 text-gray-500 px-3 py-1 rounded-full">
+          <span className="text-xs bg-tekno-panel text-tekno-muted px-3 py-1 rounded-full">
             {categories[tool.category]?.icon} {categories[tool.category]?.title}
           </span>
         </div>
       </div>
 
       {/* Tool Component (Client) */}
-      <div className="bg-white rounded-2xl border border-gray-100 p-6 md:p-8 shadow-sm">
+      <div className="bg-tekno-panel rounded-2xl border border-gray-100 p-6 md:p-8 shadow-sm">
         <ToolComponent slug={slug} />
       </div>
 
       {/* Related Tools */}
       {related.length > 0 && (
         <div className="mt-16">
-          <h2 className="text-xl font-bold text-gray-800 mb-4">Benzer Araçlar</h2>
+          <h2 className="text-xl font-bold text-tekno-text mb-4">Benzer Araçlar</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
             {related.map((t) => (
-              <a key={t.slug} href={`/tools/${t.slug}`} className="bg-white rounded-xl p-4 border border-gray-100 hover:border-pazar-red/30 transition text-center">
+              <a key={t.slug} href={`/tools/${t.slug}`} className="bg-tekno-panel rounded-xl p-4 border border-gray-100 hover:border-tekno-cyan/30 transition text-center">
                 <div className="text-xl mb-2">{t.icon}</div>
-                <div className="text-sm font-medium text-gray-700">{t.titleTr}</div>
+                <div className="text-sm font-medium text-tekno-muted">{t.titleTr}</div>
               </a>
             ))}
           </div>

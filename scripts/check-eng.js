@@ -1,7 +1,7 @@
 const fs = require("fs");
-const dir = "C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
+const dir = "C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
 const files = fs.readdirSync(dir).filter(f => f.endsWith(".tsx"));
-const progress = JSON.parse(fs.readFileSync("C:/Users/eruo0/Desktop/project/toolpazar/scripts/translate-guides-progress.json", "utf-8"));
+const progress = JSON.parse(fs.readFileSync("C:/Users/eruo0/Desktop/project/teknoarac/scripts/translate-guides-progress.json", "utf-8"));
 const progressSet = new Set(progress);
 
 let tr = 0, en = 0, untrackedTR = 0;

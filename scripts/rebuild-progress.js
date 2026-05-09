@@ -1,7 +1,7 @@
 const fs = require("fs");
-const dir = "C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
+const dir = "C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
 const files = fs.readdirSync(dir).filter(f => f.endsWith(".tsx") && f !== "registry.tsx");
-const PROGRESS_FILE = "C:/Users/eruo0/Desktop/project/toolpazar/scripts/translate-guides-progress.json";
+const PROGRESS_FILE = "C:/Users/eruo0/Desktop/project/teknoarac/scripts/translate-guides-progress.json";
 
 const translated = [];
 

@@ -168,13 +168,13 @@ function KDVTool() {
   return (
     <div>
       <div className="grid md:grid-cols-2 gap-6">
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Tutar (TL)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={amount} onChange={e => setAmount(Number(e.target.value) || 0)} /></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">KDV Oranı</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>%1</option><option value={10}>%10</option><option value={20}>%20</option></select></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Tutar (TL)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={amount} onChange={e => setAmount(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">KDV Oranı</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>%1</option><option value={10}>%10</option><option value={20}>%20</option></select></div>
       </div>
       <div className="mt-8 grid grid-cols-3 gap-4">
-        <div className="bg-gray-50 rounded-xl p-5 text-center"><div className="text-xs text-gray-400">KDV Hariç</div><div className="text-xl font-bold text-gray-800">{amount.toLocaleString("tr-TR")} TL</div></div>
-        <div className="bg-pazar-red/5 rounded-xl p-5 text-center"><div className="text-xs text-gray-400">KDV Tutarı</div><div className="text-xl font-bold text-pazar-red">{kdv.toLocaleString("tr-TR")} TL</div></div>
-        <div className="bg-gray-50 rounded-xl p-5 text-center"><div className="text-xs text-gray-400">KDV Dahil</div><div className="text-xl font-bold text-gray-800">{(amount + kdv).toLocaleString("tr-TR")} TL</div></div>
+        <div className="bg-tekno-panel rounded-xl p-5 text-center"><div className="text-xs text-tekno-muted">KDV Hariç</div><div className="text-xl font-bold text-tekno-text">{amount.toLocaleString("tr-TR")} TL</div></div>
+        <div className="bg-tekno-cyan/5 rounded-xl p-5 text-center"><div className="text-xs text-tekno-muted">KDV Tutarı</div><div className="text-xl font-bold text-tekno-cyan">{kdv.toLocaleString("tr-TR")} TL</div></div>
+        <div className="bg-tekno-panel rounded-xl p-5 text-center"><div className="text-xs text-tekno-muted">KDV Dahil</div><div className="text-xl font-bold text-tekno-text">{(amount + kdv).toLocaleString("tr-TR")} TL</div></div>
       </div>
     </div>
   );
@@ -190,12 +190,12 @@ function PasswordTool() {
   }
   return (
     <div>
-      <div className="bg-gray-50 rounded-xl p-6 text-center border mb-6"><div className="text-3xl font-mono font-bold text-gray-800 mb-2 break-all">{pw}</div><button onClick={() => navigator.clipboard.writeText(pw)} className="text-sm bg-pazar-red text-white px-4 py-2 rounded-lg hover:bg-red-700">Kopyala</button></div>
+      <div className="bg-tekno-panel rounded-xl p-6 text-center border mb-6"><div className="text-3xl font-mono font-bold text-tekno-text mb-2 break-all">{pw}</div><button onClick={() => navigator.clipboard.writeText(pw)} className="text-sm bg-tekno-cyan text-white px-4 py-2 rounded-lg hover:bg-red-700">Kopyala</button></div>
       <div className="grid md:grid-cols-2 gap-4 items-center">
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Uzunluk: {len}</label><input type="range" min={8} max={50} value={len} onChange={e => { const v = Number(e.target.value); setLen(v); setPw(genPw(v, opts.upper, opts.lower, opts.nums, opts.syms)); }} className="w-full accent-pazar-red" /></div>
-        <div className="flex flex-wrap gap-3">{[{ k: "upper", l: "Büyük" },{ k: "lower", l: "Küçük" },{ k: "nums", l: "Rakam" },{ k: "syms", l: "Sembol" }].map(o => (<label key={o.k} className="flex items-center gap-2 text-sm text-gray-700"><input type="checkbox" checked={(opts as any)[o.k]} onChange={e => { const n = { ...opts, [o.k]: e.target.checked }; setOpts(n); setPw(genPw(len, n.upper, n.lower, n.nums, n.syms)); }} className="accent-pazar-red" />{o.l}</label>))}</div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Uzunluk: {len}</label><input type="range" min={8} max={50} value={len} onChange={e => { const v = Number(e.target.value); setLen(v); setPw(genPw(v, opts.upper, opts.lower, opts.nums, opts.syms)); }} className="w-full accent-tekno-cyan" /></div>
+        <div className="flex flex-wrap gap-3">{[{ k: "upper", l: "Büyük" },{ k: "lower", l: "Küçük" },{ k: "nums", l: "Rakam" },{ k: "syms", l: "Sembol" }].map(o => (<label key={o.k} className="flex items-center gap-2 text-sm text-tekno-muted"><input type="checkbox" checked={(opts as any)[o.k]} onChange={e => { const n = { ...opts, [o.k]: e.target.checked }; setOpts(n); setPw(genPw(len, n.upper, n.lower, n.nums, n.syms)); }} className="accent-tekno-cyan" />{o.l}</label>))}</div>
       </div>
-      <button onClick={() => setPw(genPw(len, opts.upper, opts.lower, opts.nums, opts.syms))} className="mt-4 w-full py-3 bg-pazar-red text-white font-semibold rounded-xl hover:bg-red-700">Yeni Oluştur</button>
+      <button onClick={() => setPw(genPw(len, opts.upper, opts.lower, opts.nums, opts.syms))} className="mt-4 w-full py-3 bg-tekno-cyan text-white font-semibold rounded-xl hover:bg-red-700">Yeni Oluştur</button>
     </div>
   );
 }
@@ -207,9 +207,9 @@ function TipTool() {
   const tip = bill * pct / 100;
   return (
     <div>
-      <div className="grid md:grid-cols-2 gap-6 mb-6"><div><label className="block text-sm font-medium text-gray-700 mb-2">Hesap Tutarı (TL)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={bill} onChange={e => setBill(Number(e.target.value) || 0)} /></div><div><label className="block text-sm font-medium text-gray-700 mb-2">Kişi Sayısı</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={people} onChange={e => setPeople(Math.max(1, Number(e.target.value) || 1))} /></div></div>
-      <div className="flex flex-wrap gap-2 mb-6">{[5,10,12,15,18,20].map(v=>(<button key={v} onClick={()=>setPct(v)} className={`px-4 py-2 rounded-lg text-sm font-medium ${pct===v?"bg-pazar-red text-white":"bg-gray-100 hover:bg-gray-200"}`}>%{v}</button>))}</div>
-      <div className="grid grid-cols-3 gap-4"><div className="bg-gray-50 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Bahşiş</div><div className="text-xl font-bold text-gray-800">{tip.toLocaleString("tr-TR")} TL</div></div><div className="bg-gray-50 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Toplam</div><div className="text-xl font-bold text-gray-800">{(bill+tip).toLocaleString("tr-TR")} TL</div></div><div className="bg-pazar-red/5 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Kişi Başı</div><div className="text-xl font-bold text-pazar-red">{((bill+tip)/people).toLocaleString("tr-TR")} TL</div></div></div>
+      <div className="grid md:grid-cols-2 gap-6 mb-6"><div><label className="block text-sm font-medium text-tekno-muted mb-2">Hesap Tutarı (TL)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={bill} onChange={e => setBill(Number(e.target.value) || 0)} /></div><div><label className="block text-sm font-medium text-tekno-muted mb-2">Kişi Sayısı</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={people} onChange={e => setPeople(Math.max(1, Number(e.target.value) || 1))} /></div></div>
+      <div className="flex flex-wrap gap-2 mb-6">{[5,10,12,15,18,20].map(v=>(<button key={v} onClick={()=>setPct(v)} className={`px-4 py-2 rounded-lg text-sm font-medium ${pct===v?"bg-tekno-cyan text-white":"bg-tekno-panel hover:bg-tekno-border"}`}>%{v}</button>))}</div>
+      <div className="grid grid-cols-3 gap-4"><div className="bg-tekno-panel rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Bahşiş</div><div className="text-xl font-bold text-tekno-text">{tip.toLocaleString("tr-TR")} TL</div></div><div className="bg-tekno-panel rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Toplam</div><div className="text-xl font-bold text-tekno-text">{(bill+tip).toLocaleString("tr-TR")} TL</div></div><div className="bg-tekno-cyan/5 rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Kişi Başı</div><div className="text-xl font-bold text-tekno-cyan">{((bill+tip)/people).toLocaleString("tr-TR")} TL</div></div></div>
     </div>
   );
 }
@@ -220,8 +220,8 @@ function PercentageTool() {
   const r = num * pct / 100;
   return (
     <div>
-      <div className="grid md:grid-cols-2 gap-6"><div><label className="block text-sm font-medium text-gray-700 mb-2">Sayı</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={num} onChange={e=>setNum(Number(e.target.value)||0)} /></div><div><label className="block text-sm font-medium text-gray-700 mb-2">Yüzde (%)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={pct} onChange={e=>setPct(Number(e.target.value)||0)} /></div></div>
-      <div className="mt-6 grid grid-cols-2 gap-4"><div className="bg-gray-50 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Yüzdesi</div><div className="text-xl font-bold text-gray-800">{r.toLocaleString("tr-TR")}</div></div><div className="bg-pazar-red/5 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Toplam</div><div className="text-xl font-bold text-pazar-red">{(num+r).toLocaleString("tr-TR")}</div></div></div>
+      <div className="grid md:grid-cols-2 gap-6"><div><label className="block text-sm font-medium text-tekno-muted mb-2">Sayı</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={num} onChange={e=>setNum(Number(e.target.value)||0)} /></div><div><label className="block text-sm font-medium text-tekno-muted mb-2">Yüzde (%)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={pct} onChange={e=>setPct(Number(e.target.value)||0)} /></div></div>
+      <div className="mt-6 grid grid-cols-2 gap-4"><div className="bg-tekno-panel rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Yüzdesi</div><div className="text-xl font-bold text-tekno-text">{r.toLocaleString("tr-TR")}</div></div><div className="bg-tekno-cyan/5 rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Toplam</div><div className="text-xl font-bold text-tekno-cyan">{(num+r).toLocaleString("tr-TR")}</div></div></div>
     </div>
   );
 }
@@ -232,8 +232,8 @@ function DiscountTool() {
   const saved = price * rate / 100;
   return (
     <div>
-      <div className="grid md:grid-cols-2 gap-6"><div><label className="block text-sm font-medium text-gray-700 mb-2">Fiyat (TL)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={price} onChange={e=>setPrice(Number(e.target.value)||0)} /></div><div><label className="block text-sm font-medium text-gray-700 mb-2">İndirim (%)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={rate} onChange={e=>setRate(Number(e.target.value)||0)} /></div></div>
-      <div className="grid grid-cols-3 gap-4"><div className="bg-gray-50 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">İndirim</div><div className="text-xl font-bold text-gray-800">{saved.toLocaleString("tr-TR")} TL</div></div><div className="bg-pazar-red/5 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">İndirimli</div><div className="text-xl font-bold text-pazar-red">{(price-saved).toLocaleString("tr-TR")} TL</div></div><div className="bg-green-50 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Tasarruf</div><div className="text-xl font-bold text-green-600">{saved.toLocaleString("tr-TR")} TL</div></div></div>
+      <div className="grid md:grid-cols-2 gap-6"><div><label className="block text-sm font-medium text-tekno-muted mb-2">Fiyat (TL)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={price} onChange={e=>setPrice(Number(e.target.value)||0)} /></div><div><label className="block text-sm font-medium text-tekno-muted mb-2">İndirim (%)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={rate} onChange={e=>setRate(Number(e.target.value)||0)} /></div></div>
+      <div className="grid grid-cols-3 gap-4"><div className="bg-tekno-panel rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">İndirim</div><div className="text-xl font-bold text-tekno-text">{saved.toLocaleString("tr-TR")} TL</div></div><div className="bg-tekno-cyan/5 rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">İndirimli</div><div className="text-xl font-bold text-tekno-cyan">{(price-saved).toLocaleString("tr-TR")} TL</div></div><div className="bg-tekno-cyan/10 rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Tasarruf</div><div className="text-xl font-bold text-green-600">{saved.toLocaleString("tr-TR")} TL</div></div></div>
     </div>
   );
 }
@@ -247,8 +247,8 @@ function CurrencyTool() {
   const names: Record<string,string> = { USD:"$ USD", EUR:"€ EUR", GBP:"£ GBP", TRY:"₺ TL", CHF:"₣ CHF", JPY:"¥ JPY", CNY:"¥ CNY", RUB:"₽ RUB", AED:"د.إ AED" };
   return (
     <div>
-      <div className="grid md:grid-cols-3 gap-4 mb-6"><div><label className="block text-sm font-medium text-gray-700 mb-2">Miktar</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={amount} onChange={e=>setAmount(Number(e.target.value)||0)} /></div><div><label className="block text-sm font-medium text-gray-700 mb-2">Kaynak</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={from} onChange={e=>setFrom(e.target.value)}>{Object.entries(names).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select></div><div><label className="block text-sm font-medium text-gray-700 mb-2">Hedef</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={to} onChange={e=>setTo(e.target.value)}>{Object.entries(names).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select></div></div>
-      <div className="bg-gray-50 rounded-xl p-6 text-center"><div className="text-sm text-gray-400 mb-2">Sonuç</div><div className="text-3xl font-bold text-pazar-red">{result.toLocaleString("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2})}</div><div className="text-xs text-gray-400 mt-2">Gösterge niteliğinde</div></div>
+      <div className="grid md:grid-cols-3 gap-4 mb-6"><div><label className="block text-sm font-medium text-tekno-muted mb-2">Miktar</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={amount} onChange={e=>setAmount(Number(e.target.value)||0)} /></div><div><label className="block text-sm font-medium text-tekno-muted mb-2">Kaynak</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={from} onChange={e=>setFrom(e.target.value)}>{Object.entries(names).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select></div><div><label className="block text-sm font-medium text-tekno-muted mb-2">Hedef</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={to} onChange={e=>setTo(e.target.value)}>{Object.entries(names).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select></div></div>
+      <div className="bg-tekno-panel rounded-xl p-6 text-center"><div className="text-sm text-tekno-muted mb-2">Sonuç</div><div className="text-3xl font-bold text-tekno-cyan">{result.toLocaleString("tr-TR",{minimumFractionDigits:2,maximumFractionDigits:2})}</div><div className="text-xs text-tekno-muted mt-2">Gösterge niteliğinde</div></div>
     </div>
   );
 }
@@ -261,8 +261,8 @@ function UnitTool() {
   const [to, setTo] = React.useState("mi");
   return (
     <div>
-      <div className="grid md:grid-cols-3 gap-4 mb-6"><div><label className="block text-sm font-medium text-gray-700 mb-2">Değer</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={val} onChange={e=>setVal(Number(e.target.value)||0)} /></div><div><label className="block text-sm font-medium text-gray-700 mb-2">Kaynak</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={from} onChange={e=>setFrom(e.target.value)}>{Object.entries(names).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select></div><div><label className="block text-sm font-medium text-gray-700 mb-2">Hedef</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={to} onChange={e=>setTo(e.target.value)}>{Object.entries(names).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select></div></div>
-      <div className="bg-gray-50 rounded-xl p-6 text-center"><div className="text-sm text-gray-400 mb-2">Sonuç</div><div className="text-3xl font-bold text-pazar-red">{((val*(units[from]||1))/(units[to]||1)).toLocaleString("tr-TR",{maximumFractionDigits:4})}</div></div>
+      <div className="grid md:grid-cols-3 gap-4 mb-6"><div><label className="block text-sm font-medium text-tekno-muted mb-2">Değer</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={val} onChange={e=>setVal(Number(e.target.value)||0)} /></div><div><label className="block text-sm font-medium text-tekno-muted mb-2">Kaynak</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={from} onChange={e=>setFrom(e.target.value)}>{Object.entries(names).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select></div><div><label className="block text-sm font-medium text-tekno-muted mb-2">Hedef</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={to} onChange={e=>setTo(e.target.value)}>{Object.entries(names).map(([k,v])=><option key={k} value={k}>{v}</option>)}</select></div></div>
+      <div className="bg-tekno-panel rounded-xl p-6 text-center"><div className="text-sm text-tekno-muted mb-2">Sonuç</div><div className="text-3xl font-bold text-tekno-cyan">{((val*(units[from]||1))/(units[to]||1)).toLocaleString("tr-TR",{maximumFractionDigits:4})}</div></div>
     </div>
   );
 }
@@ -280,8 +280,8 @@ function AgeTool() {
   const tm = (n.getFullYear()-b.getFullYear())*12+(n.getMonth()-b.getMonth());
   return (
     <div>
-      <div className="grid grid-cols-3 gap-4 mb-6"><div><label className="block text-sm font-medium text-gray-700 mb-2">Yıl</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={y} onChange={e=>setY(Number(e.target.value)||1900)} /></div><div><label className="block text-sm font-medium text-gray-700 mb-2">Ay</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={m} onChange={e=>setM(Math.min(12,Math.max(1,Number(e.target.value)||1)))} /></div><div><label className="block text-sm font-medium text-gray-700 mb-2">Gün</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={d} onChange={e=>setD(Math.min(31,Math.max(1,Number(e.target.value)||1)))} /></div></div>
-      <div className="grid grid-cols-3 gap-4"><div className="bg-pazar-red/5 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Yaş</div><div className="text-2xl font-bold text-pazar-red">{age} yıl</div></div><div className="bg-gray-50 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Ay</div><div className="text-2xl font-bold text-gray-800">{tm} ay</div></div><div className="bg-gray-50 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Gün</div><div className="text-2xl font-bold text-gray-800">{Math.floor((n.getTime()-b.getTime())/86400000)} gün</div></div></div>
+      <div className="grid grid-cols-3 gap-4 mb-6"><div><label className="block text-sm font-medium text-tekno-muted mb-2">Yıl</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={y} onChange={e=>setY(Number(e.target.value)||1900)} /></div><div><label className="block text-sm font-medium text-tekno-muted mb-2">Ay</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={m} onChange={e=>setM(Math.min(12,Math.max(1,Number(e.target.value)||1)))} /></div><div><label className="block text-sm font-medium text-tekno-muted mb-2">Gün</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={d} onChange={e=>setD(Math.min(31,Math.max(1,Number(e.target.value)||1)))} /></div></div>
+      <div className="grid grid-cols-3 gap-4"><div className="bg-tekno-cyan/5 rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Yaş</div><div className="text-2xl font-bold text-tekno-cyan">{age} yıl</div></div><div className="bg-tekno-panel rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Ay</div><div className="text-2xl font-bold text-tekno-text">{tm} ay</div></div><div className="bg-tekno-panel rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Gün</div><div className="text-2xl font-bold text-tekno-text">{Math.floor((n.getTime()-b.getTime())/86400000)} gün</div></div></div>
     </div>
   );
 }
@@ -291,43 +291,43 @@ function BMITool() {
   const lo=18.5*(h/100)**2;const hi=25*(h/100)**2;
   return (
     <div>
-      <div className="grid md:grid-cols-2 gap-6 mb-6"><div><label className="block text-sm font-medium text-gray-700 mb-2">Kilo (kg)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={w} onChange={e=>setW(Number(e.target.value)||0)}/></div><div><label className="block text-sm font-medium text-gray-700 mb-2">Boy (cm)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={h} onChange={e=>setH(Number(e.target.value)||0)}/></div></div>
-      <div className="grid grid-cols-2 gap-4"><div className="bg-pazar-red/5 rounded-xl p-5 text-center"><div className="text-xs text-gray-400">VKİ</div><div className="text-2xl font-bold text-pazar-red">{bmi.toFixed(1)}</div><div className="text-sm text-gray-500 mt-1">{c}</div></div><div className="bg-gray-50 rounded-xl p-5 text-center"><div className="text-xs text-gray-400">İdeal Aralık</div><div className="text-2xl font-bold text-gray-800">{lo.toFixed(0)}-{hi.toFixed(0)} kg</div></div></div>
+      <div className="grid md:grid-cols-2 gap-6 mb-6"><div><label className="block text-sm font-medium text-tekno-muted mb-2">Kilo (kg)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={w} onChange={e=>setW(Number(e.target.value)||0)}/></div><div><label className="block text-sm font-medium text-tekno-muted mb-2">Boy (cm)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={h} onChange={e=>setH(Number(e.target.value)||0)}/></div></div>
+      <div className="grid grid-cols-2 gap-4"><div className="bg-tekno-cyan/5 rounded-xl p-5 text-center"><div className="text-xs text-tekno-muted">VKİ</div><div className="text-2xl font-bold text-tekno-cyan">{bmi.toFixed(1)}</div><div className="text-sm text-tekno-muted mt-1">{c}</div></div><div className="bg-tekno-panel rounded-xl p-5 text-center"><div className="text-xs text-tekno-muted">İdeal Aralık</div><div className="text-2xl font-bold text-tekno-text">{lo.toFixed(0)}-{hi.toFixed(0)} kg</div></div></div>
     </div>
   );
 }
 function RandomTool() {
   const [min,setMin]=React.useState(1);const[max,setMax]=React.useState(100);const[r,setR]=React.useState(42);
-  return (<div><div className="grid md:grid-cols-2 gap-6 mb-6"><div><label className="block text-sm font-medium text-gray-700 mb-2">Minimum</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={min} onChange={e=>setMin(Number(e.target.value)||0)}/></div><div><label className="block text-sm font-medium text-gray-700 mb-2">Maksimum</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={max} onChange={e=>setMax(Number(e.target.value)||0)}/></div></div><div className="bg-gray-50 rounded-xl p-8 text-center"><div className="text-5xl font-bold text-pazar-red mb-4">{r}</div><button onClick={()=>setR(Math.floor(Math.random()*(max-min+1))+min)} className="px-6 py-3 bg-pazar-red text-white font-semibold rounded-xl hover:bg-red-700">Üret</button></div></div>);
+  return (<div><div className="grid md:grid-cols-2 gap-6 mb-6"><div><label className="block text-sm font-medium text-tekno-muted mb-2">Minimum</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={min} onChange={e=>setMin(Number(e.target.value)||0)}/></div><div><label className="block text-sm font-medium text-tekno-muted mb-2">Maksimum</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={max} onChange={e=>setMax(Number(e.target.value)||0)}/></div></div><div className="bg-tekno-panel rounded-xl p-8 text-center"><div className="text-5xl font-bold text-tekno-cyan mb-4">{r}</div><button onClick={()=>setR(Math.floor(Math.random()*(max-min+1))+min)} className="px-6 py-3 bg-tekno-cyan text-white font-semibold rounded-xl hover:bg-red-700">Üret</button></div></div>);
 }
 
 function FancyTextTool() {
   const styles=[{n:"Kalın",p:"𝗠𝗲𝗿𝗵𝗮𝗯𝗮 𝗗𝘂𝗻𝘆𝗮"},{n:"İtalik",p:"𝘔𝘦𝘳𝘩𝘢𝘣𝘢 𝘋𝘶𝘯𝘺𝘢"},{n:"El Yazısı",p:"𝓜𝓮𝓻𝓱𝓪𝓫𝓪 𝓓𝓾𝓷𝔂𝓪"},{n:"Baloncuk",p:"Ⓜⓔⓡⓗⓐⓑⓐ Ⓓⓤⓝⓨⓐ"},{n:"Gotik",p:"𝔐𝔢𝔯𝔥𝔞𝔟𝔞 𝔇𝔲𝔫𝔶𝔞"},{n:"Çift Vurgulu",p:"𝕄𝕖𝕣𝕙𝕒𝕓𝕒 𝔻𝕦𝕟𝕪𝕒"}];
-  return (<div><textarea className="w-full p-3 border border-gray-200 rounded-xl mb-4" rows={2} placeholder="Yazın..." defaultValue="Merhaba Dünya"/><div className="grid gap-3">{styles.map(s=>(<div key={s.n} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border"><div><div className="font-medium text-gray-700 text-sm">{s.n}</div><div className="text-lg mt-1 text-gray-800">{s.p}</div></div><button onClick={()=>navigator.clipboard.writeText(s.p)} className="text-xs bg-pazar-red text-white px-3 py-1.5 rounded-lg hover:bg-red-700">Kopyala</button></div>))}</div></div>);
+  return (<div><textarea className="w-full p-3 border border-gray-200 rounded-xl mb-4" rows={2} placeholder="Yazın..." defaultValue="Merhaba Dünya"/><div className="grid gap-3">{styles.map(s=>(<div key={s.n} className="flex items-center justify-between p-4 bg-tekno-panel rounded-xl border"><div><div className="font-medium text-tekno-muted text-sm">{s.n}</div><div className="text-lg mt-1 text-tekno-text">{s.p}</div></div><button onClick={()=>navigator.clipboard.writeText(s.p)} className="text-xs bg-tekno-cyan text-white px-3 py-1.5 rounded-lg hover:bg-red-700">Kopyala</button></div>))}</div></div>);
 }
 
 function CaseConverterTool() {
   const [text,setText]=React.useState("merhaba dünya");
   const cases=[{n:"BÜYÜK",f:(t:string)=>t.toLocaleUpperCase("tr")},{n:"küçük",f:(t:string)=>t.toLocaleLowerCase("tr")},{n:"Başlık",f:(t:string)=>t.replace(/\b\w/g,c=>c.toLocaleUpperCase("tr"))},{n:"İlk Harfler",f:(t:string)=>t.split(" ").map(w=>w.charAt(0).toLocaleUpperCase("tr")+w.slice(1)).join(" ")}];
-  return (<div><textarea className="w-full p-3 border border-gray-200 rounded-xl mb-4" rows={4} value={text} onChange={e=>setText(e.target.value)}/><div className="grid gap-3">{cases.map(c=>{const r=c.f(text);return(<div key={c.n} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border"><div><div className="text-xs text-gray-400">{c.n}</div><div className="mt-1 text-gray-800 font-medium break-all">{r}</div></div><button onClick={()=>navigator.clipboard.writeText(r)} className="text-xs bg-gray-200 text-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-300">Kopyala</button></div>);})}</div></div>);
+  return (<div><textarea className="w-full p-3 border border-gray-200 rounded-xl mb-4" rows={4} value={text} onChange={e=>setText(e.target.value)}/><div className="grid gap-3">{cases.map(c=>{const r=c.f(text);return(<div key={c.n} className="flex items-center justify-between p-3 bg-tekno-panel rounded-xl border"><div><div className="text-xs text-tekno-muted">{c.n}</div><div className="mt-1 text-tekno-text font-medium break-all">{r}</div></div><button onClick={()=>navigator.clipboard.writeText(r)} className="text-xs bg-tekno-border text-tekno-muted px-3 py-1.5 rounded-lg hover:bg-gray-300">Kopyala</button></div>);})}</div></div>);
 }
 
 function TextCounterTool() {
   const [text,setText]=React.useState("");const wc=text.trim()?text.trim().split(/\s+/).length:0;
-  return (<div><textarea className="w-full p-3 border border-gray-200 rounded-xl mb-4" rows={6} value={text} onChange={e=>setText(e.target.value)} placeholder="Metninizi yapıştırın..."/><div className="grid grid-cols-2 md:grid-cols-4 gap-4">{[{l:"Kelime",v:wc},{l:"Karakter (boşluksuz)",v:text.replace(/\s/g,"").length},{l:"Karakter",v:text.length},{l:"Cümle",v:(text.match(/[.!?]+/g)||[]).length},{l:"Paragraf",v:text.trim()?text.split(/\n\n+/).filter((p:string)=>p.trim()).length:0},{l:"Okuma",v:Math.max(1,Math.ceil(wc/200))+" sn"},{l:"Satır",v:text.trim()?text.split("\n").filter((l:string)=>l.trim()).length:0},{l:"Boşluk",v:(text.match(/ /g)||[]).length}].map(s=>(<div key={s.l} className="bg-gray-50 rounded-xl p-4 text-center border"><div className="text-2xl font-bold text-pazar-red">{s.v}</div><div className="text-xs text-gray-500 mt-1">{s.l}</div></div>))}</div></div>);
+  return (<div><textarea className="w-full p-3 border border-gray-200 rounded-xl mb-4" rows={6} value={text} onChange={e=>setText(e.target.value)} placeholder="Metninizi yapıştırın..."/><div className="grid grid-cols-2 md:grid-cols-4 gap-4">{[{l:"Kelime",v:wc},{l:"Karakter (boşluksuz)",v:text.replace(/\s/g,"").length},{l:"Karakter",v:text.length},{l:"Cümle",v:(text.match(/[.!?]+/g)||[]).length},{l:"Paragraf",v:text.trim()?text.split(/\n\n+/).filter((p:string)=>p.trim()).length:0},{l:"Okuma",v:Math.max(1,Math.ceil(wc/200))+" sn"},{l:"Satır",v:text.trim()?text.split("\n").filter((l:string)=>l.trim()).length:0},{l:"Boşluk",v:(text.match(/ /g)||[]).length}].map(s=>(<div key={s.l} className="bg-tekno-panel rounded-xl p-4 text-center border"><div className="text-2xl font-bold text-tekno-cyan">{s.v}</div><div className="text-xs text-tekno-muted mt-1">{s.l}</div></div>))}</div></div>);
 }
 
 function CountdownTimerTool() {
   const [sec,setSec]=React.useState(60);const[run,setRun]=React.useState(false);const[rem,setRem]=React.useState(60);
   React.useEffect(()=>{if(!run||rem<=0){if(rem<=0)setRun(false);return}const id=setInterval(()=>setRem(r=>{if(r<=1){setRun(false);return 0}return r-1}),1000);return()=>clearInterval(id)},[run,rem]);
   const m=Math.floor(rem/60),s=rem%60;
-  return (<div className="text-center"><div className="text-6xl font-bold text-gray-800 mb-6 font-mono">{String(m).padStart(2,"0")}:{String(s).padStart(2,"0")}</div><div className="flex gap-3 justify-center mb-4"><button onClick={()=>{setRem(sec);setRun(true)}} className="px-6 py-3 bg-pazar-red text-white font-semibold rounded-xl">Başlat</button><button onClick={()=>setRun(false)} className="px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-xl">Durdur</button><button onClick={()=>{setRun(false);setRem(sec)}} className="px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-xl">Sıfırla</button></div><div><label className="text-sm text-gray-500">Süre (sn): </label><input type="number" className="w-20 p-2 border rounded-lg text-center" value={sec} onChange={e=>{setSec(Number(e.target.value));setRem(Number(e.target.value))}}/></div></div>);
+  return (<div className="text-center"><div className="text-6xl font-bold text-tekno-text mb-6 font-mono">{String(m).padStart(2,"0")}:{String(s).padStart(2,"0")}</div><div className="flex gap-3 justify-center mb-4"><button onClick={()=>{setRem(sec);setRun(true)}} className="px-6 py-3 bg-tekno-cyan text-white font-semibold rounded-xl">Başlat</button><button onClick={()=>setRun(false)} className="px-6 py-3 bg-tekno-border text-tekno-muted font-semibold rounded-xl">Durdur</button><button onClick={()=>{setRun(false);setRem(sec)}} className="px-6 py-3 bg-tekno-border text-tekno-muted font-semibold rounded-xl">Sıfırla</button></div><div><label className="text-sm text-tekno-muted">Süre (sn): </label><input type="number" className="w-20 p-2 border rounded-lg text-center" value={sec} onChange={e=>{setSec(Number(e.target.value));setRem(Number(e.target.value))}}/></div></div>);
 }
 function StopwatchTool() {
   const [run,setRun]=React.useState(false);const[time,setTime]=React.useState(0);
   React.useEffect(()=>{if(!run)return;const id=setInterval(()=>setTime(t=>t+10),10);return()=>clearInterval(id)},[run]);
   const m=Math.floor(time/60000),s=Math.floor((time%60000)/1000),ms=Math.floor((time%1000)/10);
-  return (<div className="text-center"><div className="text-6xl font-bold text-gray-800 mb-6 font-mono">{String(m).padStart(2,"0")}:{String(s).padStart(2,"0")}.{String(ms).padStart(2,"0")}</div><div className="flex gap-3 justify-center"><button onClick={()=>setRun(true)} className="px-6 py-3 bg-pazar-red text-white font-semibold rounded-xl">Başlat</button><button onClick={()=>setRun(false)} className="px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-xl">Durdur</button><button onClick={()=>{setRun(false);setTime(0)}} className="px-6 py-3 bg-gray-200 text-gray-700 font-semibold rounded-xl">Sıfırla</button></div></div>);
+  return (<div className="text-center"><div className="text-6xl font-bold text-tekno-text mb-6 font-mono">{String(m).padStart(2,"0")}:{String(s).padStart(2,"0")}.{String(ms).padStart(2,"0")}</div><div className="flex gap-3 justify-center"><button onClick={()=>setRun(true)} className="px-6 py-3 bg-tekno-cyan text-white font-semibold rounded-xl">Başlat</button><button onClick={()=>setRun(false)} className="px-6 py-3 bg-tekno-border text-tekno-muted font-semibold rounded-xl">Durdur</button><button onClick={()=>{setRun(false);setTime(0)}} className="px-6 py-3 bg-tekno-border text-tekno-muted font-semibold rounded-xl">Sıfırla</button></div></div>);
 }
 
 // ============================================================
@@ -449,8 +449,8 @@ function MoneyCalc({ slug, title }: { slug: string; title: string }) {
     <div>
       <div className="grid md:grid-cols-3 gap-4 mb-6">
         {fields.map((label, i) => (
-          <div key={i}><label className="block text-sm font-medium text-gray-700 mb-2">{label}</label>
-            <input type="number" className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-pazar-red" value={state[i]} onChange={e => { const n = [...state]; n[i] = Number(e.target.value) || 0; setState(n); }} />
+          <div key={i}><label className="block text-sm font-medium text-tekno-muted mb-2">{label}</label>
+            <input type="number" className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-tekno-cyan" value={state[i]} onChange={e => { const n = [...state]; n[i] = Number(e.target.value) || 0; setState(n); }} />
           </div>
         ))}
       </div>
@@ -459,9 +459,9 @@ function MoneyCalc({ slug, title }: { slug: string; title: string }) {
           const v = results[i];
           const display = typeof v === "string" ? v : (typeof v === "number" ? (Number.isInteger(v) ? v.toLocaleString("tr-TR") : v.toLocaleString("tr-TR", {maximumFractionDigits:2})) + " " + suffix : String(v));
           return (
-            <div key={i} className={`rounded-xl p-4 text-center border ${i === 0 ? "bg-pazar-red/5 border-pazar-red/20" : "bg-gray-50 border-gray-100"}`}>
-              <div className="text-xs text-gray-400">{label}</div>
-              <div className={`text-xl font-bold ${i === 0 ? "text-pazar-red" : "text-gray-800"}`}>{display}</div>
+            <div key={i} className={`rounded-xl p-4 text-center border ${i === 0 ? "bg-tekno-cyan/5 border-tekno-cyan/20" : "bg-tekno-panel border-gray-100"}`}>
+              <div className="text-xs text-tekno-muted">{label}</div>
+              <div className={`text-xl font-bold ${i === 0 ? "text-tekno-cyan" : "text-tekno-text"}`}>{display}</div>
             </div>
           );
         })}
@@ -539,11 +539,11 @@ function SmartConverter({ slug, title }: { slug: string; title: string }) {
   return (
     <div>
       <div className="grid md:grid-cols-3 gap-4 mb-6">
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Değer</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={val} onChange={e => setVal(Number(e.target.value) || 0)} /></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Kaynak</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={from} onChange={e => setFrom(e.target.value)}>{Object.entries(names).map(([k,v]) => <option key={k} value={k}>{v}</option>)}</select></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Hedef</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={to} onChange={e => setTo(e.target.value)}>{Object.entries(names).map(([k,v]) => <option key={k} value={k}>{v}</option>)}</select></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Değer</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={val} onChange={e => setVal(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Kaynak</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={from} onChange={e => setFrom(e.target.value)}>{Object.entries(names).map(([k,v]) => <option key={k} value={k}>{v}</option>)}</select></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Hedef</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={to} onChange={e => setTo(e.target.value)}>{Object.entries(names).map(([k,v]) => <option key={k} value={k}>{v}</option>)}</select></div>
       </div>
-      <div className="bg-gray-50 rounded-xl p-6 text-center"><div className="text-sm text-gray-400 mb-2">Dönüşüm</div><div className="text-3xl font-bold text-pazar-red">{result.toLocaleString("tr-TR", {maximumFractionDigits:6})}</div></div>
+      <div className="bg-tekno-panel rounded-xl p-6 text-center"><div className="text-sm text-tekno-muted mb-2">Dönüşüm</div><div className="text-3xl font-bold text-tekno-cyan">{result.toLocaleString("tr-TR", {maximumFractionDigits:6})}</div></div>
     </div>
   );
 }
@@ -580,7 +580,7 @@ function TextTool({ slug, title }: { slug: string; title: string }) {
       <div>
         <textarea className="w-full p-3 border border-gray-200 rounded-xl mb-4" rows={6} value={text} onChange={e=>setText(e.target.value)} placeholder="Metninizi buraya yapıştırın..."/>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          {[{l:"Kelime",v:wc},{l:"Karakter (boşluksuz)",v:text.replace(/\s/g,"").length},{l:"Karakter",v:text.length},{l:"Cümle",v:(text.match(/[.!?]+/g)||[]).length},{l:"Paragraf",v:text.trim()?text.split(/\n\n+/).filter((p:string)=>p.trim()).length:0},{l:"Okuma",v:Math.max(1,Math.ceil(wc/200))+" sn"},{l:"Satır",v:text.trim()?text.split("\n").filter((l:string)=>l.trim()).length:0},{l:"Boşluk",v:(text.match(/ /g)||[]).length}].map(s=>(<div key={s.l} className="bg-gray-50 rounded-xl p-4 text-center border"><div className="text-2xl font-bold text-pazar-red">{s.v}</div><div className="text-xs text-gray-500 mt-1">{s.l}</div></div>))}
+          {[{l:"Kelime",v:wc},{l:"Karakter (boşluksuz)",v:text.replace(/\s/g,"").length},{l:"Karakter",v:text.length},{l:"Cümle",v:(text.match(/[.!?]+/g)||[]).length},{l:"Paragraf",v:text.trim()?text.split(/\n\n+/).filter((p:string)=>p.trim()).length:0},{l:"Okuma",v:Math.max(1,Math.ceil(wc/200))+" sn"},{l:"Satır",v:text.trim()?text.split("\n").filter((l:string)=>l.trim()).length:0},{l:"Boşluk",v:(text.match(/ /g)||[]).length}].map(s=>(<div key={s.l} className="bg-tekno-panel rounded-xl p-4 text-center border"><div className="text-2xl font-bold text-tekno-cyan">{s.v}</div><div className="text-xs text-tekno-muted mt-1">{s.l}</div></div>))}
         </div>
       </div>
     );
@@ -589,12 +589,12 @@ function TextTool({ slug, title }: { slug: string; title: string }) {
   return (
     <div>
       <textarea className="w-full p-3 border border-gray-200 rounded-xl mb-4" rows={4} value={text} onChange={e=>setText(e.target.value)} placeholder={isGenerator?"Oluşturulacak metin...":"Metni girin..."}/>
-      <button onClick={()=>{if(isGenerator){const words=["lorem","ipsum","dolor","sit","amet","consectetur","adipiscing","elit","sed","do","eiusmod","tempor","incididunt"];setText(Array.from({length:20},()=>words[Math.floor(Math.random()*words.length)]).join(" "))}}} className="mb-4 px-4 py-2 bg-gray-100 text-gray-700 rounded-lg text-sm hover:bg-gray-200">Oluştur</button>
+      <button onClick={()=>{if(isGenerator){const words=["lorem","ipsum","dolor","sit","amet","consectetur","adipiscing","elit","sed","do","eiusmod","tempor","incididunt"];setText(Array.from({length:20},()=>words[Math.floor(Math.random()*words.length)]).join(" "))}}} className="mb-4 px-4 py-2 bg-tekno-panel text-tekno-muted rounded-lg text-sm hover:bg-tekno-border">Oluştur</button>
       {result && (
-        <div className="bg-gray-50 rounded-xl p-4 border">
-          <div className="text-xs text-gray-400 mb-1">{resultLabel}</div>
-          <div className="text-gray-800 font-medium break-all">{result}</div>
-          <button onClick={()=>navigator.clipboard.writeText(result)} className="mt-2 text-xs bg-pazar-red text-white px-3 py-1.5 rounded-lg hover:bg-red-700">Kopyala</button>
+        <div className="bg-tekno-panel rounded-xl p-4 border">
+          <div className="text-xs text-tekno-muted mb-1">{resultLabel}</div>
+          <div className="text-tekno-text font-medium break-all">{result}</div>
+          <button onClick={()=>navigator.clipboard.writeText(result)} className="mt-2 text-xs bg-tekno-cyan text-white px-3 py-1.5 rounded-lg hover:bg-red-700">Kopyala</button>
         </div>
       )}
     </div>
@@ -636,16 +636,16 @@ function GeneratorTool({ slug, title }: { slug: string; title: string }) {
     <div className="text-center">
       {isRandom && (
         <div className="grid md:grid-cols-2 gap-4 mb-6">
-          <div><label className="block text-sm font-medium text-gray-700 mb-2">Minimum</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={min} onChange={e=>setMin(Number(e.target.value)||0)}/></div>
-          <div><label className="block text-sm font-medium text-gray-700 mb-2">Maksimum</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={max} onChange={e=>setMax(Number(e.target.value)||0)}/></div>
+          <div><label className="block text-sm font-medium text-tekno-muted mb-2">Minimum</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={min} onChange={e=>setMin(Number(e.target.value)||0)}/></div>
+          <div><label className="block text-sm font-medium text-tekno-muted mb-2">Maksimum</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={max} onChange={e=>setMax(Number(e.target.value)||0)}/></div>
         </div>
       )}
-      <div className="bg-gray-50 rounded-xl p-8 mb-6">
-        <div className={`font-bold text-pazar-red mb-4 ${isCoin||isDice?"text-6xl":isDecision||isName?"text-3xl":"text-5xl"}`}>
+      <div className="bg-tekno-panel rounded-xl p-8 mb-6">
+        <div className={`font-bold text-tekno-cyan mb-4 ${isCoin||isDice?"text-6xl":isDecision||isName?"text-3xl":"text-5xl"}`}>
           {result || (isCoin?"🎲":isDice?"🎲":isUuid?"---":"?")}
         </div>
       </div>
-      <button onClick={generate} className="px-8 py-3 bg-pazar-red text-white font-semibold rounded-xl hover:bg-red-700">{isCoin?"At":isDice?"Zar At":"Oluştur"}</button>
+      <button onClick={generate} className="px-8 py-3 bg-tekno-cyan text-white font-semibold rounded-xl hover:bg-red-700">{isCoin?"At":isDice?"Zar At":"Oluştur"}</button>
     </div>
   );
 }
@@ -689,13 +689,13 @@ function DevTool({ slug, title }: { slug: string; title: string }) {
   return (
     <div>
       <textarea className="w-full p-3 border border-gray-200 rounded-xl mb-3 font-mono text-sm" rows={8} value={input} onChange={e=>setInput(e.target.value)} placeholder={isJSON?"JSON girişi...":"Giriş..."}/>
-      <button onClick={process} className="mb-4 px-6 py-2 bg-pazar-red text-white font-semibold rounded-xl hover:bg-red-700">İşle</button>
+      <button onClick={process} className="mb-4 px-6 py-2 bg-tekno-cyan text-white font-semibold rounded-xl hover:bg-red-700">İşle</button>
       {error && <div className="bg-red-50 text-red-600 rounded-xl p-3 mb-3 text-sm">{error}</div>}
       {output && (
-        <div className="bg-gray-50 rounded-xl p-4 border">
-          <div className="text-xs text-gray-400 mb-1">Sonuç</div>
-          <pre className="text-sm text-gray-800 font-mono whitespace-pre-wrap break-all">{output}</pre>
-          <button onClick={()=>navigator.clipboard.writeText(output)} className="mt-2 text-xs bg-gray-200 text-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-300">Kopyala</button>
+        <div className="bg-tekno-panel rounded-xl p-4 border">
+          <div className="text-xs text-tekno-muted mb-1">Sonuç</div>
+          <pre className="text-sm text-tekno-text font-mono whitespace-pre-wrap break-all">{output}</pre>
+          <button onClick={()=>navigator.clipboard.writeText(output)} className="mt-2 text-xs bg-tekno-border text-tekno-muted px-3 py-1.5 rounded-lg hover:bg-gray-300">Kopyala</button>
         </div>
       )}
     </div>
@@ -721,8 +721,8 @@ function LiveTool({ slug, title }: { slug: string; title: string }) {
   if (isQR) {
     return (
       <div>
-        <div className="mb-4"><label className="block text-sm font-medium text-gray-700 mb-2">QR Kod İçeriği (URL/Metin)</label><input type="text" className="w-full p-3 border border-gray-200 rounded-xl" placeholder="https://..." defaultValue="toolpazar.com"/></div>
-        <div className="bg-gray-100 rounded-xl p-8 text-center"><div className="text-6xl mb-4">📱</div><p className="text-gray-500">QR kodunuz burada görünecek</p></div>
+        <div className="mb-4"><label className="block text-sm font-medium text-tekno-muted mb-2">QR Kod İçeriği (URL/Metin)</label><input type="text" className="w-full p-3 border border-gray-200 rounded-xl" placeholder="https://..." defaultValue="teknoarac.com"/></div>
+        <div className="bg-tekno-panel rounded-xl p-8 text-center"><div className="text-6xl mb-4">📱</div><p className="text-tekno-muted">QR kodunuz burada görünecek</p></div>
       </div>
     );
   }
@@ -732,8 +732,8 @@ function LiveTool({ slug, title }: { slug: string; title: string }) {
     return (
       <div>
         <div className="grid md:grid-cols-2 gap-4 mb-6">
-          <div><label className="block text-sm font-medium text-gray-700 mb-2">Renk Kodu</label><input type="text" className="w-full p-3 border border-gray-200 rounded-xl" value={hex} onChange={e=>setHex(e.target.value)} placeholder="#E63946"/></div>
-          <div><label className="block text-sm font-medium text-gray-700 mb-2">Önizleme</label><div className="w-full h-12 rounded-xl border" style={{backgroundColor:hex}}/></div>
+          <div><label className="block text-sm font-medium text-tekno-muted mb-2">Renk Kodu</label><input type="text" className="w-full p-3 border border-gray-200 rounded-xl" value={hex} onChange={e=>setHex(e.target.value)} placeholder="#E63946"/></div>
+          <div><label className="block text-sm font-medium text-tekno-muted mb-2">Önizleme</label><div className="w-full h-12 rounded-xl border" style={{backgroundColor:hex}}/></div>
         </div>
       </div>
     );
@@ -744,8 +744,8 @@ function LiveTool({ slug, title }: { slug: string; title: string }) {
     const [newItem, setNewItem] = React.useState("");
     return (
       <div>
-        <div className="flex gap-2 mb-4"><input className="flex-1 p-3 border border-gray-200 rounded-xl" value={newItem} onChange={e=>setNewItem(e.target.value)} placeholder="Yeni madde..." onKeyDown={e=>{if(e.key==="Enter"&&newItem.trim()){setItems([...items,newItem.trim()]);setNewItem("");}}}/><button onClick={()=>{if(newItem.trim()){setItems([...items,newItem.trim()]);setNewItem("");}}} className="px-4 py-3 bg-pazar-red text-white rounded-xl hover:bg-red-700">Ekle</button></div>
-        <div className="space-y-2">{items.map((item,i)=>(<div key={i} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border"><span className="text-gray-700">{item}</span><button onClick={()=>setItems(items.filter((_,j)=>j!==i))} className="text-red-400 hover:text-red-600">✕</button></div>))}</div>
+        <div className="flex gap-2 mb-4"><input className="flex-1 p-3 border border-gray-200 rounded-xl" value={newItem} onChange={e=>setNewItem(e.target.value)} placeholder="Yeni madde..." onKeyDown={e=>{if(e.key==="Enter"&&newItem.trim()){setItems([...items,newItem.trim()]);setNewItem("");}}}/><button onClick={()=>{if(newItem.trim()){setItems([...items,newItem.trim()]);setNewItem("");}}} className="px-4 py-3 bg-tekno-cyan text-white rounded-xl hover:bg-red-700">Ekle</button></div>
+        <div className="space-y-2">{items.map((item,i)=>(<div key={i} className="flex items-center justify-between p-3 bg-tekno-panel rounded-xl border"><span className="text-tekno-muted">{item}</span><button onClick={()=>setItems(items.filter((_,j)=>j!==i))} className="text-red-400 hover:text-red-600">✕</button></div>))}</div>
       </div>
     );
   }
@@ -763,9 +763,9 @@ function LiveTool({ slug, title }: { slug: string; title: string }) {
     }
     return (
       <div>
-        <div className="mb-4"><label className="block text-sm font-medium text-gray-700 mb-2">{isInstagram?"Hesap Türü":"Blog Konusu"}</label><input type="text" className="w-full p-3 border border-gray-200 rounded-xl" value={topic} onChange={e=>setTopic(e.target.value)} placeholder="Örn: teknoloji"/></div>
-        <button onClick={generate} className="mb-4 px-6 py-3 bg-pazar-red text-white font-semibold rounded-xl hover:bg-red-700">Oluştur</button>
-        {result && <div className="bg-gray-50 rounded-xl p-4 border"><div className="text-gray-800">{result}</div><button onClick={()=>navigator.clipboard.writeText(result)} className="mt-2 text-xs bg-gray-200 text-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-300">Kopyala</button></div>}
+        <div className="mb-4"><label className="block text-sm font-medium text-tekno-muted mb-2">{isInstagram?"Hesap Türü":"Blog Konusu"}</label><input type="text" className="w-full p-3 border border-gray-200 rounded-xl" value={topic} onChange={e=>setTopic(e.target.value)} placeholder="Örn: teknoloji"/></div>
+        <button onClick={generate} className="mb-4 px-6 py-3 bg-tekno-cyan text-white font-semibold rounded-xl hover:bg-red-700">Oluştur</button>
+        {result && <div className="bg-tekno-panel rounded-xl p-4 border"><div className="text-tekno-text">{result}</div><button onClick={()=>navigator.clipboard.writeText(result)} className="mt-2 text-xs bg-tekno-border text-tekno-muted px-3 py-1.5 rounded-lg hover:bg-gray-300">Kopyala</button></div>}
       </div>
     );
   }
@@ -812,26 +812,26 @@ function ImageToolUI({ slug, title }: { slug: string; title: string }) {
 
   return (
     <div>
-      <div className="bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl p-8 text-center mb-6 hover:border-[#C8A84E] transition cursor-pointer" onClick={() => (document.querySelector('input[type="file"]') as HTMLInputElement)?.click()}>
+      <div className="bg-tekno-panel border-2 border-dashed border-gray-300 rounded-xl p-8 text-center mb-6 hover:border-[#C8A84E] transition cursor-pointer" onClick={() => (document.querySelector('input[type="file"]') as HTMLInputElement)?.click()}>
         <input type="file" accept="image/*" onChange={handleFile} className="hidden" />
         {preview ? (
           <img src={preview} alt="preview" className="max-h-64 mx-auto rounded-lg" />
         ) : (
           <>
             <div className="text-4xl mb-3">🖼️</div>
-            <p className="text-gray-600 font-medium">{isSvg ? "SVG dosyası yükleyin" : isGif ? "GIF dosyası yükleyin" : "Görsel yükleyin"}</p>
-            <p className="text-sm text-gray-400 mt-1">Tıklayın veya sürükleyip bırakın</p>
+            <p className="text-tekno-muted font-medium">{isSvg ? "SVG dosyası yükleyin" : isGif ? "GIF dosyası yükleyin" : "Görsel yükleyin"}</p>
+            <p className="text-sm text-tekno-muted mt-1">Tıklayın veya sürükleyip bırakın</p>
           </>
         )}
       </div>
       {preview && (
         <div className="grid md:grid-cols-2 gap-4 mb-4">
-          {slug.includes("resize") && (<><div><label className="block text-sm font-medium text-gray-700 mb-1">Genişlik</label><input type="number" className="w-full p-2 border rounded-lg" value={width} onChange={e => setWidth(Number(e.target.value)||1)} /></div><div><label className="block text-sm font-medium text-gray-700 mb-1">Yükseklik</label><input type="number" className="w-full p-2 border rounded-lg" value={height} onChange={e => setHeight(Number(e.target.value)||1)} /></div></>)}
-          {slug.includes("compress") && (<div><label className="block text-sm font-medium text-gray-700 mb-1">Kalite ({quality}%)</label><input type="range" min={10} max={100} value={quality} onChange={e => setQuality(Number(e.target.value))} className="w-full" /></div>)}
+          {slug.includes("resize") && (<><div><label className="block text-sm font-medium text-tekno-muted mb-1">Genişlik</label><input type="number" className="w-full p-2 border rounded-lg" value={width} onChange={e => setWidth(Number(e.target.value)||1)} /></div><div><label className="block text-sm font-medium text-tekno-muted mb-1">Yükseklik</label><input type="number" className="w-full p-2 border rounded-lg" value={height} onChange={e => setHeight(Number(e.target.value)||1)} /></div></>)}
+          {slug.includes("compress") && (<div><label className="block text-sm font-medium text-tekno-muted mb-1">Kalite ({quality}%)</label><input type="range" min={10} max={100} value={quality} onChange={e => setQuality(Number(e.target.value))} className="w-full" /></div>)}
         </div>
       )}
       {file && (
-        <div className="bg-gray-50 rounded-xl p-4 space-y-1 text-sm text-gray-600">
+        <div className="bg-tekno-panel rounded-xl p-4 space-y-1 text-sm text-tekno-muted">
           <div><span className="font-medium">Dosya:</span> {file.name}</div>
           <div><span className="font-medium">Boyut:</span> {(file.size / 1024).toFixed(1)} KB</div>
           <div><span className="font-medium">Tip:</span> {file.type || "bilinmiyor"}</div>
@@ -848,31 +848,31 @@ function PDFToolUI({ slug, title }: { slug: string; title: string }) {
 
   return (
     <div>
-      <div className="bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl p-8 text-center mb-6 hover:border-[#C8A84E] transition cursor-pointer" onClick={() => (document.querySelector('#pdf-upload') as HTMLInputElement)?.click()}>
+      <div className="bg-tekno-panel border-2 border-dashed border-gray-300 rounded-xl p-8 text-center mb-6 hover:border-[#C8A84E] transition cursor-pointer" onClick={() => (document.querySelector('#pdf-upload') as HTMLInputElement)?.click()}>
         <input id="pdf-upload" type="file" accept=".pdf" onChange={e => setFile(e.target.files?.[0] || null)} className="hidden" />
         {file ? (
           <>
             <div className="text-4xl mb-2">📄</div>
-            <p className="text-gray-800 font-medium">{file.name}</p>
-            <p className="text-sm text-gray-400">{(file.size / 1024).toFixed(1)} KB</p>
+            <p className="text-tekno-text font-medium">{file.name}</p>
+            <p className="text-sm text-tekno-muted">{(file.size / 1024).toFixed(1)} KB</p>
           </>
         ) : (
           <>
             <div className="text-4xl mb-3">📄</div>
-            <p className="text-gray-600 font-medium">PDF dosyası yükleyin</p>
-            <p className="text-sm text-gray-400 mt-1">Tıklayın veya sürükleyip bırakın</p>
+            <p className="text-tekno-muted font-medium">PDF dosyası yükleyin</p>
+            <p className="text-sm text-tekno-muted mt-1">Tıklayın veya sürükleyip bırakın</p>
           </>
         )}
       </div>
       {slug.includes("split") || slug.includes("extract") ? (
-        <div className="mb-4"><label className="block text-sm font-medium text-gray-700 mb-1">Sayfa Aralığı</label><input className="w-full p-2 border rounded-lg" value={pages} onChange={e => setPages(e.target.value)} placeholder="örn: 1-3,5,7-9" /></div>
+        <div className="mb-4"><label className="block text-sm font-medium text-tekno-muted mb-1">Sayfa Aralığı</label><input className="w-full p-2 border rounded-lg" value={pages} onChange={e => setPages(e.target.value)} placeholder="örn: 1-3,5,7-9" /></div>
       ) : slug.includes("watermark") ? (
-        <div className="mb-4"><label className="block text-sm font-medium text-gray-700 mb-1">Filigran Metni</label><input className="w-full p-2 border rounded-lg" placeholder="Gizli / Taslak" /></div>
+        <div className="mb-4"><label className="block text-sm font-medium text-tekno-muted mb-1">Filigran Metni</label><input className="w-full p-2 border rounded-lg" placeholder="Gizli / Taslak" /></div>
       ) : null}
-      <button disabled={!file} className="w-full py-3 bg-[#C8A84E] text-white font-bold rounded-xl disabled:opacity-40 hover:bg-amber-600 transition">{file ? `${title} — İşle` : "Önce bir PDF yükleyin"}</button>
+      <button disabled={!file} className="w-full py-3 bg-[#C8A84E] text-white font-bold rounded-xl disabled:opacity-40 hover:bg-tekno-cyan/10 transition">{file ? `${title} — İşle` : "Önce bir PDF yükleyin"}</button>
       <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-2">
         {tools.filter(t => t.slug.includes("pdf") && t.slug !== slug).slice(0, 8).map(t => (
-          <a key={t.slug} href={`/tools/${t.slug}`} className="bg-gray-50 rounded-lg p-2 text-center border hover:border-[#C8A84E]/30 transition text-xs">{t.titleTr}</a>
+          <a key={t.slug} href={`/tools/${t.slug}`} className="bg-tekno-panel rounded-lg p-2 text-center border hover:border-[#C8A84E]/30 transition text-xs">{t.titleTr}</a>
         ))}
       </div>
     </div>
@@ -884,20 +884,20 @@ function MediaToolUI({ slug, title }: { slug: string; title: string }) {
   const isVideo = slug.includes("video") || slug.includes("screen");
   return (
     <div>
-      <div className="bg-gray-50 border-2 border-dashed border-gray-300 rounded-xl p-8 text-center mb-6 hover:border-[#C8A84E] transition cursor-pointer">
+      <div className="bg-tekno-panel border-2 border-dashed border-gray-300 rounded-xl p-8 text-center mb-6 hover:border-[#C8A84E] transition cursor-pointer">
         <div className="text-4xl mb-3">{isAudio ? "🎵" : isVideo ? "🎬" : "📁"}</div>
-        <p className="text-gray-600 font-medium">{isAudio ? "Ses dosyası" : isVideo ? "Video dosyası" : "Medya dosyası"} yükleyin</p>
-        <p className="text-sm text-gray-400 mt-1">MP3, WAV, MP4, AVI, MOV formatları</p>
+        <p className="text-tekno-muted font-medium">{isAudio ? "Ses dosyası" : isVideo ? "Video dosyası" : "Medya dosyası"} yükleyin</p>
+        <p className="text-sm text-tekno-muted mt-1">MP3, WAV, MP4, AVI, MOV formatları</p>
         <input type="file" accept={isAudio ? "audio/*" : isVideo ? "video/*" : "*/*"} className="mt-4 text-sm" />
       </div>
       <div className="grid grid-cols-2 gap-4 text-sm">
-        {slug.includes("trim") && <div className="bg-amber-50 rounded-xl p-4"><span className="font-medium">Başlangıç:</span> <input className="w-20 p-1 border rounded ml-2" placeholder="00:00" /></div>}
-        {slug.includes("trim") && <div className="bg-amber-50 rounded-xl p-4"><span className="font-medium">Bitiş:</span> <input className="w-20 p-1 border rounded ml-2" placeholder="00:30" /></div>}
-        {slug.includes("pitch") && <div className="bg-amber-50 rounded-xl p-4"><span className="font-medium">Perde:</span> <input type="range" className="ml-2 w-32" min={-12} max={12} /></div>}
-        {slug.includes("frame") && <div className="bg-amber-50 rounded-xl p-4"><span className="font-medium">Kare:</span> <input className="w-20 p-1 border rounded ml-2" placeholder="00:05" /></div>}
+        {slug.includes("trim") && <div className="bg-tekno-cyan/10 rounded-xl p-4"><span className="font-medium">Başlangıç:</span> <input className="w-20 p-1 border rounded ml-2" placeholder="00:00" /></div>}
+        {slug.includes("trim") && <div className="bg-tekno-cyan/10 rounded-xl p-4"><span className="font-medium">Bitiş:</span> <input className="w-20 p-1 border rounded ml-2" placeholder="00:30" /></div>}
+        {slug.includes("pitch") && <div className="bg-tekno-cyan/10 rounded-xl p-4"><span className="font-medium">Perde:</span> <input type="range" className="ml-2 w-32" min={-12} max={12} /></div>}
+        {slug.includes("frame") && <div className="bg-tekno-cyan/10 rounded-xl p-4"><span className="font-medium">Kare:</span> <input className="w-20 p-1 border rounded ml-2" placeholder="00:05" /></div>}
       </div>
       {slug.includes("convert") && (
-        <div className="mt-4"><label className="block text-sm font-medium text-gray-700 mb-1">Hedef Format</label><select className="w-full p-2 border rounded-lg"><option>MP4</option><option>GIF</option><option>MP3</option><option>WAV</option></select></div>
+        <div className="mt-4"><label className="block text-sm font-medium text-tekno-muted mb-1">Hedef Format</label><select className="w-full p-2 border rounded-lg"><option>MP4</option><option>GIF</option><option>MP3</option><option>WAV</option></select></div>
       )}
     </div>
   );
@@ -916,12 +916,12 @@ function ProductivityUI({ slug, title }: { slug: string; title: string }) {
       <div>
         <div className="flex gap-2 mb-4">
           <input className="flex-1 p-3 border border-gray-200 rounded-xl" value={newItem} onChange={e => setNewItem(e.target.value)} placeholder="Yeni madde ekle..." onKeyDown={e => { if (e.key === "Enter" && newItem.trim()) { setItems([...items, newItem.trim()]); setNewItem(""); } }} />
-          <button onClick={() => { if (newItem.trim()) { setItems([...items, newItem.trim()]); setNewItem(""); } }} className="px-4 py-3 bg-[#C8A84E] text-white rounded-xl hover:bg-amber-600 font-semibold">Ekle</button>
+          <button onClick={() => { if (newItem.trim()) { setItems([...items, newItem.trim()]); setNewItem(""); } }} className="px-4 py-3 bg-[#C8A84E] text-white rounded-xl hover:bg-tekno-cyan/10 font-semibold">Ekle</button>
         </div>
         <div className="space-y-2">{items.map((item, i) => (
-          <div key={i} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border group hover:border-amber-200 transition">
-            <div className="flex items-center gap-3"><input type="checkbox" className="w-5 h-5 accent-[#C8A84E] rounded" /><span className="text-gray-700">{item}</span></div>
-            <button onClick={() => setItems(items.filter((_, j) => j !== i))} className="text-gray-400 hover:text-red-500 opacity-0 group-hover:opacity-100 transition">✕</button>
+          <div key={i} className="flex items-center justify-between p-3 bg-tekno-panel rounded-xl border group hover:border-tekno-border transition">
+            <div className="flex items-center gap-3"><input type="checkbox" className="w-5 h-5 accent-[#C8A84E] rounded" /><span className="text-tekno-muted">{item}</span></div>
+            <button onClick={() => setItems(items.filter((_, j) => j !== i))} className="text-tekno-muted hover:text-red-500 opacity-0 group-hover:opacity-100 transition">✕</button>
           </div>))}</div>
         </div>
     );
@@ -930,10 +930,10 @@ function ProductivityUI({ slug, title }: { slug: string; title: string }) {
   if (isNotes) {
     return (
       <div>
-        <textarea className="w-full p-4 border border-gray-200 rounded-xl mb-3 min-h-[200px] text-gray-700" value={text} onChange={e => setText(e.target.value)} placeholder="Notlarınızı buraya yazın... Her şey tarayıcınızda saklanır." />
+        <textarea className="w-full p-4 border border-gray-200 rounded-xl mb-3 min-h-[200px] text-tekno-muted" value={text} onChange={e => setText(e.target.value)} placeholder="Notlarınızı buraya yazın... Her şey tarayıcınızda saklanır." />
         <div className="flex justify-between items-center">
-          <span className="text-sm text-gray-400">{text.length} karakter</span>
-          <button onClick={() => setText("")} className="px-4 py-2 bg-gray-100 text-gray-600 rounded-lg text-sm hover:bg-gray-200">Temizle</button>
+          <span className="text-sm text-tekno-muted">{text.length} karakter</span>
+          <button onClick={() => setText("")} className="px-4 py-2 bg-tekno-panel text-tekno-muted rounded-lg text-sm hover:bg-tekno-border">Temizle</button>
         </div>
       </div>
     );
@@ -944,10 +944,10 @@ function ProductivityUI({ slug, title }: { slug: string; title: string }) {
       <div>
         <div className="grid grid-cols-7 gap-1 mb-4">
           {["Pzt","Sal","Çar","Per","Cum","Cmt","Paz"].map((d, i) => (
-            <button key={d} className={`p-2 rounded-lg text-center text-xs font-medium border ${i < 5 ? "bg-amber-50 border-amber-200 text-amber-800" : "bg-gray-50 border-gray-200"}`}>{d}</button>
+            <button key={d} className={`p-2 rounded-lg text-center text-xs font-medium border ${i < 5 ? "bg-tekno-cyan/10 border-tekno-border text-tekno-cyan" : "bg-tekno-panel border-gray-200"}`}>{d}</button>
           ))}
         </div>
-        <p className="text-sm text-gray-500 text-center">Alışkanlık takibi — tarayıcınızda, ücretsiz</p>
+        <p className="text-sm text-tekno-muted text-center">Alışkanlık takibi — tarayıcınızda, ücretsiz</p>
       </div>
     );
   }
@@ -956,7 +956,7 @@ function ProductivityUI({ slug, title }: { slug: string; title: string }) {
     <div className="text-center py-6">
       <div className="text-4xl mb-4">📋</div>
       <textarea className="w-full max-w-md p-3 border border-gray-200 rounded-xl mb-3" rows={4} value={text} onChange={e => setText(e.target.value)} placeholder="Planınızı yazın..." />
-      <p className="text-sm text-gray-400">Tüm veriler tarayıcınızda saklanır</p>
+      <p className="text-sm text-tekno-muted">Tüm veriler tarayıcınızda saklanır</p>
     </div>
   );
 }
@@ -969,14 +969,14 @@ function CalcFallback({ slug, title }: { slug: string; title: string }) {
   return (
     <div>
       <div className="grid md:grid-cols-3 gap-4 mb-6">
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Değer 1</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={v1} onChange={e => setV1(Number(e.target.value) || 0)} /></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Değer 2</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={v2} onChange={e => setV2(Number(e.target.value) || 0)} /></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Değer 3</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={v3} onChange={e => setV3(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Değer 1</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={v1} onChange={e => setV1(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Değer 2</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={v2} onChange={e => setV2(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Değer 3</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={v3} onChange={e => setV3(Number(e.target.value) || 0)} /></div>
       </div>
       <div className="grid grid-cols-3 gap-4">
-        <div className="bg-amber-50 rounded-xl p-4 text-center border border-amber-100"><div className="text-xs text-gray-400">Toplam</div><div className="text-xl font-bold text-[#C8A84E]">{(v1 + v2 + v3).toLocaleString("tr-TR")}</div></div>
-        <div className="bg-gray-50 rounded-xl p-4 text-center border"><div className="text-xs text-gray-400">Ortalama</div><div className="text-xl font-bold text-gray-800">{((v1 + v2 + v3) / 3).toLocaleString("tr-TR", { maximumFractionDigits: 1 })}</div></div>
-        <div className="bg-gray-50 rounded-xl p-4 text-center border"><div className="text-xs text-gray-400">Çarpım</div><div className="text-xl font-bold text-gray-800">{(v1 * v2 * v3).toLocaleString("tr-TR")}</div></div>
+        <div className="bg-tekno-cyan/10 rounded-xl p-4 text-center border border-tekno-border"><div className="text-xs text-tekno-muted">Toplam</div><div className="text-xl font-bold text-[#C8A84E]">{(v1 + v2 + v3).toLocaleString("tr-TR")}</div></div>
+        <div className="bg-tekno-panel rounded-xl p-4 text-center border"><div className="text-xs text-tekno-muted">Ortalama</div><div className="text-xl font-bold text-tekno-text">{((v1 + v2 + v3) / 3).toLocaleString("tr-TR", { maximumFractionDigits: 1 })}</div></div>
+        <div className="bg-tekno-panel rounded-xl p-4 text-center border"><div className="text-xs text-tekno-muted">Çarpım</div><div className="text-xl font-bold text-tekno-text">{(v1 * v2 * v3).toLocaleString("tr-TR")}</div></div>
       </div>
     </div>
   );
@@ -1003,12 +1003,12 @@ function AIToolUI({ slug, title }: { slug: string; title: string }) {
 
   return (
     <div>
-      <textarea className="w-full p-4 border border-gray-200 rounded-xl mb-4 min-h-[120px] text-gray-700" value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="AI prompt'unuzu veya sorunuzu buraya yazın..." />
-      <button onClick={generateInsight} className="mb-6 px-6 py-3 bg-[#C8A84E] text-white font-semibold rounded-xl hover:bg-amber-600">Analiz Et</button>
+      <textarea className="w-full p-4 border border-gray-200 rounded-xl mb-4 min-h-[120px] text-tekno-muted" value={prompt} onChange={e => setPrompt(e.target.value)} placeholder="AI prompt'unuzu veya sorunuzu buraya yazın..." />
+      <button onClick={generateInsight} className="mb-6 px-6 py-3 bg-[#C8A84E] text-white font-semibold rounded-xl hover:bg-tekno-cyan/10">Analiz Et</button>
       {result && (
-        <div className="bg-gray-50 rounded-xl p-5 border">
-          <div className="text-xs text-gray-400 mb-2">AI Analizi</div>
-          <pre className="text-sm text-gray-800 whitespace-pre-wrap font-sans leading-relaxed">{result}</pre>
+        <div className="bg-tekno-panel rounded-xl p-5 border">
+          <div className="text-xs text-tekno-muted mb-2">AI Analizi</div>
+          <pre className="text-sm text-tekno-text whitespace-pre-wrap font-sans leading-relaxed">{result}</pre>
         </div>
       )}
     </div>
@@ -1019,11 +1019,11 @@ function GenericToolUI({ slug, title }: { slug: string; title: string }) {
   return (
     <div className="text-center py-6">
       <div className="text-5xl mb-4">🛠️</div>
-      <p className="text-gray-700 font-medium mb-2">{title}</p>
-      <p className="text-gray-500 text-sm mb-6">Bu araç tarayıcınızda çalışır. Verileriniz cihazınızda kalır, hiçbir sunucuya gönderilmez.</p>
+      <p className="text-tekno-muted font-medium mb-2">{title}</p>
+      <p className="text-tekno-muted text-sm mb-6">Bu araç tarayıcınızda çalışır. Verileriniz cihazınızda kalır, hiçbir sunucuya gönderilmez.</p>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-xl mx-auto">
         {tools.filter(t => t.slug !== slug).slice(0, 4).map(t => (
-          <a key={t.slug} href={`/tools/${t.slug}`} className="bg-gray-50 rounded-xl p-3 text-center border hover:border-[#C8A84E]/30 transition"><div className="text-lg mb-1">{t.icon}</div><div className="text-xs text-gray-600">{t.titleTr}</div></a>
+          <a key={t.slug} href={`/tools/${t.slug}`} className="bg-tekno-panel rounded-xl p-3 text-center border hover:border-[#C8A84E]/30 transition"><div className="text-lg mb-1">{t.icon}</div><div className="text-xs text-tekno-muted">{t.titleTr}</div></a>
         ))}
       </div>
     </div>

@@ -1,7 +1,7 @@
 const fs = require("fs");
 const API_KEY = "sk-5c4dab92b6e2461fa7e2d036b1d318e5";
 const FTA = "C:/Users/eruo0/Desktop/project/freetoolarena/content/guides";
-const TGT = "C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
+const TGT = "C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
 
 // Files with known JSX truncation/issues from last tsc run
 const files = [

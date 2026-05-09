@@ -22,7 +22,7 @@ function findAllImports(dir) {
   return results;
 }
 
-const root = "C:/Users/eruo0/Desktop/project/toolpazar";
+const root = "C:/Users/eruo0/Desktop/project/teknoarac";
 const imports = findAllImports(root);
 
 let issues = 0;

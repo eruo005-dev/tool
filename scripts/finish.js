@@ -1,6 +1,6 @@
 const fs=require("fs");const AK="sk-5c4dab92b6e2461fa7e2d036b1d318e5";
 const FTA="C:/Users/eruo0/Desktop/project/freetoolarena/content/guides";
-const TGT="C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
+const TGT="C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
 (async()=>{
 for(const f of ["how-to-pick-a-wearable-health-tracker.tsx","how-to-prepare-for-coding-interviews.tsx"]){
 const en=fs.readFileSync(FTA+"/"+f,"utf8");console.log(f+": "+en.length);

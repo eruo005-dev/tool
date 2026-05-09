@@ -36,13 +36,13 @@ function FancyTextTool() {
   ];
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-700 mb-2">Yazınızı girin</label>
-      <textarea className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-pazar-red" rows={3} placeholder="Buraya yazın..." defaultValue="Merhaba Dünya" />
+      <label className="block text-sm font-medium text-tekno-muted mb-2">Yazınızı girin</label>
+      <textarea className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-tekno-cyan" rows={3} placeholder="Buraya yazın..." defaultValue="Merhaba Dünya" />
       <div className="mt-6 grid gap-3">
         {styles.map((s) => (
-          <div key={s.name} className="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-100">
-            <div><div className="font-medium text-gray-700 text-sm">{s.name}</div><div className="text-lg mt-1 text-gray-800">{s.preview}</div></div>
-            <button onClick={() => navigator.clipboard.writeText(s.preview)} className="text-xs bg-pazar-red text-white px-3 py-1.5 rounded-lg hover:bg-red-700">Kopyala</button>
+          <div key={s.name} className="flex items-center justify-between p-4 bg-tekno-panel rounded-xl border border-gray-100">
+            <div><div className="font-medium text-tekno-muted text-sm">{s.name}</div><div className="text-lg mt-1 text-tekno-text">{s.preview}</div></div>
+            <button onClick={() => navigator.clipboard.writeText(s.preview)} className="text-xs bg-tekno-cyan text-white px-3 py-1.5 rounded-lg hover:bg-red-700">Kopyala</button>
           </div>
         ))}
       </div>
@@ -62,15 +62,15 @@ function CaseConverterTool() {
   ];
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-700 mb-2">Metninizi girin</label>
-      <textarea className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-pazar-red" rows={4} value={text} onChange={e => setText(e.target.value)} />
+      <label className="block text-sm font-medium text-tekno-muted mb-2">Metninizi girin</label>
+      <textarea className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-tekno-cyan" rows={4} value={text} onChange={e => setText(e.target.value)} />
       <div className="mt-6 grid gap-3">
         {cases.map((c) => {
           const result = c.convert(text);
           return (
-            <div key={c.name} className="flex items-center justify-between p-3 bg-gray-50 rounded-xl border border-gray-100">
-              <div><div className="text-xs text-gray-400">{c.name}</div><div className="mt-1 text-gray-800 font-medium">{result}</div></div>
-              <button onClick={() => navigator.clipboard.writeText(result)} className="text-xs bg-gray-200 text-gray-700 px-3 py-1.5 rounded-lg hover:bg-gray-300">Kopyala</button>
+            <div key={c.name} className="flex items-center justify-between p-3 bg-tekno-panel rounded-xl border border-gray-100">
+              <div><div className="text-xs text-tekno-muted">{c.name}</div><div className="mt-1 text-tekno-text font-medium">{result}</div></div>
+              <button onClick={() => navigator.clipboard.writeText(result)} className="text-xs bg-tekno-border text-tekno-muted px-3 py-1.5 rounded-lg hover:bg-gray-300">Kopyala</button>
             </div>
           );
         })}
@@ -102,13 +102,13 @@ function TextCounterTool() {
 
   return (
     <div>
-      <label className="block text-sm font-medium text-gray-700 mb-2">Metninizi yapıştırın</label>
-      <textarea className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-pazar-red" rows={6} value={text} onChange={e => setText(e.target.value)} placeholder="Metninizi buraya yapıştırın..." />
+      <label className="block text-sm font-medium text-tekno-muted mb-2">Metninizi yapıştırın</label>
+      <textarea className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-tekno-cyan" rows={6} value={text} onChange={e => setText(e.target.value)} placeholder="Metninizi buraya yapıştırın..." />
       <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
         {stats.map(s => (
-          <div key={s.label} className="bg-gray-50 rounded-xl p-4 text-center border border-gray-100">
-            <div className="text-2xl font-bold text-pazar-red">{s.value}</div>
-            <div className="text-xs text-gray-500 mt-1">{s.label}</div>
+          <div key={s.label} className="bg-tekno-panel rounded-xl p-4 text-center border border-gray-100">
+            <div className="text-2xl font-bold text-tekno-cyan">{s.value}</div>
+            <div className="text-xs text-tekno-muted mt-1">{s.label}</div>
           </div>
         ))}
       </div>
@@ -123,13 +123,13 @@ function KDVTool() {
   return (
     <div>
       <div className="grid md:grid-cols-2 gap-6">
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Tutar (TL)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-pazar-red" value={amount} onChange={e => setAmount(Number(e.target.value) || 0)} /></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">KDV Oranı</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>%1 (Gıda)</option><option value={10}>%10 (Temel İhtiyaç)</option><option value={20}>%20 (Standart)</option></select></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Tutar (TL)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-tekno-cyan" value={amount} onChange={e => setAmount(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">KDV Oranı</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={rate} onChange={e => setRate(Number(e.target.value))}><option value={1}>%1 (Gıda)</option><option value={10}>%10 (Temel İhtiyaç)</option><option value={20}>%20 (Standart)</option></select></div>
       </div>
       <div className="mt-8 grid grid-cols-3 gap-4">
-        <div className="bg-gray-50 rounded-xl p-5 text-center"><div className="text-xs text-gray-400">KDV Hariç</div><div className="text-xl font-bold text-gray-800">{amount.toLocaleString("tr-TR")} TL</div></div>
-        <div className="bg-pazar-red/5 rounded-xl p-5 text-center"><div className="text-xs text-gray-400">KDV Tutarı</div><div className="text-xl font-bold text-pazar-red">{kdv.toLocaleString("tr-TR")} TL</div></div>
-        <div className="bg-gray-50 rounded-xl p-5 text-center"><div className="text-xs text-gray-400">KDV Dahil</div><div className="text-xl font-bold text-gray-800">{(amount + kdv).toLocaleString("tr-TR")} TL</div></div>
+        <div className="bg-tekno-panel rounded-xl p-5 text-center"><div className="text-xs text-tekno-muted">KDV Hariç</div><div className="text-xl font-bold text-tekno-text">{amount.toLocaleString("tr-TR")} TL</div></div>
+        <div className="bg-tekno-cyan/5 rounded-xl p-5 text-center"><div className="text-xs text-tekno-muted">KDV Tutarı</div><div className="text-xl font-bold text-tekno-cyan">{kdv.toLocaleString("tr-TR")} TL</div></div>
+        <div className="bg-tekno-panel rounded-xl p-5 text-center"><div className="text-xs text-tekno-muted">KDV Dahil</div><div className="text-xl font-bold text-tekno-text">{(amount + kdv).toLocaleString("tr-TR")} TL</div></div>
       </div>
     </div>
   );
@@ -150,21 +150,21 @@ function PasswordTool() {
   }
   return (
     <div>
-      <div className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100 mb-6">
-        <div className="text-3xl font-mono font-bold text-gray-800 mb-2 break-all">{pw}</div>
-        <button onClick={() => navigator.clipboard.writeText(pw)} className="text-sm bg-pazar-red text-white px-4 py-2 rounded-lg hover:bg-red-700">Kopyala</button>
+      <div className="bg-tekno-panel rounded-xl p-6 text-center border border-gray-100 mb-6">
+        <div className="text-3xl font-mono font-bold text-tekno-text mb-2 break-all">{pw}</div>
+        <button onClick={() => navigator.clipboard.writeText(pw)} className="text-sm bg-tekno-cyan text-white px-4 py-2 rounded-lg hover:bg-red-700">Kopyala</button>
       </div>
       <div className="grid md:grid-cols-2 gap-4 items-center">
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Uzunluk: {len}</label><input type="range" min={8} max={50} value={len} onChange={e => { const v = Number(e.target.value); setLen(v); setPw(generatePassword(v, opts.upper, opts.lower, opts.nums, opts.syms)); }} className="w-full accent-pazar-red" /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Uzunluk: {len}</label><input type="range" min={8} max={50} value={len} onChange={e => { const v = Number(e.target.value); setLen(v); setPw(generatePassword(v, opts.upper, opts.lower, opts.nums, opts.syms)); }} className="w-full accent-tekno-cyan" /></div>
         <div className="flex flex-wrap gap-3">
           {[{ key: "upper", label: "Büyük Harf" }, { key: "lower", label: "Küçük Harf" }, { key: "nums", label: "Rakam" }, { key: "syms", label: "Sembol" }].map(o => (
-            <label key={o.key} className="flex items-center gap-2 text-sm text-gray-700">
-              <input type="checkbox" checked={opts[o.key as keyof typeof opts]} onChange={e => { const n = { ...opts, [o.key]: e.target.checked }; setOpts(n); setPw(generatePassword(len, n.upper, n.lower, n.nums, n.syms)); }} className="accent-pazar-red" />{o.label}
+            <label key={o.key} className="flex items-center gap-2 text-sm text-tekno-muted">
+              <input type="checkbox" checked={opts[o.key as keyof typeof opts]} onChange={e => { const n = { ...opts, [o.key]: e.target.checked }; setOpts(n); setPw(generatePassword(len, n.upper, n.lower, n.nums, n.syms)); }} className="accent-tekno-cyan" />{o.label}
             </label>
           ))}
         </div>
       </div>
-      <button onClick={() => setPw(generatePassword(len, opts.upper, opts.lower, opts.nums, opts.syms))} className="mt-4 w-full py-3 bg-pazar-red text-white font-semibold rounded-xl hover:bg-red-700">Yeni Şifre Oluştur</button>
+      <button onClick={() => setPw(generatePassword(len, opts.upper, opts.lower, opts.nums, opts.syms))} className="mt-4 w-full py-3 bg-tekno-cyan text-white font-semibold rounded-xl hover:bg-red-700">Yeni Şifre Oluştur</button>
     </div>
   );
 }
@@ -177,18 +177,18 @@ function TipCalculatorTool() {
   return (
     <div>
       <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Hesap Tutarı (TL)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={bill} onChange={e => setBill(Number(e.target.value) || 0)} /></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Kişi Sayısı</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={people} onChange={e => setPeople(Math.max(1, Number(e.target.value) || 1))} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Hesap Tutarı (TL)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={bill} onChange={e => setBill(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Kişi Sayısı</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={people} onChange={e => setPeople(Math.max(1, Number(e.target.value) || 1))} /></div>
       </div>
       <div className="flex flex-wrap gap-2 mb-6">
         {[5, 10, 12, 15, 18, 20].map(v => (
-          <button key={v} onClick={() => setPct(v)} className={`px-4 py-2 rounded-lg text-sm font-medium transition ${pct === v ? "bg-pazar-red text-white" : "bg-gray-100 hover:bg-gray-200"}`}>%{v}</button>
+          <button key={v} onClick={() => setPct(v)} className={`px-4 py-2 rounded-lg text-sm font-medium transition ${pct === v ? "bg-tekno-cyan text-white" : "bg-tekno-panel hover:bg-tekno-border"}`}>%{v}</button>
         ))}
       </div>
       <div className="grid grid-cols-3 gap-4">
-        <div className="bg-gray-50 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Bahşiş</div><div className="text-xl font-bold text-gray-800">{tip.toLocaleString("tr-TR")} TL</div></div>
-        <div className="bg-gray-50 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Toplam</div><div className="text-xl font-bold text-gray-800">{(bill + tip).toLocaleString("tr-TR")} TL</div></div>
-        <div className="bg-pazar-red/5 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Kişi Başı</div><div className="text-xl font-bold text-pazar-red">{((bill + tip) / people).toLocaleString("tr-TR")} TL</div></div>
+        <div className="bg-tekno-panel rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Bahşiş</div><div className="text-xl font-bold text-tekno-text">{tip.toLocaleString("tr-TR")} TL</div></div>
+        <div className="bg-tekno-panel rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Toplam</div><div className="text-xl font-bold text-tekno-text">{(bill + tip).toLocaleString("tr-TR")} TL</div></div>
+        <div className="bg-tekno-cyan/5 rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Kişi Başı</div><div className="text-xl font-bold text-tekno-cyan">{((bill + tip) / people).toLocaleString("tr-TR")} TL</div></div>
       </div>
     </div>
   );
@@ -201,12 +201,12 @@ function PercentageTool() {
   return (
     <div>
       <div className="grid md:grid-cols-2 gap-6">
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Sayı</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={num} onChange={e => setNum(Number(e.target.value) || 0)} /></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Yüzde (%)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={pct} onChange={e => setPct(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Sayı</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={num} onChange={e => setNum(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Yüzde (%)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={pct} onChange={e => setPct(Number(e.target.value) || 0)} /></div>
       </div>
       <div className="mt-6 grid grid-cols-2 gap-4">
-        <div className="bg-gray-50 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Yüzdesi</div><div className="text-xl font-bold text-gray-800">{result.toLocaleString("tr-TR")}</div></div>
-        <div className="bg-pazar-red/5 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Toplam (Artan)</div><div className="text-xl font-bold text-pazar-red">{(num + result).toLocaleString("tr-TR")}</div></div>
+        <div className="bg-tekno-panel rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Yüzdesi</div><div className="text-xl font-bold text-tekno-text">{result.toLocaleString("tr-TR")}</div></div>
+        <div className="bg-tekno-cyan/5 rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Toplam (Artan)</div><div className="text-xl font-bold text-tekno-cyan">{(num + result).toLocaleString("tr-TR")}</div></div>
       </div>
     </div>
   );
@@ -221,18 +221,18 @@ function CurrencyTool() {
   return (
     <div>
       <div className="grid md:grid-cols-3 gap-4 mb-6">
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Miktar</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={amount} onChange={e => setAmount(Number(e.target.value) || 0)} /></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Kaynak</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={from} onChange={e => setFrom(e.target.value)}>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Miktar</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={amount} onChange={e => setAmount(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Kaynak</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={from} onChange={e => setFrom(e.target.value)}>
           {Object.entries({ TRY: "₺ Türk Lirası", USD: "$ ABD Doları", EUR: "€ Euro", GBP: "£ Sterlin", CHF: "₣ Frangı", JPY: "¥ Yen" }).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
         </select></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Hedef</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={to} onChange={e => setTo(e.target.value)}>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Hedef</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={to} onChange={e => setTo(e.target.value)}>
           {Object.entries({ USD: "$ ABD Doları", EUR: "€ Euro", GBP: "£ Sterlin", TRY: "₺ Türk Lirası", CHF: "₣ Frangı" }).map(([k, v]) => <option key={k} value={k}>{v}</option>)}
         </select></div>
       </div>
-      <div className="bg-gray-50 rounded-xl p-6 text-center border border-gray-100">
-        <div className="text-sm text-gray-400 mb-2">Dönüştürülen Tutar</div>
-        <div className="text-3xl font-bold text-pazar-red">{result.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
-        <div className="text-xs text-gray-400 mt-2">Gösterge niteliğinde kurlar</div>
+      <div className="bg-tekno-panel rounded-xl p-6 text-center border border-gray-100">
+        <div className="text-sm text-tekno-muted mb-2">Dönüştürülen Tutar</div>
+        <div className="text-3xl font-bold text-tekno-cyan">{result.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</div>
+        <div className="text-xs text-tekno-muted mt-2">Gösterge niteliğinde kurlar</div>
       </div>
     </div>
   );
@@ -245,13 +245,13 @@ function DiscountTool() {
   return (
     <div>
       <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Ürün Fiyatı (TL)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={price} onChange={e => setPrice(Number(e.target.value) || 0)} /></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">İndirim (%)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={rate} onChange={e => setRate(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Ürün Fiyatı (TL)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={price} onChange={e => setPrice(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">İndirim (%)</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={rate} onChange={e => setRate(Number(e.target.value) || 0)} /></div>
       </div>
       <div className="grid grid-cols-3 gap-4">
-        <div className="bg-gray-50 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">İndirim</div><div className="text-xl font-bold text-gray-800">{saved.toLocaleString("tr-TR")} TL</div></div>
-        <div className="bg-pazar-red/5 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">İndirimli Fiyat</div><div className="text-xl font-bold text-pazar-red">{(price - saved).toLocaleString("tr-TR")} TL</div></div>
-        <div className="bg-green-50 rounded-xl p-4 text-center"><div className="text-xs text-gray-400">Tasarruf</div><div className="text-xl font-bold text-green-600">{saved.toLocaleString("tr-TR")} TL</div></div>
+        <div className="bg-tekno-panel rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">İndirim</div><div className="text-xl font-bold text-tekno-text">{saved.toLocaleString("tr-TR")} TL</div></div>
+        <div className="bg-tekno-cyan/5 rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">İndirimli Fiyat</div><div className="text-xl font-bold text-tekno-cyan">{(price - saved).toLocaleString("tr-TR")} TL</div></div>
+        <div className="bg-tekno-cyan/10 rounded-xl p-4 text-center"><div className="text-xs text-tekno-muted">Tasarruf</div><div className="text-xl font-bold text-green-600">{saved.toLocaleString("tr-TR")} TL</div></div>
       </div>
     </div>
   );
@@ -267,11 +267,11 @@ function UnitConverterTool() {
   return (
     <div>
       <div className="grid md:grid-cols-3 gap-4 mb-6">
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Değer</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={val} onChange={e => setVal(Number(e.target.value) || 0)} /></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Kaynak</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={from} onChange={e => setFrom(e.target.value)}>{Object.entries(units).map(([k, v]) => <option key={k} value={k}>{v} ({k})</option>)}</select></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Hedef</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={to} onChange={e => setTo(e.target.value)}>{Object.entries(units).map(([k, v]) => <option key={k} value={k}>{v} ({k})</option>)}</select></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Değer</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={val} onChange={e => setVal(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Kaynak</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={from} onChange={e => setFrom(e.target.value)}>{Object.entries(units).map(([k, v]) => <option key={k} value={k}>{v} ({k})</option>)}</select></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Hedef</label><select className="w-full p-3 border border-gray-200 rounded-xl" value={to} onChange={e => setTo(e.target.value)}>{Object.entries(units).map(([k, v]) => <option key={k} value={k}>{v} ({k})</option>)}</select></div>
       </div>
-      <div className="bg-gray-50 rounded-xl p-6 text-center"><div className="text-sm text-gray-400 mb-2">Sonuç</div><div className="text-3xl font-bold text-pazar-red">{result.toLocaleString("tr-TR", { maximumFractionDigits: 4 })}</div></div>
+      <div className="bg-tekno-panel rounded-xl p-6 text-center"><div className="text-sm text-tekno-muted mb-2">Sonuç</div><div className="text-3xl font-bold text-tekno-cyan">{result.toLocaleString("tr-TR", { maximumFractionDigits: 4 })}</div></div>
     </div>
   );
 }
@@ -289,7 +289,7 @@ function GenericCalc({ title, fields, defaults, calc, labels, suffix }: {
     <div>
       <div className={`grid md:grid-cols-${Math.min(fields.length, 3)} gap-4 mb-6`}>
         {fields.map((label, i) => (
-          <div key={i}><label className="block text-sm font-medium text-gray-700 mb-2">{label}</label>
+          <div key={i}><label className="block text-sm font-medium text-tekno-muted mb-2">{label}</label>
             <input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={state[i]} onChange={e => {
               const n = [...state]; n[i] = Number(e.target.value) || 0; setState(n);
             }} />
@@ -300,9 +300,9 @@ function GenericCalc({ title, fields, defaults, calc, labels, suffix }: {
         {labels.map((label, i) => {
           const v = typeof results[i] === "number" ? results[i].toLocaleString("tr-TR") : String(results[i]);
           return (
-            <div key={i} className={`rounded-xl p-4 text-center border ${i === 0 ? "bg-pazar-red/5 border-pazar-red/20" : "bg-gray-50 border-gray-100"}`}>
-              <div className="text-xs text-gray-400">{label}</div>
-              <div className={`text-xl font-bold ${i === 0 ? "text-pazar-red" : "text-gray-800"}`}>{v} {suffix}</div>
+            <div key={i} className={`rounded-xl p-4 text-center border ${i === 0 ? "bg-tekno-cyan/5 border-tekno-cyan/20" : "bg-tekno-panel border-gray-100"}`}>
+              <div className="text-xs text-tekno-muted">{label}</div>
+              <div className={`text-xl font-bold ${i === 0 ? "text-tekno-cyan" : "text-tekno-text"}`}>{v} {suffix}</div>
             </div>
           );
         })}
@@ -318,12 +318,12 @@ function RandomTool() {
   return (
     <div>
       <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Minimum</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={min} onChange={e => setMin(Number(e.target.value) || 0)} /></div>
-        <div><label className="block text-sm font-medium text-gray-700 mb-2">Maksimum</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={max} onChange={e => setMax(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Minimum</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={min} onChange={e => setMin(Number(e.target.value) || 0)} /></div>
+        <div><label className="block text-sm font-medium text-tekno-muted mb-2">Maksimum</label><input type="number" className="w-full p-3 border border-gray-200 rounded-xl" value={max} onChange={e => setMax(Number(e.target.value) || 0)} /></div>
       </div>
-      <div className="bg-gray-50 rounded-xl p-8 text-center border border-gray-100">
-        <div className="text-5xl font-bold text-pazar-red mb-4">{result}</div>
-        <button onClick={() => setResult(Math.floor(Math.random() * (max - min + 1)) + min)} className="px-6 py-3 bg-pazar-red text-white font-semibold rounded-xl hover:bg-red-700">Rastgele Sayı Üret</button>
+      <div className="bg-tekno-panel rounded-xl p-8 text-center border border-gray-100">
+        <div className="text-5xl font-bold text-tekno-cyan mb-4">{result}</div>
+        <button onClick={() => setResult(Math.floor(Math.random() * (max - min + 1)) + min)} className="px-6 py-3 bg-tekno-cyan text-white font-semibold rounded-xl hover:bg-red-700">Rastgele Sayı Üret</button>
       </div>
     </div>
   );
@@ -334,9 +334,9 @@ function DefaultTool({ slug }: { slug: string }) {
   return (
     <div className="text-center py-12">
       {tool && <div className="text-4xl mb-4">{tool.icon}</div>}
-      <h3 className="text-xl font-semibold text-gray-700 mb-2">{tool?.titleTr || "Araç"}</h3>
-      <p className="text-gray-500 max-w-md mx-auto">{tool?.descriptionTr || "Bu araç yakında eklenecek."}</p>
-      <p className="text-sm text-gray-400 mt-4">Çok yakında burada!</p>
+      <h3 className="text-xl font-semibold text-tekno-muted mb-2">{tool?.titleTr || "Araç"}</h3>
+      <p className="text-tekno-muted max-w-md mx-auto">{tool?.descriptionTr || "Bu araç yakında eklenecek."}</p>
+      <p className="text-sm text-tekno-muted mt-4">Çok yakında burada!</p>
     </div>
   );
 }

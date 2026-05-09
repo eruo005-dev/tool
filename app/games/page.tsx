@@ -3,9 +3,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Tarayıcı Oyunları — ToolPazar",
+  title: "Tarayıcı Oyunları — TeknoAraç",
   description: "Ücretsiz tarayıcı oyunları. Yılan Oyunu, Mayın Tarlası, Adam Asmaca, Pong ve daha fazlası. İndirme yok, hemen oyna!",
-  keywords: "tarayıcı oyunları, ücretsiz oyunlar, online oyun, snake game, minesweeper, mayın tarlası, adam asmaca",
+  keywords: "tarayıcı oyunları, ücretsiz oyunlar, online oyun, snake game, mayın tarlası, adam asmaca",
   robots: "index, follow",
 };
 
@@ -38,26 +38,26 @@ export default function GamesPage() {
     <div className="max-w-6xl mx-auto px-4 py-12">
       {/* Hero */}
       <div className="text-center mb-12">
-        <h1 className="text-3xl md:text-4xl font-bold text-pazar-dark mb-3">
+        <h1 className="text-3xl md:text-4xl font-extrabold text-tekno-text mb-3">
           🎮 Tarayıcı Oyunları
         </h1>
-        <p className="text-gray-500 max-w-lg mx-auto">
+        <p className="text-tekno-muted max-w-lg mx-auto">
           {gameTools.length} ücretsiz tarayıcı oyunu. İndirme yok, kurulum yok — hemen oyna!
         </p>
       </div>
 
-      {/* Featured game (first one) */}
+      {/* Featured game */}
       {gameTools.length > 0 && (
         <Link
-          href={`/tools/${gameTools[0].slug}`}
-          className="block gold-gradient text-white rounded-2xl p-8 mb-8 hover:opacity-95 transition shadow-lg shadow-amber-500/20"
+          href={`/araclar/${gameTools[0].slug}`}
+          className="block cyan-glow bg-tekno-panel border border-tekno-cyan/20 rounded-2xl p-8 mb-8 hover:border-tekno-cyan/50 transition"
         >
           <div className="flex items-center gap-4">
             <span className="text-4xl">{gameIcons[gameTools[0].slug] || "🎮"}</span>
             <div>
-              <div className="text-sm text-amber-200 mb-1">Öne Çıkan</div>
-              <h2 className="text-2xl font-bold">{gameTools[0].titleTr}</h2>
-              <p className="text-amber-100/80 text-sm mt-1">{gameTools[0].descriptionTr}</p>
+              <div className="text-sm text-tekno-cyan mb-1">Öne Çıkan</div>
+              <h2 className="text-2xl font-bold text-tekno-text">{gameTools[0].titleTr}</h2>
+              <p className="text-tekno-muted text-sm mt-1">{gameTools[0].descriptionTr}</p>
             </div>
           </div>
         </Link>
@@ -68,26 +68,26 @@ export default function GamesPage() {
         {gameTools.map((game) => (
           <Link
             key={game.slug}
-            href={`/tools/${game.slug}`}
-            className="bg-white rounded-xl border border-amber-100 p-5 hover:border-pazar-gold hover:shadow-md transition text-center group"
+            href={`/araclar/${game.slug}`}
+            className="tool-card p-5 text-center group"
           >
             <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">
               {gameIcons[game.slug] || "🎮"}
             </div>
-            <h3 className="font-semibold text-sm text-pazar-dark">{game.titleTr}</h3>
+            <h3 className="font-semibold text-sm text-tekno-text group-hover:text-tekno-cyan transition-colors">{game.titleTr}</h3>
           </Link>
         ))}
       </div>
 
-      {/* Bottom info */}
-      <div className="mt-16 text-center bg-pazar-dark text-white rounded-2xl p-8">
-        <h3 className="text-xl font-bold mb-2">Daha Fazla Araç Keşfet</h3>
-        <p className="text-gray-400 mb-6">
+      {/* Bottom CTA */}
+      <div className="mt-16 text-center panel border-tekno-cyan/10 p-10 rounded-2xl">
+        <h3 className="text-xl font-bold text-tekno-text mb-2">Daha Fazla Araç Keşfet</h3>
+        <p className="text-tekno-muted mb-6 max-w-md mx-auto">
           Oyunların yanı sıra 750+ ücretsiz araç seni bekliyor. Hesap makineleri, PDF araçları, yazı stilleri ve çok daha fazlası.
         </p>
         <Link
-          href="/tools"
-          className="inline-block gold-gradient text-white px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition"
+          href="/araclar"
+          className="btn-primary inline-block"
         >
           Tüm Araçları Gör
         </Link>

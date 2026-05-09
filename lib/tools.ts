@@ -1,4 +1,4 @@
-// Auto-generated from FreeToolArena pages.ts — 792 tools adapted for ToolPazar
+// Auto-generated from FreeToolArena pages.ts — 792 tools adapted for TeknoAraç
 // Removed US-centric tools (401k, IRA, RV/boat loans, US tax, etc.)
 
 export interface Tool {

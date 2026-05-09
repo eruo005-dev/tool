@@ -1,5 +1,5 @@
 /**
- * Batch-translate ToolPazar English titles/descriptions to Turkish via DeepSeek API.
+ * Batch-translate TeknoAraç English titles/descriptions to Turkish via DeepSeek API.
  * SAVES PROGRESS after each batch to survive timeouts.
  * Resume by re-running — already-translated items are skipped.
  */
@@ -7,8 +7,8 @@
 const fs = require("fs");
 const https = require("https");
 
-const TOOLS_PATH = "C:/Users/eruo0/Desktop/project/toolpazar/lib/tools.ts";
-const PROGRESS_PATH = "C:/Users/eruo0/Desktop/project/toolpazar/scripts/translate-progress.json";
+const TOOLS_PATH = "C:/Users/eruo0/Desktop/project/teknoarac/lib/tools.ts";
+const PROGRESS_PATH = "C:/Users/eruo0/Desktop/project/teknoarac/scripts/translate-progress.json";
 const API_KEY = process.env.DEEPSEEK_API_KEY || "sk-5c4dab92b6e2461fa7e2d036b1d318e5";
 const BATCH_SIZE = 40;
 const DELAY_MS = 500;
@@ -110,7 +110,7 @@ RULES:
 }
 
 async function main() {
-  console.log("🇹🇷 ToolPazar DeepSeek Translation Engine v2 (resumable)\n");
+  console.log("🇹🇷 TeknoAraç DeepSeek Translation Engine v2 (resumable)\n");
 
   const source = fs.readFileSync(TOOLS_PATH, "utf-8");
   const tools = parseToolsWithPositions(source);

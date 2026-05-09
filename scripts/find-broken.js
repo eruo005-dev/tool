@@ -1,7 +1,7 @@
 const fs = require("fs");
 const API_KEY = "sk-5c4dab92b6e2461fa7e2d036b1d318e5";
 const FTA = "C:/Users/eruo0/Desktop/project/freetoolarena/content/guides";
-const TGT = "C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
+const TGT = "C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
 
 // Find ALL files with truncation issues by checking end-of-file pattern
 const allFiles = fs.readdirSync(TGT).filter(f => f.endsWith(".tsx") && f !== "registry.tsx");
@@ -23,4 +23,4 @@ for (const f of allFiles) {
 }
 
 console.log("\n" + broken.length + " broken files");
-fs.writeFileSync("C:/Users/eruo0/Desktop/project/toolpazar/scripts/broken-list.json", JSON.stringify(broken, null, 2));
+fs.writeFileSync("C:/Users/eruo0/Desktop/project/teknoarac/scripts/broken-list.json", JSON.stringify(broken, null, 2));

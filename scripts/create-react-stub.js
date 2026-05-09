@@ -1,5 +1,5 @@
 const fs = require("fs");
-const reg = fs.readFileSync("C:/Users/eruo0/Desktop/project/toolpazar/content/guides/registry.tsx", "utf-8");
+const reg = fs.readFileSync("C:/Users/eruo0/Desktop/project/teknoarac/content/guides/registry.tsx", "utf-8");
 
 // Find the react import and its usage
 const importMatch = reg.match(/import (\w+) from ['"]\.\/react['"];?/);
@@ -31,6 +31,6 @@ if (varName) {
     }
   }
   
-  fs.writeFileSync("C:/Users/eruo0/Desktop/project/toolpazar/content/guides/react.tsx", stub, "utf-8");
+  fs.writeFileSync("C:/Users/eruo0/Desktop/project/teknoarac/content/guides/react.tsx", stub, "utf-8");
   console.log("Created react.tsx stub with fields:", uniqueFields);
 }

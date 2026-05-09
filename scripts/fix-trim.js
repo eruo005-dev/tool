@@ -1,5 +1,5 @@
 const fs = require("fs");
-const file = "C:/Users/eruo0/Desktop/project/toolpazar/content/guides/how-to-trim-audio.tsx";
+const file = "C:/Users/eruo0/Desktop/project/teknoarac/content/guides/how-to-trim-audio.tsx";
 let c = fs.readFileSync(file, "utf-8");
 
 // Fix code blocks that lost backtick wrappers during translation

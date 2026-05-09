@@ -3,7 +3,7 @@
  */
 const fs = require("fs");
 const API_KEY = "sk-5c4dab92b6e2461fa7e2d036b1d318e5";
-const dir = "C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
+const dir = "C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
 
 const files = [
   "json-format-rules-every-developer-should-know.tsx",

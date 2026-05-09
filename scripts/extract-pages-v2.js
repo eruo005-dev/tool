@@ -1,6 +1,6 @@
 /**
  * Extracts PAGES array from FreeToolArena's pages.ts and generates
- * a comprehensive ToolPazar tools.ts with ALL tools + guides.
+ * a comprehensive TeknoAraç tools.ts with ALL tools + guides.
  */
 const fs = require('fs');
 const path = require('path');

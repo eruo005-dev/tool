@@ -1,5 +1,5 @@
 const fs = require("fs");
-const dir = "C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
+const dir = "C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
 const FTA = "C:/Users/eruo0/Desktop/project/freetoolarena/content/guides";
 
 const files = [

@@ -1,6 +1,6 @@
 /**
  * Extracts all tools and guides from FreeToolArena's pages.ts
- * and generates a usable tool registry + guide list for ToolPazar.
+ * and generates a usable tool registry + guide list for TeknoAraç.
  */
 const fs = require('fs');
 const path = require('path');

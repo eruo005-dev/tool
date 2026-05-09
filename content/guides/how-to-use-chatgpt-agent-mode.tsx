@@ -1,7 +1,7 @@
 export const intro = (
   <>
     <p>
-      ChatGPT ajan modu, OpenAI tarafından barındırılan ajandır: ne yapması gerektiğini söyleyin, o da
+      ChatGPT ajan modu, OpenAI tarafından barındırılan bir ajandır: ne yapması gerektiğini söyleyin, o da
       gezinir, tıklar, okur ve bir sonuçla geri döner. Bugün bir ajana sahip olmanın en kolay
       yoludur — kod, SDK veya altyapı gerektirmez. Bir ChatGPT Plus, Pro veya Team
       sohbetinin içinde yaşar.

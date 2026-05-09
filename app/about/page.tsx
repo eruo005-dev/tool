@@ -1,40 +1,49 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Hakkımızda — ToolPazar",
-  description: "ToolPazar, herkesin ücretsiz kullanabileceği çevrimiçi araçlar sunan Türkiye merkezli bir platformdur.",
+  title: "Hakkımızda — TeknoAraç",
+  description: "TeknoAraç, Türkiye'nin dijital araç kutusu. 770+ ücretsiz çevrimiçi araç, tamamen Türkçe, reklamsız.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <h1 className="text-3xl md:text-4xl font-bold text-pazar-dark mb-6">Hakkımızda</h1>
-      <div className="prose prose-lg max-w-none text-gray-600 space-y-6">
-        <p className="text-lg">
-          ToolPazar, herkesin ücretsiz kullanabileceği çevrimiçi araçları bir araya getiren Türkiye merkezli bir platformdur.
-          Hesap makinelerinden yazı stillerine, döviz çeviriciden birim dönüştürücülere, yapay zeka araçlarından PDF düzenleyicilerine kadar 770'ten fazla araç sunuyoruz.
-        </p>
-        <h2 className="text-2xl font-semibold text-pazar-dark">Misyonumuz</h2>
-        <p>
-          İnternette ihtiyaç duyduğunuz basit araçları bulmak için onlarca site dolaşmanıza gerek yok.
-          ToolPazar, tüm bu araçları tek bir adreste, reklamsız ve ücretsiz olarak sunmak için var.
-        </p>
-        <h2 className="text-2xl font-semibold text-pazar-dark">Neden ToolPazar?</h2>
-        <div className="grid md:grid-cols-3 gap-4 not-prose">
-          {[
-            { title: "Tamamen Ücretsiz", desc: "Tüm araçlar sonsuza kadar ücretsiz.", icon: "💸" },
-            { title: "Reklamsız", desc: "Dikkat dağıtıcı reklamlar yok.", icon: "🚫" },
-            { title: "Hızlı ve Güvenli", desc: "Verileriniz cihazınızda kalır.", icon: "🔒" },
-            { title: "Türkçe Odaklı", desc: "Türk kullanıcılar için optimize edildi.", icon: "🇹🇷" },
-            { title: "Mobil Uyumlu", desc: "Telefon, tablet ve bilgisayarda çalışır.", icon: "📱" },
-            { title: "Sürekli Güncel", desc: "Her hafta yeni araçlar ekliyoruz.", icon: "🔄" },
-          ].map((item) => (
-            <div key={item.title} className="bg-amber-50/50 rounded-xl p-5 border border-amber-100">
-              <div className="text-2xl mb-2">{item.icon}</div>
-              <h3 className="font-semibold text-pazar-dark">{item.title}</h3>
-              <p className="text-sm text-gray-500">{item.desc}</p>
-            </div>
-          ))}
+    <div className="max-w-3xl mx-auto px-4 py-16">
+      <div className="panel p-10 rounded-2xl">
+        <h1 className="text-3xl font-extrabold text-tekno-text mb-6">Hakkımızda</h1>
+        
+        <div className="space-y-6 text-tekno-muted leading-relaxed">
+          <p>
+            <strong className="text-tekno-text">TeknoAraç</strong>, Türkiye&apos;nin en kapsamlı ücretsiz çevrimiçi araç platformudur. 
+            2024 yılında, internet kullanıcılarının günlük ihtiyaç duyduğu araçları tek bir adreste, Türkçe ve reklamsız 
+            olarak sunmak amacıyla kuruldu.
+          </p>
+
+          <p>
+            Platformumuzda <strong className="text-tekno-cyan">770&apos;ten fazla araç</strong> ve 
+            <strong className="text-tekno-cyan"> 590&apos;dan fazla rehber</strong> bulunmaktadır. 
+            Hesap makinelerinden yazı stillerine, PDF araçlarından tarayıcı oyunlarına kadar her şey burada.
+          </p>
+
+          <h2 className="text-xl font-bold text-tekno-text mt-8">Neden TeknoAraç?</h2>
+          <ul className="space-y-3 list-none pl-0">
+            {[
+              "🇹🇷 %100 Türkçe — tüm araçlar ve rehberler Türkçe",
+              "🚫 Reklamsız deneyim — dikkat dağıtıcı reklamlar yok",
+              "📵 Kayıt gerekmez — hiçbir araç için üyelik istemeyiz",
+              "🔒 Takip yok — verilerinizi toplamaz, izlemeyiz",
+              "⚡ Hızlı ve hafif — tüm araçlar tarayıcınızda anında çalışır",
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-2 text-tekno-muted">
+                <span className="text-tekno-cyan mt-1">▸</span> {item}
+              </li>
+            ))}
+          </ul>
+
+          <h2 className="text-xl font-bold text-tekno-text mt-8">Misyonumuz</h2>
+          <p>
+            İnternetteki dağınık, İngilizce ağırlıklı araç ekosistemine Türkçe, temiz ve güvenilir bir alternatif sunmak.
+            Herkesin, herhangi bir ücret ödemeden veya kayıt olmadan ihtiyaç duyduğu dijital araçlara ulaşabilmesini sağlamak.
+          </p>
         </div>
       </div>
     </div>

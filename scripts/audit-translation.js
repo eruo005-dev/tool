@@ -1,8 +1,8 @@
 const fs = require("fs");
 const path = require("path");
 
-const DIR = "C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
-const PROGRESS = "C:/Users/eruo0/Desktop/project/toolpazar/scripts/translate-guides-progress.json";
+const DIR = "C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
+const PROGRESS = "C:/Users/eruo0/Desktop/project/teknoarac/scripts/translate-guides-progress.json";
 
 const files = fs.readdirSync(DIR).filter(f => f.endsWith(".tsx"));
 

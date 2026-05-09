@@ -1,5 +1,5 @@
 /**
- * Generates ToolPazar's lib/tools.ts from FreeToolArena's extracted tools data,
+ * Generates TeknoAraç's lib/tools.ts from FreeToolArena's extracted tools data,
  * adding proper Turkish titles and the user's new tool sections.
  */
 const fs = require('fs');
@@ -8,7 +8,7 @@ const path = require('path');
 const ftaTools = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'extracted-tools.json'), 'utf8'));
 const ftaArticles = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'extracted-articles.json'), 'utf8'));
 
-// Category mapping: FTA English → ToolPazar Turkish
+// Category mapping: FTA English → TeknoAraç Turkish
 const catMap = {
   money: { id: 'hesap', icon: '💰', title: 'Hesap Makineleri' },
   productivity: { id: 'uretim', icon: '⚡', title: 'Verimlilik' },
@@ -136,7 +136,7 @@ const filtered = ftaTools.filter(t => !isUsCentric(t));
 console.log(`Filtered: ${ftaTools.length} → ${filtered.length} tools (removed ${ftaTools.length - filtered.length} US-centric)`);
 
 // Generate TypeScript
-let output = '// Auto-generated from FreeToolArena pages.ts — 792 tools adapted for ToolPazar\n';
+let output = '// Auto-generated from FreeToolArena pages.ts — 792 tools adapted for TeknoAraç\n';
 output += '// Removed US-centric tools (401k, IRA, RV/boat loans, US tax, etc.)\n\n';
 
 output += 'export interface Tool {\n';

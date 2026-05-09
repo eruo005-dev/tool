@@ -1,5 +1,5 @@
 const fs = require("fs");
-const dir = "C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
+const dir = "C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
 const reg = fs.readFileSync(dir + "/registry.tsx", "utf-8");
 const imports = [...reg.matchAll(/from\s+['"](.+?)['"]/g)].map(m => m[1]);
 const actualFiles = new Set(fs.readdirSync(dir).filter(f => f.endsWith(".tsx")));

@@ -1,5 +1,5 @@
 const fs=require("fs");const AK="sk-5c4dab92b6e2461fa7e2d036b1d318e5";
 const F="C:/Users/eruo0/Desktop/project/freetoolarena/content/guides";
-const T="C:/Users/eruo0/Desktop/project/toolpazar/content/guides";
+const T="C:/Users/eruo0/Desktop/project/teknoarac/content/guides";
 const L=["bulk-and-batch-file-conversion-guide.tsx","how-to-convert-between-speed-units.tsx","how-to-convert-color-formats.tsx","how-to-encode-and-decode-base64.tsx"];
 (async()=>{for(const f of L){const e=fs.readFileSync(F+"/"+f,"utf8");console.log(f+": "+e.length);const r=await fetch("https://api.deepseek.com/chat/completions",{method:"POST",headers:{"Content-Type":"application/json",Authorization:"Bearer "+AK},body:JSON.stringify({model:"deepseek-chat",messages:[{role:"system",content:"Turkish JSX translator. Rules: 1) Translate ONLY English text to Turkish 2) Keep ALL JSX/HTML tags exactly 3) Every opening tag must have closing tag 4) Replace > in text with &gt; 5) Output COMPLETE file. No markdown."},{role:"user",content:e}],temperature:0.2,max_tokens:16000})});const t=(await r.json()).choices[0].message.content.replace(/^```[a-z]*\s*\n?/i,"").replace(/\n?```\s*$/,"").trim();console.log(" -> "+t.length);fs.writeFileSync(T+"/"+f,t)}console.log("Done")})();

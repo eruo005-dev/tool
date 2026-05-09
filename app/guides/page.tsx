@@ -4,7 +4,7 @@ import fs from "fs";
 import path from "path";
 
 export const metadata: Metadata = {
-  title: "Rehberler — ToolPazar",
+  title: "Rehberler — TeknoAraç",
   description: "Ücretsiz çevrimiçi araç rehberleri. 590+ kılavuz, ipucu ve nasıl yapılır makalesi.",
 };
 
@@ -19,17 +19,21 @@ export default function GuidesPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 py-12">
-      <h1 className="text-3xl md:text-4xl font-bold text-pazar-dark mb-2">Rehberler</h1>
-      <p className="text-gray-500 mb-8">Araç kullanım kılavuzları, ipuçları ve nasıl yapılır rehberleri ({slugs.length} rehber)</p>
+      <div className="text-center mb-12">
+        <h1 className="text-3xl md:text-4xl font-extrabold text-tekno-text mb-2">📚 Rehberler</h1>
+        <p className="text-tekno-muted">Araç kullanım kılavuzları, ipuçları ve nasıl yapılır rehberleri ({slugs.length} rehber)</p>
+      </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
         {slugs.map((slug) => (
           <Link
             key={slug}
-            href={`/guides/${slug}`}
-            className="bg-white rounded-xl border border-amber-100 p-5 hover:border-pazar-gold hover:shadow-md transition"
+            href={`/rehberler/${slug}`}
+            className="panel p-5 hover:border-tekno-cyan/40 hover:shadow-lg hover:shadow-cyan-500/5 transition group"
           >
-            <h2 className="font-semibold text-pazar-dark mb-1 text-sm">{slug.replace(/-/g, " ").replace(/\b\w/g, c => c.toLocaleUpperCase("tr"))}</h2>
-            <p className="text-xs text-gray-500">Kılavuzu oku →</p>
+            <h2 className="font-semibold text-tekno-text mb-1 text-sm group-hover:text-tekno-cyan transition-colors">
+              {slug.replace(/-/g, " ").replace(/\b\w/g, c => c.toLocaleUpperCase("tr"))}
+            </h2>
+            <p className="text-xs text-tekno-muted group-hover:text-tekno-cyan-dim transition-colors">Kılavuzu oku →</p>
           </Link>
         ))}
       </div>
