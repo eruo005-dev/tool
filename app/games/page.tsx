@@ -32,7 +32,7 @@ const gameIcons: Record<string, string> = {
 };
 
 export default function GamesPage() {
-  const gameTools = tools.filter((t) => t.category === "oyun");
+  const gameTools = tools.filter((t) => t.category === "games");
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-12">

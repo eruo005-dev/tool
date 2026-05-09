@@ -12,7 +12,6 @@ export const metadata: Metadata = {
     type: "website",
     locale: "tr_TR",
   },
-  themeColor: "#C8A84E",
 };
 
 export const viewport: Viewport = {

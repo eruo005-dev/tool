@@ -131,7 +131,7 @@ export default function HomePage() {
             </Link>
           </div>
           <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
-            {tools.filter(t => t.category === "oyun").slice(0, 6).map((game) => (
+            {tools.filter(t => t.category === "games").slice(0, 6).map((game) => (
               <Link
                 key={game.slug}
                 href={`/tools/${game.slug}`}
