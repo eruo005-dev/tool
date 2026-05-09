@@ -465,5 +465,10 @@
   "how-to-use-css-grid.tsx",
   "how-to-use-devin.tsx",
   "how-to-use-dify.tsx",
-  "how-to-use-discord-timestamps.tsx"
+  "how-to-use-discord-timestamps.tsx",
+  "how-to-use-dspy.tsx",
+  "how-to-use-flexbox.tsx",
+  "how-to-use-flowise.tsx",
+  "how-to-use-gemini-cli.tsx",
+  "how-to-use-github-copilot-agent-mode.tsx"
 ]
