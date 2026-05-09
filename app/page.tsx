@@ -100,7 +100,7 @@ export default function HomePage() {
               <h2 className="text-2xl md:text-3xl font-bold text-pazar-dark">
                 ✨ Yazı Stili Araçları
               </h2>
-              <Link href="/tools/yazi" className="text-pazar-gold font-medium hover:underline text-sm">
+              <Link href="/tools?category=yazi" className="text-pazar-gold font-medium hover:underline text-sm">
                 Tümünü Gör →
               </Link>
             </div>
@@ -118,6 +118,31 @@ export default function HomePage() {
           </div>
         </section>
       )}
+
+      {/* Games Section */}
+      <section className="bg-gradient-to-br from-pazar-dark to-gray-800 py-16">
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl md:text-3xl font-bold text-white">
+              🎮 Tarayıcı Oyunları
+            </h2>
+            <Link href="/games" className="text-pazar-gold font-medium hover:underline text-sm">
+              Tüm Oyunlar →
+            </Link>
+          </div>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
+            {tools.filter(t => t.category === "oyun").slice(0, 6).map((game) => (
+              <Link
+                key={game.slug}
+                href={`/tools/${game.slug}`}
+                className="bg-white/10 backdrop-blur-sm rounded-xl border border-white/10 p-4 text-center hover:bg-white/20 hover:border-pazar-gold/30 transition"
+              >
+                <div className="text-white font-medium text-sm">{game.titleTr}</div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Popular Tools */}
       <section className="max-w-6xl mx-auto px-4 py-16">

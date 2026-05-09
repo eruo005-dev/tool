@@ -31,9 +31,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             </a>
             <nav className="hidden md:flex items-center gap-6 text-sm font-medium text-gray-600">
               <a href="/tools" className="hover:text-pazar-gold transition">Araçlar</a>
+              <a href="/games" className="hover:text-pazar-gold transition">Oyunlar</a>
               <a href="/guides" className="hover:text-pazar-gold transition">Rehberler</a>
-              <a href="/tools/yazi" className="hover:text-pazar-gold transition">Yazı Stilleri</a>
-              <a href="/tools/hesap" className="hover:text-pazar-gold transition">Hesaplamalar</a>
+              <a href="/tools?category=yazi" className="hover:text-pazar-gold transition">Yazı Stilleri</a>
+              <a href="/tools?category=hesap" className="hover:text-pazar-gold transition">Hesaplamalar</a>
               <a href="/about" className="hover:text-pazar-gold transition">Hakkımızda</a>
             </nav>
           </div>
@@ -55,6 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <h4 className="font-semibold text-white mb-3">Araçlar</h4>
               <div className="flex flex-col gap-2 text-sm">
                 <a href="/tools" className="hover:text-pazar-gold transition">Tüm Araçlar</a>
+                <a href="/games" className="hover:text-pazar-gold transition">Tarayıcı Oyunları</a>
                 <a href="/tools?category=yazi" className="hover:text-pazar-gold transition">Yazı Stilleri</a>
                 <a href="/tools?category=hesap" className="hover:text-pazar-gold transition">Hesaplamalar</a>
               </div>

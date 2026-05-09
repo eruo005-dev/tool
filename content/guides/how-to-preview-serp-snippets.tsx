@@ -27,7 +27,7 @@ export const body: ReactElement = (
       results like star ratings, FAQ accordions, price, or stock status. The core snippet takes
       about 3-4 lines of vertical space; rich snippets can double that.
     </p>
-    <pre>{`freetoolarena.com > tools > json-formatter
+    <pre>{`toolpazar.com > tools > json-formatter
 Free <a href="/tools/json-formatter">JSON Formatter</a> - Beautify, Validate, Minify
 Format and validate JSON instantly in your browser. Paste, format,
 validate against schema, convert to YAML. No login required.`}</pre>
@@ -67,8 +67,8 @@ validate against schema, convert to YAML. No login required.`}</pre>
     <h2>URL display and breadcrumbs</h2>
     <p>
       Google transforms URLs into breadcrumbs in most modern SERP layouts. A URL like
-      <code>https://freetoolarena.com/tools/json-formatter</code> renders as
-      <code>freetoolarena.com &gt; tools &gt; json-formatter</code>. The breadcrumb reveals site
+      <code>https://toolpazar.com/tools/json-formatter</code> renders as
+      <code>toolpazar.com &gt; tools &gt; json-formatter</code>. The breadcrumb reveals site
       structure and can be customized by adding BreadcrumbList structured data that overrides
       the default URL segmentation. This matters for sites with deep URL paths: a clean
       breadcrumb hierarchy signals structure and category.
