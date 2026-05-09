@@ -3,213 +3,146 @@
 export const intro = (
   <>
     <p>
-      Data conversion sits at the heart of most analytics workflows: an export
-      from one system in CSV, the next system wants JSON, the analyst wants it
-      in Excel, the engineer wants XML. This guide is the practical playbook
-      for getting between formats without losing your data — and which of our
-      free tools handles each conversion.
+      Veri dönüşümü, çoğu analitik iş akışının merkezinde yer alır: bir sistemden CSV olarak dışa aktarılan veriler, başka bir sistemin JSON'a ihtiyacı vardır, bir analist bunu Excel'de görmek ister, bir mühendis XML gerektirir. Bu kılavuz, verilerinizi kaybetmeden formatlar arasında geçiş yapmak için pratik bir yol haritasıdır — ve her dönüşüm için ücretsiz araçlarımızdan hangisini kullanmanız gerektiğini söyler.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "csv-to-excel", label: "CSV to Excel: the easiest method" },
-  { id: "json-to-csv", label: "JSON to CSV for analysis" },
-  { id: "xml-to-csv", label: "XML to CSV step by step" },
-  { id: "structure", label: "Preserving structure across formats" },
-  { id: "common-issues", label: "Common pitfalls" },
+  { id: "csv-to-excel", label: "CSV'den Excel'e: en kolay yöntem" },
+  { id: "json-to-csv", label: "Analiz için JSON'dan CSV'ye" },
+  { id: "xml-to-csv", label: "Adım adım XML'den CSV'ye" },
+  { id: "structure", label: "Formatlar arasında yapıyı korumak" },
+  { id: "common-issues", label: "Yaygın tuzaklar" },
 ];
 
 export const body = (
   <>
-    <h2 id="csv-to-excel">CSV to Excel: the easiest conversion method</h2>
+    <h2 id="csv-to-excel">CSV'den Excel'e: en kolay dönüşüm yöntemi</h2>
     <p>
-      Three options, each tractable:
+      Üç seçenek, her biri uygulanabilir:
     </p>
     <ol>
       <li>
-        <strong>Just open the CSV in Excel.</strong> Yes — modern Excel handles
-        CSV natively. File → Open → select the CSV. Excel detects delimiters
-        automatically. The catch: Excel sometimes munges fields it thinks are
-        dates or numbers (leading zeros stripped, ZIP codes turned into
-        scientific notation). For data integrity, use Power Query (Data → From
-        Text/CSV) instead — gives you column-type controls.
+        <strong>CSV'yi doğrudan Excel'de açın.</strong> Evet — modern Excel, CSV'yi yerel olarak işler. Dosya → Aç → CSV'yi seçin. Excel, ayırıcıları otomatik olarak algılar. Ancak dikkatli olun: Excel bazen tarih veya sayı olduğunu düşündüğü alanları bozar (baştaki sıfırlar silinir, posta kodları bilimsel gösterime dönüşür). Veri bütünlüğü için bunun yerine Power Query'yi (Veri → Metin/CSV'den) kullanın — size sütun türü kontrolleri sağlar.
       </li>
       <li>
-        <strong>Use our <a href="/tools/csv-to-excel-xml">CSV to Excel
-        converter</a>.</strong> Paste CSV, download a real Excel file (.xls
-        SpreadsheetML 2003 format) that Excel, Google Sheets, and LibreOffice
-        all open natively. Browser-only, no upload, preserves number-vs-string
-        column types. Best when you want to share an Excel file specifically.
+        <strong><a href="/tools/csv-to-excel-xml">CSV'den Excel'e dönüştürücümüzü</a> kullanın.</strong> CSV'yi yapıştırın, Excel, Google Sheets ve LibreOffice'in yerel olarak açtığı gerçek bir Excel dosyası (.xls SpreadsheetML 2003 formatı) indirin. Yalnızca tarayıcı tabanlı, yükleme yok, sayı ve metin sütun türlerini korur. Bir Excel dosyası paylaşmak istediğinizde en iyisidir.
       </li>
       <li>
-        <strong>Google Sheets import.</strong> File → Import → Upload CSV.
-        Cleaner type detection than Excel for most cases. Free, but goes
-        through Google&rsquo;s servers.
+        <strong>Google Sheets içe aktarma.</strong> Dosya → İçe Aktar → CSV'yi yükleyin. Genellikle Excel'den daha temiz tür algılama. Ücretsiz, ancak Google'ın sunucuları üzerinden gider.
       </li>
     </ol>
     <p>
-      The hidden gotcha most people hit: Excel auto-converts certain
-      strings to dates or numbers. If you have a ZIP code column with leading
-      zeros (&ldquo;01234&rdquo;), columns of trade IDs that look like numbers,
-      or anything date-like, Excel will silently corrupt them. Always use
-      Power Query (Data → From Text/CSV) for production data — it lets you
-      lock column types before import.
+      Çoğu kişinin karşılaştığı gizli tuzak: Excel, belirli dizeleri otomatik olarak tarihlere veya sayılara dönüştürür. Başında sıfır olan bir posta kodu sütununuz ("01234"), sayı gibi görünen işlem kimliği sütunlarınız veya tarih benzeri herhangi bir şeyiniz varsa, Excel bunları sessizce bozacaktır. Üretim verileri için her zaman Power Query'yi (Veri → Metin/CSV'den) kullanın — içe aktarmadan önce sütun türlerini kilitlemenizi sağlar.
     </p>
 
-    <h2 id="json-to-csv">JSON to CSV for data analysis</h2>
+    <h2 id="json-to-csv">Veri analizi için JSON'dan CSV'ye</h2>
     <p>
-      Use our <a href="/tools/json-to-csv">JSON to CSV converter</a> for the
-      basic flat case (an array of objects with simple fields). The trickier
-      cases:
+      Temel düz durumlar için (basit alanlara sahip nesne dizisi) <a href="/tools/json-to-csv">JSON'dan CSV'ye dönüştürücümüzü</a> kullanın. Daha karmaşık durumlar:
     </p>
     <ul>
       <li>
-        <strong>Nested objects:</strong> the converter flattens nested fields
-        into dotted-path columns (<code>address.city</code>,{" "}
-        <code>address.zip</code>). Works for 1–2 levels of nesting; deeper
-        nesting gets unwieldy.
+        <strong>İç içe nesneler:</strong> dönüştürücü, iç içe alanları nokta-yol sütunlarına düzleştirir (<code>address.city</code>,{" "}
+        <code>address.zip</code>). 1-2 seviye iç içelik için çalışır; daha derin iç içelik kullanışsız hale gelir.
       </li>
       <li>
-        <strong>Arrays of arrays:</strong> the converter indexes them
-        (<code>tags[0]</code>, <code>tags[1]</code>). For variable-length
-        arrays, the CSV will have NULL columns for shorter rows. Acceptable
-        for most cases; consider unrolling into multiple rows if your downstream
-        analysis tool expects normalized data.
+        <strong>Diziler içindeki diziler:</strong> dönüştürücü bunları indeksler (<code>tags[0]</code>, <code>tags[1]</code>). Değişken uzunluktaki diziler için CSV, daha kısa satırlarda NULL sütunlara sahip olacaktır. Çoğu durum için kabul edilebilir; aşağı akış analiz aracınız normalleştirilmiş veri bekliyorsa, birden çok satıra dönüştürmeyi düşünün.
       </li>
       <li>
-        <strong>Mixed schemas:</strong> if some objects have fields others
-        don&rsquo;t, the union of all keys becomes the header set. Empty cells
-        for missing fields. This is usually correct.
+        <strong>Karma şemalar:</strong> bazı nesnelerde diğerlerinde olmayan alanlar varsa, tüm anahtarların birleşimi başlık kümesi haline gelir. Eksik alanlar için boş hücreler. Bu genellikle doğrudur.
       </li>
       <li>
-        <strong>Very large files:</strong> browser-side conversion is fine up
-        to ~100 MB. Above that use a CLI tool like <code>jq</code> + a CSV
-        formatter, or Pandas in Python.
+        <strong>Çok büyük dosyalar:</strong> tarayıcı tarafı dönüşümü, ~100 MB'a kadar sorunsuz bir şekilde işler. Bunun üzerinde, bir CLI aracı (<code>jq</code> + bir CSV biçimlendirici) veya Python'da Pandas kullanın.
       </li>
     </ul>
 
-    <h2 id="xml-to-csv">XML to CSV step-by-step</h2>
+    <h2 id="xml-to-csv">Adım adım XML'den CSV'ye</h2>
     <p>
-      Use our <a href="/tools/xml-to-csv">XML to CSV converter</a>. The
-      workflow:
+      <a href="/tools/xml-to-csv">XML'den CSV'ye dönüştürücümüzü</a> kullanın. İş akışı:
     </p>
     <ol>
       <li>
-        <strong>Identify the row element.</strong> What&rsquo;s the repeating
-        unit in your XML? In a customer export it&rsquo;s usually{" "}
-        <code>&lt;customer&gt;</code> or <code>&lt;record&gt;</code>. Our tool
-        auto-detects the first repeating child of the root, but you can
-        override with a CSS selector.
+        <strong>Satır öğesini belirleyin.</strong> XML'inizdeki tekrar eden birim nedir? Bir müşteri dışa aktarımında, genellikle{" "}
+        <code>&lt;customer&gt;</code> veya <code>&lt;record&gt;</code>'dur. Aracımız, kökün ilk tekrar eden alt öğesini otomatik olarak algılar, ancak bir CSS seçici ile geçersiz kılabilirsiniz.
       </li>
       <li>
-        <strong>Paste the XML.</strong> The tool parses with the browser&rsquo;s
-        native DOMParser. Errors (mismatched tags, invalid characters) surface
-        immediately.
+        <strong>XML'i yapıştırın.</strong> Araç, tarayıcının yerel DOMParser'ı ile ayrıştırır. Hatalar (eşleşmeyen etiketler, geçersiz karakterler) hemen gösterilir.
       </li>
       <li>
-        <strong>Verify the row + column count.</strong> If the count looks
-        wrong (e.g. 1 row when you expected 100), the row selector is probably
-        wrong. Set it manually.
+        <strong>Satır ve sütun sayısını doğrulayın.</strong> Sayı yanlış görünüyorsa (örneğin, 100 beklerken 1 satır), satır seçici muhtemelen yanlıştır. Manuel olarak ayarlayın.
       </li>
       <li>
-        <strong>Download or copy the CSV.</strong> Done.
+        <strong>CSV'yi indirin veya kopyalayın.</strong> Tamamlandı.
       </li>
     </ol>
     <p>
-      For deeply nested or hierarchical XML (3+ levels of nested elements with
-      arrays inside arrays), CSV isn&rsquo;t the right output format —
-      you&rsquo;ll get a wide sparse table. Convert to JSON first, then process
-      with a real ETL tool.
+      Derinlemesine iç içe veya hiyerarşik XML (iç içe dizilerle 3+ seviye iç içelik) için CSV doğru çıktı formatı değildir — geniş ve seyrek bir tablo elde edersiniz. Önce JSON'a dönüştürün, ardından gerçek bir ETL aracıyla işleyin.
     </p>
 
-    <h2 id="structure">Preserving file structure when converting formats</h2>
+    <h2 id="structure">Formatları dönüştürürken dosya yapısını korumak</h2>
     <p>
-      The general principle: lossy conversions are unidirectional. Once you go
-      from a richer format to a flatter one (XML → CSV, JSON → CSV, DOCX →
-      plain text), you can&rsquo;t recover the original structure perfectly.
-      Plan accordingly:
+      Genel ilke: kayıplı dönüşümler tek yönlüdür. Daha zengin bir formattan daha düz bir formata (XML → CSV, JSON → CSV, DOCX → düz metin) geçtiğinizde, orijinal yapıyı mükemmel bir şekilde geri kazanamazsınız. Buna göre plan yapın:
     </p>
     <ul>
       <li>
-        <strong>Keep the original.</strong> Always. Storage is cheap, regret
-        is expensive.
+        <strong>Orijinali saklayın.</strong> Her zaman. Depolama ucuzdur, pişmanlık pahalıdır.
       </li>
       <li>
-        <strong>Document the conversion choices.</strong> If you flattened
-        nested fields with dotted-path names, write down what you did. Six
-        months later when you need to reconstruct, you&rsquo;ll thank yourself.
+        <strong>Dönüşüm seçimlerinizi belgeleyin.</strong> İç içe alanları nokta-yol adlarıyla düzleştirdiyseniz, ne yaptığınızı yazın. Altı ay sonra yeniden yapılandırmanız gerektiğinde kendinize teşekkür edeceksiniz.
       </li>
       <li>
-        <strong>Use intermediate formats wisely.</strong> XML → JSON (rich →
-        rich) preserves structure. JSON → CSV (rich → flat) loses it. If you
-        need to convert XML → CSV → back to XML, expect data loss.
+        <strong>Ara formatları akıllıca kullanın.</strong> XML → JSON (zengin → zengin) yapıyı korur. JSON → CSV (zengin → düz) kaybeder. XML → CSV → tekrar XML'e gitmeniz gerekiyorsa, veri kaybı bekleyin.
       </li>
       <li>
-        <strong>For multi-step conversions:</strong> do as few steps as
-        possible. Each conversion can introduce errors. Direct XML → JSON is
-        better than XML → CSV → JSON.
+        <strong>Çok adımlı dönüşümler için:</strong> mümkün olduğunca az adım yapın. Her dönüşüm hatalara neden olabilir. Doğrudan XML → JSON, XML → CSV → JSON'dan daha iyidir.
       </li>
     </ul>
 
-    <h2 id="common-issues">Common pitfalls in data conversion</h2>
+    <h2 id="common-issues">Veri dönüşümünde yaygın tuzaklar</h2>
     <ul>
       <li>
-        <strong>Date formatting:</strong> CSV doesn&rsquo;t have a date type.
-        Different tools interpret &ldquo;01/02/03&rdquo; differently (Jan 2
-        2003 vs Feb 1 2003 vs whatever). Always use ISO 8601
-        (<code>2003-01-02</code>) for portability.
+        <strong>Tarih biçimlendirme:</strong> CSV'nin tarih türü yoktur. Farklı araçlar "01/02/03" ifadesini farklı yorumlar (2 Ocak 2003; 1 Şubat 2003; veya başka bir şey). Taşınabilirlik için her zaman ISO 8601 (<code>2003-01-02</code>) kullanın.
       </li>
       <li>
-        <strong>Leading zeros:</strong> ZIP codes, IDs, account numbers get
-        auto-converted to integers and lose their leading zeros. Quote them as
-        strings in CSV (<code>&quot;01234&quot;</code>) or use Power Query in
-        Excel.
+        <strong>Baştaki sıfırlar:</strong> Posta kodları, kimlikler, hesap numaraları otomatik olarak tam sayılara dönüştürülür ve baştaki sıfırları kaybeder. Bunları CSV'de dize olarak tırnak içine alın (<code>"01234"</code>) veya Excel'de Power Query kullanın.
       </li>
       <li>
-        <strong>Encoding:</strong> non-ASCII characters (accents, emoji,
-        non-Latin scripts) need UTF-8. Excel CSV import sometimes defaults to
-        Windows-1252 — pick &ldquo;Unicode (UTF-8)&rdquo; in the Power Query
-        wizard.
+        <strong>Kodlama:</strong> ASCII olmayan karakterler (aksanlar, emoji, Latin olmayan alfabeler) UTF-8 gerektirir. Excel CSV içe aktarma bazen varsayılan olarak Windows-1252'yi kullanır — Power Query sihirbazında "Unicode (UTF-8)" seçeneğini seçin.
       </li>
       <li>
-        <strong>Quoted fields with commas:</strong> RFC 4180 says quote them.
-        Some bad CSV writers don&rsquo;t. If your converter chokes, the input
-        is malformed — clean it before converting.
+        <strong>Virgül içeren tırnaklı alanlar:</strong> RFC 4180, bunların tırnak içine alınması gerektiğini söyler. Bazı kötü CSV yazıcıları bunu yapmaz. Dönüştürücünüz takılırsa, girdi hatalı biçimlendirilmiştir — dönüştürmeden önce temizleyin.
       </li>
       <li>
-        <strong>Excel&rsquo;s row limit:</strong> Excel handles ~1M rows.
-        Larger files: split into multiple sheets, or use a real database.
+        <strong>Excel'in satır sınırı:</strong> Excel yaklaşık 1 milyon satırı işler. Daha büyük dosyalar: birden çok sayfaya bölün veya gerçek bir veritabanı kullanın.
       </li>
       <li>
-        <strong>Special characters in column names:</strong> some tools
-        don&rsquo;t allow dots, slashes, or spaces. Sanitize column names
-        before import to BI tools, databases, or anything programmatic.
+        <strong>Sütun adlarında özel karakterler:</strong> bazı araçlar nokta, eğik çizgi veya boşluğa izin vermez. BI araçlarına, veritabanlarına veya programatik herhangi bir şeye dışa aktarmadan önce sütun adlarını temizleyin.
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Convert XML to CSV (free, browser-only)",
+  label: "XML'den CSV'ye Dönüştür (ücretsiz, yalnızca tarayıcı)",
   targetSlug: "xml-to-csv",
 };
 
 export const faq = [
   {
-    q: "What's the easiest way to convert CSV to Excel?",
-    a: "Three options: open CSV directly in Excel (File → Open), use our CSV to Excel converter for a real .xls file, or import via Excel Power Query (Data → From Text/CSV) which gives you column-type control. The Power Query path prevents Excel from auto-corrupting ZIP codes, IDs, and date-like strings.",
+    q: "CSV'yi Excel'e dönüştürmenin en kolay yolu nedir?",
+    a: "Üç seçenek: CSV'yi doğrudan Excel'de açın (Dosya → Aç), gerçek bir .xls dosyası için CSV'den Excel'e dönüştürücümüzü kullanın veya sütun türü kontrolü sağlayan Excel Power Query (Veri → Metin/CSV'den) ile içe aktarın. Power Query yöntemi, Excel'in posta kodlarını, kimlikleri ve tarih benzeri dizeleri otomatik olarak bozmasını önler.",
   },
   {
-    q: "How do I convert JSON to CSV for data analysis?",
-    a: "For flat array-of-objects JSON, use our JSON to CSV tool. Nested objects flatten with dotted-path columns; arrays get indexed. For deeply nested or very large (>100 MB) JSON, use jq or Pandas instead. Keep the original JSON — once flattened to CSV, you can't recover the structure.",
+    q: "Veri analizi için JSON'u CSV'ye nasıl dönüştürebilirim?",
+    a: "Düz dizi-of-nesneler JSON için JSON'dan CSV'ye aracımızı kullanın. İç içe nesneler nokta-yol sütunlarıyla düzleştirilir; diziler indekslenir. Derinlemesine iç içe veya çok büyük (>100 MB) JSON için bunun yerine jq veya Pandas kullanın. Orijinal JSON'u saklayın — CSV'ye düzleştirildikten sonra yapıyı kurtaramazsınız.",
   },
   {
-    q: "How do I convert XML to CSV step by step?",
-    a: "Use our XML to CSV converter. (1) Identify the repeating row element (auto-detected by default), (2) Paste XML, (3) Verify row + column count, (4) Download CSV. For deeply nested XML, convert to JSON first then process with a real ETL tool — CSV isn't the right output for hierarchical data.",
+    q: "XML'yi CSV'ye adım adım nasıl dönüştürebilirim?",
+    a: "XML'den CSV'ye dönüştürücümüzü kullanın. (1) Tekrar eden satır öğesini belirleyin (varsayılan olarak otomatik algılanır), (2) XML'i yapıştırın, (3) satır ve sütun sayısını doğrulayın, (4) CSV'yi indirin. Derinlemesine iç içe XML için önce JSON'a dönüştürün, ardından gerçek bir ETL aracıyla işleyin — CSV, hiyerarşik veriler için doğru çıktı değildir.",
   },
   {
-    q: "How do I keep my file structure when converting formats?",
-    a: "Always keep the original. Document conversion choices for future-you. Use intermediate formats wisely — XML → JSON preserves structure; JSON → CSV is lossy. Do as few steps as possible — each conversion adds error. For lossy steps (rich → flat), expect that round-tripping back loses data.",
+    q: "Formatları dönüştürürken dosya yapımı nasıl koruyabilirim?",
+    a: "Orijinali her zaman saklayın. Gelecekteki sizin için dönüşüm seçimlerinizi belgeleyin. Ara formatları akıllıca kullanın — XML → JSON yapıyı korur; JSON → CSV kayıplıdır. Mümkün olduğunca az adım yapın — her dönüşüm hata ekler. Kayıplı adımlar (zengin → düz) için, ters dönüşümün veri kaybıyla sonuçlanacağını bekleyin.",
   },
 ];

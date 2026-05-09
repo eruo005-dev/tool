@@ -1,102 +1,88 @@
 export const intro = (
   <>
     <p>
-      Frontend or backend? It&rsquo;s the first big decision most new devs face. The
-      honest answer: pick the one you&rsquo;re more curious about today, go deep for a
-      year, then pick up the other side. You can&rsquo;t really be a strong senior
-      engineer knowing only one.
+      Frontend mi backend mi? Çoğu yeni geliştiricinin karşılaştığı ilk büyük karar bu. Dürüst cevap: bugün en çok merak ettiğin hangisiyse onu seç, bir yıl boyunca derinleş, sonra diğer tarafı öğren. Sadece birini bilerek gerçekten güçlü bir kıdemli mühendis olamazsın.
     </p>
     <p>
-      Below is what each actually involves day-to-day, what pays, and how to decide if
-      you&rsquo;re stuck.
+      Aşağıda her birinin günlük olarak neleri kapsadığı, ne kadar kazandırdığı ve takılıp kalırsan nasıl karar vereceğin yer alıyor.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. What frontend actually is</h2>
+    <h2>1. Frontend aslında nedir</h2>
     <p>
-      Anything the user sees or touches. HTML, CSS, JavaScript, TypeScript, React, Vue,
-      Svelte. Building interfaces, managing client state, talking to APIs, handling
-      user interactions, performance on the browser, accessibility. Design-adjacent.
+      Kullanıcının gördüğü veya dokunduğu her şey. HTML, CSS, JavaScript, TypeScript, React, Vue,
+      Svelte. Arayüzler oluşturmak, istemci durumunu yönetmek, API'lerle konuşmak, kullanıcı
+      etkileşimlerini yönetmek, tarayıcıda performans, erişilebilirlik. Tasarıma yakın.
     </p>
 
-    <h2>2. What backend actually is</h2>
+    <h2>2. Backend aslında nedir</h2>
     <p>
-      Everything the user doesn&rsquo;t see. Servers, databases, APIs, authentication,
-      business logic, background jobs, caching, infrastructure. Python, Go, Node, Java,
-      Rust. Scale, reliability, data. More systems-thinking.
+      Kullanıcının görmediği her şey. Sunucular, veritabanları, API'ler, kimlik doğrulama,
+      iş mantığı, arka plan işleri, önbellekleme, altyapı. Python, Go, Node, Java,
+      Rust. Ölçek, güvenilirlik, veri. Daha fazla sistem düşüncesi.
     </p>
 
-    <h2>3. The skill overlap</h2>
+    <h2>3. Beceri örtüşmesi</h2>
     <p>
-      Both need programming fundamentals, version control, testing, debugging, reading
-      other people&rsquo;s code. The overlap is maybe 60%. What differs is the domain
-      knowledge and the failure modes.
+      Her ikisi de programlama temelleri, sürüm kontrolü, test etme, hata ayıklama, başkalarının kodunu okumayı gerektirir.
+      Örtüşme belki %60. Farklı olan alan bilgisi ve hata modlarıdır.
     </p>
 
-    <h2>4. Day-to-day difference</h2>
+    <h2>4. Günlük fark</h2>
     <p>
-      Frontend: &ldquo;Why does this look wrong on Safari? Why is this button slow to
-      click?&rdquo; Backend: &ldquo;Why is this query taking 3 seconds? Why is the queue
-      backed up?&rdquo; Different problems, different tools.
+      Frontend: "Bu neden Safari'de yanlış görünüyor? Bu buton neden tıklamakta yavaş?" Backend: "Bu sorgu neden 3 saniye sürüyor? Kuyruk neden birikti?" Farklı sorunlar, farklı araçlar.
     </p>
 
-    <h2>5. Pay differences</h2>
+    <h2>5. Maaş farklılıkları</h2>
     <p>
-      Roughly equal at most companies. Backend edges slightly ahead at infra-heavy
-      companies (data, fintech). Frontend pays strongly at product-heavy companies.
-      Specialists in either (performance, security, ML-infra) outpay generalists.
+      Çoğu şirkette kabaca eşit. Backend, altyapı ağırlıklı şirketlerde (veri, fintech) hafifçe öne geçer.
+      Frontend, ürün ağırlıklı şirketlerde iyi kazandırır. Her ikisinde de uzmanlar (performans, güvenlik, ML-altyapı) genelcilerden daha fazla kazanır.
     </p>
 
-    <h2>6. Frontend has changed more</h2>
+    <h2>6. Frontend daha çok değişir</h2>
     <p>
-      The frontend ecosystem churns — frameworks, build tools, state libraries come and
-      go every 2-3 years. Backend moves slower. If you hate relearning, backend is
-      calmer. If you love new shiny things, frontend is fun.
+      Frontend ekosistemi sürekli değişir — framework'ler, derleme araçları, durum kütüphaneleri her
+      2-3 yılda bir gelir ve gider. Backend daha yavaş hareket eder. Yeniden öğrenmekten nefret ediyorsan backend daha sakindir. Yeni parlak şeyleri seviyorsan frontend eğlencelidir.
     </p>
 
-    <h2>7. Visibility and feedback loop</h2>
+    <h2>7. Görünürlük ve geri bildirim döngüsü</h2>
     <p>
-      Frontend gives you instant visual feedback. Make a change, see it. Backend feedback
-      is more abstract — logs, metrics, test suites. Some people are much more motivated
-      by visual feedback; it&rsquo;s worth knowing yourself here.
+      Frontend size anında görsel geri bildirim verir. Bir değişiklik yap, gör. Backend geri bildirimi
+      daha soyuttur — loglar, metrikler, test paketleri. Bazı insanlar görsel geri bildirimle çok daha motive olur; kendinizi bu konuda tanımanız önemlidir.
     </p>
 
-    <h2>8. Fullstack is the realistic default</h2>
+    <h2>8. Fullstack gerçekçi varsayılandır</h2>
     <p>
-      Most companies hire fullstack for practical reasons. Start on one side, but expect
-      to cross over. The boundary between the two is increasingly blurred (Next.js, tRPC,
-      server components). The rigid division is fading.
+      Çoğu şirket pratik nedenlerle fullstack geliştiricileri işe alır. Bir tarafta başlayın, ancak diğer tarafa geçmeyi bekleyin. İkisi arasındaki sınır hızla bulanıklaşıyor (Next.js, tRPC,
+      sunucu bileşenleri). Sert ayrım kayboluyor.
     </p>
 
-    <h2>9. What suits you?</h2>
+    <h2>9. Sana ne uyuyor?</h2>
     <p>
-      Love pixels and animations? Frontend. Love databases and systems? Backend. Love
-      both? Fullstack. Hate CSS? Backend. Hate understanding business rules? Frontend
-      (bad news: you&rsquo;ll still deal with them).
+      Pikselleri ve animasyonları sever misin? Frontend. Veritabanlarını ve sistemleri sever misin? Backend. İkisini de sever misin? Fullstack. CSS'den nefret mi ediyorsun? Backend. İş kurallarını anlamaktan nefret mi ediyorsun? Frontend (kötü haber: yine de onlarla uğraşacaksın).
     </p>
 
-    <h2>10. Junior paths differ</h2>
+    <h2>10. Junior yolları farklıdır</h2>
     <p>
-      Junior frontend is easier to break into — more jobs, lower barrier. Junior backend
-      is slightly harder (more fundamentals required) but with fewer applicants per role.
-      See <a href="/guides/how-to-get-your-first-developer-job">first dev job guide</a>.
+      Junior frontend'e girmek daha kolaydır — daha fazla iş, daha düşük engel. Junior backend
+      biraz daha zordur (daha fazla temel bilgi gerektirir) ancak rol başına daha az başvuru olur.
+      Bkz. <a href="/guides/how-to-get-your-first-developer-job">ilk geliştirici işi rehberi</a>.
     </p>
 
-    <h2>11. DevOps and infra sit next to backend</h2>
+    <h2>11. DevOps ve altyapı backend ile birlikte gelir</h2>
     <p>
-      If you like backend and want an even more systems-heavy career, DevOps/SRE/platform
-      engineering is a natural move after 2-3 years. Rare to jump there from frontend
-      directly.
+      Backend'i seviyorsan ve daha sistem odaklı bir kariyer istiyorsan, DevOps/SRE/platform
+      mühendisliği 2-3 yıl sonra doğal bir geçiştir. Doğrudan frontend'den oraya atlamak nadirdir.
     </p>
 
-    <h2>12. Pick and commit for 12 months</h2>
+    <h2>12. Seç ve 12 ay boyunca bağlı kal</h2>
     <p>
-      Don&rsquo;t oscillate. Pick one side, get good at it, ship real projects, land a
-      job. Then expand. See <a href="/guides/best-programming-languages-to-learn">
-      language guide</a> to pick your first stack.
+      Sürekli geçiş yapma. Bir taraf seç, iyi ol, gerçek projeler çıkar, bir iş bul.
+      Sonra genişle. İlk stack'ini seçmek için <a href="/guides/best-programming-languages-to-learn">
+      dil rehberine</a> göz at.
     </p>
   </>
 );

@@ -3,104 +3,104 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Unicode lets the same visible text be encoded multiple ways. The
-      letter &ldquo;&eacute;&rdquo; can be one code point (U+00E9) or two
-      (U+0065 + U+0301), and both render identically. When you compare
-      two strings, index them in a database, use them as cache keys, or
-      run a regex across them, these equivalent-but-different encodings
-      silently diverge. Unicode normalization forces a canonical form so
-      two &ldquo;equal&rdquo; strings actually compare equal. This guide
-      covers the four normalization forms (NFC, NFD, NFKC, NFKD), when to
-      use each, the security implications of homoglyph attacks, and the
-      database and search-index patterns that depend on consistent
-      normalization.
+      Unicode, aynı görünen metnin birden çok şekilde kodlanmasına izin verir.
+      &ldquo;&eacute;&rdquo; harfi bir kod noktası (U+00E9) veya iki
+      (U+0065 + U+0301) olabilir ve her ikisi de aynı şekilde görüntülenir. İki
+      dizgiyi karşılaştırdığınızda, bir veritabanında indekslediğinizde, önbellek anahtarı olarak kullandığınızda veya
+      üzerlerinde bir regex çalıştırdığınızda, bu eşdeğer-ancak-farklı kodlamalar
+      sessizce ayrışır. Unicode normalizasyonu, iki
+      &ldquo;eşit&rdquo; dizginin gerçekten eşit karşılaştırılması için kurallı bir formu zorlar. Bu kılavuz
+      dört normalizasyon formunu (NFC, NFD, NFKC, NFKD), her birini ne zaman
+      kullanacağınızı, homoglif saldırılarının güvenlik etkilerini ve tutarlı
+      normalizasyona bağlı olan veritabanı ve arama indeksi kalıplarını
+      kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Why normalization exists</h2>
+    <h2>Normalizasyon neden var</h2>
     <p>
-      Unicode added accented characters in two compatible ways. Legacy
-      precomposed (single code point) and combining (letter plus
-      modifier). Both render identically. Neither is &ldquo;wrong.&rdquo;
-      But comparing them requires normalization.
+      Unicode, aksanlı karakterleri iki uyumlu şekilde ekledi. Eski
+      önceden oluşturulmuş (tek kod noktası) ve birleştirici (harf artı
+      değiştirici). Her ikisi de aynı şekilde görüntülenir. Hiçbiri &ldquo;yanlış&rdquo; değildir.
+      Ancak bunları karşılaştırmak normalizasyon gerektirir.
     </p>
-    <pre>{`"caf\\u00e9"         // 4 code points (precomposed)
-"cafe\\u0301"        // 5 code points (decomposed)
+    <pre>{`"caf\\u00e9"         // 4 kod noktası (önceden oluşturulmuş)
+"cafe\\u0301"        // 5 kod noktası (ayrıştırılmış)
 
-length:              4          5
+uzunluk:             4          5
 ===:                 false
-after normalize:     both become "caf\\u00e9"`}</pre>
+normalize'den sonra:     her ikisi de "caf\\u00e9" olur`}</pre>
 
-    <h2>The four forms</h2>
+    <h2>Dört form</h2>
     <ul>
       <li>
-        <strong>NFC</strong> &mdash; Canonical Composition. Combines
-        decomposed characters into precomposed form. Usually what you
-        want.
+        <strong>NFC</strong> &mdash; Kurallı Birleştirme. Ayrıştırılmış
+        karakterleri önceden oluşturulmuş formda birleştirir. Genellikle istediğiniz
+        şey budur.
       </li>
       <li>
-        <strong>NFD</strong> &mdash; Canonical Decomposition. Splits
-        precomposed characters into base + combining marks. Useful for
-        stripping accents.
+        <strong>NFD</strong> &mdash; Kurallı Ayrıştırma. Önceden oluşturulmuş
+        karakterleri taban + birleştirici işaretlerine ayırır. Aksanları
+        kaldırmak için kullanışlıdır.
       </li>
       <li>
-        <strong>NFKC</strong> &mdash; Compatibility Composition. NFC
-        plus compatibility replacements (e.g., full-width to half-width,
-        ligatures to individual letters).
+        <strong>NFKC</strong> &mdash; Uyumluluk Birleştirmesi. NFC
+        artı uyumluluk değiştirmeleri (örneğin, tam genişlikten yarım genişliğe,
+        bitişik harflerden bireysel harflere).
       </li>
       <li>
-        <strong>NFKD</strong> &mdash; Compatibility Decomposition.
-        NFD plus compatibility mapping.
+        <strong>NFKD</strong> &mdash; Uyumluluk Ayrıştırması.
+        NFD artı uyumluluk eşlemesi.
       </li>
     </ul>
 
-    <h2>NFC: the default for storage and comparison</h2>
+    <h2>NFC: depolama ve karşılaştırma için varsayılan</h2>
     <p>
-      NFC produces the shortest, most common form. Most of the web stores
-      text in NFC. Compare with NFC for &ldquo;are these the same
-      user-perceived string&rdquo; tests.
+      NFC en kısa, en yaygın formu üretir. Web'in çoğu metni
+      NFC'de saklar. &ldquo;Aynı kullanıcı tarafından algılanan
+      dizi mi&rdquo; testleri için NFC ile karşılaştırın.
     </p>
     <pre>{`a.normalize("NFC") === b.normalize("NFC")`}</pre>
 
-    <h2>NFD: when you want to strip accents</h2>
+    <h2>NFD: aksanları kaldırmak istediğinizde</h2>
     <p>
-      Normalize to decomposed form, then strip combining marks
-      (<code>{`\\p{M}`}</code>). You get ASCII-ish letters without the
-      diacritics.
+      Ayrıştırılmış forma normalleştirin, ardından birleştirici işaretlerini kaldırın
+      (<code>{`\\p{M}`}</code>). Diyakritik işaretler olmadan ASCII benzeri harfler
+      elde edersiniz.
     </p>
     <pre>{`"caf\\u00e9".normalize("NFD").replace(/\\p{M}/gu, "")
 // -&gt; "cafe"`}</pre>
     <p>
-      This is the backbone of slug generation and accent-insensitive
-      search.
+      Bu, slug oluşturma ve aksan duyarsız
+      aramanın temelidir.
     </p>
 
-    <h2>NFKC: lossy but useful</h2>
+    <h2>NFKC: kayıplı ama kullanışlı</h2>
     <p>
-      NFKC collapses visual variants to their &ldquo;plain&rdquo; form:
+      NFKC, görsel varyantları &ldquo;düz&rdquo; formlarına daraltır:
     </p>
     <pre>{`"\\uFF21\\uFF22\\uFF23".normalize("NFKC")
-// -&gt; "ABC" (full-width to half-width)
+// -&gt; "ABC" (tam genişlikten yarım genişliğe)
 
 "\\uFB00".normalize("NFKC")
-// -&gt; "ff" (ligature to letters)
+// -&gt; "ff" (bitişik harften harflere)
 
 "\\u00B2".normalize("NFKC")
-// -&gt; "2" (superscript to digit)`}</pre>
+// -&gt; "2" (üst simgeden rakama)`}</pre>
     <p>
-      Great for search and deduplication. <em>Not</em> great for
-      preserving authorial intent &mdash; a document&rsquo;s typographic
-      ligatures and superscripts are meaningful.
+      Arama ve yineleme giderme için harika. Yazarın niyetini
+      korumak için <em>harika değil</em> &mdash; bir belgenin tipografik
+      bitişik harfleri ve üst simgeleri anlamlıdır.
     </p>
 
-    <h2>NFKD: search-index form</h2>
+    <h2>NFKD: arama indeksi formu</h2>
     <p>
-      NFKD is the aggressive &ldquo;one true form&rdquo; for search:
-      strip compatibility variants and decompose. Then you can strip
-      combining marks for full accent-insensitive indexing.
+      NFKD, arama için agresif &ldquo;tek gerçek formdur&rdquo;:
+      uyumluluk varyantlarını kaldırın ve ayrıştırın. Ardından tam aksan duyarsız
+      indeksleme için birleştirici işaretlerini kaldırabilirsiniz.
     </p>
     <pre>{`function searchKey(s) {
   return s
@@ -109,90 +109,88 @@ after normalize:     both become "caf\\u00e9"`}</pre>
     .toLowerCase();
 }`}</pre>
 
-    <h2>When normalizations disagree</h2>
+    <h2>Normalizasyonların anlaşmazlığa düştüğü durumlar</h2>
     <p>
-      NFC and NFD round-trip safely &mdash; convert NFC to NFD back to
-      NFC, you get the original. NFKC and NFKD are <strong>lossy</strong>.
-      Once you&rsquo;ve NFKC&rsquo;d a string containing the ff ligature,
-      you can&rsquo;t recover the ligature from &ldquo;ff.&rdquo;
+      NFC ve NFD güvenli bir şekilde gidiş-dönüş yapar &mdash; NFC'yi NFD'ye, ardından tekrar
+      NFC'ye dönüştürün, orijinali elde edersiniz. NFKC ve NFKD <strong>kayıplıdır</strong>.
+      ff bitişik harfini içeren bir dizgiyi NFKC yaptıktan sonra,
+      bitişik harfi &ldquo;ff&rdquo;den kurtaramazsınız.
     </p>
 
-    <h2>Database key normalization</h2>
+    <h2>Veritabanı anahtar normalizasyonu</h2>
     <p>
-      If your DB stores user handles, email addresses, or anything
-      user-typed as a primary key, normalize before insert <em>and</em>
-      before lookup. Pick NFC for display-preserving storage; NFKC if
-      you want to treat full-width and half-width as equivalent.
+      DB'niz kullanıcı adları, e-posta adresleri veya kullanıcı tarafından yazılan
+      herhangi bir şeyi birincil anahtar olarak saklıyorsa, eklemeden <em>ve</em>
+      aramadan önce normalleştirin. Görüntüyü koruyan depolama için NFC'yi seçin; tam genişlik
+      ve yarım genişliği eşdeğer olarak ele almak istiyorsanız NFKC'yi seçin.
     </p>
     <pre>{`INSERT INTO users (handle) VALUES (NFC(input));
 SELECT * FROM users WHERE handle = NFC(lookup);`}</pre>
     <p>
-      Postgres has <code>normalize()</code> built in. MySQL and SQLite
-      require application-level normalization.
+      Postgres'te yerleşik <code>normalize()</code> vardır. MySQL ve SQLite
+      uygulama düzeyinde normalizasyon gerektirir.
     </p>
 
-    <h2>Homoglyph attacks</h2>
+    <h2>Homoglif saldırıları</h2>
     <p>
-      Attackers exploit visually-similar characters from different
-      scripts. Latin &ldquo;a&rdquo; (U+0061) and Cyrillic
-      &ldquo;&#1072;&rdquo; (U+0430) look identical but are different code
-      points. Normalization <em>doesn&rsquo;t</em> collapse these
-      &mdash; they&rsquo;re distinct Unicode characters. To defend:
+      Saldırganlar, farklı alfabelerden görsel olarak benzer karakterlerden yararlanır.
+      Latin &ldquo;a&rdquo; (U+0061) ve Kiril
+      &ldquo;&#1072;&rdquo; (U+0430) aynı görünür ancak farklı kod
+      noktalarıdır. Normalizasyon bunları <em>daraltmaz</em>
+      &mdash; bunlar farklı Unicode karakterlerdir. Savunmak için:
     </p>
     <ul>
-      <li>Restrict identifiers to a single script (Unicode IDN rules for domains)</li>
-      <li>Flag or block mixed-script strings</li>
-      <li>Use <code>confusables.txt</code> data from Unicode CLDR</li>
-      <li>For passwords and usernames, apply PRECIS profiles (RFC 8264)</li>
+      <li>Tanımlayıcıları tek bir alfabeyle sınırlayın (alan adları için Unicode IDN kuralları)</li>
+      <li>Karışık alfabeli dizgileri işaretleyin veya engelleyin</li>
+      <li>Unicode CLDR'den <code>confusables.txt</code> verilerini kullanın</li>
+      <li>Parolalar ve kullanıcı adları için PRECIS profillerini (RFC 8264) uygulayın</li>
     </ul>
 
-    <h2>Normalization + case folding</h2>
+    <h2>Normalizasyon + büyük/küçük harf dönüşümü</h2>
     <p>
-      Case-insensitive compare needs case folding, not just
-      <code>toLowerCase</code>. German &szlig; uppercases to SS; Turkish
-      dotless &#305; and dotted i don&rsquo;t map the way English expects.
+      Büyük/küçük harf duyarsız karşılaştırma, yalnızca
+      <code>toLowerCase</code> değil, büyük/küçük harf dönüşümü gerektirir. Almanca &szlig; büyük harfte SS olur; Türkçe
+      noktasız &#305; ve noktalı i, İngilizce'nin beklediği gibi eşlenmez.
     </p>
-    <pre>{`// JS has limited folding
+    <pre>{`// JS sınırlı dönüşüme sahiptir
 str.normalize("NFC").toLowerCase();
 
-// Intl.Collator handles locale correctly
+// Intl.Collator yerel ayarı doğru şekilde işler
 new Intl.Collator("tr", { sensitivity: "accent" })
   .compare(a, b) === 0`}</pre>
 
-    <h2>Benchmarking and file size</h2>
+    <h2>Performans testi ve dosya boyutu</h2>
     <p>
-      Normalization is cheap for short strings (microseconds). Large
-      documents (books, corpora) can measure in milliseconds. For
-      <a href="/learn/stream">streaming</a> pipelines, normalize in chunks that align to grapheme
-      boundaries &mdash; don&rsquo;t normalize half a combining sequence.
+      Normalizasyon, kısa dizgiler için ucuzdur (mikrosaniyeler). Büyük
+      belgeler (kitaplar, derlemler) milisaniyelerle ölçülebilir.
+      <a href="/learn/stream">Akış</a> hatları için, grafik sınırlarına hizalanmış
+      parçalar halinde normalleştirin &mdash; birleştirici bir dizinin yarısını normalleştirmeyin.
     </p>
 
-    <h2>Round-tripping through systems</h2>
+    <h2>Sistemler arasında gidiş-dönüş</h2>
     <p>
-      Copy through Windows, macOS, Linux, and web apps, and normalization
-      form can silently change. macOS famously uses NFD for its
-      filesystem, which means file names copied to other systems shift
-      form. Always normalize at boundaries: on input, on storage, on
-      output.
+      Windows, macOS, Linux ve web uygulamaları arasında kopyalayın ve normalizasyon
+      formu sessizce değişebilir. macOS, dosya sistemi için ünlü bir şekilde NFD kullanır,
+      bu da diğer sistemlere kopyalanan dosya adlarının form değiştirdiği anlamına gelir. Her zaman sınırlarda normalleştirin: girişte, depolamada,
+      çıkışta.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Comparing strings without normalizing, and wondering why
-      &ldquo;equal&rdquo; strings don&rsquo;t match. Using NFKC for
-      archival storage and losing typographic ligatures. Assuming
-      <code>toLowerCase</code> is enough for case-insensitive compare
-      across locales. Thinking normalization defends against homoglyphs
-      &mdash; it doesn&rsquo;t. And forgetting that filenames from macOS
-      are often NFD while your database stores NFC, causing case-like
-      mismatches that look impossible.
+      Dizgileri normalleştirmeden karşılaştırmak ve &ldquo;eşit&rdquo;
+      dizgilerin neden eşleşmediğini merak etmek. Arşiv depolama için NFKC kullanmak
+      ve tipografik bitişik harfleri kaybetmek. Büyük/küçük harf duyarsız karşılaştırma
+      için <code>toLowerCase</code>'in yerel ayarlar arasında yeterli olduğunu varsaymak. Normalizasyonun homogliflere karşı
+      savunduğunu düşünmek &mdash; savunmaz. Ve macOS'tan gelen dosya adlarının
+      genellikle NFD iken veritabanınızın NFC sakladığını unutmak, imkansız görünen
+      büyük/küçük harf benzeri uyumsuzluklara neden olur.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      <a href="/tools/unicode-text-normalizer">Unicode text normalizer</a>
-      <a href="/tools/invisible-character-detector">Invisible character detector</a>
-      <a href="/tools/special-character-remover">Special character remover</a>
+      <a href="/tools/unicode-text-normalizer">Unicode metin normalleştirici</a>
+      <a href="/tools/invisible-character-detector">Görünmez karakter dedektörü</a>
+      <a href="/tools/special-character-remover">Özel karakter kaldırıcı</a>
     </p>
   </>
 );

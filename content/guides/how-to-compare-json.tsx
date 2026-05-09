@@ -3,234 +3,247 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Diffing JSON sounds easy — just run a text diff. But JSON is
-      structured, not lines, so a text diff flags formatting changes
-      and key reorderings as real differences when they aren&rsquo;t.
-      A proper JSON diff understands objects (order-independent),
-      arrays (order-dependent), and types. This guide covers how JSON
-      diffing works, the gotchas around array matching, numeric
-      precision, missing-vs-null, when text diff is actually the
-      right tool, and how to use diffs in code review, API contract
-      testing, and debugging.
+      JSON farkı almak kulağa kolay gelir — sadece bir metin farkı
+      alırsınız. Ancak JSON yapısaldır, satırlardan oluşmaz, bu
+      nedenle bir metin farkı, biçimlendirme değişikliklerini ve
+      anahtar sıralamalarını gerçek farklılıklar olarak işaretler.
+      Doğru bir JSON farkı, nesneleri (sıradan bağımsız),
+      dizileri (sıraya bağımlı) ve türleri anlar. Bu kılavuz, JSON
+      farkının nasıl çalıştığını, dizi eşleme, sayısal hassasiyet,
+      eksik-vs-null etrafındaki tuzakları, metin farkının aslında
+      doğru araç olduğu durumları ve farkların kod incelemesi, API
+      sözleşme testi ve hata ayıklamada nasıl kullanılacağını
+      kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Why text diff fails on JSON</h2>
+    <h2>Metin farkı neden JSON'da başarısız olur</h2>
     <p>
-      Given these two JSON values:
+      Bu iki JSON değerini ele alalım:
     </p>
     <pre>
 {`{ "a": 1, "b": 2 }
 { "b": 2, "a": 1 }`}
     </pre>
     <p>
-      A text diff says they&rsquo;re different. A JSON diff says
-      they&rsquo;re identical. Object key order is not semantic in
-      JSON.
+      Bir metin farkı, bunların farklı olduğunu söyler. Bir JSON
+      farkı, aynı olduklarını söyler. JSON'da nesne anahtar sırası
+      anlamsaldır.
     </p>
     <p>
-      Same for formatting — <code>{`{"a":1}`}</code> and{" "}
-      <code>{`{ "a": 1 }`}</code> are identical. And trailing
-      newlines, indentation, whitespace inside strings (actually
-      that&rsquo;s semantic — careful).
-    </p>
-
-    <h2>Structural diff basics</h2>
-    <p>
-      A JSON diff walks the tree recursively and reports changes in
-      semantic terms:
-    </p>
-    <p>
-      <strong>Added:</strong> key present in new, not in old.
-    </p>
-    <p>
-      <strong>Removed:</strong> key present in old, not in new.
-    </p>
-    <p>
-      <strong>Changed:</strong> key in both, values different.
-    </p>
-    <p>
-      <strong>Unchanged:</strong> key in both, values identical.
-    </p>
-    <p>
-      For nested structures, drill into the object/array recursively
-      and report paths like <code>user.address.city</code> instead of
-      line numbers.
+      Aynı şey biçimlendirme için de geçerli — <code>{`{"a":1}`}</code> ve{" "}
+      <code>{`{ "a": 1 }`}</code> aynıdır. Ve sondaki
+      yeni satırlar, girintileme, dizelerin içindeki boşluklar (aslında
+      bu anlamsaldır — dikkatli olun).
     </p>
 
-    <h2>Array diffing is hard</h2>
+    <h2>Yapısal fark temelleri</h2>
     <p>
-      Object keys are unique; array positions aren&rsquo;t. If
-      you&rsquo;ve got:
+      Bir JSON farkı, ağacı yinelemeli olarak dolaşır ve değişiklikleri
+      anlamsal terimlerle rapor eder:
+    </p>
+    <p>
+      <strong>Eklendi:</strong> yenisinde mevcut olan, eskisinde olmayan anahtar.
+    </p>
+    <p>
+      <strong>Kaldırıldı:</strong> eskisinde mevcut olan, yenisinde olmayan anahtar.
+    </p>
+    <p>
+      <strong>Değişti:</strong> her ikisinde de mevcut olan, değerleri farklı anahtar.
+    </p>
+    <p>
+      <strong>Değişmedi:</strong> her ikisinde de mevcut olan, değerleri aynı anahtar.
+    </p>
+    <p>
+      İç içe yapılar için, nesne/diziye yinelemeli olarak dalın ve
+      satır numaraları yerine <code>user.address.city</code> gibi
+      yolları rapor edin.
+    </p>
+
+    <h2>Dizi farkı almak zordur</h2>
+    <p>
+      Nesne anahtarları benzersizdir; dizi konumları değildir.
+      Eğer şunlara sahipseniz:
     </p>
     <pre>
-{`old: [{ "id": 1 }, { "id": 2 }, { "id": 3 }]
-new: [{ "id": 2 }, { "id": 3 }]`}
+{`eski: [{ "id": 1 }, { "id": 2 }, { "id": 3 }]
+yeni: [{ "id": 2 }, { "id": 3 }]`}
     </pre>
     <p>
-      Did position 0 change from <code>{`{id:1}`}</code> to{" "}
-      <code>{`{id:2}`}</code>, and position 2 get removed? Or did
-      position 0 get removed entirely?
+      0. konum <code>{`{id:1}`}</code>'den{" "}
+      <code>{`{id:2}`}</code>'ye mi değişti ve 2. konum mu
+      kaldırıldı? Yoksa 0. konum tamamen mi kaldırıldı?
     </p>
     <p>
-      <strong>Positional matching:</strong> compare by index. Simple,
-      but sensitive to insertions.
+      <strong>Konumsal eşleme:</strong> dizine göre karşılaştır.
+      Basit, ancak eklemelere duyarlı.
     </p>
     <p>
-      <strong>Keyed matching:</strong> tell the differ to match by
-      a specific field (e.g., <code>id</code>). Matches{" "}
-      <code>{`{id:2}`}</code> to the same <code>{`{id:2}`}</code>
-      {" "}regardless of position.
+      <strong>Anahtarlı eşleme:</strong> fark aracına belirli bir
+      alana göre eşlemesini söyleyin (örneğin, <code>id</code>).
+      <code>{`{id:2}`}</code>'yi konumdan bağımsız olarak aynı
+      <code>{`{id:2}`}</code> ile eşleştirir.
     </p>
     <p>
-      <strong>LCS (longest common subsequence):</strong> treat array
-      like text; find the best edit sequence. Good for ordered lists.
+      <strong>LCS (en uzun ortak alt dizi):</strong> diziyi metin
+      gibi ele al; en iyi düzenleme sırasını bul. Sıralı listeler
+      için iyidir.
     </p>
     <p>
-      Picking the right strategy depends on what the array
-      represents. Tell the tool which field is the identity, and it
-      does the right thing.
-    </p>
-
-    <h2>Numeric precision gotchas</h2>
-    <p>
-      JSON numbers don&rsquo;t carry type info. Is <code>1</code>
-      {" "}the same as <code>1.0</code>? Most tools say yes. Is
-      {" "}<code>0.1 + 0.2</code> equal to <code>0.3</code>? Your
-      language says{" "}<code>0.30000000000000004</code>, so maybe no.
-    </p>
-    <p>
-      <strong>When comparing numbers,</strong> use epsilon tolerance
-      for floats generated by computation. Exact match only for
-      integers and hand-typed decimals.
-    </p>
-    <p>
-      <strong>Beware JSON number overflow:</strong> JS parses
-      {" "}<code>9007199254740993</code> as{" "}<code>9007199254740992</code>
-      {" "}(loses a bit). If your data has IDs above 2^53, use
-      strings for them — and configure your differ to treat{" "}
-      <code>&quot;12345&quot;</code> and <code>12345</code> as
-      different.
+      Doğru stratejiyi seçmek, dizinin neyi temsil ettiğine bağlıdır.
+      Araca hangi alanın kimlik olduğunu söyleyin, o da doğru olanı
+      yapar.
     </p>
 
-    <h2>Missing vs null vs undefined</h2>
+    <h2>Sayısal hassasiyet tuzakları</h2>
     <p>
-      JSON has <code>null</code> but no <code>undefined</code>. A
-      key being absent is different from a key being present with
-      value <code>null</code>:
+      JSON sayıları tür bilgisi taşımaz. <code>1</code>
+      {" "}ile <code>1.0</code> aynı mıdır? Çoğu araç evet der.
+      <code>0.1 + 0.2</code> <code>0.3</code>'e eşit midir? Diliniz
+      <code>0.30000000000000004</code> der, bu yüzden belki hayır.
+    </p>
+    <p>
+      <strong>Sayıları karşılaştırırken,</strong> hesaplama ile
+      oluşturulan kayan noktalı sayılar için epsilon toleransı
+      kullanın. Yalnızca tamsayılar ve elle yazılmış ondalıklar
+      için tam eşleme.
+    </p>
+    <p>
+      <strong>JSON sayı taşmasına dikkat edin:</strong> JS,
+      <code>9007199254740993</code>'ü
+      <code>9007199254740992</code> olarak ayrıştırır
+      (bir bit kaybeder). Verilerinizde 2^53'ün üzerinde
+      kimlikler varsa, bunlar için dizeler kullanın — ve fark
+      aracınızı <code>&quot;12345&quot;</code> ile <code>12345</code>'i
+      farklı olarak ele alacak şekilde yapılandırın.
+    </p>
+
+    <h2>Eksik vs null vs tanımsız</h2>
+    <p>
+      JSON'da <code>null</code> vardır ancak <code>undefined</code>
+      yoktur. Bir anahtarın olmaması, bir anahtarın <code>null</code>
+      değeriyle mevcut olmasından farklıdır:
     </p>
     <pre>
 {`{ "a": null }   vs   {}`}
     </pre>
     <p>
-      Some APIs treat these identically; some don&rsquo;t. Your
-      diff tool needs a consistent stance:
+      Bazı API'ler bunları aynı şekilde ele alır; bazıları almaz.
+      Fark aracınızın tutarlı bir duruşu olmalıdır:
     </p>
     <p>
-      <strong>Strict:</strong> missing and null are different. Safer
-      for contract testing.
+      <strong>Katı:</strong> eksik ve null farklıdır. Sözleşme
+      testi için daha güvenlidir.
     </p>
     <p>
-      <strong>Loose:</strong> missing and null are the same. Useful
-      for comparing API responses where optional fields drop out.
+      <strong>Gevşek:</strong> eksik ve null aynıdır. İsteğe bağlı
+      alanların düştüğü API yanıtlarını karşılaştırmak için
+      kullanışlıdır.
     </p>
 
-    <h2>Viewing the diff</h2>
+    <h2>Farkı görüntüleme</h2>
     <p>
-      <strong>Side-by-side:</strong> old on left, new on right, with
-      changes highlighted. Best for small objects.
+      <strong>Yan yana:</strong> eski solda, yeni sağda,
+      değişiklikler vurgulanmış. Küçük nesneler için en iyisi.
     </p>
     <p>
-      <strong>Unified (path-based):</strong> list of changes by JSON
-      path:{" "}
+      <strong>Birleşik (yol tabanlı):</strong> JSON yoluna göre
+      değişiklik listesi:{" "}
       <code>~user.email: &quot;old@x&quot; -&gt; &quot;new@x&quot;</code>.
-      Compact for large objects with few changes.
+      Az sayıda değişiklik içeren büyük nesneler için kompakt.
     </p>
     <p>
-      <strong>JSON Patch (RFC 6902):</strong> structured output of
-      operations:{" "}
+      <strong>JSON Patch (RFC 6902):</strong> işlemlerin yapılandırılmış
+      çıktısı:{" "}
       <code>{`[{"op": "replace", "path": "/user/email", "value": "new@x"}]`}</code>.
-      Machine-readable; can be applied to the old object to produce
-      the new.
+      Makine tarafından okunabilir; yeniyi üretmek için eski nesneye
+      uygulanabilir.
     </p>
     <p>
-      <strong>JSON Merge Patch (RFC 7396):</strong> simpler format
-      where the patch is just a partial JSON object. Can&rsquo;t
-      represent array operations well; good for simple object
-      updates.
-    </p>
-
-    <h2>Common use cases</h2>
-    <p>
-      <strong>API contract testing:</strong> hit a known endpoint,
-      compare response against a snapshot. Alerts when schema drifts.
-    </p>
-    <p>
-      <strong>Config file review:</strong> compare two config versions
-      to see what changed. Much cleaner than git diff on formatted
-      YAML/JSON.
-    </p>
-    <p>
-      <strong>Sync debugging:</strong> compare source and target of a
-      sync to find what&rsquo;s missing or malformed.
-    </p>
-    <p>
-      <strong>State snapshots in tests:</strong> Jest&rsquo;s{" "}
-      <code>toMatchSnapshot</code> does a text diff; a JSON diff is
-      cleaner for structured state.
+      <strong>JSON Merge Patch (RFC 7396):</strong> yamanın yalnızca
+      kısmi bir JSON nesnesi olduğu daha basit biçim. Dizi
+      işlemlerini iyi temsil edemez; basit nesne güncellemeleri
+      için iyidir.
     </p>
 
-    <h2>When to use text diff instead</h2>
+    <h2>Yaygın kullanım durumları</h2>
     <p>
-      <strong>Formatting matters:</strong> checking whether a JSON
-      file&rsquo;s indentation changed — text diff.
+      <strong>API sözleşme testi:</strong> bilinen bir uç noktaya
+      istek atın, yanıtı bir anlık görüntüyle karşılaştırın. Şema
+      kaydığında uyarır.
     </p>
     <p>
-      <strong>Comments in JSON5/JSONC:</strong> JSON diff tools strip
-      comments; text diff preserves them.
+      <strong>Yapılandırma dosyası incelemesi:</strong> neyin
+      değiştiğini görmek için iki yapılandırma sürümünü karşılaştırın.
+      Biçimlendirilmiş YAML/JSON üzerinde git farkından çok daha
+      temiz.
     </p>
     <p>
-      <strong>Version control:</strong> git diff on JSON files.
-      Ugly, but already integrated. For PR review, a structural diff
-      add-on (like Gitiles&rsquo; json-diff) is nicer.
-    </p>
-
-    <h2>Common mistakes</h2>
-    <p>
-      <strong>Diffing JSON as text.</strong> Formatting noise buries
-      real changes. Use structural diff.
+      <strong>Senkronizasyon hata ayıklama:</strong> neyin eksik
+      veya hatalı biçimlendirilmiş olduğunu bulmak için bir
+      senkronizasyonun kaynağını ve hedefini karşılaştırın.
     </p>
     <p>
-      <strong>Ignoring array-order semantics.</strong> If order
-      doesn&rsquo;t matter (e.g., tags), tell the diff. If it does
-      matter (e.g., steps in a workflow), keep positional diff.
-    </p>
-    <p>
-      <strong>Treating null and missing as same.</strong> APIs
-      distinguish them. Your contract test should too.
-    </p>
-    <p>
-      <strong>Comparing pretty-printed JSON.</strong> If one side is
-      minified and the other is pretty-printed, text diff shows every
-      line as changed. Normalize format first.
-    </p>
-    <p>
-      <strong>Exact-match floats.</strong> Computed floats rarely
-      match byte-exactly. Use tolerance.
+      <strong>Testlerde durum anlık görüntüleri:</strong> Jest'in
+      <code>toMatchSnapshot</code>'i bir metin farkı yapar; yapısal
+      durum için bir JSON farkı daha temizdir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Bunun yerine metin farkı ne zaman kullanılır</h2>
     <p>
-      Compare JSON structures instantly with the{" "}
-      <a href="/tools/json-diff-checker">JSON diff checker</a>. Pair
-      with the{" "}
-      <a href="/tools/json-formatter">JSON formatter</a> to normalize
-      before diffing, and the{" "}
-      <a href="/tools/diff-checker">text diff checker</a> when you
-      need a plain line diff.
+      <strong>Biçimlendirme önemlidir:</strong> bir JSON dosyasının
+      girintilemesinin değişip değişmediğini kontrol etme — metin
+      farkı.
+    </p>
+    <p>
+      <strong>JSON5/JSONC'de yorumlar:</strong> JSON fark araçları
+      yorumları kaldırır; metin farkı onları korur.
+    </p>
+    <p>
+      <strong>Sürüm kontrolü:</strong> JSON dosyalarında git farkı.
+      Çirkin, ancak zaten entegre. PR incelemesi için, yapısal bir
+      fark eklentisi (Gitiles'ın json-diff'i gibi) daha hoştur.
+    </p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>
+      <strong>JSON'u metin olarak farklamak.</strong> Biçimlendirme
+      gürültüsü gerçek değişiklikleri gömer. Yapısal fark kullanın.
+    </p>
+    <p>
+      <strong>Dizi sırası anlambilimini görmezden gelmek.</strong>
+      Sıra önemli değilse (örneğin, etiketler), fark aracına
+      söyleyin. Önemliyse (örneğin, bir iş akışındaki adımlar),
+      konumsal farkı koruyun.
+    </p>
+    <p>
+      <strong>Null ve eksik olanı aynı kabul etmek.</strong> API'ler
+      bunları ayırt eder. Sözleşme testiniz de ayırt etmelidir.
+    </p>
+    <p>
+      <strong>Güzel biçimlendirilmiş JSON'u karşılaştırmak.</strong>
+      Bir taraf küçültülmüş ve diğer taraf güzel biçimlendirilmişse,
+      metin farkı her satırı değişmiş olarak gösterir. Önce biçimi
+      normalleştirin.
+    </p>
+    <p>
+      <strong>Kayan noktalı sayıları tam eşleme.</strong> Hesaplanan
+      kayan noktalı sayılar nadiren bayt bazında eşleşir. Tolerans
+      kullanın.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      JSON yapılarını anında{" "}
+      <a href="/tools/json-diff-checker">JSON fark denetleyicisi</a> ile
+      karşılaştırın. Fark almadan önce normalleştirmek için{" "}
+      <a href="/tools/json-formatter">JSON biçimlendirici</a> ile
+      ve düz bir satır farkına ihtiyacınız olduğunda{" "}
+      <a href="/tools/diff-checker">metin fark denetleyicisi</a> ile
+      eşleştirin.
     </p>
   </>
 );

@@ -3,167 +3,138 @@
 export const intro = (
   <>
     <p>
-      GitHub Copilot pricing is straightforward; the comparison vs ChatGPT and other
-      AI coding tools is where teams spend the most time. This guide is the practical
-      breakdown.
+      GitHub Copilot fiyatlandırması basittir; asıl tartışma, ChatGPT ve diğer yapay zeka kodlama araçlarıyla nasıl karşılaştırıldığıdır. Bu rehber pratik bir döküm sunmaktadır.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "pricing", label: "Pricing tiers" },
-  { id: "free-vs-paid", label: "Free vs paid: what's the difference?" },
-  { id: "vs-chatgpt", label: "Copilot vs ChatGPT for coding" },
-  { id: "vs-others", label: "Copilot vs Cursor, Tabnine, Codeium" },
-  { id: "ever-free", label: "Will Copilot ever be free?" },
-  { id: "cancel", label: "How to cancel a subscription" },
+  { id: "pricing", label: "Fiyatlandırma katmanları" },
+  { id: "free-vs-paid", label: "Ücretsiz ve ücretli: fark nedir?" },
+  { id: "vs-chatgpt", label: "Kodlama için Copilot ve ChatGPT" },
+  { id: "vs-others", label: "Copilot ve Cursor, Tabnine, Codeium" },
+  { id: "ever-free", label: "Copilot hiç ücretsiz olacak mı?" },
+  { id: "cancel", label: "Aboneliğinizi iptal etme" },
 ];
 
 export const body = (
   <>
-    <h2 id="pricing">GitHub Copilot pricing tiers (2026)</h2>
+    <h2 id="pricing">GitHub Copilot fiyatlandırma katmanları (2026)</h2>
     <ul>
       <li>
-        <strong>Copilot Free:</strong> limited completions per month, free for verified
-        students/teachers, OSS maintainers, and individual users on a basic tier.
-        Subject to change.
+        <strong>Copilot Free:</strong> Sınırlı aylık tamamlama, doğrulanmış öğrenciler/öğretmenler, açık kaynak bakımcıları ve temel bireysel kullanıcılar için ücretsiz. Değişikliğe tabidir.
       </li>
       <li>
-        <strong>Copilot Individual (Pro):</strong> $10/month or $100/year. Unlimited
-        completions + chat. The default for solo devs.
+        <strong>Copilot Individual (Pro):</strong> Aylık $10 veya yıllık $100. Sınırsız tamamlama + sohbet. Solo geliştiriciler için varsayılan seçenek.
       </li>
       <li>
-        <strong>Copilot Business:</strong> $19/seat/month. Centralized billing, audit
-        logs, organization-level policies, opt-out from training-data usage.
+        <strong>Copilot Business:</strong> Koltuk başına aylık $19. Merkezi faturalandırma, denetim günlükleri, organizasyon düzeyinde politikalar, eğitim verisi kullanımından vazgeçme.
       </li>
       <li>
-        <strong>Copilot Enterprise:</strong> $39/seat/month. Adds custom instructions
-        per repo, knowledge bases, IP indemnification, advanced security.
+        <strong>Copilot Enterprise:</strong> Koltuk başına aylık $39. Depo tabanlı özel talimatlar, bilgi tabanları, IP tazminatı, gelişmiş güvenlik eklentileri.
       </li>
     </ul>
 
-    <h2 id="free-vs-paid">GitHub Copilot Free vs Paid</h2>
+    <h2 id="free-vs-paid">GitHub Copilot Ücretsiz ve Ücretli Karşılaştırması</h2>
     <p>
-      The differences:
+      Farklar:
     </p>
     <ul>
       <li>
-        <strong>Free tier:</strong> limited monthly completions (the cap moves; check
-        current). Useful for evaluation. Not enough for daily heavy usage.
+        <strong>Ücretsiz katman:</strong> Sınırlı aylık tamamlama (limit değişir; mevcut durumu kontrol edin). Değerlendirme için kullanışlıdır. Günlük yoğun kullanım için yeterli değildir.
       </li>
       <li>
-        <strong>Paid tier (Individual / Business / Enterprise):</strong> unlimited
-        completions. Required for any sustained usage.
+        <strong>Ücretli katman (Individual / Business / Enterprise):</strong> Sınırsız tamamlama. Sürekli kullanım için gereklidir.
       </li>
     </ul>
     <p>
-      For evaluation: free tier or 30-day trial of Individual. For sustained usage:
-      pay. For teams: Business is the standard pick; Enterprise only if you need the
-      additional security or customization features.
+      Değerlendirme için: ücretsiz katman veya Individual için 30 günlük deneme. Sürekli kullanım için: ödeme yapın. Ekipler için: Business standart seçimdir; Enterprise yalnızca ek güvenlik veya özelleştirme özelliklerine ihtiyacınız varsa.
     </p>
 
-    <h2 id="vs-chatgpt">GitHub Copilot vs ChatGPT for coding</h2>
+    <h2 id="vs-chatgpt">Kodlama için GitHub Copilot ve ChatGPT</h2>
     <p>
-      Different tools, different jobs:
+      Farklı araçlar, farklı işler:
     </p>
     <ul>
       <li>
-        <strong>Copilot:</strong> in-IDE inline completions. Lower friction; faster
-        flow. Best for moment-by-moment code writing.
+        <strong>Copilot:</strong> IDE içi satır içi tamamlamalar. Daha düşük sürtünme; daha hızlı akış. Anında kod yazmak için en iyisi.
       </li>
       <li>
-        <strong>ChatGPT:</strong> separate chat interface. Better for &ldquo;explain
-        this codebase,&rdquo; debugging discussions, architecture reasoning. Worse
-        for inline coding flow.
+        <strong>ChatGPT:</strong> Ayrı sohbet arayüzü. "Bu kod tabanını açıkla," hata ayıklama tartışmaları, mimari akıl yürütme için daha iyidir. Satır içi kodlama akışı için daha kötüdür.
       </li>
     </ul>
     <p>
-      Most working developers use both: Copilot for typing, ChatGPT (or Claude) for
-      explanation, debugging, and reasoning. ~$30/month total for both Pro tiers; the
-      productivity gain easily justifies it.
+      Çalışan geliştiricilerin çoğu her ikisini de kullanır: yazmak için Copilot, açıklama, hata ayıklama ve akıl yürütme için ChatGPT (veya Claude). Her iki Pro katmanı için toplam ~$30/ay; üretkenlik artışı bunu kolayca haklı çıkarır.
     </p>
 
-    <h2 id="vs-others">Copilot vs Cursor, Tabnine, Codeium, Continue</h2>
+    <h2 id="vs-others">Copilot ve Cursor, Tabnine, Codeium, Continue</h2>
     <ul>
       <li>
-        <strong>Cursor:</strong> a fork of VSCode with deeper AI integration. The
-        agentic features (multi-file edits, codebase-wide refactors) outpace
-        Copilot in 2026. $20/month. The strongest competitor.
+        <strong>Cursor:</strong> Daha derin yapay zeka entegrasyonuna sahip bir VSCode çatalı. Ajan özellikleri (çoklu dosya düzenlemeleri, kod tabanı genelinde yeniden düzenlemeler) 2026'da Copilot'u geride bırakıyor. Aylık $20. En güçlü rakip.
       </li>
       <li>
-        <strong>Tabnine:</strong> older entrant. Strong on privacy (self-hosted
-        option). Code completion quality below Copilot in most stacks.
+        <strong>Tabnine:</strong> Daha eski bir oyuncu. Gizlilik konusunda güçlü (kendi kendine barındırma seçeneği). Kod tamamlama kalitesi çoğu yığın için Copilot'un altındadır.
       </li>
       <li>
-        <strong>Codeium:</strong> free tier is generous. Quality below Copilot
-        but free is hard to argue against for solo devs evaluating.
+        <strong>Codeium:</strong> Cömert ücretsiz katman. Kalite Copilot'un altındadır ancak solo geliştiricileri değerlendirmek için ücretsiz olmasıyla tartışmak zordur.
       </li>
       <li>
-        <strong>Continue.dev:</strong> open-source, BYO model (use Ollama locally,
-        or Claude/GPT via API). Highest customization; requires technical setup.
+        <strong>Continue.dev:</strong> Açık kaynak, kendi modelinizi getirin (yerel olarak Ollama veya API aracılığıyla Claude/GPT kullanın). En yüksek özelleştirme; teknik kurulum gerektirir.
       </li>
     </ul>
     <p>
-      The 2026 ranking for paying solo devs: Cursor &gt; Copilot ≈ Cody ≈ Codeium Pro.
-      Cursor has the best agentic features; Copilot has the largest install base and
-      tightest GitHub integration. For organizations: Copilot Business or Enterprise
-      remains the safest pick due to procurement maturity + IP indemnification.
+      2026'da ödeme yapan solo geliştiriciler için: Cursor &gt; Copilot ≈ Cody ≈ Codeium Pro. Cursor en iyi ajan özelliklerine sahiptir; Copilot en büyük kurulum tabanına ve en sıkı GitHub entegrasyonuna sahiptir. Organizasyonlar için: Copilot Business veya Enterprise, satın alma olgunluğu + IP tazminatı nedeniyle en güvenli seçim olmaya devam etmektedir.
     </p>
 
-    <h2 id="ever-free">Will GitHub Copilot ever be free?</h2>
+    <h2 id="ever-free">GitHub Copilot hiç ücretsiz olacak mı?</h2>
     <p>
-      Already partially. Verified students, teachers, and OSS maintainers get free
-      access. The basic Copilot Free tier launched in late 2024 with limited
-      completions. Full unlimited free for everyone? Unlikely — <a href="/learn/inference">inference</a> costs are
-      real and ongoing.
+      Zaten kısmen öyle. Doğrulanmış öğrenciler, öğretmenler ve açık kaynak bakımcıları ücretsiz erişim elde eder. Temel Copilot Free katmanı, 2024'ün sonlarında sınırlı tamamlamalarla kullanıma sunuldu. Herkes için tamamen sınırsız ücretsiz? Olası değil — <a href="/learn/inference">çıkarım</a> maliyetleri gerçek ve devam ediyor.
     </p>
     <p>
-      The trajectory: more free-tier capacity over time, paid tiers stay paid but
-      keep adding features. Don&rsquo;t plan as if free will become unlimited.
+      Gidişat: zamanla daha fazla ücretsiz katman kapasitesi, ücretli katmanlar ücretli kalır ancak özellik eklemeye devam eder. Ücretsizin sınırsız olacağını planlamayın.
     </p>
 
-    <h2 id="cancel">How to cancel a Copilot subscription</h2>
+    <h2 id="cancel">Copilot aboneliğinizi iptal etme</h2>
     <ol>
-      <li>Sign in to github.com.</li>
-      <li>Go to <code>Settings → Billing &amp; plans → Plans and usage</code>.</li>
-      <li>Find &ldquo;GitHub Copilot&rdquo; section. Click cancel.</li>
-      <li>Subscription remains active until end of current billing period.</li>
+      <li>github.com adresine giriş yapın.</li>
+      <li><code>Settings → Billing and plans → Plans and usage</code> bölümüne gidin.</li>
+      <li>"GitHub Copilot" bölümünü bulun. İptal'e tıklayın.</li>
+      <li>Abonelik, mevcut fatura döneminin sonuna kadar aktif kalır.</li>
     </ol>
     <p>
-      For Business + Enterprise: same flow but at the org level. Org admin must
-      cancel; individual users can&rsquo;t self-cancel.
+      Business + Enterprise için: aynı işlem ancak organizasyon düzeyinde. Organizasyon yöneticisi iptal etmelidir; bireysel kullanıcılar kendileri iptal edemez.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Calculate Copilot ROI",
+  label: "Copilot ROI'sini Hesapla",
   targetSlug: "github-copilot-roi-calculator",
 };
 
 export const faq = [
   {
-    q: "How much does GitHub Copilot actually cost?",
-    a: "Free: limited monthly completions (free for students/teachers/OSS maintainers). Individual/Pro: $10/mo or $100/yr (unlimited). Business: $19/seat/mo. Enterprise: $39/seat/mo (adds custom instructions, IP indemnification).",
+    q: "GitHub Copilot'un gerçek maliyeti nedir?",
+    a: "Ücretsiz: sınırlı aylık tamamlama (öğrenciler/öğretmenler/açık kaynak bakımcıları için ücretsiz). Individual/Pro: aylık $10 veya yıllık $100 (sınırsız). Business: koltuk başına aylık $19. Enterprise: koltuk başına aylık $39 (özel talimatlar, IP tazminatı ekler).",
   },
   {
-    q: "GitHub Copilot Free vs Paid — what's the difference?",
-    a: "Free: limited monthly completions. Paid (Individual $10/mo): unlimited. Free is fine for evaluation; paid required for sustained usage. Most developers find paid pays back within the first week.",
+    q: "GitHub Copilot Ücretsiz ve Ücretli — fark nedir?",
+    a: "Ücretsiz: sınırlı aylık tamamlama. Ücretli (Individual $10/ay): sınırsız. Ücretsiz değerlendirme için uygundur; sürekli kullanım için ücretli gereklidir. Çoğu geliştirici, ücretli sürümün ilk hafta içinde kendini amorti ettiğini bulur.",
   },
   {
-    q: "GitHub Copilot vs ChatGPT for coding — which is better?",
-    a: "Different jobs. Copilot: in-IDE inline completions, lowest friction for moment-by-moment writing. ChatGPT/Claude: chat interface, better for explanation + debugging + architecture reasoning. Most working devs use both — combined ~$30/mo, productivity gain justifies it.",
+    q: "Kodlama için GitHub Copilot ve ChatGPT — hangisi daha iyi?",
+    a: "Farklı işler. Copilot: IDE içi satır içi tamamlamalar, anında yazma için en düşük sürtünme. ChatGPT/Claude: sohbet arayüzü, açıklama + hata ayıklama + mimari akıl yürütme için daha iyidir. Çalışan geliştiricilerin çoğu her ikisini de kullanır — toplam ~$30/ay, üretkenlik artışı bunu haklı çıkarır.",
   },
   {
-    q: "Is GitHub Copilot better than my current AI coding tool?",
-    a: "Depends what you're using. vs Tabnine: Copilot's quality usually higher. vs Codeium: quality close, Copilot has tighter GitHub integration. vs Cursor: Cursor's agentic features outpace Copilot in 2026, but Copilot has wider IDE support + IP indemnification at scale.",
+    q: "GitHub Copilot mevcut yapay zeka kodlama aracımdan daha mı iyi?",
+    a: "Ne kullandığınıza bağlıdır. Tabnine ile karşılaştırıldığında: Copilot'un kalitesi genellikle daha yüksektir. Codeium ile karşılaştırıldığında: kalite yakındır, Copilot daha sıkı GitHub entegrasyonuna sahiptir. Cursor ile karşılaştırıldığında: Cursor'un ajan özellikleri 2026'da Copilot'u geride bırakır, ancak Copilot ölçekte daha geniş IDE desteği + IP tazminatı sunar.",
   },
   {
-    q: "Will GitHub Copilot ever be free?",
-    a: "Already partially — free for verified students, teachers, OSS maintainers. Limited free tier for everyone launched late 2024. Full unlimited free unlikely (inference costs are real). Trajectory: more free capacity over time, paid stays paid but keeps adding features.",
+    q: "GitHub Copilot hiç ücretsiz olacak mı?",
+    a: "Zaten kısmen öyle — doğrulanmış öğrenciler, öğretmenler, açık kaynak bakımcıları için ücretsiz. Herkes için sınırlı bir ücretsiz katman 2024'ün sonlarında kullanıma sunuldu. Tamamen sınırsız ücretsiz olası değildir (çıkarım maliyetleri gerçektir). Gidişat: zamanla daha fazla ücretsiz kapasite, ücretli kalır ancak özellik eklemeye devam eder.",
   },
   {
-    q: "How do I cancel my GitHub Copilot subscription?",
-    a: "Sign in to github.com → Settings → Billing & plans → Plans and usage → cancel under GitHub Copilot section. Active until end of current period. Business/Enterprise: org admin must cancel via org-level settings.",
+    q: "GitHub Copilot aboneliğimi nasıl iptal ederim?",
+    a: "github.com adresine giriş yapın → Settings → Billing and plans → Plans and usage → GitHub Copilot bölümünün altında İptal'e tıklayın. Mevcut dönemin sonuna kadar aktif kalır. Business/Enterprise için: organizasyon yöneticisi, organizasyon düzeyindeki ayarlardan iptal etmelidir.",
   },
 ];

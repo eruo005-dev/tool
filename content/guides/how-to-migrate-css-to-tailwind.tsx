@@ -3,54 +3,34 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Tailwind promises less CSS and faster iteration, but migrating an
-      existing stylesheet is where most teams stall. Pick the wrong
-      approach and you end up with a mess of utility classes next to
-      dead CSS files for months. This guide covers the migration
-      strategies that work (big bang vs component-by-component vs
-      utilities alongside), the config you need to preserve your
-      design tokens, how to handle nested selectors / pseudo-classes /
-      media queries, dealing with component libraries, common
-      breakages, and tools that speed up the conversion.
+      Tailwind daha az CSS ve daha hızlı iterasyon vaat ediyor, ancak mevcut bir stil sayfasını taşımak çoğu ekibin takıldığı nokta. Yanlış yaklaşımı seçerseniz, aylarınızı ölü CSS dosyalarının yanında bir yığın yardımcı sınıfla uğraşarak geçirirsiniz. Bu rehber, işe yarayan taşıma stratejilerini (büyük patlama vs bileşen bazında vs yardımcıları birlikte konumlandırma), tasarım tokenlarınızı korumak için gereken yapılandırmayı, iç içe seçiciler / sözde sınıflar / medya sorguları ile nasıl başa çıkılacağını, bileşen kütüphaneleriyle çalışmayı, yaygın hataları ve dönüşümü hızlandıran araçları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Decide the migration shape first</h2>
+    <h2>İlk olarak, taşıma şeklinize karar verin</h2>
     <p>
-      Three viable paths. Picking the wrong one is the main source
-      of pain.
+      Üç uygulanabilir yol vardır. Yanlış olanı seçmek, acının ana kaynağıdır.
     </p>
     <p>
-      <strong>Big bang (rewrite all CSS at once):</strong> fastest
-      finish, highest risk. Works only for small codebases (&lt;5k
-      lines CSS) or fresh projects.
+      <strong>Büyük patlama (tüm CSS'i bir kerede yeniden yazma):</strong> en hızlı bitiş, en yüksek risk. Sadece küçük kod tabanları (&lt;5k satır CSS) veya yeni projeler için çalışır.
     </p>
     <p>
-      <strong>Utilities alongside legacy CSS:</strong> add Tailwind,
-      start using it on new components, don&rsquo;t touch existing
-      ones. Low risk, slow finish, potential for drift. Fine if the
-      goal is &ldquo;stop writing new CSS&rdquo; not &ldquo;delete
-      all CSS&rdquo;.
+      <strong>Yardımcıları eski CSS ile birlikte konumlandırma:</strong> Tailwind'i ekleyin, yeni bileşenlerde kullanmaya başlayın, mevcut olanlara dokunmayın. Düşük risk, yavaş bitiş, kayma potansiyeli. Amaç "yeni CSS yazmayı bırakmak" ise "tüm CSS'i silmek" değilse uygundur.
     </p>
     <p>
-      <strong>Component-by-component:</strong> pick a component,
-      convert fully (remove its dedicated CSS, replace with
-      utilities), verify, move on. Best balance. This is what most
-      successful migrations use.
+      <strong>Bileşen bazında:</strong> bir bileşen seçin, tamamen dönüştürün (özel CSS'ini kaldırın, yardımcılarla değiştirin), doğrulayın, devam edin. En iyi denge. En başarılı taşımalar bunu kullanır.
     </p>
     <p>
-      Pick one and commit. Mixing strategies without discipline leads
-      to half-done components everywhere.
+      Birini seçin ve tutarlı olun. Disiplin olmadan stratejileri karıştırmak, her yerde yarı bitmiş bileşenlere yol açar.
     </p>
 
-    <h2>Set up the config to match your existing design tokens</h2>
+    <h2>Mevcut tasarım tokenlarınızla eşleşecek şekilde yapılandırın</h2>
     <p>
-      Don&rsquo;t use Tailwind defaults blindly. Map your existing
-      colors, spacing scale, font sizes, and breakpoints into{" "}
-      <code>tailwind.config.js</code>:
+      Tailwind varsayılanlarını körü körüne kullanmayın. Mevcut renklerinizi, boşluk ölçeğinizi, yazı tipi boyutlarınızı ve breakpoint'lerinizi{" "}
+      <code>tailwind.config.js</code> dosyasına eşleyin:
     </p>
     <pre>
 {`module.exports = {
@@ -58,247 +38,197 @@ export const body: ReactElement = (
     extend: {
       colors: {
         brand: { 50: '#f0f9ff', 500: '#3b82f6', 900: '#1e3a8a' },
-        // from your existing --color-* tokens
+        // mevcut --color-* tokenlarınızdan
       },
       spacing: {
-        18: '4.5rem',  // if you have odd values
+        18: '4.5rem',  // farklı değerleriniz varsa
       },
       fontFamily: {
         sans: ['Inter', 'system-ui', 'sans-serif'],
       },
       screens: {
-        'xs': '475px',  // if you have custom breakpoints
+        'xs': '475px',  // özel breakpoint'leriniz varsa
       },
     },
   },
 };`}
     </pre>
     <p>
-      This single step saves thousands of find-replaces. Your utility
-      classes now reflect your tokens, so <code>bg-brand-500</code>
-      {" "}means exactly what your design system says it means.
+      Bu tek adım, binlerce bul ve değiştir işlemini kurtarır. Yardımcı sınıflarınız artık tokenlarınızı yansıtır, böylece <code>bg-brand-500</code>
+      {" "}tam olarak tasarım sisteminizin söylediği anlama gelir.
     </p>
 
-    <h2>Convert nested selectors</h2>
+    <h2>İç içe seçicileri dönüştürün</h2>
     <p>
-      Nested CSS like{" "}
-      <code>.card &gt; .title &#123; color: blue; &#125;</code>{" "}
-      becomes utility classes on the child element directly.
+      <code>.card &gt; .title &#123; color: blue; &#125;</code> gibi iç içe CSS, doğrudan alt öğe üzerindeki yardımcı sınıflara dönüşür.
     </p>
     <pre>
-{`/* Before */
+{`/* Önce */
 .card { padding: 1rem; border: 1px solid gray; }
 .card > .title { font-weight: 600; color: blue; }
 
-/* After */
+/* Sonra */
 <div class="p-4 border border-gray-300">
   <h3 class="font-semibold text-blue-600">...</h3>
 </div>`}
     </pre>
     <p>
-      Think in terms of elements, not cascades. This is the biggest
-      mindset shift.
+      Basamaklar yerine öğeler halinde düşünün. Bu en büyük zihniyet değişikliğidir.
     </p>
 
-    <h2>Pseudo-classes and states</h2>
+    <h2>Sözde sınıflar ve durumlar</h2>
     <p>
-      Tailwind uses variant prefixes:
+      Tailwind varyant öneklerini kullanır:
     </p>
     <pre>
-{`/* Before */
+{`/* Önce */
 .button:hover { background: darkblue; }
 .button:focus { outline: 2px solid blue; }
 .button:disabled { opacity: 0.5; }
 
-/* After */
+/* Sonra */
 <button class="bg-blue-500 hover:bg-blue-700 focus:outline-2 focus:outline-blue-500 disabled:opacity-50">`}
     </pre>
     <p>
-      Stack variants freely: <code>md:hover:bg-gray-100</code>{" "}
-      means &ldquo;on medium+ screens, when hovered&rdquo;. Order
-      matters only for readability — Tailwind processes them
-      correctly regardless.
+      Varyantları özgürce birleştirin: <code>md:hover:bg-gray-100</code>{" "}
+      "orta+ ekranlarda, fareyle üzerine gelindiğinde" anlamına gelir. Sıralama yalnızca okunabilirlik için önemlidir — Tailwind onları doğru şekilde işler.
     </p>
 
-    <h2>Media queries → responsive prefixes</h2>
+    <h2>Medya sorguları → duyarlı önekler</h2>
     <p>
-      Tailwind&rsquo;s responsive prefixes are mobile-first.{" "}
-      <code>md:</code> = &ldquo;at 768px and above&rdquo;,{" "}
-      <code>lg:</code> = &ldquo;1024px and above&rdquo;.
+      Tailwind'in duyarlı önekleri mobil önceliklidir.{" "}
+      <code>md:</code> = "768px ve üzeri",{" "}
+      <code>lg:</code> = "1024px ve üzeri".
     </p>
     <pre>
-{`/* Before */
+{`/* Önce */
 .layout { display: block; }
 @media (min-width: 768px) { .layout { display: flex; } }
 
-/* After */
+/* Sonra */
 <div class="block md:flex">`}
     </pre>
     <p>
-      Max-width queries use <code>max-*</code> variants (Tailwind
-      3.0+). Mostly you won&rsquo;t need them if you think
-      mobile-first.
+      Maksimum genişlik sorguları <code>max-*</code> varyantlarını kullanır (Tailwind 3.0+). Mobil öncelikli düşünürseniz onlara pek ihtiyacınız olmaz.
     </p>
 
-    <h2>Dealing with component libraries</h2>
+    <h2>Bileşen kütüphaneleriyle başa çıkma</h2>
     <p>
-      If you use Bootstrap, Material UI, or similar, don&rsquo;t
-      rip them out on day one. Migrate leaf components (your own
-      buttons, cards, layouts) first. Move to Tailwind-based
-      component libraries (shadcn/ui, Radix + Tailwind, Headless UI)
-      only after your own styles are stable.
+      Bootstrap, Material UI veya benzerini kullanıyorsanız, ilk günden onları sökmeyin. Önce yaprak bileşenleri taşıyın (kendi butonlarınız, kartlarınız, düzenleriniz). Kendi stilleriniz oturduktan sonra, Tailwind tabanlı bileşen kütüphanelerine (shadcn/ui, Radix + Tailwind, Headless UI) geçin.
     </p>
     <p>
-      Some libraries conflict with Tailwind&rsquo;s base reset (it
-      zeros out margins, list styles, etc.). Either scope
-      Tailwind&rsquo;s preflight or add a root selector in the config
-      to limit its reach.
+      Bazı kütüphaneler Tailwind'in temel sıfırlamasıyla çakışır (kenar boşluklarını, liste stillerini vb. sıfırlar). Tailwind'in preflight'unu kapsamlayın veya yapılandırmada erişimini sınırlamak için bir kök seçici ekleyin.
     </p>
 
-    <h2>Extracting repeated patterns</h2>
+    <h2>Tekrarlanan desenleri çıkarın</h2>
     <p>
-      When you see <code>class=&ldquo;flex items-center px-4 py-2
-      bg-blue-500 text-white rounded&rdquo;</code> everywhere, extract
-      it. Options:
+      <code>class=&ldquo;flex items-center px-4 py-2 bg-blue-500 text-white rounded&rdquo;</code> her yerde göründüğünde, onu çıkarın. Seçenekler:
     </p>
     <p>
-      <strong>Component:</strong> <code>&lt;Button variant=&ldquo;primary&rdquo;&gt;</code>
-      {" "}— best for React/Vue/Svelte apps. Utility classes stay
-      local to one file.
+      <strong>Bileşen:</strong> <code>&lt;Button variant=&ldquo;primary&quot;&gt;</code>
+      {" "}— React/Vue/Svelte uygulamaları için en iyisi. Yardımcı sınıflar tek bir dosyada yerel kalır.
     </p>
     <p>
-      <strong>@apply directive:</strong> in a CSS file, write{" "}
-      <code>.btn-primary &#123; @apply flex items-center ...; &#125;</code>.
-      Useful for non-component codebases but somewhat defeats the
-      utility-first point. Use sparingly.
+      <strong>@apply yönergesi:</strong> bir CSS dosyasında{" "}
+      <code>.btn-primary &#123; @apply flex items-center ...; &#125;</code> yazın. Bileşen olmayan kod tabanları için kullanışlıdır ancak yardımcı-ilk yaklaşımını bir şekilde bozar. Az kullanın.
     </p>
     <p>
-      <strong>Tailwind plugin:</strong> register custom components
-      via <code>addComponents()</code>. Good for design system
-      primitives used everywhere.
+      <strong>Tailwind eklentisi:</strong> <code>addComponents()</code> ile özel bileşenler kaydedin. Her yerde kullanılan tasarım sistemi temelleri için iyidir.
     </p>
 
-    <h2>Handling dynamic class names</h2>
+    <h2>Dinamik sınıf adlarını yönetin</h2>
     <p>
-      Tailwind compiles classes by scanning source files for class
-      strings. Dynamic composition breaks this:
+      Tailwind, kaynak dosyaları sınıf dizeleri için tarayarak sınıfları derler. Dinamik birleştirme bunu bozar:
     </p>
     <pre>
-{`// Bad — Tailwind can't see 'bg-red-500' in source
+{`// Kötü — Tailwind kaynakta 'bg-red-500'ü göremez
 <div className={\`bg-\${color}-500\`}>
 
-// Good — complete class names in source
+// İyi — kaynakta tam sınıf adları
 <div className={color === 'red' ? 'bg-red-500' : 'bg-blue-500'}>
 
-// Also good — safelist in config
+// Ayrıca iyi — yapılandırmada güvenli liste
 // tailwind.config.js: safelist: ['bg-red-500', 'bg-blue-500']`}
     </pre>
     <p>
-      This is the #1 source of &ldquo;why is my class not working&rdquo;
-      bug reports.
+      Bu, "sınıfım neden çalışmıyor" hata raporlarının 1 numaralı kaynağıdır.
     </p>
 
-    <h2>Global styles that remain</h2>
+    <h2>Kalan global stiller</h2>
     <p>
-      Some styles don&rsquo;t convert cleanly:
+      Bazı stiller temiz bir şekilde dönüşmez:
     </p>
     <p>
-      <strong>Complex animations</strong> with many keyframes — keep
-      as CSS, reference via Tailwind&rsquo;s{" "}
-      <code>animate-*</code> extension.
+      <strong>Karmaşık animasyonlar</strong> birçok anahtar kareyle — CSS olarak tutun, Tailwind'in{" "}
+      <code>animate-*</code> uzantısı aracılığıyla referans verin.
     </p>
     <p>
-      <strong>Print styles</strong> — Tailwind supports{" "}
-      <code>print:</code> variant now, but complex print CSS often
-      stays separate.
+      <strong>Yazdırma stilleri</strong> — Tailwind artık{" "}
+      <code>print:</code> varyantını destekliyor, ancak karmaşık yazdırma CSS'i genellikle ayrı kalır.
     </p>
     <p>
-      <strong>Third-party embed styles</strong> (markdown content,
-      rich text from CMS) — use{" "}
-      <code>@tailwindcss/typography</code> plugin or keep a separate
-      content stylesheet.
+      <strong>Üçüncü taraf gömülü stiller</strong> (işaretleme içeriği, CMS'den zengin metin) —{" "}
+      <code>@tailwindcss/typography</code> eklentisini kullanın veya ayrı bir içerik stil sayfası tutun.
     </p>
 
-    <h2>Stripping dead CSS after conversion</h2>
+    <h2>Dönüşümden sonra ölü CSS'i temizleyin</h2>
     <p>
-      The payoff: delete the old CSS. Do this per component, not at
-      the end. Steps:
+      Ödül: eski CSS'i silin. Bunu sonunda değil, bileşen bazında yapın. Adımlar:
     </p>
     <p>
-      1. Convert component to Tailwind utilities.
+      1. Bileşeni Tailwind yardımcılarına dönüştürün.
     </p>
     <p>
-      2. Remove its class names from the template.
+      2. Şablondan sınıf adlarını kaldırın.
     </p>
     <p>
-      3. Delete the matching CSS rules.
+      3. Eşleşen CSS kurallarını silin.
     </p>
     <p>
-      4. Run the app; verify visually.
+      4. Uygulamayı çalıştırın; görsel olarak doğrulayın.
     </p>
     <p>
-      5. Commit the component + its CSS deletion together.
+      5. Bileşeni ve CSS silme işlemini birlikte commit'leyin.
     </p>
     <p>
-      If you wait until &ldquo;everything is converted&rdquo; to
-      delete CSS, you won&rsquo;t.
+      CSS'i silmek için "her şey dönüştürülene kadar" beklerseniz, silmezsiniz.
     </p>
 
-    <h2>Build size and performance</h2>
+    <h2>Derleme boyutu ve performans</h2>
     <p>
-      Modern Tailwind (3.0+) uses JIT compilation — generates only
-      classes you use. Production CSS is typically 10-50KB. Old
-      codebases with 500KB of custom CSS often drop to under 30KB
-      after migration.
+      Modern Tailwind (3.0+) JIT derlemesi kullanır — yalnızca kullandığınız sınıfları oluşturur. Üretim CSS'i tipik olarak 10-50KB'dir. 500KB özel CSS'e sahip eski kod tabanları, taşıma sonrası genellikle 30KB'nin altına düşer.
     </p>
     <p>
-      Check with <code>npx tailwindcss -i in.css -o out.css
-      --minify</code> — compare file sizes before and after.
+      <code>npx tailwindcss -i in.css -o out.css --minify</code> ile kontrol edin — önceki ve sonraki dosya boyutlarını karşılaştırın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Keeping both old CSS and Tailwind on the same
-      element.</strong> Specificity wars. Remove old classes as you
-      add new ones, per commit.
+      <strong>Aynı öğede hem eski CSS'i hem de Tailwind'i tutmak.</strong> Özgüllük savaşları. Yeni sınıflar eklerken eskilerini kaldırın, commit başına.
     </p>
     <p>
-      <strong>Inlining 30 utility classes.</strong> At some point,
-      extract to a component. Utility chains longer than ~15 are a
-      smell.
+      <strong>30 yardımcı sınıfı satır içine almak.</strong> Bir noktada, bir bileşene çıkarın. ~15'ten uzun yardımcı zincirleri bir sorun işaretidir.
     </p>
     <p>
-      <strong>Ignoring Tailwind&rsquo;s preflight.</strong> Its base
-      reset removes default margins/list styles/button styling. Check
-      your layouts after enabling it.
+      <strong>Tailwind'in preflight'unu görmezden gelmek.</strong> Temel sıfırlaması varsayılan kenar boşluklarını/liste stillerini/buton stilini kaldırır. Etkinleştirdikten sonra düzenlerinizi kontrol edin.
     </p>
     <p>
-      <strong>Overriding with !important.</strong> Tailwind provides
-      the <code>!</code> prefix (<code>!bg-red-500</code>). Use
-      extremely sparingly — the real fix is usually source order.
+      <strong>!important ile geçersiz kılmak.</strong> Tailwind <code>!</code> önekini sağlar (<code>!bg-red-500</code>). Son derece az kullanın — gerçek çözüm genellikle kaynak sırasıdır.
     </p>
     <p>
-      <strong>Not configuring the content glob.</strong> Tailwind only
-      scans files listed in <code>content: [...]</code>. Missing your{" "}
-      <code>.mdx</code> or <code>.svelte</code> files means classes
-      disappear from prod.
+      <strong>İçerik glob'unu yapılandırmamak.</strong> Tailwind yalnızca <code>content: [...]</code> içinde listelenen dosyaları tarar. Eksik <code>.mdx</code> veya <code>.svelte</code> dosyaları, sınıfların üretimde kaybolması anlamına gelir.
     </p>
     <p>
-      <strong>Treating migration as 100% utility coverage.</strong>
-      {" "}Complex animations, print styles, third-party content
-      — leaving some CSS is fine.
+      <strong>Taşımayı %100 yardımcı kapsamı olarak görmek.</strong>
+      {" "}Karmaşık animasyonlar, yazdırma stilleri, üçüncü taraf içerik — biraz CSS bırakmak sorun değil.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Convert existing CSS rules to Tailwind utility classes with the{" "}
-      <a href="/tools/css-to-tailwind">CSS to Tailwind converter</a>.
-      Pair with the{" "}
-      <a href="/tools/css-minifier">CSS minifier</a> to ship the
-      legacy styles you kept, and the{" "}
-      <a href="/tools/css-clamp-generator">CSS clamp generator</a>
-      {" "}for fluid values Tailwind doesn&rsquo;t cover out of the
-      box.
+      Mevcut CSS kurallarını Tailwind yardımcı sınıflarına dönüştürmek için{" "}
+      <a href="/tools/css-to-tailwind">CSS'den Tailwind'e dönüştürücüyü</a> kullanın. Sakladığınız eski stilleri göndermek için{" "}
+      <a href="/tools/css-minifier">CSS küçültücü</a> ve Tailwind'in kutu dışında kapsamadığı akışkan değerler için{" "}
+      <a href="/tools/css-clamp-generator">CSS clamp oluşturucu</a> ile eşleştirin.
     </p>
   </>
 );

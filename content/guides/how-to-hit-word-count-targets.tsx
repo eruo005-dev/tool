@@ -3,263 +3,270 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Every piece of writing has a word-count target. Essays want
-      500, blog posts aim for 1,500, cover letters max out at 400,
-      tweets cap at 280 characters. Hitting the number isn&rsquo;t
-      padding or compressing arbitrarily — it&rsquo;s a craft. This
-      guide covers why word counts exist, how to expand without
-      waffle and cut without losing substance, the specific rules
-      for different formats (academic, SEO, social, cover letters),
-      and how professional writers think about length as a
-      constraint that improves writing rather than limiting it.
+      Her yazının bir kelime sayısı hedefi vardır. Denemeler 500
+      kelime ister, blog yazıları 1.500'ü hedefler, ön yazılar en
+      fazla 400'de kalır, tweet'ler 280 karakterle sınırlıdır.
+      Sayıyı tutturmak keyfi bir şişirme veya sıkıştırma değildir
+      — bir zanaattır. Bu rehber, kelime sayılarının neden var
+      olduğunu, gevezelik yapmadan nasıl genişleteceğinizi ve
+      özü kaybetmeden nasıl kısaltacağınızı, farklı formatlar
+      (akademik, SEO, sosyal medya, ön yazılar) için özel
+      kuralları ve profesyonel yazarların uzunluğu yazıyı
+      sınırlamaktan ziyade geliştiren bir kısıtlama olarak nasıl
+      gördüğünü kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Why word counts exist</h2>
+    <h2>Kelime sayıları neden vardır</h2>
     <p>
-      <strong>Academic:</strong> standardizes grading and enforces
-      depth of argument. A 5-page paper with 1,200 words of fluff
-      gets the same word count as 1,200 tight words.
+      <strong>Akademik:</strong> notlandırmayı standartlaştırır ve
+      argüman derinliğini zorunlu kılar. 1.200 kelimelik boş
+      içerikle yazılmış 5 sayfalık bir makale, 1.200 sıkı
+      kelimeyle aynı kelime sayısına sahiptir.
     </p>
     <p>
-      <strong>SEO content:</strong> search engines favor longer
-      articles for competitive queries (usually 1,500-3,000 words
-      for how-to posts, 500-800 for news).
+      <strong>SEO içeriği:</strong> arama motorları rekabetçi
+      sorgular için daha uzun makaleleri tercih eder (nasıl yapılır
+      yazıları için genellikle 1.500-3.000 kelime, haberler için
+      500-800).
     </p>
     <p>
-      <strong>Professional writing:</strong> magazines, newsletters,
-      and client deliverables have length targets tied to layout,
-      audience attention, or ad placement.
+      <strong>Profesyonel yazı:</strong> dergiler, bültenler ve
+      müşteri teslimatlarının, düzen, izleyici dikkati veya reklam
+      yerleşimine bağlı uzunluk hedefleri vardır.
     </p>
     <p>
-      <strong>Social:</strong> character limits enforce brevity.
-      Within those limits, shorter often wins.
+      <strong>Sosyal medya:</strong> karakter sınırları kısalığı
+      zorunlu kılar. Bu sınırlar içinde, daha kısa olan genellikle
+      kazanır.
     </p>
     <p>
-      Word count is a constraint that forces prioritization.
-      Constraint is usually where writing gets good.
-    </p>
-
-    <h2>Target ranges by format</h2>
-    <p>
-      <strong>Blog post (SEO-targeted):</strong> 1,500-2,500 words
-      for competitive how-to queries; 800-1,200 for short-form news
-      or updates.
-    </p>
-    <p>
-      <strong>Essay / short academic paper:</strong> 500-1,500
-      depending on course. Usually matched to page count (~250 words
-      per double-spaced page).
-    </p>
-    <p>
-      <strong>LinkedIn post:</strong> 150-300 words optimal. Longer
-      posts get &ldquo;see more&rdquo; cutoff.
-    </p>
-    <p>
-      <strong>Tweet (X post):</strong> 280 characters. Threads
-      unlimited; individual posts cap.
-    </p>
-    <p>
-      <strong>Cover letter:</strong> 300-400 words. One page max.
-    </p>
-    <p>
-      <strong>Email pitch:</strong> 80-150 words. Above 200 and
-      busy readers skim.
-    </p>
-    <p>
-      <strong>Instagram caption:</strong> 125 characters visible
-      before &ldquo;more.&rdquo; Long captions (500+ words) get
-      decent engagement if the hook works.
-    </p>
-    <p>
-      <strong>News article:</strong> 500-800 words standard;
-      feature-length 1,500-2,500.
-    </p>
-    <p>
-      <strong>Book chapter:</strong> 2,500-5,000 words typical;
-      novels average 80,000-100,000 words total.
-    </p>
-    <p>
-      <strong><a href="/learn/meta-description">Meta description</a>:</strong> 150-160 characters for
-      search snippets.
-    </p>
-    <p>
-      <strong>Title tag:</strong> 50-60 characters before truncation.
+      Kelime sayısı, önceliklendirmeyi zorlayan bir kısıtlamadır.
+      Kısıtlama genellikle yazının iyileştiği yerdir.
     </p>
 
-    <h2>Expanding without padding</h2>
+    <h2>Formata göre hedef aralıklar</h2>
     <p>
-      Too short? Don&rsquo;t stretch sentences with filler. Add
-      substance.
+      <strong>Blog yazısı (SEO odaklı):</strong> rekabetçi nasıl
+      yapılır sorguları için 1.500-2.500 kelime; kısa haber veya
+      güncellemeler için 800-1.200.
     </p>
     <p>
-      <strong>Add examples.</strong> Abstract points become concrete
-      with one specific instance. &ldquo;Clear writing improves
-      conversions&rdquo; becomes usable with &ldquo;Clear writing
-      improves conversions — Stripe rewrote their pricing page in
-      2019 and saw 11% higher click-through.&rdquo;
+      <strong>Deneme / kısa akademik makale:</strong> derse bağlı
+      olarak 500-1.500. Genellikle sayfa sayısına göre ayarlanır
+      (çift aralıklı sayfa başına ~250 kelime).
     </p>
     <p>
-      <strong>Add counterpoints or objections.</strong> What would a
-      smart skeptic say? Address it. Adds depth, not fluff.
+      <strong>LinkedIn gönderisi:</strong> 150-300 kelime idealdir.
+      Daha uzun gönderiler "daha fazla gör" kesintisine uğrar.
     </p>
     <p>
-      <strong>Define terms.</strong> If you used a piece of jargon,
-      explain it. If you used a concept that assumes knowledge,
-      ground it.
+      <strong>Tweet (X gönderisi):</strong> 280 karakter. Konu
+      dizileri sınırsız; bireysel gönderiler sınırlıdır.
     </p>
     <p>
-      <strong>Add context.</strong> Why does this matter? When did
-      this become a problem? What were people doing before?
+      <strong>Ön yazı:</strong> 300-400 kelime. En fazla bir sayfa.
     </p>
     <p>
-      <strong>Add the how.</strong> If you stated what, explain how.
-      Steps, methods, examples.
+      <strong>E-posta sunumu:</strong> 80-150 kelime. 200'ün
+      üzerinde meşgul okuyucular göz atar.
     </p>
     <p>
-      <strong>Don&rsquo;t:</strong> use thesaurus to swap short
-      words for long ones, add redundant adjectives, introduce the
-      same point in three different ways, or pad with
-      &ldquo;basically&rdquo; and &ldquo;essentially.&rdquo; Length
-      from padding is obvious and weakens the writing.
-    </p>
-
-    <h2>Cutting without gutting</h2>
-    <p>
-      Too long? Target the right things.
+      <strong>Instagram alt yazısı:</strong> "daha fazla"
+      kısmından önce 125 karakter görünür. Uzun alt yazılar (500+
+      kelime), giriş işe yararsa iyi etkileşim alır.
     </p>
     <p>
-      <strong>Filler words.</strong> &ldquo;Very,&rdquo; &ldquo;
-      really,&rdquo; &ldquo;basically,&rdquo; &ldquo;just,&rdquo;
-      &ldquo;actually,&rdquo; &ldquo;in order to&rdquo; (→ &ldquo;to
-      &rdquo;), &ldquo;due to the fact that&rdquo; (→ &ldquo;because
-      &rdquo;). Usually 5-10% of a first draft.
+      <strong>Haber makalesi:</strong> standart 500-800 kelime;
+      röportaj tarzı 1.500-2.500.
     </p>
     <p>
-      <strong>Redundant phrases.</strong> &ldquo;Past history,&rdquo;
-      &ldquo;end result,&rdquo; &ldquo;free gift,&rdquo; &ldquo;
-      advance planning.&rdquo; Cut one half.
+      <strong>Kitap bölümü:</strong> tipik olarak 2.500-5.000
+      kelime; romanlar toplamda ortalama 80.000-100.000 kelime.
     </p>
     <p>
-      <strong>Passive to active voice.</strong> &ldquo;The report was
-      written by Sam&rdquo; (7 words) → &ldquo;Sam wrote the report
-      &rdquo; (4 words). Usually tighter and stronger.
+      <strong><a href="/learn/meta-description">Meta açıklama</a>:</strong> arama snippet'leri için
+      150-160 karakter.
     </p>
     <p>
-      <strong>Nominalizations.</strong> Turning verbs into nouns.
-      &ldquo;She made the decision to leave&rdquo; → &ldquo;She
-      decided to leave.&rdquo;
-    </p>
-    <p>
-      <strong>Weak hedges.</strong> &ldquo;I think,&rdquo; &ldquo;in
-      my opinion,&rdquo; &ldquo;it seems that.&rdquo; Often
-      deletable without changing meaning.
-    </p>
-    <p>
-      <strong>Whole paragraphs.</strong> The hardest cut. If a
-      paragraph doesn&rsquo;t advance the argument, move a
-      character, or give a new angle — it&rsquo;s padding, even if
-      it&rsquo;s well-written.
-    </p>
-    <p>
-      <strong>Keep the specific, cut the general.</strong> Concrete
-      details (numbers, names, examples) earn their word count;
-      general claims often don&rsquo;t.
+      <strong>Başlık etiketi:</strong> kesilmeden önce 50-60 karakter.
     </p>
 
-    <h2>The 10% rule</h2>
+    <h2>Şişirmeden genişletme</h2>
     <p>
-      Stephen King&rsquo;s rule: first draft minus 10% = second
-      draft. Almost every piece of writing is improved by cutting
-      10-20% without replacement.
+      Çok kısa mı? Cümleleri dolgu maddeleriyle uzatmayın. İçerik
+      ekleyin.
     </p>
     <p>
-      If you&rsquo;re over target, aim to cut 15% first; tune from
-      there.
-    </p>
-
-    <h2>Counting rules</h2>
-    <p>
-      <strong>Standard (Microsoft Word, Google Docs):</strong>
-      whitespace-separated tokens. Hyphenated words count as one.
-      Numbers count as words.
+      <strong>Örnekler ekleyin.</strong> Soyut noktalar, belirli bir
+      örnekle somut hale gelir. "Açık yazı dönüşümleri artırır"
+      ifadesi, "Açık yazı dönüşümleri artırır — Stripe, 2019'da
+      fiyatlandırma sayfasını yeniden yazdı ve %11 daha yüksek
+      tıklama oranı gördü" ile kullanışlı hale gelir.
     </p>
     <p>
-      <strong>Academic:</strong> may exclude quoted text, references,
-      footnotes, captions. Check your guidelines.
+      <strong>Karşı argümanlar veya itirazlar ekleyin.</strong> Akıllı
+      bir şüpheci ne der? Ona yanıt verin. Derinlik katar, gevezelik
+      değil.
     </p>
     <p>
-      <strong>SEO:</strong> usually body text only — navigation,
-      footer, comments don&rsquo;t count toward &ldquo;content
-      length&rdquo; signals.
+      <strong>Terimleri tanımlayın.</strong> Bir jargon kullandıysanız,
+      açıklayın. Bilgi gerektiren bir kavram kullandıysanız,
+      temellendirin.
     </p>
     <p>
-      <strong>Code blocks in technical writing:</strong> often
-      counted the same as prose. For academic writing, check if they
-      count.
-    </p>
-
-    <h2>Tools and habits</h2>
-    <p>
-      <strong>Real-time word counter</strong> in your editor (Word,
-      Docs, Notion, Obsidian, Scrivener all have this). Set a
-      target, watch the countdown.
+      <strong>Bağlam ekleyin.</strong> Bu neden önemli? Bu ne zaman
+      bir sorun haline geldi? İnsanlar daha önce ne yapıyordu?
     </p>
     <p>
-      <strong>Goal-setting tools:</strong> Scrivener has session
-      targets and project targets with progress bars. Writers
-      working toward daily word counts (often 500-2,000) benefit
-      from external tracking.
+      <strong>Nasıl'ı ekleyin.</strong> Ne olduğunu belirttiyseniz,
+      nasıl olduğunu açıklayın. Adımlar, yöntemler, örnekler.
     </p>
     <p>
-      <strong>Hemingway App / Grammarly / Claude:</strong> identify
-      wordy phrases and suggest tighter alternatives.
-    </p>
-    <p>
-      <strong>Write first, count later.</strong> Don&rsquo;t count
-      obsessively during first draft. Hit your target region within
-      20%, then edit for fit.
+      <strong>Yapmayın:</strong> kısa kelimeleri uzun olanlarla
+      değiştirmek için eş anlamlı sözlük kullanmayın, gereksiz
+      sıfatlar eklemeyin, aynı noktayı üç farklı şekilde
+      sunmayın veya "temelde" ve "esasen" gibi kelimelerle
+      şişirmeyin. Şişirmeden gelen uzunluk barizdir ve yazıyı
+      zayıflatır.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Özü kaybetmeden kısaltma</h2>
     <p>
-      <strong>Padding to hit a minimum.</strong> Teachers, editors,
-      and algorithms all detect padding. Better to have 800
-      substantial words than 1,200 half-substantial ones.
+      Çok uzun mu? Doğru şeyleri hedefleyin.
     </p>
     <p>
-      <strong>Cutting all the character to fit a maximum.</strong>
-      Stripping voice, examples, and nuance to hit a hard cap usually
-      hurts more than overshooting by 10%.
+      <strong>Dolgu kelimeleri.</strong> "Çok," "gerçekten,"
+      "temelde," "sadece," "aslında," "amacıyla" (→ "için"),
+      "olmasından dolayı" (→ "çünkü"). Genellikle ilk taslağın
+      %5-10'u.
     </p>
     <p>
-      <strong>Counting wrong content.</strong> Academic papers often
-      specify &ldquo;excluding references and appendices.&rdquo;
-      Check before panicking about a 20% overrun.
+      <strong>Gereksiz ifadeler.</strong> "Geçmiş tarih,"
+      "sonuç," "ücretsiz hediye," "önceden planlama." Bir
+      yarısını kesin.
     </p>
     <p>
-      <strong>Confusing word count with character count.</strong>
-      Social platforms use characters. Emails sometimes use
-      characters too.
+      <strong>Edilgen çatıdan etken çatıya.</strong> "Rapor Sam
+      tarafından yazıldı" (5 kelime) → "Sam raporu yazdı" (3
+      kelime). Genellikle daha sıkı ve güçlüdür.
     </p>
     <p>
-      <strong>Editing paragraph-by-paragraph instead of as a
-      whole.</strong> Sometimes the best cut is a whole paragraph,
-      not five sentences from scattered locations.
+      <strong>Adlaştırmalar.</strong> Fiilleri isme dönüştürmek.
+      "Ayrılma kararını verdi" → "Ayrılmaya karar verdi."
+    </p>
+    <p>
+      <strong>Zayıf kaçamak ifadeler.</strong> "Bence," "bana
+      göre," "öyle görünüyor ki." Genellikle anlamı değiştirmeden
+      silinebilir.
+    </p>
+    <p>
+      <strong>Tüm paragraflar.</strong> En zor kesinti. Bir paragraf
+      argümanı ilerletmiyorsa, bir karakteri hareket ettirmiyorsa
+      veya yeni bir bakış açısı vermiyorsa — iyi yazılmış olsa
+      bile dolgudur.
+    </p>
+    <p>
+      <strong>Somutu koruyun, geneli kesin.</strong> Somut detaylar
+      (sayılar, isimler, örnekler) kelime sayılarını hak eder;
+      genel iddialar genellikle etmez.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>%10 kuralı</h2>
     <p>
-      Track live word count with the{" "}
-      <a href="/tools/word-counter">word counter</a>. Pair with the{" "}
-      <a href="/tools/reading-time-estimator">reading time estimator</a>
-      {" "}to see how many minutes of reading your word count
-      represents, and the{" "}
-      <a href="/tools/readability-score-checker">readability score
-      checker</a> to match length and complexity to audience.
+      Stephen King'in kuralı: ilk taslak eksi %10 = ikinci taslak.
+      Neredeyse her yazı, %10-20 kesilerek iyileştirilir.
+    </p>
+    <p>
+      Hedefin üzerindeyseniz, önce %15 kesmeyi hedefleyin; oradan
+      ayarlayın.
+    </p>
+
+    <h2>Sayma kuralları</h2>
+    <p>
+      <strong>Standart (Microsoft Word, Google Docs):</strong>
+      boşlukla ayrılmış belirteçler. Tireli kelimeler bir olarak
+      sayılır. Sayılar kelime olarak sayılır.
+    </p>
+    <p>
+      <strong>Akademik:</strong> alıntılanan metin, referanslar,
+      dipnotlar, alt yazılar hariç tutulabilir. Yönergelerinizi
+      kontrol edin.
+    </p>
+    <p>
+      <strong>SEO:</strong> genellikle yalnızca gövde metni —
+      gezinme, altbilgi, yorumlar "içerik uzunluğu" sinyallerine
+      dahil edilmez.
+    </p>
+    <p>
+      <strong>Teknik yazılardaki kod blokları:</strong> genellikle
+      düz metinle aynı şekilde sayılır. Akademik yazılar için,
+      sayılıp sayılmadıklarını kontrol edin.
+    </p>
+
+    <h2>Araçlar ve alışkanlıklar</h2>
+    <p>
+      <strong>Editörünüzde gerçek zamanlı kelime sayacı</strong> (Word,
+      Docs, Notion, Obsidian, Scrivener'da bulunur). Bir hedef
+      belirleyin, geri sayımı izleyin.
+    </p>
+    <p>
+      <strong>Hedef belirleme araçları:</strong> Scrivener'da
+      oturum hedefleri ve ilerleme çubuklarıyla proje hedefleri
+      vardır. Günlük kelime sayılarına (genellikle 500-2.000) göre
+      çalışan yazarlar, harici takipten faydalanır.
+    </p>
+    <p>
+      <strong>Hemingway App / Grammarly / Claude:</strong> gereksiz
+      ifadeleri belirler ve daha sıkı alternatifler önerir.
+    </p>
+    <p>
+      <strong>Önce yazın, sonra sayın.</strong> İlk taslak sırasında
+      takıntılı bir şekilde saymayın. Hedef bölgenize %20
+      yaklaşın, ardından uyacak şekilde düzenleyin.
+    </p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>
+      <strong>Minimumu tutturmak için şişirme.</strong> Öğretmenler,
+      editörler ve algoritmalar şişirmeyi tespit eder. 1.200 yarı
+      içerikli kelimeden ziyade 800 özlü kelime daha iyidir.
+    </p>
+    <p>
+      <strong>Maksimuma sığdırmak için tüm karakteri kesmek.</strong>
+      Sesi, örnekleri ve nüansı, katı bir sınıra uymak için
+      atmak, genellikle %10 aşmaktan daha fazla zarar verir.
+    </p>
+    <p>
+      <strong>Yanlış içeriği saymak.</strong> Akademik makaleler
+      genellikle "referanslar ve ekler hariç" belirtir. %20
+      aşım konusunda panik yapmadan önce kontrol edin.
+    </p>
+    <p>
+      <strong>Kelime sayısını karakter sayısıyla karıştırmak.</strong>
+      Sosyal platformlar karakter kullanır. E-postalar bazen de
+      karakter kullanır.
+    </p>
+    <p>
+      <strong>Paragraf paragraf yerine bir bütün olarak düzenlememek.</strong>
+      Bazen en iyi kesinti, dağınık yerlerden beş cümle değil, tam
+      bir paragraftır.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      Canlı kelime sayısını{" "}
+      <a href="/tools/word-counter">kelime sayacı</a> ile takip
+      edin.{" "}
+      <a href="/tools/reading-time-estimator">Okuma süresi
+      tahmincisi</a> ile kelime sayınızın kaç dakikalık okumaya
+      denk geldiğini ve{" "}
+      <a href="/tools/readability-score-checker">okunabilirlik
+      puanı denetleyicisi</a> ile uzunluğu ve karmaşıklığı
+      kitleyle eşleştirin.
     </p>
   </>
 );

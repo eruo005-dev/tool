@@ -3,242 +3,158 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Pricing is the single highest-leverage lever most founders
-      ignore. A 10% price increase usually moves bottom-line profit
-      20–50%, while a 10% volume increase might move it 5%. Yet most
-      first-time founders set price by looking at competitors and
-      shaving 20% — the fastest way to underprice a good product.
-      This guide walks through the four pricing methods, when each
-      fits, and the common traps that cost real money.
+      Fiyatlandırma, çoğu girişimcinin göz ardı ettiği en yüksek kaldıraçlı koldur. %10'luk bir fiyat artışı genellikle net kârı %20-50 oranında etkilerken, %10'luk bir hacim artışı bunu yalnızca %5 oranında etkileyebilir. Yine de ilk kez girişim kuranların çoğu, rakiplere bakıp %20 indirim yaparak fiyat belirler ki bu, iyi bir ürünü eksik fiyatlamanın en hızlı yoludur. Bu rehber, dört fiyatlandırma yöntemini, her birinin ne zaman uygun olduğunu ve aslında para kaybettiren yaygın tuzakları ele alıyor.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The four pricing methods</h2>
+    <h2>Dört fiyatlandırma yöntemi</h2>
     <p>
-      <strong>Cost-plus (markup)</strong> — calculate unit cost, add a
-      margin. Simple, math-safe, but ignores what customers will pay.
-      Example: unit cost $15, 60% markup → $24 price. Works when costs
-      are well-understood and you&rsquo;re not trying to capture the
-      full value of what you&rsquo;re selling.
+      <strong>Maliyet artı (kâr marjı)</strong> — birim maliyeti hesapla, üzerine bir marj ekle. Basit, matematiksel olarak güvenli, ancak müşterilerin ne ödeyeceğini görmezden gelir. Örnek: birim maliyet 15$, %60 kâr marjı → 24$ fiyat. Maliyetlerin iyi anlaşıldığı ve sattığınız şeyin tam değerini yakalamaya çalışmadığınız durumlarda işe yarar.
     </p>
     <p>
-      <strong>Competitor-based</strong> — price relative to market
-      comps. Fine for commodity products where customers compare
-      specs. Dangerous for differentiated products because you&rsquo;re
-      anchoring to someone else&rsquo;s cost structure, not your own
-      value.
+      <strong>Rekabet bazlı</strong> — pazardaki benzer ürünlere göre fiyatlandırma. Müşterilerin özellikleri karşılaştırdığı emtia ürünleri için işe yarar. Farklılaştırılmış ürünler için tehlikelidir çünkü kendi değeriniz yerine başkasının maliyet yapısına odaklanırsınız.
     </p>
     <p>
-      <strong>Value-based</strong> — price based on the dollar value
-      created for the customer. Requires understanding their <a href="/learn/roi">ROI</a>.
-      Example: SaaS that saves 20 hours/week of a $60/hour employee
-      creates $62k/year of value. Charging $12k/year for it is ~20%
-      of value created — a reasonable capture rate.
+      <strong>Değer bazlı</strong> — müşteri için yaratılan parasal değere göre fiyatlandırma. Müşterinin <a href="/learn/roi">ROI</a>'sini anlamayı gerektirir. Örnek: Saatte 60$ kazanan bir çalışanın haftada 20 saatini kurtaran bir SaaS, yılda 62.000$ değer yaratır. Bunun için yılda 12.000$ talep etmek, yaratılan değerin ~%20'sidir — makul bir yakalama oranı.
     </p>
     <p>
-      <strong>Dynamic / tiered</strong> — different prices for
-      different segments or usage levels. The SaaS standard: three
-      tiers with 10:1 price ratio (Starter, Team, Enterprise). Lets
-      price-sensitive and price-insensitive buyers self-select.
+      <strong>Dinamik / katmanlı</strong> — farklı segmentler veya kullanım seviyeleri için farklı fiyatlar. SaaS standardı: 10:1 fiyat oranına sahip üç katman (Başlangıç, Ekip, Kurumsal). Fiyata duyarlı ve duyarsız alıcıların kendilerini seçmelerine olanak tanır.
     </p>
 
-    <h2>Step 1 — know your unit economics</h2>
+    <h2>Adım 1 — Birim ekonominizi bilin</h2>
     <p>
-      Before picking a method, know your floor:
+      Bir yöntem seçmeden önce, taban fiyatınızı bilin:
     </p>
     <p>
-      <strong>COGS</strong> (cost of goods sold) — direct cost to
-      deliver one unit. For physical products: materials + manufacturing
-      + shipping + fulfillment. For SaaS: hosting + support + payment
-      processing per customer.
+      <strong>COGS</strong> (satılan malın maliyeti) — bir birimi teslim etmenin doğrudan maliyeti. Fiziksel ürünler için: malzemeler + üretim + nakliye + yerine getirme. SaaS için: müşteri başına barındırma + destek + ödeme işleme.
     </p>
     <p>
-      <strong>Variable CAC</strong> — cost to acquire one customer
-      (ads, affiliate fees, sales commissions).
+      <strong>Değişken CAC</strong> — bir müşteri edinme maliyeti (reklamlar, ortaklık ücretleri, satış komisyonları).
     </p>
     <p>
-      <strong>Contribution margin</strong> = Price − COGS − Variable CAC.
-      Must be positive. Ideally, covers fixed costs at reasonable
-      volume.
+      <strong>Katkı marjı</strong> = Fiyat − COGS − Değişken CAC. Pozitif olmalıdır. İdeal olarak, makul bir hacimde sabit maliyetleri karşılar.
     </p>
     <p>
-      <strong>Target margin</strong> — by business type:
+      <strong>Hedef marj</strong> — iş türüne göre:
     </p>
     <p>
-      Ecommerce / DTC: 40–60% gross margin.
+      E-ticaret / DTC: %40–60 brüt marj.
     </p>
     <p>
-      SaaS: 70–85% gross margin.
+      SaaS: %70–85 brüt marj.
     </p>
     <p>
-      Services: 50–70% gross margin, depending on leverage.
+      Hizmetler: kaldıraca bağlı olarak %50–70 brüt marj.
     </p>
     <p>
-      Below these, you&rsquo;re almost always underpricing.
+      Bunların altında, neredeyse kesinlikle eksik fiyatlandırma yapıyorsunuz.
     </p>
 
-    <h2>Step 2 — triangulate with willingness-to-pay data</h2>
+    <h2>Adım 2 — Ödeme istekliliği verileriyle çapraz doğrulama</h2>
     <p>
-      Even for value-based pricing, you need customer-side evidence.
-      Three cheap methods:
+      Değer bazlı fiyatlandırmada bile müşteri kanıtına ihtiyacınız var. Üç ucuz yöntem:
     </p>
     <p>
-      <strong>Van Westendorp Price Sensitivity Meter.</strong> 4
-      questions: &ldquo;At what price is it so cheap you&rsquo;d
-      question quality? cheap but still acceptable? expensive but
-      worth it? too expensive to consider?&rdquo; Intersection of
-      curves reveals a price range most customers accept.
+      <strong>Van Westendorp Fiyat Duyarlılığı Ölçer.</strong> 4 soru: &ldquo;Hangi fiyatta kaliteden şüphe edecek kadar ucuz? ucuz ama yine de kabul edilebilir? pahalı ama buna değer? düşünülemeyecek kadar pahalı?&rdquo; Eğrilerin kesişimi, çoğu müşterinin kabul ettiği bir fiyat aralığını ortaya çıkarır.
     </p>
     <p>
-      <strong>Conjoint analysis</strong> (for feature-price tradeoffs).
-      Show customers pairs of price/feature bundles; see which they
-      pick. Reveals how much each feature is &ldquo;worth.&rdquo; More
-      work but gives the clearest data.
+      <strong>Konjoint analizi</strong> (özellik-fiyat ödünleşimleri için). Müşterilere fiyat/özellik paketleri çiftleri gösterin; hangisini seçtiklerini görün. Her özelliğin &ldquo;değerini&rdquo; ortaya çıkarır. Daha fazla iş ama en temiz veri.
     </p>
     <p>
-      <strong>A/B price test</strong> on landing pages. Show half of
-      visitors $29/mo, half $49/mo. If conversion at $49 is less than
-      59% of conversion at $29 (29/49), you&rsquo;re making less
-      money at $49 and should price lower. Otherwise, price higher.
+      <strong>Açılış sayfalarında A/B fiyat testi.</strong> Ziyaretçilerin yarısına 29$/ay, diğer yarısına 49$/ay gösterin. 49$'daki dönüşüm, 29$'daki dönüşümün %59'undan (29/49) azsa, 49$'da daha az para kazanıyorsunuz ve fiyatı düşürmelisiniz. Aksi takdirde, yükseltin.
     </p>
 
-    <h2>The 10%-up experiment</h2>
+    <h2>%10 artış deneyi</h2>
     <p>
-      If your prices have been stable and you have no hard data, this
-      tells you a lot cheaply: raise prices 10% on new customers, watch
-      conversion for 4–6 weeks. Three outcomes:
+      Fiyatlarınız bir süredir sabitse ve elinizde somut veri yoksa, bu size ucuza çok şey söyler: yeni müşteriler için fiyatları %10 artırın, 4-6 hafta boyunca dönüşümü izleyin. Üç sonuç:
     </p>
     <p>
-      <strong>Conversion unchanged</strong> → you were underpriced.
-      Keep the new price. Plan another 10% test in 3 months.
+      <strong>Dönüşüm değişmedi</strong> → eksik fiyatlandırma yapıyordunuz. Yeni fiyatı koruyun. 3 ay içinde başka bir %10 testi planlayın.
     </p>
     <p>
-      <strong>Conversion dropped &lt;10%</strong> → still worth it.
-      Higher revenue/visitor despite fewer conversions. Keep the
-      new price.
+      <strong>Dönüşüm %10'dan az düştü</strong> → yine de buna değer. Daha az dönüşüme rağmen ziyaretçi başına daha yüksek gelir. Yeni fiyatı koruyun.
     </p>
     <p>
-      <strong>Conversion dropped &gt;10%</strong> → you&rsquo;ve hit
-      or crossed your ceiling. Roll back, optimize value message, or
-      retry in 6 months with better positioning.
+      <strong>Dönüşüm %10'dan fazla düştü</strong> → tavanınıza ulaştınız veya aştınız. Geri alın, değer mesajınızı optimize edin veya 6 ay sonra daha iyi bir konumlandırma ile yeniden deneyin.
     </p>
 
-    <h2>The tiered-pricing playbook (SaaS)</h2>
+    <h2>Katmanlı fiyatlandırma oyun kitabı (SaaS)</h2>
     <p>
-      Three tiers, 10:1 price ratio. Standard structure:
+      Üç katman, 10:1 fiyat oranı. Standart yapı:
     </p>
     <p>
-      <strong>Starter / Solo:</strong> $15–30/month. Individuals or
-      tiny teams. Feature-limited. Purpose: low-friction entry,
-      word-of-mouth amplification.
+      <strong>Başlangıç / Bireysel:</strong> 15–30$/ay. Bireyler veya küçük ekipler. Özellik sınırlı. Hedef: düşük engelli giriş, ağızdan ağıza pazarlama.
     </p>
     <p>
-      <strong>Team / Pro:</strong> $50–200/month. SMBs. Core features
-      + collaboration. The workhorse tier where most revenue comes
-      from.
+      <strong>Ekip / Profesyonel:</strong> 50–200$/ay. KOBİ'ler. Temel özellikler + işbirliği. Ana gelir katmanı.
     </p>
     <p>
-      <strong>Enterprise / Business:</strong> $500–5000+/month. Custom
-      pricing. SSO, audit logs, SLA, dedicated support. Often closed
-      by sales team, priced per-engagement.
+      <strong>Kurumsal / İşletme:</strong> 500–5000+$/ay. Özel fiyatlandırma. SSO, denetim günlükleri, SLA, özel destek. Genellikle satışla kapatılır, koltuk başına fiyatlandırılır.
     </p>
     <p>
-      Common mistake: too many tiers. More than 4 tiers creates
-      decision paralysis and reduces conversion. Even 3 tiers work
-      best with clear feature differentiators (e.g., seats, API
-      calls, storage).
+      Yaygın hata: çok fazla katman. 4'ten fazlası karar felcine neden olur ve dönüşümü azaltır. Net özellik farklılaştırıcıları (ör. koltuklar, API çağrıları, depolama) ile 3 katman bile en iyi şekilde çalışır.
     </p>
 
-    <h2>Anchoring and decoy pricing</h2>
+    <h2>Çıpalama ve yem fiyatlandırması</h2>
     <p>
-      Show the highest tier first. The $5,000/mo Enterprise tier
-      makes the $200/mo Pro tier look reasonable. Without the anchor,
-      $200 looks expensive.
+      En yüksek katmanı önce gösterin. 5.000$/ay'lık bir Kurumsal katman, 200$/ay'lık bir Profesyonel katmanı makul gösterir. Çıpa olmadan, 200$ pahalı görünür.
     </p>
     <p>
-      Decoy effect: a $89 middle tier that&rsquo;s &ldquo;only
-      slightly worse&rdquo; than $99 top tier drives customers to
-      the $99 because it looks like a better deal. Apple used this
-      heavily with iPhone storage tiers.
+      Yem etkisi: 89$'lık bir orta katman, 99$'lık üst katmandan &ldquo;sadece biraz daha kötü&rdquo; olduğunda, müşterileri 99$'a iter çünkü daha iyi bir anlaşma gibi gelir. Apple, iPhone depolama katmanlarında bunu yoğun olarak kullanır.
     </p>
 
-    <h2>Discounts and promotions — the margin killers</h2>
+    <h2>İndirimler ve promosyonlar — marj katilleri</h2>
     <p>
-      <strong>A 20% discount</strong> on a product with 50% margin
-      requires <strong>67% more volume</strong> just to keep the
-      same total profit. Because fixed costs don&rsquo;t drop with
-      price, the math of discounting is usually worse than founders
-      expect.
+      <strong>%20 indirim</strong>, %50 marjlı bir üründe aynı toplam kârı korumak için <strong>%67 daha fazla hacim</strong> gerektirir. Sabit maliyetler fiyatla düşmediğinden, indirimlerin matematiği genellikle girişimcilerin beklediğinden daha kötüdür.
     </p>
     <p>
-      Cleaner alternatives to discounting:
+      İndirime daha temiz alternatifler:
     </p>
     <p>
-      <strong>Value-add bundles</strong> — add something to the
-      offer instead of cutting price. Protects the price point.
+      <strong>Değer katan paketler</strong> — fiyatı düşürmek yerine teklife bir şey ekleyin. Fiyat noktasını korur.
     </p>
     <p>
-      <strong>Annual prepay</strong> — give 2 months free (17%
-      discount) for annual upfront. Locks revenue, reduces churn,
-      price anchor stays intact.
+      <strong>Yıllık peşin ödeme</strong> — yıllık peşin ödemede 2 ay ücretsiz verin (~%17 indirim). Geliri kilitler, kaybı azaltır, fiyat çıpası bozulmaz.
     </p>
     <p>
-      <strong>Segmented pricing</strong> — student / nonprofit /
-      small-business discounts don&rsquo;t cannibalize your main
-      segment.
+      <strong>Segment bazlı fiyatlandırma</strong> — ana segmentinizi yamyamlaştırmayan öğrenci / kar amacı gütmeyen / küçük işletme indirimleri.
     </p>
 
-    <h2>Price increases — on existing customers</h2>
+    <h2>Fiyat artışları — mevcut müşterilere</h2>
     <p>
-      At some point you&rsquo;ll raise prices on existing customers.
-      The playbook that minimizes churn:
+      Bir noktada mevcut müşterilere fiyatları artıracaksınız. Kaybı en aza indirmek için oyun kitabı:
     </p>
     <p>
-      <strong>(1) Grandfather</strong> customers on old pricing for a
-      defined window (6–12 months). They keep their rate during
-      that window; new customers see the new rate immediately.
+      <strong>(1) Büyükanne hakkı</strong> mevcut müşterilere eski fiyatı bir süre (6–12 ay) koruyun. Bu süre boyunca oranlarını korurlar; yeni müşteriler yeni oranı hemen görür.
     </p>
     <p>
-      <strong>(2) Pre-announce</strong> the increase with 30–60
-      days&rsquo; notice, in direct email from a founder or
-      executive. Explain why.
+      <strong>(2) Erken duyurun</strong> — artıştan 30–60 gün önce, bir kurucu veya yöneticiden doğrudan e-posta ile. Nedenini açıklayın.
     </p>
     <p>
-      <strong>(3) Tie to value improvements.</strong> New features,
-      SLA, integrations shipped since last price. Bundle the
-      increase with something customers actually want.
+      <strong>(3) Değer iyileştirmelerine bağlayın.</strong> Son fiyattan bu yana eklenen yeni özellikler, SLA, entegrasyonlar. Artışı müşterilerin gerçekten istediği bir şeyle eşleştirin.
     </p>
     <p>
-      Typical churn from a well-executed 10–20% increase: 2–5% of
-      accounts. Revenue impact is almost always net positive.
+      İyi yürütülen bir %10–20 artıştan tipik kayıp: hesapların %2–5'i. Gelir etkisi neredeyse her zaman net pozitiftir.
     </p>
 
-    <h2>The &ldquo;you can always come down&rdquo; rule</h2>
+    <h2>&ldquo;Her zaman aşağı inebilirsin&rdquo; kuralı</h2>
     <p>
-      You can always lower a price. Raising one is much harder.
-      Launch 10–20% higher than you&rsquo;re comfortable with. If it
-      doesn&rsquo;t convert, drop. If it does, you&rsquo;ve captured
-      more value and signaled higher quality.
+      Bir fiyatı her zaman düşürebilirsiniz. Yükseltmek çok daha zordur. Rahat olduğunuzdan %10–20 daha yüksek başlayın. Dönüşüm olmazsa, düşürün. Olursa, daha fazla değer yakalamış ve daha yüksek kalite sinyali vermiş olursunuz.
     </p>
     <p>
-      Founder underpricing is so common that seasoned investors
-      often push portfolio companies to raise prices as their first
-      piece of advice. The upside is usually there; the downside
-      (some churn) is almost always smaller than expected.
+      Girişimci eksik fiyatlandırması o kadar yaygındır ki deneyimli yatırımcılar genellikle portföy şirketlerine ilk tavsiye olarak fiyatları artırmalarını söyler. Getiri genellikle oradadır; kayıp (biraz müşteri kaybı) neredeyse her zaman beklenenden daha küçüktür.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Plug cost, target margin, and fees into the{" "}
-      <a href="/tools/pricing-calculator">pricing calculator</a> for a
-      margin-accurate price. Pair with the{" "}
-      <a href="/tools/break-even-calculator">break-even calculator</a>
-      {" "}to validate volume assumptions, and the{" "}
-      <a href="/tools/profit-margin-calculator">profit margin
-      calculator</a> for the margin view across your product line.
+      Maliyetlerinizi, hedef marjınızı ve ücretlerinizi{" "}
+      <a href="/tools/pricing-calculator">fiyatlandırma hesaplayıcısına</a> girerek marj açısından doğru bir fiyat elde edin. Hacim varsayımlarını doğrulamak için{" "}
+      <a href="/tools/break-even-calculator">başabaş hesaplayıcısı</a>
+      {" "}ve ürün hattınız genelinde marj görünümü için{" "}
+      <a href="/tools/profit-margin-calculator">kâr marjı hesaplayıcısı</a> ile birlikte kullanın.
     </p>
   </>
 );

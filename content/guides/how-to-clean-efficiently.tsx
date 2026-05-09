@@ -1,96 +1,76 @@
 export const intro = (
   <>
     <p>
-      Cleaning doesn&rsquo;t have to eat your Saturday. With a system, 15 minutes a day
-      plus a 45-minute weekly session keeps a home in shape. The trick is routine,
-      not elbow grease.
+      Temizlik cumartesini yemek zorunda değil. Bir sistemle, günde 15 dakika
+      artı haftalık 45 dakikalık bir seans evi düzenli tutar. İşin püf noktası zorlamak değil, rutindir.
     </p>
     <p>
-      Below is a simple approach that works for apartments, houses, and people who
-      don&rsquo;t like cleaning.
+      Aşağıda daireler, evler ve temizlikten hoşlanmayan insanlar için işe yarayan basit bir yaklaşım var.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Declutter first</h2>
+    <h2>1. Önce dağınıklığı giderin</h2>
     <p>
-      Cleaning a cluttered space is 3x slower. Spend a weekend removing what you
-      don&rsquo;t use before trying to stay on top of cleaning. Less stuff = less
-      cleaning, forever.
+      Dağınık bir alanı temizlemek 3 kat daha yavaştır. Temizliğe başlamadan önce kullanmadıklarınızı çıkarmak için bir hafta sonu ayırın. Az eşya = sonsuza kadar az temizlik.
     </p>
 
-    <h2>2. Daily 15-minute reset</h2>
+    <h2>2. Günlük 15 dakikalık toparlanma</h2>
     <p>
-      Dishes, quick kitchen wipe, put things where they belong, 5-minute bathroom
-      touch-up. Done every day, the house never reaches &ldquo;I need a weekend&rdquo;
-      chaos. Routine beats marathons.
+      Bulaşıklar, mutfağın hızlı silinmesi, eşyaları ait oldukları yere koymak, 5 dakikalık banyo düzenlemesi. Her gün yapıldığında, ev asla &ldquo;bir hafta sonuna ihtiyacım var&rdquo; kaosuna ulaşmaz. Rutin, maratonlardan daha iyidir.
     </p>
 
-    <h2>3. Clean top-to-bottom</h2>
+    <h2>3. Yukarıdan aşağıya temizleyin</h2>
     <p>
-      Dust falls. Start with high shelves, then counters, then floors. Cleaning floors
-      before dusting is rework. Gravity is your friend if you respect it.
+      Toz aşağı düşer. Önce yüksek raflardan, sonra tezgahlardan, ardından yerlerden başlayın. Toz almadan önce yerleri temizlemek yeniden iş yapmaktır. Saygı duyarsanız yerçekimi dostunuzdur.
     </p>
 
-    <h2>4. One room at a time</h2>
+    <h2>4. Her seferinde bir oda</h2>
     <p>
-      Finish a room before starting another. Bouncing between rooms creates motion
-      without progress. Visible done-ness is motivating.
+      Başka bir odaya başlamadan önce bir odayı bitirin. Odalar arasında gezinmek ilerleme olmadan hareket yaratır. Görünür şekilde bitirmek motive edicidir.
     </p>
 
-    <h2>5. Microfiber + water for most surfaces</h2>
+    <h2>5. Çoğu yüzey için mikrofiber + su</h2>
     <p>
-      You don&rsquo;t need 8 sprays. A microfiber cloth and water handles most dust
-      and daily grime. Dedicate a colored cloth per room so you&rsquo;re not
-      cross-contaminating (kitchen cloth ≠ bathroom cloth).
+      8 sprey almaya gerek yok. Bir mikrofiber bez ve su, çoğu toz ve günlük kiri halleder. Çapraz bulaşmayı önlemek için oda başına renkli bir bez kullanın (mutfak bezi ≠ banyo bezi).
     </p>
 
-    <h2>6. Group like tasks</h2>
+    <h2>6. Benzer görevleri gruplayın</h2>
     <p>
-      Do all dusting, then all wiping, then all vacuuming. Switching tasks costs
-      time. Batch small jobs in the same room before moving on.
+      Önce tüm toz almayı, sonra tüm silmeyi, ardından tüm süpürmeyi yapın. Görev değiştirmek zaman kaybettirir. Bir sonrakine geçmeden önce aynı odadaki küçük görevleri toplu halde yapın.
     </p>
 
-    <h2>7. Weekly deep tasks rotation</h2>
+    <h2>7. Haftalık derin temizlik görevlerini döndürün</h2>
     <p>
-      One deep task per week on rotation: windows, baseboards, inside fridge, oven,
-      under furniture. Spread across a month = never a crisis cleaning day.
+      Sırayla haftada bir derin temizlik görevi: pencereler, süpürgelikler, buzdolabı içi, fırın, mobilya altları. Bir aya yayıldığında = asla kriz temizlik günü olmaz.
     </p>
 
-    <h2>8. Kitchen after every meal</h2>
+    <h2>8. Her yemekten sonra mutfak</h2>
     <p>
-      Wash as you cook. Wipe down counters after dinner. Run the dishwasher nightly.
-      A clean kitchen at bedtime transforms how the next day starts. Non-negotiable
-      if you share a kitchen.
+      Yemek yaparken yıkayın. Akşam yemeğinden sonra tezgahları silin. Bulaşık makinesini her gece çalıştırın. Yatmadan önce temiz bir mutfak, ertesi günün nasıl başladığını değiştirir. Mutfağı paylaşıyorsanız pazarlık yok.
     </p>
 
-    <h2>9. Laundry every 2-3 days</h2>
+    <h2>9. 2-3 günde bir çamaşır</h2>
     <p>
-      One full load every other day beats a five-load Sunday. Fold straight out of
-      the dryer — the minute it sits in a basket, it becomes a mountain. Folding is
-      only unpleasant when you&rsquo;ve let it pile up.
+      İki günde bir tam yük, beş yüklü bir Pazar gününden daha iyidir. Kurutucudan çıkar çıkmaz katlayın — sepette beklediği an dağa dönüşür. Katlamak yalnızca biriktirdiğinizde tatsızdır.
     </p>
 
-    <h2>10. Shoes off at the door</h2>
+    <h2>10. Kapıda ayakkabıları çıkarın</h2>
     <p>
-      80% of floor dirt walks in on shoes. Leaving them at the door cuts floor
-      cleaning in half. Simple rule, enormous payoff.
+      Yer kirliliğinin %80'i ayakkabılarla gelir. Onları kapıda bırakmak yer temizliğini yarıya indirir. Basit kural, büyük kazanç.
     </p>
 
-    <h2>11. Good tools matter</h2>
+    <h2>11. İyi aletler önemlidir</h2>
     <p>
-      A quality vacuum, microfiber cloths, a squeegee, a scrub brush. Cheap tools
-      make every task take longer. Buy once; last years.
+      Kaliteli bir elektrikli süpürge, mikrofiber bezler, bir silecek, bir fırça. Ucuz aletler her işi uzatır. Bir kez alın; yıllarca dayanır.
     </p>
 
-    <h2>12. Accept &ldquo;clean enough&rdquo;</h2>
+    <h2>12. &ldquo;Yeterince temiz&rdquo;i kabul edin</h2>
     <p>
-      Magazine-perfect isn&rsquo;t the goal. &ldquo;I&rsquo;d invite someone over
-      tomorrow without prep&rdquo; is the bar. Anything more is diminishing returns.
-      See <a href="/guides/how-to-set-up-a-home-office">home office guide</a> for
-      workspace setup.
+      Dergi mükemmelliği hedef değildir. Çıta &ldquo;hazırlık yapmadan yarın birini davet ederim&rdquo; seviyesidir. Bunun ötesi azalan getiridir. Çalışma alanı düzeni için
+      <a href="/guides/how-to-set-up-a-home-office">ev ofis rehberine</a> bakın.
     </p>
   </>
 );

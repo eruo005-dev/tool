@@ -2,42 +2,38 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Strength training after 50 isn&rsquo;t optional &mdash; it&rsquo;s the closest thing to a longevity drug that
-    actually works. Sarcopenia, osteopenia, fall risk, and metabolic decline all bend toward better with two
-    sessions/week. Here&rsquo;s the right way to start (or restart).
+    50 yaşından sonra kuvvet antrenmanı bir seçenek değildir &mdash; aslında işe yarayan bir uzun ömür ilacına en yakın şeydir. Sarkopeni, osteopeni, düşme riski ve metabolik düşüş, haftada iki seansla daha iyiye doğru yönelir. İşte başlamanın (veya yeniden başlamanın) doğru yolu.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Why it matters more after 50</h2>
+    <h2>50'den sonra neden daha önemli</h2>
     <p>
-      Muscle mass declines ~1% per year after 30 without resistance training. By 70 the average person has lost
-      30%. The downstream effects (falls, balance, blood sugar regulation, bone density) compound. Two strength
-      sessions/week reverse most of this in 12 weeks.
+      Direnç antrenmanı yapılmazsa, 30 yaşından sonra kas kütlesi yılda ~%1 oranında azalır. 70 yaşına gelindiğinde ortalama bir kişi %30'unu kaybeder. Bunun ardından gelen etkiler (düşmeler, denge, kan şekeri düzenlemesi, kemik yoğunluğu) birbirini tetikler. Haftada iki kuvvet seansı, bunun çoğunu 12 haftada tersine çevirir.
     </p>
-    <h2>The right starting structure</h2>
+    <h2>Doğru başlangıç yapısı</h2>
     <ul>
-      <li><strong>2 full-body sessions/week.</strong> 3-4 lifts per session, 2-3 sets of 5-10 reps.</li>
-      <li><strong>Compound first:</strong> squat, hinge (deadlift / hip-thrust), push (bench / overhead), pull (row / pulldown).</li>
-      <li><strong>Form before load:</strong> hire a trainer for 4-6 sessions to dial form. Cheaper than an injury.</li>
-      <li><strong>Progress weight ~2.5-5 lbs/wk</strong> on the big lifts in the first 8 weeks. Then slow it.</li>
+      <li><strong>Haftada 2 tam vücut seansı.</strong> Seans başına 3-4 kaldırış, 2-3 set, 5-10 tekrar.</li>
+      <li><strong>Önce bileşik hareketler:</strong> squat, kalça menteşesi (deadlift / kalça itişi), itme (bench / baş üstü), çekme (row / pulldown).</li>
+      <li><strong>Yükten önce form:</strong> formu oturtmak için 4-6 seanslık bir antrenör tutun. Bir sakatlıktan daha ucuzdur.</li>
+      <li><strong>İlk 8 haftada büyük kaldırışlarda ağırlığı haftada ~2.5-5 lbs artırın.</strong> Sonra yavaşlatın.</li>
     </ul>
-    <h2>What to skip early</h2>
+    <h2>Erken dönemde nelerden kaçınılmalı</h2>
     <ul>
-      <li>Heavy bilateral barbell work before form is solid.</li>
-      <li>Aggressive HIIT / CrossFit-style intensity. Save it for month 4+.</li>
-      <li>Cardio-first programs that crowd out strength.</li>
+      <li>Form oturmadan ağır iki taraflı halter çalışmaları.</li>
+      <li>Agresif HIIT / CrossFit tarzı yoğunluk. 4. aya kadar saklayın.</li>
+      <li>Kuvveti gölgeleyen kardiyo öncelikli programlar.</li>
     </ul>
-    <h2>Recovery</h2>
+    <h2>Toparlanma</h2>
     <ul>
-      <li>Protein 0.8-1.0 g per lb of body weight daily.</li>
-      <li>7-9 hours of sleep is non-negotiable.</li>
-      <li>48 hours minimum between sessions hitting the same muscle group.</li>
+      <li>Vücut ağırlığının kilogramı başına günlük 1.6-2.2 gram protein.</li>
+      <li>7-9 saat uyku tartışılmaz.</li>
+      <li>Aynı kas grubunu çalıştıran seanslar arasında en az 48 saat.</li>
     </ul>
     <p>
-      Pair with cardio: <a href="/tools/zone-2-heart-rate-calculator">zone 2 heart rate calculator</a> and{" "}
-      <a href="/tools/vo2-max-estimator">VO2 max estimator</a> for the aerobic side.
+      Kardiyo ile eşleştirin: <a href="/tools/zone-2-heart-rate-calculator">bölge 2 kalp atış hızı hesaplayıcısı</a> ve{" "}
+      <a href="/tools/vo2-max-estimator">VO2 maks tahmincisi</a> aerobik taraf için.
     </p>
   </>
 );

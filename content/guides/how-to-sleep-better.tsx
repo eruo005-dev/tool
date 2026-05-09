@@ -1,115 +1,79 @@
 export const intro = (
   <>
     <p>
-      Sleep is the single highest-leverage thing you can improve in your life. Not diet, not
-      exercise, not meditation — sleep. It compounds into mood, weight, cognition, longevity,
-      and essentially every health metric worth tracking. Good sleep is not a bonus; it&rsquo;s
-      the foundation under everything else.
+      Uyku, hayatınızda iyileştirebileceğiniz en yüksek etkiye sahip şeydir. Diyet değil, egzersiz değil, meditasyon değil — uyku. Ruh halinizi, kilonuzu, bilişsel işlevlerinizi, uzun ömürlülüğünüzü ve takip etmeye değer neredeyse her sağlık ölçütünü etkiler. İyi uyku bir bonus değildir; diğer her şeyin üzerine oturduğu temeldir.
     </p>
     <p>
-      This guide covers the practical, evidence-backed moves that improve sleep for most people.
-      Pick 3–4 to run for a month and you&rsquo;ll likely feel the difference in week two.
+      Bu rehber, çoğu insan için uykuyu iyileştiren pratik, kanıta dayalı adımları kapsar. Bir ay boyunca uygulamak için 3-4 tane seçin ve muhtemelen ikinci haftaya kadar farkı hissedersiniz.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Hit a consistent bed and wake time</h2>
+    <h2>1. Tutarlı bir yatma ve uyanma saati belirleyin</h2>
     <p>
-      The single most impactful change. Your <a href="/learn/circadian-rhythm">circadian rhythm</a> runs on regularity, not average
-      hours. Going to bed at 10 one night and 1am the next confuses the system; both nights
-      sleep worse than a consistent 11:30. Pick a window and hold it within 30 minutes, even on
-      weekends.
+      En etkili tek değişiklik. Sirkadiyen ritminiz düzenlilikle çalışır, ortalamalarla değil. Bir gece 10'da, ertesi gece 1'de uyumak sistemi karıştırır — her iki gece de tutarlı bir şekilde 11:30'da uyumaktan daha kötüdür. Bir zaman aralığı seçin ve hafta sonları dahil olmak üzere 30 dakika içinde kalın.
     </p>
 
-    <h2>2. Aim for 7–9 hours in bed</h2>
+    <h2>2. Yatakta 7-9 saat geçirmeyi hedefleyin</h2>
     <p>
-      Most adults need 7–9 hours of actual sleep, which means 7.5–9.5 in bed accounting for
-      sleep latency and brief wakings. If you chronically get 6 hours, you&rsquo;re not
-      &ldquo;adapting&rdquo; — you&rsquo;re impaired and have stopped noticing.
+      Çoğu yetişkinin 7-9 saat gerçek uykuya ihtiyacı vardır, bu da uykuya dalma ve kısa uyanmaları hesaba kattığınızda yatakta 7,5-9,5 saat anlamına gelir. Sürekli olarak 6 saat uyuyorsanız, "uyum sağlamıyorsunuz" — işlevleriniz bozulur ve bunu fark etmeyi bırakırsınız.
     </p>
 
-    <h2>3. Cap caffeine at noon</h2>
+    <h2>3. Öğlene kadar kafeini kesin</h2>
     <p>
-      Caffeine&rsquo;s half-life is 5–6 hours. A 3pm coffee means 50% of it is still in your
-      system at 9pm. Even if you feel like you can sleep fine, the <em>depth</em> of sleep is
-      reduced. If you&rsquo;re struggling with sleep, cap caffeine at noon for two weeks as a
-      diagnostic.
+      Kafeinin yarı ömrü 5-6 saattir. Saat 15:00'te içilen bir kahvenin saat 21:00'de sisteminizde hala %50'si bulunur. İyi uyuduğunuzu hissetseniz bile, uykunun derinliği azalır. Uyku sorunlarınız varsa, teşhis amaçlı olarak iki hafta boyunca öğlene kadar kafeini kesin.
     </p>
 
-    <h2>4. Dim the lights two hours before bed</h2>
+    <h2>4. Yatmadan iki saat önce ışıkları kısın</h2>
     <p>
-      Bright overhead light suppresses melatonin, which signals the body to prepare for sleep.
-      Switch to low lamps in the evening. Your brain reads light intensity as time of day;
-      evening light looks like noon to your biology.
+      Parlak tavan ışığı, vücudunuza uykuya hazırlanması için sinyal veren melatonini baskılar. Akşamları düşük lambalara geçin. Beyniniz ışık yoğunluğunu günün saati olarak okur — akşam ışığı, biyolojinize öğle vakti gibi görünür.
     </p>
 
-    <h2>5. Get daylight early in the day</h2>
+    <h2>5. Günün erken saatlerinde sabah güneşi alın</h2>
     <p>
-      The strongest circadian signal is bright natural light within an hour of waking. Ten
-      minutes outside (cloudy counts) anchors the rhythm for the whole day. Indoor light is
-      100x dimmer than outdoor — it doesn&rsquo;t substitute.
+      En güçlü sirkadiyen sinyal, uyandıktan sonraki bir saat içinde alınan parlak doğal ışıktır. On dakika dışarıda olmak (bulutlu hava da sayılır) ritminizi tüm gün için ayarlar. İç mekan ışığı dışarıya göre 100 kat daha loştur — bunun yerini tutmaz.
     </p>
 
-    <h2>6. Cool bedroom, around 18°C / 65°F</h2>
+    <h2>6. Yatak odasını serin tutun, yaklaşık 18°C</h2>
     <p>
-      Core body <a href="/learn/temperature-ai">temperature</a> drops during sleep. A cool room helps you fall asleep faster and stay
-      in deep sleep longer. Too warm is the most common hidden cause of &ldquo;I sleep 8 hours
-      and still feel tired.&rdquo;
+      Vücut sıcaklığı uyku sırasında düşer. Serin bir oda, daha hızlı uykuya dalmanıza ve derin uykuda daha uzun süre kalmanıza yardımcı olur. Çok sıcak olmak, "8 saat uyudum ama hala yorgunum" durumunun en yaygın gizli nedenidir.
     </p>
 
-    <h2>7. No screens in bed</h2>
+    <h2>7. Yatakta ekran yok</h2>
     <p>
-      Blue light suppresses melatonin somewhat; the real problem is behavioral — scrolling is
-      stimulating and displaces sleep. If you must read, prefer a physical book or an e-ink
-      reader on the dimmest setting.
+      Mavi ışık melatonini bir miktar baskılar, ancak asıl sorun davranışsaldır — kaydırmak uyarıcıdır ve uykunun yerini alır. Okumanız gerekiyorsa, fiziksel bir kitap veya en düşük parlaklıkta bir e-mürekkep okuyucu kullanın.
     </p>
 
-    <h2>8. Skip alcohol late</h2>
+    <h2>8. Akşam geç saatlerde alkolden kaçının</h2>
     <p>
-      Alcohol helps you fall asleep and completely ruins the second half. It suppresses REM and
-      deep sleep, causing the 3am wake-up and unrefreshed mornings. If you drink, finish 2–3
-      hours before bed.
+      Alkol uykuya dalmanıza yardımcı olur ve ikinci yarıyı tamamen mahveder. REM ve derin uykuyu baskılayarak sabah 3'te uyanmalara ve dinlenmemiş sabahlara neden olur. İçecekseniz, yatmadan 2-3 saat önce bitirin.
     </p>
 
-    <h2>9. Don&rsquo;t eat heavy late</h2>
+    <h2>9. Geç saatlerde ağır yemekler yemeyin</h2>
     <p>
-      Large meals 3 hours before bed cause digestion to compete with sleep. If you&rsquo;re
-      hungry, have something light. Heavy dinners often show up on trackers as degraded deep
-      sleep for the first several hours.
+      Yatmadan 3 saat içinde büyük öğünler, sindirimin uykuyla rekabet etmesine neden olur. Açsanız, hafif bir şeyler yiyin. Ağır akşam yemekleri genellikle takip cihazlarında ilk birkaç saatte bozulmuş derin uyku olarak görünür.
     </p>
 
-    <h2>10. Have a wind-down ritual</h2>
+    <h2>10. Bir gevşeme rutini oluşturun</h2>
     <p>
-      The brain needs 30–60 minutes of ramp-down. Dim lights, reading, stretching, tea. Same
-      ritual each night. This is the single biggest reason people struggle with early bedtimes
-      — they try to go from high-stimulation to sleep in 5 minutes. Pair with our{" "}
-      <a href="/guides/how-to-wake-up-early">waking up early guide</a>.
+      Beyninizin yavaşlamak için 30-60 dakikaya ihtiyacı vardır. Loş ışıklar, okuma, esneme, çay. Her gece aynı rutin. Bu, insanların erken yatma saatlerinde zorlanmasının en büyük nedenidir — yüksek uyarılmadan 5 dakika içinde uykuya geçmeye çalışırlar. Erken uyanma rehberimizle birleştirin.
     </p>
 
-    <h2>11. If you can&rsquo;t sleep, get out of bed</h2>
+    <h2>11. Uyuyamıyorsanız, yataktan çıkın</h2>
     <p>
-      After 20 minutes awake in bed, get up. Read in a dim room until sleepy, then return. This
-      prevents the bed from becoming associated with frustration and insomnia. Staring at the
-      ceiling for an hour is worse for sleep than an hour reading on the couch.
+      Yatakta 20 dakika uyanık kaldıktan sonra kalkın. Loş bir odada uykunuz gelene kadar okuyun, sonra geri dönün. Bu, yatağın hayal kırıklığı ve uykusuzlukla ilişkilendirilmesini önler. Tavana bir saat bakmak, kanepede bir saat okumaktan uyku için daha kötüdür.
     </p>
 
-    <h2>12. Treat sleep like an investment, not a cost</h2>
+    <h2>12. Uykuyu bir maliyet değil, bir yatırım olarak görün</h2>
     <p>
-      &ldquo;I&rsquo;ll sleep less to get more done&rdquo; is the most common productivity
-      mistake knowledge workers make. Sleep-deprived you is making worse decisions, working
-      slower, and building less durable skill. The hour of sleep you skip costs you two hours of
-      quality next day. Pair sleep fixes with our{" "}
-      <a href="/guides/how-to-reduce-stress">stress reduction guide</a>, since poor sleep and
-      stress reinforce each other.
+      "Daha fazla iş yapmak için daha az uyuyacağım" bilgi çalışanlarının yaptığı en yaygın üretkenlik hatasıdır. Uykusuz kaldığınızda, daha kötü kararlar alır, daha yavaş çalışır ve daha az kalıcı beceriler geliştirirsiniz. Atladığınız bir saatlik uyku, ertesi gün size iki saatlik kaliteli zamana mal olur. Uyku ayarlamalarını stres azaltma rehberimizle birleştirin, çünkü kötü uyku ve stres birbirini besler.
     </p>
 
-    <h2>Your first week</h2>
+    <h2>İlk haftanız</h2>
     <p>
-      Pick three: consistent times, caffeine cutoff at noon, and a 30-minute wind-down. Run them
-      for a week. If you&rsquo;re still struggling, add daylight first thing and cool the
-      bedroom. Most people feel the difference within 7–10 days once the rhythm locks in.
+      Üçünü seçin: tutarlı saatler, öğlene kadar kafein ve 30 dakikalık bir gevşeme rutini. Bir hafta boyunca uygulayın. Hala zorlanıyorsanız, ilk iş olarak sabah güneşini ekleyin ve yatak odasını serinletin. Ritim oturduğunda çoğu insan farkı 7-10 gün içinde hisseder.
     </p>
   </>
 );

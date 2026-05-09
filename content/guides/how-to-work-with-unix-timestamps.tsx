@@ -3,196 +3,211 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A unix timestamp looks like <code>1713830400</code> and means nothing until you
-      decode it. Once you do, it&rsquo;s the most reliable way computers share time
-      &mdash; no timezones, no daylight saving, no ambiguous date formats, just seconds
-      since a fixed moment in 1970. But the moment you need to display that timestamp to
-      a human, store it in a database, compare two values that came from different
-      systems, or handle dates past 2038, the simple idea gets complicated fast. This
-      guide covers what the epoch actually is, the critical seconds-versus-milliseconds
-      distinction that breaks APIs daily, the Year 2038 problem, signed versus unsigned
-      representations, timezone handling, and the edge cases (leap seconds, pre-1970
-      dates) that bite when you least expect.
+      Bir unix zaman damgası <code>1713830400</code> gibi görünür ve onu çözene kadar
+      hiçbir anlam ifade etmez. Çözdüğünüzde, bilgisayarların zamanı paylaşmasının en
+      güvenilir yoludur &mdash; zaman dilimi yok, yaz saati uygulaması yok, belirsiz
+      tarih formatları yok, sadece 1970'teki sabit bir andan itibaren geçen saniyeler.
+      Ancak bu zaman damgasını bir insana göstermeniz, bir veritabanında saklamanız,
+      farklı sistemlerden gelen iki değeri karşılaştırmanız veya 2038 sonrası tarihleri
+      işlemeniz gerektiğinde, basit fikir hızla karmaşıklaşır. Bu rehber, dönemin
+      (epoch) gerçekte ne olduğunu, API'leri her gün bozan kritik saniye-milisaniye
+      ayrımını, 2038 Yılı Sorununu, işaretli ve işaretsiz temsilleri, zaman dilimi
+      yönetimini ve en az beklediğiniz anda canınızı sıkan uç durumları (artık
+      saniyeler, 1970 öncesi tarihler) kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What the unix epoch is</h2>
+    <h2>Unix dönemi (epoch) nedir</h2>
     <p>
-      The <strong>unix epoch</strong> is 00:00:00 UTC on January 1, 1970. A unix timestamp
-      is the number of seconds that have elapsed since that instant, ignoring leap
-      seconds. It&rsquo;s sometimes called &ldquo;epoch time&rdquo; or &ldquo;POSIX
-      time.&rdquo; The choice of 1970 is historical &mdash; it was convenient for the
-      early Unix designers at Bell Labs and became a de-facto standard.
+      <strong>Unix dönemi</strong>, 1 Ocak 1970 00:00:00 UTC'dir. Bir unix zaman damgası,
+      o andan itibaren geçen, artık saniyeleri yok sayan saniye sayısıdır. Bazen
+      &ldquo;dönem zamanı&rdquo; veya &ldquo;POSIX zamanı&rdquo; olarak da adlandırılır.
+      1970 seçimi tarihseldir &mdash; Bell Labs'taki ilk Unix tasarımcıları için
+      uygundu ve fiili bir standart haline geldi.
     </p>
     <p>
-      The critical property: unix timestamps are always in <strong>UTC</strong>. They
-      have no timezone. When you convert <code>1713830400</code> into &ldquo;April 23,
-      2024 12:00 PM,&rdquo; you&rsquo;re choosing a timezone to display it in. The
-      timestamp itself doesn&rsquo;t know what timezone you&rsquo;re in.
-    </p>
-
-    <h2>Seconds vs milliseconds</h2>
-    <p>
-      This is the single most common bug when working with timestamps. Unix time in its
-      original form is measured in <strong>seconds</strong>. JavaScript&rsquo;s{" "}
-      <code>Date.now()</code> returns <strong>milliseconds</strong>. Python&rsquo;s{" "}
-      <code>time.time()</code> returns seconds (as a float). Java&rsquo;s{" "}
-      <code>System.currentTimeMillis()</code> returns milliseconds. If you mix these, you
-      get dates in 1970 (seconds treated as milliseconds) or in the year 55000 (milliseconds
-      treated as seconds).
-    </p>
-    <pre>{`// The same instant, different units:
-seconds:      1713830400
-milliseconds: 1713830400000
-microseconds: 1713830400000000
-nanoseconds:  1713830400000000000
-
-// Heuristic: a 10-digit number is seconds.
-// A 13-digit number is milliseconds.
-// As of 2024, a seconds-timestamp has 10 digits
-// until the year 2286 when it rolls to 11.`}</pre>
-
-    <h2>The Year 2038 problem</h2>
-    <p>
-      On January 19, 2038 at 03:14:07 UTC, the unix timestamp reaches 2,147,483,647
-      &mdash; the maximum value of a signed 32-bit integer. One second later, a 32-bit
-      signed timestamp overflows to &minus;2,147,483,648, which represents December 13,
-      1901. Any system still using 32-bit signed time will read the date as 1901.
-    </p>
-    <p>
-      This is not hypothetical. Embedded devices, old databases, legacy file formats,
-      and SQL columns declared as <code>INT</code> instead of <code>BIGINT</code> are all
-      vulnerable. Modern systems use 64-bit signed integers, which push the overflow to
-      the year 292,277,026,596 &mdash; effectively infinite. If you&rsquo;re designing a
-      schema today, use a 64-bit type and never look back.
+      Kritik özellik: unix zaman damgaları her zaman <strong>UTC</strong> cinsindendir.
+      Zaman dilimleri yoktur. <code>1713830400</code> değerini &ldquo;23 Nisan 2024
+      12:00&rdquo; olarak dönüştürdüğünüzde, onu göstermek için bir zaman dilimi
+      seçiyorsunuzdur. Zaman damgasının kendisi hangi zaman diliminde olduğunuzu
+      bilmez.
     </p>
 
-    <h2>Signed vs unsigned</h2>
+    <h2>Saniye ve milisaniye</h2>
     <p>
-      A signed 32-bit integer can represent dates from 1901-12-13 to 2038-01-19. An
-      unsigned 32-bit integer can represent 1970-01-01 to 2106-02-07 but cannot represent
-      any pre-1970 date. Most languages default to signed, which is why you see
-      2038 mentioned more than 2106. Some older systems (certain C APIs, some
-      databases) use unsigned &mdash; meaning a historical date like a birth date in 1955
-      simply cannot be stored.
+      Bu, zaman damgalarıyla çalışırken en sık karşılaşılan hatadır. Unix zamanı orijinal
+      haliyle <strong>saniye</strong> cinsinden ölçülür. JavaScript'in{" "}
+      <code>Date.now()</code> metodu <strong>milisaniye</strong> döndürür. Python'un{" "}
+      <code>time.time()</code> metodu saniye (ondalıklı sayı olarak) döndürür. Java'nın{" "}
+      <code>System.currentTimeMillis()</code> metodu milisaniye döndürür. Bunları
+      karıştırırsanız, 1970 tarihleri (saniyeler milisaniye olarak işlenir) veya yıl
+      55000 (milisaniyeler saniye olarak işlenir) gibi tarihler elde edersiniz.
+    </p>
+    <pre>{`// Aynı an, farklı birimler:
+saniye:        1713830400
+milisaniye:    1713830400000
+mikrosaniye:   1713830400000000
+nanosaniye:    1713830400000000000
+
+// Kestirme: 10 haneli sayı saniyedir.
+// 13 haneli sayı milisaniyedir.
+// 2024 itibarıyla, saniye cinsinden bir zaman damgası
+// 2286 yılına kadar 10 hanelidir, sonra 11 haneye çıkar.`}</pre>
+
+    <h2>2038 Yılı Sorunu</h2>
+    <p>
+      19 Ocak 2038'de 03:14:07 UTC'de, unix zaman damgası 2.147.483.647'ye ulaşır
+      &mdash; bu, işaretli 32-bit bir tamsayının maksimum değeridir. Bir saniye sonra,
+      32-bit işaretli bir zaman damgası &minus;2.147.483.648'e taşar ve bu da 13 Aralık
+      1901'i temsil eder. Hala 32-bit işaretli zaman kullanan herhangi bir sistem, tarihi
+      1901 olarak okuyacaktır.
+    </p>
+    <p>
+      Bu varsayımsal değildir. Gömülü cihazlar, eski veritabanları, eski dosya
+      formatları ve <code>INT</code> yerine <code>BIGINT</code> olarak bildirilmiş SQL
+      sütunlarının tümü savunmasızdır. Modern sistemler, taşmayı yıl 292.277.026.596'ya
+      &mdash; yani neredeyse sonsuza &mdash; iten 64-bit işaretli tamsayılar kullanır.
+      Bugün bir şema tasarlıyorsanız, 64-bit bir tür kullanın ve bir daha geriye
+      bakmayın.
     </p>
 
-    <h2>Timezones and offsets</h2>
+    <h2>İşaretli ve işaretsiz</h2>
     <p>
-      To display a unix timestamp to a human, apply a timezone offset. UTC has offset
-      +00:00. New York in winter is &minus;05:00, in summer &minus;04:00 (daylight
-      saving). Tokyo is +09:00 year-round. Converting from timestamp to local time:
+      İşaretli 32-bit bir tamsayı, 1901-12-13 ile 2038-01-19 arasındaki tarihleri temsil
+      edebilir. İşaretsiz 32-bit bir tamsayı, 1970-01-01 ile 2106-02-07 arasını temsil
+      edebilir ancak 1970 öncesi hiçbir tarihi temsil edemez. Çoğu dil varsayılan olarak
+      işaretli kullanır, bu nedenle 2106'dan daha çok 2038'den bahsedildiğini
+      görürsünüz. Bazı eski sistemler (belirli C API'leri, bazı veritabanları) işaretsiz
+      kullanır &mdash; bu, 1955'teki bir doğum tarihi gibi tarihsel bir tarihin
+      saklanamayacağı anlamına gelir.
+    </p>
+
+    <h2>Saat dilimleri ve ofsetler</h2>
+    <p>
+      Bir unix zaman damgasını bir insana göstermek için bir saat dilimi ofseti
+      uygulayın. UTC'nin ofseti +00:00'dır. Kışın New York &minus;05:00, yazın
+      &minus;04:00'dır (yaz saati uygulaması). Tokyo yıl boyunca +09:00'dır. Zaman
+      damgasından yerel saate dönüştürme:
     </p>
     <pre>{`timestamp = 1713830400        // 2024-04-23 00:00:00 UTC
-offsetHours = -5              // New York EST
-localHour = (timestamp / 3600 + offsetHours) % 24
+offsetSaat = -5              // New York EST
+yerelSaat = (timestamp / 3600 + offsetSaat) % 24
 
-// Or in Python:
+// Veya Python'da:
 from datetime import datetime, timezone, timedelta
 utc = datetime.fromtimestamp(1713830400, tz=timezone.utc)
 ny = utc.astimezone(timezone(timedelta(hours=-5)))
 print(ny.isoformat())  # 2024-04-22T19:00:00-05:00`}</pre>
     <p>
-      Critical rule: <strong>store timestamps in UTC, display in local time</strong>.
-      Never store &ldquo;2024-04-23 12:00 PM Eastern&rdquo; in a database &mdash; you
-      lose the ability to compare, sort, or handle users from other zones.
+      Kritik kural: <strong>zaman damgalarını UTC olarak saklayın, yerel saatte
+      görüntüleyin</strong>. Veritabanına asla &ldquo;2024-04-23 12:00 Eastern&rdquo;
+      gibi bir değer kaydetmeyin &mdash; karşılaştırma, sıralama veya diğer
+      bölgelerdeki kullanıcıları işleme yeteneğinizi kaybedersiniz.
     </p>
 
-    <h2>Leap seconds</h2>
+    <h2>Artık saniyeler</h2>
     <p>
-      Earth&rsquo;s rotation is slightly irregular, so international timekeeping
-      occasionally inserts a <strong>leap second</strong> &mdash; a 23:59:60 UTC before
-      the next day begins. Unix time ignores leap seconds; it pretends they don&rsquo;t
-      exist. This means unix time is not strictly continuous with atomic time. For most
-      applications this doesn&rsquo;t matter. For financial trading, satellite tracking,
-      or anything requiring sub-second accuracy across years, it does &mdash; which is
-      why those systems use TAI (International Atomic Time) instead.
+      Dünya'nın dönüşü biraz düzensizdir, bu nedenle uluslararası zaman işleyişi ara
+      sıra bir <strong>artık saniye</strong> ekler &mdash; bir sonraki gün başlamadan
+      önce 23:59:60 UTC. Unix zamanı artık saniyeleri yok sayar; onlar yokmuş gibi
+      davranır. Bu, unix zamanının atom zamanıyla tam olarak sürekli olmadığı anlamına
+      gelir. Çoğu uygulama için bu önemli değildir. Finansal ticaret, uydu takibi veya
+      yıllar boyunca saniye altı doğruluk gerektiren herhangi bir şey için önemlidir
+      &mdash; bu nedenle bu sistemler bunun yerine TAI (Uluslararası Atom Zamanı)
+      kullanır.
     </p>
     <p>
-      Between 1972 and 2024, 27 leap seconds have been added. The General Conference on
-      Weights and Measures voted in 2022 to effectively abandon leap seconds by 2035.
-    </p>
-
-    <h2>Pre-1970 dates</h2>
-    <p>
-      Unix timestamps can be negative. <code>-1</code> means December 31, 1969
-      23:59:59 UTC. <code>-31536000</code> is roughly January 1, 1969. Many libraries
-      handle negative timestamps correctly; some don&rsquo;t. JavaScript&rsquo;s{" "}
-      <code>new Date(-1000)</code> works. Older C <code>time_t</code> on unsigned
-      platforms does not. Test before you trust.
+      1972 ile 2024 arasında 27 artık saniye eklenmiştir. Ağırlıklar ve Ölçüler Genel
+      Konferansı 2022'de 2035'e kadar artık saniyeleri etkili bir şekilde terk etme
+      kararı almıştır.
     </p>
 
-    <h2>Common formats and their timestamps</h2>
+    <h2>1970 öncesi tarihler</h2>
+    <p>
+      Unix zaman damgaları negatif olabilir. <code>-1</code>, 31 Aralık 1969 23:59:59
+      UTC anlamına gelir. <code>-31536000</code> kabaca 1 Ocak 1969'dur. Birçok
+      kütüphane negatif zaman damgalarını doğru işler; bazıları işlemez. JavaScript'in{" "}
+      <code>new Date(-1000)</code> ifadesi çalışır. İşaretsiz platformlardaki eski C
+      <code>time_t</code> yapısı çalışmaz. Güvenmeden önce test edin.
+    </p>
+
+    <h2>Yaygın formatlar ve zaman damgaları</h2>
     <pre>{`ISO 8601:       2024-04-23T00:00:00Z
 RFC 2822:       Tue, 23 Apr 2024 00:00:00 +0000
-Unix seconds:   1713830400
+Unix saniye:    1713830400
 Unix ms:        1713830400000
-Windows FILETIME: 133584672000000000  (100ns since 1601)
-.NET Ticks:     638493696000000000    (100ns since year 1)
-Excel date:     45405                 (days since 1900-01-01)`}</pre>
+Windows FILETIME: 133584672000000000  (1601'den beri 100ns)
+.NET Ticks:     638493696000000000    (yıl 1'den beri 100ns)
+Excel tarihi:     45405                 (1900-01-01'den beri gün)`}</pre>
     <p>
-      Excel&rsquo;s date serial has a famous bug: it incorrectly treats 1900 as a leap
-      year, so dates before March 1900 are off by one. This was preserved for Lotus 1-2-3
-      compatibility and can never be fixed.
+      Excel'in tarih seri numarasının ünlü bir hatası vardır: 1900'ü yanlışlıkla artık
+      yıl olarak kabul eder, bu nedenle Mart 1900'den önceki tarihler bir gün hatalıdır.
+      Bu, Lotus 1-2-3 uyumluluğu için korunmuştur ve asla düzeltilemez.
     </p>
 
-    <h2>Database storage</h2>
+    <h2>Veritabanı depolama</h2>
     <p>
-      PostgreSQL&rsquo;s <code>timestamptz</code> stores a UTC instant and returns it in
-      the session timezone &mdash; use this. MySQL&rsquo;s <code>TIMESTAMP</code> is UTC
-      stored, 4 bytes, but it&rsquo;s limited to 1970&ndash;2038 on 32-bit builds &mdash;
-      use <code>DATETIME</code> for dates outside that range. SQLite has no native type
-      &mdash; store as integer (unix seconds) or ISO text. MongoDB uses BSON Date
-      (milliseconds, 64-bit signed).
+      PostgreSQL'in <code>timestamptz</code> türü bir UTC anını saklar ve onu oturum
+      saat diliminde döndürür &mdash; bunu kullanın. MySQL'in <code>TIMESTAMP</code> türü
+      UTC olarak saklanır, 4 bayttır, ancak 32-bit yapılarda 1970&ndash;2038 ile
+      sınırlıdır &mdash; bu aralığın dışındaki tarihler için <code>DATETIME</code>
+      kullanın. SQLite'ın yerel bir türü yoktur &mdash; tamsayı (unix saniye) veya ISO
+      metni olarak saklayın. MongoDB, BSON Date (milisaniye, 64-bit işaretli) kullanır.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Mixing seconds and milliseconds.</strong> An off-by-1000 error produces
-      dates in 1970 or 55000. Always confirm the unit before passing timestamps between
-      systems.
+      <strong>Saniye ve milisaniyeyi karıştırmak.</strong> 1000 kat hata, 1970 veya 55000
+      tarihleri üretir. Sistemler arasında zaman damgası göndermeden önce birimi her
+      zaman doğrulayın.
     </p>
     <p>
-      <strong>Storing local time without offset.</strong> &ldquo;2024-04-23 12:00&rdquo;
-      is ambiguous &mdash; you can&rsquo;t recover UTC from it. Store UTC plus optional
-      display timezone.
+      <strong>Yerel saati ofset olmadan saklamak.</strong> &ldquo;2024-04-23 12:00&rdquo;
+      belirsizdir &mdash; ondan UTC'yi kurtaramazsınız. UTC artı isteğe bağlı görüntüleme
+      saat dilimini saklayın.
     </p>
     <p>
-      <strong>Using 32-bit integers for new schemas.</strong> The 2038 problem is close
-      enough that any long-lived system needs 64-bit time columns.
+      <strong>Yeni şemalar için 32-bit tamsayı kullanmak.</strong> 2038 sorunu, uzun
+      ömürlü herhangi bir sistemin 64-bit zaman sütunlarına ihtiyaç duyacağı kadar
+      yakındır.
     </p>
     <p>
-      <strong>Assuming a day is 86,400 seconds.</strong> On leap-second days it&rsquo;s
-      86,401. On DST transition days in local time it&rsquo;s 23 or 25 hours. Use
-      calendar-aware date math for day arithmetic.
+      <strong>Bir günün 86.400 saniye olduğunu varsaymak.</strong> Artık saniye
+      günlerinde 86.401'dir. Yerel saatte DST geçiş günlerinde 23 veya 25 saattir. Gün
+      aritmetiği için takvim bilincine sahip tarih matematiği kullanın.
     </p>
     <p>
-      <strong>Trusting client clocks.</strong> User devices are routinely 30 seconds to
-      hours off. For auth tokens, signatures, and any security-sensitive comparison, use
-      server time and allow a clock-skew tolerance.
+      <strong>İstemci saatlerine güvenmek.</strong> Kullanıcı cihazları genellikle 30
+      saniyeden saatlere kadar sapar. Kimlik doğrulama token'ları, imzalar ve güvenlik
+      açısından hassas herhangi bir karşılaştırma için sunucu saatini kullanın ve bir
+      saat kayması toleransına izin verin.
     </p>
     <p>
-      <strong>Parsing &ldquo;2024-04-23&rdquo; as midnight UTC.</strong> Depending on the
-      library, a date-only string parses as midnight UTC, midnight local, or throws.
-      Always pass explicit timezone.
+      <strong>&ldquo;2024-04-23&rdquo; ifadesini UTC gece yarısı olarak ayrıştırmak.</strong>
+      Kütüphaneye bağlı olarak, yalnızca tarih içeren bir dize, UTC gece yarısı, yerel
+      gece yarısı olarak ayrıştırılır veya hata verir. Her zaman açık saat dilimi
+      belirtin.
     </p>
     <p>
-      <strong>Ignoring daylight saving when scheduling.</strong> &ldquo;Every day at
-      9am&rdquo; in a fixed UTC timestamp shifts by an hour twice a year in DST
-      countries. Store the local intent and recompute the UTC trigger per-run.
+      <strong>Zamanlama yaparken yaz saatini yok saymak.</strong> Sabit bir UTC zaman
+      damgasındaki &ldquo;Her gün saat 9'da&rdquo; ifadesi, DST ülkelerinde yılda iki
+      kez bir saat kayar. Yerel niyeti saklayın ve UTC tetikleyicisini her çalıştırmada
+      yeniden hesaplayın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Convert between unix timestamps and human-readable dates with the{" "}
-      <a href="/tools/unix-timestamp-converter">unix timestamp converter</a>. Pair with
-      the <a href="/tools/time-zone-converter">time zone converter</a> to translate a UTC
-      instant across regions, and the{" "}
-      <a href="/tools/discord-timestamp">discord timestamp generator</a> to embed those
-      timestamps in messages that render correctly for every viewer&rsquo;s local zone.
+      Unix zaman damgaları ve insan tarafından okunabilir tarihler arasında{" "}
+      <a href="/tools/unix-timestamp-converter">unix zaman damgası dönüştürücü</a> ile
+      dönüşüm yapın. Bir UTC anını bölgeler arasında çevirmek için{" "}
+      <a href="/tools/time-zone-converter">saat dilimi dönüştürücü</a> ile eşleştirin ve
+      bu zaman damgalarını her izleyicinin yerel bölgesinde doğru şekilde görüntülenecek
+      mesajlara gömmek için{" "}
+      <a href="/tools/discord-timestamp">discord zaman damgası oluşturucu</a>'yu
+      kullanın.
     </p>
   </>
 );

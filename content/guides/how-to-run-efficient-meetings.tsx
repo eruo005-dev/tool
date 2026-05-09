@@ -3,248 +3,225 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A meeting of 8 people for an hour isn&rsquo;t a 1-hour meeting
-      — it&rsquo;s an 8-hour meeting, charged at the combined hourly
-      rate of everyone in it. Most companies run meetings as if the
-      cost is zero. This guide walks through the actual dollar cost
-      of a meeting, the four meeting types worth holding, the
-      single-question test for whether to hold one at all, and the
-      tactical rules that make meetings actually end on time.
+      8 kişinin bir saatlik toplantısı, 1 saatlik bir toplantı değildir
+      — bu, içindeki herkesin saatlik ücretlerinin toplamıyla hesaplanan
+      8 saatlik bir toplantıdır. Çoğu şirket, toplantıları maliyeti sıfırmış gibi yönetir. Bu rehber, bir toplantının gerçek dolar maliyetini, düzenlenmeye değer dört toplantı türünü, bir toplantının yapılıp yapılmayacağına karar vermek için tek soruluk testi ve toplantıların gerçekten zamanında bitmesini sağlayan taktiksel kuralları adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The real cost of a meeting</h2>
+    <h2>Bir toplantının gerçek maliyeti</h2>
     <p>
-      Cost = Σ (each attendee&rsquo;s fully-loaded hourly rate) ×
-      meeting length in hours.
+      Maliyet = Σ (her katılımcının tüm yan haklar dahil saatlik ücreti) ×
+      toplantı süresi (saat cinsinden).
     </p>
     <p>
-      Fully-loaded rate = salary × 1.3-1.4 (to include benefits,
-      taxes, overhead). A $120k engineer costs the company ~$75/hour.
+      Tüm yan haklar dahil ücret = maaş × 1.3-1.4 (yan haklar, vergiler,
+      genel giderleri dahil etmek için). 120 bin dolar kazanan bir mühendis, şirkete saatte ~75 dolara mal olur.
     </p>
     <p>
-      <strong>Example:</strong> weekly 1-hour sync with 8 senior
-      engineers at $120k each = $600/meeting = $31,200/year. Across
-      a company of 200 people, meeting bloat at 20% of time at
-      loaded-rate economics often runs into the millions.
+      <strong>Örnek:</strong> Her biri 120 bin dolar kazanan 8 kıdemli
+      mühendisle haftalık 1 saatlik senkronizasyon toplantısı = 600 dolar/toplantı = yılda 31.200 dolar. 200 kişilik bir şirkette, zamanın %20'sini alan toplantı şişkinliği, yan haklar dahil ekonomiyle genellikle milyonlara ulaşır.
     </p>
     <p>
-      This cost is invisible in most budgets because it&rsquo;s
-      already spent on salaries — but it&rsquo;s a real opportunity
-      cost. Every hour in a meeting is an hour not writing code,
-      talking to customers, or thinking.
+      Bu maliyet çoğu bütçede görünmez çünkü zaten maaşlara harcanmıştır
+      — ancak gerçek bir fırsat maliyetidir. Toplantıda geçen her saat, kod yazmamak, müşterilerle konuşmamak veya düşünmemek anlamına gelir.
     </p>
 
-    <h2>The single-question test</h2>
+    <h2>Tek soruluk test</h2>
     <p>
-      Before scheduling: <strong>Could this be an async
-      document?</strong>
+      Planlamadan önce: <strong>Bu, eşzamansız bir belge olabilir mi?</strong>
     </p>
     <p>
-      If yes → write the doc, share it, collect async comments.
+      Cevap evetse → belgeyi yazın, paylaşın, eşzamansız yorumları toplayın.
     </p>
     <p>
-      If no → meeting is justified, but keep it focused.
+      Cevap hayırsa → toplantı haklıdır, ancak odaklanmış tutun.
     </p>
     <p>
-      Status updates, announcements, read-aloud decks, and
-      FYI-style briefings almost always fail the test. Read time
-      &lt;&lt; speaking time, and docs can be searched later.
+      Durum güncellemeleri, duyurular, sesli okunan slaytlar ve
+      bilgilendirme amaçlı brifingler neredeyse her zaman testte başarısız olur. Okuma süresi &lt;&lt; konuşma süresidir ve belgelere daha sonra aranabilir.
     </p>
 
-    <h2>The 4 meeting types that earn their cost</h2>
+    <h2>Maliyetini karşılayan 4 toplantı türü</h2>
     <p>
-      <strong>1. Decision meetings.</strong> A decision needs to be
-      made, options have been pre-circulated, and the decider + 2-4
-      informed voices are present. 30 minutes max. Output: decision
-      + owner + deadline.
+      <strong>1. Karar toplantıları.</strong> Bir karar alınması gerekiyor,
+      seçenekler önceden dağıtılmış ve karar verici + 2-4 bilgili
+      kişi hazır bulunuyor. En fazla 30 dakika. Çıktı: karar
+      + sorumlu + son tarih.
     </p>
     <p>
-      <strong>2. Brainstorming / creative meetings.</strong>
-      High-bandwidth idea generation where the back-and-forth itself
-      produces the output. Small groups (3-6), clear prompt, timebox.
-      Output: ranked list of ideas + followups.
+      <strong>2. Beyin fırtınası / yaratıcı toplantılar.</strong>
+      Yüksek bant genişlikli fikir üretimi; burada ileri geri tartışma
+      çıktıyı üretir. Küçük gruplar (3-6), net yönlendirme, zaman sınırı.
+      Çıktı: sıralanmış fikir listesi + takip edilecekler.
     </p>
     <p>
-      <strong>3. Status / sync meetings with action.</strong> Short,
-      updates tied to blockers needing help. Works best daily with
-      team &lt; 8 (standup), 15 minutes max.
+      <strong>3. Eylem içeren durum / senkronizasyon toplantıları.</strong>
+      Kısa, yardım gerektiren engellere bağlı güncellemeler. En iyi, 8 kişiden az ekiplerle günlük (stand-up), en fazla 15 dakika.
     </p>
     <p>
-      <strong>4. Relationship / 1:1 meetings.</strong> Building
-      trust, coaching, career discussion. These are genuinely high
-      bandwidth and hard to async. Weekly or biweekly, 30 minutes.
+      <strong>4. İlişki / bire bir toplantılar.</strong> Güven
+      oluşturma, koçluk, kariyer tartışması. Bunlar gerçekten yüksek
+      bant genişliklidir ve eşzamansız yapılması zordur. Haftalık veya iki haftada bir, 30 dakika.
     </p>
     <p>
-      Everything else is typically a doc in disguise.
-    </p>
-
-    <h2>The agenda rules</h2>
-    <p>
-      <strong>Written agenda circulated at least 24 hours in
-      advance.</strong> No exceptions. If there&rsquo;s no agenda,
-      cancel — you&rsquo;re not actually clear on what the meeting
-      is about.
-    </p>
-    <p>
-      <strong>Every agenda item has an owner and a desired outcome.</strong>
-      Not just &ldquo;Discuss Q3 launch&rdquo; but &ldquo;Decide Q3
-      launch date — owner: Sam — outcome: locked date.&rdquo;
-    </p>
-    <p>
-      <strong>Time per item.</strong> Fifteen minutes, 10 minutes,
-      whatever. Explicit timeboxes prevent any single item from
-      swallowing the meeting.
-    </p>
-    <p>
-      <strong>Pre-read linked.</strong> If understanding the topic
-      requires background, attach it. Attendees without the pre-read
-      can be disinvited — genuinely, this is a healthy norm.
+      Bunun dışındaki her şey genellikle kılık değiştirmiş bir belgedir.
     </p>
 
-    <h2>The attendee rules</h2>
+    <h2>Gündem kuralları</h2>
     <p>
-      <strong>Invite only the people who need to be there.</strong>
-      Default to fewer. If someone is included &ldquo;just to be
-      informed,&rdquo; they can read the notes. Informing by meeting
-      is expensive and disrespectful of their time.
+      <strong>Yazılı gündem en az 24 saat önceden dağıtılır.</strong> İstisnasız. Gündem yoksa iptal edin — toplantının ne hakkında olduğu konusunda aslında net değilsiniz.
     </p>
     <p>
-      <strong>Amazon&rsquo;s &ldquo;two-pizza rule&rdquo;:</strong>
-      if the meeting can&rsquo;t be fed by two pizzas, it&rsquo;s too
-      big. Practical cap ~8 people; creative/decision meetings work
-      best at 4-6.
+      <strong>Her gündem maddesinin bir sahibi ve istenen bir sonucu vardır.</strong>
+      Sadece &ldquo;3. çeyrek lansmanını tartışmak&rdquo; değil, &ldquo;3. çeyrek
+      lansman tarihine karar vermek — sahibi: Sam — sonuç: kilitlenmiş tarih.&rdquo;
     </p>
     <p>
-      <strong>Explicit roles.</strong> For anything beyond a 1:1:
-      who runs the meeting, who takes notes, who tracks time. Named
-      in the invite.
-    </p>
-
-    <h2>The meeting itself — tactical rules</h2>
-    <p>
-      <strong>Start on time.</strong> Strict. If late-joiners can&rsquo;t
-      catch up, that&rsquo;s a feedback signal. The cost of 8 people
-      waiting 5 minutes is 40 person-minutes.
+      <strong>Madde başına süre.</strong> On beş dakika, 10 dakika,
+      her neyse. Açık zaman sınırları, tek bir maddenin toplantıyı yutmasını önler.
     </p>
     <p>
-      <strong>First 2 minutes: state the outcome.</strong> &ldquo;By
-      end of this hour, we&rsquo;ll have decided X.&rdquo; Anchors
-      everyone.
-    </p>
-    <p>
-      <strong>No laptops / phones unless needed for the meeting.</strong>
-      If someone needs to multitask, they shouldn&rsquo;t be here.
-      Exception: designated notetaker.
-    </p>
-    <p>
-      <strong>Parking-lot off-topic items.</strong> Keep the meeting
-      on the agenda; capture tangents in a &ldquo;parking lot&rdquo;
-      for later.
-    </p>
-    <p>
-      <strong>End 5 minutes early.</strong> Makes space for people to
-      process and move to the next thing without running late. Also
-      builds trust that meetings respect the clock.
+      <strong>Ön okuma bağlantısı.</strong> Konuyu anlamak
+      arka plan bilgisi gerektiriyorsa, ekleyin. Ön okumayı yapmayan
+      katılımcılar davet dışı bırakılabilir — gerçekten, bu sağlıklı bir normdur.
     </p>
 
-    <h2>Notes and follow-through</h2>
+    <h2>Katılımcı kuralları</h2>
     <p>
-      <strong>Live note-taking</strong> visible to attendees (shared
-      doc projected or on screen). Forces alignment in real time.
+      <strong>Yalnızca orada olması gereken kişileri davet edin.</strong>
+      Varsayılan olarak daha az kişi. Birisi &ldquo;sadece bilgilendirilmek için&rdquo; dahil ediliyorsa, notları okuyabilir. Toplantı yoluyla bilgilendirmek pahalıdır ve zamanlarına saygısızlıktır.
     </p>
     <p>
-      <strong>Every decision ← DRI (directly responsible
-      individual) + date.</strong> &ldquo;Owner: Sam. Due: Fri. If
-      blocked, surface by Thursday.&rdquo;
+      <strong>Amazon'un &ldquo;iki pizza kuralı&rdquo;:</strong>
+      toplantı iki pizzayla beslenemiyorsa, çok büyüktür.
+      Pratik üst sınır ~8 kişi; yaratıcı/karar toplantıları en iyi
+      4-6 kişiyle çalışır.
     </p>
     <p>
-      <strong>Notes shared within 24 hours</strong>, including to
-      people not present who need to know.
-    </p>
-    <p>
-      Without clear followups, &ldquo;great meetings&rdquo; evaporate
-      by Monday. The output of a decision meeting isn&rsquo;t the
-      conversation — it&rsquo;s the decision + owner + deadline
-      written down.
+      <strong>Açık roller.</strong> Bire birin ötesindeki her şey için:
+      toplantıyı kim yönetir, notları kim alır, zamanı kim takip eder.
+      Davetiyede belirtilir.
     </p>
 
-    <h2>Meeting-free time blocks</h2>
+    <h2>Toplantının kendisi — taktiksel kurallar</h2>
     <p>
-      <strong>Maker time.</strong> Engineers, writers, designers
-      need multi-hour uninterrupted blocks. Protect Tues/Thurs
-      mornings or Wed all-day as meeting-free if possible.
+      <strong>Zamanında başlayın.</strong> Katı. Geç gelenler
+      yetişemiyorsa, bu bir geri bildirim sinyalidir. 8 kişinin
+      5 dakika beklemesinin maliyeti 40 kişi-dakikasıdır.
     </p>
     <p>
-      <strong>No-meeting Wednesday.</strong> Popularized at Shopify
-      and others. Whole company off-calendar. 1 day of deep work
-      recovered per week.
+      <strong>İlk 2 dakika: sonucu belirtin.</strong> &ldquo;Bu
+      saatin sonunda X'e karar vermiş olacağız.&rdquo; Herkesi
+      odaklar.
     </p>
     <p>
-      <strong>Default meeting length 25 / 50 minutes</strong> instead
-      of 30 / 60. Parkinson&rsquo;s law ensures meetings fill the
-      time; shorter slots end on time.
-    </p>
-
-    <h2>The meetings you should cancel</h2>
-    <p>
-      <strong>Status meetings that have become recurring rituals</strong>
-      with no active blockers. Replace with async standup in Slack /
-      Notion.
+      <strong>Toplantı için gerekli değilse dizüstü bilgisayar / telefon yok.</strong>
+      Birinin çoklu görev yapması gerekiyorsa, burada olmamalı.
+      İstisna: belirlenmiş not alan kişi.
     </p>
     <p>
-      <strong>&ldquo;Tell the team about X&rdquo; meetings.</strong>
-      Write a doc. One-way information transfer does not need
-      synchronous time.
+      <strong>Konu dışı maddeleri bekleme listesine alın.</strong> Toplantıyı
+      gündemde tutun; konu dışına çıkanları daha sonra değerlendirilmek üzere bir &ldquo;bekleme listesine&rdquo; kaydedin.
     </p>
     <p>
-      <strong>Quarterly / annual reviews turned into all-hands
-      readouts of slides.</strong> Send the deck, hold Q&amp;A only.
-    </p>
-    <p>
-      <strong>Meetings without a clear decider.</strong> If no one
-      can call the decision, the meeting can&rsquo;t produce one.
-      Cancel; fix ownership first.
+      <strong>5 dakika erken bitirin.</strong> İnsanların
+      işlemek ve bir sonraki şeye geçmek için zamanı olur, gecikmezler. Ayrıca
+      toplantıların saate saygı duyduğuna dair güven oluşturur.
     </p>
 
-    <h2>The cancel-reduce-shorten framework</h2>
+    <h2>Notlar ve takip</h2>
     <p>
-      Once a quarter, audit your recurring meetings:
+      <strong>Canlı not alma</strong> katılımcılar tarafından görülebilir (paylaşılan
+      belge yansıtılır veya ekranda). Gerçek zamanlı uyumu zorlar.
     </p>
     <p>
-      <strong>Cancel:</strong> no longer solving a real problem.
+      <strong>Her karar ← DYS (doğrudan sorumlu kişi)
+      + tarih.</strong> &ldquo;Sahibi: Sam. Son tarih: Cuma. Engellenirse,
+      Perşembe'ye kadar bildirin.&rdquo;
     </p>
     <p>
-      <strong>Reduce frequency:</strong> weekly → biweekly, daily →
-      twice weekly.
+      <strong>Notlar 24 saat içinde paylaşılır</strong>, bilmesi gereken ancak
+      toplantıda bulunmayan kişiler de dahil.
     </p>
     <p>
-      <strong>Shorten:</strong> 60 → 30, 30 → 15. 90% of 60-min
-      meetings can be done in 30 once you remove the small talk and
-      tangents.
-    </p>
-    <p>
-      <strong>Reduce attendance:</strong> cut the list by 30%.
-      Watch if anyone notices.
-    </p>
-    <p>
-      A single quarter of disciplined auditing typically recovers
-      5-10 hours/person/week.
+      Net takipler olmadan, &ldquo;harika toplantılar&rdquo; Pazartesi'ye kadar buharlaşır.
+      Bir karar toplantısının çıktısı konuşma değildir
+      — yazılı olarak alınan karar + sahip + son tarihtir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Toplantısız zaman blokları</h2>
     <p>
-      Compute a meeting&rsquo;s real cost with the{" "}
-      <a href="/tools/meeting-cost-calculator">meeting cost
-      calculator</a>. Pair with the{" "}
-      <a href="/tools/paycheck-calculator">paycheck calculator</a>
-      {" "}if you&rsquo;re working from gross salaries to loaded
-      hourly rates, and the{" "}
-      <a href="/tools/hourly-rate-calculator">hourly rate calculator</a>
-      {" "}for the inverse (salary from hourly).
+      <strong>Üretici zamanı.</strong> Mühendisler, yazarlar, tasarımcılar
+      çok saatli kesintisiz bloklara ihtiyaç duyar. Mümkünse Salı/Perşembe
+      sabahlarını veya Çarşamba gününün tamamını toplantısız koruyun.
+    </p>
+    <p>
+      <strong>Toplantısız Çarşamba.</strong> Shopify
+      ve diğerlerinde popüler hale getirildi. Tüm şirket takvim dışı. Haftada 1 gün derin çalışma
+      kazanılır.
+    </p>
+    <p>
+      <strong>Varsayılan toplantı süresi 25 / 50 dakika</strong> 30 / 60
+      yerine. Parkinson yasası, toplantıların süreyi doldurmasını sağlar;
+      daha kısa aralıklar zamanında biter.
+    </p>
+
+    <h2>İptal etmeniz gereken toplantılar</h2>
+    <p>
+      <strong>Aktif engelleyicisi olmayan, tekrarlayan ritüellere dönüşmüş durum toplantıları.</strong> Slack / Notion'da eşzamansız stand-up ile değiştirin.
+    </p>
+    <p>
+      <strong>&ldquo;Ekibi X hakkında bilgilendir&rdquo; toplantıları.</strong>
+      Bir belge yazın. Tek yönlü bilgi aktarımı eşzamanlı
+      zaman gerektirmez.
+    </p>
+    <p>
+      <strong>Slaytların tüm ekibe okunduğu çeyreklik / yıllık değerlendirme toplantıları.</strong>
+      Slaytları gönderin, yalnızca Soru-Cevap yapın.
+    </p>
+    <p>
+      <strong>Net bir karar vericisi olmayan toplantılar.</strong> Kimse
+      kararı veremiyorsa, toplantı bir tane üretemez.
+      İptal edin; önce sahipliği düzeltin.
+    </p>
+
+    <h2>İptal et-azalt-kısalt çerçevesi</h2>
+    <p>
+      Üç ayda bir, tekrarlayan toplantılarınızı denetleyin:
+    </p>
+    <p>
+      <strong>İptal edin:</strong> artık gerçek bir sorunu çözmüyor.
+    </p>
+    <p>
+      <strong>Sıklığı azaltın:</strong> haftalık → iki haftada bir, günlük →
+      haftada iki kez.
+    </p>
+    <p>
+      <strong>Kısaltın:</strong> 60 → 30, 30 → 15. 60 dakikalık toplantıların %90'ı, küçük konuşmaları ve konu dışına çıkmayı kaldırdığınızda 30 dakikada yapılabilir.
+    </p>
+    <p>
+      <strong>Katılımı azaltın:</strong> listeyi %30 oranında kesin.
+      Birinin fark edip etmediğini izleyin.
+    </p>
+    <p>
+      Disiplinli bir denetim çeyreği genellikle kişi başına haftada
+      5-10 saat kazandırır.
+    </p>
+
+    <h2>Rakamları hesaplayın</h2>
+    <p>
+      Bir toplantının gerçek maliyetini{" "}
+      <a href="/tools/meeting-cost-calculator">toplantı maliyeti
+      hesaplayıcısı</a> ile hesaplayın. Brüt maaşlardan yan haklar dahil
+      saatlik ücretlere çalışıyorsanız{" "}
+      <a href="/tools/paycheck-calculator">maaş hesaplayıcısı</a>
+      {" "}ile ve tersi için (saatlik ücretten maaşa){" "}
+      <a href="/tools/hourly-rate-calculator">saatlik ücret hesaplayıcısı</a>
+      {" "}ile birlikte kullanın.
     </p>
   </>
 );

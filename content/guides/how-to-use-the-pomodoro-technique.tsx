@@ -3,277 +3,279 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      The Pomodoro Technique is a productivity system where you work in
-      fixed 25-minute blocks separated by 5-minute breaks, with a longer
-      break every four blocks. Invented by Francesco Cirillo in the late
-      1980s using a tomato-shaped kitchen timer (hence <em>pomodoro</em>,
-      Italian for tomato). It works because it externalizes time
-      management, reduces the friction of getting started, and builds in
-      recovery before you notice you&rsquo;re tired. This guide covers the
-      25/5 cycle, the four-and-long-break pattern, how to batch tasks,
-      what to do about context switches and interruptions, and the
-      popular variants (50/10, 90-minute deep work) when the classic
-      25/5 doesn&rsquo;t fit your work.
+      Pomodoro Tekniği, sabit 25 dakikalık çalışma bloklarının 5 dakikalık
+      molalarla ayrıldığı ve her dört blokta bir daha uzun bir mola verilen
+      bir üretkenlik sistemidir. 1980'lerin sonunda Francesco Cirillo
+      tarafından domates şeklindeki bir mutfak zamanlayıcısı kullanılarak
+      icat edilmiştir (bu nedenle <em>pomodoro</em>, İtalyancada domates
+      anlamına gelir). Zaman yönetimini dışsallaştırdığı, işe başlama
+      eşiğini düşürdüğü ve yorulduğunuzu fark etmeden önce toparlanma
+      sağladığı için işe yarar. Bu rehber, 25/5 döngüsünü, dört-blok-ve-uzun-mola
+      düzenini, görevleri nasıl gruplayacağınızı, bağlam değiştirme ve
+      kesintilerle ne yapacağınızı ve klasik 25/5'in işinize uymadığı
+      durumlarda popüler varyantları (50/10, 90 dakikalık derin çalışma)
+      kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The classic 25/5 cycle</h2>
+    <h2>Klasik 25/5 döngüsü</h2>
     <p>
-      One &ldquo;pomodoro&rdquo; = 25 minutes of focused work followed by
-      a 5-minute break. After four pomodoros, take a longer break of
-      15&ndash;30 minutes.
+      Bir &ldquo;pomodoro&rdquo; = 25 dakika odaklanmış çalışma ve ardından
+      5 dakikalık mola. Dört pomodorodan sonra 15&ndash;30 dakikalık daha
+      uzun bir mola verin.
     </p>
-    <pre>{`25 min work  |  5 min break
-25 min work  |  5 min break
-25 min work  |  5 min break
-25 min work  |  20 min break   <-- long break
-(repeat)`}</pre>
+    <pre>{`25 dk çalışma  |  5 dk mola
+25 dk çalışma  |  5 dk mola
+25 dk çalışma  |  5 dk mola
+25 dk çalışma  |  20 dk mola   <-- uzun mola
+(tekrar)`}</pre>
     <p>
-      Four pomodoros = 2 hours of elapsed time, ~1h 40m of work. Most
-      people hit their wall around pomodoro 8&ndash;12 (four hours of
-      focused work). That&rsquo;s more focused work than most people
-      actually do in a normal 8-hour day.
-    </p>
-
-    <h2>Why 25 minutes</h2>
-    <p>
-      Short enough that anyone can commit to &ldquo;just do one
-      pomodoro.&rdquo; Long enough to get past the friction of starting and
-      drop into flow. Crucially, it ends before mental fatigue
-      accumulates, so you come back to the next block with full
-      capacity.
-    </p>
-    <p>
-      Shorter intervals (15 min) tend to feel rushed; longer ones (60+
-      min) defeat the recovery purpose and are functionally just plain
-      work sessions. Twenty-five is a well-calibrated default.
+      Dört pomodoro = 2 saat geçen süre, ~1s 40d çalışma. Çoğu kişi
+      pomodoro 8&ndash;12 civarında (dört saat odaklanmış çalışma) duvara
+      çarpar. Bu, çoğu insanın normal bir 8 saatlik günde yaptığından daha
+      fazla odaklanmış çalışmadır.
     </p>
 
-    <h2>How to start</h2>
+    <h2>Neden 25 dakika</h2>
+    <p>
+      Herkesin &ldquo;sadece bir pomodoro yapayım&rdquo; diyebileceği kadar
+      kısa. Başlama eşiğini aşıp akışa geçmek için yeterince uzun. En
+      önemlisi, zihinsel yorgunluk birikmeden sona erer, böylece bir sonraki
+      bloğa tam kapasiteyle dönersiniz.
+    </p>
+    <p>
+      Daha kısa aralıklar (15 dk) aceleye getirilmiş hissettirir; daha
+      uzun olanlar (60+ dk) toparlanma amacını bozar ve işlevsel olarak
+      sıradan çalışma seanslarına dönüşür. Yirmi beş iyi ayarlanmış bir
+      varsayılandır.
+    </p>
+
+    <h2>Nasıl başlanır</h2>
     <ol>
-      <li>Write down one task to work on.</li>
-      <li>Start a 25-minute timer.</li>
+      <li>Üzerinde çalışmak için bir görev yazın.</li>
+      <li>25 dakikalık bir zamanlayıcı başlatın.</li>
       <li>
-        Work on only that task. If another idea hits, jot it on a
-        &ldquo;capture&rdquo; pad to handle later.
+        Sadece o görev üzerinde çalışın. Başka bir fikir gelirse, daha
+        sonra halletmek üzere bir &ldquo;yakalama&rdquo; kağıdına not alın.
       </li>
       <li>
-        When the timer rings, stop &mdash; even mid-sentence. Mark one
-        tally.
+        Zamanlayıcı çaldığında, cümlenin ortasında bile olsa durun. Bir
+        çentik atın.
       </li>
-      <li>Take a 5-minute break. Stand up, look away from the screen.</li>
-      <li>Repeat.</li>
+      <li>5 dakikalık bir mola verin. Ayağa kalkın, ekrandan uzağa bakın.</li>
+      <li>Tekrarlayın.</li>
     </ol>
     <p>
-      The hard part is actually stopping when the timer rings. If
-      you&rsquo;re in flow the urge is to keep going. The technique
-      requires the break, because the break is what makes the next
-      block productive.
+      Zor kısım, zamanlayıcı çaldığında gerçekten durmaktır. Akıştaysanız
+      devam etme isteği gelir. Teknik, molayı gerektirir çünkü mola, bir
+      sonraki bloğu verimli kılan şeydir.
     </p>
 
-    <h2>What counts as &ldquo;work&rdquo;</h2>
+    <h2>&ldquo;Çalışma&rdquo; sayılan nedir</h2>
     <p>
-      One task, or a set of closely related small tasks. Email triage
-      can be one pomodoro; a code review can be one pomodoro; writing a
-      section of a document is one pomodoro (or several).
+      Bir görev veya yakından ilişkili küçük görevler kümesi. E-posta
+      triyajı bir pomodoro olabilir; bir kod incelemesi bir pomodoro
+      olabilir; bir belgenin bir bölümünü yazmak bir pomodoro (veya
+      birkaçı) olabilir.
     </p>
     <p>
-      Big tasks get split. A blog post might be: pomodoro 1 outline,
-      pomodoro 2 draft intro, pomodoro 3 draft body, pomodoro 4 edit.
-      Knowing you only need 25 minutes on one piece is what gets you
-      past the activation energy.
+      Büyük görevler bölünür. Bir blog yazısı şöyle olabilir: pomodoro 1
+      taslak, pomodoro 2 giriş taslağı, pomodoro 3 gövde taslağı, pomodoro
+      4 düzenleme. Tek bir parça üzerinde sadece 25 dakikaya ihtiyacınız
+      olduğunu bilmek, aktivasyon enerjisini aşmanızı sağlar.
     </p>
 
-    <h2>The break actually matters</h2>
+    <h2>Mola gerçekten önemlidir</h2>
     <p>
-      The break is not optional. It is part of the technique. Five
-      minutes to:
+      Mola isteğe bağlı değildir. Tekniğin bir parçasıdır. Beş dakika:
     </p>
     <ul>
-      <li>Stand up, walk, stretch</li>
-      <li>Get water</li>
-      <li>Look out a window (long-distance vision rests eye strain)</li>
-      <li>Not scroll the news or Twitter</li>
+      <li>Ayağa kalk, yürü, esne</li>
+      <li>Su iç</li>
+      <li>Pencereden dışarı bak (uzak mesafe görüşü göz yorgunluğunu giderir)</li>
+      <li>Haberleri veya Twitter'ı kaydırma</li>
     </ul>
     <p>
-      Breaks filled with other screens don&rsquo;t restore attention.
-      Physical movement and visual rest do.
+      Diğer ekranlarla dolu molalar dikkati geri getirmez. Fiziksel hareket
+      ve görsel dinlenme getirir.
     </p>
 
-    <h2>Four and a long break</h2>
+    <h2>Dört ve uzun bir mola</h2>
     <p>
-      After four pomodoros (~2 hours elapsed), take 15&ndash;30 minutes
-      of longer rest. Walk outside, eat, call someone. This longer
-      break lets attention and willpower refill rather than trickle.
+      Dört pomodorodan sonra (~2 saat geçen süre), 15&ndash;30 dakikalık
+      daha uzun bir dinlenme yapın. Dışarı çıkın, yemek yiyin, birini
+      arayın. Bu uzun mola, dikkat ve iradenin damla damla değil, tamamen
+      yenilenmesini sağlar.
     </p>
     <p>
-      Ignore this and your 5th&ndash;8th pomodoros are lower quality
-      than the first four. You&rsquo;ll still be &ldquo;working&rdquo;
-      but the output degrades.
-    </p>
-
-    <h2>Handling interruptions</h2>
-    <p>
-      Cirillo&rsquo;s framework:
-    </p>
-    <p>
-      <strong>Internal interruptions</strong> (you want to check
-      something, you remember an errand): capture on paper, return to
-      task, handle after the pomodoro.
-    </p>
-    <p>
-      <strong>External interruptions</strong> (colleague, call, Slack):
-      inform, negotiate, schedule, call back. If it&rsquo;s truly
-      urgent, you abort the pomodoro &mdash; it doesn&rsquo;t count.
-      You can&rsquo;t resume a pomodoro; start a new one.
-    </p>
-    <p>
-      The discipline of &ldquo;I&rsquo;ll get back to you in 15
-      minutes&rdquo; is social sometimes; for most interruptions
-      it&rsquo;s both possible and appreciated.
+      Bunu görmezden gelirseniz, 5.&ndash;8. pomodorolarınız ilk dörtten
+      daha düşük kalitede olur. Hala &ldquo;çalışıyor&rdquo; olursunuz
+      ancak çıktı düşer.
     </p>
 
-    <h2>Task batching</h2>
+    <h2>Kesintilerle başa çıkma</h2>
     <p>
-      A single pomodoro works best for one type of work. Mixing email,
-      meetings, and code in one 25-minute block wastes the block. Batch
-      like with like:
+      Cirillo'nun çerçevesi:
+    </p>
+    <p>
+      <strong>İç kesintiler</strong> (bir şeyi kontrol etmek istersiniz,
+      bir iş hatırlarsınız): kağıda not alın, göreve dönün, pomodorodan
+      sonra halledin.
+    </p>
+    <p>
+      <strong>Dış kesintiler</strong> (iş arkadaşı, telefon, Slack):
+      bilgilendir, müzakere et, zamanla, geri ara. Gerçekten acilse,
+      pomodoroyu iptal edin &mdash; sayılmaz. Bir pomodoroya kaldığınız
+      yerden devam edemezsiniz; yenisini başlatın.
+    </p>
+    <p>
+      &ldquo;15 dakika içinde size döneceğim&rdquo; disiplini bazen
+      sosyaldir; çoğu kesinti için hem mümkün hem de takdir edilir.
+    </p>
+
+    <h2>Görev gruplama</h2>
+    <p>
+      Tek bir pomodoro, bir tür iş için en iyi şekilde çalışır. E-posta,
+      toplantılar ve kodu tek bir 25 dakikalık blokta karıştırmak bloğu
+      boşa harcar. Benzer olanı benzerle gruplayın:
     </p>
     <ul>
-      <li>1 pomodoro = all your email for the morning</li>
-      <li>1 pomodoro = all your code reviews</li>
-      <li>2&ndash;4 pomodoros = deep-focus feature work</li>
-      <li>1 pomodoro = admin / invoicing / planning</li>
+      <li>1 pomodoro = sabah için tüm e-postalarınız</li>
+      <li>1 pomodoro = tüm kod incelemeleriniz</li>
+      <li>2&ndash;4 pomodoro = derin odaklı özellik çalışması</li>
+      <li>1 pomodoro = idari / fatura / planlama</li>
     </ul>
     <p>
-      You switch less, and each block builds momentum within its
-      category.
+      Daha az geçiş yaparsınız ve her blok kendi kategorisinde ivme
+      kazanır.
     </p>
 
-    <h2>Context switch cost</h2>
+    <h2>Bağlam değiştirme maliyeti</h2>
     <p>
-      Every switch between tasks costs cognitive setup time &mdash; a
-      few minutes of &ldquo;where was I&rdquo; at minimum, longer for
-      complex work. Pomodoros enforce commitment to one thing for 25
-      minutes, which drastically reduces switch cost across a day. The
-      structure is less about the timer and more about the constraint.
+      Görevler arasındaki her geçiş, bilişsel kurulum süresine mal olur
+      &mdash; en azından birkaç dakikalık &ldquo;nerede kalmıştım&rdquo;,
+      karmaşık işlerde daha fazla. Pomodorolar, 25 dakika boyunca tek bir
+      şeye bağlılığı zorunlu kılar ve bu da bir gün boyunca geçiş maliyetini
+      büyük ölçüde azaltır. Yapı, zamanlayıcıdan çok kısıtlama ile ilgilidir.
     </p>
 
-    <h2>Variants</h2>
+    <h2>Varyantlar</h2>
     <p>
-      The 25/5 default doesn&rsquo;t suit every kind of work.
+      25/5 varsayılanı her tür işe uygun değildir.
     </p>
     <p>
-      <strong>50/10.</strong> Fifty minutes on, ten off. Better for
-      deep technical work where it takes 10&ndash;15 minutes to fully
-      load context. Two 50/10 blocks fit in a classic 2-hour chunk.
+      <strong>50/10.</strong> Elli dakika çalışma, on dakika mola. Bağlamı
+      tamamen yüklemek 10&ndash;15 dakika süren derin teknik işler için
+      daha iyidir. İki 50/10 bloğu, klasik 2 saatlik dilime sığar.
     </p>
     <p>
-      <strong>52/17.</strong> DeskTime&rsquo;s data on high performers
-      suggested this ratio. Works for knowledge work that benefits
-      from longer recovery.
+      <strong>52/17.</strong> DeskTime'ın yüksek performanslı çalışanlar
+      üzerindeki verileri bu oranı önermiştir. Daha uzun toparlanmadan
+      fayda sağlayan bilgi işleri için çalışır.
     </p>
     <p>
-      <strong>90-minute ultradian.</strong> Align with the body&rsquo;s
-      natural 90-minute cognitive cycle. One 90-minute deep-work block
-      followed by a 20&ndash;30 minute rest. Closest to Cal
-      Newport&rsquo;s &ldquo;deep work&rdquo; protocol.
+      <strong>90 dakikalık ultradian.</strong> Vücudun doğal 90 dakikalık
+      bilişsel döngüsüyle uyumludur. Bir 90 dakikalık derin çalışma bloğu
+      ve ardından 20&ndash;30 dakikalık dinlenme. Cal Newport'un &ldquo;derin
+      çalışma&rdquo; protokolüne en yakın olanıdır.
     </p>
-    <pre>{`25/5    default, good for most tasks
-50/10   long-context work (code, writing, analysis)
-90/20   one or two max per day, heavy deep focus
-15/5    very reluctant starts, rehab after burnout`}</pre>
+    <pre>{`25/5    varsayılan, çoğu görev için iyi
+50/10   uzun bağlamlı işler (kod, yazma, analiz)
+90/20   günde bir veya iki maksimum, ağır derin odak
+15/5    çok isteksiz başlangıçlar, tükenmişlik sonrası rehabilitasyon`}</pre>
 
-    <h2>Pomodoros in meetings and collaboration</h2>
+    <h2>Toplantılarda ve işbirliğinde Pomodorolar</h2>
     <p>
-      Solo pomodoros translate cleanly; team pomodoros less so.
-      Meetings run on their own clocks. Use pomodoros around your
-      meetings &mdash; one before and one after &mdash; rather than
-      trying to pomodoro the meeting itself.
+      Bireysel pomodorolar sorunsuzca uygulanır; ekip pomodoroları daha az.
+      Toplantılar kendi saatlerinde işler. Toplantılarınızın etrafında
+      pomodoro kullanın &mdash; biri öncesinde ve biri sonrasında &mdash;
+      toplantının kendisini pomodoro yapmaya çalışmak yerine.
     </p>
     <p>
-      Pair programming can pomodoro well: switch roles at the 25-minute
-      mark, take breaks together. Keeps both people fresh and makes
-      handoffs natural.
-    </p>
-
-    <h2>Tracking pomodoros</h2>
-    <p>
-      A simple tally on paper (or a pomodoro app) gives you data. Most
-      people count 8&ndash;12 pomodoros on a good day. The number helps
-      you plan realistically &mdash; if a task takes 4 pomodoros and
-      you have 8 today, you know what&rsquo;s possible.
-    </p>
-    <p>
-      Don&rsquo;t optimize for maximum daily pomodoro count. Quality
-      of work beats quantity of timers.
+      Çift programlama pomodoro ile iyi çalışabilir: 25 dakika sonunda
+      rolleri değiştirin, molaları birlikte yapın. Her iki kişiyi de zinde
+      tutar ve devir teslimleri doğal hale getirir.
     </p>
 
-    <h2>When Pomodoro doesn&rsquo;t work</h2>
+    <h2>Pomodoroları takip etme</h2>
+    <p>
+      Kağıt üzerinde basit bir çentik (veya bir pomodoro uygulaması) size
+      veri sağlar. Çoğu kişi iyi bir günde 8&ndash;12 pomodoro sayar. Bu
+      sayı, gerçekçi planlama yapmanıza yardımcı olur &mdash; bir görev 4
+      pomodoro alıyorsa ve bugün 8'iniz varsa, neyin mümkün olduğunu
+      bilirsiniz.
+    </p>
+    <p>
+      Maksimum günlük pomodoro sayısı için optimize etmeyin. İşin kalitesi,
+      zamanlayıcı sayısından daha önemlidir.
+    </p>
+
+    <h2>Pomodoro'nun işe yaramadığı durumlar</h2>
     <ul>
       <li>
-        Deep mathematical / design work that takes 30+ minutes to load
-        context &mdash; try 50/10 or 90-minute blocks instead.
+        Bağlamı yüklemek 30+ dakika süren derin matematiksel / tasarım
+        çalışmaları &mdash; bunun yerine 50/10 veya 90 dakikalık blokları
+        deneyin.
       </li>
       <li>
-        Collaborative meetings &mdash; can&rsquo;t pause them on the
-        quarter-hour.
+        İşbirlikçi toplantılar &mdash; çeyrek saatte bir durdurulamazlar.
       </li>
       <li>
-        Creative flow sessions where interruption breaks momentum more
-        than the work needs rest.
+        Kesintinin, işin dinlenmeye ihtiyaç duyduğundan daha fazla ivmeyi
+        bozduğu yaratıcı akış seansları.
       </li>
       <li>
-        ADHD hyperfocus where stopping is harder than starting; the
-        rigid timer can feel distressing.
+        Durdurmanın başlamaktan daha zor olduğu DEHB hiperfokusu; katı
+        zamanlayıcı rahatsız edici gelebilir.
       </li>
     </ul>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Working through the break.</strong> Defeats the whole
-      point. The break is what makes the next pomodoro productive.
+      <strong>Mola sırasında çalışmak.</strong> Tüm amacı bozar. Mola, bir
+      sonraki pomodoroyu verimli kılan şeydir.
     </p>
     <p>
-      <strong>Cramming multiple tasks into one pomodoro.</strong> The
-      switch cost ruins the block. Batch similar tasks across a
-      pomodoro, not across a minute.
+      <strong>Bir pomodoroya birden fazla görev sıkıştırmak.</strong> Geçiş
+      maliyeti bloğu mahveder. Benzer görevleri bir pomodoro boyunca
+      gruplayın, bir dakika içinde değil.
     </p>
     <p>
-      <strong>Not writing down what to work on.</strong> You waste the
-      first few minutes deciding. Pick the task before starting the
-      timer.
+      <strong>Ne üzerinde çalışacağınızı yazmamak.</strong> İlk birkaç
+      dakikayı karar vererek harcarsınız. Zamanlayıcıyı başlatmadan önce
+      görevi seçin.
     </p>
     <p>
-      <strong>Using the 5-minute break for more screens.</strong>{" "}
-      Twitter doesn&rsquo;t restore attention. Stand up instead.
+      <strong>5 dakikalık molayı daha fazla ekran için kullanmak.</strong>{" "}
+      Twitter dikkati geri getirmez. Bunun yerine ayağa kalkın.
     </p>
     <p>
-      <strong>Resuming &ldquo;paused&rdquo; pomodoros.</strong> The
-      rule is: interrupted pomodoros are voided. Start a new one.
+      <strong>&ldquo;Duraklatılmış&rdquo; pomodorolara devam etmek.</strong>
+      Kural şudur: kesintiye uğrayan pomodorolar geçersiz sayılır. Yeni bir
+      tane başlatın.
     </p>
     <p>
-      <strong>Forcing 25/5 on work that wants 50/10.</strong> Match the
-      block length to the task, not vice versa.
+      <strong>50/10 isteyen işe 25/5'i zorlamak.</strong> Blok uzunluğunu
+      göreve uydurun, tersini değil.
     </p>
     <p>
-      <strong>Optimizing tally over output.</strong> Counting pomodoros
-      is a planning aid, not a performance metric.
+      <strong>Çıktı yerine çentik sayısını optimize etmek.</strong> Pomodoro
+      saymak bir planlama aracıdır, bir performans metriği değil.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Start a block with the{" "}
-      <a href="/tools/pomodoro-timer">pomodoro timer</a>. If you prefer
-      manual control, the{" "}
-      <a href="/tools/stopwatch">stopwatch</a> tracks elapsed work
-      without the break automation, and the{" "}
-      <a href="/tools/countdown-timer">countdown timer</a> handles
-      arbitrary block lengths when you&rsquo;re running 50/10 or
-      90-minute deep-work variants.
+      Bir bloğu{" "}
+      <a href="/tools/pomodoro-timer">pomodoro zamanlayıcısı</a> ile
+      başlatın. Manuel kontrolü tercih ederseniz,{" "}
+      <a href="/tools/stopwatch">kronometre</a> mola otomasyonu olmadan
+      geçen çalışma süresini takip eder ve{" "}
+      <a href="/tools/countdown-timer">geri sayım zamanlayıcısı</a> 50/10
+      veya 90 dakikalık derin çalışma varyantlarını kullanırken isteğe bağlı
+      blok uzunluklarını yönetir.
     </p>
   </>
 );

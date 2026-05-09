@@ -1,117 +1,86 @@
 export const intro = (
   <>
     <p>
-      You can&rsquo;t manage what you don&rsquo;t see. Tracking expenses is the foundation of
-      every working financial plan — not because tracking itself saves money, but because
-      awareness changes decisions. The goal isn&rsquo;t perfection; it&rsquo;s a system simple
-      enough that you&rsquo;ll still be doing it in six months.
+      Yönetemediğiniz şeyi geliştiremezsiniz. Harcamaları takip etmek, her çalışan finansal planın temelidir — takip etmenin kendisi para kazandırdığı için değil, farkındalık kararları değiştirdiği için. Amaç mükemmellik değil; altı ay sonra hâlâ kullanıyor olacağınız kadar basit bir sistem kurmaktır.
     </p>
     <p>
-      This guide covers three tracking methods (pick one), the categories that matter, and how to
-      make the end-of-month review take 15 minutes instead of three hours.
+      Bu rehber, üç takip yöntemini (birini seçin), önemli olan kategorileri ve ay sonu değerlendirmesini üç saat yerine 15 dakikada nasıl yapacağınızı kapsar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Pick one method — don&rsquo;t stack them</h2>
+    <h2>1. Bir yöntem seçin — hepsini birden kullanmayın</h2>
     <p>
-      Three work. Pick the one that fits your personality and stop browsing alternatives.
+      Üç yöntem işe yarar. Kişiliğinize uyanı seçin ve alternatiflere bakmayı bırakın.
     </p>
     <ul>
-      <li><strong>Bank app + monthly review</strong> — free, zero setup. Filter transactions by month, eyeball categories. 10 minutes once a month.</li>
-      <li><strong>Spreadsheet</strong> — 30 minutes upfront, 5 minutes a week. Full control, no subscription.</li>
-      <li><strong>App (Monarch, YNAB, Copilot, etc.)</strong> — auto-categorizes transactions. Paid, but saves time if your finances are complex.</li>
+      <li><strong>Banka uygulaması + aylık değerlendirme</strong> — ücretsiz, hiçbir kurulum gerektirmez. İşlemleri aya göre filtreleyin, kategorilere göz atın. Ayda bir kez 10 dakika.</li>
+      <li><strong>E-tablo</strong> — başlangıçta 30 dakika, haftada 5 dakika. Tam kontrol, abonelik yok.</li>
+      <li><strong>Uygulama (Monarch, YNAB, Copilot vb.)</strong> — işlemleri otomatik kategorize eder. Ücretli, ancak finansal durumunuz karmaşıksa zaman kazandırır.</li>
     </ul>
 
-    <h2>2. Use 5–8 categories, not 30</h2>
+    <h2>2. 5–8 kategori kullanın, 30 değil</h2>
     <p>
-      Granularity kills follow-through. Start with: housing, utilities, groceries, transport,
-      dining/entertainment, subscriptions, insurance, &ldquo;other.&rdquo; If a pattern shows up
-      inside &ldquo;other&rdquo; worth tracking separately, split it off later.
+      Ayrıntıya boğulmak devamlılığı öldürür. Şunlarla başlayın: konut, faturalar, market, ulaşım, yemek/eğlence, abonelikler, sigorta, &ldquo;diğer.&rdquo; &ldquo;Diğer&rdquo; içinde ayrıca takip etmeye değer bir desen belirirse, daha sonra ayırın.
     </p>
 
-    <h2>3. Separate fixed from variable</h2>
+    <h2>3. Sabit ve değişken giderleri ayırın</h2>
     <p>
-      Fixed costs (rent, utilities, insurance, subscriptions) are set once and reviewed twice a
-      year. Variable costs (groceries, dining, fun, transport) are where spending decisions
-      actually happen. Most budgeting energy should go here — tracking the fixed costs in detail
-      is a waste of time after the initial audit.
+      Sabit maliyetler (kira, faturalar, sigorta, abonelikler) bir kez belirlenir ve yılda iki kez gözden geçirilir. Değişken maliyetler (market, yemek, eğlence, ulaşım) asıl harcama kararlarının alındığı yerdir. Bütçe enerjisinin çoğu buraya harcanmalıdır — sabit maliyetleri ilk denetimden sonra ayrıntılı takip etmek zaman kaybıdır.
     </p>
 
-    <h2>4. Automate the capture, not the categorizing</h2>
+    <h2>4. Yakalamayı otomatikleştirin, kategorize etmeyi değil</h2>
     <p>
-      Every card transaction is already logged by your bank. You don&rsquo;t need to type
-      anything manually. What <em>you</em> do is review and occasionally recategorize — that 5
-      minutes of friction is what creates awareness. A fully-automated tool that you never look
-      at is worse than a manual one you review weekly.
+      Her kart işlemi bankanız tarafından zaten kaydedilir. Hiçbir şeyi manuel yazmanıza gerek yok. Sizin yapacağınız şey gözden geçirmek ve ara sıra yeniden kategorize etmektir — bu 5 dakikalık sürtünme farkındalık yaratır. Hiç bakmadığınız tam otomatik bir araç, haftalık gözden geçirdiğiniz manuel bir araçtan daha kötüdür.
     </p>
 
-    <h2>5. Review weekly — 5 minutes, not 50</h2>
+    <h2>5. Haftalık gözden geçirin — 50 değil, 5 dakika</h2>
     <p>
-      Sunday evening, open your bank app or tracker, and scan last week&rsquo;s spending. Ask one
-      question: &ldquo;Anything I didn&rsquo;t mean to spend?&rdquo; That&rsquo;s it. Don&rsquo;t
-      re-categorize everything. Don&rsquo;t build charts. Five minutes of attention compounds into
-      behavior change.
+      Pazar akşamı, banka uygulamanızı veya takip aracınızı açın ve geçen haftanın harcamalarını tarayın. Tek bir soru sorun: &ldquo;Harcamayı istemediğim bir şey var mı?&rdquo; Bu kadar. Her şeyi yeniden kategorize etmeyin. Grafikler oluşturmayın. Beş dakikalık dikkat, davranış değişikliğine dönüşür.
     </p>
 
-    <h2>6. Do a 15-minute monthly close</h2>
+    <h2>6. 15 dakikalık ay sonu kapanışı yapın</h2>
     <p>
-      End of month: check total against income, compare to last month, flag new recurring
-      charges. Our <a href="/tools/budget-calculator">budget calculator</a> takes the totals and
-      shows your savings rate in a color-coded bar, which is usually faster than doing the math
-      yourself.
+      Ay sonu: toplamı gelirle karşılaştırın, geçen ayla kıyaslayın, yeni yinelenen ücretleri işaretleyin. <a href="/tools/budget-calculator">Bütçe hesaplayıcımız</a> toplamları alır ve birikim oranınızı renk kodlu bir çubukta gösterir; bu genellikle matematiği kendiniz yapmaktan daha hızlıdır.
     </p>
 
-    <h2>7. Watch for subscription creep</h2>
+    <h2>7. Abonelik sürünmesine dikkat edin</h2>
     <p>
-      The fastest-growing expense line for most people. Every few months a new <a href="/learn/stream">streaming</a> service,
-      app subscription, or auto-renewal quietly lands. Once a quarter, list every recurring
-      charge and cancel anything you didn&rsquo;t use in the last month.
+      Çoğu kişi için en hızlı büyüyen harcama kalemi. Birkaç ayda bir yeni bir <a href="/learn/stream">yayın</a> hizmeti, uygulama aboneliği veya otomatik yenileme sessizce eklenir. Üç ayda bir, tüm yinelenen ücretleri listeleyin ve son bir ayda kullanmadığınız her şeyi iptal edin.
     </p>
 
-    <h2>8. Track cash separately if you use it</h2>
+    <h2>8. Nakit kullanıyorsanız ayrı takip edin</h2>
     <p>
-      Cash spending is invisible to your bank app. If cash is a meaningful portion of your
-      spending, either switch to a debit card for trackability, or keep a simple note on your
-      phone for cash purchases. Unlogged cash is where budget plans die.
+      Nakit harcamalar banka uygulamanızda görünmez. Nakit harcamalarınız önemli bir kısımsa, takip edilebilirlik için banka kartına geçin veya nakit alışverişleri için telefonunuzda basit bir not tutun. Kaydedilmemiş nakit, bütçe planlarının öldüğü yerdir.
     </p>
 
-    <h2>9. Use one &ldquo;fun&rdquo; category and stop guilting</h2>
+    <h2>9. Tek bir &ldquo;eğlence&rdquo; kategorisi kullanın ve suçluluk duymayı bırakın</h2>
     <p>
-      Tracking isn&rsquo;t about eliminating enjoyable spending. Set a monthly budget for fun,
-      hit the number, and don&rsquo;t micromanage what&rsquo;s in it. The people who stick with
-      tracking long-term treat it as awareness, not audit.
+      Takip etmek, keyifli harcamaları ortadan kaldırmakla ilgili değildir. Eğlence için aylık bir bütçe belirleyin, rakamı tutturun ve içindekileri mikro yönetmeyin. Takip etmeyi uzun vadeli sürdürenler, bunu denetim değil farkındalık olarak görür.
     </p>
 
-    <h2>10. Set one metric that matters to you</h2>
+    <h2>10. Sizin için önemli olan tek bir metrik belirleyin</h2>
     <p>
-      Pick <em>one</em> number to watch monthly: savings rate, dining-out spend, or total
-      variable spending. Tracking everything to the decimal burns you out. Tracking one number
-      against last month&rsquo;s creates one clear decision per month.
+      Aylık olarak izlemek için <em>bir</em> sayı seçin: birikim oranı, dışarıda yemek harcaması veya toplam değişken harcama. Her şeyi virgüle kadar takip etmek sizi tüketir. Geçen aya kıyasla tek bir sayıyı takip etmek, ayda bir net karar yaratır.
     </p>
 
-    <h2>11. Re-audit fixed costs twice a year</h2>
+    <h2>11. Sabit maliyetleri yılda iki kez yeniden denetleyin</h2>
     <p>
-      Fixed costs creep. Twice a year, spend 30 minutes renegotiating or cancelling — phone,
-      internet, insurance, streaming. See our{" "}
-      <a href="/guides/how-to-save-money-fast">save money fast</a> guide for the scripts.
+      Sabit maliyetler sürünür. Yılda iki kez, 30 dakika ayırarak telefon, internet, sigorta, yayın hizmetlerini yeniden müzakere edin veya iptal edin. Komut dosyaları için{" "}
+      <a href="/guides/how-to-save-money-fast">hızlı para biriktirme</a> rehberimize bakın.
     </p>
 
-    <h2>12. Combine tracking with a written budget</h2>
+    <h2>12. Takibi yazılı bir bütçeyle birleştirin</h2>
     <p>
-      Tracking tells you where the money went; a budget tells it where to go. Together they
-      create the loop. The{" "}
-      <a href="/guides/how-to-make-a-monthly-budget">monthly budget guide</a> pairs naturally
-      with this tracking system and takes about 15 minutes to set up.
+      Takip, paranın nereye gittiğini söyler; bütçe, nereye gitmesi gerektiğini söyler. Birlikte bir döngü oluştururlar.{" "}
+      <a href="/guides/how-to-make-a-monthly-budget">Aylık bütçe rehberi</a>, bu takip sistemiyle doğal olarak uyumludur ve kurulumu yaklaşık 15 dakika sürer.
     </p>
 
-    <h2>Your 10-minute start</h2>
+    <h2>10 dakikalık başlangıcınız</h2>
     <p>
-      Open your bank app. Filter to last month. Eyeball the top 5 expense categories. Write the
-      numbers down. Do the same thing again next month. That&rsquo;s tracking — the
-      sophisticated systems are optional on top.
+      Banka uygulamanızı açın. Geçen aya filtreleyin. En büyük 5 harcama kategorisine göz atın. Rakamları yazın. Gelecek ay aynı şeyi tekrar yapın. Takip işte budur — gelişmiş sistemler isteğe bağlı olarak eklenir.
     </p>
   </>
 );

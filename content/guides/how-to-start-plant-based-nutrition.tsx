@@ -2,95 +2,99 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Going plant-based doesn&rsquo;t require a 100% overnight switch or a
-    freezer full of fake meat. It does require knowing which nutrients need
-    attention &mdash; especially B12, which isn&rsquo;t optional.
+    Bitki temelli beslenmeye geçmek, bir gecede %100 değişim ya da dondurucuyu
+    sahte etle doldurmak anlamına gelmez. Ancak hangi besinlere dikkat edilmesi
+    gerektiğini bilmeyi gerektirir &mdash; özellikle de isteğe bağlı olmayan B12.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      Most of the stress around plant-based eating comes from all-or-nothing
-      thinking. You don&rsquo;t need to be perfect. An 80/20 approach &mdash;
-      mostly plants, occasional flexibility &mdash; captures almost all the
-      health benefits and lasts far longer than rigid diets. Here&rsquo;s
-      what actually matters.
+      Bitki temelli beslenmeyle ilgili stresin çoğu, ya hep ya hiç
+      düşüncesinden kaynaklanır. Mükemmel olmanıza gerek yok. 80/20 yaklaşımı
+      &mdash; çoğunlukla bitkiler, ara sıra esneklik &mdash; sağlık faydalarının
+      neredeyse tamamını sağlar ve katı diyetlerden çok daha uzun süre dayanır.
+      İşte gerçekten önemli olan şeyler.
     </p>
 
-    <h2>You don&rsquo;t need to go 100% overnight</h2>
+    <h2>Bir gecede %100 geçmeniz gerekmez</h2>
     <p>
-      Swap one meal, then one day per week, then build from there. People who
-      go cold turkey often quit inside three months. People who transition in
-      phases tend to stick with it for years. Your taste buds recalibrate in
-      about six weeks &mdash; vegetables start tasting sweeter once you cut
-      back on ultra-processed food.
+      Bir öğünle başlayın, sonra haftada bir güne çıkarın ve oradan devam edin.
+      Aniden bırakanlar genellikle üç ay içinde pes eder. Aşamalı geçiş yapanlar
+      ise yıllarca devam etme eğilimindedir. Tat alma duyunuz yaklaşık altı
+      haftada yeniden ayarlanır &mdash; ultra işlenmiş gıdaları azalttığınızda
+      sebzeler daha tatlı gelmeye başlar.
     </p>
 
-    <h2>Protein is mostly a myth problem</h2>
+    <h2>Protein çoğunlukla bir efsane sorunudur</h2>
     <p>
-      The average adult needs roughly 0.8&ndash;1.2 grams of protein per kg of
-      body weight. Plants hit that target easily if you eat a variety:
-      lentils, chickpeas, black beans, tofu, tempeh, seitan, edamame, peas,
-      and nuts. A cup of cooked lentils is about 18g. A block of tofu is 40g.
-      You don&rsquo;t have to obsess about combining proteins at every
-      meal &mdash; that myth was debunked decades ago.
+      Ortalama bir yetişkinin vücut ağırlığının kg'ı başına yaklaşık
+      0.8&ndash;1.2 gram proteine ihtiyacı vardır. Çeşitli beslenirseniz bitkiler
+      bu hedefe kolayca ulaşır: mercimek, nohut, siyah fasulye, tofu, tempeh,
+      seitan, edamame, bezelye ve kuruyemişler. Bir fincan pişmiş mercimek
+      yaklaşık 18 gramdır. Bir blok tofu 40 gramdır. Her öğünde proteinleri
+      birleştirme takıntısı yapmanıza gerek yok &mdash; bu efsane onlarca yıl
+      önce çürütüldü.
     </p>
 
-    <h2>Supplements that actually matter</h2>
+    <h2>Gerçekten önemli olan takviyeler</h2>
     <ul>
-      <li>B12 &mdash; mandatory on a plant-based diet. Not optional, not negotiable.</li>
-      <li>Vitamin D3 &mdash; helpful if you live above 40&deg; latitude or stay indoors.</li>
-      <li>Omega-3 &mdash; algae-based EPA/DHA if you don&rsquo;t eat fish.</li>
-      <li>Iron &mdash; sometimes, especially for menstruating people.</li>
-      <li>Iodine &mdash; sometimes, if you don&rsquo;t use iodized salt or seaweed.</li>
+      <li>B12 &mdash; bitki temelli bir diyette zorunludur. İsteğe bağlı değil, pazarlık konusu değil.</li>
+      <li>D3 Vitamini &mdash; 40&deg; enlemin üzerinde yaşıyorsanız veya iç mekanda kalıyorsanız faydalıdır.</li>
+      <li>Omega-3 &mdash; balık yemiyorsanız yosun bazlı EPA/DHA.</li>
+      <li>Demir &mdash; bazen, özellikle adet gören kişiler için.</li>
+      <li>İyot &mdash; bazen, iyotlu tuz veya deniz yosunu kullanmıyorsanız.</li>
     </ul>
 
-    <h2>Pairings that boost absorption</h2>
+    <h2>Emilimi artıran eşleştirmeler</h2>
     <p>
-      Plant iron (non-heme) absorbs better with vitamin C. Squeeze lemon on
-      your lentil soup or eat bell peppers with your beans. Skip coffee and
-      tea within an hour of iron-rich meals &mdash; tannins block absorption.
-      Calcium-rich foods like fortified plant milks pair well with
-      leafy-green meals but compete with iron, so space them out.
+      Bitkisel demir (non-heme), C vitamini ile daha iyi emilir. Mercimek
+      çorbanıza limon sıkın veya fasulyelerinizle birlikte dolmalık biber yiyin.
+      Demir açısından zengin öğünlerden sonra bir saat içinde kahve ve çaydan
+      kaçının &mdash; tanenler emilimi engeller. Güçlendirilmiş bitki sütleri
+      gibi kalsiyum açısından zengin besinler, yeşil yapraklı öğünlerle iyi
+      gider ancak demirle rekabet eder, bu yüzden aralıklı tüketin.
     </p>
 
-    <h2>Fake meat isn&rsquo;t automatically healthy</h2>
+    <h2>Sahte et otomatik olarak sağlıklı değildir</h2>
     <p>
-      A Beyond Burger or Impossible sausage is plant-based, not health food.
-      They&rsquo;re useful as transition tools and totally fine occasionally,
-      but they&rsquo;re often as processed and sodium-heavy as their animal
-      counterparts. Build meals around whole foods &mdash; beans, lentils,
-      tofu, tempeh, whole grains, and vegetables &mdash; and treat processed
-      substitutes as convenience, not staples.
+      Bir Beyond Burger veya Impossible sosisi bitki temellidir, sağlıklı besin
+      değildir. Geçiş aracı olarak kullanışlıdırlar ve ara sıra tamamen
+      sorunsuzdur, ancak genellikle hayvansal muadilleri kadar işlenmiş ve
+      sodyum yüklüdürler. Öğünlerinizi bütün gıdalar etrafında oluşturun
+      &mdash; fasulye, mercimek, tofu, tempeh, tam tahıllar ve sebzeler
+      &mdash; ve işlenmiş alternatifleri temel gıda değil, kolaylık olarak
+      görün.
     </p>
 
-    <h2>Family, restaurants, and social life</h2>
+    <h2>Aile, restoranlar ve sosyal hayat</h2>
     <p>
-      Most restaurants can adapt a dish if you ask. Italian, Mexican, Indian,
-      Thai, Ethiopian, and Middle Eastern cuisines are naturally plant-heavy.
-      At family dinners, bring a hearty side you&rsquo;ll eat so you&rsquo;re
-      never stuck with a plate of lettuce. Don&rsquo;t moralize &mdash; no one
-      changed their mind because of a lecture at Thanksgiving.
+      Çoğu restoran, isterseniz bir yemeği uyarlayabilir. İtalyan, Meksika,
+      Hint, Tay, Etiyopya ve Orta Doğu mutfakları doğal olarak bitki ağırlıklıdır.
+      Aile yemeklerinde, yanınızda doyurucu bir yan yemek getirin ki asla bir
+      tabak marulla kalmayın. Ahlaki ders vermeyin &mdash; kimse Şükran
+      Günü'ndeki bir nutuk yüzünden fikrini değiştirmedi.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      The big ones: skipping B12 because you forgot or thought diet alone
-      covered it; cutting out whole food groups without a plan, then feeling
-      exhausted and blaming the diet; relying on processed substitutes so
-      heavily that the diet becomes chips, faux-meat, and vegan cookies; and
-      under-eating because plant meals are less calorie-dense &mdash; you may
-      need more food volume than before.
+      Büyük olanlar: unuttuğunuz veya diyetin tek başına yeterli olduğunu
+      düşündüğünüz için B12'yi atlamak; plansız bir şekilde tüm besin
+      gruplarını kesmek, sonra bitkin hissetmek ve diyeti suçlamak; işlenmiş
+      alternatiflere o kadar çok güvenmek ki diyet cips, sahte et ve vegan
+      kurabiyelerden ibaret hale gelmek; ve yetersiz yemek çünkü bitkisel
+      öğünler daha az kalori yoğundur &mdash; eskisinden daha fazla hacimde
+      yiyeceğe ihtiyacınız olabilir.
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Özet</h2>
     <p>
-      Eat mostly whole plants, supplement B12 (and likely D3 and omega-3),
-      pair iron with vitamin C, and give yourself a year to transition
-      comfortably. If you have anemia, thyroid issues, or an eating disorder
-      history, get guidance first. Not medical advice. Talk to your
-      healthcare provider.
+      Çoğunlukla bütün bitkileri yiyin, B12 (ve muhtemelen D3 ve omega-3)
+      takviyesi alın, demiri C vitamini ile eşleştirin ve rahatça geçiş
+      yapmak için kendinize bir yıl verin. Kansızlık, tiroid sorunları veya
+      yeme bozukluğu geçmişiniz varsa önce rehberlik alın. Tıbbi tavsiye
+      değildir. Sağlık uzmanınıza danışın.
     </p>
   </>
 );

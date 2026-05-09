@@ -1,97 +1,75 @@
 export const intro = (
   <>
     <p>
-      The average adult spends 7+ hours a day on screens outside of work. Most know
-      it&rsquo;s too much. Fewer know how to actually reduce it, because the apps are
-      literally designed by teams of PhDs to keep you scrolling.
+      Ortalama bir yetişkin, iş dışında günde 7+ saatini ekran başında geçiriyor. Çoğu kişi bunun çok fazla olduğunu biliyor. Bunu nasıl azaltacağını bilenlerin sayısı daha az, çünkü uygulamalar kelimenin tam anlamıyla doktoralı ekipler tarafından sizi kaydırmaya devam ettirmek için tasarlanıyor.
     </p>
     <p>
-      Willpower alone won&rsquo;t win. Here&rsquo;s what actually works — structure
-      plus a few mechanical changes to your device.
+      Sadece irade gücüyle kazanılmaz. İşte gerçekten işe yarayan şeyler — yapı ve cihazınızda birkaç mekanik değişiklik.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Start with awareness</h2>
+    <h2>1. Farkındalıkla başlayın</h2>
     <p>
-      Check your phone&rsquo;s screen time report. Most people are shocked by the
-      number. Which apps eat the most? That&rsquo;s your target list. You can&rsquo;t
-      manage what you don&rsquo;t measure.
+      Telefonunuzun ekran süresi raporunu kontrol edin. Çoğu insan sayıyı görünce şok olur. Hangi uygulamalar en çok zamanı yiyor? Hedef listeniz bu. Ölçmediğiniz şeyi yönetemezsiniz.
     </p>
 
-    <h2>2. Delete the apps, keep the accounts</h2>
+    <h2>2. Uygulamaları silin, hesapları tutun</h2>
     <p>
-      Instagram, TikTok, Twitter — you can still use them from the browser. Without
-      the app, the friction kills most doomscrolling. Keep your accounts, lose the
-      reflex.
+      Instagram, TikTok, Twitter — bunları tarayıcıdan kullanmaya devam edebilirsiniz. Uygulama olmadan, sürtünme çoğu amaçsız kaydırmayı öldürür. Hesaplarınızı koruyun, refleksi kaybedin.
     </p>
 
-    <h2>3. Grayscale your phone</h2>
+    <h2>3. Telefonunuzu gri tonlamalı yapın</h2>
     <p>
-      Settings &gt; Accessibility &gt; Color Filters. Black-and-white phones are boring.
-      Boring phones get used less. Surprisingly effective.
+      Ayarlar &gt; Erişilebilirlik &gt; Renk Filtreleri. Siyah-beyaz telefonlar sıkıcıdır. Sıkıcı telefonlar daha az kullanılır. Şaşırtıcı derecede etkili.
     </p>
 
-    <h2>4. Phone out of the bedroom</h2>
+    <h2>4. Telefonu yatak odasından çıkarın</h2>
     <p>
-      Leave it charging in the kitchen. Use an actual alarm clock. Mornings and
-      evenings reclaim an hour a day immediately. Protects sleep too.
+      Mutfakta şarjda bırakın. Gerçek bir alarmlı saat kullanın. Sabahlar ve akşamlar hemen günde bir saat kazandırır. Ayrıca uykuyu da korur.
     </p>
 
-    <h2>5. Turn off most notifications</h2>
+    <h2>5. Çoğu bildirimi kapatın</h2>
     <p>
-      Keep calls, texts from real people, calendar. Turn off everything else. No
-      badges, no sounds. The phone stops summoning you every 4 minutes.
+      Aramaları, gerçek kişilerden gelen mesajları ve takvimi tutun. Diğer her şeyi kapatın. Rozet yok, ses yok. Telefon sizi her 4 dakikada bir çağırmayı bırakır.
     </p>
 
-    <h2>6. Use app time limits</h2>
+    <h2>6. Uygulama süre sınırlarını kullanın</h2>
     <p>
-      iOS Screen Time / Android Digital Wellbeing. Set 15-30 minute limits on your
-      worst apps. When the block appears, you get a chance to say &ldquo;actually,
-      no.&rdquo; The pause is the point.
+      iOS Ekran Süresi / Android Dijital Denge. En kötü uygulamalarınıza 15-30 dakikalık sınırlar koyun. Engel göründüğünde, &ldquo;aslında hayır&rdquo; deme şansınız olur. Duraklama asıl mesele.
     </p>
 
-    <h2>7. Replace, don&rsquo;t just remove</h2>
+    <h2>7. Sadece kaldırmayın, değiştirin</h2>
     <p>
-      Your brain wants stimulation. If you just delete TikTok without replacing it,
-      you&rsquo;ll find another time-sink. Have backup activities ready: books, a
-      hobby, a walk, a game.
+      Beyniniz uyarım ister. TikTok'u silip yerine bir şey koymazsanız, başka bir zaman tuzağı bulursunuz. Yedek aktiviteleriniz hazır olsun: kitaplar, bir hobi, bir yürüyüş, bir oyun.
     </p>
 
-    <h2>8. Work hours without the phone</h2>
+    <h2>8. Telefonsuz çalışma saatleri</h2>
     <p>
-      Put the phone in a drawer during deep work. If you need it for 2-factor, move
-      it to another room with a long screen timeout. Focus quality doubles.
+      Derin çalışma sırasında telefonu bir çekmeceye koyun. İki faktörlü doğrulama için gerekiyorsa, uzun ekran zaman aşımı olan başka bir odaya taşıyın. Odak kalitesi iki katına çıkar.
     </p>
 
-    <h2>9. Make screens deliberate</h2>
+    <h2>9. Ekranları bilinçli hale getirin</h2>
     <p>
-      Watch a movie, don&rsquo;t background-scroll. Play a game on purpose. The issue
-      isn&rsquo;t screens — it&rsquo;s mindless screens. Deliberate screen time is
-      usually fine; ambient screen time is the killer.
+      Bir film izleyin, arka planda kaydırmayın. Bilerek bir oyun oynayın. Sorun ekranlar değil — bilinçsiz ekranlar. Bilinçli ekran süresi genellikle sorun değildir; ortam ekran süresi asıl katildir.
     </p>
 
-    <h2>10. One screen-free meal a day</h2>
+    <h2>10. Günde bir ekransız öğün</h2>
     <p>
-      No TV, no phone. Just eat, talk, think. Extremely rare these days, unreasonably
-      satisfying. If you live alone, still do it with a book or just silence.
+      Televizyon yok, telefon yok. Sadece yiyin, konuşun, düşünün. Bugünlerde son derece nadir, mantıksız derecede tatmin edici. Yalnız yaşıyorsanız, yine de bir kitapla veya sadece sessizlikle yapın.
     </p>
 
-    <h2>11. Plan your weekends</h2>
+    <h2>11. Hafta sonlarınızı planlayın</h2>
     <p>
-      Unplanned weekends become 14 hours of phone time. Plan 2-3 things (friend lunch,
-      gym, a walk, a project). The plan displaces the scroll. See{" "}
-      <a href="/guides/how-to-make-friends-as-an-adult">making friends guide</a>.
+      Plansız hafta sonları 14 saatlik telefon süresine dönüşür. 2-3 şey planlayın (arkadaşla öğle yemeği, spor salonu, bir yürüyüş, bir proje). Plan, kaydırmayı ortadan kaldırır. Bkz.{" "}
+      <a href="/guides/how-to-make-friends-as-an-adult">arkadaş edinme rehberi</a>.
     </p>
 
-    <h2>12. The 1-week no-socials test</h2>
+    <h2>12. 1 haftalık sosyal medyasız testi</h2>
     <p>
-      Delete all social apps for 7 days. You&rsquo;ll be miserable for day 1-2. By
-      day 5, life is weirdly calmer. Whether you reinstall or not, you&rsquo;ve
-      broken the reflex. See <a href="/guides/how-to-build-habits-that-stick">habits
-      guide</a>.
+      Tüm sosyal uygulamaları 7 günlüğüne silin. 1-2. günlerde mutsuz olacaksınız. 5. günde hayat garip bir şekilde daha sakin olur. Yeniden yüklemeseniz de yüklemeseniz de, refleksi kırmış olursunuz. Bkz. <a href="/guides/how-to-build-habits-that-stick">alışkanlık rehberi</a>.
     </p>
   </>
 );

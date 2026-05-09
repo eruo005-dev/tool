@@ -1,98 +1,75 @@
 export const intro = (
   <>
     <p>
-      Feeling tired all the time isn&rsquo;t normal. Most of the time it&rsquo;s not a
-      medical mystery — it&rsquo;s a combination of bad sleep, poor eating, too much
-      caffeine, dehydration, and no movement. Fix those five, and energy returns.
+      Sürekli yorgun hissetmek normal değildir. Çoğu zaman bu tıbbi bir gizem değil, kötü uyku, yanlış beslenme, aşırı kafein, susuzluk ve hareketsizliğin bir kombinasyonudur. Bu beş şeyi düzeltin, enerjiniz geri gelir.
     </p>
     <p>
-      This guide is the actual levers, not supplements or &ldquo;one weird tricks.&rdquo;
+      Bu rehber takviyeler veya "tek bir tuhaf numara" ile ilgili değil — gerçek kaldıraçlarla ilgilidir.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Sleep is the biggest lever</h2>
+    <h2>1. Uyku en büyük kaldıraçtır</h2>
     <p>
-      Below 7 hours regularly and nothing else matters. Fix bedtime first, then
-      everything else gets easier. See{" "}
-      <a href="/guides/how-to-sleep-better-every-night">sleep guide</a> for specifics.
+      Düzenli olarak 7 saatten az uyuyorsanız, başka hiçbir şeyin önemi yoktur. Önce yatma saatinizi düzeltin, sonra her şey kolaylaşır. Detaylar için{" "}
+      <a href="/guides/how-to-sleep-better-every-night">uyku rehberine</a> bakın.
     </p>
 
-    <h2>2. Consistent wake time</h2>
+    <h2>2. Tutarlı uyanma saati</h2>
     <p>
-      Same wake time every day, even weekends. Your <a href="/learn/circadian-rhythm">circadian rhythm</a> stabilizes and
-      energy gets steadier. &ldquo;Catching up on sleep&rdquo; on weekends is partly a
-      myth — it just shifts your rhythm later.
+      Hafta sonları dahil her gün aynı saatte uyanın. <a href="/learn/circadian-rhythm">Sirkadiyen ritminiz</a> dengelenir ve enerjiniz daha tutarlı hale gelir. Hafta sonları "uykuyu yakalamak" kısmen bir efsanedir — sadece ritminizi daha geçe kaydırır.
     </p>
 
-    <h2>3. Morning sunlight</h2>
+    <h2>3. Sabah güneş ışığı</h2>
     <p>
-      10-15 minutes outside within an hour of waking. Sets your circadian clock,
-      boosts alertness, improves mood, improves evening sleep. Single biggest free
-      energy intervention.
+      Uyandıktan sonraki bir saat içinde 10-15 dakika dışarıda gün ışığı alın. Bu, sirkadiyen saatinizi ayarlar, uyanıklığı artırır, ruh halinizi iyileştirir ve gece uykunuzu iyileştirir. En büyük ücretsiz enerji müdahalesi.
     </p>
 
-    <h2>4. Caffeine — but smart</h2>
+    <h2>4. Kafein — ama akıllıca</h2>
     <p>
-      Delay first cup 60-90 minutes after waking. Cut off by 12-2 PM (caffeine has a
-      5-hour half-life). More coffee after that steals tomorrow&rsquo;s energy. Two
-      cups spread across the morning usually beats one giant afternoon latte.
+      İlk kahvenizi uyandıktan 60-90 dakika sonra için. Öğlen 12-2 arasında kesin (kafeinin yarı ömrü 5 saattir). Ondan sonraki kahve yarının enerjisini çalar. Sabaha yayılmış iki fincan, genellikle dev bir öğleden sonra lattesinden daha iyidir.
     </p>
 
-    <h2>5. Eat for stable blood sugar</h2>
+    <h2>5. Dengeli kan şekeri için yiyin</h2>
     <p>
-      Crashes after lunch come from refined carbs alone. Pair carbs with protein and
-      fat. A turkey sandwich beats a bagel. Salads with chicken beat pasta alone.
-      Steady fuel = steady energy.
+      Öğle yemeği sonrası çökmeler genellikle tek başına rafine karbonhidratlardan gelir. Karbonhidratları protein ve yağla eşleştirin. Hindi sandviçi simitten daha iyidir. Tavuk salataları sade makarnayı yener. Dengeli yakıt = dengeli enerji.
     </p>
 
-    <h2>6. Hydration</h2>
+    <h2>6. Su tüketimi</h2>
     <p>
-      Mild dehydration feels like fatigue. 2-3 liters of water a day, more if
-      exercising. If your urine is dark yellow, drink more. Simple and
-      underappreciated.
+      Hafif susuzluk yorgunluk gibi hissettirir. Günde 2-3 litre su, egzersiz yapıyorsanız daha fazla. İdrarınız koyu sarıysa, daha fazla için. Basit ve hafife alınan bir şey.
     </p>
 
-    <h2>7. Move in the morning</h2>
+    <h2>7. Sabah hareket edin</h2>
     <p>
-      Even a 10-minute walk wakes you up. 30 minutes of exercise daily improves
-      baseline energy within 2 weeks. You don&rsquo;t need to lift — walking counts.
-      See <a href="/guides/how-to-start-working-out">workout guide</a>.
+      10 dakikalık bir yürüyüş bile sizi uyandırır. Günde 30 dakika egzersiz, 2 hafta içinde temel enerjiyi iyileştirir. Ağırlık kaldırmanıza gerek yok — yürümek yeterlidir. <a href="/guides/how-to-start-working-out">Egzersiz rehberine</a> bakın.
     </p>
 
-    <h2>8. Stop doomscrolling before bed</h2>
+    <h2>8. Yatmadan önce kaydırmayı bırakın</h2>
     <p>
-      Screens 30 min before bed delay melatonin, reduce sleep quality, and drain the
-      next day&rsquo;s energy. Put the phone outside the bedroom. Read a book. Your
-      mornings will change in a week.
+      Yatmadan 30 dakika içinde ekranlar melatonini geciktirir, uyku kalitesini düşürür ve ertesi günün enerjisini tüketir. Telefonunuzu yatak odasının dışında bırakın. Kitap okuyun. Sabahlarınız bir hafta içinde değişecek.
     </p>
 
-    <h2>9. Cut alcohol (or at least reduce)</h2>
+    <h2>9. Alkolü kesin (veya en azından azaltın)</h2>
     <p>
-      Even 2 drinks disrupt REM sleep. You may fall asleep faster but wake up tired.
-      If energy is a chronic issue, 2-4 weeks alcohol-free is a strong diagnostic.
+      2 içki bile REM uykusunu bozar. Daha hızlı uykuya dalabilirsiniz ancak yorgun uyanırsınız. Enerji kronik bir sorunsa, 2-4 hafta alkolsüz kalmak güçlü bir tanı yöntemidir.
     </p>
 
-    <h2>10. Short walk after lunch</h2>
+    <h2>10. Öğle yemeğinden sonra kısa bir yürüyüş</h2>
     <p>
-      10-15 minutes after eating. Blunts the post-lunch glucose spike and the crash
-      that follows. Simple habit, huge afternoon productivity payoff.
+      Yemekten 10-15 dakika sonra. Yemek sonrası glikoz yükselmesini ve ardından gelen çökmeyi hafifletir. Büyük bir öğleden sonra verimliliği getiren basit bir alışkanlık.
     </p>
 
-    <h2>11. Address chronic stress</h2>
+    <h2>11. Kronik stresi ele alın</h2>
     <p>
-      Stress eats energy like nothing else. Meditation, therapy, lifestyle changes —
-      whatever works. See <a href="/guides/mindfulness-for-beginners">mindfulness</a>{" "}
-      and <a href="/guides/how-to-improve-mental-health">mental health</a> guides.
+      Stres, enerjiyi hiçbir şeyin olmadığı kadar tüketir. Meditasyon, terapi, yaşam tarzı değişiklikleri — ne işe yarıyorsa. <a href="/guides/mindfulness-for-beginners">Farkındalık</a> ve <a href="/guides/how-to-improve-mental-health">zihinsel sağlık</a> rehberlerine bakın.
     </p>
 
-    <h2>12. Rule out medical causes</h2>
+    <h2>12. Tıbbi nedenleri eleyin</h2>
     <p>
-      If you&rsquo;ve optimized sleep, diet, exercise, caffeine, stress — and still
-      exhausted for months — see a doctor. Thyroid issues, iron deficiency, sleep
-      apnea, and depression are common and treatable. Don&rsquo;t soldier through.
+      Uyku, beslenme, egzersiz, kafein ve stresi optimize ettiyseniz — ve aylardır hala bitkinseniz — bir doktora görünün. Tiroid sorunları, demir eksikliği, uyku apnesi ve depresyon yaygın ve tedavi edilebilir. Dişinizi sıkmayın.
     </p>
   </>
 );

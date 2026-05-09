@@ -3,220 +3,191 @@
 export const intro = (
   <>
     <p>
-      &ldquo;Is AI content worth investing in for SEO?&rdquo; in 2026 has a different
-      answer than it did in 2023. Google&rsquo;s March 2024 helpful content update
-      (and the follow-ups in 2024–2025) changed the game: AI-spam pages were demoted
-      en masse. AI content done well still ranks; AI content done lazily gets
-      filtered.
+      2026'da &ldquo;AI içeriği SEO için yatırım yapmaya değer mi?&rdquo; sorusunun
+      cevabı 2023'tekinden farklıdır. Google'ın Mart 2024 yardımcı içerik güncellemesi
+      (ve 2024–2025'teki takip güncellemeleri) oyunu değiştirdi: AI-spam sayfaları toplu
+      olarak düşürüldü. İyi yapılmış AI içeriği hala sıralanır; tembelce yapılmış AI içeriği
+      filtrelenir.
     </p>
     <p>
-      This guide is the practical AI content + SEO stack — which tools actually
-      help, which workflows get demoted, and the honest math on whether AI content
-      pays off.
+      Bu rehber, pratik AI içerik + SEO yığınıdır &mdash; hangi araçlar gerçekten
+      yardımcı olur, hangi iş akışları düşürülür ve AI içeriğinin karşılığını verip vermediğine dair dürüst hesaplama.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "tools", label: "The AI content + SEO tool stack" },
-  { id: "worth-it", label: "Is AI content worth the investment?" },
-  { id: "diy-seo", label: "DIY AI-assisted SEO without an agency" },
-  { id: "google", label: "Google&rsquo;s actual stance on AI content" },
-  { id: "valuing", label: "Valuing your existing content inventory" },
+  { id: "tools", label: "AI içerik + SEO araç yığını" },
+  { id: "worth-it", label: "AI içeriği yatırıma değer mi?" },
+  { id: "diy-seo", label: "Ajans olmadan DIY AI destekli SEO" },
+  { id: "google", label: "Google'ın AI içeriğine gerçek tutumu" },
+  { id: "valuing", label: "Mevcut içerik envanterinizi değerleme" },
 ];
 
 export const body = (
   <>
-    <h2 id="tools">The AI content + SEO tool stack (2026)</h2>
+    <h2 id="tools">AI içerik + SEO araç yığını (2026)</h2>
     <p>
-      Stop trying to find the &ldquo;one tool that does everything.&rdquo; The good
-      stack uses different tools for different stages:
+      &ldquo;Her şeyi yapan tek bir araç&rdquo; bulmaya çalışmayı bırakın. İyi
+      yığın, farklı aşamalar için farklı araçlar kullanır:
     </p>
     <ol>
       <li>
-        <strong>Keyword research:</strong> Ahrefs Free Keyword Generator + Google
-        Search Console (free) + AnswerThePublic free tier. Surfaces what people
-        actually search.
+        <strong>Anahtar kelime araştırması:</strong> Ahrefs Ücretsiz Anahtar Kelime Oluşturucu + Google
+        Search Console (ücretsiz) + AnswerThePublic ücretsiz katmanı. İnsanların gerçekte ne aradığını ortaya çıkarır.
       </li>
       <li>
-        <strong>Topic clustering:</strong> ChatGPT or Claude with a prompt like
-        &ldquo;Group these 50 keywords into 5–8 topic clusters. For each cluster,
-        suggest one pillar article and 4 supporting pieces.&rdquo;
+        <strong>Konu kümeleme:</strong> &ldquo;Bu 50 anahtar kelimeyi 5–8 konu kümesinde gruplandır. Her küme için
+        bir temel makale ve 4 destekleyici parça öner.&rdquo; gibi bir prompt ile ChatGPT veya Claude.
       </li>
       <li>
-        <strong>Competitive analysis:</strong> Search the keyword, open the top 5
-        results, paste them into Claude/ChatGPT and ask &ldquo;What angles do these
-        all cover? What angles are missing?&rdquo; The missing angles are your
-        opportunity.
+        <strong>Rekabet analizi:</strong> Anahtar kelimeyi arayın, ilk 5
+        sonucu açın, bunları Claude/ChatGPT'ye yapıştırın ve &ldquo;Bunların hepsi hangi açıları kapsıyor? Hangi açılar eksik?&rdquo; diye sorun. Eksik açılar sizin fırsatınızdır.
       </li>
       <li>
-        <strong>First draft:</strong> Claude (good at long-form structure) or
-        ChatGPT-4o for the first draft. Always re-prompt for specificity — generic
-        first drafts are the fastest way to get demoted.
+        <strong>İlk taslak:</strong> İlk taslak için Claude (uzun biçimli yapıda iyidir) veya
+        ChatGPT-4o. Özgüllük için her zaman yeniden prompt verin &mdash; genel
+        ilk taslaklar düşürülmenin en hızlı yoludur.
       </li>
       <li>
-        <strong>Editing for human voice:</strong> read aloud, replace obvious AI
-        tells (&ldquo;in today&rsquo;s rapidly evolving landscape,&rdquo;
-        &ldquo;moreover,&rdquo; &ldquo;it&rsquo;s worth noting&rdquo;). Add 1–2
-        opinions per article. AI doesn&rsquo;t opine.
+        <strong>İnsan sesi için düzenleme:</strong> yüksek sesle okuyun, bariz AI
+        ipuçlarını değiştirin (&ldquo;günümüzün hızla gelişen ortamında,&rdquo;
+        &ldquo;ayrıca,&rdquo; &ldquo;belirtmekte fayda var&rdquo;). Makale başına 1–2
+        görüş ekleyin. AI fikir beyan etmez.
       </li>
       <li>
-        <strong>Optimization:</strong> Surfer SEO (paid) for content score against
-        top 10, or our free <a href="/tools/resume-keyword-match-scorer">keyword
-        match scorer</a> as a no-cost approximation (it scores any text against a
-        target document).
+        <strong>Optimizasyon:</strong> İlk 10'a karşı içerik puanı için Surfer SEO (ücretli)
+        veya ücretsiz <a href="/tools/resume-keyword-match-scorer">anahtar kelime eşleştirme
+        puanlayıcımız</a> maliyetsiz bir yaklaşım olarak (herhangi bir metni bir
+        hedef belgeye karşı puanlar).
       </li>
       <li>
-        <strong>Schema:</strong> Schema.org markup generators (free). Article,
-        FAQPage, HowTo schemas all push <a href="/learn/ctr">CTR</a>.
+        <strong>Schema:</strong> Schema.org işaretleme oluşturucuları (ücretsiz). Article,
+        FAQPage, HowTo şemalarının tümü <a href="/learn/ctr">TO</a>'yu artırır.
       </li>
       <li>
-        <strong>Internal linking:</strong> ChatGPT with &ldquo;suggest 5 internal
-        links from this article to other pages on my site, given this site map
-        [paste sitemap].&rdquo;
+        <strong>İç bağlantı:</strong> &ldquo;Bu site haritasına [site haritasını yapıştır] göre, bu makaleden sitemdeki diğer sayfalara 5 iç bağlantı öner.&rdquo; ile ChatGPT.
       </li>
     </ol>
 
-    <h2 id="worth-it">Is AI content worth the investment for my business?</h2>
+    <h2 id="worth-it">AI içeriği işim için yatırıma değer mi?</h2>
     <p>
-      The math:
+      Hesaplama:
     </p>
     <ul>
       <li>
-        <strong>Cost of AI-assisted article:</strong> $20–$150 (<a href="/learn/llm">LLM</a> costs + editor
-        hours at $40-100/hour for 1-2 hours per piece).
+        <strong>AI destekli makale maliyeti:</strong> 20$–150$ (<a href="/learn/llm">BDM</a> maliyetleri + parça başına 1-2 saat için saatte 40-100$'dan editör saatleri).
       </li>
       <li>
-        <strong>Cost of human-only article:</strong> $200–$800 (writer at
-        $0.20–$1.00/word for 1500-2000 words, plus editor).
+        <strong>Yalnızca insan makale maliyeti:</strong> 200$–800$ (1500-2000 kelime için kelime başına 0,20$–1,00$'dan yazar, artı editör).
       </li>
       <li>
-        <strong>Performance gap:</strong> well-edited AI content ranks similarly to
-        human-only content. Lazy AI content (no editing, no opinions, generic angles)
-        gets demoted.
+        <strong>Performans farkı:</strong> iyi düzenlenmiş AI içeriği, yalnızca insan içeriğine benzer şekilde sıralanır. Tembel AI içeriği (düzenleme yok, görüş yok, genel açılar) düşürülür.
       </li>
     </ul>
     <p>
-      Verdict: AI content is worth the investment <em>if</em> you have an editor who
-      adds opinions, specific examples, and voice. It&rsquo;s not worth the investment
-      if you&rsquo;re hoping to skip the editing step. The Reddit posts about
-      &ldquo;my AI content site got nuked&rdquo; almost universally describe the
-      no-editor workflow.
+      Karar: AI içeriği, görüşler, belirli örnekler ve ses katan bir editörünüz varsa yatırıma değerdir. Düzenleme adımını atlamayı umuyorsanız yatırıma değmez. &ldquo;AI içerik sitem çöktü&rdquo; ile ilgili Reddit gönderileri neredeyse evrensel olarak editörsüz iş akışını tanımlar.
     </p>
     <p>
-      Specific industries where AI content is most valuable:
+      AI içeriğinin en değerli olduğu belirli sektörler:
     </p>
     <ul>
-      <li>How-to guides for software / SaaS (technical accuracy + structure)</li>
-      <li>Comparison articles (structured analysis)</li>
-      <li>Product description / catalog at scale</li>
-      <li>Glossary / definition pages</li>
+      <li>Yazılım / SaaS için nasıl yapılır kılavuzları (teknik doğruluk + yapı)</li>
+      <li>Karşılaştırma makaleleri (yapılandırılmış analiz)</li>
+      <li>Ölçekte ürün açıklaması / kataloğu</li>
+      <li>Sözlük / tanım sayfaları</li>
     </ul>
     <p>
-      Industries where AI content underperforms:
+      AI içeriğinin yetersiz performans gösterdiği sektörler:
     </p>
     <ul>
-      <li>YMYL (your money, your life) — finance, health, legal — without expert review</li>
-      <li>Personal experience / opinion content</li>
-      <li>News / current events (training cutoff issues)</li>
-      <li>Brand-voice-heavy content (lifestyle, fashion, food)</li>
+      <li>YMYL (paranız, hayatınız) &mdash; uzman incelemesi olmadan finans, sağlık, hukuk</li>
+      <li>Kişisel deneyim / görüş içeriği</li>
+      <li>Haber / güncel olaylar (eğitim kesintisi sorunları)</li>
+      <li>Marka sesi ağırlıklı içerik (yaşam tarzı, moda, yemek)</li>
     </ul>
 
-    <h2 id="diy-seo">DIY AI-assisted SEO without hiring an agency</h2>
+    <h2 id="diy-seo">Ajans kiralamadan DIY AI destekli SEO</h2>
     <p>
-      A solo founder or small team can do most SEO work in-house in 2026. The 5-step
-      monthly cadence:
+      Tek bir kurucu veya küçük bir ekip, 2026'da çoğu SEO çalışmasını şirket içinde yapabilir. 5 adımlı
+      aylık tempo:
     </p>
     <ol>
       <li>
-        <strong>Week 1: research.</strong> Pick 5 keywords with traffic potential
-        (use Search Console queries you&rsquo;re ranking #11–30 for as the highest-
-        leverage starting points — already close, just need a push).
+        <strong>1. Hafta: araştırma.</strong> Trafik potansiyeli olan 5 anahtar kelime seçin
+        (en yüksek kaldıraçlı başlangıç noktaları olarak #11–30 arasında sıralandığınız Search Console sorgularını kullanın &mdash; zaten yakınsınız, sadece bir itmeye ihtiyacınız var).
       </li>
       <li>
-        <strong>Week 2: write.</strong> Use the AI stack above. One pillar article +
-        2-3 supporting pieces.
+        <strong>2. Hafta: yazma.</strong> Yukarıdaki AI yığınını kullanın. Bir temel makale +
+        2-3 destekleyici parça.
       </li>
       <li>
-        <strong>Week 3: optimize existing pages.</strong> Update one old article
-        with new info, fresh examples, internal links. Often produces faster results
-        than new content.
+        <strong>3. Hafta: mevcut sayfaları optimize etme.</strong> Eski bir makaleyi
+        yeni bilgiler, taze örnekler, iç bağlantılarla güncelleyin. Genellikle yeni içerikten daha hızlı sonuç verir.
       </li>
       <li>
-        <strong>Week 4: technical pass.</strong> Page speed (PageSpeed Insights),
-        broken links (Screaming Frog free), schema validation (Google&rsquo;s Rich
-        Results Test). 30 minutes of cleanup.
+        <strong>4. Hafta: teknik geçiş.</strong> Sayfa hızı (PageSpeed Insights),
+        bozuk bağlantılar (Screaming Frog ücretsiz), şema doğrulama (Google'ın Zengin
+        Sonuçlar Testi). 30 dakikalık temizlik.
       </li>
       <li>
-        <strong>Monthly review:</strong> what ranked, what didn&rsquo;t, why.
-        Adjust the next month&rsquo;s plan based on what worked.
+        <strong>Aylık inceleme:</strong> ne sıralandı, ne sıralanmadı, neden.
+        Bir sonraki ayın planını neyin işe yaradığına göre ayarlayın.
       </li>
     </ol>
     <p>
-      Total time: 8-12 hours/month. Replaces a $1500-$3000/month SEO retainer for
-      most small businesses.
+      Toplam süre: Ayda 8-12 saat. Çoğu küçük işletme için aylık 1500$-3000$'lık bir SEO retainer'ının yerini alır.
     </p>
 
-    <h2 id="google">Google&rsquo;s actual stance on AI content</h2>
+    <h2 id="google">Google'ın AI içeriğine gerçek tutumu</h2>
     <p>
-      Direct quote from Google&rsquo;s own guidance (Feb 2023, reaffirmed multiple
-      times since): &ldquo;Appropriate use of AI or automation is not against our
-      guidelines. This means that it is not used to generate content primarily to
-      manipulate ranking in search results, which is against our spam policies.&rdquo;
+      Google'ın kendi rehberliğinden doğrudan alıntı (Şubat 2023, o zamandan beri birçok kez yeniden teyit edildi): &ldquo;AI veya otomasyonun uygun kullanımı yönergelerimize aykırı değildir. Bu, içeriğin öncelikle arama sonuçlarında sıralamayı manipüle etmek için oluşturulmadığı anlamına gelir ki bu, spam politikalarımıza aykırıdır.&rdquo;
     </p>
     <p>
-      Translation: AI content is fine. AI content built to game rankings without
-      adding value is spam. The line is fuzzy in practice but the spirit is clear:
-      add value, edit thoroughly, target real questions.
+      Çeviri: AI içeriği sorunsuzdur. Değer katmadan sıralamaları oynamak için oluşturulmuş AI içeriği spam'dir. Pratikte çizgi bulanıktır ancak ruhu açıktır: değer katın, iyice düzenleyin, gerçek soruları hedefleyin.
     </p>
     <p>
-      What gets you demoted (per the helpful content update + March 2024 core
-      update post-mortems):
+      Sizi düşüren şeyler (yardımcı içerik güncellemesi + Mart 2024 çekirdek güncellemesi sonrası incelemelerine göre):
     </p>
     <ul>
-      <li>Publishing volume without editing</li>
-      <li>Programmatic content with no human review</li>
-      <li>Topic spam — covering everything regardless of expertise</li>
-      <li>Thin pages that exist only for keyword targeting</li>
-      <li>No author bylines or expertise signals</li>
-      <li>Content with no opinions, no specific examples, no original analysis</li>
+      <li>Düzenleme olmadan hacim yayınlama</li>
+      <li>İnsan incelemesi olmayan programatik içerik</li>
+      <li>Konu spam'i &mdash; uzmanlıktan bağımsız olarak her şeyi kapsamak</li>
+      <li>Yalnızca anahtar kelime hedefleme için var olan ince sayfalar</li>
+      <li>Yazar imzası veya uzmanlık sinyali olmaması</li>
+      <li>Görüş, belirli örnek veya orijinal analiz içermeyen içerik</li>
     </ul>
 
-    <h2 id="valuing">Valuing your existing content inventory</h2>
+    <h2 id="valuing">Mevcut içerik envanterinizi değerleme</h2>
     <p>
-      &ldquo;Is my content inventory worth anything?&rdquo; comes up when people are
-      considering selling their site, getting tax write-offs, or just curious. The
-      three lenses are covered in our{" "}
-      <a href="/tools/content-inventory-value-estimator">content inventory value
-      estimator</a> and the <a href="/guides/valuing-your-digital-content-assets">deep
-      dive guide</a>. Quick answer: count pieces, multiply by hours-to-recreate ×
-      hourly rate (replacement cost), then compare to traffic-revenue × multiplier
-      (market value). Use the higher number for sale conversations, the lower for
-      insurance.
+      &ldquo;İçerik envanterimin bir değeri var mı?&rdquo; sorusu, insanlar sitelerini satmayı düşündüklerinde, vergi indirimi almak istediklerinde veya sadece merak ettiklerinde gündeme gelir. Üç bakış açısı,{" "}
+      <a href="/tools/content-inventory-value-estimator">içerik envanteri değer
+      tahmin aracımızda</a> ve <a href="/guides/valuing-your-digital-content-assets">derinlemesine
+      inceleme rehberimizde</a> ele alınmıştır. Kısa cevap: parçaları sayın, yeniden oluşturma saati × saatlik ücret (yenileme maliyeti) ile çarpın, ardından trafik-gelir × çarpan (piyasa değeri) ile karşılaştırın. Satış görüşmeleri için yüksek olanı, sigorta için düşük olanı kullanın.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Estimate your content&rsquo;s value",
+  label: "İçeriğinizin değerini tahmin edin",
   targetSlug: "content-inventory-value-estimator",
 };
 
 export const faq = [
   {
-    q: "What are the best AI tools for content creation and SEO in 2026?",
-    a: "Different tools for different stages: Ahrefs Free / Search Console for keyword research, ChatGPT/Claude for clustering and drafts, Surfer SEO (or our free keyword scorer) for optimization, schema generators for markup, internal-linking via LLM with sitemap context. The mistake is looking for one tool that does everything.",
+    q: "2026'da içerik oluşturma ve SEO için en iyi AI araçları nelerdir?",
+    a: "Farklı aşamalar için farklı araçlar: anahtar kelime araştırması için Ahrefs Ücretsiz / Search Console, kümeleme ve taslaklar için ChatGPT/Claude, optimizasyon için Surfer SEO (veya ücretsiz anahtar kelime puanlayıcımız), işaretleme için şema oluşturucular, site haritası bağlamıyla BDM aracılığıyla iç bağlantı. Hata, her şeyi yapan tek bir araç aramaktır.",
   },
   {
-    q: "Is AI content worth the investment for my business?",
-    a: "Yes if you have an editor adding opinions, specific examples, and voice. No if you're skipping editing. The Reddit posts about 'my AI content site got nuked' almost universally describe the no-editing workflow. Best industries: how-to guides, comparisons, glossaries, product descriptions. Worst: YMYL without expert review, personal opinion content, brand-voice-heavy.",
+    q: "AI içeriği işim için yatırıma değer mi?",
+    a: "Görüşler, belirli örnekler ve ses katan bir editörünüz varsa evet. Düzenlemeyi atlıyorsanız hayır. 'AI içerik sitem çöktü' ile ilgili Reddit gönderileri neredeyse evrensel olarak düzenleme yapılmayan iş akışını tanımlar. En iyi sektörler: nasıl yapılır kılavuzları, karşılaştırmalar, sözlükler, ürün açıklamaları. En kötü: uzman incelemesi olmadan YMYL, kişisel görüş içeriği, marka sesi ağırlıklı.",
   },
   {
-    q: "How can I use AI to improve my SEO without hiring an agency?",
-    a: "5-step monthly cadence: week 1 research (use Search Console for #11-30 ranked queries), week 2 write (pillar + supporting articles), week 3 optimize old pages, week 4 technical pass. Total 8-12 hours/month, replaces a $1500-$3000/month SEO retainer for most small businesses.",
+    q: "Bir ajans kiralamadan SEO'mu geliştirmek için AI'ı nasıl kullanabilirim?",
+    a: "5 adımlı aylık tempo: 1. hafta araştırma (#11-30 arası sıralanan sorgular için Search Console'u kullanın), 2. hafta yazma (temel + destekleyici makaleler), 3. hafta eski sayfaları optimize etme, 4. hafta teknik geçiş. Toplam ayda 8-12 saat, çoğu küçük işletme için aylık 1500$-3000$'lık SEO retainer'ının yerini alır.",
   },
   {
-    q: "Will Google penalize my AI-generated content?",
-    a: "Per Google's own guidance, AI content is fine. AI content built to manipulate rankings without value is spam. What gets you demoted: publishing without editing, programmatic content, topic spam, thin pages, no author bylines, no opinions or original analysis. Edit thoroughly, target real questions, signal expertise.",
+    q: "Google, AI tarafından oluşturulan içeriğimi cezalandıracak mı?",
+    a: "Google'ın kendi rehberliğine göre, AI içeriği sorunsuzdur. Değer olmadan sıralamaları manipüle etmek için oluşturulmuş AI içeriği spam'dir. Sizi düşüren şeyler: düzenleme olmadan yayınlama, programatik içerik, konu spam'i, ince sayfalar, yazar imzası olmaması, görüş veya orijinal analiz olmaması. İyice düzenleyin, gerçek soruları hedefleyin, uzmanlık sinyali verin.",
   },
 ];

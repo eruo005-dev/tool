@@ -2,108 +2,74 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    The average US household has 12 paid subscriptions and uses 6. Most of the rest renew
-    quietly because nobody set up the calendar reminder to cancel. Here&rsquo;s a 30-minute
-    sweep that tends to free up $400&ndash;1,200 a year &mdash; without giving up anything
-    you actually use.
+    Ortalama bir ABD hanesinin 12 ücretli aboneliği var ve bunların 6'sını kullanıyor. Geri kalanların çoğu, takvimimize hatırlatıcı koyup iptal etmeyi unuttuğumuz için sessizce yenileniyor. İşte size, gerçekten kullandığınız hiçbir şeyden vazgeçmeden yılda 400–1.200 dolar kazandıracak 30 dakikalık bir temizlik.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      Subscription bloat sneaks in because each individual sign-up is small &mdash; $5 here,
-      $14 there. The cost only becomes visible when you list everything in one place. Audit
-      once, automate the rest.
+      Abonelik şişkinliği sinsice artar çünkü her kalem küçüktür — burada 5 dolar, şurada 14 dolar. Maliyet ancak her şeyi tek bir yerde listelediğinizde görünür hale gelir. Bir kez denetleyin, gerisini otomatikleştirin.
     </p>
 
-    <h2>Step 1: pull the receipts (15 minutes)</h2>
+    <h2>Adım 1: Makbuzları toplayın (15 dakika)</h2>
     <p>
-      Don&rsquo;t try to remember. Open your statements and search for recurring charges:
+      Hatırlamaya çalışmayın. Hesap ekstrelerinizi açın ve yinelenen ödemeleri arayın:
     </p>
     <ul>
-      <li><strong>Bank/credit-card app</strong> &rarr; search the last 90 days for monthly or
-        yearly recurring debits. Most apps now flag &ldquo;subscriptions&rdquo; automatically.</li>
-      <li><strong>Apple ID</strong> &rarr; Settings &gt; your name &gt; Subscriptions. Lists every
-        App Store subscription you&rsquo;ve ever started.</li>
+      <li><strong>Banka/kredi kartı uygulaması</strong> &rarr; Son 90 gündeki aylık veya yıllık yinelenen ücretleri arayın. Çoğu uygulama artık "abonelikleri" otomatik olarak işaretliyor.</li>
+      <li><strong>Apple ID</strong> &rarr; Ayarlar &gt; Adınız &gt; Abonelikler. Başlattığınız tüm App Store aboneliklerini listeler.</li>
       <li><strong>Google Play</strong> &rarr; play.google.com/store/account/subscriptions.</li>
-      <li><strong>PayPal</strong> &rarr; Settings &gt; Payments &gt; Manage automatic payments.
-        Often hides old recurring charges that bypass your card statements.</li>
-      <li><strong>Amazon</strong> &rarr; Your Account &gt; Memberships &amp; Subscriptions. Easy
-        to miss the Audible, Kindle Unlimited, and Channels add-ons.</li>
+      <li><strong>PayPal</strong> &rarr; Ayarlar &gt; Ödemeler &gt; Otomatik ödemeleri yönet. Genellikle kart ekstrelerinizi atlayan eski yinelenen ücretleri gizler.</li>
+      <li><strong>Amazon</strong> &rarr; Hesabınız &gt; Üyelikler ve Abonelikler. Audible, Kindle Unlimited ve Kanal eklentilerini gözden kaçırmak kolaydır.</li>
     </ul>
 
-    <h2>Step 2: rate each by use, not feeling</h2>
+    <h2>Adım 2: Her birini duyguya değil, kullanıma göre değerlendirin</h2>
     <p>
-      For each subscription, write down two numbers: the monthly cost, and how many times
-      you used it in the last 30 days. Don&rsquo;t round up out of guilt or fondness. The
-      moment you have <em>cost per use</em>, the keep/cancel calls become obvious:
+      Her abonelik için iki sayı yazın: aylık maliyet ve son 30 günde kaç kez kullandığınız. Suçluluk veya sevgiden dolayı yuvarlama yapmayın. <em>Kullanım başına maliyeti</em> gördüğünüzde, tutma/iptal kararları netleşir:
     </p>
     <ul>
-      <li><strong>$/use under $2:</strong> keep, generally good value.</li>
-      <li><strong>$/use $2&ndash;5:</strong> review &mdash; might be worth keeping if it&rsquo;s irreplaceable.</li>
-      <li><strong>$/use over $5 with under 4 uses/month:</strong> almost always cancel.</li>
-      <li><strong>Zero uses in the last 30 days:</strong> cancel today. You can re-subscribe in 5 minutes if you miss it.</li>
+      <li><strong>Kullanım başına maliyet 2 doların altında:</strong> tutun, genellikle iyi değer.</li>
+      <li><strong>Kullanım başına maliyet 2–5 dolar:</strong> gözden geçirin — yeri doldurulamazsa tutmaya değer olabilir.</li>
+      <li><strong>Kullanım başına maliyet 5 doların üzerinde ve ayda 4 kereden az kullanılıyorsa:</strong> neredeyse her zaman iptal edin.</li>
+      <li><strong>Son 30 günde kullanılmadıysa:</strong> bugün iptal edin. Özlerseniz 5 dakika içinde yeniden abone olabilirsiniz.</li>
     </ul>
 
-    <h2>Step 3: cancel without losing what matters</h2>
+    <h2>Adım 3: Önemli olanı kaybetmeden iptal edin</h2>
     <p>
-      Two mistakes here. First, cancelling a service that&rsquo;s still inside its prepaid
-      annual period (you keep access until the renewal date). Second, deleting an account
-      when you only meant to cancel the recurring charge &mdash; for media services with
-      saved playlists, watchlists, or workout history, hit &ldquo;cancel renewal&rdquo; and let
-      the account go dormant.
+      Burada iki hata var. Birincisi, hâlâ ön ödemeli yıllık döneminde olan bir hizmeti iptal etmek (yenileme tarihine kadar erişiminiz devam eder). İkincisi, yalnızca yinelenen ücreti iptal etmek istediğinizde hesabı silmek — kayıtlı çalma listeleri, izleme listeleri veya egzersiz geçmişi olan medya hizmetleri için "yenilemeyi iptal et"e tıklayın ve hesabın pasif kalmasına izin verin.
     </p>
     <ul>
-      <li>For Apple/Google subscriptions, cancellation always takes effect at the end of the
-        current period. Toggle once, done.</li>
-      <li>For services with retention queues (Adobe, ClassPass, Hulu, NYT), expect a discount
-        offer when you cancel. The 30&ndash;50% off offer is a real signal that you were
-        overpaying.</li>
-      <li>If a service hides the cancel button behind a phone call, screenshot the date and
-        cost, set a calendar reminder for the day before renewal, and call once. Some states
-        (CA, NY) require a click-to-cancel option for online sign-ups &mdash; you can ask for
-        it.</li>
+      <li>Apple/Google aboneliklerinde iptal her zaman mevcut dönemin sonunda geçerli olur. Bir kez değiştirin, bitti.</li>
+      <li>Müşteri tutma kuyruğu olan hizmetlerde (Adobe, ClassPass, Hulu, NYT), iptal ettiğinizde bir indirim teklifi bekleyin. Yüzde 30–50 indirim teklifi, fazla ödeme yaptığınızın gerçek bir işaretidir.</li>
+      <li>Bir hizmet iptal düğmesini telefon görüşmesinin arkasına gizlerse, tarihi ve maliyeti ekran görüntüsü alın, yenilemeden bir gün önce için takvim hatırlatıcısı ayarlayın ve bir kez arayın. Bazı eyaletler (CA, NY) çevrimiçi kayıtlarda tıkla-iptal et gerektirir — bunu talep edebilirsiniz.</li>
     </ul>
 
-    <h2>Step 4: replace the autopilot</h2>
+    <h2>Adım 4: Otomatik pilotu tersine çevirin</h2>
     <p>
-      The reason subscription costs balloon is that the default is &ldquo;keep paying.&rdquo;
-      Flip the default. After your sweep:
+      Abonelik maliyetlerinin şişmesinin nedeni, varsayılanın "ödemeye devam et" olmasıdır. Varsayılanı tersine çevirin. Temizliğinizden sonra:
     </p>
     <ul>
-      <li>Add every renewal date to your calendar with a reminder 3 days before. Ask &ldquo;am
-        I still using this?&rdquo; before each one renews.</li>
-      <li>Pay annually only for things you&rsquo;ve used for 6+ consecutive months. Annual
-        plans are a 10&ndash;20% discount in exchange for a lock-in &mdash; only useful if
-        the relationship is real.</li>
-      <li>Use a single virtual card or Privacy.com for every new subscription. One click to
-        kill if you change your mind.</li>
+      <li>Her yenileme tarihini, 3 gün önceden hatırlatıcı ile takviminize ekleyin. Her biri yenilenmeden önce kendinize sorun, "Bunu hâlâ kullanıyor muyum?"</li>
+      <li>Sadece 6+ ardışık aydır kullandığınız şeyler için yıllık ödeme yapın. Yıllık planlar, kilitlenme karşılığında %10–20 indirimdir — yalnızca ilişki gerçekse kullanışlıdır.</li>
+      <li>Her yeni abonelik için tek bir sanal kart veya Privacy.com kullanın. Fikrinizi değiştirirseniz tek tıkla iptal edin.</li>
     </ul>
 
-    <h2>The un-bundle and bundle moves</h2>
+    <h2>Paketten çıkarma ve paketleme hamleleri</h2>
     <p>
-      Bundles are usually math worth running. Disney+/Hulu/ESPN+, Apple One, Verizon plans
-      with Netflix included, Costco memberships with included <a href="/learn/stream">streaming</a> &mdash; the standalone
-      total is almost always higher. Conversely, &ldquo;the bundle&rdquo; is also a common
-      way to keep paying for two services you don&rsquo;t use because one inside it is
-      essential. Audit by service, then re-audit by bundle.
+      Paketler genellikle matematiği işe yarar kılar. Disney+/Hulu/ESPN+, Apple One, Netflix dahil Verizon planları, dahil <a href="/learn/stream">streaming</a> ile Costco üyelikleri — tek başına toplam neredeyse her zaman daha yüksektir. Tersine, bir "paket", içindeki biri gerekli olduğu için kullanmadığınız iki hizmet için ödeme yapmaya devam etmenin yaygın bir yoludur. Hizmete göre denetleyin, ardından pakete göre yeniden denetleyin.
     </p>
 
-    <h2>Habits that prevent the rebound</h2>
+    <h2>Nüksetmeyi önleme alışkanlıkları</h2>
     <ul>
-      <li><strong>One-month free trial rule:</strong> set a calendar event for the day <em>before</em> the trial converts.</li>
-      <li><strong>30-day rule:</strong> when you discover a new service, wait 30 days before subscribing. Most cravings die in a week.</li>
-      <li><strong>Yearly re-audit:</strong> January 1 or your birthday &mdash; same drill. Takes 20 minutes once a year.</li>
+      <li><strong>Bir aylık ücretsiz deneme kuralı:</strong> Denemenin ücretliye dönüşmesinden <em>bir gün önce</em> için bir takvim etkinliği ayarlayın.</li>
+      <li><strong>30 gün kuralı:</strong> Yeni bir hizmet keşfettiğinizde, abone olmadan önce 30 gün bekleyin. Çoğu dürtü bir hafta içinde ölür.</li>
+      <li><strong>Yıllık yeniden denetim:</strong> 1 Ocak veya doğum gününüz — aynı prosedür. Yılda bir kez 20 dakika sürer.</li>
     </ul>
 
-    <h2>Run the audit in one tab</h2>
+    <h2>Denetimi tek sekmede çalıştırın</h2>
     <p>
-      Our <a href="/tools/subscription-fatigue-auditor">subscription fatigue auditor</a> takes
-      your list of services and surfaces a kill list ranked by annual savings. It auto-flags
-      anything with a $/use ratio that fails the $5/4-uses test, totals the monthly and yearly
-      drag, and shows you what you&rsquo;d save if you actually cut the marginal ones too. Five
-      minutes of clicking, often more than $500/year back.
+      <a href="/tools/subscription-fatigue-auditor">Abonelik yorgunluğu denetleyicimiz</a>, hizmet listenizi alır ve yıllık tasarruflara göre sıralanmış bir iptal listesi çıkarır. 5 dolar/4 kullanım testinde başarısız olan her şeyi otomatik olarak işaretler, aylık ve yıllık yükü toplar ve marjinal olanları da keserseniz ne kadar tasarruf edeceğinizi gösterir. Beş dakikalık tıklama, tipik olarak yılda 500 doların üzerinde kazandırır.
     </p>
   </>
 );

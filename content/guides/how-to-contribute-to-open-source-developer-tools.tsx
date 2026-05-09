@@ -3,182 +3,133 @@
 export const intro = (
   <>
     <p>
-      Contributing to open-source dev tools is one of the highest-leverage moves for
-      anyone building a dev-tools career. It builds your portfolio, your network, and
-      your judgment about what actually ships at production scale. The hard part:
-      navigating the unwritten rules of OSS projects without burning your reputation
-      on day one.
+      Açık kaynak geliştirici araçlarına katkıda bulunmak, bir geliştirici araçları kariyeri inşa eden herkes için en yüksek kaldıraçlı hamlelerden biridir. Portföyünüzü, ağınızı ve üretim ölçeğinde gerçekte neyin yayınlandığına dair muhakeme yeteneğinizi geliştirir. Zor kısım: İtibarınızı ilk günden yakmadan Açık Kaynak projelerinin yazılı olmayan kurallarında gezinmek.
     </p>
     <p>
-      This guide is the practical playbook: how to find good first issues, write a PR
-      that gets merged, escalate to substantial contributions, and avoid the
-      &ldquo;tone-deaf newcomer&rdquo; mistakes that scare people off.
+      Bu rehber pratik bir oyun kitabıdır: iyi ilk görevler nasıl bulunur, birleştirilecek bir PR nasıl yazılır, önemli katkılara nasıl geçilir ve insanları korkutan &ldquo;uyumsuz yeni gelen&rdquo; hatalarından nasıl kaçınılır.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "find-projects", label: "Finding the right projects" },
-  { id: "first-pr", label: "Your first PR (and not getting laughed at)" },
-  { id: "scale-up", label: "Scaling to substantial contributions" },
-  { id: "etiquette", label: "OSS etiquette" },
+  { id: "find-projects", label: "Doğru projeleri bulmak" },
+  { id: "first-pr", label: "İlk PR'ınız (ve alay konusu olmamak)" },
+  { id: "scale-up", label: "Önemli katkılara geçiş yapmak" },
+  { id: "etiquette", label: "Açık Kaynak görgü kuralları" },
 ];
 
 export const body = (
   <>
-    <h2 id="find-projects">Finding the right projects to contribute to</h2>
+    <h2 id="find-projects">Katkıda bulunmak için doğru projeleri bulmak</h2>
     <p>
-      Three filters that produce a high-quality target list:
+      Yüksek kaliteli bir hedef listesi oluşturan üç filtre:
     </p>
     <ol>
       <li>
-        <strong>Tools you actually use.</strong> Don&rsquo;t pick projects you don&rsquo;t
-        use just to pad a resume. You&rsquo;ll write bad PRs because you don&rsquo;t feel
-        the pain. Maintainers can tell.
+        <strong>Gerçekten kullandığınız araçlar.</strong> Sadece özgeçmişi doldurmak için kullanmadığınız projeleri seçmeyin. Acıyı hissetmediğiniz için kötü PR'lar yazarsınız. Bakımcılar bunu anlar.
       </li>
       <li>
-        <strong>Active but not bloated.</strong> Look at recent commit cadence (commits
-        in the last 30 days) and PR merge rate (PRs merged in last 90 days vs opened).
-        Healthy projects have both. Dead projects (no commits in 3 months) won&rsquo;t
-        merge your PR. Mega-bloated projects (Linux, Kubernetes core) have processes
-        that take 6+ months for first-time contributors.
+        <strong>Aktif ama şişkin değil.</strong> Son taahhüt sıklığına (son 30 gündeki taahhütler) ve PR birleştirme oranına (son 90 günde birleştirilen PR'lar vs. açılanlar) bakın. Sağlıklı projelerde her ikisi de vardır. Ölü projeler (3 aydır taahhüt yok) PR'ınızı birleştirmez. Aşırı şişkin projelerin (Linux, Kubernetes çekirdeği) ilk kez katkıda bulunanlar için 6+ ay süren süreçleri vardır.
       </li>
       <li>
-        <strong>Welcoming community.</strong> Read the last 20 closed PRs. Are
-        maintainers supportive in reviews? Or curt and dismissive? The cultural fit
-        matters for whether your contribution sticks.
+        <strong>Hoşgeldiniz diyen bir topluluk.</strong> Son 20 kapatılmış PR'ı okuyun. Bakımcılar incelemelerde destekleyici mi? Yoksa kısa ve küçümseyici mi? Katkınızın kalıcı olması için kültürel uyum önemlidir.
       </li>
     </ol>
 
-    <h2 id="first-pr">Your first PR — and how to not get laughed at</h2>
+    <h2 id="first-pr">İlk PR'ınız — ve alay konusu olmamak</h2>
     <p>
-      The pattern that consistently lands first PRs cleanly:
+      İlk PR'ları temiz bir şekilde yerleştiren model:
     </p>
     <ol>
       <li>
-        <strong>Find a `good first issue` label.</strong> Most projects have these.
-        Filter on age &gt; 14 days (someone hasn&rsquo;t already started silently) and &lt;
-        90 days (still relevant).
+        <strong>Bir `good first issue` etiketi bulun.</strong> Çoğu projede bunlar vardır. Yaşı 14 günden büyük (birisi sessizce başlamamış) ve 90 günden küçük (hala güncel) olanları filtreleyin.
       </li>
       <li>
-        <strong>Comment on the issue before starting.</strong> Two sentences:
-        &ldquo;I&rsquo;d like to take this. Here&rsquo;s my proposed approach: [one
-        line].&rdquo; Wait for a maintainer ack. Saves wasted work.
+        <strong>Başlamadan önce görev hakkında yorum yapın.</strong> İki cümle: &ldquo;Bunu almak istiyorum. Önerdiğim yaklaşım: [bir satır].&rdquo; Bir bakımcının onayını bekleyin. Boşa harcanan işi önler.
       </li>
       <li>
-        <strong>Read the contributor docs first.</strong> Style guide, test
-        conventions, PR template. Skipping this is the #1 reason PRs get sent back for
-        nits.
+        <strong>Önce katkıda bulunan belgelerini okuyun.</strong> Stil rehberi, test kuralları, PR şablonu. Bunu atlamak, PR'ların küçük detaylar için geri gönderilmesinin 1 numaralı nedenidir.
       </li>
       <li>
-        <strong>Write tests.</strong> Even for tiny changes. PR descriptions that say
-        &ldquo;tested manually&rdquo; get less benefit-of-the-doubt.
+        <strong>Test yazın.</strong> Küçük değişiklikler için bile. &ldquo;Manuel olarak test edildi&rdquo; diyen PR açıklamaları daha az güven kazanır.
       </li>
       <li>
-        <strong>PR description that respects the reviewer&rsquo;s time.</strong> What
-        changed, why, how to test, any open questions. 100-200 words for typical
-        changes.
+        <strong>İncelemecinin zamanına saygı duyan bir PR açıklaması.</strong> Ne değişti, neden, nasıl test edilir, açık sorular. Tipik değişiklikler için 100-200 kelime.
       </li>
       <li>
-        <strong>Respond to review comments quickly + politely.</strong> Disagreement
-        is fine; tone is not. &ldquo;Could you say more about why X?&rdquo; lands better
-        than &ldquo;I disagree because Y.&rdquo;
+        <strong>İnceleme yorumlarına hızlı ve kibarca yanıt verin.</strong> Anlaşmazlık sorun değildir; üslup sorundur. &ldquo;X'in nedenini biraz daha açıklar mısınız?&rdquo; ifadesi &ldquo;Y yüzünden katılmıyorum&rdquo; ifadesinden daha iyi karşılanır.
       </li>
     </ol>
     <p>
-      The imposter-syndrome anti-pattern to avoid: apologizing 5 times in your PR
-      description. Confident, terse, and humble all at once: &ldquo;Implements feature
-      X by approach Y; tests added; happy to adjust on review.&rdquo;
+      Kaçınılması gereken sahtekarlık sendromu karşıtı model: PR açıklamanızda 5 kez özür dilemek. Kendine güvenen, kısa ve mütevazı olun: &ldquo;X özelliğini Y yaklaşımıyla uygular; testler eklendi; incelemede ayarlamaya açığım.&rdquo;
     </p>
 
-    <h2 id="scale-up">Scaling to substantial contributions</h2>
+    <h2 id="scale-up">Önemli katkılara geçiş yapmak</h2>
     <p>
-      One typo fix doesn&rsquo;t change a hiring manager&rsquo;s mind. Substantial
-      contributions do. The progression from drive-by to substantial:
+      Bir yazım hatası düzeltmesi bir işe alım yöneticisinin fikrini değiştirmez. Önemli katkılar değiştirir. Geçici katkılardan önemli katkılara ilerleme:
     </p>
     <ol>
       <li>
-        <strong>1-3 small PRs.</strong> Build maintainer trust. They check the contrib
-        docs, that you respond to feedback, that your code is reasonable.
+        <strong>1-3 küçük PR.</strong> Bakımcı güveni oluşturun. Katkı belgelerini kontrol ederler, geri bildirime yanıt verdiğinizi, kodunuzun makul olduğunu görürler.
       </li>
       <li>
-        <strong>1-2 medium PRs.</strong> A feature with tests, a non-trivial bug fix
-        with reproduction, a documentation overhaul. 100-500 lines of meaningful change.
+        <strong>1-2 orta boy PR.</strong> Testleri olan bir özellik, tekrarlanabilirliği olan önemsiz olmayan bir hata düzeltmesi, bir dokümantasyon revizyonu. 100-500 satır anlamlı değişiklik.
       </li>
       <li>
-        <strong>1 large PR or ongoing area ownership.</strong> Tackling a big issue (a
-        performance improvement, a new subsystem), or becoming the de-facto maintainer
-        of one corner of the project (e.g. &ldquo;I own the Windows compatibility
-        story&rdquo;). This is the level that changes hiring conversations.
+        <strong>1 büyük PR veya sürekli alan sahipliği.</strong> Büyük bir görevi üstlenmek (bir performans iyileştirmesi, yeni bir alt sistem) veya projenin bir köşesinin fiili bakımcısı olmak (ör. &ldquo;Windows uyumluluk hikayesine ben sahibim&rdquo;). Bu, işe alım konuşmalarını değiştiren seviyedir.
       </li>
       <li>
-        <strong>Maintainer / committer status.</strong> Some projects formalize this
-        with `MAINTAINERS.md` or commit access. Mostly happens after sustained
-        contribution over 6-12 months.
+        <strong>Bakımcı / taahhütçü statüsü.</strong> Bazı projeler bunu `MAINTAINERS.md` veya taahhüt erişimi ile resmileştirir. Çoğunlukla 6-12 ay boyunca sürekli katkıdan sonra olur.
       </li>
     </ol>
     <p>
-      Time investment: 2-5 hours/week sustained for 3-6 months gets you to medium-PR
-      territory. For most career switchers that&rsquo;s sufficient — sustained presence
-      in a public OSS project becomes a differentiator on its own.
+      Zaman yatırımı: 3-6 ay boyunca haftada 2-5 saat sürekli çalışma sizi orta boy PR bölgesine getirir. Çoğu kariyer değiştirici için bu yeterlidir — halka açık bir Açık Kaynak projesinde sürekli varlık başlı başına bir farklılaştırıcı haline gelir.
     </p>
 
-    <h2 id="etiquette">OSS etiquette: the unwritten rules</h2>
+    <h2 id="etiquette">Açık Kaynak görgü kuralları: yazılı olmayan kurallar</h2>
     <ul>
       <li>
-        <strong>Don&rsquo;t open PRs without an issue + maintainer buy-in</strong> for
-        anything bigger than a one-line fix. &ldquo;Drive-by feature PRs&rdquo; that
-        change scope or architecture without prior discussion get closed unmerged.
+        <strong>Bir satırlık düzeltmeden daha büyük herhangi bir şey için</strong> bir görev ve bakımcı onayı olmadan PR açmayın. Kapsamı veya mimariyi önceden tartışmadan değiştiren &ldquo;Geçici özellik PR'ları&rdquo; birleştirilmeden kapatılır.
       </li>
       <li>
-        <strong>Don&rsquo;t ping maintainers for review</strong> on day 2. Most projects
-        have a tacit 1-2 week SLA. Wait, then politely ask if they need anything from
-        you.
+        <strong>2. günde bakımcıları inceleme için rahatsız etmeyin.</strong> Çoğu projenin zımni 1-2 haftalık bir SLA'sı vardır. Bekleyin, ardından sizden bir şeye ihtiyaçları olup olmadığını kibarca sorun.
       </li>
       <li>
-        <strong>Don&rsquo;t argue style preferences.</strong> Match the existing
-        codebase. Strong opinions about tabs vs spaces from a first-time contributor
-        are a red flag.
+        <strong>Stil tercihlerini tartışmayın.</strong> Mevcut kod tabanına uyun. İlk kez katkıda bulunan birinin sekmeler ve boşluklar hakkında güçlü fikirleri kırmızı bayraktır.
       </li>
       <li>
-        <strong>Credit prior work.</strong> If your PR builds on someone else&rsquo;s
-        idea or code, say so explicitly. Never silently re-implement someone&rsquo;s
-        work.
+        <strong>Önceki çalışmalara atıfta bulunun.</strong> PR'ınız başka birinin fikri veya kodu üzerine inşa ediliyorsa, bunu açıkça belirtin. Birinin çalışmasını sessizce yeniden uygulamayın.
       </li>
       <li>
-        <strong>If your PR gets rejected, accept gracefully.</strong> Maintainers see
-        the project as a whole; you see one PR. Disagree by writing a thoughtful
-        follow-up comment, not by re-opening the conversation in 5 places.
+        <strong>PR'ınız reddedilirse, zarafetle kabul edin.</strong> Bakımcılar projeyi bir bütün olarak görür; siz bir PR görürsünüz. Düşünceli bir takip yorumu yazarak katılmadığınızı belirtin, konuşmayı 5 yerde yeniden başlatarak değil.
       </li>
       <li>
-        <strong>Help review others&rsquo; PRs.</strong> The single highest-leverage
-        contributor move. Maintainers remember who reviews — both for credit reasons
-        and because reviewing is harder than writing.
+        <strong>Başkalarının PR'larını incelemeye yardımcı olun.</strong> En yüksek kaldıraçlı katkıda bulunan hamlesi. Bakımcılar kimin incelediğini hatırlar — hem itibar nedenleriyle hem de inceleme yazmaktan daha zor olduğu için.
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Salary expectations for dev-tools roles",
+  label: "Geliştirici araçları rolleri için maaş beklentileri",
   targetSlug: "dev-tool-salary-estimator",
 };
 
 export const faq = [
   {
-    q: "How do I contribute to open source developer tools?",
-    a: "Pick projects you actually use, that are active but not bloated, with welcoming maintainers. Find a 'good first issue', comment before starting with your approach, write tests, write a clear PR description. Build trust through 1-3 small PRs, then medium PRs, then sustained contribution over 6-12 months for maintainer status.",
+    q: "Açık kaynak geliştirici araçlarına nasıl katkıda bulunabilirim?",
+    a: "Gerçekten kullandığınız, aktif ancak şişkin olmayan, hoşgeldiniz diyen bakımcıları olan projeleri seçin. Bir 'good first issue' bulun, yaklaşımınızla başlamadan önce yorum yapın, testler yazın, net bir PR açıklaması yazın. 1-3 küçük PR, ardından orta boy PR'lar ve bakımcı statüsü için 6-12 ay boyunca sürekli katkı ile güven oluşturun.",
   },
   {
-    q: "How do I contribute to open source without getting laughed at?",
-    a: "Three rules: read the contributor docs first (skipping is the #1 reason PRs get nit-picked), write tests even for tiny changes, write a PR description that respects the reviewer's time. Don't apologize 5 times in your PR — be confident, terse, humble. Match existing code style; don't argue tabs-vs-spaces as a newcomer.",
+    q: "Alay konusu olmadan açık kaynağa nasıl katkıda bulunabilirim?",
+    a: "Üç kural: önce katkıda bulunan belgelerini okuyun (atlamak, PR'ların didiklenmesinin 1 numaralı nedenidir), küçük değişiklikler için bile testler yazın, incelemecinin zamanına saygı duyan bir PR açıklaması yazın. PR'ınızda 5 kez özür dilemeyin — kendinize güvenen, kısa ve mütevazı olun. Mevcut kod stilini eşleştirin; yeni biri olarak sekmeler-boşluklar tartışmasına girmeyin.",
   },
   {
-    q: "What's the difference between drive-by PRs and substantial contributions?",
-    a: "Drive-by: 1-line fixes, typos. Don't move hiring needles. Medium: features with tests, non-trivial bug fixes with reproduction, doc overhauls (100-500 lines). Substantial: large PRs, sustained area ownership ('I own Windows compat'), or maintainer status. The substantial level changes hiring conversations.",
+    q: "Geçici PR'lar ile önemli katkılar arasındaki fark nedir?",
+    a: "Geçici: 1 satırlık düzeltmeler, yazım hataları. İşe alım kriterlerini etkilemez. Orta: testleri olan özellikler, tekrarlanabilirliği olan önemsiz olmayan hata düzeltmeleri, dokümantasyon revizyonları (100-500 satır). Önemli: büyük PR'lar, sürekli alan sahipliği ('Windows uyumluluğuna ben sahibim') veya bakımcı statüsü. Önemli seviye işe alım konuşmalarını değiştirir.",
   },
   {
-    q: "How long does it take to become a meaningful OSS contributor?",
-    a: "2-5 hours/week sustained for 3-6 months gets you to medium-PR territory. 6-12 months gets you to maintainer-level recognition. The compounding effect is real: once you have substantial contributions to one project, the next project is easier because maintainers can see your track record.",
+    q: "Anlamlı bir Açık Kaynak katılımcısı olmak ne kadar sürer?",
+    a: "3-6 ay boyunca haftada 2-5 saat sürekli çalışma sizi orta boy PR bölgesine getirir. 6-12 ay sizi bakımcı seviyesinde tanınmaya getirir. Bileşik etki gerçektir: bir projeye önemli katkılarınız olduğunda, bir sonraki proje daha kolaydır çünkü bakımcılar geçmiş performansınızı görebilir.",
   },
 ];

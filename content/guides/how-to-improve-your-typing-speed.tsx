@@ -3,256 +3,171 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Typing speed compounds. At 40 WPM, a 1,000-word doc takes 25
-      minutes of pure typing. At 80 WPM, 12.5. Over a career, that&rsquo;s
-      months of reclaimed time — plus the cognitive smoothness of
-      thoughts arriving at the screen as fast as you think them.
-      This guide covers realistic targets (average typists, good
-      typists, exceptional typists), the drills that actually work
-      (not all of them), proper technique and posture, the
-      plateaus most learners hit, and how to measure progress
-      without gaming your own benchmarks.
+      Yazma hızı birikimli olarak artar. 40 KDS'de (kelime/dakika), 1.000 kelimelik bir belgeyi yazmak 25 dakika saf yazma süresi alır. 80 KDS'de ise 12,5 dakika. Bir kariyer boyunca bu, aylarca kazanılmış zaman anlamına gelir — ayrıca düşüncelerin ekrana düşündüğünüz kadar hızlı gelmesinin bilişsel akıcılığı da cabası. Bu rehber, gerçekçi hedefleri (ortalama yazıcılar, iyi yazıcılar, olağanüstü yazıcılar), gerçekten işe yarayan alıştırmaları (hepsi değil), doğru teknik ve duruşu, çoğu öğrencinin takıldığı platoları ve kendi kriterlerinizi manipüle etmeden ilerlemeyi nasıl ölçeceğinizi kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Speed benchmarks</h2>
+    <h2>Hız kriterleri</h2>
     <p>
-      <strong>Average typist:</strong> ~40 WPM. Self-taught,
-      hunt-and-peck or partial touch-typing.
+      <strong>Ortalama yazıcı:</strong> ~40 KDS. Kendi kendine öğrenmiş, iki parmakla bakarak veya kısmi dokunarak yazan.
     </p>
     <p>
-      <strong>Competent touch typist:</strong> 60-70 WPM. The level
-      where typing stops being a bottleneck for most work.
+      <strong>Yetkin dokunarak yazan:</strong> 60-70 KDS. Yazmanın çoğu iş için bir darboğaz olmaktan çıktığı seviye.
     </p>
     <p>
-      <strong>Professional (data entry, transcription):</strong>
-      80-95 WPM.
+      <strong>Profesyonel (veri girişi, transkripsiyon):</strong>
+      80-95 KDS.
     </p>
     <p>
-      <strong>Elite:</strong> 100-120+ WPM sustained. Programmers,
-      writers, stenographers&rsquo; alt practice. Requires years of
-      deliberate practice or hobby-level investment.
+      <strong>Elit:</strong> Sürekli 100-120+ KDS. Programcılar, yazarlar, stenografların alternatif pratiği. Yıllarca bilinçli pratik veya hobi düzeyinde yatırım gerektirir.
     </p>
     <p>
-      <strong>World records:</strong> Sean Wrona holds multiple
-      records around 200 WPM on English prose; short bursts
-      250+ WPM.
+      <strong>Dünya rekorları:</strong> Sean Wrona, İngilizce düzyazıda 200 KDS civarında birden fazla rekora sahiptir; kısa patlamalarda 250+ KDS.
     </p>
     <p>
-      For most people, 60-80 WPM is the realistic target and yields
-      ~80% of the productivity benefit.
+      Çoğu insan için 60-80 KDS gerçekçi hedeftir ve üretkenlik faydasının ~%80'ini sağlar.
     </p>
 
-    <h2>Measure correctly — WPM isn&rsquo;t just speed</h2>
+    <h2>Doğru ölçün — KDS sadece hız değildir</h2>
     <p>
-      Standard WPM = (characters typed / 5) / minutes. Five
-      characters = one &ldquo;word&rdquo; regardless of actual word
-      length.
+      Standart KDS = (yazılan karakter / 5) / dakika. Beş karakter, gerçek kelime uzunluğundan bağımsız olarak bir "kelime" sayılır.
     </p>
     <p>
-      <strong>Raw WPM vs net WPM:</strong>
+      <strong>Ham KDS ve net KDS:</strong>
     </p>
     <p>
-      Raw WPM counts everything you typed, including mistakes and
-      corrections.
+      Ham KDS, hatalar ve düzeltmeler dahil yazdığınız her şeyi sayar.
     </p>
     <p>
-      Net WPM = raw WPM × accuracy. 100 WPM at 90% accuracy = 90
-      net WPM.
+      Net KDS = ham KDS × doğruluk. %90 doğrulukta 100 KDS = 90 net KDS.
     </p>
     <p>
-      Net WPM is what matters. Typing 120 raw at 70% accuracy gives
-      you 84 net WPM but also a wall of backspacing that breaks
-      flow.
+      Önemli olan net KDS'dir. %70 doğrulukta 120 ham KDS yazmak size 84 net KDS verir, ancak aynı zamanda akışı bozan bir geri silme duvarı da getirir.
     </p>
     <p>
-      <strong>Target accuracy:</strong> 97%+ at your target speed.
-      Below 95% and you&rsquo;re working too fast for the muscle
-      memory you have.
+      <strong>Hedef doğruluk:</strong> Hedef hızınızda %97+. %95'in altında, sahip olduğunuz kas hafızası için çok hızlı çalışıyorsunuz demektir.
     </p>
 
-    <h2>Touch typing — the prerequisite</h2>
+    <h2>Dokunarak yazma — ön koşul</h2>
     <p>
-      Above ~50 WPM, hunt-and-peck hits a ceiling. Real progress
-      requires touch typing — using all ten fingers without looking
-      at the keys.
+      ~50 KDS'nin üzerinde, iki parmakla bakarak yazma bir tavana çarpar. Gerçek ilerleme, tuşlara bakmadan on parmağı kullanarak dokunarak yazmayı gerektirir.
     </p>
     <p>
-      <strong>Home row:</strong> left hand rests on A-S-D-F, right
-      hand on J-K-L-; with thumbs on space. F and J have tactile
-      bumps for blind alignment.
+      <strong>Ana sıra:</strong> Sol el A-S-D-F üzerinde, sağ el J-K-L-; üzerinde durur, başparmaklar boşluk tuşunda. F ve J'de kör hizalama için dokunsal çıkıntılar bulunur.
     </p>
     <p>
-      <strong>Finger assignments:</strong> each finger owns a column
-      of keys. Left pinky = 1, Q, A, Z, Tab, Shift. Left ring = 2,
-      W, S, X. And so on. Most typing tutors enforce strict finger
-      assignments.
+      <strong>Parmak atamaları:</strong> Her parmak bir tuş sütununa sahiptir. Sol serçe = 1, Q, A, Z, Tab, Shift. Sol yüzük = 2, W, S, X. Ve böyle devam eder. Çoğu yazma eğitmeni katı parmak atamalarını zorunlu kılar.
     </p>
     <p>
-      <strong>Modern variants:</strong> some elite typists use
-      non-standard schemes (&ldquo;same-finger bigram&rdquo;
-      avoidance) but for the first 60 WPM, standard touch typing
-      works best.
+      <strong>Modern varyantlar:</strong> Bazı elit yazıcılar standart olmayan şemalar kullanır ("aynı parmak bigramı"ndan kaçınma) ancak ilk 60 KDS için standart dokunarak yazma en iyi sonucu verir.
     </p>
     <p>
-      <strong>Hide the keys.</strong> Cover the keyboard with a
-      cloth or buy a blank keycap set. Forces your brain to
-      memorize positions. Painful for 2-3 weeks; effective.
+      <strong>Tuşları gizleyin.</strong> Klavyeyi bir bezle örtün veya boş bir tuş başlığı seti satın alın. Beyninizi konumları ezberlemeye zorlar. 2-3 hafta acı vericidir; etkilidir.
     </p>
 
-    <h2>Drills that work</h2>
+    <h2>İşe yarayan alıştırmalar</h2>
     <p>
-      <strong>Typing.com / MonkeyType / Keybr:</strong> gamified
-      typing practice with adaptive difficulty. MonkeyType is the
-      modern favorite — clean interface, extensive word lists,
-      detailed stats.
+      <strong>Typing.com / MonkeyType / Keybr:</strong> Uyarlanabilir zorlukta oyunlaştırılmış yazma pratiği. MonkeyType modern favoridir — temiz arayüz, kapsamlı kelime listeleri, detaylı istatistikler.
     </p>
     <p>
-      <strong>Keybr specifically:</strong> identifies which keys
-      slow you down and drills those. Highly effective for
-      intermediate plateaus.
+      <strong>Özellikle Keybr:</strong> Sizi yavaşlatan tuşları belirler ve bunları çalıştırır. Orta seviye platolar için oldukça etkilidir.
     </p>
     <p>
-      <strong>Typing real content.</strong> Once you pass ~60 WPM,
-      practice on actual English prose, not word lists. Punctuation,
-      capitalization, and natural bigrams matter.
+      <strong>Gerçek içerik yazmak.</strong> ~60 KDS'yi geçtikten sonra, kelime listeleri değil, gerçek İngilizce düzyazı üzerinde pratik yapın. Noktalama işaretleri, büyük harf kullanımı ve doğal bigramlar önemlidir.
     </p>
     <p>
-      <strong>Transcription practice:</strong> type alongside a
-      podcast. Forces sustained speed.
+      <strong>Transkripsiyon pratiği:</strong> Bir podcast ile birlikte yazın. Sürekli hızı zorlar.
     </p>
     <p>
-      <strong>Duration: 15-30 min/day.</strong> Longer sessions
-      produce diminishing returns and can reinforce bad habits as
-      fatigue sets in.
+      <strong>Süre: Günde 15-30 dakika.</strong> Daha uzun seanslar azalan getiri sağlar ve yorgunluk arttıkça kötü alışkanlıkları pekiştirebilir.
     </p>
 
-    <h2>Drills that don&rsquo;t work as well as you&rsquo;d hope</h2>
+    <h2>Umarız kadar iyi çalışmayan alıştırmalar</h2>
     <p>
-      <strong>Random-word generators forever.</strong> Works up to
-      70-80 WPM. Beyond that, real prose practice matters — word
-      frequency, bigram patterns, and punctuation make or break
-      advanced speed.
+      <strong>Sonsuza kadar rastgele kelime üreteçleri.</strong> 70-80 KDS'ye kadar çalışır. Bunun ötesinde, gerçek düzyazı pratiği önemlidir — kelime sıklığı, bigram desenleri ve noktalama işaretleri ileri düzey hızı belirler veya bozar.
     </p>
     <p>
-      <strong>One-hour crash sessions.</strong> Typing improvement
-      requires muscle memory, which needs consolidation time. Daily
-      15-minute sessions beat weekly 2-hour sessions.
+      <strong>Bir saatlik yoğun seanslar.</strong> Yazma gelişimi, pekiştirme süresi gerektiren kas hafızası gerektirir. Günde 15 dakikalık seanslar, haftada 2 saatlik seansları yener.
     </p>
     <p>
-      <strong>Drilling common words to 150+ WPM.</strong>
-      Impressive numbers on common words don&rsquo;t transfer to
-      real writing, which has 4-6 letter words average and plenty
-      of uncommon terms.
+      <strong>Yaygın kelimeleri 150+ KDS'ye çalışmak.</strong> Yaygın kelimelerdeki etkileyici sayılar, ortalama 4-6 harfli kelimelere ve bol miktarda nadir terime sahip gerçek yazıya aktarılmaz.
     </p>
 
-    <h2>Posture and ergonomics</h2>
+    <h2>Duruş ve ergonomi</h2>
     <p>
-      Typing speed plateaus faster when you&rsquo;re uncomfortable.
+      Rahatsız olduğunuzda yazma hızı platoları daha hızlı oluşur.
     </p>
     <p>
-      <strong>Hands level with wrists.</strong> Floating — not
-      resting on the desk. Palm rests help for breaks, not while
-      typing.
+      <strong>Eller bileklerle aynı hizada.</strong> Masaya dayanmadan — havada. Avuç içi dayanakları molalar içindir, yazarken değil.
     </p>
     <p>
-      <strong>Elbows at ~90 degrees.</strong> Shoulders relaxed.
+      <strong>Dirsekler yaklaşık 90 derece.</strong> Omuzlar rahat.
     </p>
     <p>
-      <strong>Screen at eye level.</strong> Otherwise you tilt your
-      head forward, strain your neck, and slow down.
+      <strong>Ekran göz hizasında.</strong> Aksi takdirde başınızı öne eğer, boynunuzu zorlar ve yavaşlarsınız.
     </p>
     <p>
-      <strong>Break every 30-45 minutes.</strong> Sustained typing
-      without breaks causes fatigue and slight speed degradation
-      that compounds.
+      <strong>Her 30-45 dakikada bir mola verin.</strong> Molasız sürekli yazma yorgunluğa ve biriken hafif hız düşüşüne neden olur.
     </p>
     <p>
-      <strong>Mechanical keyboards:</strong> not faster, but many
-      people prefer the feedback. Tactile or linear switches are
-      personal preference. A decent membrane keyboard is fine for
-      learning.
+      <strong>Mekanik klavyeler:</strong> Daha hızlı değildir, ancak birçok kişi geri bildirimi tercih eder. Dokunsal veya lineer anahtarlar kişisel tercihtir. Öğrenmek için iyi bir membran klavye yeterlidir.
     </p>
 
-    <h2>The plateaus</h2>
+    <h2>Platolar</h2>
     <p>
-      <strong>30-40 WPM:</strong> transition from hunt-and-peck to
-      real touch typing. Feels like regression for 1-2 weeks.
-      Push through.
+      <strong>30-40 KDS:</strong> İki parmakla bakarak yazmadan gerçek dokunarak yazmaya geçiş. 1-2 hafta gerileme gibi hissettirir. Devam edin.
     </p>
     <p>
-      <strong>60-70 WPM:</strong> common plateau. Usually fixed by
-      eliminating look-at-keyboard habits for capitals and numbers,
-      and working on weak fingers (usually pinkies).
+      <strong>60-70 KDS:</strong> Yaygın plato. Genellikle büyük harfler ve sayılar için klavyeye bakma alışkanlığını ortadan kaldırarak ve zayıf parmaklar (genellikle serçeler) üzerinde çalışarak düzeltilir.
     </p>
     <p>
-      <strong>80-90 WPM:</strong> requires real accuracy
-      consolidation. Slow down to 95%+ accuracy, speed rebuilds at
-      the new level.
+      <strong>80-90 KDS:</strong> Gerçek doğruluk pekiştirmesi gerektirir. %95+ doğruluk için yavaşlayın, hız yeni seviyede yeniden inşa edilir.
     </p>
     <p>
-      <strong>100+ WPM:</strong> diminishing returns. Most people
-      don&rsquo;t need to cross this line. Further gains require
-      hours per week of dedicated practice.
+      <strong>100+ KDS:</strong> Azalan getiriler. Çoğu insanın bu çizgiyi geçmesi gerekmez. Daha fazla kazanç, haftada saatlerce özel pratik gerektirir.
     </p>
 
-    <h2>Programmer typing — different numbers</h2>
+    <h2>Programcı yazması — farklı sayılar</h2>
     <p>
-      Typing prose and typing code are different skills.
+      Düzyazı yazmak ve kod yazmak farklı becerilerdir.
     </p>
     <p>
-      Code has many more symbols (<code>{`{}[]();=+-*&|`}</code>),
-      fewer long words, and editor completion fills in a lot. A
-      70-WPM prose typist may be 40 WPM on code — that&rsquo;s normal.
+      Kodda çok daha fazla sembol bulunur (<code>{`{}[]();=+-*&|`}</code>), daha az uzun kelime vardır ve düzenleyici tamamlaması çoğunu doldurur. 70 KDS'lik bir düzyazı yazıcısı kodda 40 KDS olabilir — bu normaldir.
     </p>
     <p>
-      Practice typing symbol-heavy text specifically if you care
-      about code speed. Or lean on editor completion (LSP,
-      Copilot, Claude) rather than fighting typing speed.
+      Kod hızını önemsiyorsanız, özellikle sembol ağırlıklı metin yazma pratiği yapın. Veya yazma hızıyla uğraşmak yerine düzenleyici tamamlamasına (LSP, Copilot, Claude) güvenin.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Chasing raw WPM.</strong> 120 raw at 85% accuracy is
-      useless. Fix accuracy first, speed follows.
+      <strong>Ham KDS'nin peşinden koşmak.</strong> %85 doğrulukta 120 ham KDS işe yaramaz. Önce doğruluğu düzeltin, hız onu takip eder.
     </p>
     <p>
-      <strong>Looking at the keyboard.</strong> The #1 habit to
-      break. Cover keys, type slowly with eyes on screen, build
-      back up.
+      <strong>Klavyeye bakmak.</strong> Kırılması gereken 1 numaralı alışkanlık. Tuşları örtün, gözleriniz ekrandayken yavaşça yazın, geriye doğru inşa edin.
     </p>
     <p>
-      <strong>Practicing on easy content.</strong> 200-word-list
-      drills won&rsquo;t generalize. Mix in real prose with
-      punctuation.
+      <strong>Kolay içerik üzerinde pratik yapmak.</strong> 200 kelimelik liste alıştırmaları genelleme yapmaz. Noktalama işaretli gerçek düzyazıyı karıştırın.
     </p>
     <p>
-      <strong>Not taking breaks.</strong> Fatigue typing reinforces
-      sloppy keypresses. Stop, walk, come back.
+      <strong>Mola vermemek.</strong> Yorgunlukla yazmak, özensiz tuş vuruşlarını pekiştirir. Durun, yürüyün, geri gelin.
     </p>
     <p>
-      <strong>Ignoring weak fingers.</strong> Pinkies are usually
-      the slowest. Drill them specifically.
+      <strong>Zayıf parmakları görmezden gelmek.</strong> Serçeler genellikle en yavaş olanlardır. Onları özellikle çalıştırın.
     </p>
     <p>
-      <strong>Switching layouts hoping for magic.</strong> Dvorak
-      and Colemak are slightly more efficient for theoretical
-      finger travel, but switching costs 100+ hours of retraining.
-      Only worth it if you&rsquo;re typing as a profession.
+      <strong>Mucize umuduyla düzen değiştirmek.</strong> Dvorak ve Colemak teorik parmak hareketi için biraz daha verimlidir, ancak değiştirmek 100+ saat yeniden eğitim maliyeti getirir. Sadece yazmayı meslek olarak yapıyorsanız değer.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Measure your typing speed and accuracy with the{" "}
-      <a href="/tools/typing-speed-test">typing speed test</a>.
-      Pair with the{" "}
-      <a href="/tools/word-counter">word counter</a> to see how
-      your speed translates to daily writing output, and the{" "}
-      <a href="/tools/pomodoro-timer">pomodoro timer</a> to
-      structure focused practice sessions.
+      Yazma hızınızı ve doğruluğunuzu{" "}
+      <a href="/tools/typing-speed-test">yazma hızı testi</a> ile ölçün.
+      Hızınızın günlük yazma çıktısına nasıl yansıdığını görmek için{" "}
+      <a href="/tools/word-counter">kelime sayacı</a> ile ve odaklanmış pratik seanslarını yapılandırmak için{" "}
+      <a href="/tools/pomodoro-timer">pomodoro zamanlayıcı</a> ile birlikte kullanın.
     </p>
   </>
 );

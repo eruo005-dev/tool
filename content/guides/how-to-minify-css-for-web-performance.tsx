@@ -3,237 +3,167 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      CSS minification is a low-effort, high-visibility performance
-      win: strip comments, whitespace, and redundant syntax, and
-      you&rsquo;re 15-30% smaller before gzip even runs. After gzip
-      (universal in 2026) the incremental gain is smaller, but the
-      real value is earlier first paint — every millisecond of the
-      critical CSS path counts. This guide covers what minification
-      actually does, the difference between minification and
-      compression, when to reach for more aggressive optimizations
-      (purging, critical CSS, inlining), and the build pipelines
-      that get you there without thinking about it.
+      CSS küçültme, düşük eforlu ve yüksek görünürlüklü bir performans kazancıdır: yorumları, boşlukları ve gereksiz sözdizimini kaldırın; gzip devreye girmeden önce bile %15–30 daha küçük boyut elde edersiniz. 2026'da evrensel hale gelen gzip sonrasında ek kazanç daha küçüktür, ancak asıl değer daha erken ilk boyamadadır—kritik CSS yolundaki her milisaniye önemlidir. Bu kılavuz, küçültmenin gerçekte ne yaptığını, küçültme ile sıkıştırma arasındaki farkı, daha agresif optimizasyonlara (temizleme, kritik CSS, satır içine alma) ne zaman başvurulacağını ve bunu düşünmeden yapmanızı sağlayan derleme hatlarını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What minification actually does</h2>
+    <h2>Küçültme gerçekte ne yapar</h2>
     <p>
-      CSS minifiers apply a set of safe text transformations:
+      CSS küçültücüler bir dizi güvenli metin dönüşümü uygular:
     </p>
     <p>
-      <strong>Remove whitespace:</strong> tabs, extra spaces,
-      newlines.
+      <strong>Boşlukları kaldırma:</strong> sekmeler, fazladan boşluklar, satır sonları.
     </p>
     <p>
-      <strong>Remove comments:</strong> /* ... */ blocks.
+      <strong>Yorumları kaldırma:</strong> /* ... */ blokları.
     </p>
     <p>
-      <strong>Shorten hex colors:</strong> #ffffff → #fff, #ff00aa →
-      #f0a.
+      <strong>Hex renkleri kısaltma:</strong> #ffffff → #fff, #ff00aa → #f0a.
     </p>
     <p>
-      <strong>Remove unnecessary units:</strong> 0px → 0. Zero has
-      no units.
+      <strong>Gereksiz birimleri kaldırma:</strong> 0px → 0. Sıfırın birimi yoktur.
     </p>
     <p>
-      <strong>Remove quotes where unambiguous:</strong> font-family:
-      &ldquo;Arial&rdquo; → font-family: Arial (if no spaces).
+      <strong>Belirsiz olmadığında tırnak işaretlerini kaldırma:</strong> font-family:
+      &ldquo;Arial&rdquo; → font-family: Arial (boşluk yoksa).
     </p>
     <p>
-      <strong>Combine rules:</strong> merge duplicate selectors,
-      combine redundant declarations.
+      <strong>Kuralları birleştirme:</strong> yinelenen seçicileri birleştirir, gereksiz bildirimleri daraltır.
     </p>
     <p>
-      <strong>Shorten longhand properties:</strong> margin-top: 10px;
+      <strong>Uzun yazılışlı özellikleri kısaltma:</strong> margin-top: 10px;
       margin-right: 10px... → margin: 10px 10px 10px 10px → margin:
       10px.
     </p>
     <p>
-      A good minifier shaves 20-40% off raw CSS. The exact number
-      depends on how verbose the source was.
+      İyi bir küçültücü, ham CSS'den %20–40 oranında tasarruf sağlar. Kesin sayı, kaynağın ne kadar ayrıntılı olduğuna bağlıdır.
     </p>
 
-    <h2>Minification vs. gzip vs. brotli</h2>
+    <h2>Küçültme vs. gzip vs. brotli</h2>
     <p>
-      These are stacked, not alternatives.
+      Bunlar alternatif değildir—üst üste bindirilmiş yöntemlerdir.
     </p>
     <p>
-      <strong>Minification</strong> is a text transformation that
-      produces smaller source. Done once at build time.
+      <strong>Küçültme</strong>, daha küçük bir kaynak üreten bir metin dönüşümüdür. Derleme zamanında bir kez yapılır.
     </p>
     <p>
-      <strong>Gzip</strong> / <strong>Brotli</strong> are
-      lossless compression that your server applies per request.
-      Gzip gives 70-85% reduction on text; Brotli typically 5-15%
-      better than gzip on CSS.
+      <strong>Gzip</strong> / <strong>Brotli</strong>, sunucunuzun her istekte uyguladığı kayıpsız sıkıştırma yöntemleridir. Gzip, metni %70–85 oranında azaltır; Brotli, CSS'de gzip'ten tipik olarak %5–15 daha iyidir.
     </p>
     <p>
-      <strong>Is minifying before gzip worth it?</strong> Yes, a bit.
-      Minification reduces the size of comments, repeated whitespace,
-      and unused tokens that gzip already handles well, but also
-      exposes more cross-rule similarities gzip can exploit. Net win
-      ~3-8% after gzip.
+      <strong>Gzip'ten önce küçültmek buna değer mi?</strong> Evet, biraz.
+      Küçültme, gzip'in zaten iyi işlediği yorumların, tekrarlanan boşlukların ve kullanılmayan belirteçlerin boyutunu azaltır, ancak aynı zamanda gzip'in kullanması için daha fazla kural arası benzerlik ortaya çıkarır. Gzip sonrası net kazanç ~%3–8'dir.
     </p>
     <p>
-      The real value of minification is not post-gzip size — it&rsquo;s
-      that smaller source means faster parse time, faster transfer
-      over non-gzip paths (some CDN edge cases), and one less
-      round-trip before styles apply.
+      Küçültmenin gerçek değeri gzip'lenmiş boyut değildir—daha hızlı ayrıştırma süresi, gzip olmayan yollarda (bazı CDN uç durumları) daha hızlı aktarım ve stillerin uygulanmasından önce bir tur daha az iletişim için daha küçük kaynaktır.
     </p>
 
-    <h2>Beyond minification — the higher-impact wins</h2>
+    <h2>Küçültmenin ötesinde—daha yüksek etkili kazançlar</h2>
     <p>
-      Minification is 20-40%. The bigger wins:
+      Küçültme %20–40'tır. Daha büyük kazançlar:
     </p>
     <p>
-      <strong>Purge unused CSS.</strong> Tailwind JIT, PurgeCSS,
-      UnoCSS remove rules your pages don&rsquo;t use. Going from
-      200 KB Bootstrap to 15 KB used-only CSS is a 90% cut before
-      any minification.
+      <strong>Kullanılmayan CSS'i temizleme.</strong> Tailwind JIT, PurgeCSS, UnoCSS, sayfalarınızın kullanmadığı kuralları kaldırır. 200 KB Bootstrap'ten yalnızca kullanılan CSS'in 15 KB'ına inmek, herhangi bir küçültmeden önce %90'lık bir kesintidir.
     </p>
     <p>
-      <strong>Critical CSS inline.</strong> Extract the styles needed
-      to render above-the-fold content and inline them in
-      &lt;head&gt;. Defer the rest. Eliminates a render-blocking
-      request; improves <a href="/learn/lcp">LCP</a> by 200-800ms typical.
+      <strong>Kritik CSS'i satır içine alma.</strong> Ekranın üst kısmında görünen içeriği oluşturmak için gereken stilleri çıkarın ve bunları &lt;head&gt; içine satır içi olarak ekleyin. Gerisini erteleyin. Oluşturmayı engelleyen bir isteği ortadan kaldırır; <a href="/learn/lcp">LCP</a>'yi tipik olarak 200–800ms iyileştirir.
     </p>
     <p>
-      <strong>HTTP/2 server push &mdash; avoid.</strong> It was
-      popular 2016-2019 but has been removed from Chrome and is
-      deprecated. Use resource hints (preload, preconnect) instead.
+      <strong>HTTP/2 sunucu itmesi—bundan kaçının.</strong> 2016–2019 arasında popülerdi ancak Chrome'dan kaldırıldı ve kullanımdan kaldırıldı. Bunun yerine kaynak ipuçlarını (preload, preconnect) kullanın.
     </p>
     <p>
-      <strong>Lazy-load non-critical stylesheets:</strong>
+      <strong>Kritik olmayan stil sayfalarını tembel yükleme:</strong>
       <code> &lt;link rel=&ldquo;stylesheet&rdquo; href=&ldquo;non-
       critical.css&rdquo; media=&ldquo;print&rdquo; onload=&ldquo;
-      this.media=&lsquo;all&rsquo;&rdquo;&gt;</code>. Doesn&rsquo;t
-      block initial paint.
+      this.media=&lsquo;all&rsquo;&rdquo;&gt;</code>. İlk boyamayı engellemez.
     </p>
     <p>
-      <strong>Eliminate render-blocking fonts.</strong>
-      <code>font-display: swap</code> shows fallback until the
-      webfont loads. Prevents invisible text during font-download.
+      <strong>Oluşturmayı engelleyen yazı tiplerini ortadan kaldırma.</strong>
+      <code>font-display: swap</code>, web yazı tipi yüklenene kadar bir yedek yazı tipi gösterir. Yazı tipi indirme sırasında görünmez metni önler.
     </p>
 
-    <h2>Build pipeline — set it up once</h2>
+    <h2>Derleme hattı—bir kez ayarlayın</h2>
     <p>
-      Doing minification manually is wasted effort. Bake into build.
+      Küçültmeyi manuel olarak yapmak boşa harcanmış efordur. Derlemenize entegre edin.
     </p>
     <p>
-      <strong>Next.js, Vite, Astro, Nuxt</strong> all minify CSS in
-      production builds by default. No config needed.
+      <strong>Next.js, Vite, Astro, Nuxt</strong> üretim derlemelerinde CSS'i varsayılan olarak küçültür. Yapılandırma gerekmez.
     </p>
     <p>
-      <strong>PostCSS + cssnano</strong> for custom pipelines. <code>npm
-      install -D cssnano</code> → add to postcss.config.js. Produces
-      near-optimal CSS with sensible defaults.
+      <strong>Özel hatlar için PostCSS + cssnano.</strong> <code>npm
+      install -D cssnano</code> → postcss.config.js dosyasına ekleyin. Makul varsayılanlarla neredeyse optimum CSS üretir.
     </p>
     <p>
-      <strong>esbuild</strong> minifies CSS along with JS at very high
-      speed. Good for monorepos and large codebases.
+      <strong>esbuild</strong>, CSS'i JS ile birlikte çok yüksek hızda küçültür. Monorepolar ve büyük kod tabanları için iyidir.
     </p>
     <p>
-      <strong>LightningCSS</strong> (Rust-based, drop-in cssnano
-      replacement): 30-100× faster, handles modern CSS features.
-      Default in newer Parcel and Next.js setups.
+      <strong>LightningCSS</strong> (Rust tabanlı, cssnano için birebir değiştirme): 30–100× daha hızlıdır, modern CSS özelliklerini işler. Daha yeni Parcel ve Next.js kurulumlarında varsayılandır.
     </p>
 
-    <h2>CDN and caching — multiplier effects</h2>
+    <h2>CDN ve önbelleğe alma—çarpan etkileri</h2>
     <p>
-      A tiny CSS file cached at the CDN edge is instant delivery for
-      every subsequent user.
+      CDN ucunda önbelleğe alınmış küçük bir CSS dosyası, sonraki her kullanıcı için anında teslimattır.
     </p>
     <p>
-      <strong>Content hash in filename:</strong> styles.a7f3b2.css.
-      Lets you set max-age=31536000 (one year) because the URL
-      changes when content changes. Infinite caching, zero staleness.
+      <strong>Dosya adında içerik karması:</strong> styles.a7f3b2.css. max-age=31536000 (bir yıl) ayarlamanızı sağlar çünkü içerik değiştiğinde URL değişir. Sonsuz önbelleğe alma, sıfır bayatlık.
     </p>
     <p>
-      <strong>HTTP/2 multiplexing:</strong> separate CSS file loads
-      in parallel with HTML/JS. Helps for multiple stylesheets (but
-      one big minified file usually beats many small ones; parse
-      overhead dominates below 5-10 KB per file).
+      <strong>HTTP/2 çoğullama:</strong> ayrı CSS dosyası HTML/JS ile paralel olarak yüklenir. Birden çok stil sayfasına yardımcı olur (ancak tek bir büyük küçültülmüş dosya genellikle birçok küçük dosyayı yener; dosya başına 5–10 KB'ın altında ayrıştırma yükü baskın hale gelir).
     </p>
 
-    <h2>Measuring — where to look</h2>
+    <h2>Ölçüm—nereye bakmalı</h2>
     <p>
-      <strong>Lighthouse:</strong> specific audits for &ldquo;Eliminate
-      render-blocking resources&rdquo;, &ldquo;Minify CSS&rdquo;, and
-      &ldquo;Remove unused CSS&rdquo;. Run on every deploy.
+      <strong>Lighthouse:</strong> &ldquo;Oluşturmayı engelleyen kaynakları ortadan kaldırın&rdquo;, &ldquo;CSS'i küçültün&rdquo; ve &ldquo;Kullanılmayan CSS'i kaldırın&rdquo; için özel denetimler. Her dağıtımda çalıştırın.
     </p>
     <p>
-      <strong>WebPageTest:</strong> waterfall view shows exactly
-      when CSS blocks rendering and for how long.
+      <strong>WebPageTest:</strong> şelale görünümü, CSS'in oluşturmayı ne zaman ve ne kadar süreyle engellediğini tam olarak gösterir.
     </p>
     <p>
-      <strong>Chrome DevTools Coverage tab:</strong> loads a page and
-      tells you what percent of each CSS file was actually used. A
-      Bootstrap site often shows 5-15% coverage — the rest is
-      purge-target.
+      <strong>Chrome DevTools Kapsam sekmesi:</strong> bir sayfayı yükler ve her CSS dosyasının gerçekte ne kadarının kullanıldığının yüzdesini söyler. Bir Bootstrap sitesi genellikle %5–15 kapsam gösterir—geri kalanı temizleme malzemesidir.
     </p>
     <p>
-      <strong><a href="/learn/core-web-vitals">Core Web Vitals</a> in Search Console:</strong> LCP
-      improvements from CSS optimization show up here as
-      &ldquo;Good&rdquo; page counts rise.
+      <strong><a href="/learn/core-web-vitals">Search Console'da Temel Web Verileri</a>:</strong> CSS optimizasyonundan kaynaklanan LCP iyileştirmeleri, &ldquo;İyi&rdquo; sayfa sayıları arttıkça burada görünür.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Manually maintaining minified CSS.</strong> Always
-      check in the source; build tooling minifies. Never edit the
-      minified file.
+      <strong>Küçültülmüş CSS'i manuel olarak sürdürmek.</strong> Kaynağı her zaman sürümleyin; derleme aracının küçültmesine izin verin. Küçültülmüş dosyayı asla düzenlemeyin.
     </p>
     <p>
-      <strong>Minifying in dev.</strong> Painful to debug. Use
-      source-maps; ship un-mapped minified CSS only in prod.
+      <strong>Geliştirme ortamında küçültme.</strong> Hata ayıklaması zordur. Kaynak haritaları kullanın; küçültülmüş CSS'i yalnızca üretimde haritalar olmadan gönderin.
     </p>
     <p>
-      <strong>Skipping PurgeCSS because &ldquo;it&rsquo;ll break
-      dynamic classes&rdquo;.</strong> Use safelist config for
-      dynamically-generated class names. Still purge everything else.
+      <strong>&ldquo;Dinamik sınıfları bozuyor&rdquo; diye PurgeCSS'i atlamak.</strong> Dinamik olarak oluşturulan sınıf adları için güvenli liste yapılandırması kullanın. Yine de diğer her şeyi temizleyin.
     </p>
     <p>
-      <strong>Inlining too much critical CSS.</strong> Inline budget
-      is 14 KB (one TCP roundtrip). More than that starts delaying
-      the HTML, not speeding it.
+      <strong>Çok fazla kritik CSS'i satır içine almak.</strong> Satır içi bütçe 14 KB'dir (bir TCP gidiş-dönüşü). Bundan fazlası HTML'i hızlandırmak yerine geciktirmeye başlar.
     </p>
     <p>
-      <strong>Multiple small stylesheets for architectural
-      cleanness.</strong> Each request has overhead. Bundle, then
-      minify, then serve. One CSS file per page is fine; one per
-      component is usually too granular for production.
+      <strong>Mimari temizlik için birçok küçük stil sayfası.</strong> Her isteğin bir yükü vardır. Birleştirin, ardından küçültün, ardından sunun. Sayfa başına bir CSS dosyası iyidir; bileşen başına bir tane genellikle üretim için çok ayrıntılıdır.
     </p>
 
-    <h2>What NOT to minify</h2>
+    <h2>NE küçültülmemeli</h2>
     <p>
-      <strong>Source files in your repo.</strong> Always minify at
-      build, not in source.
+      <strong>Deponuzdaki kaynak dosyalar.</strong> Her zaman derlemede küçültün, kaynakta değil.
     </p>
     <p>
-      <strong>Markdown / MDX content.</strong> Content isn&rsquo;t
-      code; keep readable.
+      <strong>Markdown / MDX içeriği.</strong> İçerik kod değildir; okunabilir tutun.
     </p>
     <p>
-      <strong>Library CSS during dev.</strong> Keeps stack traces
-      debuggable. Minify only on production build.
+      <strong>Geliştirme sırasında kütüphane CSS'i.</strong> Yığın izlerini hata ayıklanabilir tutar. Yalnızca üretim derlemesinde küçültün.
     </p>
     <p>
-      <strong>When behind on perf budget already.</strong> Minifying
-      a 200 KB CSS bundle to 150 KB is lipstick on a pig. Purge
-      first, minify second.
+      <strong>Performans bütçesinin zaten gerisinde kaldığınızda.</strong> 200 KB'lık bir CSS paketini 150 KB'a küçültmek, bir domuzu rujlamaktır. Önce temizleyin, sonra küçültün.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları görün</h2>
     <p>
-      Paste CSS and see instant minified output with the{" "}
-      <a href="/tools/css-minifier">CSS minifier</a>. Pair with the{" "}
-      <a href="/tools/js-minifier">JS minifier</a> to compress
-      JavaScript the same way, and the{" "}
-      <a href="/tools/html-formatter">HTML formatter</a> when cleaning
-      up markup in the other direction.
+      CSS yapıştırın ve küçültülmüş çıktıyı anında{" "}
+      <a href="/tools/css-minifier">CSS küçültücü</a> ile görün. JavaScript'i aynı şekilde sıkıştırmak için{" "}
+      <a href="/tools/js-minifier">JS küçültücü</a> ile eşleştirin ve işaretlemeyi diğer yönde temizlerken{" "}
+      <a href="/tools/html-formatter">HTML biçimlendirici</a> kullanın.
     </p>
   </>
 );

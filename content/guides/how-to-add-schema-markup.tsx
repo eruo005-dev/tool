@@ -3,62 +3,33 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Schema markup is structured data that describes the entities on
-      your page &mdash; articles, products, events, reviews, people
-      &mdash; in a vocabulary search engines understand. Done right,
-      it unlocks rich results: star ratings in the SERP, FAQ
-      accordions, recipe cards, breadcrumb trails, and Knowledge
-      Graph entries. Done wrong, it earns manual actions and silent
-      filtering. The vocabulary comes from <code>schema.org</code>,
-      but there are three ways to embed it, and Google has had a
-      strong preference for one format since 2015. This guide covers
-      <a href="/learn/json-ld">JSON-LD</a> vs microdata vs RDFa, the types that unlock rich
-      results in 2026 (Article, Product, FAQPage, BreadcrumbList,
-      Organization, Review), how to test with the Rich Results Test
-      and Schema Validator, and the validation errors that quietly
-      disable your rich snippets.
+      Schema markup, arama motorlarının sayfanızdaki varlıkları (makaleler, ürünler, etkinlikler, incelemeler, kişiler) anladığı bir kelime dağarcığıyla tanımlayan yapılandırılmış veridir. Doğru uygulandığında, zengin sonuçların kilidini açar: SERP'de yıldız puanları, SSS akordeonları, tarif kartları, ekmek kırıntısı yolları ve Bilgi Grafiği girişleri. Yanlış uygulandığında ise manuel müdahalelere ve sessizce filtrelenmeye yol açar. Kelime dağarcığı <code>schema.org</code>'dan gelir, ancak onu yerleştirmenin üç yolu vardır ve Google'ın 2015'ten beri güçlü bir şekilde tercih ettiği bir format vardır. Bu kılavuz, <a href="/learn/json-ld">JSON-LD</a> ile mikro veri ve RDFa arasındaki farkı, 2026'da zengin sonuçların kilidini açan türleri (Article, Product, FAQPage, BreadcrumbList, Organization, Review), Rich Results Test ve Schema Validator ile nasıl test yapılacağını ve zengin snippet'lerinizi sessizce devre dışı bırakan doğrulama hatalarını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>JSON-LD vs microdata vs RDFa</h2>
+    <h2>JSON-LD vs mikro veri vs RDFa</h2>
     <p>
-      Schema.org data can be embedded in three syntaxes. All three
-      produce the same semantic graph; they differ in how they wrap
-      the markup.
+      Schema.org verileri üç sözdizimiyle yerleştirilebilir. Her üçü de aynı anlamsal grafiği üretir; işaretlemeyi sarma biçimleri farklıdır.
     </p>
     <p>
-      <strong>JSON-LD:</strong> a JSON object inside a
-      <code> &lt;script type=&quot;application/ld+json&quot;&gt;</code>
-      tag, typically placed in <code>&lt;head&gt;</code>. Not
-      entangled with visible HTML. Google explicitly recommends this
-      format and most documentation examples use it.
+      <strong>JSON-LD:</strong> Bir <code> &lt;script type=&quot;application/ld+json&quot;&gt;</code> etiketi içindeki bir JSON nesnesi, genellikle <code>&lt;head&gt;</code> içine yerleştirilir. Görünür HTML ile iç içe geçmez. Google bu formatı açıkça önerir ve çoğu dokümantasyon örneği bunu kullanır.
     </p>
     <p>
-      <strong>Microdata:</strong> attributes
-      (<code>itemscope</code>, <code>itemtype</code>,
-      <code> itemprop</code>) sprinkled on visible HTML. The markup
-      and the content stay together, which is tempting, but template
-      changes can silently break the graph.
+      <strong>Mikro veri:</strong> Görünür HTML'ye serpiştirilmiş nitelikler (<code>itemscope</code>, <code>itemtype</code>, <code> itemprop</code>). İşaretleme ve içerik bir arada kalır, bu caziptir ancak şablon değişiklikleri grafiği sessizce bozabilir.
     </p>
     <p>
-      <strong>RDFa:</strong> similar to microdata using different
-      attributes (<code>vocab</code>, <code>typeof</code>,
-      <code> property</code>). Rarely used on the modern web outside
-      government and academic sites.
+      <strong>RDFa:</strong> Farklı nitelikler (<code>vocab</code>, <code>typeof</code>, <code> property</code>) kullanan mikro veriye benzer. Modern web'de devlet ve akademik siteler dışında nadiren kullanılır.
     </p>
     <p>
-      Pick JSON-LD unless you have a specific constraint otherwise.
-      It is the only format that lets you keep structured data
-      decoupled from the DOM your CMS produces.
+      Aksi bir kısıtlamanız yoksa JSON-LD'yi seçin. Yapılandırılmış verileri CMS'nizin ürettiği DOM'dan ayrı tutmanıza izin veren tek formattır.
     </p>
 
-    <h2>The JSON-LD skeleton</h2>
+    <h2>JSON-LD iskeleti</h2>
     <p>
-      Every JSON-LD block needs a context and a type. The rest are
-      properties of that type as defined on schema.org.
+      Her JSON-LD bloğunun bir bağlamı ve bir türü olması gerekir. Geri kalanı, schema.org'da tanımlandığı gibi bu türün özellikleridir.
     </p>
     <pre>{`<script type="application/ld+json">
 {
@@ -73,26 +44,17 @@ export const body: ReactElement = (
 }
 </script>`}</pre>
     <p>
-      Use <code>https://schema.org</code> (not http) for the context.
-      Validators accept either but the canonical value is https.
+      Bağlam için <code>https://schema.org</code> (http değil) kullanın. Doğrulayıcılar her ikisini de kabul eder ancak standart değer https'dir.
     </p>
 
-    <h2>Article &mdash; news, blog, long-form</h2>
+    <h2>Article &mdash; haber, blog, uzun metin</h2>
     <p>
-      Use <code>Article</code>, <code>NewsArticle</code>, or
-      <code> BlogPosting</code>. Required for Google&rsquo;s Top
-      Stories: <code>headline</code>, <code>image</code>,
-      <code> datePublished</code>, and a
-      <code> Publisher</code> with a logo no taller than 60 px. The
-      headline must be 110 characters or fewer to appear in Top
-      Stories; longer headlines are truncated in some surfaces.
+      <code>Article</code>, <code>NewsArticle</code> veya <code> BlogPosting</code> kullanın. Google'ın Öne Çıkan Haberler için gereklidir: <code>headline</code>, <code>image</code>, <code> datePublished</code> ve logosu 60 pikselden yüksek olmayan bir <code> Publisher</code>. Başlık, Öne Çıkan Haberler'de görünmek için 110 karakter veya daha az olmalıdır; daha uzun başlıklar bazı yüzeylerde kısaltılır.
     </p>
 
-    <h2>Product &mdash; the big rich-result earner</h2>
+    <h2>Product &mdash; en büyük zengin sonuç kazancı</h2>
     <p>
-      <code>Product</code> with <code>offers</code> and
-      <code> aggregateRating</code> earns price, availability, and
-      star-rating snippets. Minimal example:
+      <code>Product</code>, <code>offers</code> ve <code> aggregateRating</code> ile birlikte fiyat, stok durumu ve yıldız puanı snippet'leri kazandırır. Minimal örnek:
     </p>
     <pre>{`{
   "@context": "https://schema.org",
@@ -113,17 +75,12 @@ export const body: ReactElement = (
   }
 }`}</pre>
     <p>
-      Google requires reviews to be written by humans and visible on
-      the page. Auto-generated ratings or ratings invisible to users
-      trigger a manual action for spammy structured data.
+      Google, incelemelerin insanlar tarafından yazılmasını ve sayfada görünür olmasını gerektirir. Otomatik oluşturulan veya kullanıcılar tarafından görülemeyen puanlar, spam yapılandırılmış veri için manuel müdahaleyi tetikler.
     </p>
 
-    <h2>FAQPage &mdash; powerful but restricted</h2>
+    <h2>FAQPage &mdash; güçlü ancak kısıtlı</h2>
     <p>
-      As of August 2023, Google shows FAQ rich results only for
-      authoritative government and health sites. Everyone else still
-      benefits from the clearer semantic signal, and the snippets may
-      return for other verticals later.
+      Ağustos 2023 itibarıyla Google, SSS zengin sonuçlarını yalnızca yetkili devlet ve sağlık siteleri için gösteriyor. Diğer herkes daha net anlamsal sinyalden faydalanmaya devam ediyor ve snippet'ler daha sonra diğer dikeyler için geri dönebilir.
     </p>
     <pre>{`{
   "@context": "https://schema.org",
@@ -138,17 +95,12 @@ export const body: ReactElement = (
   }]
 }`}</pre>
     <p>
-      Every question in the markup must appear verbatim on the
-      visible page. Asking in the markup what the page never actually
-      answers is a policy violation.
+      İşaretlemedeki her soru, görünür sayfada aynen görünmelidir. Sayfanın aslında hiç yanıtlamadığı bir soruyu işaretlemede sormak bir politika ihlalidir.
     </p>
 
     <h2>BreadcrumbList</h2>
     <p>
-      Replaces the URL shown in the SERP with a breadcrumb trail. The
-      <code> position</code> property must be an integer starting at 1
-      and incrementing. The final item&rsquo;s <code>item</code> can
-      be omitted &mdash; Google treats the current page as implicit.
+      SERP'de gösterilen URL'yi bir ekmek kırıntısı yolu ile değiştirir. <code> position</code> özelliği 1'den başlayan ve artan bir tam sayı olmalıdır. Son öğenin <code>item</code>'i atlanabilir &mdash; Google geçerli sayfayı örtük olarak kabul eder.
     </p>
     <pre>{`{
   "@context": "https://schema.org",
@@ -162,103 +114,17 @@ export const body: ReactElement = (
   ]
 }`}</pre>
 
-    <h2>Organization and Person</h2>
+    <h2>Organization ve Person</h2>
     <p>
-      One <code>Organization</code> block per site, usually on the
-      homepage, populates the Knowledge Graph panel for your brand.
-      Include <code>name</code>, <code>url</code>,
-      <code> logo</code>, and <code>sameAs</code> (an array of your
-      social and authority profiles). For authors, add a
-      <code> Person</code> block linked from each article&rsquo;s
-      <code> author</code> field to build author authority.
+      Site başına bir <code>Organization</code> bloğu, genellikle ana sayfada, markanız için Bilgi Grafiği panelini doldurur. <code>name</code>, <code>url</code>, <code> logo</code> ve <code>sameAs</code> (sosyal ve yetkili profillerinizin bir dizisi) ekleyin. Yazarlar için, her makalenin <code> author</code> alanına bağlı bir <code> Person</code> bloğu ekleyerek yazar yetkisi oluşturun.
     </p>
 
-    <h2>Testing tools</h2>
+    <h2>Test araçları</h2>
     <p>
-      Run every change through two validators before shipping.
+      Yayınlamadan önce her değişikliği iki doğrulayıcıdan geçirin.
     </p>
     <p>
-      <strong>Google Rich Results Test</strong> at
-      <code> search.google.com/test/rich-results</code> tells you
-      which rich results your page qualifies for and which properties
-      are missing.
-    </p>
-    <p>
-      <strong>Schema.org Validator</strong> at
-      <code> validator.schema.org</code> checks the markup against
-      the full vocabulary, catching typos and unknown properties that
-      the Google tool sometimes silently ignores.
-    </p>
-    <p>
-      After deploying, monitor Search Console&rsquo;s Enhancements
-      reports. They surface warnings and errors across your whole
-      site, with per-page error lists.
-    </p>
-
-    <h2>Multiple types on one page</h2>
-    <p>
-      A product page can legitimately have Product, BreadcrumbList,
-      and Organization markup at once. Use separate
-      <code> &lt;script&gt;</code> tags or a single JSON-LD
-      <code> @graph</code> array:
-    </p>
-    <pre>{`{
-  "@context": "https://schema.org",
-  "@graph": [
-    {"@type": "Product", "name": "..."},
-    {"@type": "BreadcrumbList", "itemListElement": [...]}
-  ]
-}`}</pre>
-
-    <h2>Common mistakes</h2>
-    <p>
-      <strong>Marking up content that is not on the page.</strong>
-      Every value in structured data must correspond to something
-      users can see. Invisible FAQs and fake review snippets trigger
-      manual actions.
-    </p>
-    <p>
-      <strong>Using the wrong type.</strong> A category page is not a
-      <code> Product</code>; a how-to article is an
-      <code> Article</code>, not a <code>HowTo</code> unless it has
-      numbered steps with tools and materials. Mis-typing earns
-      ineligibility for any rich result.
-    </p>
-    <p>
-      <strong>Missing required properties.</strong> Each rich-result
-      type has a required-property list. Miss one &mdash;
-      <code> priceCurrency</code>, <code>datePublished</code>,
-      <code> image</code> &mdash; and the whole snippet becomes
-      ineligible. The Rich Results Test flags these.
-    </p>
-    <p>
-      <strong>Case-sensitive typos.</strong> It is
-      <code> datePublished</code>, not <code>DatePublished</code> or
-      <code> date_published</code>. Schema.org property names are
-      camelCase and validators reject variants silently.
-    </p>
-    <p>
-      <strong>Inventing properties.</strong> Unknown properties do
-      not fail validation but they do nothing either. Before adding
-      a field, check it exists on the schema.org type page.
-    </p>
-    <p>
-      <strong>Stale dates.</strong> Templates that auto-update
-      <code> dateModified</code> to &ldquo;now&rdquo; on every page
-      render make Google discount the signal. Only bump it when
-      content actually changes.
-    </p>
-
-    <h2>Run the numbers</h2>
-    <p>
-      Generate valid JSON-LD for the common types in seconds with
-      the{" "}
-      <a href="/tools/schema-markup-generator">schema markup generator</a>.
-      Pair with the{" "}
-      <a href="/tools/faq-schema-generator">FAQ schema generator</a>
-      {" "}when the page has a question-and-answer block, and the{" "}
-      <a href="/tools/json-formatter">JSON formatter</a> to pretty-print
-      and syntax-check your JSON-LD before pasting it into the head.
+      <strong>Google Rich Results Test</strong> (<code> search.google.com/test/rich-results</code> adresinde) sayfanızın hangi zengin sonuçlara hak kazandığını ve hangi özelliklerin eksik olduğunu söyler.
     </p>
   </>
 );

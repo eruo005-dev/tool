@@ -3,275 +3,192 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Waking up groggy isn&rsquo;t about how long you slept — it&rsquo;s
-      about where in a sleep cycle your alarm went off. Sleep moves
-      through 90-minute cycles of light, deep, and REM sleep. Waking
-      mid-cycle (especially mid-deep-sleep) feels brutal; waking at
-      the end of one feels clean. Timing your bedtime to a planned
-      wake-up, or vice versa, is one of the cheapest sleep
-      interventions available — no supplements, no gadgets, just
-      arithmetic. This guide covers how sleep cycles actually work,
-      the math behind cycle-based timing, practical usage (including
-      nap timing), when the simple model breaks, and the real
-      limits of what cycle timing can and can&rsquo;t fix.
+      Sersemlemiş uyanmak ne kadar uyuduğunuzla ilgili değil—alarmınızın uyku döngünüzün hangi aşamasında çaldığıyla ilgilidir. Uyku, hafif, derin ve REM uykusundan oluşan 90 dakikalık döngüler halinde ilerler. Döngünün ortasında (özellikle derin uykuda) uyanmak berbat hissettirir; döngünün sonunda uyanmak ise dinç hissettirir. Yatma saatinizi planlanan uyanma saatinize göre ayarlamak veya tam tersi, mevcut en ucuz uyku müdahalelerinden biridir—hiçbir takviye, hiçbir alet, sadece aritmetik. Bu rehber, uyku döngülerinin gerçekte nasıl çalıştığını, döngü temelli zamanlamanın matematiğini, pratikte nasıl kullanılacağını (şekerleme zamanlaması dahil), basit modelin ne zaman bozulduğunu ve döngü zamanlamasının gerçekte neyi düzeltip düzeltemeyeceğini kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Sleep cycle basics</h2>
+    <h2>Uyku döngüsü temelleri</h2>
     <p>
-      A full sleep cycle runs roughly 90 minutes and moves through
-      four stages:
+      Tam bir uyku döngüsü yaklaşık 90 dakika sürer ve dört aşamadan geçer:
     </p>
     <p>
-      <strong>N1 (light sleep, ~5 min):</strong> transition from
-      wake to sleep. Easy to be woken.
+      <strong>N1 (hafif uyku, ~5 dk):</strong> uyanıklıktan uykuya geçiş. Uyanması kolay.
     </p>
     <p>
-      <strong>N2 (light sleep, ~20 min):</strong> body <a href="/learn/temperature-ai">temperature</a>
-      drops, heart rate slows. Most of total sleep time lives here.
+      <strong>N2 (hafif uyku, ~20 dk):</strong> vücut <a href="/learn/temperature-ai">sıcaklığı</a> düşer, kalp atış hızı yavaşlar. Toplam uyku süresinin çoğu burada geçer.
     </p>
     <p>
-      <strong>N3 (deep sleep, ~30 min):</strong> slow-wave sleep.
-      Physical recovery, immune function, growth hormone. Hardest
-      to wake from. Dominant in the first third of the night.
+      <strong>N3 (derin uyku, ~30 dk):</strong> yavaş dalga uykusu. Fiziksel iyileşme, bağışıklık fonksiyonu, büyüme hormonu. Uyanması en zor aşama. Gecenin ilk üçte birinde baskındır.
     </p>
     <p>
-      <strong>REM (~20 min per cycle, longer later):</strong> dream
-      sleep. Memory consolidation, learning. Dominant in the last
-      third of the night. Eyes move rapidly under closed lids;
-      muscles are paralyzed.
+      <strong>REM (~20 dk/döngü, sonraki döngülerde daha uzun):</strong> rüya uykusu. Hafıza pekiştirme, öğrenme. Gecenin son üçte birinde baskındır. Kapalı göz kapaklarının altında gözler hızla hareket eder; kaslar felçlidir.
     </p>
     <p>
-      The cycle is not identical across the night. Early cycles are
-      deep-sleep-heavy; later cycles are REM-heavy.
+      Döngü gece boyunca tekdüze değildir. Erken döngüler derin uyku ağırlıklıdır; geç döngüler REM ağırlıklıdır.
     </p>
 
-    <h2>Why waking at cycle end feels good</h2>
+    <h2>Döngü sonunda uyanmak neden iyi hissettirir</h2>
     <p>
-      <strong>Sleep inertia</strong> is the grogginess after
-      waking. It&rsquo;s severe when you&rsquo;re pulled from N3
-      (deep sleep) — cortisol and adrenaline haven&rsquo;t caught
-      up; your brain is still flushing adenosine.
+      <strong>Uyku ataleti</strong> uyandıktan sonraki sersemlik halidir. N3'ten (derin uyku) çekildiğinizde şiddetlidir—kortizol ve adrenalin henüz yetişmemiştir; beyniniz hala adenozini temizlemektedir.
     </p>
     <p>
-      Wake at the end of a cycle (late REM or transition to light
-      sleep) and you&rsquo;re closer to the natural wake state.
-      Sleep inertia lasts a few minutes instead of an hour.
+      Bir döngünün sonunda (geç REM veya hafif uykuya geçiş) uyanın ve doğal uyanıklığa daha yakınsınız. Uyku ataleti bir saat yerine dakikalar sürer.
     </p>
 
-    <h2>The math — backward planning</h2>
+    <h2>Matematik—geriye doğru planlama</h2>
     <p>
-      <strong>Need to wake at 6:30 AM?</strong>
+      <strong>06:30'da uyanmanız mı gerekiyor?</strong>
     </p>
     <p>
-      5 cycles (7.5 hours of sleep) + ~15 min to fall asleep →{" "}
-      bedtime 10:45 PM.
+      5 döngü (7,5 saat uyku) + uykuya dalmak için ~15 dk → yatma saati 22:45.
     </p>
     <p>
-      6 cycles (9 hours) + 15 min → bedtime 9:15 PM. Probably too
-      much for most adults.
+      6 döngü (9 saat) + 15 dk → yatma saati 21:15. Çoğu yetişkin için muhtemelen çok fazla.
     </p>
     <p>
-      4 cycles (6 hours) + 15 min → bedtime 12:15 AM. Short but
-      you&rsquo;ll wake clean.
+      4 döngü (6 saat) + 15 dk → yatma saati 00:15. Kısa ama uyanık uyanırsınız.
     </p>
     <p>
-      <strong>Rule of thumb:</strong> 4, 5, or 6 cycles — never
-      aim for something in between.
+      <strong>Genel kural:</strong> 4, 5 veya 6 döngüyü hedefleyin—arada bir şeyi değil.
     </p>
 
-    <h2>Forward planning — bedtime first</h2>
+    <h2>İleriye doğru planlama—önce yatma saati</h2>
     <p>
-      <strong>Going to bed at 11:00 PM?</strong>
+      <strong>23:00'te yatıyor musunuz?</strong>
     </p>
     <p>
-      Assume 15 min to fall asleep. Cycles start ~11:15.
+      Uykuya dalmak için 15 dk varsayın. Döngüler ~23:15'te başlar.
     </p>
     <p>
-      Cycle 1 ends ~12:45 AM.
+      Döngü 1 ~00:45'te biter.
       <br />
-      Cycle 2 ends ~2:15 AM.
+      Döngü 2 ~02:15'te biter.
       <br />
-      Cycle 3 ends ~3:45 AM.
+      Döngü 3 ~03:45'te biter.
       <br />
-      Cycle 4 ends ~5:15 AM (6 hrs sleep).
+      Döngü 4 ~05:15'te biter (6 saat uyku).
       <br />
-      Cycle 5 ends ~6:45 AM (7.5 hrs sleep). Target.
+      Döngü 5 ~06:45'te biter (7,5 saat uyku). Hedef.
       <br />
-      Cycle 6 ends ~8:15 AM (9 hrs sleep).
+      Döngü 6 ~08:15'te biter (9 saat uyku).
     </p>
     <p>
-      Set your alarm for one of the cycle-end times, not between
-      them.
-    </p>
-
-    <h2>Sleep onset time matters</h2>
-    <p>
-      The 15-minute fall-asleep assumption is the weakest link in
-      cycle math. Falling asleep can take 5 to 60+ minutes.
-    </p>
-    <p>
-      <strong>If you fall asleep fast:</strong> shift cycle
-      calculations earlier by 10-15 minutes.
-    </p>
-    <p>
-      <strong>If it takes you 30+ minutes:</strong> plan backward
-      from your typical sleep-onset time, not light-out time.
-    </p>
-    <p>
-      <strong>Track for a week</strong> to learn your real
-      sleep-onset. Most fitness trackers estimate this reasonably
-      well (Apple Watch, Oura, Whoop).
+      Alarmınızı döngü bitiş zamanlarından birine kurun, aralarına değil.
     </p>
 
-    <h2>Individual cycle variance</h2>
+    <h2>Uykuya dalma süresi önemlidir</h2>
     <p>
-      90 minutes is the population average. Individual cycles vary
-      from 70 to 110 minutes. Cycle length also changes across the
-      night — earlier cycles lean short, later cycles lean long.
+      15 dakikalık uykuya dalma varsayımı, döngü matematiğindeki en zayıf halkadır. Uykuya dalmak 5 ila 60+ dakika sürebilir.
     </p>
     <p>
-      <strong>Practical implication:</strong> cycle timing is a
-      rough guide, not a stopwatch. A 15-minute alarm wake window
-      is usually within one person&rsquo;s cycle-end range.
+      <strong>Çabuk uykuya dalıyorsanız:</strong> döngü hesaplamalarını 10–15 dakika ileri kaydırın.
     </p>
     <p>
-      Sleep trackers with smart alarms (Oura, Apple Watch,
-      Sleep Cycle app) detect actual cycle phase and wake you
-      during the lightest sleep in a configurable window. Better
-      than fixed-time alarms for most people.
+      <strong>30+ dakika sürüyorsa:</strong> ışıkların söndüğü saatten değil, tipik uykuya dalma zamanınızdan geriye doğru plan yapın.
+    </p>
+    <p>
+      <strong>Bir hafta boyunca takip edin</strong> gerçek uykuya dalma sürenizi öğrenmek için. Çoğu fitness takipçisi bunu makul ölçüde iyi tahmin eder (Apple Watch, Oura, Whoop).
     </p>
 
-    <h2>Nap timing</h2>
+    <h2>Bireysel döngü farklılıkları</h2>
     <p>
-      Short naps and long naps work through different mechanisms:
+      90 dakika nüfus ortalamasıdır. Bireysel döngüler 70 ila 110 dakika arasında değişir. Döngü uzunluğu gece boyunca da değişir—erken döngüler kısa, geç döngüler uzun olma eğilimindedir.
     </p>
     <p>
-      <strong>20-minute power nap:</strong> stays in N1/N2. Wakes
-      easy, no grogginess, small cognitive bump. Ideal for
-      afternoon energy without disrupting nighttime sleep.
+      <strong>Pratik çıkarım:</strong> döngü zamanlaması kaba bir kılavuzdur, kronometre değil. 15 dakikalık alarm uyanma penceresi genellikle bir kişinin döngü bitiş aralığı içindedir.
     </p>
     <p>
-      <strong>90-minute nap:</strong> complete sleep cycle. Includes
-      REM. Works for <a href="/learn/sleep-debt">sleep debt</a> recovery. Wake at cycle end → feel
-      refreshed.
-    </p>
-    <p>
-      <strong>Avoid 30-60 min naps.</strong> You&rsquo;ll hit N3
-      (deep sleep) but wake mid-cycle → severe sleep inertia. The
-      classic &ldquo;nap that made me feel worse.&rdquo;
-    </p>
-    <p>
-      <strong>Nap timing matters too:</strong> naps in the 1-3 PM
-      window align with natural circadian dip. Naps after 4 PM
-      start stealing from nighttime sleep pressure.
+      Akıllı alarmlı uyku takipçileri (Oura, Apple Watch, Sleep Cycle uygulaması) gerçek döngü aşamasını algılar ve yapılandırılabilir bir pencere içinde sizi en hafif uyku sırasında uyandırır. Çoğu insan için bu, sabit zamanlı alarmlardan daha iyidir.
     </p>
 
-    <h2>When cycle timing matters less</h2>
+    <h2>Şekerleme zamanlaması</h2>
     <p>
-      <strong>Severe sleep deprivation:</strong> if you&rsquo;re
-      running on 4 hours total, a cycle-end wake is still better
-      than mid-cycle, but you&rsquo;ll feel bad regardless. Fix the
-      total amount.
+      Kısa şekerlemeler ve uzun şekerlemeler farklı mekanizmalarla çalışır:
     </p>
     <p>
-      <strong>Shift workers with inverted schedules:</strong> cycle
-      math applies but your <a href="/learn/circadian-rhythm">circadian rhythm</a> is fighting you.
-      Timing matters less than consistency and darkness/light
-      management.
+      <strong>20 dakikalık güç şekerlemesi:</strong> N1/N2'de kalır. Kolay uyanma, sersemlik yok, küçük bilişsel artış. Gece uykusunu bozmadan öğleden sonra enerjisi için idealdir.
     </p>
     <p>
-      <strong>Medication-affected sleep:</strong> sleep aids,
-      antihistamines, alcohol all distort cycle structure. Counts
-      and timing break down.
+      <strong>90 dakikalık şekerleme:</strong> tam uyku döngüsü. REM içerir. <a href="/learn/sleep-debt">Uyku borcu</a> iyileşmesi için çalışır. Döngü sonunda uyanın → dinç hissedin.
     </p>
     <p>
-      <strong>Sleep apnea:</strong> fragments cycles severely. Your
-      tracker may say &ldquo;5 cycles&rdquo; but actual restorative
-      sleep could be 30%. Treat the apnea, not the timing.
+      <strong>30–60 dakikalık şekerlemelerden kaçının.</strong> N3'e (derin uyku) girersiniz ancak döngü ortasında uyanırsınız → şiddetli uyku ataleti. Klasik "sizi daha kötü hissettiren şekerleme."
+    </p>
+    <p>
+      <strong>Şekerleme zamanlaması da önemlidir:</strong> 13:00–15:00 şekerlemeleri doğal sirkadiyen düşüşle uyumludur. 16:00'dan sonraki şekerlemeler gece uyku basıncından çalmaya başlar.
     </p>
 
-    <h2>Total sleep still matters more</h2>
+    <h2>Döngü zamanlamasının daha az önemli olduğu durumlar</h2>
     <p>
-      Cycle timing is a tuning layer on top of enough total sleep.
-      If you&rsquo;re sleeping 5 hours a night, perfectly timed
-      wakes won&rsquo;t compensate for accumulated sleep debt.
+      <strong>Şiddetli uyku yoksunluğu:</strong> toplamda 4 saat uyuyorsanız, döngü sonunda uyanmak döngü ortasında uyanmaktan daha iyidir, ancak yine de berbat hissedeceksiniz. Toplam miktarı düzeltin.
     </p>
     <p>
-      Most adults need 7-9 hours (5-6 cycles). Teens need 8-10
-      (5-7 cycles). Children need 9-12+. Elite athletes and rapid
-      learners often need more.
+      <strong>Ters vardiyalı çalışanlar:</strong> döngü matematiği hala geçerlidir ancak <a href="/learn/circadian-rhythm">sirkadiyen ritminiz</a> size karşı savaşır. Tutarlılık ve karanlık/aydınlık yönetimi zamanlamadan daha önemlidir.
     </p>
     <p>
-      <strong>Sleep debt compounds.</strong> 6 hours nightly for a
-      week ≈ sleeping drunk. No cycle magic fixes this; only extra
-      sleep does.
+      <strong>İlaç etkisindeki uyku:</strong> uyku ilaçları, antihistaminikler, alkol döngü mimarisini bozar. Sayılar ve zamanlama işe yaramaz.
+    </p>
+    <p>
+      <strong>Uyku apnesi:</strong> döngüleri ciddi şekilde parçalar. Takipçiniz "5 döngü" diyebilir ancak gerçek onarıcı uyku %30 olabilir. Apneyi tedavi edin, zamanlamayı değil.
     </p>
 
-    <h2>Light and dark — the missing piece</h2>
+    <h2>Toplam uyku hala daha önemlidir</h2>
     <p>
-      Cycle timing assumes you fall asleep and wake at your
-      planned times. That assumption breaks if your circadian
-      rhythm is misaligned.
+      Döngü zamanlaması, yeterli toplam uykunun üzerine ince ayar katmanıdır. Günde 5 saat uyuyorsanız, mükemmel zamanlanmış uyanmalar birikmiş uyku borcunu düzeltmez.
     </p>
     <p>
-      <strong>Morning light</strong> (bright, within 30 min of
-      waking) advances your circadian clock — makes you feel
-      sleepy earlier.
+      Çoğu yetişkinin 7–9 saate (5–6 döngü) ihtiyacı vardır. Gençlerin 8–10 saate (5–7 döngü) ihtiyacı vardır. Çocukların 9–12+ saate ihtiyacı vardır. Elit sporcular ve hızlı öğrenenler genellikle daha fazlasına ihtiyaç duyar.
     </p>
     <p>
-      <strong>Evening darkness</strong> (dim light 2 hours before
-      bed, no phone in bed) raises melatonin → faster sleep onset.
-    </p>
-    <p>
-      <strong>Blue light at night</strong> suppresses melatonin.
-      Screens are the biggest offender. Dim mode or glasses help;
-      physical distance helps more.
+      <strong>Uyku borcu birikir.</strong> Bir hafta boyunca her gece 6 saat uyumak ≈ sarhoş olmak gibidir. Hiçbir döngü büyüsü bunu düzeltmez; sadece ekstra uyku düzeltir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Aydınlık ve karanlık—eksik parça</h2>
     <p>
-      <strong>Treating cycles as exact.</strong> 90 minutes is
-      average, not prescribed. Use it as a rough guide, not a
-      stopwatch.
+      Döngü zamanlaması, planlanan saatlerde uykuya dalıp uyanacağınızı varsayar. Sirkadiyen ritminiz uyumsuzsa, bu varsayım bozulur.
     </p>
     <p>
-      <strong>Ignoring sleep onset time.</strong> Planning from
-      lights-out rather than estimated sleep-onset shifts every
-      cycle by 15-45 minutes.
+      <strong>Sabah ışığı</strong> (parlak, uyandıktan sonraki 30 dk içinde) sirkadiyen saatinizi ileri alır—sizi daha erken uykulu hissettirir.
     </p>
     <p>
-      <strong>Optimizing timing while underslept.</strong> If
-      you&rsquo;re short 2 hours, the priority is more sleep, not
-      better-timed sleep.
+      <strong>Akşam karanlığı</strong> (yatmadan 2 saat önce loş ışık, yatakta telefon yok) melatonini yükseltir → daha hızlı uykuya dalma.
     </p>
     <p>
-      <strong>Setting multiple alarms across cycles.</strong> The
-      snooze habit pulls you into fragmented N1 sleep that feels
-      worse than a single clean wake.
-    </p>
-    <p>
-      <strong>Napping too long.</strong> 30-60 min is the worst
-      window — hit N3 without completing a cycle.
-    </p>
-    <p>
-      <strong>Ignoring sleep consistency.</strong> Same bedtime
-      every night beats perfect cycle math on an inconsistent
-      schedule. Your body clock locks in.
+      <strong>Gece mavi ışığı</strong> melatonini baskılar. Ekranlar en büyük suçludur. Loş mod veya gözlükler yardımcı olur; fiziksel mesafe daha çok yardımcı olur.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Plan backward from your wake time with the{" "}
-      <a href="/tools/sleep-cycle-calculator">sleep cycle calculator</a>.
-      Pair with the{" "}
-      <a href="/tools/time-zone-converter">time zone converter</a>
-      {" "}to handle jet lag, and the{" "}
-      <a href="/tools/pomodoro-timer">pomodoro timer</a> for daytime
-      energy management that complements good sleep.
+      <strong>Döngüleri kesin kabul etmek.</strong> 90 dakika bir ortalamadır, kural değil. Kaba bir kılavuz olarak kullanın, kronometre olarak değil.
+    </p>
+    <p>
+      <strong>Uykuya dalma süresini görmezden gelmek.</strong> Tahmini uykuya dalma süresi yerine ışıkların söndüğü saatten planlama yapmak her döngüyü 15–45 dakika kaydırır.
+    </p>
+    <p>
+      <strong>Az uyurken zamanlamayı optimize etmek.</strong> 2 saat eksiğiniz varsa, öncelik daha iyi zamanlanmış uyku değil, daha fazla uykudur.
+    </p>
+    <p>
+      <strong>Döngüler arasında birden fazla alarm kurmak.</strong> Ertelemek sizi tek bir temiz uyanıştan daha kötü hissettiren parçalanmış N1 uykusuna çeker.
+    </p>
+    <p>
+      <strong>Çok uzun şekerleme yapmak.</strong> 30–60 dk en kötü aralıktır—bir döngüyü tamamlamadan N3'e ulaşırsınız.
+    </p>
+    <p>
+      <strong>Uyku tutarlılığını görmezden gelmek.</strong> Her gece aynı saatte yatmak, tutarsız bir programda mükemmel döngü matematiğinden daha iyidir. Vücut saatiniz yerleşir.
+    </p>
+
+    <h2>Rakamları çalıştırın</h2>
+    <p>
+      Uyanma saatinizden geriye doğru bir{" "}
+      <a href="/tools/sleep-cycle-calculator">uyku döngüsü hesaplayıcı</a> ile plan yapın.
+      Jet lag yönetimi için bir{" "}
+      <a href="/tools/time-zone-converter">saat dilimi dönüştürücü</a>
+      {" "}ve iyi uykuyu tamamlayan gündüz enerji yönetimi için bir{" "}
+      <a href="/tools/pomodoro-timer">pomodoro zamanlayıcı</a>
+      {" "}ile birlikte kullanın.
     </p>
   </>
 );

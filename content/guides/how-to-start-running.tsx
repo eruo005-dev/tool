@@ -1,110 +1,79 @@
 export const intro = (
   <>
     <p>
-      Running is the cheapest, most available form of exercise ever invented. Shoes and a
-      sidewalk. The problem isn&rsquo;t the barrier to start — it&rsquo;s that most people
-      start too hard, get hurt or miserable, and quit within 3 weeks.
+      Koşmak, şimdiye kadar icat edilmiş en ucuz ve en ulaşılabilir egzersiz şeklidir. Bir ayakkabı ve bir kaldırım yeter. Sorun başlama engeli değil — çoğu insanın çok zorlanarak başlaması, sakatlanması veya mutsuz olması ve 3 hafta içinde bırakmasıdır.
     </p>
     <p>
-      This guide gets you from zero to 30 minutes of continuous running in about 8-10 weeks,
-      without injury, without dread, and without overthinking it.
+      Bu rehber, sizi sıfırdan 30 dakika kesintisiz koşuya, yaklaşık 8-10 haftada, sakatlanmadan, korkmadan ve fazla düşünmeden ulaştırır.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Start with a run-walk method</h2>
+    <h2>1. Koş-yürü yöntemiyle başlayın</h2>
     <p>
-      Don&rsquo;t try to run the whole time. Alternate 1 minute running / 2 minutes walking for
-      20 minutes. This is the famous Couch to 5K approach and it&rsquo;s the reason thousands
-      of sedentary people became runners. Ego-kill the &ldquo;I should be able to run the whole
-      thing&rdquo; voice.
+      Tüm süre boyunca koşmaya çalışmayın. 20 dakika boyunca 1 dakika koşu / 2 dakika yürüyüşü dönüşümlü yapın. Bu, ünlü Couch to 5K yaklaşımıdır ve binlerce hareketsiz insanın koşucu olmasının sebebidir. "Tüm süreyi koşabilmeliyim" diyen egonuzu susturun.
     </p>
 
-    <h2>2. Progress run intervals slowly</h2>
+    <h2>2. Koşu aralıklarını yavaşça artırın</h2>
     <p>
-      Week 1: 1-min run, 2-min walk, repeat 7×. Week 2: 2-min run, 2-min walk, 6×. Week 4:
-      5-min run, 2-min walk, 4×. Week 8: continuous 30-minute run. Add intervals over weeks,
-      not days. Your muscles adapt faster than your tendons — rush the progression and you&rsquo;ll
-      injure the tendons.
+      1. Hafta: 1 dk koşu, 2 dk yürüyüş, 7× tekrar. 2. Hafta: 2 dk koşu, 2 dk yürüyüş, 6×. 4. Hafta: 5 dk koşu, 2 dk yürüyüş, 4×. 8. Hafta: 30 dakika kesintisiz koşu. Aralıkları haftalar içinde artırın, günler içinde değil. Kaslarınız tendonlarınızdan daha hızlı uyum sağlar — ilerlemeyi aceleye getirirseniz tendonlarınızı sakatlarsınız.
     </p>
 
-    <h2>3. Run slow — much slower than you think</h2>
+    <h2>3. Yavaş koşun — düşündüğünüzden çok daha yavaş</h2>
     <p>
-      Beginners sprint, get winded, and quit. Your easy pace should allow you to hold a
-      conversation. If you can&rsquo;t talk, slow down. A 12-minute-mile jog is better training
-      than a 9-minute sprint followed by walking home defeated.
+      Yeni başlayanlar sürat yapar, nefes nefese kalır ve bırakır. Kolay tempunuz, bir sohbeti sürdürebilmenize izin vermelidir. Konuşamıyorsanız, yavaşlayın. 12 dakikalık bir mil koşusu, yenilmiş bir şekilde eve yürüyerek dönülen 9 dakikalık bir sprintten daha iyi bir antrenmandır.
     </p>
 
-    <h2>4. Get shoes that fit</h2>
+    <h2>4. Uygun ayakkabılar alın</h2>
     <p>
-      Not fashion shoes. Real running shoes with enough room in the toe box. Replace every
-      300-500 miles. A local running store can fit you properly. Bad shoes cause bad injuries
-      — this is one area to not cheap out on.
+      Moda ayakkabılar değil. Parmak kutusunda yeterli alanı olan gerçek koşu ayakkabıları. Her 300-500 milde bir değiştirin. Yerel bir koşu mağazası sizi doğru şekilde ayarlayabilir. Kötü ayakkabılar kötü sakatlıklara yol açar — bu, cimrilik yapılmaması gereken bir alandır.
     </p>
 
-    <h2>5. 3 runs per week, not 5</h2>
+    <h2>5. Haftada 5 değil, 3 koşu</h2>
     <p>
-      Beginners think more = better. It isn&rsquo;t. Your body needs 48 hours between runs to
-      adapt. Running every day before you&rsquo;re ready guarantees injury. Three days a week,
-      progressively longer, for 3 months, is more effective than daily mediocre runs.
+      Yeni başlayanlar daha fazla = daha iyi sanır. Öyle değil. Vücudunuzun uyum sağlaması için koşular arasında 48 saate ihtiyacı vardır. Hazır olmadan her gün koşmak sakatlığı garanti eder. Haftada üç gün, giderek daha uzun, 3 ay boyunca, günlük vasat koşulardan daha etkilidir.
     </p>
 
-    <h2>6. Warm up with a walk</h2>
+    <h2>6. Yürüyüşle ısının</h2>
     <p>
-      5-minute walk before you run. Doesn&rsquo;t need to be fancy. Your heart rate comes up
-      gradually, your muscles activate, your joints prep. Cold starts are how people tear
-      things.
+      Koşmadan önce 5 dakika yürüyüş. Süslü olması gerekmez. Kalp atış hızınız kademeli olarak yükselir, kaslarınız harekete geçer, eklemleriniz hazırlanır. Soğuk başlangıçlar, insanların bir şeyler yırtmasına neden olur.
     </p>
 
-    <h2>7. Stretch the right muscles</h2>
+    <h2>7. Doğru kasları esnetin</h2>
     <p>
-      Calves, hip flexors, glutes, hamstrings. Dynamic stretches before (leg swings, walking
-      lunges); static stretches after (hold 30 seconds each). Five minutes of this prevents
-      90% of beginner aches.
+      Baldırlar, kalça fleksörleri, gluteuslar, hamstringler. Önce dinamik esnemeler (bacak sallamalar, yürüyerek hamleler); sonra statik esnemeler (her birini 30 saniye tutun). Bunun beş dakikası, yeni başlayan ağrılarının %90'ını önler.
     </p>
 
-    <h2>8. Listen to pain signals</h2>
+    <h2>8. Ağrı sinyallerini dinleyin</h2>
     <p>
-      Muscle soreness after a run: normal. Sharp joint pain during a run: stop. Any pain that
-      lasts more than 48 hours: rest and reassess. Pushing through real pain is how beginners
-      turn 2-week setbacks into 6-month ones.
+      Koşu sonrası kas ağrısı: normal. Koşu sırasında keskin eklem ağrısı: durun. 48 saatten uzun süren herhangi bir ağrı: dinlenin ve yeniden değerlendirin. Gerçek acıyı görmezden gelmek, yeni başlayanların 2 haftalık aksaklıkları 6 aylık aksaklıklara dönüştürmesidir.
     </p>
 
-    <h2>9. Track distance, not speed</h2>
+    <h2>9. Hızı değil, mesafeyi takip edin</h2>
     <p>
-      For the first 3 months, speed is irrelevant. Accumulate miles slowly. Speed gains come
-      later and come easily once aerobic base is built. Beginners chasing pace are the
-      beginners most likely to get hurt.
+      İlk 3 ay boyunca hız önemsizdir. Milleri yavaşça biriktirin. Hız kazanımları daha sonra gelir ve aerobik taban oluşturulduktan sonra kolayca elde edilir. Tempoyu kovalayan yeni başlayanlar, sakatlanma olasılığı en yüksek olanlardır.
     </p>
 
-    <h2>10. Run with music, podcasts, or silence</h2>
+    <h2>10. Müzik, podcast veya sessizlikle koşun</h2>
     <p>
-      Whatever makes you actually show up. Some runners crave music; others use it as
-      meditation time. Try both. Don&rsquo;t moralize about &ldquo;proper running.&rdquo; The
-      best run is the one you do.
+      Sizi gerçekten koşmaya teşvik eden neyse onu yapın. Bazı koşucular müziğe ihtiyaç duyar; diğerleri bunu meditasyon zamanı olarak kullanır. İkisini de deneyin. "Doğru koşu" hakkında ahlaki dersler vermeyin. En iyi koşu, yaptığınız koşudur.
     </p>
 
-    <h2>11. Join a group or sign up for a 5K</h2>
+    <h2>11. Bir gruba katılın veya bir 5K'ya kaydolun</h2>
     <p>
-      External commitment keeps you training. A 5K race 10 weeks out is perfect motivation for
-      a beginner. Local running groups for social runs are a beginner&rsquo;s secret weapon.
-      Community flips running from chore to ritual.
+      Dışsal taahhüt, antrenman yapmanızı sağlar. 10 hafta sonraki bir 5K yarışı, yeni başlayanlar için mükemmel bir motivasyondur. Sosyal koşular için yerel koşu grupları, yeni başlayanların gizli silahıdır. Topluluk, koşmayı angaryadan ritüele dönüştürür.
     </p>
 
-    <h2>12. Pair with strength work</h2>
+    <h2>12. Kuvvet çalışmasıyla birleştirin</h2>
     <p>
-      Runners with strong glutes and cores get hurt less. Two days a week of strength work
-      complements running. Our <a href="/guides/beginner-workout-plan-at-home">beginner
-      workout plan</a> works fine as a base.
+      Güçlü gluteus ve core kaslarına sahip koşucular daha az sakatlanır. Haftada iki gün kuvvet çalışması koşuyu tamamlar. Bizim <a href="/guides/beginner-workout-plan-at-home">yeni başlayanlar için evde egzersiz planımız</a> temel olarak işe yarar.
     </p>
 
-    <h2>Your first week</h2>
+    <h2>İlk haftanız</h2>
     <p>
-      Buy shoes that fit. Map a safe 2-mile loop. Monday/Wednesday/Friday: walk 5 minutes,
-      alternate 1-min run / 2-min walk for 20 minutes, cool-down walk 5 minutes. That&rsquo;s
-      it. Do it for a week. Then increase.
+      Uygun ayakkabılar alın. Güvenli bir 2 millik bir parkur belirleyin. Pazartesi/Çarşamba/Cuma: 5 dakika yürüyün, 20 dakika boyunca 1 dk koşu / 2 dk yürüyüşü dönüşümlü yapın, 5 dakika soğuma yürüyüşü yapın. Bu kadar. Bir hafta boyunca yapın. Sonra artırın.
     </p>
   </>
 );

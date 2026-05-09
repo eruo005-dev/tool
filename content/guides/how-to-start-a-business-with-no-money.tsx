@@ -1,87 +1,66 @@
 export const intro = (
   <>
     <p>
-      Most businesses don&rsquo;t fail because of lack of capital — they fail because
-      nobody wants what&rsquo;s being sold. The best bootstrap path: sell services or
-      information first, build products second. No money required, lots of work
-      required.
+      Çoğu işletme sermaye eksikliğinden değil, kimsenin satılan şeyi istememesinden başarısız olur. En iyi bootstrap yolu: önce hizmet veya bilgi sat, sonra ürün geliştir. Para gerekmez, çok çalışma gerekir.
     </p>
     <p>
-      This is how people actually start viable businesses with $0.
+      İnsanlar sıfır sermaye ile uygulanabilir işletmeleri işte böyle kurar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Start with services, not products</h2>
+    <h2>1. Ürünlerle değil, hizmetlerle başlayın</h2>
     <p>
-      Products cost money to build. Services just require you. Freelance writing,
-      design, coding, consulting, tutoring, cleaning — charge for time, prove demand,
-      then productize later. Almost every profitable bootstrapper started here.
+      Ürün geliştirmek para gerektirir. Hizmetler sadece sizi gerektirir. Serbest yazarlık, tasarım, kodlama, danışmanlık, özel ders, temizlik — zaman karşılığı ücret alın, talebi kanıtlayın, sonra ürünleştirin. Neredeyse tüm karlı bootstrapper'lar buradan başladı.
     </p>
 
-    <h2>2. Sell something before building anything</h2>
+    <h2>2. Hiçbir şey geliştirmeden önce bir şey satın</h2>
     <p>
-      Talk to 10 potential customers. Ask what problem they&rsquo;d pay to solve. Pre-
-      sell the solution. If nobody will pay, don&rsquo;t build it. Classic mistake:
-      spending 6 months building a product nobody wants.
+      10 potansiyel müşteriyle konuşun. Ödemeye razı olacakları sorunu sorun. Çözümü önceden satın. Kimse ödemeyecekse, geliştirmeyin. Klasik hata: kimsenin istemediği bir ürünü geliştirmek için 6 ay harcamak.
     </p>
 
-    <h2>3. Pick a boring, unsexy niche</h2>
+    <h2>3. Sıkıcı, gösterişsiz bir niş seçin</h2>
     <p>
-      Everyone wants to build the next TikTok. Meanwhile, bookkeeping for dentists,
-      copywriting for SaaS, or cleaning for Airbnb hosts is wildly profitable and
-      uncrowded. Boring niches have real money.
+      Herkes bir sonraki TikTok'u geliştirmek ister. Oysa diş hekimleri için muhasebe, SaaS için metin yazarlığı veya Airbnb ev sahipleri için temizlik son derece karlı ve rekabetsizdir. Sıkıcı nişlerde gerçek para vardır.
     </p>
 
-    <h2>4. Use free tools to start</h2>
+    <h2>4. Başlamak için ücretsiz araçlar kullanın</h2>
     <p>
-      Carrd or WordPress for a site. Stripe for payments. Google Docs for proposals.
-      Gmail for email. Social media for marketing. You can start with $0 and look
-      professional. Pay for tools only when they generate revenue.
+      Site için Carrd veya WordPress. Ödemeler için Stripe. Teklifler için Google Dokümanlar. E-posta için Gmail. Pazarlama için sosyal medya. Sıfır sermaye ile başlayıp profesyonel görünebilirsiniz. Araçlar için yalnızca gelir getirdiklerinde ödeme yapın.
     </p>
 
-    <h2>5. First 3 customers come from your network</h2>
+    <h2>5. İlk 3 müşteri ağınızdan gelir</h2>
     <p>
-      Post what you&rsquo;re starting on LinkedIn, Twitter, Facebook. Message 50 people
-      individually. First customers almost always come from people who already know
-      and trust you — not cold outreach.
+      Başlattığınız şeyi LinkedIn, Twitter, Facebook'ta paylaşın. 50 kişiye bireysel mesaj atın. İlk müşteriler neredeyse her zaman sizi tanıyan ve güvenen kişilerden gelir — soğuk aramalardan değil.
     </p>
 
-    <h2>6. Do things that don&rsquo;t scale</h2>
+    <h2>6. Ölçeklenemeyecek şeyleri yapın</h2>
     <p>
-      Hand-deliver value to early customers. Respond to every email. Personally
-      onboard each user. The concierge approach teaches you the business and earns
-      fierce loyalty — you can scale later.
+      İlk müşterilere değeri elden teslim edin. Her e-postayı yanıtlayın. Her kullanıcıyı bizzat sisteme dahil edin. Kişisel hizmet yaklaşımı size işi öğretir ve sadakat kazandırır — daha sonra ölçekleyebilirsiniz.
     </p>
 
-    <h2>7. Charge real prices from day 1</h2>
+    <h2>7. İlk günden gerçek fiyatlar talep edin</h2>
     <p>
-      Free customers aren&rsquo;t customers. Even $50 feedback is ten times more
-      useful than free users. Your first rate can be low, but it shouldn&rsquo;t be
-      zero.
+      Ücretsiz müşteriler müşteri değildir. 50 dolarlık geri bildirim bile ücretsiz kullanıcılardan on kat daha faydalıdır. İlk ücretiniz düşük olabilir, ancak sıfır olmamalıdır.
     </p>
 
-    <h2>8. Keep your day job initially</h2>
+    <h2>8. Başlangıçta işinizi bırakmayın</h2>
     <p>
-      Runway is oxygen. Don&rsquo;t quit until the business consistently covers
-      expenses for 6 months. Side-hustle your business into viability first. See{" "}
-      <a href="/guides/best-side-hustles-for-beginners">side hustles guide</a>.
+      Nakit akışı oksijendir. İşletme giderlerini 6 ay boyunca düzenli olarak karşılayana kadar işten ayrılmayın. Önce işletmenizi yan uğraş olarak uygulanabilir hale getirin. Bkz.{" "}
+      <a href="/guides/best-side-hustles-for-beginners">yan uğraş rehberi</a>.
     </p>
 
-    <h2>9. Reinvest early revenue</h2>
+    <h2>9. İlk geliri yeniden yatırın</h2>
     <p>
-      The first $10k of profit should go into ads, contractors, tools that buy back
-      time. Not into lifestyle. Bootstrapping only works if you reinvest.
+      İlk 10 bin dolar kâr, reklamlara, taşeronlara ve zaman kazandıran araçlara gitmelidir. Yaşam tarzına değil. Bootstrap yalnızca yeniden yatırım yaparsanız işe yarar.
     </p>
 
-    <h2>10. Be patient</h2>
+    <h2>10. Sabırlı olun</h2>
     <p>
-      Profitable small business in year 1 = winning. Most bootstrapped businesses
-      take 2-4 years to reach full-time income. Most people quit in month 6. See{" "}
-      <a href="/guides/how-to-make-passive-income">passive income guide</a> for
-      adjacent options.
+      1. yılda karlı küçük işletme = başarı. Çoğu bootstrap işletmesinin tam zamanlı gelire ulaşması 2-4 yıl alır. Çoğu kişi 6. ayda pes eder. Benzer seçenekler için bkz.{" "}
+      <a href="/guides/how-to-make-passive-income">pasif gelir rehberi</a>.
     </p>
   </>
 );

@@ -3,122 +3,127 @@
 export const intro = (
   <>
     <p>
-      Where to find someone to build your gaming PC depends on whether you have a
-      Micro Center nearby, what your budget is, and whether you want same-day vs
-      shipping turnaround. Each path has tradeoffs.
+      Oyun bilgisayarınızı kuracak birini nerede bulacağınız, yakınınızda bir
+      Micro Center olup olmamasına, bütçenize ve aynı gün teslimat mı yoksa
+      kargo ile gönderim mi istediğinize bağlıdır. Her seçeneğin kendine göre
+      avantajları ve dezavantajları vardır.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "in-store", label: "In-store options (same-day)" },
-  { id: "online", label: "Online builders + ship" },
-  { id: "local", label: "Local PC shops" },
-  { id: "freelance", label: "Independent / freelance builders" },
-  { id: "find-near-me", label: "Finding builders near you" },
+  { id: "in-store", label: "Mağaza içi seçenekler (aynı gün)" },
+  { id: "online", label: "Çevrimiçi montajcılar + kargo" },
+  { id: "local", label: "Yerel PC mağazaları" },
+  { id: "freelance", label: "Bağımsız / serbest montajcılar" },
+  { id: "find-near-me", label: "Yakınınızdaki montajcıları bulma" },
 ];
 
 export const body = (
   <>
-    <h2 id="in-store">In-store options (same-day)</h2>
+    <h2 id="in-store">Mağaza içi seçenekler (aynı gün)</h2>
     <ul>
       <li>
-        <strong>Micro Center PC Build Service.</strong> ~$150 + parts. Need to live
-        within driving distance of a Micro Center store (mostly US tech-heavy metros).
-        Best price-quality combo. 12-month labor warranty.
+        <strong>Micro Center PC Montaj Hizmeti.</strong> ~$150 + parçalar. Bir
+        Micro Center mağazasına sürüş mesafesinde yaşamanız gerekir (çoğunlukla
+        ABD'nin teknoloji yoğun metropollerinde). En iyi fiyat-kalite dengesi.
+        12 ay işçilik garantisi.
       </li>
       <li>
-        <strong>Best Buy Geek Squad.</strong> ~$199 + parts. Less polished than Micro
-        Center for builds. Better fit for upgrades or repair.
+        <strong>Best Buy Geek Squad.</strong> ~$199 + parçalar. Montaj
+        konusunda Micro Center kadar iyi değil. Yükseltme veya onarım için daha
+        uygun.
       </li>
       <li>
-        <strong>Local PC repair shops.</strong> $80-300. Quality varies wildly. Check
-        Google reviews before committing.
+        <strong>Yerel PC tamir atölyeleri.</strong> $80-300. Kalite çok
+        değişkendir. Karar vermeden önce Google yorumlarını kontrol edin.
       </li>
     </ul>
 
-    <h2 id="online">Online builders + ship</h2>
+    <h2 id="online">Çevrimiçi montajcılar + kargo</h2>
     <ul>
       <li>
-        <strong>NZXT BLD.</strong> ~$299-399 service fee. 2-year labor warranty. Clean
-        cable management. 1-2 week build + ship turnaround.
+        <strong>NZXT BLD.</strong> ~$299-399 hizmet ücreti. 2 yıl işçilik
+        garantisi. Temiz kablo yönetimi. 1-2 hafta montaj + kargo teslim süresi.
       </li>
       <li>
-        <strong>Origin PC + Maingear + Falcon Northwest.</strong> $300-800 service
-        depending on tier. Boutique aesthetic options. 2-3 week turnaround.
+        <strong>Origin PC + Maingear + Falcon Northwest.</strong> Seviyeye bağlı
+        olarak $300-800 hizmet ücreti. Butik estetik seçenekleri. 2-3 hafta
+        teslim süresi.
       </li>
       <li>
-        <strong>Skytech / iBuyPower / CyberPower.</strong> Lower-cost online builders.
-        Cheaper service fees but parts often skew toward bargain SKUs (cheap PSU, OEM
-        RAM). Best as pre-builts; use carefully if you supply parts.
+        <strong>Skytech / iBuyPower / CyberPower.</strong> Düşük maliyetli
+        çevrimiçi montajcılar. Daha ucuz hizmet ücretleri ancak parçalar genellikle
+        ucuz SKU'lara (kalitesiz PSU, OEM RAM) yönelir. En iyisi hazır
+        sistemler olarak; parça tedarik ediyorsanız dikkatli kullanın.
       </li>
       <li>
-        <strong>Build Redux + Periphio.</strong> Newer market entrants with strong
-        reviews. Worth comparing.
+        <strong>Build Redux + Periphio.</strong> Güçlü yorumlara sahip yeni
+        piyasa girişimleri. Karşılaştırmaya değer.
       </li>
     </ul>
 
-    <h2 id="local">Local PC shops</h2>
+    <h2 id="local">Yerel PC mağazaları</h2>
     <p>
-      Quality varies. The vetting process:
+      Kalite değişkendir. Değerlendirme süreci:
     </p>
     <ol>
-      <li>Search Google Maps for &ldquo;PC builder near me&rdquo;.</li>
-      <li>Filter by 4.0+ stars with 50+ reviews.</li>
-      <li>Read recent reviews — specifically about gaming PC builds, not laptop repair.</li>
-      <li>Call to ask: warranty, OS install, stress test methodology, BIOS XMP/EXPO.</li>
-      <li>Compare against Micro Center / online options before committing.</li>
+      <li>Google Haritalar'da &ldquo;yakınımdaki PC montajcısı&rdquo; araması yapın.</li>
+      <li>50'den fazla yorumu olan 4.0+ yıldızlı olanları filtreleyin.</li>
+      <li>Son yorumları okuyun — özellikle oyun PC montajı hakkında olanları, dizüstü bilgisayar tamiri değil.</li>
+      <li>Arayıp sorun: garanti, işletim sistemi kurulumu, stres testi yöntemi, BIOS XMP/EXPO.</li>
+      <li>Karar vermeden önce Micro Center / çevrimiçi seçeneklerle karşılaştırın.</li>
     </ol>
 
-    <h2 id="freelance">Independent / freelance builders</h2>
+    <h2 id="freelance">Bağımsız / serbest montajcılar</h2>
     <p>
-      Some Reddit communities have vetted independent builders:
+      Bazı Reddit topluluklarında onaylanmış bağımsız montajcılar bulunur:
     </p>
     <ul>
-      <li><strong>r/buildapcsales</strong> — flair shows builders who&rsquo;ve done verified work.</li>
-      <li><strong>r/bapcsalescanada / regional buildapc subs</strong> for non-US.</li>
-      <li><strong>Local Discord servers</strong> for gaming or PC building.</li>
+      <li><strong>r/buildapcsales</strong> — etiketler, doğrulanmış iş yapmış montajcıları gösterir.</li>
+      <li><strong>r/bapcsalescanada / bölgesel buildapc alt dizinleri</strong> ABD dışı için.</li>
+      <li><strong>Yerel Discord sunucuları</strong> oyun veya PC montajı için.</li>
     </ul>
     <p>
-      Independents range from $80-250. Vet thoroughly: ask for build photos, ask
-      about warranty terms, ask references. Pay only after acceptance — never
-      upfront.
+      Bağımsızlar $80-250 arasında değişir. İyice araştırın: montaj fotoğrafları isteyin,
+      garanti koşullarını sorun, referans isteyin. Ödemeyi yalnızca kabulden sonra yapın —
+      asla peşin ödemeyin.
     </p>
 
-    <h2 id="find-near-me">Finding builders near you</h2>
+    <h2 id="find-near-me">Yakınınızdaki montajcıları bulma</h2>
     <p>
-      Quick search strategies:
+      Hızlı arama stratejileri:
     </p>
     <ul>
-      <li><strong>Google:</strong> &ldquo;custom PC builder + [your city]&rdquo;.</li>
-      <li><strong>Yelp:</strong> &ldquo;computer repair&rdquo; with &ldquo;custom build&rdquo; in reviews.</li>
-      <li><strong>Reddit r/[your city] subs</strong> — ask for recommendations.</li>
-      <li><strong>Local Facebook groups</strong> for PC enthusiasts.</li>
-      <li><strong>Microcenter.com store locator</strong> — if there&rsquo;s one within an hour&rsquo;s drive, it&rsquo;s usually your best option.</li>
+      <li><strong>Google:</strong> &ldquo;özel PC montajcısı + [şehriniz]&rdquo;.</li>
+      <li><strong>Yelp:</strong> &ldquo;bilgisayar tamiri&rdquo; ve yorumlarda &ldquo;özel montaj&rdquo;.</li>
+      <li><strong>Reddit r/[şehriniz] alt dizinleri</strong> — tavsiye isteyin.</li>
+      <li><strong>Yerel Facebook grupları</strong> PC meraklıları için.</li>
+      <li><strong>Microcenter.com mağaza bulucu</strong> — bir saatlik sürüş mesafesinde varsa, genellikle en iyi seçeneğinizdir.</li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Calculate hire vs DIY for your numbers",
+  label: "Numaralarınız için işe alım vs DIY hesaplayın",
   targetSlug: "pc-build-vs-hire-calculator",
 };
 
 export const faq = [
   {
-    q: "Where can I hire someone to build my gaming PC?",
-    a: "Best options ranked: Micro Center ($150 + parts) if nearby, online builders like NZXT BLD ($299-399 + ship), local PC shops ($80-300, vet by Google reviews), independent builders found via r/buildapcsales or local Discord ($80-250, vet thoroughly).",
+    q: "Oyun bilgisayarımı kuracak birini nerede bulabilirim?",
+    a: "Sıralanmış en iyi seçenekler: Yakınsa Micro Center ($150 + parçalar), NZXT BLD ($299-399 + kargo) gibi çevrimiçi montajcılar, yerel PC mağazaları ($80-300, Google yorumlarıyla değerlendirin), r/buildapcsales veya yerel Discord üzerinden bulunan bağımsız montajcılar ($80-250, iyice araştırın).",
   },
   {
-    q: "Do computer stores offer PC building services?",
-    a: "Yes. Micro Center has the best parts-included pricing at ~$150. Best Buy Geek Squad ~$199. Independent local PC repair shops typically $80-300. Quality varies — Micro Center is the predictable choice; local shops require Google review vetting.",
+    q: "Bilgisayar mağazaları PC montaj hizmeti sunuyor mu?",
+    a: "Evet. Micro Center, parçalar dahil en iyi fiyatlandırmaya sahiptir, yaklaşık $150. Best Buy Geek Squad yaklaşık $199. Bağımsız yerel PC tamir atölyeleri genellikle $80-300. Kalite değişir — Micro Center öngörülebilir seçenektir; yerel mağazalar Google yorumu değerlendirmesi gerektirir.",
   },
   {
-    q: "Can you get a gaming PC built locally near me?",
-    a: "Most US metros have at least one capable PC builder. Search Google Maps for 'custom PC builder near me', filter to 4.0+ stars with 50+ reviews, read recent reviews specifically about gaming PC builds (not laptop repair). Call to verify warranty + OS install before committing.",
+    q: "Yakınımda yerel olarak bir oyun PC'si yaptırabilir miyim?",
+    a: "Çoğu ABD metrosunda en az bir yetenekli PC montajcısı vardır. Google Haritalar'da 'yakınımdaki özel PC montajcısı' arayın, 50'den fazla yorumu olan 4.0+ yıldızlı olanları filtreleyin, özellikle oyun PC montajı hakkındaki son yorumları okuyun (dizüstü bilgisayar tamiri değil). Karar vermeden önce arayıp garanti + işletim sistemi kurulumunu doğrulayın.",
   },
   {
-    q: "Online vs in-store PC building services — which is better?",
-    a: "In-store (Micro Center): faster, ~$150, 12-month warranty, predictable quality. Online (NZXT BLD, Origin, Maingear): polished aesthetic, $299-800, 1-3 week ship time, 2-year warranties. Local shops: variable. Pick by what's accessible and what you value (speed vs aesthetic vs warranty length).",
+    q: "Çevrimiçi vs mağaza içi PC montaj hizmetleri — hangisi daha iyi?",
+    a: "Mağaza içi (Micro Center): daha hızlı, ~$150, 12 ay garanti, öngörülebilir kalite. Çevrimiçi (NZXT BLD, Origin, Maingear): şık estetik, $299-800, 1-3 hafta kargo süresi, 2 yıl garanti. Yerel mağazalar: değişken. Erişilebilir olana ve neye değer verdiğinize göre seçin (hız vs estetik vs garanti süresi).",
   },
 ];

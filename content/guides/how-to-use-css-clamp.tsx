@@ -3,48 +3,49 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      <code>clamp()</code> is one of the most useful additions to CSS
-      in the last decade. It lets you set a value that fluidly scales
-      between a minimum and maximum, based on viewport width or any
-      other context. It replaces entire stacks of media queries with
-      a single line. This guide covers the <code>clamp()</code>
-      {" "}syntax, the math behind fluid typography, how to derive
-      preferred-value expressions, when to reach for
-      <code> clamp()</code> vs media queries, browser support, and
-      common pitfalls.
+      <code>clamp()</code>, son on yılın CSS'e en faydalı
+      eklemelerinden biridir. Bir değerin, görüntü alanı genişliğine
+      veya başka bir bağlama bağlı olarak minimum ve maksimum
+      arasında akıcı bir şekilde ölçeklenmesini sağlar. Bir dizi
+      medya sorgusunu tek bir satırla değiştirir. Bu kılavuz,
+      <code>clamp()</code> sözdizimini, akıcı tipografinin
+      arkasındaki matematiği, tercih edilen değer ifadelerinin nasıl
+      türetileceğini, <code>clamp()</code> ile medya sorguları
+      arasında ne zaman seçim yapılacağını, tarayıcı desteğini ve
+      yaygın tuzakları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Syntax</h2>
+    <h2>Sözdizimi</h2>
     <pre>
-{`clamp(MIN, PREFERRED, MAX)`}
+{`clamp(MİN, TERCİH EDİLEN, MAKS)`}
     </pre>
     <p>
-      Returns the preferred value, bounded by min and max.
+      Min ve maks ile sınırlandırılmış tercih edilen değeri döndürür.
     </p>
     <p>
-      Simple example:
+      Basit örnek:
     </p>
     <pre>
 {`font-size: clamp(1rem, 2.5vw, 1.5rem);`}
     </pre>
     <p>
-      At viewport width 400px → <code>2.5vw</code> = 10px → clamped
-      up to 16px (1rem).
+      400px görüntü alanı genişliğinde → <code>2.5vw</code> = 10px →
+      16px'e (1rem) yükseltilir.
     </p>
     <p>
-      At 800px → 20px → within range → returns 20px.
+      800px'de → 20px → aralık içinde → 20px döndürür.
     </p>
     <p>
-      At 1200px → 30px → clamped down to 24px (1.5rem).
+      1200px'de → 30px → 24px'e (1.5rem) düşürülür.
     </p>
 
-    <h2>Fluid typography — the killer use case</h2>
+    <h2>Akıcı tipografi — en önemli kullanım alanı</h2>
     <p>
-      The old way: media-query breakpoints.
+      Eski yöntem: medya sorgusu kırılma noktaları.
     </p>
     <pre>
 {`h1 { font-size: 2rem; }
@@ -52,206 +53,213 @@ export const body: ReactElement = (
 @media (min-width: 1024px) { h1 { font-size: 3rem; }}`}
     </pre>
     <p>
-      The <code>clamp()</code> way:
+      <code>clamp()</code> yöntemi:
     </p>
     <pre>
 {`h1 { font-size: clamp(2rem, 1.5rem + 2vw, 3rem); }`}
     </pre>
     <p>
-      Size grows smoothly with viewport. No jarring jumps at
-      breakpoints. Less CSS.
+      Boyut, görüntü alanıyla birlikte sorunsuz bir şekilde büyür.
+      Kırılma noktalarında sarsıntılı sıçramalar olmaz. Daha az CSS.
     </p>
 
-    <h2>The preferred-value formula</h2>
+    <h2>Tercih edilen değer formülü</h2>
     <p>
-      The middle argument has to do some math: combine a viewport
-      unit with a fixed offset so the value hits your min at a
-      specific small viewport and your max at a specific large
-      viewport.
+      Ortadaki argümanın biraz matematik yapması gerekir: değerin
+      belirli bir küçük görüntü alanında minimuma ve belirli bir
+      büyük görüntü alanında maksimuma ulaşması için bir görüntü
+      alanı birimini sabit bir ofsetle birleştirin.
     </p>
     <p>
-      Want font-size 16px at 320px viewport, 32px at 1280px viewport?
+      320px görüntü alanında 16px, 1280px görüntü alanında 32px
+      font-size mı istiyorsunuz?
     </p>
     <p>
-      <strong>Rise:</strong> 32 − 16 = 16px over 1280 − 320 = 960px
-      = 1.667% per px of viewport = <code>1.667vw</code> (since 1vw
-      = 1% of viewport).
+      <strong>Artış:</strong> 32 − 16 = 16px, 1280 − 320 = 960px
+      üzerinde = görüntü alanının px'i başına %1.667 = <code>1.667vw</code>
+      {" "}(1vw = görüntü alanının %1'i olduğundan).
     </p>
     <p>
-      <strong>Offset:</strong> at viewport 320px, <code>1.667vw</code>
-      {" "}= 5.33px. You want 16px, so add 16 − 5.33 = 10.67px ≈{" "}
-      <code>0.667rem</code>.
+      <strong>Ofset:</strong> 320px görüntü alanında, <code>1.667vw</code>
+      {" "}= 5.33px. 16px istiyorsunuz, bu nedenle 16 − 5.33 = 10.67px ≈{" "}
+      <code>0.667rem</code> ekleyin.
     </p>
     <p>
-      <strong>Expression:</strong>{" "}
+      <strong>İfade:</strong>{" "}
       <code>clamp(1rem, 0.667rem + 1.667vw, 2rem)</code>.
     </p>
     <p>
-      The <code>0.667rem + 1.667vw</code> reaches exactly 1rem
-      (16px) at 320px and 2rem (32px) at 1280px. Beyond that, the
-      clamp kicks in.
+      <code>0.667rem + 1.667vw</code>, 320px'de tam olarak 1rem
+      (16px) ve 1280px'de 2rem (32px) değerine ulaşır. Bunun
+      ötesinde, clamp devreye girer.
     </p>
 
-    <h2>Beyond typography</h2>
+    <h2>Tipografinin ötesinde</h2>
     <p>
-      <strong>Spacing:</strong>
+      <strong>Aralık (Spacing):</strong>
     </p>
     <pre>
 {`padding: clamp(1rem, 5vw, 3rem);`}
     </pre>
     <p>
-      Hero sections get more breathing room on desktop without
-      crushing mobile.
+      Hero bölümleri, mobil cihazları ezmeden masaüstünde daha fazla
+      nefes alma alanı kazanır.
     </p>
     <p>
-      <strong>Grid gap:</strong>
+      <strong>Izgara aralığı (Grid gap):</strong>
     </p>
     <pre>
 {`gap: clamp(0.5rem, 2vw, 2rem);`}
     </pre>
     <p>
-      <strong>Border radius:</strong>
+      <strong>Kenar yarıçapı (Border radius):</strong>
     </p>
     <pre>
 {`border-radius: clamp(4px, 1vw, 16px);`}
     </pre>
     <p>
-      <strong>Section max-width:</strong>
+      <strong>Bölüm maksimum genişliği (Section max-width):</strong>
     </p>
     <pre>
 {`max-width: clamp(400px, 80vw, 1200px);`}
     </pre>
     <p>
-      Anywhere a length value varies with context, <code>clamp()</code>
-      {" "}can replace multiple declarations.
+      Bir uzunluk değerinin bağlama göre değiştiği her yerde,
+      <code>clamp()</code> birden çok bildirimi değiştirebilir.
     </p>
 
-    <h2>Using other units in clamp</h2>
+    <h2>Clamp içinde diğer birimleri kullanma</h2>
     <p>
-      <code>clamp()</code> works with any length units — px, rem,
-      em, %, vw, vh, ch, ex, and container query units (cqi, cqw).
-      Mix freely:
+      <code>clamp()</code> herhangi bir uzunluk birimiyle çalışır —
+      px, rem, em, %, vw, vh, ch, ex ve konteyner sorgu birimleri
+      (cqi, cqw). Serbestçe karıştırın:
     </p>
     <pre>
 {`width: clamp(300px, 50%, 800px);
-font-size: clamp(1rem, 5cqi, 2rem);  /* container queries */`}
+font-size: clamp(1rem, 5cqi, 2rem);  /* konteyner sorguları */`}
     </pre>
     <p>
-      Container query units are especially powerful paired with{" "}
-      <code>@container</code> — let components fluidly scale within
-      their own container, not the viewport.
+      Konteyner sorgu birimleri, <code>@container</code> ile
+      eşleştirildiğinde özellikle güçlüdür — bileşenlerin görüntü
+      alanına değil, kendi konteynerleri içinde akıcı bir şekilde
+      ölçeklenmesini sağlar.
     </p>
 
-    <h2>clamp() vs media queries</h2>
+    <h2>clamp() ve medya sorguları</h2>
     <p>
-      <strong>Use clamp() when</strong> a value scales smoothly with
-      viewport size — typography, spacing, gap, proportional sizing.
+      <strong>clamp() kullanın</strong> bir değer görüntü alanı
+      boyutuyla sorunsuz bir şekilde ölçeklendiğinde — tipografi,
+      aralık, boşluk, orantılı boyutlandırma.
     </p>
     <p>
-      <strong>Use media queries when</strong> layout changes
-      structure — column count, hidden/shown elements, flex
-      direction, different components entirely.
+      <strong>Medya sorguları kullanın</strong> düzen yapıyı
+      değiştirdiğinde — sütun sayısı, gizlenen/gösterilen öğeler,
+      flex yönü, tamamen farklı bileşenler.
     </p>
     <p>
-      They coexist. A component with{" "}
-      <code>font-size: clamp(...)</code> inside a media-query-driven
-      grid is completely normal.
+      Bir arada bulunurlar. Medya sorgusuyla yönetilen bir ızgaranın
+      içinde <code>font-size: clamp(...)</code> olan bir bileşen
+      tamamen normaldir.
     </p>
 
-    <h2>Accessibility — minimum matters</h2>
+    <h2>Erişilebilirlik — minimum önemlidir</h2>
     <p>
-      Users often set a minimum browser font size for readability.
-      <code>clamp()</code> with a small <code>vw</code>-only
-      preferred value can collapse below the user&rsquo;s
-      minimum on tiny viewports.
+      Kullanıcılar genellikle okunabilirlik için minimum bir tarayıcı
+      yazı tipi boyutu ayarlar. Küçük bir <code>vw</code> tabanlı
+      tercih edilen değere sahip <code>clamp()</code>, küçük görüntü
+      alanlarında kullanıcının minimumunun altına düşebilir.
     </p>
     <p>
-      <strong>Rule:</strong> use a <code>rem</code>-based component
-      in the preferred value, not pure <code>vw</code>. That way
-      user zoom and base font-size changes continue to scale:
+      <strong>Kural:</strong> tercih edilen değerde saf{" "}
+      <code>vw</code> yerine <code>rem</code> tabanlı bir bileşen
+      kullanın. Bu şekilde kullanıcı yakınlaştırması ve temel yazı
+      tipi boyutu değişiklikleri ölçeklenmeye devam eder:
     </p>
     <pre>
-{`/* Good */
+{`/* İyi */
 font-size: clamp(1rem, 0.8rem + 1.5vw, 1.5rem);
 
-/* Bad — ignores user's base font */
+/* Kötü — kullanıcının temel yazı tipini yok sayar */
 font-size: clamp(16px, 4vw, 24px);`}
     </pre>
 
-    <h2>Generator tools exist for a reason</h2>
+    <h2>Jeneratör araçları bir nedenle var</h2>
     <p>
-      The preferred-value math is error-prone. Plug your target
-      sizes and breakpoints into a generator and get the expression.
-      Plenty of free ones, including our own{" "}
-      <a href="/tools/css-clamp-generator">CSS clamp generator</a>.
+      Tercih edilen değer matematiği hataya açıktır. Hedef
+      boyutlarınızı ve kırılma noktalarınızı bir jeneratöre girin
+      ve ifadeyi alın. Çok sayıda ücretsiz araç var, kendi{" "}
+      <a href="/tools/css-clamp-generator">CSS clamp jeneratörümüz</a>
+      {" "}dahil.
     </p>
     <p>
-      Bookmark one — you&rsquo;ll use it every time you build a
-      fluid design system.
-    </p>
-
-    <h2>Browser support</h2>
-    <p>
-      <strong>clamp() is universal since 2020.</strong> Chrome 79+,
-      Firefox 75+, Safari 13.1+. Not a concern in 2026.
-    </p>
-    <p>
-      <strong>Container query units (cqi/cqw):</strong> Chrome 105+,
-      Firefox 110+, Safari 16+. Safe for most projects now.
+      Birini yer imlerine ekleyin — akıcı bir tasarım sistemi
+      oluşturduğunuz her seferinde kullanacaksınız.
     </p>
 
-    <h2>Debugging clamp</h2>
+    <h2>Tarayıcı desteği</h2>
     <p>
-      Inspect the element in devtools. Chrome and Firefox show the
-      computed value at current viewport and highlight the clamp
-      expression. Adjust the window and watch it update.
+      <strong>clamp() 2020'den beri evrenseldir.</strong> Chrome 79+,
+      Firefox 75+, Safari 13.1+. 2026'da bir endişe kaynağı değil.
     </p>
     <p>
-      <strong>Pitfall:</strong> if your preferred value is stuck at
-      min or max across all viewports, either your breakpoints
-      don&rsquo;t hit or your math is off. A generator catches
-      this.
+      <strong>Konteyner sorgu birimleri (cqi/cqw):</strong> Chrome 105+,
+      Firefox 110+, Safari 16+. Çoğu proje için artık güvenli.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Clamp'te hata ayıklama</h2>
     <p>
-      <strong>Using only vw in preferred.</strong> Ignores user
-      zoom and base font changes. Use rem + vw.
+      Öğeyi geliştirici araçlarında inceleyin. Chrome ve Firefox,
+      geçerli görüntü alanında hesaplanan değeri gösterir ve clamp
+      ifadesini vurgular. Pencereyi ayarlayın ve güncellenmesini
+      izleyin.
     </p>
     <p>
-      <strong>Setting min too low.</strong> Text collapses to
-      unreadable on mobile. Min should be your intended mobile
-      value, not smaller.
-    </p>
-    <p>
-      <strong>Setting max too high.</strong> Text or spacing
-      balloons on wide monitors. Max should be your intended desktop
-      value.
-    </p>
-    <p>
-      <strong>Using clamp for things that should be fixed.</strong>
-      Button padding usually doesn&rsquo;t need fluid scaling.
-    </p>
-    <p>
-      <strong>Combining with px-based media queries inconsistently.</strong>
-      Pick rem-based breakpoints and stick with them; clamp() plays
-      nicer with rems.
-    </p>
-    <p>
-      <strong>Doing the math by hand repeatedly.</strong> Use a
-      generator. You&rsquo;ll save hours.
+      <strong>Tuzak:</strong> tercih edilen değeriniz tüm görüntü
+      alanlarında min veya maks'ta takılı kaldıysa, ya kırılma
+      noktalarınız tutmuyordur ya da matematiğiniz yanlıştır. Bir
+      jeneratör bunu yakalar.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Generate a <code>clamp()</code> expression from min/max sizes
-      and viewport range with the{" "}
-      <a href="/tools/css-clamp-generator">CSS clamp generator</a>.
-      Pair with the{" "}
-      <a href="/tools/css-minifier">CSS minifier</a> to ship the
-      final stylesheet, and the{" "}
-      <a href="/tools/gradient-generator">CSS gradient generator</a>
-      {" "}to pair fluid type with visual polish.
+      <strong>Tercih edilende yalnızca vw kullanmak.</strong> Kullanıcı
+      yakınlaştırmasını ve temel yazı tipi değişikliklerini yok sayar.
+      rem + vw kullanın.
+    </p>
+    <p>
+      <strong>Minimumu çok düşük ayarlamak.</strong> Mobilde metin
+      okunamaz hale gelir. Minimum, amaçlanan mobil değeriniz
+      olmalıdır, daha küçük değil.
+    </p>
+    <p>
+      <strong>Maksimumu çok yüksek ayarlamak.</strong> Geniş
+      monitörlerde metin veya boşluk şişer. Maksimum, amaçlanan
+      masaüstü değeriniz olmalıdır.
+    </p>
+    <p>
+      <strong>Sabit olması gereken şeyler için clamp kullanmak.</strong>
+      Buton dolgusu genellikle akıcı ölçekleme gerektirmez.
+    </p>
+    <p>
+      <strong>Px tabanlı medya sorgularıyla tutarsız bir şekilde
+      birleştirmek.</strong> Rem tabanlı kırılma noktaları seçin ve
+      onlara bağlı kalın; clamp() rem'lerle daha iyi çalışır.
+    </p>
+    <p>
+      <strong>Matematiği tekrar tekrar elle yapmak.</strong> Bir
+      jeneratör kullanın. Saatlerce zaman kazanırsınız.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      Min/maks boyutlarından ve görüntü alanı aralığından bir{" "}
+      <code>clamp()</code> ifadesi oluşturmak için{" "}
+      <a href="/tools/css-clamp-generator">CSS clamp jeneratörünü</a>
+      {" "}kullanın. Nihai stil sayfasını göndermek için{" "}
+      <a href="/tools/css-minifier">CSS küçültücü</a> ve akıcı
+      türü görsel cilalama ile eşleştirmek için{" "}
+      <a href="/tools/gradient-generator">CSS gradyan jeneratörü</a>
+      {" "}ile birleştirin.
     </p>
   </>
 );

@@ -3,133 +3,78 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      How much house you can afford isn&rsquo;t the number a lender will
-      approve you for — it&rsquo;s the number that leaves your budget alive
-      after closing. Lenders approve you based on gross income and debt
-      ratios; they don&rsquo;t see childcare, 401k contributions, or the
-      fact that you&rsquo;d like to eat out occasionally. This guide walks
-      through the 28/36 rule, why maxing your approval is usually a
-      mistake, and how to pressure-test a specific listing against a real
-      take-home budget.
+      Ne kadar ev alabileceğiniz, bir borç verenin sizi onaylayacağı rakam değildir — kapanıştan sonra bütçenizi ayakta tutan rakamdır. Borç verenler sizi brüt gelir ve borç oranlarına göre onaylar; çocuk bakım masraflarını, 401k katkılarını veya ara sıra dışarıda yemek yemek istediğinizi görmezler. Bu rehber, 28/36 kuralını, maksimum onayın neden genellikle bir hata olduğunu ve belirli bir ilanı gerçek bir net maaş bütçesine karşı nasıl test edeceğinizi anlatır.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The 28/36 rule</h2>
+    <h2>28/36 kuralı</h2>
     <p>
-      The lending industry&rsquo;s rule of thumb: housing costs (full PITI
-      — principal, interest, taxes, insurance) should be ≤{" "}
-      <strong>28% of gross monthly income</strong>, and total debt
-      (housing + car + student loans + minimums on credit cards) should be
-      ≤ <strong>36% of gross monthly income</strong>.
+      Borç verme sektörünün temel kuralı: konut maliyetleri (tam PITI — anapara, faiz, vergiler, sigorta) ≤{" "}
+      <strong>brüt aylık gelirin %28'i</strong> olmalı ve toplam borç (konut + araba + öğrenci kredileri + kredi kartı asgari ödemeleri) ≤{" "}
+      <strong>brüt aylık gelirin %36'sı</strong> olmalıdır.
     </p>
     <p>
-      Example: $120,000/year gross = $10,000/month. 28% → $2,800 max PITI.
-      36% → $3,600 total debt. If you already pay $500 on a car loan and
-      $200 on student loans, your real housing ceiling is $3,600 − $700 =
-      $2,900. Housing ceiling wins over 28% when the back-end ratio is
-      tighter.
+      Örnek: Yıllık 120.000$ brüt = aylık 10.000$. %28 → maksimum 2.800$ PITI. %36 → toplam 3.600$ borç. Halihazırda araba kredisine 500$ ve öğrenci kredilerine 200$ ödüyorsanız, gerçek konut tavanınız 3.600$ − 700$ = 2.900$'dır. Arka uç oranı daha sıkı olduğunda konut tavanı %28'in üzerinde kazanır.
     </p>
 
-    <h2>Gross vs net — the <a href="/learn/fire-movement">FIRE</a>-community correction</h2>
+    <h2>Brüt ve net — <a href="/learn/fire-movement">FIRE</a> topluluğu düzeltmesi</h2>
     <p>
-      28% of gross ignores that taxes, insurance premiums, and retirement
-      contributions don&rsquo;t show up in your checking account. A more
-      conservative version: <strong>housing ≤ 25% of net take-home pay.</strong>{" "}
-      That&rsquo;s the rule personal-finance writers default to, and it
-      corresponds roughly to 20–22% of gross depending on your tax
-      bracket. Use net if you value cash flow stability over leverage.
+      Brütün %28'i, vergilerin, sigorta primlerinin ve emeklilik katkılarının hesabınıza yansımadığını göz ardı eder. Daha muhafazakar bir versiyon: <strong>konut ≤ net maaşın %25'i.</strong>{" "}
+      Kişisel finans yazarlarının varsayılan olarak kullandığı kural budur ve vergi diliminize bağlı olarak kabaca brütün %20-22'sine karşılık gelir. Nakit akışı istikrarını kaldıraçtan daha çok önemsiyorsanız net maaşı kullanın.
     </p>
 
-    <h2>From monthly payment to purchase price</h2>
+    <h2>Aylık ödemeden satın alma fiyatına</h2>
     <p>
-      Given a target PITI, work backwards. At 6.5% for 30 years, a $2,800
-      PITI target breaks down like this: back out taxes ($400/mo at 1.2%
-      effective rate on a $400k home = $400) and insurance ($125/mo).
-      Remaining P&amp;I budget: $2,800 − $400 − $125 = $2,275.
+      Hedef bir PITI verildiğinde, geriye doğru çalışın. 30 yıl için %6,5 faiz oranında, 2.800$'lık bir PITI hedefi şu şekilde ayrışır: vergileri çıkarın (400.000$'lık bir evde %1,2 efektif oranla aylık 400$ = 400$) ve sigortayı (aylık 125$). Kalan A&F bütçesi: 2.800$ − 400$ − 125$ = 2.275$.
     </p>
     <p>
-      $2,275/mo of principal+interest at 6.5% × 30 years supports about{" "}
-      <strong>$360,000 in mortgage.</strong> Add your down payment (say 20%
-      = $90,000) to get a purchase price of <strong>$450,000.</strong> That&rsquo;s
-      the house you can afford at a $2,800 PITI target on $120k/year gross.
+      %6,5 faiz × 30 yılda aylık 2.275$ anapara+faiz, yaklaşık{" "}
+      <strong>360.000$'lık bir ipoteği</strong> destekler. Peşinatınızı ekleyin (diyelim %20 = 90.000$) ve satın alma fiyatı olarak <strong>450.000$</strong> elde edersiniz. Yıllık 120.000$ brüt gelirle 2.800$ PITI hedefinde alabileceğiniz ev budur.
     </p>
 
-    <h2>Why lender pre-approval is higher than this</h2>
+    <h2>Borç veren ön onayının bundan neden daha yüksek olduğu</h2>
     <p>
-      Lenders often approve at 43% DTI (&ldquo;qualified mortgage&rdquo;
-      limit) or higher. On $120k gross, that&rsquo;s $4,300/mo of total
-      debt — a PITI approaching $3,800 after existing debts. Taking that
-      approval buys you a bigger house and a life with zero financial
-      margin. You&rsquo;ll be house-rich, cash-poor, and one layoff from
-      panic. The rule of thumb exists because the regression of foreclosure
-      rates against DTI gets ugly past 28/36.
+      Borç verenler genellikle %43 DTI ("nitelikli ipotek" sınırı) veya daha yükseğinde onay verir. 120.000$ brütte bu, aylık 4.300$ toplam borç anlamına gelir — mevcut borçlardan sonra 3.800$'a yaklaşan bir PITI. Bu onayı almak size daha büyük bir ev ve sıfır finansal marjı olan bir hayat satın alır. Ev zengini, nakit fakiri olursunuz ve bir işten çıkarmadan paniğe kapılırsınız. Temel kural vardır çünkü haciz oranlarının DTI'ye karşı regresyonu 28/36'nın ötesinde çirkinleşir.
     </p>
 
-    <h2>The stress tests to actually run</h2>
+    <h2>Gerçekten uygulanması gereken stres testleri</h2>
     <p>
-      Before falling in love with a listing, stress-test against three
-      scenarios:
+      Bir ilana aşık olmadan önce, üç senaryoya karşı stres testi yapın:
     </p>
     <p>
-      <strong>(1) Single-income scenario.</strong> If this is a
-      dual-income household, can one income cover PITI for 3 months
-      without draining savings? If no, you&rsquo;re over-extended.
+      <strong>(1) Tek gelir senaryosu.</strong> Bu çift gelirli bir hane ise, tek bir gelir 3 ay boyunca birikimleri tüketmeden PITI'yi karşılayabilir mi? Cevap hayırsa, aşırı borçlanmışsınız demektir.
     </p>
     <p>
-      <strong>(2) Rate-reset scenario.</strong> If the rate were 1% higher
-      than today&rsquo;s offer, does the payment still fit? (Relevant for
-      ARMs, less for fixed.)
+      <strong>(2) Faiz oranı sıfırlama senaryosu.</strong> Faiz oranı bugünkü tekliften %1 daha yüksek olsa, ödeme hala uyuyor mu? (ARM'ler için geçerlidir, sabit faizliler için daha az.)
     </p>
     <p>
-      <strong>(3) Maintenance year.</strong> Add 1% of home value per year
-      as expected maintenance. On a $450k home, that&rsquo;s $4,500 ≈
-      $375/mo you should be saving into a house-repair fund. PITI + $375
-      should still fit.
+      <strong>(3) Bakım yılı.</strong> Beklenen bakım olarak ev değerinin yılda %1'ini ekleyin. 450.000$'lık bir evde bu, bir ev onarım fonuna biriktirmeniz gereken 4.500$ ≈ aylık 375$'dır. PITI + 375$ hala uymalıdır.
     </p>
 
-    <h2>The 28% trap in high-cost markets</h2>
+    <h2>Yüksek maliyetli piyasalarda %28 tuzağı</h2>
     <p>
-      In San Francisco, Manhattan, Boston, or Seattle, strict 28% is often
-      impossible for first-time buyers — median house price / median income
-      ratios exceed 10 in some markets. If you have to break 28%, at least:
-      (a) have 6+ months of emergency fund liquid, (b) carry no other
-      consumer debt, and (c) plan to stay 5+ years so you don&rsquo;t eat
-      transaction costs on forced sale.
+      San Francisco, Manhattan, Boston veya Seattle'da, ilk kez ev alacaklar için katı %28 genellikle imkansızdır — bazı piyasalarda medyan ev fiyatı / medyan gelir oranı 10'u aşar. %28'i aşmanız gerekiyorsa en azından: (a) 6+ aylık acil durum fonunuz nakitte olsun, (b) başka hiçbir tüketici borcunuz olmasın ve (c) zorunlu satışta işlem maliyetlerini yememek için 5+ yıl kalmayı planlayın.
     </p>
 
-    <h2>Down payment, PMI, and the 20% shortcut</h2>
+    <h2>Peşinat, PMI ve %20 kısayolu</h2>
     <p>
-      20% down avoids PMI (private mortgage insurance, 0.3–1.5% of loan per
-      year). On a $360k mortgage at 0.8% PMI, that&rsquo;s $2,880/year or
-      $240/mo — dropped entirely at 20% down. Many buyers skip the 20%
-      target to get into a house sooner; that&rsquo;s fine, but understand
-      PMI adds to your real PITI. Remove it at 20% LTV by refinancing or
-      requesting removal (by law, it auto-drops at 22% LTV).
+      %20 peşinat, PMI'den (özel ipotek sigortası, kredinin yıllık %0,3-1,5'i) kaçınır. %0,8 PMI ile 360.000$'lık bir ipotekte bu, yılda 2.880$ veya ayda 240$'dır — %20 peşinatta tamamen düşer. Birçok alıcı eve daha erken girmek için %20 hedefini atlar; bu sorun değil, ancak PMI'nin gerçek PITI'nize eklediğini anlayın. %20 LTV'de yeniden finansman veya kaldırma talebiyle (yasa gereği %22 LTV'de otomatik olarak düşer) kaldırın.
     </p>
 
-    <h2>Closing costs — the budget hit most first-timers miss</h2>
+    <h2>Kapanış maliyetleri — çoğu ilk kez alıcının gözden kaçırdığı bütçe darbesi</h2>
     <p>
-      Closing costs run <strong>2–5% of purchase price</strong>: lender
-      fees, title insurance, escrow setup, attorney (in some states),
-      prepaid interest and taxes. On a $450k house, budget $9k–$22k cash
-      above your down payment. First-time buyer programs sometimes cover
-      some of this; ask your agent.
+      Kapanış maliyetleri <strong>satın alma fiyatının %2-5'i</strong> arasındadır: borç veren ücretleri, tapu sigortası, emanet hesabı kurulumu, avukat (bazı eyaletlerde), peşin ödenmiş faiz ve vergiler. 450.000$'lık bir evde, peşinatınızın üzerinde 9.000$–22.000$ nakit bütçe ayırın. İlk kez alıcı programları bazen bunun bir kısmını karşılar; emlakçınıza sorun.
     </p>
 
-    <h2>Run the full affordability pass</h2>
+    <h2>Tam karşılanabilirlik değerlendirmesini yapın</h2>
     <p>
-      Start with the{" "}
-      <a href="/tools/mortgage-affordability-calculator">mortgage
-      affordability calculator</a> to get your 28/36 ceiling, then plug the
-      specific listing into the{" "}
-      <a href="/tools/mortgage-calculator">mortgage calculator</a> to see
-      real PITI. Cross-check against your actual spending in the{" "}
-      <a href="/tools/budget-calculator">budget calculator</a> — the goal
-      is a PITI that fits inside the life you already have, not one that
-      forces the life you already have to shrink to fit.
+      28/36 tavanınızı almak için{" "}
+      <a href="/tools/mortgage-affordability-calculator">ipotek karşılanabilirlik hesaplayıcısı</a> ile başlayın, ardından gerçek PITI'yi görmek için belirli ilanı{" "}
+      <a href="/tools/mortgage-calculator">ipotek hesaplayıcısına</a> girin.{" "}
+      <a href="/tools/budget-calculator">Bütçe hesaplayıcısında</a> gerçek harcamalarınızla çapraz kontrol yapın — amaç, halihazırda sahip olduğunuz hayatın içine sığan bir PITI'dir, sahip olduğunuz hayatı sığdırmak için küçülmeye zorlayan bir PITI değil.
     </p>
   </>
 );

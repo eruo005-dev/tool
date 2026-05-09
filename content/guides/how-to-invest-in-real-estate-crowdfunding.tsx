@@ -2,67 +2,67 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Real estate crowdfunding promised to democratize property investing &mdash; the reality is more nuanced, and a lot less liquid, than the ads suggest.
+    Kitle fonlamalı gayrimenkul yatırımı, mülk yatırımını demokratikleştirme vaadiyle ortaya çıktı &mdash; ancak gerçeklik, reklamların önerdiğinden çok daha karmaşık ve çok daha az likittir.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      Platforms like Fundrise, RealtyMogul, Arrived, EquityMultiple, and CrowdStreet let retail investors pool money into commercial buildings, rental homes, or private REITs. It&rsquo;s a real asset class, but it behaves differently than the shiny marketing suggests &mdash; and understanding the structure matters more than picking the platform. Not financial advice. Consult a licensed advisor for decisions specific to your situation.
+      Fundrise, RealtyMogul, Arrived, EquityMultiple ve CrowdStreet gibi platformlar, bireysel yatırımcıların ticari binalara, kiralık evlere veya özel gayrimenkul yatırım ortaklıklarına (GYO) para toplamasına olanak tanır. Bu gerçek bir varlık sınıfıdır, ancak cilalı pazarlamanın önerdiğinden farklı davranır &mdash; ve yapıyı anlamak, platformu seçmekten daha önemlidir. Bu finansal tavsiye değildir. Durumunuza özel kararlar için lisanslı bir danışmana danışın.
     </p>
 
-    <h2>What it actually is</h2>
+    <h2>Aslında ne olduğu</h2>
     <p>
-      Two main flavors: (1) pooled non-traded REITs &mdash; you buy shares of a fund that owns dozens of properties (Fundrise&rsquo;s model); (2) fractional deals &mdash; you buy a slice of a specific building or house (Arrived, CrowdStreet). In both cases you&rsquo;re a limited partner or REIT shareholder, not a landlord. You don&rsquo;t fix toilets; you also don&rsquo;t get to pick tenants or sell when you want.
+      İki ana tür: (1) havuzlanmış borsada işlem görmeyen GYO'lar &mdash; düzinelerce mülke sahip bir fonda hisse satın alırsınız (Fundrise modeli); (2) kesirli anlaşmalar &mdash; belirli bir bina veya evin bir parçasını satın alırsınız (Arrived, CrowdStreet). Her iki durumda da, sınırlı ortak veya GYO hissedarısınız, ev sahibi değilsiniz. Tuvaletleri tamir etmezsiniz; kiracıları seçemez veya istediğiniz zaman satamazsınız.
     </p>
 
-    <h2>Accredited vs non-accredited</h2>
+    <h2>Akredite ve akredite olmayan yatırımcılar</h2>
     <p>
-      The SEC distinguishes accredited investors (income over $200k solo / $300k joint, or net worth over $1M excluding primary residence) from everyone else. Non-accredited investors can access public non-traded REITs on Fundrise, Arrived, RealtyMogul MogulREIT. Accredited investors unlock the juicier individual-deal menus on CrowdStreet, EquityMultiple, and similar.
+      SEC, akredite yatırımcıları (bireysel olarak 200 bin doların üzerinde gelir / ortak 300 bin dolar veya birincil konut hariç 1 milyon doların üzerinde net değer) diğer herkesten ayırır. Akredite olmayan yatırımcılar, Fundrise, Arrived, RealtyMogul MogulREIT'teki halka açık borsada işlem görmeyen GYO'lara erişebilir. Akredite yatırımcılar, CrowdStreet, EquityMultiple ve benzerlerindeki daha cazip bireysel anlaşma menüsünün kilidini açar.
     </p>
 
-    <h2>Realistic returns</h2>
+    <h2>Gerçekçi getiriler</h2>
     <p>
-      Marketing decks love to show 10&ndash;15% IRRs. Actual delivered net returns over multiple years have clustered around 5&ndash;9% for most platforms &mdash; decent, but below the S&amp;P 500&rsquo;s ~10% long-term average. The pitch isn&rsquo;t outperformance; it&rsquo;s diversification and lower correlation to public equities.
+      Pazarlama sunumları %10-15 IRR göstermeyi sever. Birden çok yıl boyunca gerçekleşen net getiriler çoğu platform için %5-9 civarında kümelenir &mdash; makul, ancak S&P 500'ün uzun vadeli ortalaması olan ~%10'un altında. Buradaki vaat üstün performans değil; çeşitlendirme ve halka açık hisse senetleriyle daha düşük korelasyondur.
     </p>
 
-    <h2>The liquidity trap</h2>
+    <h2>Likidite tuzağı</h2>
     <p>
-      This is the part most investors learn the hard way. Funds often lock capital for 5+ years. Redemption programs exist but can be suspended (Fundrise and Blackstone&rsquo;s BREIT both gated redemptions during 2022&ndash;2023 stress). Early withdrawals typically carry penalties of 1&ndash;3% in the first few years. Treat every dollar here as money you don&rsquo;t need to touch.
+      Çoğu yatırımcının zor yoldan öğrendiği yer burasıdır. Fonlar tipik olarak sermayeyi 5+ yıl boyunca kilitler. İtfa programları mevcuttur ancak askıya alınabilir (Fundrise ve Blackstone'un BREIT'i 2022-2023 stres döneminde sınırlı itfalar). Erken para çekme işlemleri genellikle ilk birkaç yılda %1-3 ceza taşır. Buradaki her doları dokunmanız gerekmeyen para olarak düşünün.
     </p>
 
-    <h2>Fees stack quickly</h2>
+    <h2>Ücretler hızla birikir</h2>
     <ul>
-      <li>Platform management fee: typically 0.85&ndash;1.0% of assets.</li>
-      <li>Underlying REIT or fund expenses: 0.25&ndash;1.5% more.</li>
-      <li>Acquisition, disposition, and performance fees on deal-based platforms.</li>
-      <li>Total drag often lands at 1.5&ndash;3% annually &mdash; compare that to VNQ (Vanguard Real Estate ETF) at 0.13%.</li>
+      <li>Platform yönetim ücreti: genellikle varlıkların %0.85-1.0'ı.</li>
+      <li>Altta yatan GYO veya fon giderleri: ek %0.25-1.5.</li>
+      <li>Anlaşma tabanlı platformlarda edinim, elden çıkarma ve performans ücretleri.</li>
+      <li>Toplam yük genellikle yıllık %1.5-3'e ulaşır &mdash; bunu VNQ (Vanguard Gayrimenkul ETF) için %0.13 ile karşılaştırın.</li>
     </ul>
 
-    <h2>Tax treatment</h2>
+    <h2>Vergi muamelesi</h2>
     <p>
-      Pooled REITs send you a 1099-DIV; non-qualified dividends are taxed as ordinary income, which is the bad news. The good news: up to 20% of the distribution may qualify for the QBI deduction through 2025. Fractional property deals often send a K-1, which can pass through depreciation and make distributions partly tax-sheltered &mdash; but K-1s arrive late (March&ndash;April) and can complicate your return. Holding these in a Roth IRA sidesteps most of the tax complexity.
+      Havuzlanmış GYO'lar size bir 1099-DIV gönderir; nitelikli olmayan temettüler olağan gelir olarak vergilendirilir, bu kötü haberdir. İyi haber: dağıtımın %20'sine kadarı 2025 yılına kadar Nitelikli İşletme Geliri (QBI) kesintisine hak kazanabilir. Kesirli mülk anlaşmaları tipik olarak bir K-1 gönderir ve bu, amortismanı geçirebilir ve dağıtımları kısmen vergiden korunmuş hale getirebilir &mdash; ancak K-1'ler geç gelir (Mart-Nisan) ve beyannamenizi karmaşıklaştırabilir. Bunları bir Roth IRA'da tutmak, vergi karmaşıklığının çoğunu ortadan kaldırır.
     </p>
 
-    <h2>Red flags to avoid</h2>
+    <h2>Kaçınılması gereken kırmızı bayraklar</h2>
     <p>
-      Platforms offering only promissory notes (you&rsquo;re a lender, not an owner &mdash; very different risk). Sponsors with no track record through a downturn &mdash; plenty of 2015&ndash;2021 funds have never been stress-tested. Headline IRRs based on projections, not realized returns. Anything guaranteeing returns. Opaque fee structures that require a calculator to decode.
+      Yalnızca senet sunan platformlar (bir sahip değil, borç verensiniz &mdash; çok farklı risk). Bir durgunluktan geçmiş geçmişi olmayan sponsorlar &mdash; 2015-2021 arası birçok fon hiçbir zaman stres testine tabi tutulmamıştır. Gerçekleşen getirilere değil, projeksiyonlara dayalı başlık IRR'leri. Getirileri garanti eden herhangi bir şey. Hesaplamak için hesap makinesi gerektiren opak ücret yapıları.
     </p>
 
-    <h2>Where it fits in a portfolio</h2>
+    <h2>Portföydeki yeri</h2>
     <p>
-      As an alternatives bucket, 5&ndash;15% of a diversified portfolio is reasonable. If you mostly want real estate exposure with liquidity and low fees, a public REIT index fund like VNQ or SCHH will do 90% of the job for a fraction of the cost. Crowdfunding makes more sense when you specifically want private-market exposure, potential tax advantages from direct property depreciation, or access to deals you otherwise couldn&rsquo;t touch.
+      Alternatif bir varlık sepeti olarak, çeşitlendirilmiş bir portföyün %5-15'i makuldür. Çoğunlukla likidite ve düşük ücretlerle gayrimenkul maruziyeti istiyorsanız, VNQ veya SCHH gibi halka açık bir GYO endeks fonu, işin %90'ını maliyetin çok küçük bir kısmı karşılığında yapacaktır. Kitle fonlaması, özellikle özel piyasa maruziyeti, doğrudan mülk amortismanından potansiyel vergi avantajları veya aksi takdirde dokunamayacağınız anlaşmalara erişim istediğinizde daha anlamlıdır.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Putting emergency fund money into illiquid 5-year funds. Concentrating in one platform or one property type (office in 2020 was brutal). Ignoring fees. Chasing the highest advertised IRR without reading the PPM. Assuming past cycle returns will repeat.
+      Acil durum fonu parasını likit olmayan 5 yıllık fonlara koymak. Tek bir platformda veya tek bir mülk türünde yoğunlaşmak (ofis 2020'de berbattı). Ücretleri görmezden gelmek. PPM'yi okumadan en yüksek reklamı yapılan IRR'nin peşinden koşmak. Geçmiş döngü getirilerinin tekrarlanacağını varsaymak.
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Alt satır</h2>
     <p>
-      Real estate crowdfunding is a legitimate tool, not a free lunch. Understand the lockups, count the fees, read the tax docs, and size it like the alternative investment it is &mdash; not like a savings account with a better yield.
+      Gayrimenkul kitle fonlaması meşru bir araçtır, bedava öğle yemeği değildir. Kilitlenme sürelerini anlayın, ücretleri sayın, vergi belgelerini okuyun ve onu olduğu gibi alternatif bir yatırım olarak boyutlandırın &mdash; yüksek getirili bir tasarruf hesabı gibi değil.
     </p>
   </>
 );

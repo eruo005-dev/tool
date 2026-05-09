@@ -2,49 +2,50 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Agno &mdash; formerly known as Phidata &mdash; is a Python
-    framework for building multi-agent systems. It gives you a
-    batteries-included <code>Agent</code> class with memory, tools,
-    knowledge bases, and a team abstraction that lets several agents
-    hand off work to each other. If you want to ship an agent to
-    production without wiring vector stores and message history
-    yourself, Agno removes most of the boilerplate.
+    Agno &mdash; eskiden Phidata olarak bilinirdi &mdash; çoklu etmen
+    sistemleri oluşturmak için bir Python çerçevesidir. Size bellek,
+    araçlar, bilgi tabanları ve birden fazla etmenin birbirine iş
+    aktarmasını sağlayan bir ekip soyutlaması içeren, her şeyiyle
+    gelen bir <code>Agent</code> sınıfı sunar. Vektör depolarını ve
+    mesaj geçmişini kendiniz bağlamadan bir etmeni üretime göndermek
+    istiyorsanız, Agno çoğu hazırlık kodunu ortadan kaldırır.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What Agno actually is</h2>
+    <h2>Agno aslında nedir</h2>
     <p>
-      Agno is a single-import framework that bundles: an agent loop
-      with tool calling, pluggable memory (SQLite, Postgres,
-      MongoDB), pluggable vector knowledge (PgVector, LanceDB, Chroma,
-      Pinecone), model-provider adapters, and a
-      <code> Team</code> primitive for orchestrating multiple agents
-      in coordinated, collaborate, or route modes. It also ships a
-      local playground UI so you can chat with your agents without
-      building a frontend.
+      Agno, tek bir içe aktarma ile gelen bir çerçevedir: araç
+      çağırma ile bir etmen döngüsü, takılabilir bellek (SQLite,
+      Postgres, MongoDB), takılabilir vektör bilgisi (PgVector,
+      LanceDB, Chroma, Pinecone), model sağlayıcı bağdaştırıcıları ve
+      birden fazla etmeni koordineli, işbirlikçi veya yönlendirme
+      modlarında düzenlemek için bir <code>Team</code> ilkelini
+      içerir. Ayrıca, bir ön yüz oluşturmadan etmenlerinizle sohbet
+      edebilmeniz için yerel bir oyun alanı arayüzü de sunar.
     </p>
     <p>
-      Compared to LangChain, Agno is smaller and more
-      convention-driven &mdash; fewer ways to do the same thing.
-      Compared to CrewAI, it has stronger first-class memory and
-      knowledge support and feels less framework-y.
+      LangChain ile karşılaştırıldığında, Agno daha küçük ve daha
+      kural odaklıdır &mdash; aynı şeyi yapmanın daha az yolu vardır.
+      CrewAI ile karşılaştırıldığında, daha güçlü birinci sınıf
+      bellek ve bilgi desteğine sahiptir ve daha az çerçeve benzeri
+      hissettirir.
     </p>
 
-    <h2>Installing</h2>
+    <h2>Kurulum</h2>
     <pre>{`pip install -U agno
 
-# Common extras you'll actually use
+# Gerçekten kullanacağınız yaygın ek paketler
 pip install openai duckduckgo-search yfinance lancedb`}</pre>
     <p>
-      Agno itself stays lean; each tool and storage backend is an
-      optional dependency you install as needed. Export
-      <code> OPENAI_API_KEY</code> (or whichever provider) before
-      running.
+      Agno'nun kendisi hafif kalır; her araç ve depolama arka ucu,
+      ihtiyaç duydukça yüklediğiniz isteğe bağlı bir bağımlılıktır.
+      Çalıştırmadan önce <code>OPENAI_API_KEY</code> (veya hangi
+      sağlayıcıysa) ortam değişkenini dışa aktarın.
     </p>
 
-    <h2>First working example</h2>
+    <h2>İlk çalışan örnek</h2>
     <pre>{`from agno.agent import Agent
 from agno.models.openai import OpenAIChat
 from agno.tools.duckduckgo import DuckDuckGoTools
@@ -52,24 +53,23 @@ from agno.tools.duckduckgo import DuckDuckGoTools
 agent = Agent(
     model=OpenAIChat(id="gpt-4o-mini"),
     tools=[DuckDuckGoTools()],
-    description="You are a news analyst. Cite sources with URLs.",
+    description="Sen bir haber analistisin. Kaynakları URL'lerle belirt.",
     markdown=True,
 )
 
 agent.print_response(
-    "What happened with EU AI Act enforcement this week?",
+    "Bu hafta AB Yapay Zeka Yasası'nın uygulanmasıyla ilgili ne oldu?",
     stream=True,
 )`}</pre>
     <p>
-      One agent, one tool, streamed to stdout with Markdown
-      rendering. The <code>print_response</code> helper is for quick
-      iteration; in production you&rsquo;ll use
-      <code> agent.run()</code> which returns a
-      <code> RunResponse</code> with the text, messages, and tool
-      trace.
+      Tek bir etmen, tek bir araç, Markdown işleme ile stdout'a
+      akış. <code>print_response</code> yardımcısı hızlı yineleme
+      içindir; üretimde metni, mesajları ve araç izini içeren bir
+      <code> RunResponse</code> döndüren
+      <code> agent.run()</code> kullanacaksınız.
     </p>
 
-    <h2>A real workflow &mdash; a team with memory and knowledge</h2>
+    <h2>Gerçek bir iş akışı &mdash; bellek ve bilgiye sahip bir ekip</h2>
     <pre>{`from agno.agent import Agent
 from agno.team import Team
 from agno.models.openai import OpenAIChat
@@ -85,77 +85,80 @@ kb = PDFUrlKnowledgeBase(
 kb.load(recreate=False)
 
 researcher = Agent(
-    name="Researcher",
+    name="Araştırmacı",
     model=OpenAIChat(id="gpt-4o"),
     knowledge=kb,
     search_knowledge=True,
-    role="Answer questions about the 10-K filing.",
+    role="10-K dosyası hakkındaki soruları yanıtla.",
 )
 
 analyst = Agent(
-    name="Analyst",
+    name="Analist",
     model=OpenAIChat(id="gpt-4o"),
     tools=[YFinanceTools(stock_price=True, company_info=True)],
-    role="Pull live market data and combine with research findings.",
+    role="Canlı piyasa verilerini çek ve araştırma bulgularıyla birleştir.",
 )
 
 team = Team(
-    name="Equity Desk",
+    name="Hisse Senedi Masası",
     members=[researcher, analyst],
     mode="coordinate",
     storage=SqliteStorage(table_name="team", db_file="tmp/team.db"),
 )
 
-team.print_response("Is AAPL's current price consistent with its latest 10-K guidance?")`}</pre>
+team.print_response("AAPL'nin mevcut fiyatı en son 10-K rehberliğiyle tutarlı mı?")`}</pre>
     <p>
-      The <code>coordinate</code> mode lets a team leader route sub-
-      tasks to members and assemble a final answer. SQLite storage
-      persists sessions across restarts so the team remembers prior
-      conversations.
+      <code>coordinate</code> modu, bir ekip liderinin alt görevleri
+      üyelere yönlendirmesine ve nihai bir yanıt oluşturmasına olanak
+      tanır. SQLite depolama, oturumları yeniden başlatmalar arasında
+      kalıcı hale getirir, böylece ekip önceki konuşmaları hatırlar.
     </p>
 
-    <h2>Gotchas</h2>
+    <h2>Tuzaklar</h2>
     <p>
-      <strong>Knowledge base reloads are expensive.</strong> Call
-      <code> kb.load(recreate=False)</code>, not <code>True</code>, in
-      production. <code>True</code> re-embeds every document every
-      run &mdash; burns your embeddings budget fast.
+      <strong>Bilgi tabanı yeniden yüklemeleri pahalıdır.</strong>
+      Üretimde <code> kb.load(recreate=False)</code> çağırın,
+      <code>True</code> değil. <code>True</code> her çalıştırmada her
+      belgeyi yeniden gömmeye zorlar &mdash; gömme bütçenizi hızla
+      tüketir.
     </p>
     <p>
-      <strong>The playground is local-only by default.</strong>
-      <code> agno playground</code> binds to localhost. Don&rsquo;t
-      expose it to the internet without auth; it lets anyone invoke
-      your agents with your API keys.
+      <strong>Oyun alanı varsayılan olarak yalnızca yereldir.</strong>
+      <code> agno playground</code> localhost'a bağlanır. Kimlik
+      doğrulama olmadan internete açmayın; herkesin API anahtarlarınızla
+      etmenlerinizi çağırmasına izin verir.
     </p>
     <p>
-      <strong>Team modes matter.</strong>
-      <code> route</code> picks one member; <code>collaborate</code>
-      {" "}lets all members respond; <code>coordinate</code> uses a
-      leader. Pick wrong and you&rsquo;ll pay for every member every
-      turn when you only needed one.
+      <strong>Ekip modları önemlidir.</strong>
+      <code> route</code> bir üyeyi seçer; <code>collaborate</code>
+      {" "}tüm üyelerin yanıt vermesine izin verir;
+      <code> coordinate</code> bir lider kullanır. Yanlış seçerseniz,
+      yalnızca birine ihtiyacınız varken her turda her üye için
+      ödeme yaparsınız.
     </p>
     <p>
-      <strong>Python 3.10+.</strong> Agno uses modern typing syntax
-      (<code>str | None</code>) that won&rsquo;t import on 3.9.
+      <strong>Python 3.10+.</strong> Agno, 3.9'da içe aktarılmayacak
+      modern tip yazım sözdizimi (<code>str | None</code>) kullanır.
     </p>
 
-    <h2>When NOT to use it</h2>
+    <h2>Ne ZAMAN kullanılmamalı</h2>
     <p>
-      If you&rsquo;re on TypeScript, look at Mastra or the Vercel AI
-      SDK. If you need bulletproof type safety on a small typed-output
-      service, Pydantic AI is a better fit. If you&rsquo;re doing
-      pure document RAG, LlamaIndex has deeper retrieval primitives.
-      Agno shines when you want multi-agent orchestration plus memory
-      plus knowledge in one cohesive Python package without gluing
-      four libraries together.
+      TypeScript kullanıyorsanız, Mastra veya Vercel AI SDK'ya
+      bakın. Küçük, tür güvenli bir çıktı hizmetinde sağlam tür
+      güvenliğine ihtiyacınız varsa, Pydantic AI daha uygundur. Saf
+      belge RAG yapıyorsanız, LlamaIndex daha derin alma ilkellerine
+      sahiptir. Agno, dört kütüphaneyi birbirine yapıştırmadan tek
+      bir uyumlu Python paketinde çoklu etmen orkestrasyonu artı
+      bellek artı bilgi istediğinizde parlar.
     </p>
     <p>
-      Sharpen agent system prompts with the{" "}
-      <a href="/tools/prompt-improver">prompt improver</a>, sanity-
-      check tool-call JSON with the{" "}
-      <a href="/tools/json-formatter">JSON formatter</a>, and estimate
-      context-window usage per turn with the{" "}
-      <a href="/tools/ai-token-counter">token counter</a>.
+      Etmen sistem yönergelerini{" "}
+      <a href="/tools/prompt-improver">yönlendirme iyileştirici</a>
+      ile keskinleştirin, araç çağrısı JSON'unu{" "}
+      <a href="/tools/json-formatter">JSON biçimlendirici</a> ile
+      doğrulayın ve her turda bağlam penceresi kullanımını{" "}
+      <a href="/tools/ai-token-counter">token sayacı</a> ile tahmin
+      edin.
     </p>
   </>
 );

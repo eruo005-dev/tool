@@ -3,218 +3,227 @@
 export const intro = (
   <>
     <p>
-      The job-search-tool subscription bundle has gotten ridiculous: $20/mo for Jobscan,
-      $9/mo for Teal, $30/mo for Huntr, plus LinkedIn Premium at $40. That&rsquo;s $1,200
-      a year on top of being unemployed. Almost every paid feature has a free or
-      browser-only alternative — this guide is the full job-search stack with no
-      subscriptions.
+      İş arama araçları abonelik paketleri çığırından çıktı: Jobscan için aylık $20,
+      Teal için $9, Huntr için $30, bir de LinkedIn Premium $40. İşsizken yılda $1,200
+      ediyor. Neredeyse her ücretli özelliğin ücretsiz veya sadece tarayıcı tabanlı bir
+      alternatifi var — bu rehber, hiçbir abonelik olmadan eksiksiz iş arama yığınını
+      sunuyor.
     </p>
     <p>
-      Coverage: keyword scoring, application tracking, automated job aggregation, resume
-      tailoring, and AI-assisted research. We use everything below ourselves.
+      Kapsam: anahtar kelime puanlama, başvuru takibi, otomatik iş toplama, özgeçmiş
+      uyarlama ve yapay zeka destekli araştırma. Aşağıdakilerin hepsini kendimiz
+      kullanıyoruz.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "stack", label: "The 7-tool free stack" },
-  { id: "tracking", label: "Application tracking" },
-  { id: "tailoring", label: "Resume tailoring" },
-  { id: "ai", label: "AI tools for job search" },
-  { id: "automation", label: "Automating job applications" },
-  { id: "alerts", label: "Job alerts + aggregators" },
+  { id: "stack", label: "7 araçlık ücretsiz yığın" },
+  { id: "tracking", label: "Başvuru takibi" },
+  { id: "tailoring", label: "Özgeçmiş uyarlama" },
+  { id: "ai", label: "İş arama için yapay zeka araçları" },
+  { id: "automation", label: "İş başvurularını otomatikleştirme" },
+  { id: "alerts", label: "İş bildirimleri + toplayıcılar" },
 ];
 
 export const body = (
   <>
-    <h2 id="stack">The 7-tool free stack</h2>
+    <h2 id="stack">7 araçlık ücretsiz yığın</h2>
     <ol>
       <li>
-        <strong>Keyword match scoring:</strong>{" "}
-        <a href="/tools/resume-keyword-match-scorer">our scorer</a> — unlimited scans, no
-        account.
+        <strong>Anahtar kelime eşleşme puanlama:</strong>{" "}
+        <a href="/tools/resume-keyword-match-scorer">puanlayıcımız</a> — sınırsız tarama,
+        hesap gerekmez.
       </li>
       <li>
-        <strong>Application tracker:</strong> our <a href="/tools/recruiting-pipeline-tracker">recruiting pipeline tracker</a> reused as a
-        job-search board (rename stages: Applied / OA / Screen / Onsite / Offer), or a
-        Google Sheet with company / role / link / status / next-action columns.
+        <strong>Başvuru takipçisi:</strong> <a href="/tools/recruiting-pipeline-tracker">işe alım boru hattı takipçimizi</a> iş
+        arama panosu olarak yeniden kullanın (aşamaları yeniden adlandırın: Başvuruldu /
+        OA / Ön Eleme / Yerinde Görüşme / Teklif) veya şirket / pozisyon / bağlantı /
+        durum / sonraki adım sütunları olan bir Google E-Tablosu.
       </li>
       <li>
-        <strong>Resume tailoring:</strong> ChatGPT free or Claude free with a structured
-        prompt (template below).
+        <strong>Özgeçmiş uyarlama:</strong> Yapılandırılmış bir komutla (aşağıda şablon)
+        ücretsiz ChatGPT veya ücretsiz Claude.
       </li>
       <li>
-        <strong>Job aggregation:</strong> Indeed RSS feeds + LinkedIn alerts + Google
-        Jobs alerts. All free, all email.
+        <strong>İş toplama:</strong> Indeed RSS beslemeleri + LinkedIn bildirimleri +
+        Google Jobs bildirimleri. Hepsi ücretsiz, hepsi e-posta.
       </li>
       <li>
-        <strong>Salary research:</strong> levels.fyi (free, mostly tech), Glassdoor
-        (free with limits), Payscale free salary report.
+        <strong>Maaş araştırması:</strong> levels.fyi (ücretsiz, çoğunlukla teknoloji),
+        Glassdoor (sınırlamalarla ücretsiz), Payscale ücretsiz maaş raporu.
       </li>
       <li>
-        <strong>Hiring manager finding:</strong> LinkedIn search + RocketReach free trial
-        for one-off email lookups.
+        <strong>İşe alım yöneticisi bulma:</strong> LinkedIn araması + tek seferlik e-posta
+        sorgulamaları için RocketReach ücretsiz deneme.
       </li>
       <li>
-        <strong>Practice interviews:</strong> Pramp (free, peer-to-peer for tech),
-        ChatGPT/Claude voice mode for behavioral.
+        <strong>Pratik mülakatlar:</strong> Pramp (ücretsiz, teknoloji için eşler arası),
+        davranışsal için ChatGPT/Claude ses modu.
       </li>
     </ol>
 
-    <h2 id="tracking">Application tracking (replaces: Huntr Pro at $30/mo)</h2>
+    <h2 id="tracking">Başvuru takibi (yerini alır: Huntr Pro aylık $30)</h2>
     <p>
-      Huntr&rsquo;s headline feature is a kanban board with applications, contacts, and
-      interview rounds. The free tier limits you to 40 applications which is laughable for
-      a real job search. The free alternatives:
+      Huntr'ın amiral gemisi özelliği, başvurular, kişiler ve mülakat turlarını içeren bir
+      kanban panosudur. Ücretsiz katman sizi 40 başvuruyla sınırlar ki bu gerçek bir iş
+      araması için gülünçtür. Ücretsiz alternatifler:
     </p>
     <ul>
       <li>
-        <strong>Spreadsheet:</strong> 6 columns (company, role, link, applied date,
-        status, next-action). 5 minutes to build, infinitely scalable, sortable. The
-        people who get jobs faster aren&rsquo;t using fancier tools — they&rsquo;re
-        consistent at logging.
+        <strong>E-tablo:</strong> 6 sütun (şirket, pozisyon, bağlantı, başvuru tarihi,
+        durum, sonraki adım). 5 dakikada oluşturulur, sonsuz ölçeklenebilir, sıralanabilir.
+        Daha hızlı iş bulan kişiler daha süslü araçlar kullanmıyor — kayıt tutmada
+        tutarlılar.
       </li>
       <li>
-        <strong>Our pipeline tracker:</strong> rename stages to job-search flow. Has
-        in-stage day counter so you can see which apps have gone cold.
+        <strong>Boru hattı takipçimiz:</strong> aşamaları iş arama akışına göre yeniden
+        adlandırın. Hangi başvuruların soğuduğunu görmek için aşama içi gün sayacı vardır.
       </li>
       <li>
-        <strong>Notion free:</strong> if you want fancier views (timeline, calendar) and
-        already use Notion. Database template gallery has good starting points.
+        <strong>Notion ücretsiz:</strong> daha süslü görünümler (zaman çizelgesi, takvim)
+        istiyorsanız ve zaten Notion kullanıyorsanız. Veritabanı şablon galerisinde iyi
+        başlangıç noktaları var.
       </li>
     </ul>
 
-    <h2 id="tailoring">Resume tailoring (replaces: Teal AI Resume at $9/mo)</h2>
+    <h2 id="tailoring">Özgeçmiş uyarlama (yerini alır: Teal AI Resume aylık $9)</h2>
     <p>
-      The exact prompt that does what Teal does, in any free <a href="/learn/llm">LLM</a>:
+      Teal'in yaptığını yapan, herhangi bir ücretsiz <a href="/learn/llm">LLM</a>'de
+      kullanılabilecek tam komut:
     </p>
-    <pre><code>{`I'm applying for [role] at [company]. Here's the JD:
+    <pre><code>{`[şirket]'teki [pozisyon] için başvuruyorum. İşte iş tanımı:
 
-[paste JD]
+[iş tanımını yapıştırın]
 
-Here's my current resume:
+İşte mevcut özgeçmişim:
 
-[paste resume]
+[özgeçmişi yapıştırın]
 
-Rewrite the experience section to:
-1. Use the verbs and skill terms from the JD
-2. Highlight 2 bullets per role most relevant to this JD
-3. Keep total length under one page
-4. Don't lie about anything not in my original`}</code></pre>
+Deneyim bölümünü şu şekilde yeniden yazın:
+1. İş tanımındaki fiilleri ve beceri terimlerini kullanın
+2. Bu iş tanımıyla en alakalı her pozisyon için 2 madde işaretini vurgulayın
+3. Toplam uzunluğu bir sayfanın altında tutun
+4. Orijinalimde olmayan hiçbir şey hakkında yalan söylemeyin`}</code></pre>
     <p>
-      Run that, then validate the output with our{" "}
-      <a href="/tools/resume-keyword-match-scorer">keyword scorer</a>. If you score
-      &gt;75% match, you're done. If &lt;60%, the gap is real skills, not phrasing — apply
-      anyway if you have transferable experience, but expect a tougher screen.
+      Bunu çalıştırın, ardından çıktıyı{" "}
+      <a href="/tools/resume-keyword-match-scorer">anahtar kelime puanlayıcımızla</a>
+      doğrulayın. %75'in üzerinde eşleşme puanı alırsanız işiniz biter. %60'ın altındaysa,
+      boşluk gerçek becerilerdir, ifade değil — aktarılabilir deneyiminiz varsa yine de
+      başvurun, ancak daha zorlu bir eleme bekleyin.
     </p>
 
-    <h2 id="ai">AI tools for job search (replaces: paid AI job-hunters)</h2>
+    <h2 id="ai">İş arama için yapay zeka araçları (yerini alır: ücretli yapay zeka iş avcıları)</h2>
     <p>
-      A wave of paid &ldquo;AI applies for you&rdquo; services launched in 2024–2025
-      (LazyApply, Sonara, Massive) at $40–100/mo. Most of them just spray-apply, which
-      tanks your reply rate. The genuine AI use cases that move the needle:
+      2024–2025'te aylık $40–100 arasında bir dizi ücretli &ldquo;yapay zeka sizin için
+      başvurur&rdquo; hizmeti (LazyApply, Sonara, Massive) piyasaya sürüldü. Çoğu sadece
+      rastgele başvuru yapar, bu da yanıt oranınızı düşürür. Fark yaratan gerçek yapay
+      zeka kullanım durumları:
     </p>
     <ul>
       <li>
-        <strong>Company research summaries:</strong> &ldquo;Summarize [company] in 200
-        words: products, recent funding, engineering culture (from Glassdoor reviews +
-        public posts).&rdquo; Saves 20 minutes per interview prep.
+        <strong>Şirket araştırma özetleri:</strong> &ldquo;[Şirketi] 200 kelimede özetle:
+        ürünler, son yatırımlar, mühendislik kültürü (Glassdoor yorumları ve kamuya açık
+        gönderilerden).&rdquo; Mülakat hazırlığı başına 20 dakika kazandırır.
       </li>
       <li>
-        <strong>Mock interview practice:</strong> ChatGPT voice mode for behavioral
-        practice; ChatGPT or Claude text for system design rehearsal. Free, infinite
-        sessions.
+        <strong>Deneme mülakat pratiği:</strong> Davranışsal pratik için ChatGPT ses modu;
+        sistem tasarımı provası için ChatGPT veya Claude metin. Ücretsiz, sınırsız
+        oturum.
       </li>
       <li>
-        <strong>Cover letter drafts:</strong> 80% of a usable cover letter from a
-        well-prompted LLM. Edit for voice; never send raw output.
+        <strong>Ön yazı taslakları:</strong> İyi yönlendirilmiş bir LLM'den kullanılabilir
+        bir ön yazının %80'i. Sesinize göre düzenleyin; ham çıktıyı asla göndermeyin.
       </li>
       <li>
-        <strong>Salary negotiation scripts:</strong> &ldquo;Write a polite negotiation
-        email asking for $X more, citing [reason]. Tone: confident, not entitled.&rdquo;
+        <strong>Maaş pazarlığı senaryoları:</strong> &ldquo;[Neden] gerekçesiyle $X daha
+        fazla isteyen kibar bir pazarlık e-postası yaz. Ton: kendine güvenen, hak
+        talep etmeyen.&rdquo;
       </li>
     </ul>
     <p>
-      What AI tools cannot replace: the actual application. You will write better tailored
-      apps than auto-spray.
+      Yapay zeka araçlarının yerini alamayacağı şey: asıl başvuru. Otomatik rastgele
+      başvurulardan daha iyi uyarlanmış başvurular yazacaksınız.
     </p>
 
-    <h2 id="automation">Automating applications (the honest answer)</h2>
+    <h2 id="automation">Başvuruları otomatikleştirme (dürüst cevap)</h2>
     <p>
-      The Reddit thread that asks &ldquo;how do I automate job applications for
-      free?&rdquo; appears every two weeks in <a href="https://www.reddit.com/r/jobsearchhacks/" rel="noreferrer">r/jobsearchhacks</a>.
-      The honest answer most people don&rsquo;t want to hear: you can&rsquo;t automate
-      good applications. The auto-apply Chrome extensions (LazyApply, Simplify, etc.) push
-      your resume into 100 jobs in an evening — and your reply rate craters because
-      nothing is tailored.
+      &ldquo;İş başvurularını ücretsiz nasıl otomatikleştiririm?&rdquo; diye soran Reddit
+      başlığı, <a href="https://www.reddit.com/r/jobsearchhacks/" rel="noreferrer">r/jobsearchhacks</a>'te
+      iki haftada bir çıkar. Çoğu insanın duymak istemediği dürüst cevap: iyi başvuruları
+      otomatikleştiremezsiniz. Otomatik başvuru Chrome uzantıları (LazyApply, Simplify vb.)
+      bir akşamda özgeçmişinizi 100 işe gönderir — ve hiçbir şey uyarlanmadığı için yanıt
+      oranınız dibe vurur.
     </p>
     <p>
-      What actually scales:
+      Gerçekten ölçeklenen şey:
     </p>
     <ul>
       <li>
-        <strong>Apply to 5 jobs deeply</strong> (15-min tailoring each = 75 min total) and
-        get 1 reply.
+        <strong>5 işe derinlemesine başvurun</strong> (her biri 15 dk uyarlama = toplam 75
+        dk) ve 1 yanıt alın.
       </li>
       <li>
-        <strong>Auto-apply to 100 jobs</strong> with a generic resume and get 0–1 replies.
+        <strong>100 işe genel bir özgeçmişle otomatik başvurun</strong> ve 0–1 yanıt alın.
       </li>
     </ul>
     <p>
-      The math has been measured by multiple recruiters publicly. Tailored apps get 5–10×
-      reply rates of generic apps. Use AI tools to make tailoring faster — don&rsquo;t use
-      them to skip tailoring.
+      Matematik, birden çok işe alım uzmanı tarafından kamuya açık olarak ölçülmüştür.
+      Uyarlanmış başvurular, genel başvurulara göre 5–10 kat daha yüksek yanıt oranına
+      sahiptir. Uyarlamayı hızlandırmak için yapay zeka araçlarını kullanın —
+      uyarlamayı atlamak için kullanmayın.
     </p>
 
-    <h2 id="alerts">Job alerts + aggregators (replaces: paid job-board memberships)</h2>
+    <h2 id="alerts">İş bildirimleri + toplayıcılar (yerini alır: ücretli iş ilanı üyelikleri)</h2>
     <p>
-      Set up these alerts on day 1; they save you from refreshing job sites:
+      Bu bildirimleri 1. günde kurun; sizi iş sitelerini tazelemekten kurtarır:
     </p>
     <ul>
       <li>
-        <strong>LinkedIn Job Alerts:</strong> save up to 20 search queries; daily emails.
+        <strong>LinkedIn İş Bildirimleri:</strong> 20 arama sorgusuna kadar kaydedin;
+        günlük e-postalar.
       </li>
       <li>
-        <strong>Indeed Email Alerts:</strong> RSS feeds also available — pipe into your
-        feed reader if you don&rsquo;t want more email.
+        <strong>Indeed E-posta Bildirimleri:</strong> RSS beslemeleri de mevcuttur — daha
+        fazla e-posta istemiyorsanız besleme okuyucunuza yönlendirin.
       </li>
       <li>
-        <strong>Google Jobs:</strong> from search results, &ldquo;Set up alerts&rdquo; for
-        any saved query.
+        <strong>Google Jobs:</strong> arama sonuçlarından, kaydedilmiş herhangi bir sorgu
+        için &ldquo;Bildirim kur&rdquo;.
       </li>
       <li>
-        <strong>Niche boards:</strong> Wellfound (startups), Hacker News &ldquo;Who is
-        hiring&rdquo; threads, RemoteOK, We Work Remotely — many have free RSS or daily
-        digest emails.
+        <strong>Niş panolar:</strong> Wellfound (startuplar), Hacker News &ldquo;Who is
+        hiring&rdquo; başlıkları, RemoteOK, We Work Remotely — çoğunun ücretsiz RSS veya
+        günlük özet e-postaları vardır.
       </li>
     </ul>
     <p>
-      Aggregators (LinkedIn, Indeed, Google) catch ~80% of postings. The remaining 20% is
-      where competition is lowest — niche boards and direct company careers pages.
+      Toplayıcılar (LinkedIn, Indeed, Google) ilanların ~%80'ini yakalar. Kalan %20,
+      rekabetin en düşük olduğu yerdir — niş panolar ve doğrudan şirket kariyer sayfaları.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Score your resume against any JD (free)",
+  label: "Özgeçmişinizi herhangi bir iş tanımına göre puanlayın (ücretsiz)",
   targetSlug: "resume-keyword-match-scorer",
 };
 
 export const faq = [
   {
-    q: "What's the single best free tool for job search?",
-    a: "A spreadsheet. Sounds boring but it's the highest-leverage thing — track every applied job with date, status, next action. People who get jobs faster aren't using fancier tools; they're consistent at logging.",
+    q: "İş araması için en iyi tek ücretsiz araç nedir?",
+    a: "Bir e-tablo. Kulağa sıkıcı geliyor ama en yüksek kaldıraçlı şey — başvurulan her işi tarih, durum, sonraki adımla takip edin. Daha hızlı iş bulan kişiler daha süslü araçlar kullanmıyor; kayıt tutmada tutarlılar.",
   },
   {
-    q: "Is there a free version of Jobscan that's actually good?",
-    a: "Our resume keyword scorer does the same core function (top-N JD keyword match) with no scan cap. Jobscan layers in title and education matching that ours doesn't, so use both — start with ours for unlimited iteration, end with one Jobscan free scan to validate.",
+    q: "Gerçekten iyi olan ücretsiz bir Jobscan sürümü var mı?",
+    a: "Özgeçmiş anahtar kelime puanlayıcımız aynı temel işlevi (ilk N iş tanımı anahtar kelime eşleşmesi) tarama sınırı olmadan yapar. Jobscan, bizde olmayan başlık ve eğitim eşleştirmesini ekler, bu yüzden ikisini de kullanın — sınırsız yineleme için bizimkiyle başlayın, doğrulamak için bir Jobscan ücretsiz taramasıyla bitirin.",
   },
   {
-    q: "Should I pay for LinkedIn Premium?",
-    a: "Not for most job searches. The InMail credits are useful for cold-reaching hiring managers but most of those messages get ignored anyway. The 'who viewed your profile' feature is interesting but not actionable. Save the $40/month for a course or coffee chats.",
+    q: "LinkedIn Premium için ödeme yapmalı mıyım?",
+    a: "Çoğu iş araması için hayır. InMail kredileri, işe alım yöneticilerine soğuk mesaj atmak için kullanışlıdır ancak bu mesajların çoğu yine de görmezden gelinir. 'Profilinizi kim görüntüledi' özelliği ilginçtir ancak eyleme dönüştürülebilir değildir. Aylık $40'ı bir kursa veya kahve sohbetlerine saklayın.",
   },
   {
-    q: "Do AI auto-applier tools work?",
-    a: "Briefly, badly. They get your resume into more jobs but your reply rate drops 5–10× because nothing is tailored. Use AI to speed up tailoring instead.",
+    q: "Yapay zeka otomatik başvuru araçları işe yarıyor mu?",
+    a: "Kısaca, kötü. Özgeçmişinizi daha fazla işe sokar ancak hiçbir şey uyarlanmadığı için yanıt oranınız 5–10 kat düşer. Bunun yerine uyarlamayı hızlandırmak için yapay zekayı kullanın.",
   },
 ];

@@ -3,174 +3,176 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Markdown tables look deceptively simple&mdash;three pipes and a dashed separator&mdash;but the
-      moment you try to align columns, escape pipes inside cell content, or move a table between
-      GitHub Flavored Markdown and CommonMark, the cracks show. A table that renders beautifully on
-      GitHub can break on a static site generator, and a table that copies cleanly from a
-      spreadsheet can arrive with ragged pipes and missing headers. The spec also refuses to
-      standardize tables at the CommonMark level, which means every renderer implements them
-      slightly differently. Getting the syntax right once saves hours of manual fiddling across
-      README files, documentation sites, and blog posts. This guide covers pipe syntax, header
-      separators, alignment, escaping special characters, GFM versus CommonMark differences, and
-      the fastest way to generate valid tables from existing data.
+      Markdown tabloları ilk bakışta basit görünür&mdash;üç dikey çizgi ve bir tireli ayırıcı&mdash;ancak
+      sütunları hizalamaya, hücre içeriğindeki dikey çizgileri kaçış karakteriyle kullanmaya veya bir tabloyu
+      GitHub Flavored Markdown ile CommonMark arasında taşımaya kalktığınızda sorunlar ortaya çıkar. GitHub'da
+      harika görünen bir tablo, statik site oluşturucuda bozulabilir; bir e-tablodan temizce kopyalanan bir tablo
+      ise düzensiz dikey çizgiler ve eksik başlıklarla gelebilir. Ayrıca spesifikasyon, tabloları CommonMark
+      seviyesinde standartlaştırmayı reddeder, bu da her işleyicinin onları biraz farklı uygulaması anlamına gelir.
+      Sözdizimini bir kez doğru öğrenmek, README dosyaları, dokümantasyon siteleri ve blog yazılarında saatlerce
+      süren manuel uğraşmayı önler. Bu kılavuz; dikey çizgi sözdizimi, başlık ayırıcıları, hizalama, özel
+      karakterleri kaçış karakteriyle kullanma, GFM ile CommonMark arasındaki farklar ve mevcut verilerden geçerli
+      tablolar oluşturmanın en hızlı yolunu kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The pipe-and-dash skeleton</h2>
+    <h2>Dikey çizgi ve tire iskeleti</h2>
     <p>
-      Every Markdown table is built from three row types: a header row, a separator row of dashes,
-      and one or more data rows. The leading and trailing pipes are optional in most renderers, but
-      always including them makes the source easier to read and less prone to parser ambiguity when
-      a cell starts with a character the renderer treats as meaningful.
+      Her Markdown tablosu üç satır türünden oluşur: bir başlık satırı, tirelerden oluşan bir ayırıcı satır
+      ve bir veya daha fazla veri satırı. Baştaki ve sondaki dikey çizgiler çoğu işleyicide isteğe bağlıdır,
+      ancak bunları her zaman eklemek, kaynağı okumayı kolaylaştırır ve bir hücre, işleyicinin anlamlı
+      kabul ettiği bir karakterle başladığında ayrıştırıcı belirsizliğini azaltır.
     </p>
-    <pre>{`| Column A | Column B | Column C |
+    <pre>{`| Sütun A | Sütun B | Sütun C |
 | -------- | -------- | -------- |
-| cell 1   | cell 2   | cell 3   |
-| cell 4   | cell 5   | cell 6   |`}</pre>
+| hücre 1  | hücre 2  | hücre 3  |
+| hücre 4  | hücre 5  | hücre 6  |`}</pre>
     <p>
-      The separator row needs at least three dashes per column in most strict parsers, although
-      GFM accepts a single dash. Pad the dashes to match the header width if you want the source to
-      line up visually&mdash;the rendered output is identical either way.
+      Çoğu katı ayrıştırıcıda ayırıcı satırın her sütun için en az üç tireye ihtiyacı vardır, ancak
+      GFM tek bir tireyi kabul eder. Kaynağın görsel olarak hizalanmasını istiyorsanız tireleri başlık
+      genişliğine göre doldurun&mdash;işlenmiş çıktı her iki durumda da aynıdır.
     </p>
 
-    <h2>Column alignment with colons</h2>
+    <h2>İki nokta üst üste ile sütun hizalama</h2>
     <p>
-      Alignment is controlled by where you place colons in the separator row. A colon on the left
-      means left-aligned, a colon on the right means right-aligned, and colons on both sides mean
-      center-aligned. Without any colon, most renderers default to left alignment, but some respect
-      the renderer&rsquo;s CSS instead, so always be explicit when alignment matters.
+      Hizalama, ayırıcı satırda iki nokta üst üsteleri nereye koyduğunuzla kontrol edilir. Soldaki iki nokta
+      sola hizalı, sağdaki iki nokta sağa hizalı ve her iki taraftaki iki nokta ortalanmış anlamına gelir.
+      Hiç iki nokta olmadığında çoğu işleyici varsayılan olarak sola hizalar, ancak bazıları bunun yerine
+      işleyicinin CSS'sine saygı gösterir, bu nedenle hizalama önemli olduğunda her zaman açıkça belirtin.
     </p>
-    <pre>{`| Left     | Center   | Right   |
+    <pre>{`| Sol      | Orta     | Sağ     |
 | :------- | :------: | ------: |
-| apple    | 1.50     | 12      |
-| banana   | 0.75     | 6       |
-| cherry   | 3.25     | 120     |`}</pre>
+| elma     | 1.50     | 12      |
+| muz      | 0.75     | 6       |
+| kiraz    | 3.25     | 120     |`}</pre>
     <p>
-      Right alignment is particularly useful for numeric columns because it lines up decimal points
-      visually in monospace-rendered source, even though the final HTML output uses a CSS
-      <code>text-align</code> rule rather than any padding.
+      Sağa hizalama, sayısal sütunlar için özellikle kullanışlıdır çünkü monospace işlenmiş kaynakta
+      ondalık noktalarını görsel olarak hizalar, ancak nihai HTML çıktısı herhangi bir dolgu yerine bir CSS
+      <code>text-align</code> kuralı kullanır.
     </p>
 
-    <h2>GFM versus CommonMark</h2>
+    <h2>GFM ve CommonMark karşılaştırması</h2>
     <p>
-      CommonMark&rsquo;s base specification does not define tables at all. Tables are a GitHub
-      Flavored Markdown extension, later adopted by other flavors like MultiMarkdown and Pandoc,
-      but each implementation diverges in small ways. GFM requires a header row, GFM rejects tables
-      without a separator row, and GFM allows inline formatting like bold and code inside cells but
-      forbids block elements like nested lists or paragraphs. Pandoc supports pipe tables, grid
-      tables, and multiline tables with different rules for each. When in doubt, write to the GFM
-      spec because it has the widest runtime support across static site generators, documentation
-      tools, and chat platforms.
+      CommonMark'ın temel spesifikasyonu tabloları hiç tanımlamaz. Tablolar, GitHub Flavored Markdown
+      uzantısıdır ve daha sonra MultiMarkdown ve Pandoc gibi diğer lezzetler tarafından benimsenmiştir,
+      ancak her uygulama küçük farklılıklar gösterir. GFM bir başlık satırı gerektirir, GFM ayırıcı satırı
+      olmayan tabloları reddeder ve GFM hücreler içinde kalın ve kod gibi satır içi biçimlendirmeye izin verir
+      ancak iç içe listeler veya paragraflar gibi blok öğelerini yasaklar. Pandoc, her biri farklı kurallara
+      sahip boru tabloları, ızgara tabloları ve çok satırlı tabloları destekler. Şüpheye düştüğünüzde, GFM
+      spesifikasyonuna göre yazın çünkü statik site oluşturucuları, dokümantasyon araçları ve sohbet
+      platformları arasında en geniş çalışma zamanı desteğine sahiptir.
     </p>
 
-    <h2>Escaping pipes inside cells</h2>
+    <h2>Hücreler içinde dikey çizgileri kaçış karakteriyle kullanma</h2>
     <p>
-      A raw pipe character inside a cell will be interpreted as a column boundary and silently
-      break your table. Escape it with a backslash, or wrap the value in a code span if the content
-      is code-like. HTML entities also work but make the source harder to read.
+      Bir hücre içindeki ham bir dikey çizgi karakteri, bir sütun sınırı olarak yorumlanır ve tablonuzu
+      sessizce bozar. Bunu bir ters eğik çizgi ile kaçış karakteriyle kullanın veya içerik kod benzeriyse
+      değeri bir kod aralığına sarın. HTML varlıkları da işe yarar ancak kaynağı okumayı zorlaştırır.
     </p>
-    <pre>{`| Command          | Description             |
-| ---------------- | ----------------------- |
-| \`ls | grep x\`   | List files matching x   |
-| a \\| b           | Literal pipe character  |
-| \`cat a.txt\`     | Print file contents     |`}</pre>
+    <pre>{`| Komut             | Açıklama                |
+| ----------------- | ----------------------- |
+| \`ls | grep x\`    | x ile eşleşen dosyaları listele |
+| a \\| b            | Gerçek dikey çizgi karakteri |
+| \`cat a.txt\`      | Dosya içeriğini yazdır   |`}</pre>
     <p>
-      Backticks around the whole cell are the most robust option because the renderer stops parsing
-      table syntax inside a code span. That is also the only way to include a literal backslash
-      without the renderer eating it.
-    </p>
-
-    <h2>Inline formatting inside cells</h2>
-    <p>
-      GFM cells accept inline formatting: bold with <code>**</code>, italic with <code>_</code>,
-      inline code with backticks, links, images, and inline HTML. Block-level elements like
-      headings, blockquotes, lists, and multi-paragraph text are not allowed inside a cell. If you
-      need a list inside a cell, use <code>&lt;br&gt;</code> tags to create visual line breaks or
-      switch to an HTML <code>&lt;table&gt;</code> entirely.
+      Hücrenin tamamını ters tırnak içine almak en sağlam seçenektir çünkü işleyici bir kod aralığı
+      içinde tablo sözdizimini ayrıştırmayı durdurur. Bu aynı zamanda işleyicinin onu yemeden gerçek
+      bir ters eğik çizgi eklemenin tek yoludur.
     </p>
 
-    <h2>Handling long content and wrapping</h2>
+    <h2>Hücreler içinde satır içi biçimlendirme</h2>
     <p>
-      Markdown tables do not wrap gracefully. A single long cell pushes the column wider and forces
-      horizontal scrolling on narrow viewports. If your content is prose-heavy, consider
-      restructuring into a definition list or a series of short subsections with <code>&lt;h3&gt;</code>
-      headings. If the table is reference-style data, accept the scroll and make sure your CSS
-      wraps the table in an <code>overflow-x: auto</code> container so mobile readers can pan
-      horizontally without breaking the page layout.
+      GFM hücreleri satır içi biçimlendirmeyi kabul eder: <code>**</code> ile kalın, <code>_</code> ile
+      italik, ters tırnaklarla satır içi kod, bağlantılar, resimler ve satır içi HTML. Başlıklar,
+      alıntı blokları, listeler ve çok paragraflı metin gibi blok düzeyindeki öğelere bir hücre içinde
+      izin verilmez. Bir hücre içinde bir listeye ihtiyacınız varsa, görsel satır sonları oluşturmak için
+      <code>&lt;br&gt;</code> etiketlerini kullanın veya tamamen bir HTML <code>&lt;table&gt;</code>
+      öğesine geçin.
     </p>
 
-    <h2>Generating tables from spreadsheets and CSV</h2>
+    <h2>Uzun içerik ve sarma ile başa çıkma</h2>
     <p>
-      Copy-pasting directly from Excel, Google Sheets, or Numbers usually produces tab-separated
-      values, which Markdown renderers do not understand. Convert TSV or CSV into pipe-delimited
-      Markdown by replacing commas or tabs with <code> | </code> and adding a header separator row.
-      Watch for embedded commas in quoted CSV fields&mdash;a naive find-and-replace will corrupt
-      them. Most table generators handle this correctly, stripping quotes and normalizing
-      whitespace in one step.
-    </p>
-    <pre>{`Name,Role,Start
-Alice,Engineer,2024-01-15
-Bob,"Manager, Ops",2023-08-01
-
-becomes
-
-| Name  | Role          | Start      |
-| ----- | ------------- | ---------- |
-| Alice | Engineer      | 2024-01-15 |
-| Bob   | Manager, Ops  | 2023-08-01 |`}</pre>
-
-    <h2>Tables inside lists and blockquotes</h2>
-    <p>
-      Nesting a table inside a list item or blockquote requires careful indentation. Most GFM
-      parsers need the table to be indented by the same amount as the list item&rsquo;s content,
-      which usually means two or four spaces. Mixing tabs and spaces will break the nesting. If you
-      cannot get it to render, fall back to inline HTML using an explicit
-      <code>&lt;table&gt;</code>&mdash;the result is uglier source but bulletproof rendering.
+      Markdown tabloları zarif bir şekilde sarmaz. Tek bir uzun hücre, sütunu daha geniş yapar ve dar
+      görüntü alanlarında yatay kaydırmaya zorlar. İçeriğiniz yoğun metin içeriyorsa, bir tanım listesi
+      veya <code>&lt;h3&gt;</code> başlıklarıyla bir dizi kısa alt bölüm halinde yeniden yapılandırmayı
+      düşünün. Tablo referans tarzı verilerse, kaydırmayı kabul edin ve CSS'nizin tabloyu bir
+      <code>overflow-x: auto</code> kabına sarmasını sağlayın, böylece mobil okuyucular sayfa düzenini
+      bozmadan yatay olarak kaydırabilir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>E-tablolardan ve CSV'den tablo oluşturma</h2>
     <p>
-      <strong>Missing the separator row.</strong> Without the dashed row directly below the
-      header, GFM treats the content as a paragraph and collapses all the pipes into text. Always
-      include the separator, even for a single-row table.
+      Excel, Google Sheets veya Numbers'dan doğrudan kopyalayıp yapıştırmak genellikle Markdown
+      işleyicilerinin anlamadığı sekmeyle ayrılmış değerler üretir. TSV veya CSV'yi, virgülleri veya
+      sekmeleri <code> | </code> ile değiştirerek ve bir başlık ayırıcı satırı ekleyerek dikey çizgiyle
+      ayrılmış Markdown'a dönüştürün. Tırnak içindeki CSV alanlarındaki gömülü virgüllere dikkat
+      edin&mdash;saf bir bul ve değiştir onları bozacaktır. Çoğu tablo oluşturucu bunu doğru şekilde
+      işler, tırnakları kaldırır ve boşlukları tek adımda normalleştirir.
     </p>
+    <pre>{`İsim,Rol,Başlangıç
+Alice,Mühendis,2024-01-15
+Bob,"Yönetici, Operasyon",2023-08-01
+
+şuna dönüşür
+
+| İsim  | Rol                | Başlangıç   |
+| ----- | ------------------ | ----------- |
+| Alice | Mühendis           | 2024-01-15  |
+| Bob   | Yönetici, Operasyon | 2023-08-01  |`}</pre>
+
+    <h2>Listeler ve alıntı blokları içinde tablolar</h2>
     <p>
-      <strong>Uneven column counts.</strong> If the header has four columns and a data row has
-      three, some renderers silently drop the extra cell, others render a jagged table, and some
-      refuse to parse it at all. Count the pipes in every row.
-    </p>
-    <p>
-      <strong>Unescaped pipes in cell content.</strong> A raw <code>|</code> inside a cell
-      terminates the cell early and shifts every subsequent column. Escape with a backslash or wrap
-      the value in backticks.
-    </p>
-    <p>
-      <strong>Trying to put block elements in cells.</strong> Lists, multi-paragraph content, and
-      fenced code blocks do not belong inside table cells. Use <code>&lt;br&gt;</code> for soft
-      breaks and keep cell content short.
-    </p>
-    <p>
-      <strong>Assuming alignment works everywhere.</strong> The colon-in-separator syntax is GFM
-      only. Strict CommonMark parsers ignore it, and some documentation generators like Sphinx use
-      their own directive-based table formats instead.
-    </p>
-    <p>
-      <strong>Copy-pasting from spreadsheet software blindly.</strong> Tab-separated output is not
-      Markdown. You have to convert delimiters and add the separator row before the table
-      renders.
+      Bir liste öğesi veya alıntı bloğu içinde bir tabloyu iç içe yerleştirmek dikkatli girinti gerektirir.
+      Çoğu GFM ayrıştırıcısı, tablonun liste öğesinin içeriğiyle aynı miktarda girintilenmesini gerektirir,
+      bu genellikle iki veya dört boşluk anlamına gelir. Sekmeler ve boşlukları karıştırmak iç içe
+      yerleştirmeyi bozacaktır. İşlemesini sağlayamazsanız, açık bir <code>&lt;table&gt;</code>
+      kullanarak satır içi HTML'ye geri dönün&mdash;sonuç daha çirkin bir kaynak ancak kurşun geçirmez
+      bir işlemedir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Skip the manual pipe-counting and generate tables from your source data with the{" "}
-      <a href="/tools/markdown-table-generator">markdown table generator</a>. Pair with the{" "}
-      <a href="/tools/markdown-to-html">markdown to HTML converter</a> to preview exactly how your
-      table will render before pushing, and the{" "}
-      <a href="/tools/html-to-markdown">HTML to Markdown converter</a> to pull existing HTML tables
-      out of legacy pages and into clean Markdown source.
+      <strong>Ayırıcı satırın eksik olması.</strong> Başlığın hemen altında tireli satır olmadan, GFM
+      içeriği bir paragraf olarak ele alır ve tüm dikey çizgileri metne dönüştürür. Tek satırlı bir
+      tablo için bile her zaman ayırıcıyı ekleyin.
+    </p>
+    <p>
+      <strong>Eşit olmayan sütun sayıları.</strong> Başlıkta dört sütun varsa ve bir veri satırında üç
+      varsa, bazı işleyiciler fazla hücreyi sessizce atar, diğerleri düzensiz bir tablo oluşturur ve
+      bazıları onu hiç ayrıştırmayı reddeder. Her satırdaki dikey çizgileri sayın.
+    </p>
+    <p>
+      <strong>Hücre içeriğinde kaçış karakteri kullanılmamış dikey çizgiler.</strong> Bir hücre içindeki
+      ham bir <code>|</code>, hücreyi erken sonlandırır ve sonraki her sütunu kaydırır. Ters eğik çizgi
+      ile kaçış karakteri kullanın veya değeri ters tırnak içine alın.
+    </p>
+    <p>
+      <strong>Hücrelere blok öğeleri koymaya çalışmak.</strong> Listeler, çok paragraflı içerik ve
+      çitlenmiş kod blokları tablo hücrelerine ait değildir. Yumuşak satır sonları için
+      <code>&lt;br&gt;</code> kullanın ve hücre içeriğini kısa tutun.
+    </p>
+    <p>
+      <strong>Hizalamanın her yerde çalıştığını varsaymak.</strong> Ayırıcıdaki iki nokta sözdizimi
+      yalnızca GFM'ye aittir. Katı CommonMark ayrıştırıcıları bunu yok sayar ve Sphinx gibi bazı
+      dokümantasyon oluşturucuları bunun yerine kendi yönerge tabanlı tablo biçimlerini kullanır.
+    </p>
+    <p>
+      <strong>E-tablo yazılımından körü körüne kopyalayıp yapıştırmak.</strong> Sekmeyle ayrılmış çıktı
+      Markdown değildir. Tablo işlenmeden önce ayırıcıları dönüştürmeniz ve ayırıcı satırı eklemeniz
+      gerekir.
+    </p>
+
+    <h2>Rakamları çalıştırın</h2>
+    <p>
+      Manuel dikey çizgi saymayı atlayın ve kaynak verilerinizden{" "}
+      <a href="/tools/markdown-table-generator">markdown tablo oluşturucu</a> ile tablolar oluşturun.
+      Tablonuzun tam olarak nasıl işleneceğini göndermeden önce önizlemek için{" "}
+      <a href="/tools/markdown-to-html">markdown'dan HTML'ye dönüştürücü</a> ile eşleştirin ve mevcut
+      HTML tablolarını eski sayfalardan temiz Markdown kaynağına çekmek için{" "}
+      <a href="/tools/html-to-markdown">HTML'den Markdown'a dönüştürücü</a>'yü kullanın.
     </p>
   </>
 );

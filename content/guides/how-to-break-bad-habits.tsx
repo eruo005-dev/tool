@@ -1,110 +1,81 @@
 export const intro = (
   <>
     <p>
-      Bad habits aren&rsquo;t character flaws. They&rsquo;re automatic responses your brain
-      built because, at some point, the behavior delivered a reward. Breaking them is a
-      mechanical problem, not a moral one — you&rsquo;re rewiring a loop, not becoming a
-      better person through willpower.
+      Kötü alışkanlıklar karakter kusurları değildir. Bunlar, beyninizin bir noktada davranışın bir ödül sağlaması nedeniyle inşa ettiği otomatik tepkilerdir. Onları kırmak ahlaki bir mesele değil — mekanik bir problemdir. İrade gücüyle daha iyi bir insan olmaya çalışmıyorsunuz; bir döngüyü yeniden yapılandırıyorsunuz.
     </p>
     <p>
-      This guide covers the practical, research-backed process of breaking a habit without
-      white-knuckling it.
+      Bu rehber, bir alışkanlığı diş sıkarak değil, pratik ve araştırmaya dayalı bir süreçle nasıl kırabileceğinizi açıklıyor.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Identify the loop</h2>
+    <h2>1. Döngüyü tanımlayın</h2>
     <p>
-      Every habit has three parts: cue, routine, reward. You scroll Instagram (routine) when
-      you feel bored (cue) for a dopamine hit (reward). Before you can break a habit, you must
-      name all three precisely. Observe for a week.
+      Her alışkanlığın üç parçası vardır: tetikleyici, rutin, ödül. Sıkıldığınızda (tetikleyici), bir dopamin vuruşu için (ödül) Instagram'da gezinirsiniz (rutin). Bir alışkanlığı kırmadan önce, üçünü de net bir şekilde adlandırmalısınız. Bir hafta boyunca gözlemleyin.
     </p>
 
-    <h2>2. Don&rsquo;t try to erase — replace</h2>
+    <h2>2. Silmeye çalışmayın — değiştirin</h2>
     <p>
-      The brain resists removing a habit outright. It accepts a new routine for the same cue.
-      Bored? Instead of scrolling, read a page, do pushups, text a friend. Same cue, same
-      reward category, different behavior. Far easier than pure suppression.
+      Beyin, bir alışkanlığı tamamen kaldırmaya direnir. Aynı tetikleyici için yeni bir rutini kabul eder. Sıkıldınız mı? Kaydırmak yerine bir sayfa okuyun, şınav çekin, bir arkadaşınıza mesaj atın. Aynı tetikleyici, aynı ödül kategorisi, farklı davranış. Saf bastırmaktan çok daha kolay.
     </p>
 
-    <h2>3. Make the old habit harder</h2>
+    <h2>3. Eski alışkanlığı zorlaştırın</h2>
     <p>
-      Environment is willpower. If your phone is in the next room, you won&rsquo;t scroll as
-      often. If the junk food is out of the house, you won&rsquo;t eat it at 11 PM. Every
-      extra step you add between cue and routine decreases execution probability.
+      Çevre iradedir. Telefonunuz başka bir odadaysa, o kadar sık kaydırmazsınız. Abur cubur evde yoksa, saat 23:00'te yemezsiniz. Tetikleyici ile rutin arasına eklediğiniz her ekstra adım, uygulama olasılığını azaltır.
     </p>
 
-    <h2>4. Make the new habit easier</h2>
+    <h2>4. Yeni alışkanlığı kolaylaştırın</h2>
     <p>
-      The mirror of the above. Gym clothes next to the bed. Water bottle on desk. Book on the
-      couch. Whatever replaces the bad habit should take less friction than the bad habit. Our
-      <a href="/guides/how-to-build-good-habits">habits guide</a> has the full mechanics.
+      Yukarıdakinin aynası. Spor kıyafetleri yatağın yanında. Su şişesi masanın üzerinde. Kitap kanepede. Kötü alışkanlığın yerine geçen şey, kötü alışkanlığın kendisinden daha az sürtünme gerektirmelidir. Tam mekanizmalar için{" "}
+      <a href="/guides/how-to-build-good-habits">iyi alışkanlıklar oluşturma rehberimize</a> göz atın.
     </p>
 
-    <h2>5. Don&rsquo;t negotiate in the moment</h2>
+    <h2>5. Anlık kararlar vermeyin</h2>
     <p>
-      Decisions made at 11 PM while tired are bad decisions. Pre-commit in the morning. &ldquo;I
-      don&rsquo;t drink on weeknights&rdquo; is a decision made once. &ldquo;I&rsquo;ll just have
-      one tonight&rdquo; is a negotiation you&rsquo;ll lose every time.
+      Saat 23:00'te yorgunken verilen kararlar kötü kararlardır. Önceden, sabahleyin karar verin. "Hafta içi içmem" bir kez verilmiş bir karardır. "Bu gece sadece bir tane alırım" her seferinde kaybedeceğiniz bir pazarlıktır.
     </p>
 
-    <h2>6. Count streaks, not perfection</h2>
+    <h2>6. Mükemmelliği değil, serileri sayın</h2>
     <p>
-      Track days without the habit. Seeing a 23-day streak is motivation not to reset. If you
-      slip, the next day matters more than the slip — don&rsquo;t throw a whole week because of
-      one lapse. &ldquo;Never miss twice&rdquo; is the operational rule.
+      Alışkanlık olmadan geçen günleri takip edin. 23 günlük bir seri görmek, sıfırlamamak için motivasyondur. Kayarsanız, ertesi gün kaymadan daha önemlidir — bir hata yüzünden bütün bir haftayı çöpe atmayın. "Asla iki kere kaçırma" operasyonel kuraldır.
     </p>
 
-    <h2>7. Address the underlying feeling</h2>
+    <h2>7. Altta yatan duyguyu ele alın</h2>
     <p>
-      Bad habits often numb something: anxiety, boredom, loneliness, fatigue. If you only
-      remove the habit without addressing what it covered, you&rsquo;ll find a new bad habit.
-      Ask: what am I actually feeling when I do this? See our{" "}
-      <a href="/guides/how-to-reduce-stress">stress guide</a>.
+      Kötü alışkanlıklar genellikle bir şeyi uyuşturur: kaygı, can sıkıntısı, yalnızlık, yorgunluk. Alışkanlığı, neyi örttüğünü ele almadan kaldırırsanız, yeni bir kötü alışkanlık bulursunuz. Kendinize sorun: Bunu yaparken gerçekten ne hissediyorum?{" "}
+      <a href="/guides/how-to-reduce-stress">Stres rehberimize</a> bakın.
     </p>
 
-    <h2>8. Tell someone</h2>
+    <h2>8. Birine söyleyin</h2>
     <p>
-      Quitting in secret is much harder than quitting publicly. Tell a friend, post it, write
-      it on the fridge. Social accountability is a massive lever that nobody uses enough
-      because it feels embarrassing. The embarrassment is the mechanism.
+      Gizlice bırakmak, açıkça bırakmaktan çok daha zordur. Bir arkadaşınıza söyleyin, yayınlayın, buzdolabına yazın. Sosyal hesap verebilirlik, neredeyse hiç kimsenin rahatsız edici olduğu için yeterince kullanmadığı devasa bir kaldıraçtır. Bu rahatsızlık, mekanizmanın ta kendisidir.
     </p>
 
-    <h2>9. Plan for relapse</h2>
+    <h2>9. Nüksetme için plan yapın</h2>
     <p>
-      You will slip. Design the plan for it. &ldquo;If I drink, I will not make this a
-      3-day bender. I will get right back on the wagon tomorrow.&rdquo; Having this written
-      down keeps one bad day from becoming a bad year.
+      Kayacaksınız. Bunun için planı tasarlayın. "İçersem, bunu 3 günlük bir aleme dönüştürmeyeceğim. Ertesi gün yola geri döneceğim." Bunu yazılı olarak bulundurmak, kötü bir günün kötü bir yıla dönüşmesini engeller.
     </p>
 
-    <h2>10. Watch the first two weeks</h2>
+    <h2>10. İlk iki haftayı izleyin</h2>
     <p>
-      The first 14 days are the hardest. Withdrawal is sharpest, novelty is highest. After 2
-      weeks, brain adaptation kicks in. After 30 days, the new pattern feels normal. Just
-      survive the first two weeks and it gets exponentially easier.
+      İlk 14 gün en zorudur. Yoksunluk en keskindir, yenilik en yüksektir. 2 hafta sonra beyin adaptasyonu devreye girer. 30 gün sonra yeni desen normal gelir. Sadece ilk iki haftayı atlatın ve işler katlanarak kolaylaşır.
     </p>
 
-    <h2>11. Don&rsquo;t expect willpower</h2>
+    <h2>11. İrade gücü beklemeyin</h2>
     <p>
-      People who appear to have strong willpower are actually people who engineered their
-      environment and routines to not require it. &ldquo;I just decided to stop&rdquo; is
-      survivorship bias. Most actual stopping is done through systems, not grit.
+      Güçlü iradeye sahip görünen insanlar, aslında çevrelerini ve rutinlerini ona ihtiyaç duymayacak şekilde düzenlemiş kişilerdir. "Sadece bırakmaya karar verdim" hayatta kalma yanlılığıdır. Gerçek bırakma, sistemlerle yapılır, diş sıkmayla değil.
     </p>
 
-    <h2>12. Track the reason long-term</h2>
+    <h2>12. Nedeni uzun vadede takip edin</h2>
     <p>
-      Why are you quitting? Better sleep? Save money? Live longer? Be the parent you want to
-      be? Write it down. Re-read it during the hard moments. The abstract &ldquo;I should stop
-      this&rdquo; loses to the immediate craving. A concrete, personal reason wins.
+      Neden bırakıyorsunuz? Daha iyi uyku? Para biriktirmek? Daha uzun yaşamak? Olmak istediğiniz ebeveyn olmak? Yazın. Zor anlarda tekrar okuyun. Soyut "bırakmalıyım" anlık arzuya yenilir. Somut, kişisel bir neden kazanır.
     </p>
 
-    <h2>Your first week</h2>
+    <h2>İlk haftanız</h2>
     <p>
-      Pick one habit. Name the cue-routine-reward. Remove the cue from your environment where
-      possible. Choose a replacement behavior for when the cue appears. Tell one person.
-      Review in 7 days. That&rsquo;s how this actually gets done.
+      Bir alışkanlık seçin. Tetikleyici-rutin-ödülü adlandırın. Mümkünse tetikleyiciyi çevrenizden kaldırın. Tetikleyici ortaya çıktığında yapacağınız bir değiştirme davranışı seçin. Bir kişiye söyleyin. 7 gün sonra gözden geçirin. Gerçekte böyle yapılır.
     </p>
   </>
 );

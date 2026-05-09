@@ -2,57 +2,57 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    The free AI ecosystem in 2026 is genuinely good. You can do serious work &mdash; research,
-    coding, writing, image gen, voice &mdash; without paying anyone. Here&rsquo;s the honest
-    free-tier ranking by category, with the rate limits that actually bite.
+    2026 yılındaki ücretsiz AI ekosistemi gerçekten iyi. Kimseye para ödemeden ciddi işler yapabilirsiniz &mdash; araştırma,
+    kodlama, yazma, görsel oluşturma, ses &mdash;. İşte kategorilere göre dürüst
+    ücretsiz katman sıralaması, can sıkan hız sınırlarıyla birlikte.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The 2026 free-tier all-stars</h2>
+    <h2>2026'nın ücretsiz katman yıldızları</h2>
     <ul>
-      <li><strong>NotebookLM (Google)</strong> &mdash; up to 50 sources, full chat with citations,
-        audio overviews. Best free tool, full stop. No rate limits worth caring about.</li>
-      <li><strong>Claude.ai (free)</strong> &mdash; Claude Sonnet 4.6 with daily message cap. Excellent
-        free coding + writing AI.</li>
-      <li><strong>ChatGPT (free)</strong> &mdash; GPT-5 with message caps. Voice mode in the app.</li>
-      <li><strong>Gemini (free)</strong> &mdash; Gemini 2.5 Flash unlimited; Gemini 2.5 Pro
-        rate-limited.</li>
-      <li><strong>Perplexity (free)</strong> &mdash; quick search unlimited, Pro Search rate-limited
-        to ~5/day.</li>
-      <li><strong>DeepSeek (free)</strong> &mdash; chat.deepseek.com gives V3.2 / R1 access.</li>
-      <li><strong>Kimi (free)</strong> &mdash; 1M context chat, free at kimi.com.</li>
-      <li><strong>Microsoft Copilot (free)</strong> &mdash; Bing-powered, GPT-5 access without a
-        ChatGPT account.</li>
+      <li><strong>NotebookLM (Google)</strong> &mdash; 50 kaynağa kadar, alıntılarla tam sohbet,
+        sesli özetler. En iyi ücretsiz araç, nokta. Önemsenecek hız sınırı yok.</li>
+      <li><strong>Claude.ai (ücretsiz)</strong> &mdash; Günlük mesaj kotası ile Claude Sonnet 4.6. Mükemmel
+        ücretsiz kodlama + yazma AI'sı.</li>
+      <li><strong>ChatGPT (ücretsiz)</strong> &mdash; Mesaj kotaları ile GPT-5. Uygulamada ses modu.</li>
+      <li><strong>Gemini (ücretsiz)</strong> &mdash; Gemini 2.5 Flash sınırsız; Gemini 2.5 Pro
+        hız sınırlı.</li>
+      <li><strong>Perplexity (ücretsiz)</strong> &mdash; Hızlı arama sınırsız, Pro Arama hız sınırlı
+        ~5/gün.</li>
+      <li><strong>DeepSeek (ücretsiz)</strong> &mdash; chat.deepseek.com V3.2 / R1 erişimi sağlar.</li>
+      <li><strong>Kimi (ücretsiz)</strong> &mdash; 1M bağlam sohbeti, kimi.com'da ücretsiz.</li>
+      <li><strong>Microsoft Copilot (ücretsiz)</strong> &mdash; Bing destekli, ChatGPT hesabı olmadan
+        GPT-5 erişimi.</li>
     </ul>
 
-    <h2>By task &mdash; free options</h2>
+    <h2>Göreve göre &mdash; ücretsiz seçenekler</h2>
     <ul>
-      <li><strong>Research with citations:</strong> NotebookLM + Perplexity free.</li>
-      <li><strong>Writing / drafting:</strong> Claude.ai free + ChatGPT free.</li>
-      <li><strong>Coding:</strong> Claude.ai free + GitHub Copilot via Student Pack.</li>
-      <li><strong>Image gen:</strong> Bing Image Creator (free, DALL-E 3) + Gemini (free, Imagen 3).</li>
-      <li><strong>Voice mode:</strong> ChatGPT free voice (limited daily); Gemini Live (free).</li>
-      <li><strong>Long context:</strong> Kimi (1M free) or Gemini Flash (1M, free).</li>
-      <li><strong>Local / self-host:</strong> Ollama + Llama 3.3 / Qwen 3.5 / DeepSeek-distill.
-        Free if you have the hardware.</li>
+      <li><strong>Alıntılarla araştırma:</strong> NotebookLM + Perplexity ücretsiz.</li>
+      <li><strong>Yazma / taslak oluşturma:</strong> Claude.ai ücretsiz + ChatGPT ücretsiz.</li>
+      <li><strong>Kodlama:</strong> Claude.ai ücretsiz + Öğrenci Paketi ile GitHub Copilot.</li>
+      <li><strong>Görsel oluşturma:</strong> Bing Image Creator (ücretsiz, DALL-E 3) + Gemini (ücretsiz, Imagen 3).</li>
+      <li><strong>Ses modu:</strong> ChatGPT ücretsiz ses (günlük sınırlı); Gemini Live (ücretsiz).</li>
+      <li><strong>Uzun bağlam:</strong> Kimi (1M ücretsiz) veya Gemini Flash (1M, ücretsiz).</li>
+      <li><strong>Yerel / kendi barındırma:</strong> Ollama + Llama 3.3 / Qwen 3.5 / DeepSeek-distill.
+        Donanımınız varsa ücretsiz.</li>
     </ul>
 
-    <h2>The free-only stack that works</h2>
+    <h2>İşe yarayan yalnızca ücretsiz yığın</h2>
     <p>
-      For most casual users in 2026, the &ldquo;don&rsquo;t pay for AI&rdquo; stack is: Claude.ai
-      free for writing + reasoning, NotebookLM for research, Bing Image Creator for images,
-      ChatGPT free for the times you hit Claude&rsquo;s daily limit. Total cost: $0/mo.
+      2026'da çoğu sıradan kullanıcı için &ldquo;AI'ya para ödeme&rdquo; yığını şudur: Claude.ai
+      yazma + akıl yürütme için ücretsiz, araştırma için NotebookLM, görseller için Bing Image Creator,
+      Claude'un günlük limitine ulaştığınızda ChatGPT ücretsiz. Toplam maliyet: 0$/ay.
     </p>
 
-    <h2>When free becomes painful</h2>
+    <h2>Ücretsiz ne zaman can sıkıcı olur</h2>
     <ul>
-      <li>You hit Claude / ChatGPT daily caps regularly &mdash; pay $20 for one of them.</li>
-      <li>You need image gen at brand-marketing quality &mdash; Midjourney $10/mo.</li>
-      <li>You&rsquo;re building anything API-driven &mdash; you&rsquo;re past free tiers anyway.</li>
-      <li>You need a paid feature only available behind the paywall (Sora, Veo, Code Interpreter,
-        Custom GPTs).</li>
+      <li>Claude / ChatGPT günlük kotalarına düzenli olarak ulaşıyorsanız &mdash; birine 20$ ödeyin.</li>
+      <li>Marka pazarlama kalitesinde görsel oluşturmaya ihtiyacınız varsa &mdash; Midjourney 10$/ay.</li>
+      <li>API tabanlı bir şey inşa ediyorsanız &mdash; zaten ücretsiz katmanların ötesindesiniz.</li>
+      <li>Yalnızca ödeme duvarının arkasında bulunan ücretli bir özelliğe ihtiyacınız varsa (Sora, Veo, Code Interpreter,
+        Özel GPT'ler).</li>
     </ul>
   </>
 );

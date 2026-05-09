@@ -1,66 +1,55 @@
 export const intro = (
   <>
     <p>
-      The Claude Agent SDK is Anthropic&rsquo;s library for building your own
-      agents on top of Claude Opus 4.7 and Sonnet. It ships the same machinery
-      that powers Claude Code — tools, hooks, <a href="/learn/mcp">MCP</a>, and sub-agents — but as
-      primitives you can wire into your own Python or Node service.
+      Claude Agent SDK, Anthropic&rsquo;in Claude Opus 4.7 ve Sonnet üzerine kendi ajanlarınızı oluşturmanız için geliştirdiği kütüphanedir. Claude Code&rsquo;u çalıştıran aynı mekanizmayı — araçlar, kancalar, <a href="/learn/mcp">MCP</a> ve alt ajanlar — Python veya Node servisinize entegre edebileceğiniz temel yapı taşları olarak sunar.
     </p>
     <p>
-      This guide covers the four concepts you need (tools, hooks, MCP servers,
-      sub-agents), installs the current version as of March 2026, and ships a
-      working agent. If you&rsquo;re deciding between this and the OpenAI
-      Agents SDK, read our{" "}
-      <a href="/guides/how-to-set-up-an-ai-agent">agent setup overview</a> first.
+      Bu kılavuz, ihtiyacınız olan dört kavramı (araçlar, kancalar, MCP sunucuları, alt ajanlar) kapsar, Mart 2026 itibarıyla mevcut sürümü kurar ve çalışan bir ajan sağlar. OpenAI Agents SDK ile bu SDK arasında karar veriyorsanız, önce{" "}
+      <a href="/guides/how-to-set-up-an-ai-agent">ajan kurulumuna genel bakış</a> yazımızı okuyun.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>Prerequisites</h2>
+    <h2>Ön koşullar</h2>
     <ul>
-      <li>Python 3.10+ <em>or</em> Node.js 18+.</li>
-      <li>An Anthropic API key (<code>ANTHROPIC_API_KEY</code>).</li>
+      <li>Python 3.10+ <em>veya</em> Node.js 18+.</li>
+      <li>Bir Anthropic API anahtarı (<code>ANTHROPIC_API_KEY</code>).</li>
       <li>
-        A spend cap on the console. Agents that loop are expensive; budget
-        first, code second.
+        Konsolda bir harcama limiti. Döngüye giren ajanlar pahalıdır; önce bütçe, sonra kod.
       </li>
     </ul>
 
-    <h2>Step 1 — Install</h2>
-    <p>Python (version 0.1.48 on PyPI as of March 2026):</p>
+    <h2>Adım 1 — Kurulum</h2>
+    <p>Python (Mart 2026 itibarıyla PyPI&rsquo;da sürüm 0.1.48):</p>
     <pre><code>{`python -m venv .venv && source .venv/bin/activate
 pip install claude-agent-sdk`}</code></pre>
-    <p>TypeScript (version 0.2.71 on npm):</p>
+    <p>TypeScript (npm&rsquo;de sürüm 0.2.71):</p>
     <pre><code>{`npm install @anthropic-ai/agent-sdk`}</code></pre>
 
-    <h2>Step 2 — The four core concepts</h2>
+    <h2>Adım 2 — Dört temel kavram</h2>
     <ul>
       <li>
-        <strong>Tools</strong> — functions the agent can call. Built-ins cover
-        files, shell, HTTP, and web search. You add your own as needed.
+        <strong>Araçlar</strong> — ajanın çağırabileceği fonksiyonlar. Yerleşik araçlar dosya, kabuk, HTTP ve web aramasını kapsar. Gerektiğinde kendi araçlarınızı ekleyebilirsiniz.
       </li>
       <li>
-        <strong>Hooks</strong> — callbacks that fire before/after tool calls
-        and model turns. Use them for logging, validation, and spend caps.
+        <strong>Kancalar</strong> — araç çağrıları ve model dönüşlerinden önce/sonra tetiklenen geri çağrılar. Günlükleme, doğrulama ve harcama limitleri için kullanılır.
       </li>
       <li>
-        <strong>MCP servers</strong> — external tool providers the agent can
-        connect to. Slack, GitHub, databases, your internal APIs.
+        <strong>MCP sunucuları</strong> — ajanın bağlanabileceği harici araç sağlayıcıları. Slack, GitHub, veritabanları, dahili API&rsquo;leriniz.
       </li>
       <li>
-        <strong>Sub-agents</strong> — narrower specialists the main agent
-        delegates to. Smaller prompts, better results, easier debugging.
+        <strong>Alt ajanlar</strong> — ana ajanın yetki devrettiği daha dar kapsamlı uzmanlar. Daha küçük yönergeler, daha iyi sonuçlar, daha kolay hata ayıklama.
       </li>
     </ul>
 
-    <h2>Step 3 — Minimum working agent (Python)</h2>
+    <h2>Adım 3 — Minimum çalışan ajan (Python)</h2>
     <pre><code>{`from claude_agent_sdk import query, AssistantMessage, TextBlock
 import asyncio
 
 async def main():
-    async for message in query(prompt="Explain MCP in 2 sentences."):
+    async for message in query(prompt="MCP'yi 2 cümlede açıkla."):
         if isinstance(message, AssistantMessage):
             for block in message.content:
                 if isinstance(block, TextBlock):
@@ -68,20 +57,17 @@ async def main():
 
 asyncio.run(main())`}</code></pre>
     <p>
-      That&rsquo;s a working agent. No tools yet, no guardrails — just Claude,
-      reachable through the SDK. Run it to confirm your key works before you
-      layer anything on.
+      Bu, çalışan bir ajandır. Henüz araç yok, güvenlik önlemi yok — sadece SDK üzerinden erişilebilen Claude. Herhangi bir katman eklemeden önce anahtarınızın çalıştığını doğrulamak için çalıştırın.
     </p>
 
-    <h2>Step 4 — Add a custom tool</h2>
+    <h2>Adım 4 — Özel bir araç ekleyin</h2>
     <p>
-      Custom tools in the Claude Agent SDK are in-process MCP servers. That
-      sounds heavy; it isn&rsquo;t. Wrap a Python function with{" "}
-      <code>@tool</code> and register it via <code>create_sdk_mcp_server</code>.
+      Claude Agent SDK&rsquo;daki özel araçlar, süreç içi MCP sunucularıdır. Kulağa ağır geliyor; öyle değil. Bir Python fonksiyonunu{" "}
+      <code>@tool</code> ile sarın ve <code>create_sdk_mcp_server</code> aracılığıyla kaydedin.
     </p>
     <pre><code>{`from claude_agent_sdk import tool, create_sdk_mcp_server, ClaudeAgentOptions, query
 
-@tool("square", "Square a number", {"n": int})
+@tool("square", "Bir sayının karesini al", {"n": int})
 async def square(args):
     return {"content": [{"type": "text", "text": str(args["n"] ** 2)}]}
 
@@ -93,23 +79,19 @@ opts = ClaudeAgentOptions(
 )
 
 async def run():
-    async for m in query(prompt="Square 17 using your tool.", options=opts):
+    async for m in query(prompt="Aracını kullanarak 17'nin karesini al.", options=opts):
         print(m)`}</code></pre>
     <p>
-      Two things matter here. First, custom tools are MCP tools with a{" "}
-      <code>mcp__&lt;server&gt;__&lt;tool&gt;</code> namespace — that&rsquo;s
-      why the allow-list string looks the way it does. Second,{" "}
-      <code>allowed_tools</code> is a safety fence: the agent cannot call
-      anything not on that list.
+      Burada iki şey önemlidir. İlk olarak, özel araçlar <code>mcp__&lt;sunucu&gt;__&lt;araç&gt;</code> ad alanına sahip MCP araçlarıdır — izin listesi dizesinin bu şekilde görünmesinin nedeni budur. İkinci olarak,{" "}
+      <code>allowed_tools</code> bir güvenlik çitidir: ajan, bu listede olmayan hiçbir şeyi çağıramaz.
     </p>
 
-    <h2>Step 5 — Add a hook</h2>
+    <h2>Adım 5 — Bir kanca ekleyin</h2>
     <p>
-      Hooks let you veto, log, or modify the agent&rsquo;s behaviour without
-      changing the prompt.
+      Kancalar, yönergeleri değiştirmeden ajanın davranışını veto etmenize, günlüklemenize veya değiştirmenize olanak tanır.
     </p>
     <pre><code>{`async def pre_tool(tool_name, args, ctx):
-    print(f"-> calling {tool_name} with {args}")
+    print(f"-> {tool_name} çağrılıyor, argümanlar: {args}")
     return {"allow": True}
 
 opts = ClaudeAgentOptions(
@@ -118,54 +100,37 @@ opts = ClaudeAgentOptions(
     hooks={"pre_tool_use": [pre_tool]},
 )`}</code></pre>
     <p>
-      Flip <code>allow</code> to <code>False</code> to block the call. This is
-      where you put your spend cap (&ldquo;if total_tokens &gt; 100k: block&rdquo;)
-      or your domain allow-list for HTTP fetches.
+      Çağrıyı engellemek için <code>allow</code> değerini <code>False</code> yapın. Harcama limitinizi (&ldquo;total_tokens &gt; 100k ise: engelle&rdquo;) veya HTTP getirmeleri için alan adı izin listenizi buraya koyarsınız.
     </p>
 
-    <h2>Step 6 — Connect an external MCP server</h2>
+    <h2>Adım 6 — Harici bir MCP sunucusuna bağlanın</h2>
     <p>
-      Say you want the agent to read Slack. Install the Slack MCP server
-      (one line in your agent options), allow-list the specific tools you
-      want, and the agent can use them. See our dedicated{" "}
-      <a href="/guides/how-to-connect-an-agent-to-mcp-tools">MCP setup guide</a>{" "}
-      for the full pattern.
+      Diyelim ki ajanın Slack&rsquo;i okumasını istiyorsunuz. Slack MCP sunucusunu kurun (ajan seçeneklerinizde tek satır), kullanmak istediğiniz belirli araçları izin listesine ekleyin, ajan bunları kullanabilir. Tam desen için özel{" "}
+      <a href="/guides/how-to-connect-an-agent-to-mcp-tools">MCP kurulum kılavuzumuza</a> bakın.
     </p>
 
-    <h2>Step 7 — Sub-agents for complex jobs</h2>
+    <h2>Adım 7 — Karmaşık işler için alt ajanlar</h2>
     <p>
-      When one agent&rsquo;s tool list grows past ~8 tools, or its instructions
-      pass ~300 lines, break off a sub-agent. The main agent invokes the
-      sub-agent as if it were a tool; the sub-agent has its own allow-list,
-      its own instructions, and its own guardrails. Sub-agents are the cleanest
-      way to keep a production agent reliable as scope grows.
+      Bir ajanın araç listesi ~8 aracı geçtiğinde veya yönergeleri ~300 satırı aştığında, bir alt ajan oluşturun. Ana ajan, alt ajanı bir araçmış gibi çağırır; alt ajanın kendi izin listesi, kendi yönergeleri ve kendi güvenlik önlemleri vardır. Alt ajanlar, kapsam büyüdükçe üretim ajanını güvenilir tutmanın en temiz yoludur.
     </p>
 
-    <h2>Step 8 — Deploy</h2>
+    <h2>Adım 8 — Dağıtım</h2>
     <p>
-      Any host that runs Python or Node runs this. For async workloads, the
-      SDK works cleanly inside FastAPI, Cloudflare Workers (TS), or AWS Lambda.
-      Add a request-level timeout, a token cap, and structured logging — and
-      you have a production agent. For dev-tool agents specifically, see our{" "}
-      <a href="/guides/how-to-set-up-claude-code">Claude Code setup guide</a> —
-      Claude Code is built on top of this same SDK.
+      Python veya Node çalıştıran herhangi bir sunucu bunu çalıştırır. Async iş yükleri için SDK, FastAPI, Cloudflare Workers (TS) veya AWS Lambda içinde sorunsuz çalışır. Bir istek düzeyinde zaman aşımı, token limiti ve yapılandırılmış günlükleme ekleyin — ve bir üretim ajanınız olur. Özellikle geliştirme aracı ajanları için{" "}
+      <a href="/guides/how-to-set-up-claude-code">Claude Code kurulum kılavuzumuza</a> bakın — Claude Code, aynı SDK üzerine inşa edilmiştir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Sık yapılan hatalar</h2>
     <ul>
       <li>
-        Forgetting <code>allowed_tools</code>. Without it the agent has no
-        tool permissions and silently fails to call anything.
+        <code>allowed_tools</code> listesini unutmak. Bu olmadan ajanın araç izinleri yoktur ve hiçbir şeyi çağıramaz.
       </li>
       <li>
-        Giving the agent a single 40-tool server instead of several small ones.
-        Tool choice accuracy drops fast over ~12 options.
+        Ajana birkaç küçük sunucu yerine tek bir 40 araçlı sunucu vermek. ~12 seçeneğin üzerinde araç seçim doğruluğu hızla düşer.
       </li>
       <li>
-        Not running prompts through our{" "}
-        <a href="/tools/ai-token-counter">token counter</a> first. Agent turns
-        are priced by input <em>plus</em> output; a chatty <a href="/learn/system-prompt">system prompt</a> costs
-        you every loop.
+        Yönergeleri önce{" "}
+        <a href="/tools/ai-token-counter">token sayacımızdan</a> geçirmemek. Ajan dönüşleri, giriş <em>artı</em> çıkış üzerinden fiyatlandırılır; geveze bir <a href="/learn/system-prompt">sistem yönergesi</a> her döngüde size maliyet çıkarır.
       </li>
     </ul>
   </>

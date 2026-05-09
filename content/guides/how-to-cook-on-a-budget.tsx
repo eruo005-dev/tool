@@ -1,99 +1,74 @@
 export const intro = (
   <>
     <p>
-      Cooking at home beats takeout on cost by roughly 4x. For $10 you can feed a
-      family, not just one person. But only if you shop right, cook the right things,
-      and don&rsquo;t throw out half the fridge every week. This guide shows the system.
+      Evde yemek yapmak, dışarıdan sipariş vermekten yaklaşık 4 kat daha ucuz. Dört kişilik bir aileyi 10 dolara doyurabilirsiniz. Ama yalnızca doğru alışveriş yaparsanız, doğru pişirirseniz ve her hafta buzdolabınızın yarısını çöpe atmazsanız. Bu rehber size sistemi gösteriyor.
     </p>
     <p>
-      Works whether you&rsquo;re a college student, a new parent, or just trying to
-      stop burning $800/month on DoorDash.
+      İster üniversite öğrencisi olun, ister yeni ebeveyn, ister DoorDash'e ayda 800 dolar harcamayı bırakmaya çalışın, bu sistem işe yarar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Plan before you shop</h2>
+    <h2>1. Alışverişe çıkmadan önce plan yapın</h2>
     <p>
-      Decide 4-5 meals for the week, write a list, shop only from the list. Walking
-      into a store with no plan and wandering is why groceries cost double. 15 minutes
-      of planning saves $50 a week minimum.
+      Hafta için 4-5 yemek seçin, bir liste yazın ve sadece listedekileri satın alın. Plansız bir markete girmek, faturanızı ikiye katlamanın yoludur. 15 dakikalık planlama, haftada en az 50 dolar tasarruf etmenizi sağlar.
     </p>
 
-    <h2>2. Build meals around cheap staples</h2>
+    <h2>2. Yemekleri ucuz temel gıdalar etrafında kurun</h2>
     <p>
-      Rice, beans, lentils, potatoes, pasta, eggs, oats, frozen vegetables, tinned
-      tomatoes, cabbage, onions, garlic. These are 70% of every budget-friendly
-      cuisine on earth. Stock them.
+      Pirinç, fasulye, mercimek, patates, makarna, yumurta, yulaf, donmuş sebzeler, konserve domates, lahana, soğan, sarımsak. Bunlar, dünya çapında bütçe dostu mutfakların %70'ini oluşturur. Stok yapın.
     </p>
 
-    <h2>3. Meat as flavoring, not the main</h2>
+    <h2>3. Eti lezzet için kullanın, ana öğe olarak değil</h2>
     <p>
-      Use small amounts of meat to flavor a bean/grain base. One pound of ground beef
-      in a chili feeds four; one pound of steak feeds one. Global cuisines figured this
-      out centuries ago.
+      Bir fasulye/tahıl bazını tatlandırmak için az miktarda et kullanın. Bir kilo kıyma, bir çili yemeğinde dört kişiyi doyurur; bir kilo biftek ise sadece bir kişiyi. Dünya mutfakları bunu yüzyıllar önce çözdü.
     </p>
 
-    <h2>4. Cook once, eat three times</h2>
+    <h2>4. Bir kez pişirin, üç kez yiyin</h2>
     <p>
-      Batch cook on Sunday. Soups, stews, chili, curries, roasted vegetables, grain
-      bowls all reheat well. 2 hours on Sunday = lunch all week. Saves cost and the
-      4pm &ldquo;what&rsquo;s for dinner&rdquo; spiral.
+      Pazar günü toplu pişirme yapın. Çorbalar, güveçler, chililer, köriler, kavrulmuş sebzeler, tahıl kaseleri — hepsi iyi ısınır. Pazar günü 2 saat = tüm hafta öğle yemeği. Para biriktirin ve saat 16.00'daki "akşam yemeğinde ne yiyeceğiz" paniğinden kurtulun.
     </p>
 
-    <h2>5. Shop the perimeter and the freezer</h2>
+    <h2>5. Marketin çevresinden ve donmuş gıda reyonundan alışveriş yapın</h2>
     <p>
-      The perimeter of the store has produce, meat, dairy. The freezer has cheap
-      vegetables, fruit, and fish — often fresher than the &ldquo;fresh&rdquo; section.
-      Middle aisles are where ultra-processed food and markups live.
+      Marketin çevresinde sebze-meyve, et, süt ürünleri bulunur. Donmuş gıda reyonunda ucuz sebzeler, meyveler ve balık bulunur — genellikle "taze" bölümündekinden daha tazedir. Orta koridorlar işlenmiş gıdaların ve yüksek kâr marjlarının olduğu yerdir.
     </p>
 
-    <h2>6. Frozen vegetables are great</h2>
+    <h2>6. Donmuş sebzeler dostunuzdur</h2>
     <p>
-      Frozen at peak ripeness, often cheaper, last for months, no spoilage. Broccoli,
-      spinach, peas, mixed veg, corn — all fine. Don&rsquo;t let Instagram convince you
-      fresh is always better.
+      En olgun halinde dondurulur, genellikle daha ucuzdur, aylarca dayanır, sıfır atık. Brokoli, ıspanak, bezelye, karışık sebzeler, mısır — hepsi iyidir. Instagram'ın size taze her zaman daha iyidir diye inandırmasına izin vermeyin.
     </p>
 
-    <h2>7. Learn 5 low-effort meals</h2>
+    <h2>7. 5 tane az çaba gerektiren yemek öğrenin</h2>
     <p>
-      A stir-fry. A one-pot pasta. A grain bowl. A veggie omelette. A soup or stew.
-      Master these five and you can eat for $3-5 a serving forever. No need for 50
-      recipes.
+      Bir wok yemeği. Bir tencerede makarna. Bir tahıl kasesi. Bir frittata. Bir çorba veya güveç. Bunları öğrenin ve sonsuza kadar porsiyon başına 3-5 dolara yemek yiyebilirsiniz. 50 tarife ihtiyacınız yok.
     </p>
 
-    <h2>8. Embrace the sheet pan</h2>
+    <h2>8. Fırın tepsisini benimseyin</h2>
     <p>
-      Toss protein + vegetables + oil + seasoning on a sheet pan. Roast 25 minutes at
-      425°F. Done. Minimal cleanup, infinite variations, nearly impossible to mess up.
+      Protein + sebze + yağ + baharat bir fırın tepsisinde. 220°C'de 25 dakika kızartın. Hazır. Minimum temizlik, sonsuz çeşitlilik, berbat etmesi neredeyse imkansız.
     </p>
 
-    <h2>9. Use your leftovers creatively</h2>
+    <h2>9. Artıkları yaratıcı kullanın</h2>
     <p>
-      Last night&rsquo;s roast chicken = today&rsquo;s tacos = tomorrow&rsquo;s soup.
-      Leftover rice = fried rice. Stale bread = croutons or bread pudding. Food waste
-      in US households is ~30% of groceries. That&rsquo;s your budget.
+      Dün geceden kalan tavuk = bugünün taco'su = yarının çorbası. Artan pilav = kızarmış pilav. Bayat ekmek = kruton veya ekmek tatlısı. ABD hanelerinde gıda israfı, market harcamalarının yaklaşık %30'udur. Bütçeniz işte böyle gidiyor.
     </p>
 
-    <h2>10. Learn basic spice combos</h2>
+    <h2>10. Temel baharat kombinasyonlarını öğrenin</h2>
     <p>
-      Same lentils become Indian (cumin, coriander, garam masala), Mexican (cumin,
-      chili, oregano), or Mediterranean (rosemary, lemon, olive oil). Spices turn
-      boring into exciting for nearly free.
+      Aynı mercimekler Hint (kimyon, kişniş, garam masala), Meksika (kimyon, kırmızı biber tozu, kekik) veya Akdeniz (biberiye, limon, zeytinyağı) usulü olabilir. Baharatlar, sıkıcı yemekleri neredeyse sıfır maliyetle heyecan verici yemeklere dönüştürür.
     </p>
 
-    <h2>11. Drink water</h2>
+    <h2>11. Su için</h2>
     <p>
-      Soda, juice, smoothies, fancy coffees eat budgets silently. $5 a day = $1800 a
-      year. Water is free. Coffee at home is ~$0.30 a cup vs. $5 at the shop.
+      Soda, meyve suyu, smoothie'ler, süslü kahveler sessizce bütçenizi tüketir. Günde 5 dolar = yılda 1800 dolar. Su bedavadır. Evde kahve fincan başına ~0.30 dolar, dükkanda 5 dolar.
     </p>
 
-    <h2>12. Don&rsquo;t buy gadgets you don&rsquo;t need</h2>
+    <h2>12. İhtiyacınız olmayan aletleri almayın</h2>
     <p>
-      A sharp knife, a cutting board, a cast iron pan, a heavy pot, a sheet pan. This
-      is the entire starter kitchen. Spiralizers, air fryers, Instant Pots are nice
-      but optional. Spend the money on groceries.
+      Keskin bir bıçak, bir kesme tahtası, bir dökme demir tava, ağır bir tencere, bir fırın tepsisi. Başlangıç mutfağınız budur. Spiralizer'lar, hava fritözleri, Instant Pot'lar güzel ama isteğe bağlı. Paranızı market alışverişine harcayın.
     </p>
   </>
 );

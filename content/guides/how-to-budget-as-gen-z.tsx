@@ -2,59 +2,59 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Gen Z didn&rsquo;t invent being broke &mdash; but you are budgeting in a harder economy than your parents did, and the old rules need an update.
+    Z Kuşağı iflası icat etmedi &mdash; ama ebeveynlerinizden daha zor bir ekonomide bütçe yapıyorsunuz ve eski kuralların güncellenmesi gerekiyor.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      If you&rsquo;re 18&ndash;28 right now, you&rsquo;re navigating student debt, gig-economy income, and rent that eats a much bigger share of your paycheck than it did in 1995. The good news: starting early is the single biggest advantage you have, and compounding doesn&rsquo;t care how small your first contribution is. Not financial advice. Consult a licensed advisor for decisions specific to your situation.
+      Şu anda 18 ile 28 yaş arasındaysanız, öğrenci borcu, gig ekonomisi geliri ve 1995'te olduğundan çok daha büyük bir maaş payını yiyen kira ile uğraşıyorsunuz. İyi haber: erken başlamak sahip olduğunuz en büyük avantaj ve bileşik faiz, ilk katkınızın ne kadar küçük olduğunu umursamaz. Bu bir mali tavsiye değildir. Durumunuza özel kararlar için lisanslı bir danışmana danışın.
     </p>
 
-    <h2>Why Gen Z budgets are different</h2>
+    <h2>Z Kuşağı bütçeleri neden farklı</h2>
     <p>
-      Median rent is a much higher share of entry-level income than it was a generation ago. Many of you have variable income from freelance, DoorDash, or creator work, which makes the classic &ldquo;set a fixed monthly budget&rdquo; advice almost useless. And inflation-era wages mean the $50k starting salary your parents romanticize doesn&rsquo;t buy what it used to. Budgeting today has to be flexible and percentage-based, not dollar-rigid.
+      Medyan kira, bir nesil öncesine göre giriş seviyesi gelirin çok daha büyük bir kısmını alıyor. Çoğunuz serbest çalışma, DoorDash veya içerik üretiminden değişken gelire sahipsiniz, bu da klasik "sabit bir aylık bütçe belirle" tavsiyesini neredeyse işe yaramaz hale getiriyor. Ve enflasyon dönemi ücretleri, ebeveynlerinizin romantize ettiği 50 bin dolarlık başlangıç maaşının eskisi gibi alım gücü olmadığı anlamına geliyor. Bugün bütçeleme esnek ve yüzde bazlı olmalı, katı ve dolar bazlı değil.
     </p>
 
-    <h2>50/30/20, updated</h2>
+    <h2>Güncellenmiş 50/30/20</h2>
     <ul>
-      <li>Needs (rent, utilities, groceries, transit, minimum debt payments): aim for 50%, but in HCOL cities 55&ndash;60% is realistic.</li>
-      <li>Wants (eating out, <a href="/learn/stream">streaming</a>, travel, hobbies): 20&ndash;30%.</li>
-      <li>Savings and debt payoff: 20% minimum, more if you can swing it.</li>
+      <li>İhtiyaçlar (kira, faturalar, bakkaliye, ulaşım, asgari borç ödemeleri): %50'yi hedefleyin, ancak yüksek maliyetli şehirlerde %55&ndash;60 gerçekçi.</li>
+      <li>İstekler (dışarıda yemek, <a href="/learn/stream">yayın</a>, seyahat, hobiler): %20&ndash;30.</li>
+      <li>Tasarruf ve borç geri ödemesi: minimum %20, mümkünse daha fazla.</li>
     </ul>
     <p>
-      If rent alone is 40% of your income, don&rsquo;t force the old ratios &mdash; redesign them. What matters is that savings is a fixed line item, not the leftover scraps.
+      Kira tek başına gelirinizin %40'ıysa, eski oranları zorlamayın &mdash; onları yeniden tasarlayın. Anahtar, tasarrufların sabit bir kalem olması, artık kırıntılar değil.
     </p>
 
-    <h2>The money order of operations</h2>
+    <h2>Para işlem sırası</h2>
     <p>
-      First: a $500&ndash;$1,000 starter emergency fund in a high-yield savings account. This stops a flat tire from becoming credit card debt. Second: pay off anything with interest above 7&ndash;8% (credit cards, private loans) as aggressively as possible &mdash; that&rsquo;s a guaranteed return. Third: capture any employer 401(k) match (free money). Fourth: open a Roth IRA and contribute whatever you can &mdash; even $50/month at age 23 becomes real money by 60. Fifth: build the emergency fund to 3&ndash;6 months of expenses.
+      İlk olarak: Yüksek getirili bir tasarruf hesabında 500&ndash;1.000 dolarlık bir başlangıç acil durum fonu. Bu, patlak bir lastiğin kredi kartı borcuna dönüşmesini engeller. İkinci olarak: Faizi %7&ndash;8'in üzerinde olan her şeyi (kredi kartları, özel krediler) mümkün olduğunca agresif bir şekilde ödeyin &mdash; bu garantili bir getiridir. Üçüncü olarak: İşvereninizin 401(k) eşleşmesini yakalayın (bedava para). Dördüncü olarak: Bir Roth IRA açın ve ne kadar yapabiliyorsanız katkıda bulunun &mdash; 23 yaşında ayda 50 dolar bile 60 yaşına kadar gerçek paraya dönüşür. Beşinci olarak: Acil durum fonunuzu 3&ndash;6 aylık giderlere çıkarın.
     </p>
 
-    <h2>Apps worth the hype</h2>
+    <h2>İndirmeye değer uygulamalar</h2>
     <p>
-      YNAB (You Need A Budget) is the gold standard if you want to learn real budgeting &mdash; steep learning curve, but it works. Monarch replaced Mint for most people after Mint shut down; clean interface, solid net-worth tracking. Copilot is iOS-only and beautiful, great for visual thinkers. The free route: a spreadsheet and your bank&rsquo;s app will work if you&rsquo;re disciplined.
+      YNAB (You Need A Budget), gerçek bütçelemeyi öğrenmek istiyorsanız altın standarttır &mdash; dik öğrenme eğrisi, ancak işe yarıyor. Monarch, Mint kapandıktan sonra çoğu insanın geçtiği Mint yedeğidir; temiz arayüz, sağlam net değer takibi. Copilot yalnızca iOS'ta ve harika, görsel düşünenler için mükemmel. Ücretsiz yol: disiplinliyseniz bir e-tablo ve bankanızın uygulaması işi görür.
     </p>
 
-    <h2>Watch for <a href="/learn/lifestyle-creep">lifestyle creep</a></h2>
+    <h2><a href="/learn/lifestyle-creep">Yaşam tarzı sürünmesine</a> dikkat edin</h2>
     <p>
-      Every raise and every new freelance client will whisper: you deserve the nicer apartment, the new phone, the DoorDash habit. Lifestyle creep is the #1 reason high earners stay broke. The rule: when income goes up, save at least half the raise before you adjust your spending. Future you will be stunned at how much this compounds.
+      Her zam ve her yeni serbest çalışan müşteri size fısıldayacak: daha güzel daireyi, yeni telefonu, DoorDash alışkanlığını hak ediyorsun. Yaşam tarzı sürünmesi, yüksek kazançlıların iflas etmesinin 1 numaralı nedenidir. Kural: gelir arttığında, harcamanızı ayarlamadan önce zammın en az yarısını biriktirin. Gelecekteki siz, bunun nasıl birleştiğine hayran kalacak.
     </p>
 
-    <h2>Side hustle math</h2>
+    <h2>Yan iş matematiği</h2>
     <p>
-      Cutting $5 lattes saves you maybe $150/month. Picking up a $25/hr tutoring gig for 8 hours a week nets you $800. Incremental income almost always beats incremental penny-pinching, and it&rsquo;s psychologically sustainable. Freelance writing, tutoring, selling a skill on Upwork, reselling on Depop &mdash; pick one and go.
+      5 dolarlık kahveleri kesmek ayda 150 dolar kazandırabilir. Haftada 8 saat boyunca saatte 25 dolarlık bir özel ders işi almak 800 dolar kazandırır. Geliri artırmak neredeyse her zaman kuruşları kısmaktan daha iyidir ve psikolojik olarak sürdürülebilirdir. Serbest yazarlık, özel ders, Upwork'te bir beceri satmak, Depop'ta yeniden satış &mdash; birini seçin ve başlayın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Treating the Roth IRA as &ldquo;something I&rsquo;ll start later.&rdquo; Financing a car you can&rsquo;t afford because the monthly payment &ldquo;fits.&rdquo; Buy Now Pay Later on everything. Keeping savings in a 0.01% checking account instead of a HYSA paying 4%+. Comparing your raw paycheck to someone else&rsquo;s highlight reel on TikTok.
+      Roth IRA'yı "bir gün" olarak görmek. Aylık ödeme "uyduğu" için gücünüzün yetmediği bir araba finanse etmek. Her şey için Şimdi Al Sonra Öde kullanmak. Tasarrufları %4+ ödeyen bir HYSA yerine %0,01'lik bir vadesiz hesapta tutmak. Maaşınızı TikTok'ta başkasının vitrininde gördükleriyle karşılaştırmak.
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Alt satır</h2>
     <p>
-      Financial independence isn&rsquo;t about deprivation &mdash; it&rsquo;s about spending deliberately on what you actually care about and not leaking money on what you don&rsquo;t. Start small, automate everything, and let time do the heavy lifting. You have more of it than any other generation investing right now.
+      Finansal bağımsızlık yoksunlukla ilgili değil &mdash; gerçekten önemsediğiniz şeylere bilinçli harcama yapmak ve önemsemediklerinize para sızdırmamakla ilgilidir. Küçük başlayın, her şeyi otomatikleştirin ve zamanın ağır işi yapmasına izin verin. Şu anda yatırım yapan diğer tüm nesillerden daha fazlasına sahipsiniz.
     </p>
   </>
 );

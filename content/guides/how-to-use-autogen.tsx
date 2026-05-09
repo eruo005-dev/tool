@@ -1,33 +1,33 @@
 import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
-  <p>Microsoft AutoGen is an open-source framework for building multi-agent <a href="/learn/llm">LLM</a> applications that solve problems through conversation.</p>
+  <p>Microsoft AutoGen, çoklu ajan <a href="/learn/llm">LLM</a> uygulamaları oluşturmak için konuşma yoluyla sorunları çözen açık kaynaklı bir framework'tür.</p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      AutoGen treats AI workflows as conversations between specialized agents. Instead of chaining prompts, you define
-      an AssistantAgent that can write code, a UserProxyAgent that can execute it, and optionally a group-chat manager
-      that routes turns between many agents. The loop continues until a termination condition is met &mdash; a regex
-      match, a max-turn limit, or a human &ldquo;exit&rdquo;. The result feels less like a pipeline and more like a
-      team meeting.
+      AutoGen, AI iş akışlarını uzmanlaşmış ajanlar arasındaki konuşmalar olarak ele alır. Prompt'ları zincirlemek yerine,
+      kod yazabilen bir AssistantAgent, kodu çalıştırabilen bir UserProxyAgent ve isteğe bağlı olarak birçok ajan arasında
+      sıra yönlendirmesi yapan bir grup sohbet yöneticisi tanımlarsınız. Döngü, bir sonlandırma koşulu karşılanana kadar
+      devam eder &mdash; bir regex eşleşmesi, maksimum tur sınırı veya bir insanın &ldquo;çıkış&rdquo; demesi. Sonuç,
+      bir boru hattından çok bir ekip toplantısı gibi hissettirir.
     </p>
 
-    <h2>What it is</h2>
+    <h2>Ne olduğu</h2>
     <p>
-      AutoGen is maintained by Microsoft Research and released under the MIT license. The current line is AutoGen 0.4+,
-      which splits into three packages: autogen-core (event-driven runtime), autogen-agentchat (the high-level chat API
-      most users touch), and autogen-ext (model clients and tools). Python is the primary language; a .NET port exists.
+      AutoGen, Microsoft Research tarafından geliştirilmekte ve MIT lisansı altında yayınlanmaktadır. Mevcut sürüm AutoGen 0.4+ olup,
+      üç pakete ayrılır: autogen-core (olay odaklı çalışma zamanı), autogen-agentchat (çoğu kullanıcının dokunduğu üst düzey sohbet API'si)
+      ve autogen-ext (model istemcileri ve araçlar). Birincil dil Python'dur; bir .NET sürümü de mevcuttur.
     </p>
 
-    <h2>Install</h2>
+    <h2>Kurulum</h2>
     <pre>{`pip install -U "autogen-agentchat" "autogen-ext[openai]"
-# or for the classic 0.2 API
+# veya klasik 0.2 API'si için
 pip install pyautogen`}</pre>
 
-    <h2>First run</h2>
-    <p>A minimal two-agent assistant that can call tools and stop when it says TERMINATE:</p>
+    <h2>İlk çalıştırma</h2>
+    <p>Araçları çağırabilen ve TERMINATE dediğinde durabilen minimal iki ajanlı bir asistan:</p>
     <pre>{`import asyncio
 from autogen_agentchat.agents import AssistantAgent
 from autogen_ext.models.openai import OpenAIChatCompletionClient
@@ -35,33 +35,33 @@ from autogen_ext.models.openai import OpenAIChatCompletionClient
 async def main():
     model = OpenAIChatCompletionClient(model="gpt-4o-mini")
     agent = AssistantAgent("writer", model_client=model)
-    result = await agent.run(task="Draft a 3-line product tagline.")
+    result = await agent.run(task="3 satırlık bir ürün sloganı yaz.")
     print(result.messages[-1].content)
 
 asyncio.run(main())`}</pre>
 
-    <h2>Everyday workflows</h2>
+    <h2>Günlük iş akışları</h2>
     <ul>
-      <li>Pair an AssistantAgent with a UserProxyAgent that has code_execution_config set to run Python in Docker.</li>
-      <li>Build a RoundRobinGroupChat of planner, coder, and critic agents for harder tasks.</li>
-      <li>Wrap the whole thing with AutoGen Studio&rsquo;s web UI to prototype without writing glue code.</li>
+      <li>Bir AssistantAgent'ı, code_execution_config ile Docker'da Python çalıştıracak şekilde ayarlanmış bir UserProxyAgent ile eşleştirin.</li>
+      <li>Zorlu görevler için bir planlayıcı, kodlayıcı ve eleştirmen ajanından oluşan bir RoundRobinGroupChat oluşturun.</li>
+      <li>Her şeyi, yapıştırıcı kod yazmadan prototip oluşturmak için AutoGen Studio'nun web arayüzü ile sarın.</li>
     </ul>
 
-    <h2>Gotchas and tips</h2>
+    <h2>Tuzaklar ve ipuçları</h2>
     <p>
-      The 0.2 to 0.4 jump was a full rewrite &mdash; tutorials you find on blogs may import names that no longer exist.
-      Pin to one major line per project. Also watch termination: without a TextMentionTermination or MaxMessageTermination,
-      agents can loop politely forever and burn your token budget.
+      0.2'den 0.4'e geçiş tam bir yeniden yazımdı &mdash; bloglarda bulduğunuz eğitimler artık var olmayan isimleri içerebilir.
+      Proje başına tek bir ana sürüm hattına bağlı kalın. Ayrıca sonlandırmaya dikkat edin: TextMentionTermination veya MaxMessageTermination olmadan,
+      ajanlar kibarca sonsuza kadar döngüye girip token bütçenizi yakabilir.
     </p>
     <p>
-      Code execution is powerful but dangerous. Always point UserProxyAgent&rsquo;s executor at a sandboxed Docker image,
-      not the host shell, and set a working directory outside your repo root so models cannot clobber your code.
+      Kod çalıştırma güçlü ama tehlikelidir. UserProxyAgent'ın yürütücüsünü her zaman ana bilgisayar kabuğuna değil, sanal alana alınmış bir Docker imajına
+      yönlendirin ve modellerin kodunuzu bozamaması için repo kök dizininizin dışında bir çalışma dizini ayarlayın.
     </p>
 
-    <h2>Who it&rsquo;s for</h2>
+    <h2>Kimler için</h2>
     <p>
-      Researchers and backend engineers exploring agentic patterns beyond a single LLM call. Tip: start with two agents;
-      only add a third when you can name a concrete reason the pair cannot solve the task.
+      Tek bir LLM çağrısının ötesinde ajan desenlerini keşfeden araştırmacılar ve arka uç mühendisleri. İpucu: iki ajanla başlayın;
+      çiftin görevi çözemeyeceği somut bir neden belirleyemediğiniz sürece üçüncüyü eklemeyin.
     </p>
   </>
 );

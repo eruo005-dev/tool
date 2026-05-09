@@ -2,43 +2,41 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Creator burnout went from individual stories to systemic conversation in 2025-2026 as YouTube, TikTok, and
-    Twitch saw waves of full-time creators stepping back. Here&rsquo;s what&rsquo;s actually happening and the
-    common patterns that prevent vs cause it.
+    Yaratıcı tükenmişliği, 2025–2026'da tam zamanlı YouTube, TikTok ve Twitch yaratıcılarının dalgalar halinde geri çekilmesiyle bireysel hikayelerden sistemik bir tartışmaya dönüştü. İşte gerçekte olanlar ve buna neden olan veya önleyen yaygın kalıplar.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Why it&rsquo;s spiking</h2>
+    <h2>Neden artıyor</h2>
     <ul>
-      <li>Algorithm volatility &mdash; the post-2023 era of unpredictable distribution.</li>
-      <li>Reduced ad RPMs across most platforms.</li>
-      <li>AI-generated competition compressing rates for &ldquo;average&rdquo; creator content.</li>
-      <li>Always-on mental tax: every meal/walk feels like it should be content.</li>
+      <li>Algoritma değişkenliği &mdash; 2023 sonrası öngörülemeyen dağıtım dönemi.</li>
+      <li>Çoğu platformda düşen reklam RPM'leri.</li>
+      <li>Yapay zeka odaklı rekabetin &ldquo;ortalama&rdquo; yaratıcı içeriğini metalaştırması.</li>
+      <li>Sürekli açık zihinsel vergi: her yemek/yürüyüş içerik olmalıymış gibi hissettiriyor.</li>
     </ul>
-    <h2>What predicts burnout</h2>
+    <h2>Tükenmişliği ne öngörür</h2>
     <ul>
-      <li>Single revenue stream (especially ad rev).</li>
-      <li>Posting daily on multiple platforms without a team.</li>
-      <li>Treating views/likes as self-worth signals.</li>
-      <li>No clear off-time &mdash; always near phone.</li>
-      <li>Comparison to outliers (skewed perception).</li>
+      <li>Tek gelir akışı (özellikle reklam geliri).</li>
+      <li>Ekip olmadan birden fazla platformda her gün paylaşım yapmak.</li>
+      <li>Öz-değeri görüntülenme/beğeni sinyallerine bağlamak.</li>
+      <li>Net çevrimdışı zaman olmaması &mdash; her zaman telefona yakın olmak.</li>
+      <li>Kendini uç yaratıcılarla karşılaştırmak (çarpık algı).</li>
     </ul>
-    <h2>What predicts longevity</h2>
+    <h2>Uzun ömürlülüğü ne öngörür</h2>
     <ul>
-      <li>3+ revenue streams (ads + sponsorships + product + memberships).</li>
-      <li>Posting cadence within personal sustainable bandwidth.</li>
-      <li>Real off-time &mdash; phone-free hours daily.</li>
-      <li>Identity outside the channel.</li>
-      <li>Treating it as a business with separate operating account.</li>
+      <li>3+ gelir akışı (reklam + sponsor + ürün + üyelik).</li>
+      <li>Kişisel sürdürülebilir kapasite dahilinde paylaşım sıklığı.</li>
+      <li>Gerçek çevrimdışı zaman &mdash; günlük telefonsuz saatler.</li>
+      <li>Kanal dışında bir kimlik.</li>
+      <li>İşe ayrı bir iş hesabıyla yaklaşmak.</li>
     </ul>
-    <h2>If you&rsquo;re heading there</h2>
+    <h2>O yöne gidiyorsanız</h2>
     <ul>
-      <li>Diagnostic: track hours worked weekly. Anything over 50 across 3+ months trends toward burnout.</li>
-      <li>Cut frequency before quality. Posting 2&times;/week well beats daily slop.</li>
-      <li>Invest in 1 helper or editor before you need one.</li>
-      <li>Take a real 2-week break. Channels rarely die from a 2-week absence.</li>
+      <li>Teşhis: haftalık çalışma saatlerini takip edin. 3+ ay boyunca haftada 50'nin üzerinde çalışmak tükenmişliğe yol açar.</li>
+      <li>Kaliteden önce sıklığı azaltın. Haftada 2 iyi gönderi, günlük düşük kaliteli içerikten daha iyidir.</li>
+      <li>İhtiyacınız olmadan önce 1 asistana veya editöre yatırım yapın.</li>
+      <li>Gerçek bir 2 haftalık ara verin. Kanallar nadiren 2 haftalık bir yokluktan ölür.</li>
     </ul>
   </>
 );

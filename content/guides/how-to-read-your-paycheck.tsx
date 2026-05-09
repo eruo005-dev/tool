@@ -3,174 +3,180 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A paycheck has about a dozen line items on it and most people only
-      look at the bottom number. That&rsquo;s how you end up surprised at
-      tax time, or missing that HR is deducting too much for your health
-      plan, or under-contributing to your 401(k) without knowing. This
-      guide walks through every line on a typical US pay stub, what&rsquo;s
-      fixed vs adjustable, and how to spot the three most common errors.
+      Bir maaş çekinde yaklaşık bir düzine satır kalemi bulunur ve çoğu kişi
+      yalnızca en alttaki rakama bakar. Vergi zamanı şaşkına dönmenizin,
+      İK'nın sağlık planınızdan çok fazla kesinti yaptığını fark etmemenizin
+      ya da bilmeden 401(k)'nıza eksik katkı yapmanızın nedeni budur. Bu
+      rehber, tipik bir ABD maaş çekindeki her satırı, sabit ve ayarlanabilir
+      olanları ve en yaygın üç hatayı nasıl tespit edeceğinizi adım adım
+      açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Gross vs net — the basic structure</h2>
+    <h2>Brüt ve net — temel yapı</h2>
     <p>
-      <strong>Gross pay</strong> is what you earn before any deductions.
-      Salary ÷ pay periods, or hourly rate × hours worked. This is what
-      your offer letter advertised.
+      <strong>Brüt maaş</strong>, herhangi bir kesinti yapılmadan önce
+      kazandığınız miktardır. Maaş ÷ ödeme dönemleri veya saatlik ücret ×
+      çalışılan saat. İş teklif mektubunuzda belirtilen tutar budur.
     </p>
     <p>
-      <strong>Net pay</strong> is what lands in your bank account.
-      Gross pay minus taxes minus pre-tax benefits minus post-tax
-      deductions. Almost everyone nets 60–75% of gross depending on state
-      and benefit load.
-    </p>
-
-    <h2>Pre-tax deductions (reduce your taxable income)</h2>
-    <p>
-      These come out <em>before</em> federal income tax is calculated, so
-      they also reduce your tax bill:
-    </p>
-    <p>
-      <strong>401(k) / 403(b) contributions.</strong> Up to $23,000/year
-      (2024–25, more if 50+). Every $1,000 you contribute saves about
-      $220–$350 in federal tax at typical middle-class rates.
-    </p>
-    <p>
-      <strong>Traditional IRA</strong> contributions (if deducted via
-      payroll) — same mechanic. Roth IRAs are post-tax.
-    </p>
-    <p>
-      <strong>Health insurance premium.</strong> Most employer health
-      plans are pre-tax. Typical family premium: $150–$400/paycheck.
-    </p>
-    <p>
-      <strong>HSA / FSA</strong> contributions if you have a HDHP. HSAs
-      are triple-tax-advantaged — best deal in the US tax code, fund it
-      fully if eligible.
-    </p>
-    <p>
-      <strong>Commuter benefits, dependent care FSA, etc.</strong> Less
-      common but pre-tax.
+      <strong>Net maaş</strong>, banka hesabınıza yatan miktardır. Brüt maaş
+      eksi vergiler eksi vergi öncesi yan haklar eksi vergi sonrası
+      kesintiler. Neredeyse herkes, eyalete ve yan hak yüküne bağlı olarak
+      brütün %60–75'ini net olarak alır.
     </p>
 
-    <h2>Tax line items</h2>
+    <h2>Vergi öncesi kesintiler (vergilendirilebilir gelirinizi azaltır)</h2>
     <p>
-      <strong>Federal income tax withholding.</strong> Based on what you
-      put on your W-4. The form looks confusing but the basic version is:
-      married-filing-jointly with no other income? Fill out just
-      name/SSN/signature. Anything more complex needs the worksheet or
-      IRS withholding estimator.
+      Bunlar, federal gelir vergisi hesaplanmadan <em>önce</em> çıkarılır,
+      bu nedenle vergi faturanızı da azaltır:
     </p>
     <p>
-      <strong>Social Security (FICA): 6.2%</strong> up to the annual cap
-      ($168,600 in 2024). Non-negotiable, everyone pays the same rate.
+      <strong>401(k) / 403(b) katkıları.</strong> Yılda 23.000$'a kadar
+      (2024–25, 50+ yaş için daha fazla). Katkıda bulunduğunuz her 1.000$,
+      tipik orta sınıf oranlarında federal vergiden yaklaşık 220–350$
+      tasarruf etmenizi sağlar.
     </p>
     <p>
-      <strong>Medicare: 1.45%</strong> with no cap. An additional 0.9%
-      kicks in above $200k single / $250k joint.
+      <strong>Geleneksel IRA</strong> katkıları (bordro üzerinden
+      kesiliyorsa) — aynı mekanizma. Roth IRA'lar vergi sonrasıdır.
     </p>
     <p>
-      <strong>State income tax withholding.</strong> Varies wildly — 0%
-      in TX/FL/WA/NV/SD/WY/AK/TN/NH, up to ~13% top marginal in CA.
+      <strong>Sağlık sigortası primi.</strong> Çoğu işveren sağlık planı
+      vergi öncesidir. Tipik aile primi: maaş çeki başına 150–400$.
     </p>
     <p>
-      <strong>Local / city tax.</strong> NYC, Philadelphia, San Francisco,
-      and many Ohio/Pennsylvania cities have their own income tax on top.
+      <strong>HSA / FSA</strong> katkıları (HDHP'niz varsa). HSA'lar
+      üçlü vergi avantajına sahiptir — ABD vergi kanunundaki en iyi fırsat,
+      uygunsanız tamamen fonlayın.
     </p>
     <p>
-      <strong>State disability insurance (SDI)</strong> in CA/NY/NJ/RI/HI
-      only. Usually 0.5–1% of gross.
-    </p>
-
-    <h2>Post-tax deductions (after federal tax is calculated)</h2>
-    <p>
-      <strong>Roth 401(k) / Roth IRA</strong> contributions — taxes paid
-      now, withdrawals tax-free later.
-    </p>
-    <p>
-      <strong>Supplemental life insurance, critical illness, pet
-      insurance.</strong> Usually small.
-    </p>
-    <p>
-      <strong>Garnishments</strong> — child support, student loan default,
-      IRS collection — legally required, take precedence over anything
-      voluntary.
-    </p>
-    <p>
-      <strong>ESPP</strong> (employee stock purchase plan). Up to 15% of
-      gross, bought at a discount, a good deal at most companies. Post-tax.
+      <strong>Ulaşım yardımları, bakıcı FSA'sı vb.</strong> Daha az
+      yaygındır ancak vergi öncesidir.
     </p>
 
-    <h2>The three most common pay-stub errors</h2>
+    <h2>Vergi kalemleri</h2>
     <p>
-      <strong>(1) Wrong state withholding.</strong> If you moved mid-year
-      or work remote in a different state than you live, HR sometimes
-      withholds in the wrong state. You&rsquo;ll see it on line 17 of
-      your W-2 next January. Catch it early by verifying the state code
-      on each paystub.
+      <strong>Federal gelir vergisi stopajı.</strong> W-4 formunuza
+      yazdıklarınıza dayanır. Form kafa karıştırıcı görünse de temel
+      versiyonu şudur: evli-ortak-başvuru yapıyorsanız ve başka geliriniz
+      yoksa? Sadece ad/SSN/imza kısımlarını doldurun. Daha karmaşık
+      durumlar için çalışma sayfası veya IRS stopaj hesaplayıcısı gerekir.
     </p>
     <p>
-      <strong>(2) Missing 401(k) match.</strong> Check the employer match
-      line. If your company matches 3–6% and it&rsquo;s not appearing,
-      HR configured something wrong. Match is free money — worth a
-      5-minute email.
+      <strong>Sosyal Güvenlik (FICA): %6,2</strong> yıllık tavana kadar
+      (2024'te 168.600$). Pazarlık konusu değil, herkes aynı oranı öder.
     </p>
     <p>
-      <strong>(3) Incorrect withholding from W-4.</strong> The new W-4
-      form (2020+) is confusing. A common error: not accounting for a
-      working spouse, causing massive under-withholding. Run the IRS
-      withholding estimator once a year.
-    </p>
-
-    <h2>The year-to-date (YTD) columns</h2>
-    <p>
-      Every paystub shows year-to-date totals alongside this-period.
-      These help you answer:
+      <strong>Medicare: %1,45</strong> tavan yok. Bekar 200.000$ / evli
+      250.000$ üzerinde ek %0,9 devreye girer.
     </p>
     <p>
-      <strong>Am I on track to hit the 401(k) limit?</strong> YTD
-      contributions × (52 / pay periods elapsed) = projected annual.
-      Compare to the $23,000 limit.
+      <strong>Eyalet gelir vergisi stopajı.</strong> Büyük farklılık
+      gösterir — TX/FL/WA/NV/SD/WY/AK/TN/NH'de %0, CA'da en yüksek
+      marjinal oran ~%13'e kadar.
     </p>
     <p>
-      <strong>Have I hit the Social Security cap?</strong> Once YTD
-      gross crosses $168,600, SS withholding drops to zero for the rest
-      of the year — your net pay goes up by 6.2%. Nice surprise in
-      November/December for high earners.
+      <strong>Yerel / şehir vergisi.</strong> NYC, Philadelphia, San
+      Francisco ve birçok Ohio/Pennsylvania şehri, bunun üzerine kendi
+      gelir vergilerini uygular.
     </p>
     <p>
-      <strong>Is my federal withholding on pace?</strong> YTD federal ÷
-      YTD gross should roughly match your effective tax rate. If it&rsquo;s
-      way under, you&rsquo;ll owe at tax time. Way over = big refund,
-      which means you loaned the government money interest-free.
+      <strong>Eyalet maluliyet sigortası (SDI)</strong> yalnızca
+      CA/NY/NJ/RI/HI'da. Genellikle brütün %0,5–1'i.
     </p>
 
-    <h2>The net-check math for a real paycheck</h2>
+    <h2>Vergi sonrası kesintiler (federal vergi hesaplandıktan sonra)</h2>
     <p>
-      Single, $80,000 salary, biweekly (26 checks), contributing 10% to
-      401(k), $150 health premium, California.
+      <strong>Roth 401(k) / Roth IRA</strong> katkıları — vergiler şimdi
+      ödenir, gelecekteki çekimler vergisizdir.
     </p>
     <p>
-      Gross/check: $3,077. 401(k): −$308. Health: −$150. Taxable:
-      $2,619. Federal withholding: ~$290. FICA: $191 + $45 = $236.
-      CA income tax: ~$105. SDI: $15. Net: <strong>$1,973/check</strong>{" "}
-      (~64% of gross).
+      <strong>Ek hayat sigortası, kritik hastalık, evcil hayvan
+      sigortası.</strong> Genellikle küçük miktarlardır.
+    </p>
+    <p>
+      <strong>Hacizler</strong> — nafaka, öğrenci kredisi temerrüdü, IRS
+      tahsilatı — yasal olarak zorunludur, gönüllü olan her şeyin önüne
+      geçer.
+    </p>
+    <p>
+      <strong>ESPP</strong> (çalışan hisse senedi satın alma planı). Brütün
+      %15'ine kadar, indirimli olarak satın alınır, çoğu şirkette iyi bir
+      fırsattır. Vergi sonrası.
     </p>
 
-    <h2>Run yours</h2>
+    <h2>En yaygın üç maaş çeki hatası</h2>
     <p>
-      Plug your salary + state + 401(k) percent into the{" "}
-      <a href="/tools/paycheck-calculator">paycheck calculator</a> to
-      estimate net pay per check. Cross-check with the{" "}
-      <a href="/tools/hourly-rate-calculator">hourly rate calculator</a>{" "}
-      if you want to sanity-check what an hourly job pays in annual
-      take-home terms, and pair with the{" "}
-      <a href="/tools/budget-calculator">budget calculator</a> once you
-      know your real net — budgeting against gross is the most common way
-      to feel mysteriously broke every month.
+      <strong>(1) Yanlış eyalet stopajı.</strong> Yıl ortasında taşındıysanız
+      veya yaşadığınız eyaletten farklı bir eyalette uzaktan çalışıyorsanız,
+      İK bazen yanlış eyalette stopaj yapar. Bunu gelecek Ocak ayında W-2
+      formunuzun 17. satırında göreceksiniz. Her maaş çekindeki eyalet
+      kodunu doğrulayarak erken fark edin.
+    </p>
+    <p>
+      <strong>(2) Eksik 401(k) eşleşmesi.</strong> İşveren eşleşme satırını
+      kontrol edin. Şirketiniz %3–6 eşleşme yapıyorsa ve görünmüyorsa, İK
+      bir şeyi yanlış yapılandırmıştır. Eşleşme bedava paradır — 5 dakikalık
+      bir e-postaya değer.
+    </p>
+    <p>
+      <strong>(3) W-4'ten kaynaklanan yanlış stopaj.</strong> Yeni W-4
+      formu (2020+) kafa karıştırıcıdır. Yaygın bir hata: çalışan bir eşi
+      hesaba katmamak, büyük miktarda eksik stopaja neden olur. IRS stopaj
+      hesaplayıcısını yılda bir kez çalıştırın.
+    </p>
+
+    <h2>Yılbaşından bugüne (YTD) sütunları</h2>
+    <p>
+      Her maaş çeki, bu dönemin yanında yılbaşından bugüne toplamlarını
+      gösterir. Bunlar şu soruları yanıtlamanıza yardımcı olur:
+    </p>
+    <p>
+      <strong>401(k) limitine ulaşma yolunda mıyım?</strong> YTD katkılar ×
+      (52 / geçen ödeme dönemi) = tahmini yıllık. 23.000$ limitiyle
+      karşılaştırın.
+    </p>
+    <p>
+      <strong>Sosyal Güvenlik tavanına ulaştım mı?</strong> YTD brüt
+      168.600$'ı geçtiğinde, SS stopajı yılın geri kalanında sıfıra düşer
+      — net maaşınız %6,2 artar. Yüksek kazançlılar için Kasım/Aralık
+      ayında güzel bir sürpriz.
+    </p>
+    <p>
+      <strong>Federal stopajım yolunda mı?</strong> YTD federal ÷ YTD brüt,
+      kabaca efektif vergi oranınızla eşleşmelidir. Çok düşükse, vergi
+      zamanı borcunuz olur. Çok yüksekse büyük iade, yani hükümete faizsiz
+      borç vermişsiniz demektir.
+    </p>
+
+    <h2>Gerçek bir maaş çeki için net hesaplama</h2>
+    <p>
+      Bekar, 80.000$ maaş, iki haftada bir (26 çek), 401(k)'ya %10 katkı,
+      150$ sağlık primi, California.
+    </p>
+    <p>
+      Çek başına brüt: 3.077$. 401(k): −308$. Sağlık: −150$. Vergiye tabi:
+      2.619$. Federal stopaj: ~290$. FICA: 191$ + 45$ = 236$. CA gelir
+      vergisi: ~105$. SDI: 15$. Net: <strong>çek başına 1.973$</strong>{" "}
+      (brütün ~%64'ü).
+    </p>
+
+    <h2>Kendiniz hesaplayın</h2>
+    <p>
+      Maaşınızı + eyaletinizi + 401(k) yüzdenizi{" "}
+      <a href="/tools/paycheck-calculator">maaş çeki hesaplayıcısına</a>{" "}
+      girerek çek başına net maaşı tahmin edin. Saatlik bir işin yıllık
+      eve giden para cinsinden ne kadar kazandırdığını kontrol etmek
+      isterseniz{" "}
+      <a href="/tools/hourly-rate-calculator">saatlik ücret hesaplayıcısıyla</a>{" "}
+      çapraz kontrol yapın ve gerçek net maaşınızı öğrendikten sonra{" "}
+      <a href="/tools/budget-calculator">bütçe hesaplayıcısıyla</a>{" "}
+      birleştirin — brüt üzerinden bütçe yapmak, her ay gizemli bir şekilde
+      parasız kalmanın en yaygın yoludur.
     </p>
   </>
 );

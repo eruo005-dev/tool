@@ -2,35 +2,35 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Caffeine has a 5-6 hour half-life on average. That 4 PM coffee is still ~25% in your system at midnight.
-    Here&rsquo;s the actual math and how to time caffeine for energy without sleep destruction.
+    Kafeinin ortalama yarılanma ömrü 5-6 saattir. Saat 16:00'da içilen bir kahve, gece yarısı hâlâ %25 oranında sisteminizdedir.
+    İşte gerçek matematik ve uykuyu bozmadan enerji için kafeinin nasıl zamanlanacağı.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The half-life math</h2>
+    <h2>Yarılanma ömrü matematiği</h2>
     <p>
-      A 200mg coffee at 8am: 100mg by 1-2pm, 50mg by 6-7pm, 25mg by midnight, fully clear by ~25 hours later.
-      Genetics matter (CYP1A2 fast vs slow metabolizers shift this by 2-3x in either direction).
+      Sabah 08:00'de 200mg kahve: 13:00-14:00'te 100mg, 18:00-19:00'da 50mg, gece yarısı 25mg, yaklaşık 25 saat sonra tamamen temizlenir.
+      Genetik faktörler önemlidir (CYP1A2 hızlı ve yavaş metabolize edenlerde bu süre 2-3 kat değişir).
     </p>
-    <h2>What that means in practice</h2>
+    <h2>Pratikte anlamı</h2>
     <ul>
-      <li><strong>Cutoff for 11pm bedtime:</strong> stop caffeine by 1-3pm to clear under 25% by sleep.</li>
-      <li><strong>Late afternoon coffee:</strong> measurably reduces deep sleep even if you fall asleep fine.</li>
-      <li><strong>If you sleep with caffeine in system:</strong> sleep quality drops 30-40% even at the same duration.</li>
+      <li><strong>Saat 23:00 yatışı için kesme zamanı:</strong> uykuda %25'in altına düşmesi için kafeini 13:00-15:00 arasında bırakın.</li>
+      <li><strong>Öğleden sonra geç kahve:</strong> uykuya dalsanız bile derin uykuyu ölçülebilir şekilde azaltır.</li>
+      <li><strong>Sisteminizde kafein varken uyursanız:</strong> aynı sürede bile uyku kalitesi %30-40 düşer.</li>
     </ul>
-    <h2>Optimal timing</h2>
+    <h2>Optimum zamanlama</h2>
     <ul>
-      <li>First coffee 90-120 min after waking (let cortisol peak first).</li>
-      <li>Second hit (if you do two) before noon.</li>
-      <li>Hard cutoff 8-10 hours before bed.</li>
-      <li>Switch to decaf or matcha (lower dose) for late-day cravings.</li>
+      <li>İlk kahve uyandıktan 90-120 dakika sonra (kortizol zirvesini bekleyin).</li>
+      <li>İkinci doz (iki kez içiyorsanız) öğleden önce.</li>
+      <li>Yatmadan 8-10 saat önce kesin sınır.</li>
+      <li>Gün sonu istekleri için dekaf veya matcha (düşük doz) tercih edin.</li>
     </ul>
-    <h2>Caffeine cycling</h2>
+    <h2>Kafein döngüsü</h2>
     <p>
-      Building tolerance is real. To reset sensitivity, take 7-14 days off caffeine every 3-6 months. The first 3 days
-      are rough; week 2 you sleep better than you have in years.
+      Tolerans geliştirmek gerçektir. Hassasiyeti sıfırlamak için her 3-6 ayda bir 7-14 gün kafeine ara verin. İlk 3 gün zordur;
+      2. haftada yıllardır olmadığınız kadar iyi uyursunuz.
     </p>
   </>
 );

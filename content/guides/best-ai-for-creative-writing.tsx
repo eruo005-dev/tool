@@ -2,58 +2,45 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Creative writing AI in 2026 is no longer a single-tool decision. Sudowrite for fiction
-    drafting, Claude for literary prose, ChatGPT for stylistic range, NovelCrafter for novel
-    structure. Here&rsquo;s when each one earns its place.
+    AI ile yaratıcı yazarlık 2026'da artık tek bir araç kararı değil. Kurgu taslağı için Sudowrite, edebi düzyazı için Claude, üslup çeşitliliği için ChatGPT, roman yapısı için NovelCrafter. İşte her birinin yerini bulduğu anlar.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>By creative form</h2>
+    <h2>Yaratıcı forma göre</h2>
     <ul>
-      <li><strong>Literary fiction:</strong> Claude Sonnet 4.6. Best at restrained, character-led
-        prose. Specific instruction-following on POV and tense.</li>
-      <li><strong>Genre fiction (thriller, romance, sci-fi):</strong> Sudowrite. Novelist-tuned
-        UX with Story Bible, Beat Sheet, Brainstorm tools.</li>
-      <li><strong>Screenwriting:</strong> ChatGPT Plus or Claude. Both follow industry-format
-        constraints reliably with a <a href="/learn/system-prompt">system prompt</a> example.</li>
-      <li><strong>Poetry:</strong> Claude. Less prone to greeting-card cadences; better at
-        formal constraint following.</li>
-      <li><strong>Worldbuilding / D&amp;D campaigns:</strong> Claude (1M context fits a whole
-        setting bible) + custom GPT for in-character interaction.</li>
-      <li><strong>Game writing / interactive fiction:</strong> Inkle&rsquo;s tools or Claude with
-        a state-tracking system prompt.</li>
-      <li><strong>Children&rsquo;s books / picture books:</strong> ChatGPT (text) + DALL-E or
-        Midjourney (illustrations).</li>
+      <li><strong>Edebi kurgu:</strong> Claude Sonnet 4.6. Ölçülü, karakter odaklı düzyazıda en iyisi. Bakış açısı ve zaman üzerinde belirli talimat takibi.</li>
+      <li><strong>Tür kurgusu (gerilim, romantik, bilimkurgu):</strong> Sudowrite. Hikaye İncili, Vuruş Tablosu, Beyin Fırtınası araçlarıyla romancıya uygun kullanıcı deneyimi.</li>
+      <li><strong>Senaryo yazımı:</strong> ChatGPT Plus veya Claude. İkisi de sektör formatı kısıtlamalarını güvenilir şekilde takip eder; bir <a href="/learn/system-prompt">sistem yönergesi</a> örneğiyle.</li>
+      <li><strong>Şiir:</strong> Claude. Tebrik kartı ritimlerine daha az eğilimli; biçimsel kısıtlamaları takip etmede daha iyi.</li>
+      <li><strong>Dünya inşası / D&D senaryoları:</strong> Claude (1M bağlam tüm bir ortam incilini sığdırır) + karakter içi etkileşim için özel GPT.</li>
+      <li><strong>Oyun yazımı / etkileşimli kurgu:</strong> Inkle araçları veya durum takip sistem yönergesi ile Claude.</li>
+      <li><strong>Çocuk kitapları / resimli kitaplar:</strong> ChatGPT (metin) + DALL-E veya Midjourney (illüstrasyonlar).</li>
     </ul>
 
-    <h2>The fiction-specific tools</h2>
+    <h2>Kurguya özel araçlar</h2>
     <ul>
-      <li><strong>Sudowrite</strong> ($10-29/mo) &mdash; fiction-specific, includes story bible,
-        canvas, and beat-sheet workflows. The most-used novelist tool in 2026.</li>
-      <li><strong>NovelCrafter</strong> ($14/mo) &mdash; codex + chapter view + AI assistance.
-        Strong for plotters.</li>
-      <li><strong>Plottr</strong> &mdash; outlining and structure, with AI-assisted scene cards.</li>
-      <li><strong>Lex</strong> &mdash; distraction-free writing with AI in the margin.</li>
+      <li><strong>Sudowrite</strong> ($10-29/ay) &mdash; kurguya özel, hikaye incili, tuval ve vuruş tablosu iş akışlarını içerir. 2026'da en çok kullanılan romancı aracı.</li>
+      <li><strong>NovelCrafter</strong> ($14/ay) &mdash; kod + bölüm görünümü + AI yardımı. Planlamacılar için güçlü.</li>
+      <li><strong>Plottr</strong> &mdash; AI destekli sahne kartlarıyla taslak ve yapı.</li>
+      <li><strong>Lex</strong> &mdash; kenar boşluğunda AI ile dikkat dağıtmayan yazım.</li>
     </ul>
 
-    <h2>What to avoid</h2>
+    <h2>Kaçınılması gerekenler</h2>
     <ul>
-      <li>Letting the AI write whole scenes from a one-line prompt. Outputs are competent but
-        generic.</li>
-      <li>Skipping the human voice pass. AI prose is fluent but rhythmically predictable.</li>
-      <li>Using AI for the climax. Save the most emotionally loaded scenes for your own pen.</li>
+      <li>AI'nın tek satırlık bir yönlendirmeden tüm sahneleri yazmasına izin vermek. Çıktılar yetkin ama sıradan.</li>
+      <li>İnsan sesi geçişini atlamak. AI düzyazısı akıcı ama ritmik olarak tahmin edilebilir.</li>
+      <li>AI'yı doruk noktası için kullanmak. En duygusal sahneleri kendi kaleminize saklayın.</li>
     </ul>
 
-    <h2>The two pricing paths</h2>
+    <h2>İki fiyatlandırma yolu</h2>
     <ul>
-      <li><strong>$20/mo:</strong> Claude Pro alone. Sufficient for most literary writing.</li>
-      <li><strong>$30-50/mo:</strong> Claude Pro + Sudowrite. Sudowrite&rsquo;s UX adds enough
-        novelist-specific value to justify both.</li>
+      <li><strong>$20/ay:</strong> Sadece Claude Pro. Çoğu edebi yazı için yeterli.</li>
+      <li><strong>$30-50/ay:</strong> Claude Pro + Sudowrite. Sudowrite'ın kullanıcı deneyimi, her ikisini de haklı çıkaracak kadar romancıya özgü değer katar.</li>
     </ul>
     <p>
-      Compare: <a href="/compare/claude-vs-chatgpt">Claude vs ChatGPT</a>.
+      Karşılaştır: <a href="/compare/claude-vs-chatgpt">Claude vs ChatGPT</a>.
     </p>
   </>
 );

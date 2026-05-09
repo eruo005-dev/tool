@@ -3,174 +3,128 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Body fat percentage tells you what BMI can&rsquo;t: how much of your weight is fat
-      versus lean mass. Two people at 75kg can have dramatically different health profiles
-      — one at 15% body fat, the other at 30%. The catch is that every measurement method
-      has significant error bars, and cheap methods can be off by 5-10 percentage points.
-      This guide covers the Navy tape method (free, ~3-4% error), skinfold calipers (cheap,
-      skill-dependent), DEXA and hydrostatic weighing (gold standard, expensive), bioimpedance
-      scales (convenient, unreliable), and how to interpret all of it against health ranges
-      by sex and age. Pick the method you&rsquo;ll actually use consistently.
+      Vücut yağ yüzdesi, BMI'nin yapamadığını size söyler: kilonuzun ne kadarının yağ, ne kadarının yağsız kütle olduğunu. 75 kg'daki iki kişinin sağlık profilleri çarpıcı şekilde farklı olabilir — biri %15 vücut yağına, diğeri %30'a sahip olabilir. İşin püf noktası, her ölçüm yönteminin önemli hata paylarına sahip olması ve ucuz yöntemlerin 5-10 puan sapma gösterebilmesidir. Bu rehber, Donanma bandı yöntemini (ücretsiz, ~%3-4 hata), deri kıvrım kaliperlerini (ucuz, beceri gerektirir), DEXA ve hidrostatik tartımı (altın standart, pahalı), biyoelektrik empedans tartılarını (pratik, güvenilmez) ve tüm bunların cinsiyet ve yaşa göre sağlık aralıklarına göre nasıl yorumlanacağını kapsar. Tutarlı bir şekilde kullanacağınız yöntemi seçin.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>1. BMI vs body fat percentage</h2>
+    <h2>1. BMI ve vücut yağ yüzdesi</h2>
     <p>
-      BMI uses only height and weight:
+      BMI yalnızca boy ve kiloyu kullanır:
     </p>
-    <pre>{`BMI = weight (kg) / height (m)²`}</pre>
+    <pre>{`BMI = ağırlık (kg) / boy (m)²`}</pre>
     <p>
-      It&rsquo;s useful at population scale but misleading for individuals. A muscular
-      athlete can register as &ldquo;overweight&rdquo; at 28 BMI with 10% body fat. A
-      sedentary office worker at the same BMI might carry 28% body fat. Body fat percentage
-      corrects for body composition — the thing BMI was trying to approximate.
+      Nüfus ölçeğinde kullanışlıdır ancak bireyler için yanıltıcıdır. Kaslı bir sporcu, 28 BMI ve %10 vücut yağı ile "fazla kilolu" olarak kaydedilebilir. Aynı BMI'ye sahip hareketsiz bir ofis çalışanı %28 vücut yağı taşıyabilir. Vücut yağ yüzdesi, BMI'nin yaklaşık olarak tahmin etmeye çalıştığı şey olan vücut kompozisyonunu düzeltir.
     </p>
 
-    <h2>2. The US Navy tape method</h2>
+    <h2>2. ABD Donanması bant yöntemi</h2>
     <p>
-      The most practical free method. Requires a soft tape measure. Measurements:
+      En pratik ücretsiz yöntem. Yumuşak bir mezura gerektirir. Ölçümler:
     </p>
     <ul>
-      <li><strong>Men:</strong> neck, waist at navel</li>
-      <li><strong>Women:</strong> neck, waist at navel, hips at widest</li>
+      <li><strong>Erkekler:</strong> boyun, göbek deliğinden bel</li>
+      <li><strong>Kadınlar:</strong> boyun, göbek deliğinden bel, en geniş yerden kalça</li>
     </ul>
     <p>
-      Plus height. The formulas (imperial inches):
+      Artı boy. Formüller (inç cinsinden):
     </p>
-    <pre>{`Men:   %BF = 86.010 × log10(waist - neck) - 70.041 × log10(height) + 36.76
-Women: %BF = 163.205 × log10(waist + hip - neck) - 97.684 × log10(height) - 78.387`}</pre>
+    <pre>{`Erkekler:   %VY = 86.010 × log10(bel - boyun) - 70.041 × log10(boy) + 36.76
+Kadınlar: %VY = 163.205 × log10(bel + kalça - boyun) - 97.684 × log10(boy) - 78.387`}</pre>
     <p>
-      Error range: ±3-4%. Used by the US military for fitness compliance. Works better for
-      average builds than for very lean or very heavy subjects.
-    </p>
-
-    <h2>3. Skinfold calipers</h2>
-    <p>
-      Pinch a fold of skin-plus-fat at specified sites (typically 3 or 7) and read the
-      thickness in millimeters. Jackson-Pollock 3-site for men (chest, abdomen, thigh) and
-      women (triceps, suprailiac, thigh) is the most common. Cheap calipers run $20; pro
-      models $200+.
-    </p>
-    <p>
-      Accuracy depends almost entirely on <strong>technician skill</strong>. A trained
-      assessor can hit ±3%. A novice self-measuring can be off by 8%+. If you go this route,
-      measure the same sites at the same time of day, standing, hydrated.
+      Hata aralığı: ±%3-4. ABD ordusu tarafından fitness uyumu için kullanılır. Ortalama yapılar için çok zayıf veya çok ağır deneklerden daha iyi çalışır.
     </p>
 
-    <h2>4. DEXA scans</h2>
+    <h2>3. Deri kıvrım kaliperleri</h2>
     <p>
-      Dual-energy X-ray absorptiometry separates your body into bone, lean tissue, and fat
-      using low-dose X-rays. Error: ±1-2%. Also gives regional breakdown (arms, legs, trunk)
-      and bone density. Cost: $50-150 per scan in the US, free on some UK NHS pathways. For
-      tracking changes every 3-6 months, DEXA is the reasonable gold standard.
+      Belirlenen bölgelerde (tipik olarak 3 veya 7) bir deri-artı-yağ kıvrımını sıkıştırın ve kalınlığı milimetre cinsinden okuyun. Erkekler için Jackson-Pollock 3 bölgeli (göğüs, karın, uyluk) ve kadınlar için (triseps, suprailiak, uyluk) en yaygın olanıdır. Ucuz kaliperler 20 dolardan başlar; profesyonel modeller 200 doların üzerindedir.
+    </p>
+    <p>
+      Doğruluk neredeyse tamamen <strong>teknisyen becerisine</strong> bağlıdır. Eğitimli bir değerlendirici ±%3'e ulaşabilir. Kendi kendini ölçen bir acemi %8 veya daha fazla sapma gösterebilir. Bu yolu seçerseniz, aynı bölgeleri günün aynı saatinde, ayakta, susuz kalmamış halde ölçün.
     </p>
 
-    <h2>5. Hydrostatic weighing and BodPod</h2>
+    <h2>4. DEXA taramaları</h2>
     <p>
-      Hydrostatic: submerge in water and measure displacement. Error: ±1.5%. Annoying to
-      access. BodPod uses air displacement and is more convenient with similar accuracy.
-      Both are available at university kinesiology labs for $25-75. Valid research methods
-      but rarely practical for repeated home use.
+      Çift enerjili X-ışını absorpsiyometrisi, düşük doz X-ışınları kullanarak vücudunuzu kemik, yağsız doku ve yağ olarak ayırır. Hata: ±%1-2. Ayrıca bölgesel dağılım (kollar, bacaklar, gövde) ve kemik yoğunluğu verir. Maliyet: ABD'de tarama başına 50-150 dolar, bazı İngiltere NHS yollarında ücretsiz. Her 3-6 ayda bir değişiklikleri takip etmek için DEXA makul bir altın standarttır.
     </p>
 
-    <h2>6. Bioelectrical impedance (BIA) scales</h2>
+    <h2>5. Hidrostatik tartım ve BodPod</h2>
     <p>
-      Consumer smart scales pass a tiny current through the body and estimate fat from
-      resistance. <em>Error can exceed 5% in either direction</em>, and readings swing day
-      to day with hydration. Foot-only scales (Fitbit Aria, Renpho) are the least accurate;
-      8-electrode scales (Tanita, Omron hand-plus-foot) are better. Useful for tracking
-      <strong> trends</strong> over weeks if you measure at the same time daily, not for
-      absolute numbers.
+      Hidrostatik: suya daldırın ve yer değiştirmeyi ölçün. Hata: ±%1,5. Erişimi zordur. BodPod hava yer değiştirmesini kullanır ve benzer doğrulukla daha kullanışlıdır. Her ikisi de üniversite kinezyoloji laboratuvarlarında 25-75 dolara mevcuttur. Geçerli araştırma yöntemleridir ancak tekrarlanan ev kullanımı için nadiren pratiktir.
     </p>
 
-    <h2>7. Photos and the mirror test</h2>
+    <h2>6. Biyoelektrik empedans (BIA) tartıları</h2>
     <p>
-      Monthly front/side/back photos in the same lighting and clothing show progress that
-      any numeric method can miss. Combined with tape measurements at 3-4 body sites (chest,
-      waist, hips, thigh), this is cheaper, more visual, and arguably more motivating than
-      any percentage. Numbers lie; photos don&rsquo;t.
+      Tüketici akıllı tartıları, vücuttan küçük bir akım geçirir ve dirençten yağ tahmin eder. <em>Hata her iki yönde de %5'i aşabilir</em> ve okumalar hidrasyonla günden güne değişir. Yalnızca ayaklı tartılar (Fitbit Aria, Renpho) en az doğru olanlardır; 8 elektrotlu tartılar (Tanita, Omron el-ayak) daha iyidir. Mutlak sayılar için değil, haftalar boyunca <strong>eğilimleri</strong> takip etmek için kullanışlıdır, her gün aynı saatte ölçüm yapılırsa.
     </p>
 
-    <h2>8. Health ranges by sex</h2>
+    <h2>7. Fotoğraflar ve ayna testi</h2>
     <p>
-      American Council on Exercise ranges for adults:
+      Aynı aydınlatma ve kıyafetle aylık ön/yan/arka fotoğraflar, herhangi bir sayısal yöntemin gözden kaçırabileceği ilerlemeyi gösterir. 3-4 vücut bölgesinde (göğüs, bel, kalça, uyluk) bant ölçümleriyle birleştirildiğinde, bu herhangi bir yüzdeden daha ucuz, daha görsel ve tartışmasız daha motive edicidir. Sayılar yalan söyler; fotoğraflar söylemez.
+    </p>
+
+    <h2>8. Cinsiyete göre sağlık aralıkları</h2>
+    <p>
+      Amerikan Egzersiz Konseyi'nin yetişkinler için aralıkları:
     </p>
     <ul>
-      <li>Essential fat: men 2-5%, women 10-13%</li>
-      <li>Athletes: men 6-13%, women 14-20%</li>
-      <li>Fitness: men 14-17%, women 21-24%</li>
-      <li>Acceptable: men 18-24%, women 25-31%</li>
-      <li>Obese: men 25%+, women 32%+</li>
+      <li>Temel yağ: erkekler %2-5, kadınlar %10-13</li>
+      <li>Sporcular: erkekler %6-13, kadınlar %14-20</li>
+      <li>Fitness: erkekler %14-17, kadınlar %21-24</li>
+      <li>Kabul edilebilir: erkekler %18-24, kadınlar %25-31</li>
+      <li>Obez: erkekler %25+, kadınlar %32+</li>
     </ul>
     <p>
-      Women carry more essential fat biologically (reproductive function, hormones). A 15%
-      body fat man and a 22% body fat woman are equivalently lean.
+      Kadınlar biyolojik olarak daha fazla temel yağ taşır (üreme işlevi, hormonlar). %15 vücut yağı olan bir erkek ve %22 vücut yağı olan bir kadın eşit derecede zayıftır.
     </p>
 
-    <h2>9. Age adjustments</h2>
+    <h2>9. Yaş ayarlamaları</h2>
     <p>
-      Healthy body fat drifts up slightly with age as lean mass declines. Add roughly 1-2%
-      to &ldquo;acceptable&rdquo; ranges per decade after 30, unless you&rsquo;re actively
-      resistance training. Sarcopenia (age-related muscle loss) starts accelerating around
-      50; preserving lean mass is more important than chasing low body fat numbers past
-      middle age.
+      Sağlıklı vücut yağı, yağsız kütle azaldıkça yaşla birlikte hafifçe artar. Aktif olarak direnç antrenmanı yapmıyorsanız, 30 yaşından sonra her on yılda "kabul edilebilir" aralıklara yaklaşık %1-2 ekleyin. Sarkopeni (yaşa bağlı kas kaybı) 50 civarında hızlanmaya başlar; orta yaştan sonra düşük vücut yağı sayılarının peşinden koşmaktan çok yağsız kütleyi korumak daha önemlidir.
     </p>
 
-    <h2>10. Why waist circumference alone is useful</h2>
+    <h2>10. Bel çevresinin tek başına neden kullanışlı olduğu</h2>
     <p>
-      For health risk, waist-to-height ratio beats body fat percentage for simplicity:
+      Sağlık riski için, bel-boy oranı basitlik açısından vücut yağ yüzdesini geçer:
     </p>
-    <pre>{`Keep waist circumference < half your height`}</pre>
+    <pre>{`Bel çevresini boyunuzun yarısından az tutun`}</pre>
     <p>
-      That&rsquo;s 35 inches for a 5&rsquo;10&rdquo; person. Above that, visceral fat risk
-      climbs regardless of total body fat. One tape measurement catches most cardiovascular
-      risk.
+      5'10" boyundaki biri için bu 35 inçtir. Bunun üzerinde, toplam vücut yağından bağımsız olarak iç organ yağı riski artar. Tek bir bant ölçümü çoğu kardiyovasküler riski yakalar.
     </p>
 
-    <h2>11. Tracking changes, not absolute numbers</h2>
+    <h2>11. Mutlak sayıları değil, değişiklikleri takip etmek</h2>
     <p>
-      Every method has systematic bias. If your BIA scale says 22% and a DEXA says 18%, both
-      numbers can still show progress consistently. Pick one method, use it on the same day
-      of the week, same time, same hydration state, for months. The direction and slope
-      matter more than the absolute number.
+      Her yöntemin sistematik bir yanlılığı vardır. BIA tartınız %22 ve DEXA %18 derse, her iki sayı da yine de tutarlı bir şekilde ilerleme gösterebilir. Bir yöntem seçin, haftanın aynı günü, aynı saatte, aynı hidrasyon durumunda, aylarca kullanın. Mutlak sayıdan çok yön ve eğim önemlidir.
     </p>
 
-    <h2>12. Common mistakes</h2>
+    <h2>12. Yaygın hatalar</h2>
     <ul>
       <li>
-        <strong>Comparing methods.</strong> A BIA scale and a DEXA will give different
-        numbers on the same person on the same day. Don&rsquo;t mix sources.
+        <strong>Yöntemleri karşılaştırmak.</strong> Bir BIA tartısı ve bir DEXA, aynı kişiye aynı günde farklı sayılar verecektir. Kaynakları karıştırmayın.
       </li>
       <li>
-        <strong>Measuring inconsistently.</strong> Morning fasted vs evening post-workout
-        can swing BIA readings 3-5%. Lock in conditions.
+        <strong>Tutarsız ölçüm yapmak.</strong> Sabah aç karnına vs akşam antrenman sonrası BIA okumalarını %3-5 oynatabilir. Koşulları sabitleyin.
       </li>
       <li>
-        <strong>Chasing single-digit body fat.</strong> Below ~8% for men and ~14% for
-        women, hormones, sleep, mood, and immune function deteriorate.
+        <strong>Tek haneli vücut yağının peşinden koşmak.</strong> Erkekler için yaklaşık %8'in ve kadınlar için yaklaşık %14'ün altında hormonlar, uyku, ruh hali ve bağışıklık işlevi bozulur.
       </li>
       <li>
-        <strong>Tape-measure technique drift.</strong> Pull too tight or too loose and the
-        Navy formula breaks down. Use the same tension every time.
+        <strong>Bant ölçüm tekniğinde kayma.</strong> Çok sıkı veya çok gevşek çekin ve Donanma formülü bozulur. Her seferinde aynı gerilimi kullanın.
       </li>
       <li>
-        <strong>Obsessing.</strong> Waist size, strength numbers, and how clothes fit are
-        often better real-world feedback than a percentage.
+        <strong>Takıntı haline getirmek.</strong> Bel ölçüsü, güç sayıları ve kıyafetlerin uyumu genellikle bir yüzdeden daha iyi gerçek dünya geri bildirimidir.
       </li>
     </ul>
 
-    <h2>13. Run the numbers</h2>
+    <h2>13. Sayıları hesaplayın</h2>
     <p>
-      Plug in your tape measurements below to get an estimate using the Navy method, then
-      compare it to your BMR and BMI numbers to get a full picture.
+      Donanma yöntemini kullanarak bir tahmin almak için aşağıya bant ölçümlerinizi girin, ardından tam bir resim elde etmek için bunu BMR ve BMI sayılarınızla karşılaştırın.
     </p>
     <p>
-      <a href="/tools/body-fat-calculator">Body fat calculator</a>
-      <a href="/tools/bmr-calculator">BMR calculator</a>
-      <a href="/tools/bmi-calculator">BMI calculator</a>
+      <a href="/tools/body-fat-calculator">Vücut yağı hesaplayıcı</a>
+      <a href="/tools/bmr-calculator">BMR hesaplayıcı</a>
+      <a href="/tools/bmi-calculator">BMI hesaplayıcı</a>
     </p>
   </>
 );

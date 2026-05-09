@@ -1,88 +1,91 @@
 export const intro = (
   <>
     <p>
-      The side hustle industry has been flooded with noise: dropshipping gurus, crypto
-      shills, &ldquo;earn $10k a month from your phone.&rdquo; Most of it is nonsense.
-      The real side hustles that consistently make beginners money are boring, skill-
-      based, and require real work.
+      Yan iş sektörü, dropshipping guruları, kripto dolandırıcıları ve
+      &ldquo;telefonundan ayda 10 bin dolar kazan&rdquo; vaatleriyle dolup taştı.
+      Bunların çoğu saçmalık. Yeni başlayanlara düzenli olarak para kazandıran
+      gerçek yan işler sıkıcıdır, beceri temellidir ve gerçek emek ister.
     </p>
     <p>
-      Below are the side hustles that actually work for people starting from zero.
+      Aşağıda, sıfırdan başlayanlar için gerçekten işe yarayan yan işler yer alıyor.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Freelance a skill you already have</h2>
+    <h2>1. Halihazırda sahip olduğun bir beceriyi serbest çalışarak değerlendir</h2>
     <p>
-      Can you write, code, design, edit video, run ads? Put up a profile on Upwork or
-      Fiverr and take small jobs. First clients pay nothing; after 20-30 jobs, you can
-      charge real rates. No upfront capital required.
+      Yazabiliyor, kodlayabiliyor, tasarım yapabiliyor, video düzenleyebiliyor veya
+      reklam yönetebiliyor musun? Upwork veya Fiverr'da bir profil oluştur ve küçük
+      işler al. İlk müşteriler neredeyse hiçbir şey ödemez; 20-30 işten sonra gerçek
+      ücretler talep edebilirsin. Önceden sermaye gerekmez.
     </p>
 
-    <h2>2. Tutoring</h2>
+    <h2>2. Özel ders verme</h2>
     <p>
-      If you can explain math, SAT prep, or a language — $40-80/hour as a beginner,
-      more as you build reputation. Wyzant, Varsity Tutors, or local parent groups.
-      Especially good for students wanting to monetize their strongest subject.
+      Matematik, SAT hazırlığı veya bir dili anlatabiliyorsan — yeni başlayan biri
+      olarak saatte 40-80 dolar, itibar kazandıkça daha fazlası. Wyzant, Varsity
+      Tutors veya yerel ebeveyn grupları. Özellikle en güçlü dersini paraya çevirmek
+      isteyen öğrenciler için uygun.
     </p>
 
-    <h2>3. Pet sitting and dog walking</h2>
+    <h2>3. Evcil hayvan bakımı ve köpek gezdirmek</h2>
     <p>
-      Rover pays $15-25/hour with zero startup cost and consistent demand. Not
-      glamorous, but you&rsquo;re outside and not staring at a screen after a desk job.
+      Rover, sıfır başlangıç maliyeti ve sürekli taleple saatte 15-25 dolar kazandırır.
+      Gösterişli değil ama masa başı işten sonra dışarıdasın ve ekrana bakmıyorsun.
     </p>
 
-    <h2>4. Delivery driving (as a bridge)</h2>
+    <h2>4. Teslimat sürücülüğü (bir köprü olarak)</h2>
     <p>
-      DoorDash, Uber Eats, Instacart. Hourly pay after expenses is usually $12-18 —
-      nothing amazing. Use it as a short-term bridge while you build a real skill-based
-      side hustle in parallel.
+      DoorDash, Uber Eats, Instacart. Giderler düşüldükten sonra saatlik kazanç
+      genellikle 12-18 dolar — pek harika değil. Bunu, paralel olarak gerçek bir
+      beceri temelli yan iş kurarken kısa vadeli bir köprü olarak kullan.
     </p>
 
-    <h2>5. Sell unused stuff</h2>
+    <h2>5. Kullanılmayan eşyaları sat</h2>
     <p>
-      Not a long-term hustle but a quick cash injection. Facebook Marketplace for
-      furniture, Mercari for clothes, eBay for collectibles. Most households have
-      $500-2000 worth of unused stuff gathering dust.
+      Uzun vadeli bir iş değil ama hızlı bir nakit girişi. Mobilya için Facebook
+      Marketplace, kıyafetler için Mercari, koleksiyon ürünleri için eBay. Çoğu evde
+      tozlanan 500-2000 dolar değerinde kullanılmayan eşya vardır.
     </p>
 
-    <h2>6. Print-on-demand</h2>
+    <h2>6. Baskıya hazır (print-on-demand)</h2>
     <p>
-      Design t-shirts, mugs, stickers on Redbubble or Printful. No inventory. Takes
-      months to make real money. Most designs flop — treat it as a portfolio play and
-      iterate constantly.
+      Redbubble veya Printful'da tişört, kupa, çıkartma tasarla. Stok yok. Gerçek para
+      kazanmak aylar sürer. Çoğu tasarım başarısız olur — bunu bir portföy çalışması
+      olarak gör ve sürekli iyileştir.
     </p>
 
-    <h2>7. Bookkeeping</h2>
+    <h2>7. Muhasebe</h2>
     <p>
-      Take a QuickBooks course, get certified, charge small businesses $300-800/month
-      retainers. Needs minor training but scales well. Ignored because it&rsquo;s
-      unsexy — that&rsquo;s exactly why competition is low.
+      Bir QuickBooks kursu al, sertifika kazan, küçük işletmelere aylık 300-800 dolar
+      karşılığında hizmet ver. Küçük bir eğitim gerektirir ama iyi ölçeklenir. Gözden
+      kaçırılır çünkü çekici değildir — işte bu yüzden rekabet düşüktür.
     </p>
 
-    <h2>8. Virtual assistant work</h2>
+    <h2>8. Sanal asistanlık</h2>
     <p>
-      Email, scheduling, research, social media for busy entrepreneurs. $20-35/hour
-      starting. Find clients via LinkedIn or dedicated VA platforms. Teaches business
-      skills that pay off later.
+      Meşgul girişimciler için e-posta, takvim, araştırma, sosyal medya yönetimi.
+      Başlangıçta saatte 20-35 dolar. Müşterileri LinkedIn veya özel VA platformları
+      aracılığıyla bul. Daha sonra işe yarayacak iş becerileri kazandırır.
     </p>
 
-    <h2>9. Notion or template sales</h2>
+    <h2>9. Notion veya şablon satışı</h2>
     <p>
-      Build a templated Notion workspace, habit tracker, budget template, or content
-      calendar. Sell on Gumroad. Long tail — one good template can earn passively for
-      years.
+      Şablon haline getirilmiş bir Notion çalışma alanı, alışkanlık takipçisi, bütçe
+      şablonu veya içerik takvimi oluştur. Gumroad'da sat. Uzun kuyruklu bir iş — iyi
+      bir şablon yıllarca pasif gelir sağlayabilir.
     </p>
 
-    <h2>10. Don&rsquo;t quit your day job yet</h2>
+    <h2>10. Henüz günlük işini bırakma</h2>
     <p>
-      Side hustle income is unreliable for 6-18 months. Keep the day job until the side
-      hustle consistently replaces 50%+ of it. See our{" "}
-      <a href="/guides/how-to-start-a-business-with-no-money">business guide</a> when
-      you&rsquo;re ready to go full-time, and{" "}
-      <a href="/guides/how-to-increase-your-income">income guide</a> for other levers.
+      Yan iş geliri 6-18 ay boyunca güvenilmezdir. Yan iş, günlük işinin %50'sini
+      düzenli olarak karşılayana kadar günlük işini bırakma. Tam zamanlı geçişe hazır
+      olduğunda{" "}
+      <a href="/guides/how-to-start-a-business-with-no-money">iş kurma rehberimize</a>{" "}
+      ve diğer kaldıraçlar için{" "}
+      <a href="/guides/how-to-increase-your-income">gelir artırma rehberimize</a> göz at.
     </p>
   </>
 );

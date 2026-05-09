@@ -3,259 +3,175 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Most businesses work on revenue growth because it&rsquo;s the
-      headline number. But a 5-point margin improvement usually
-      outperforms a 20% revenue increase — faster, without scaling
-      headcount, and with real cash hitting the bank. This guide
-      walks through the three margin numbers (gross, operating, net),
-      the levers that actually move them, and the industry benchmarks
-      that tell you whether a margin is healthy or a structural
-      problem.
+      Çoğu işletme, büyük başlık rakamı olduğu için gelir büyümesine odaklanır. Ancak marjda 5 puanlık bir iyileşme, genellikle %20'lik bir gelir artışından daha iyi performans gösterir: daha hızlı, çalışan sayısını artırmadan ve bankaya gerçek nakit girişi sağlayarak. Bu rehber, üç marj rakamını (brüt, faaliyet, net), bunları gerçekten hareket ettiren kaldıraçları ve bir marjın sağlıklı mı yoksa yapısal bir sorun mu olduğunu söyleyen sektör kıyaslamalarını adım adım ele alır.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The three margins, and what each tells you</h2>
+    <h2>Üç marj ve her birinin size söyledikleri</h2>
     <p>
-      <strong>Gross margin</strong> = (Revenue − COGS) / Revenue. The
-      efficiency of delivering the product or service. A SaaS with
-      80% gross margin has a $0.20 cost to deliver each $1 of
-      revenue. A physical product with 40% gross margin has $0.60
-      cost.
+      <strong>Brüt marj</strong> = (Gelir − SMM) / Gelir. Ürün veya hizmeti teslim etmenin verimliliği. %80 brüt marja sahip bir SaaS, her 1$'lık gelir için 0,20$ teslimat maliyetine sahiptir. %40 brüt marja sahip fiziksel bir ürünün maliyeti 0,60$'dır.
     </p>
     <p>
-      <strong>Operating margin</strong> = (Revenue − COGS − OpEx) /
-      Revenue. Includes all operating costs — sales, marketing, R&amp;D,
-      admin. The profitability of the actual business, ignoring taxes
-      and one-time items.
+      <strong>Faaliyet marjı</strong> = (Gelir − SMM − Faaliyet Giderleri) / Gelir. Satış, pazarlama, Ar-Ge, idari giderler dahil tüm faaliyet maliyetlerini içerir. Vergiler ve tek seferlik kalemler hariç, asıl işletmenin kârlılığı.
     </p>
     <p>
-      <strong>Net margin</strong> = Net income / Revenue. After
-      everything — taxes, interest, non-recurring. The number that
-      hits the bank account.
+      <strong>Net marj</strong> = Net gelir / Gelir. Her şeyden sonra — vergiler, faiz, tekrarlanmayan kalemler. Banka hesabına geçen rakam.
     </p>
     <p>
-      Each reveals a different problem. Weak gross margin = product
-      cost structure issue. Gross margin healthy but operating margin
-      weak = you&rsquo;re overspending on SG&amp;A. Both healthy but net
-      weak = tax or debt issue.
+      Her biri farklı bir sorunu ortaya çıkarır. Zayıf brüt marj = ürün maliyet yapısı sorunu. Brüt marj sağlıklı ancak faaliyet marjı zayıf = SG&A'ya aşırı harcama yapıyorsunuz. Her ikisi de sağlıklı ancak net marj zayıf = vergi veya borç sorunu.
     </p>
 
-    <h2>Industry benchmarks — what &ldquo;healthy&rdquo; looks like</h2>
+    <h2>Sektör kıyaslamaları — "sağlıklı" olan neye benzer</h2>
     <p>
-      Gross margin varies massively by industry:
+      Brüt marj sektöre göre büyük ölçüde değişir:
     </p>
     <p>
-      <strong>SaaS:</strong> 70–85% gross; 10–25% operating (at
-      scale); 10–20% net.
+      <strong>SaaS:</strong> %70–85 brüt; %10–25 faaliyet (ölçekte); %10–20 net.
     </p>
     <p>
-      <strong>Ecommerce / DTC:</strong> 40–60% gross; 5–15%
-      operating; 5–10% net.
+      <strong>E-ticaret / DTC:</strong> %40–60 brüt; %5–15 faaliyet; %5–10 net.
     </p>
     <p>
-      <strong>Service / consulting:</strong> 50–70% gross; 10–20%
-      operating; 8–15% net.
+      <strong>Hizmet / danışmanlık:</strong> %50–70 brüt; %10–20 faaliyet; %8–15 net.
     </p>
     <p>
-      <strong>Physical retail:</strong> 25–50% gross; 3–8% operating;
-      2–5% net.
+      <strong>Fiziksel perakende:</strong> %25–50 brüt; %3–8 faaliyet; %2–5 net.
     </p>
     <p>
-      <strong>Restaurants:</strong> 30–40% gross on food; 5–15%
-      operating at best.
+      <strong>Restoranlar:</strong> Yiyecekte %30–40 brüt; en iyi ihtimalle %5–15 faaliyet.
     </p>
     <p>
-      <strong>Manufacturing:</strong> 25–45% gross; 8–15% operating.
+      <strong>İmalat:</strong> %25–45 brüt; %8–15 faaliyet.
     </p>
     <p>
-      Below the low end of your industry range, your business has a
-      structural problem. Above the high end, you&rsquo;re either
-      finding real leverage or — careful — underinvesting in growth.
+      Sektör aralığınızın alt sınırının altındaysanız, işletmenizin yapısal bir sorunu var demektir. Üst sınırın üzerindeyseniz, ya gerçek bir kaldıraç buluyorsunuzdur ya da — dikkatli olun — büyümeye yeterince yatırım yapmıyorsunuzdur.
     </p>
 
-    <h2>Lever 1: Raise prices (highest leverage)</h2>
+    <h2>Kaldıraç 1: Fiyatları artırın (en yüksek kaldıraç)</h2>
     <p>
-      A 5% price increase at 40% gross margin flows almost entirely
-      to bottom line — it&rsquo;s the single highest-leverage move in
-      most businesses. Discussed fully in our pricing guide, but the
-      margin math:
+      %40 brüt marjda %5'lik bir fiyat artışı neredeyse tamamen alt satıra yansır — çoğu işletmedeki en yüksek kaldıraçlı hamledir. Fiyatlandırma rehberimizde tam olarak ele alınmıştır, ancak marj matematiği:
     </p>
     <p>
-      $100 sale at 40% gross margin = $40 contribution. Raise price to
-      $105 (5% increase), contribution becomes $45 (12.5% increase in
-      gross profit on unchanged volume). If you lose 5% of customers
-      to the price increase, contribution per customer is 12.5% higher
-      on 95% of the customers = 6.9% net increase in gross profit.
+      100$'lık satış, %40 brüt marj = 40$ katkı. Fiyatı 105$'a (%5 artış) çıkarın, katkı 45$ olur (değişmeyen hacimde brüt kârda %12,5 artış). Fiyat artışı nedeniyle müşterilerin %5'ini kaybederseniz, müşteri başına katkı müşterilerin %95'inde %12,5 daha yüksektir = brüt kârda %6,9 net artış.
     </p>
     <p>
-      Most businesses underestimate customer price tolerance by a
-      factor of 2–4x. The margin gains from price are almost always
-      available; they&rsquo;re just uncomfortable to pursue.
+      Çoğu işletme, müşteri fiyat toleransını 2-4 kat eksik tahmin eder. Fiyattan elde edilen marj kazançları neredeyse her zaman mevcuttur; sadece peşinden gitmek rahatsız edicidir.
     </p>
 
-    <h2>Lever 2: Reduce unit cost (COGS)</h2>
+    <h2>Kaldıraç 2: Birim maliyeti düşürün (SMM)</h2>
     <p>
-      Options depend on business type:
+      Seçenekler işletme türüne bağlıdır:
     </p>
     <p>
-      <strong>Physical goods.</strong> Negotiate with suppliers at
-      volume thresholds, consolidate to fewer vendors, switch to
-      alternative materials or components, reduce packaging weight
-      (shipping cost), increase order quantities for bulk pricing,
-      eliminate unnecessary SKU variants.
+      <strong>Fiziksel ürünler.</strong> Tedarikçilerle hacim eşiklerinde pazarlık yapın, daha az satıcıda birleşin, alternatif malzeme veya bileşenlere geçin, paketleme ağırlığını azaltın (nakliye maliyeti), toplu fiyatlandırma için sipariş miktarlarını artırın, gereksiz SKU varyantlarını ortadan kaldırın.
     </p>
     <p>
-      <strong>SaaS.</strong> Re-architect expensive features,
-      negotiate infrastructure contracts (AWS/GCP commit discounts
-      40–60% off list), replace 3rd-party APIs with in-house
-      alternatives when volume justifies, right-size compute.
+      <strong>SaaS.</strong> Pahalı özellikleri yeniden mimarilendirin, altyapı sözleşmelerini müzakere edin (AWS/GCP taahhüt indirimleri liste fiyatından %40–60), hacim haklı çıkardığında 3. taraf API'leri şirket içi alternatiflerle değiştirin, bilişim kaynaklarını doğru boyutlandırın.
     </p>
     <p>
-      <strong>Services.</strong> Productize repetitive work, use
-      juniors leveraged by seniors instead of senior-only delivery,
-      standardize templates and processes, eliminate custom scope
-      that doesn&rsquo;t earn premium price.
+      <strong>Hizmetler.</strong> Tekrarlayan işleri ürünleştirin, sadece kıdemli personelle teslimat yerine kıdemliler tarafından yönlendirilen kıdemsiz personel kullanın, şablonları ve süreçleri standartlaştırın, prim fiyatı kazandırmayan özel kapsamı ortadan kaldırın.
     </p>
 
-    <h2>Lever 3: Improve product mix</h2>
+    <h2>Kaldıraç 3: Ürün karmasını iyileştirin</h2>
     <p>
-      If product A has 30% margin and product B has 55% margin, shift
-      effort toward B. Without changing price or cost of any product,
-      you improve blended margin.
+      A ürünü %30 marja, B ürünü %55 marja sahipse, çabayı B'ye kaydırın. Hiçbir ürünün fiyatını veya maliyetini değiştirmeden, harmanlanmış marjı iyileştirirsiniz.
     </p>
     <p>
-      Tactics:
+      Taktikler:
     </p>
     <p>
-      <strong>Feature high-margin products</strong> in your catalog,
-      website, sales conversations.
+      <strong>Yüksek marjlı ürünleri</strong> kataloğunuzda, web sitenizde ve satış konuşmalarınızda öne çıkarın.
     </p>
     <p>
-      <strong>De-emphasize or discontinue</strong> lowest-margin
-      products if they&rsquo;re not strategic. Carrying them has a
-      real cost (SKU management, support, inventory).
+      <strong>En düşük marjlı ürünleri</strong> stratejik değillerse geri plana alın veya durdurun. Bunları taşımanın gerçek bir maliyeti vardır (SKU yönetimi, destek, envanter).
     </p>
     <p>
-      <strong>Bundle</strong> low-margin products with high-margin
-      attachments — printer + recurring ink, car + warranty, meal + drink.
+      <strong>Düşük marjlı ürünleri</strong> yüksek marjlı eklentilerle paketleyin — yazıcı + tekrar dolum mürekkep, araba + garanti, yemek + içecek.
     </p>
     <p>
-      <strong>Tiered upsells</strong> — push customers toward higher
-      tiers with differentially higher margin.
+      <strong>Kademeli üst satışlar</strong> — müşterileri, farklı olarak daha yüksek marja sahip üst kademelere yönlendirin.
     </p>
 
-    <h2>Lever 4: Reduce operating costs (SG&amp;A)</h2>
+    <h2>Kaldıraç 4: Faaliyet giderlerini azaltın (SG&A)</h2>
     <p>
-      Gross margin rules unit economics; operating margin reflects
-      overhead efficiency. Main cost categories:
+      Brüt marj birim ekonomisini belirler; faaliyet marjı genel gider verimliliğini yansıtır. Ana maliyet kategorileri:
     </p>
     <p>
-      <strong>Marketing.</strong> Cut bottom-quartile channels,
-      reallocate to top performers. Measure CAC by channel; kill
-      channels with CAC/LTV &gt; 0.3.
+      <strong>Pazarlama.</strong> En düşük çeyrekteki kanalları kesin, en iyi performans gösterenlere yeniden tahsis edin. CAC'yi kanala göre ölçün; CAC/LTV &gt; 0,3 olan kanalları kapatın.
     </p>
     <p>
-      <strong>Sales.</strong> Sales productivity varies 3–5x across
-      reps. Fire the bottom 20% every year; upgrade.
+      <strong>Satış.</strong> Satış temsilcileri arasında verimlilik 3-5 kat farklılık gösterir. Her yıl en düşük %20'yi işten çıkarın; yükseltin.
     </p>
     <p>
-      <strong>Software stack.</strong> Audit annually. Typical
-      company has 20–40% SaaS waste (unused seats, overlapping tools,
-      features you don&rsquo;t need the upper tier for).
+      <strong>Yazılım yığını.</strong> Yıllık olarak denetleyin. Tipik bir şirkette %20–40 oranında SaaS israfı vardır (kullanılmayan koltuklar, örtüşen araçlar, üst kademeye ihtiyaç duymadığınız özellikler).
     </p>
     <p>
-      <strong>Real estate.</strong> Remote/hybrid has flipped this —
-      downsize offices, sublease unused space.
+      <strong>Gayrimenkul.</strong> Uzaktan/hibrit çalışma bunu tersine çevirdi — ofisleri küçültün, kullanılmayan alanı alt kiraya verin.
     </p>
     <p>
-      <strong>Professional services.</strong> Review legal,
-      accounting, consulting spend. Fixed retainers drift up without
-      corresponding value.
+      <strong>Profesyonel hizmetler.</strong> Hukuk, muhasebe, danışmanlık harcamalarını gözden geçirin. Sabit retainer ücretleri, karşılık gelen bir değer olmadan yukarı doğru sürüklenir.
     </p>
 
-    <h2>Lever 5: Increase customer lifetime value (LTV)</h2>
+    <h2>Kaldıraç 5: Müşteri yaşam boyu değerini (LTV) artırın</h2>
     <p>
-      Margin-per-customer is the deeper number. Two customers paying
-      $1,000 where one churns in month 3 and the other stays 3 years
-      have vastly different contribution margins even at identical
-      pricing.
+      Müşteri başına marj daha derin bir rakamdır. Her ikisi de 1.000$ ödeyen iki müşteriden biri 3. ayda ayrılırken diğeri 3 yıl kalırsa, aynı fiyatlandırmada bile katkı marjları çok farklıdır.
     </p>
     <p>
-      <strong>Reduce churn</strong> — easier than new acquisition.
-      A 5-point reduction in annual churn often increases LTV 20–40%.
+      <strong>Müşteri kaybını azaltın</strong> — yeni müşteri edinmekten daha kolaydır. Yıllık müşteri kaybında 5 puanlık bir azalma genellikle LTV'yi %20–40 artırır.
     </p>
     <p>
-      <strong>Upsell existing</strong> — expansion revenue at very
-      low CAC. Enterprise SaaS routinely generates &gt;100% net
-      revenue retention this way.
+      <strong>Mevcut müşterilere üst satış yapın</strong> — çok düşük CAC ile genişleme geliri. Kurumsal SaaS, bu şekilde rutin olarak &gt;%100 net gelir tutma oranı üretir.
     </p>
     <p>
-      <strong>Cross-sell</strong> — additional product categories to
-      existing customers. Leverages the acquisition you already paid
-      for.
+      <strong>Çapraz satış yapın</strong> — mevcut müşterilere ek ürün kategorileri. Halihazırda ödediğiniz edinme maliyetinden yararlanır.
     </p>
 
-    <h2>Margin traps that look like growth</h2>
+    <h2>Büyüme gibi görünen marj tuzakları</h2>
     <p>
-      <strong>Trap 1: Discounting for volume.</strong> Bulk discounts
-      can make revenue look great while destroying margin. Sometimes
-      necessary; often not.
+      <strong>Tuzak 1: Hacim için indirim yapmak.</strong> Toplu indirimler geliri harika gösterebilir ancak marjı yok eder. Bazen gereklidir; genellikle değildir.
     </p>
     <p>
-      <strong>Trap 2: Channel expansion.</strong> Adding Amazon or
-      Walmart can 3x volume at 40% lower margin (take rates +
-      advertising costs). Net profit may fall despite revenue rising.
+      <strong>Tuzak 2: Kanal genişletme.</strong> Amazon veya Walmart eklemek, %40 daha düşük marjla (komisyon oranları + reklam maliyetleri) hacmi 3 katına çıkarabilir. Gelir artsa bile net kâr düşebilir.
     </p>
     <p>
-      <strong>Trap 3: Feature bloat.</strong> Building everything
-      customers ask for adds COGS (support, ops, maintenance) without
-      corresponding price increases. Margin silently erodes.
+      <strong>Tuzak 3: Özellik şişkinliği.</strong> Müşterilerin istediği her şeyi inşa etmek, karşılığında fiyat artışı olmadan SMM'yi (destek, operasyon, bakım) artırır. Marj sessizce aşınır.
     </p>
     <p>
-      <strong>Trap 4: Unit-economics negative customer segments.</strong>
-      A segment where CAC &gt; LTV is destroying value with every new
-      customer. Scaling a negative-margin segment looks like growth
-      but is actually accelerating losses.
+      <strong>Tuzak 4: Birim ekonomisi negatif müşteri segmentleri.</strong> CAC &gt; LTV olan bir segment, her yeni müşteriyle değeri yok ediyordur. Negatif marjlı bir segmenti büyütmek büyüme gibi görünür ancak aslında kayıpları hızlandırır.
     </p>
 
-    <h2>The 90-day margin sprint</h2>
+    <h2>90 günlük marj sprinti</h2>
     <p>
-      If margin needs fast improvement, a focused sprint:
+      Marjın hızlı bir iyileştirmeye ihtiyacı varsa, odaklanmış bir sprint:
     </p>
     <p>
-      <strong>Week 1-2: Audit.</strong> P&amp;L by product line, gross
-      margin by SKU, vendor spend analysis, SaaS tool inventory.
+      <strong>1-2. Hafta: Denetim.</strong> Ürün hattına göre P&amp;L, SKU'ya göre brüt marj, tedarikçi harcama analizi, SaaS araç envanteri.
     </p>
     <p>
-      <strong>Week 3-4: Price test.</strong> Identify 2–3 products
-      for 10%+ price increase. Test on new-customer pricing.
+      <strong>3-4. Hafta: Fiyat testi.</strong> %10+ fiyat artışı için 2-3 ürün belirleyin. Yeni müşteri fiyatlandırmasında test edin.
     </p>
     <p>
-      <strong>Week 5-6: Cost negotiation.</strong> Top 10 vendors.
-      Renegotiate or shop alternatives.
+      <strong>5-6. Hafta: Maliyet müzakeresi.</strong> İlk 10 tedarikçi. Yeniden müzakere edin veya alternatifleri araştırın.
     </p>
     <p>
-      <strong>Week 7-8: Mix shift.</strong> Promote high-margin
-      products, pull back on low-margin. Sales comp adjustments if
-      needed.
+      <strong>7-8. Hafta: Karma kaydırma.</strong> Yüksek marjlı ürünleri tanıtın, düşük marjlılardan geri çekilin. Gerekirse satış komisyonu ayarlamaları.
     </p>
     <p>
-      <strong>Week 9-12: Measure.</strong> Recompute margins. Real
-      improvement from a focused sprint: 3–8 percentage points.
+      <strong>9-12. Hafta: Ölçüm.</strong> Marjları yeniden hesaplayın. Odaklanmış bir sprintten gerçek iyileşme: 3–8 puan.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Check your margins line by line with the{" "}
-      <a href="/tools/profit-margin-calculator">profit margin
-      calculator</a>. Pair with the{" "}
-      <a href="/tools/break-even-calculator">break-even calculator</a>
-      {" "}to see how margin improvements change the volume needed,
-      and the <a href="/tools/pricing-calculator">pricing calculator</a>
-      {" "}for the price-setting side of the margin equation.
+      Marjlarınızı satır satır{" "}
+      <a href="/tools/profit-margin-calculator">kâr marjı hesaplayıcı</a>
+      {" "}ile kontrol edin. Marj iyileştirmelerinin gerekli hacmi nasıl değiştirdiğini görmek için{" "}
+      <a href="/tools/break-even-calculator">başabaş noktası hesaplayıcı</a>
+      {" "}ve marj denkleminin fiyat belirleme tarafı için{" "}
+      <a href="/tools/pricing-calculator">fiyatlandırma hesaplayıcı</a>
+      {" "}ile birlikte kullanın.
     </p>
   </>
 );

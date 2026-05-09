@@ -1,102 +1,103 @@
 export const intro = (
   <>
     <p>
-      APIs are the plumbing of modern software. Every app you use — Slack, Spotify,
-      Uber — is a pile of APIs talking to other APIs. Understanding them is maybe the
-      single most important concept after learning to program.
+      API'ler modern yazılımın tesisatıdır. Kullandığınız her uygulama — Slack, Spotify,
+      Uber — diğer API'lerle konuşan bir API yığınıdır. Bunları anlamak, programlama
+      öğrendikten sonra belki de en önemli kavramdır.
     </p>
     <p>
-      This guide explains APIs in plain English, with enough detail to actually use
-      them. No hand-waving.
+      Bu kılavuz, API'leri sade bir dille, gerçekten kullanabileceğiniz kadar ayrıntıyla
+      açıklar. Laf kalabalığı yok.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. API = &ldquo;Application Programming Interface&rdquo;</h2>
+    <h2>1. API = &ldquo;Uygulama Programlama Arayüzü&rdquo;</h2>
     <p>
-      A contract that lets one program talk to another. You send a request, you get a
-      response. The classic analogy: a restaurant menu. You don&rsquo;t tell the kitchen
-      how to cook — you order by name, they deliver.
+      Bir programın diğeriyle konuşmasını sağlayan bir sözleşme. Bir istek gönderirsiniz,
+      bir yanıt alırsınız. Klasik benzetme: bir restoran menüsü. Mutfağa nasıl
+      pişirileceğini söylemezsiniz — adıyla sipariş verirsiniz, onlar teslim eder.
     </p>
 
-    <h2>2. What a web API looks like</h2>
+    <h2>2. Bir web API'si neye benzer</h2>
     <p>
-      A URL like <code>https://api.example.com/users/42</code>. You send an HTTP request,
-      you get back JSON (usually). That&rsquo;s 95% of what &ldquo;API&rdquo; means in a
-      modern web context.
+      <code>https://api.example.com/users/42</code> gibi bir URL. Bir HTTP isteği gönderirsiniz,
+      genellikle JSON alırsınız. Modern web bağlamında &ldquo;API&rdquo;nin %95'i budur.
     </p>
 
-    <h2>3. HTTP methods in one breath</h2>
+    <h2>3. HTTP yöntemleri bir nefeste</h2>
     <p>
-      GET to read. POST to create. PUT/PATCH to update. DELETE to delete. That&rsquo;s
-      the entire REST alphabet. Different verbs, same URL structure — the verb tells the
-      server what you want.
+      GET okumak için. POST oluşturmak için. PUT/PATCH güncellemek için. DELETE silmek için.
+      REST alfabesinin tamamı budur. Farklı fiiller, aynı URL yapısı — fiil sunucuya ne
+      istediğinizi söyler.
     </p>
 
-    <h2>4. Status codes matter</h2>
+    <h2>4. Durum kodları önemlidir</h2>
     <p>
-      2xx = success. 3xx = redirect. 4xx = you messed up (400 bad request, 401 auth
-      missing, 404 not found). 5xx = they messed up (500 server error). Reading codes
-      quickly is a debugging skill.
+      2xx = başarı. 3xx = yönlendirme. 4xx = sizin hatanız (400 hatalı istek, 401 kimlik
+      doğrulama eksik, 404 bulunamadı). 5xx = onların hatası (500 sunucu hatası). Kodları
+      hızlı okumak bir hata ayıklama becerisidir.
     </p>
 
-    <h2>5. JSON is the lingua franca</h2>
+    <h2>5. JSON ortak dildir</h2>
     <p>
-      Most APIs send and receive JSON: {`{"name": "Ada", "age": 30}`}. Keys are strings,
-      values are strings/numbers/booleans/arrays/objects. Every language has built-in
-      JSON support. See <a href="/tools/json-to-csv">JSON to CSV converter</a>
-      {" "}for quick conversions.
+      Çoğu API JSON gönderir ve alır: {`{"name": "Ada", "age": 30}`}. Anahtarlar string,
+      değerler string/sayı/boolean/dizi/nesne olabilir. Her dilde yerleşik JSON desteği
+      vardır. Hızlı dönüşümler için <a href="/tools/json-to-csv">JSON'dan CSV'ye dönüştürücü</a>
+      {' '}sayfasına bakın.
     </p>
 
-    <h2>6. Authentication: API keys and tokens</h2>
+    <h2>6. Kimlik doğrulama: API anahtarları ve token'lar</h2>
     <p>
-      Most APIs require an API key (a secret string) sent in a header like{" "}
-      <code>Authorization: Bearer xyz123</code>. Never commit keys to git. Use env vars.
-      This is the single most common security screw-up in startups.
+      Çoğu API, <code>Authorization: Bearer xyz123</code> gibi bir başlıkta gönderilen bir
+      API anahtarı (gizli bir string) gerektirir. Anahtarları asla git'e eklemeyin. Ortam
+      değişkenleri kullanın. Bu, startup'larda en yaygın güvenlik hatasıdır.
     </p>
 
     <h2>7. REST vs GraphQL vs RPC</h2>
     <p>
-      REST uses URLs + HTTP verbs. GraphQL exposes a single endpoint you query flexibly.
-      RPC (gRPC) is function calls across the wire. REST is the default; the others are
-      specialized. See <a href="/guides/rest-vs-graphql">REST vs GraphQL</a>.
+      REST, URL'ler + HTTP fiilleri kullanır. GraphQL, esnek bir şekilde sorgulayabileceğiniz
+      tek bir uç nokta sunar. RPC (gRPC), ağ üzerinden fonksiyon çağrılarıdır. REST
+      varsayılandır; diğerleri özelleşmiştir. <a href="/guides/rest-vs-graphql">REST vs GraphQL</a>
+      sayfasına bakın.
     </p>
 
-    <h2>8. How to test an API</h2>
+    <h2>8. Bir API nasıl test edilir</h2>
     <p>
-      Use curl, Postman, or Insomnia. Hit the endpoint, inspect the response. The docs
-      lie sometimes — the real contract is what the server actually returns. Test before
-      you build against it.
+      curl, Postman veya Insomnia kullanın. Uç noktaya istek atın, yanıtı inceleyin.
+      Dokümanlar bazen yalan söyler — gerçek sözleşme, sunucunun gerçekte döndürdüğüdür.
+      Üzerine inşa etmeden önce test edin.
     </p>
 
-    <h2>9. Rate limits and pagination</h2>
+    <h2>9. Hız sınırları ve sayfalama</h2>
     <p>
-      Most APIs cap how many requests per minute you can make and page large result
-      sets. Respect the limits, handle 429 responses, follow pagination links. Hitting
-      rate limits in prod is a rookie mistake.
+      Çoğu API, dakikada kaç istek yapabileceğinizi sınırlar ve büyük sonuç kümelerini
+      sayfalar. Sınırlara saygı gösterin, 429 yanıtlarını işleyin, sayfalama bağlantılarını
+      takip edin. Prod'da hız sınırlarına takılmak acemi hatasıdır.
     </p>
 
-    <h2>10. Webhooks = APIs in reverse</h2>
+    <h2>10. Webhook'lar = ters API'ler</h2>
     <p>
-      Normally you call them. With webhooks, they call you when something happens (new
-      order, message, etc.). You give them a URL, they POST to it. Great for event-driven
-      flows.
+      Normalde siz onları ararsınız. Webhook'larda, bir şey olduğunda (yeni sipariş, mesaj
+      vb.) onlar sizi arar. Onlara bir URL verirsiniz, onlar POST yapar. Olay odaklı
+      akışlar için harikadır.
     </p>
 
-    <h2>11. Documentation is everything</h2>
+    <h2>11. Dokümantasyon her şeydir</h2>
     <p>
-      Good API docs make or break adoption. Stripe is the gold standard. When building
-      your own API, the docs are as important as the code. Bad docs mean users give up.
+      İyi API dokümanları benimsenmeyi sağlar veya engeller. Stripe altın standarttır.
+      Kendi API'nizi oluştururken dokümanlar kod kadar önemlidir. Kötü dokümanlar
+      kullanıcıların pes etmesine neden olur.
     </p>
 
-    <h2>12. Building your own</h2>
+    <h2>12. Kendi API'nizi oluşturmak</h2>
     <p>
-      Pick a language/framework (Express, FastAPI, Go net/http). Define routes. Return
-      JSON. Add auth. Deploy. You&rsquo;ve built an API. The concept is simpler than
-      the jargon implies. See <a href="/guides/frontend-vs-backend-development">frontend
-      vs backend</a> for context.
+      Bir dil/çerçeve seçin (Express, FastAPI, Go net/http). Rotaları tanımlayın. JSON
+      döndürün. Kimlik doğrulama ekleyin. Dağıtın. Bir API oluşturdunuz. Kavram,
+      jargonun ima ettiğinden daha basittir. Bağlam için <a href="/guides/frontend-vs-backend-development">frontend
+      vs backend</a> sayfasına bakın.
     </p>
   </>
 );

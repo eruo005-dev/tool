@@ -3,281 +3,199 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      VAT (Value Added Tax) is the dominant consumption tax across
-      170+ countries — every EU member state, the UK, most of Asia,
-      Africa, and Latin America. If you&rsquo;re selling to customers
-      outside the US, you&rsquo;ll touch it. Get the math right and
-      you stay compliant; get it wrong and you&rsquo;re personally
-      liable for the uncollected tax. This guide walks through the
-      add-VAT and remove-VAT formulas, rates by country, B2B reverse
-      charge rules, registration thresholds, and the four errors that
-      trigger the most audit headaches.
+      KDV (Katma Değer Vergisi), 170'ten fazla ülkede geçerli olan baskın tüketim vergisidir — tüm AB üye devletleri, Birleşik Krallık, Asya'nın çoğu, Afrika ve Latin Amerika dahil. ABD dışındaki müşterilere satış yapıyorsanız, bununla karşılaşırsınız. Matematiği doğru yaparsanız uyumlu kalırsınız; yanlış yaparsanız, tahsil edilmeyen vergiden kişisel olarak sorumlu olursunuz. Bu rehber, KDV ekleme ve KDV çıkarma formüllerini, ülkelere göre oranları, B2B tersine işlem kurallarını, kayıt eşiklerini ve en çok denetim baş ağrısına neden olan dört hatayı adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What VAT is — and how it differs from US sales tax</h2>
+    <h2>KDV nedir — ve ABD satış vergisinden farkı</h2>
     <p>
-      VAT is a multi-stage tax: collected at every step in the supply
-      chain, with each business claiming back the VAT they paid on
-      inputs. The end consumer bears the total tax; businesses are
-      just collectors.
+      KDV çok aşamalı bir vergidir: tedarik zincirinin her aşamasında tahsil edilir ve her işletme ödediği KDV'yi girdiler üzerinden geri talep eder. Nihai tüketici toplam vergiyi üstlenir; işletmeler yalnızca tahsildardır.
     </p>
     <p>
-      Contrast with US sales tax: single-stage, collected only at
-      final sale. US businesses don&rsquo;t claim back sales tax on
-      their inputs.
+      ABD satış vergisiyle karşılaştırın: tek aşamalı, yalnızca nihai satışta tahsil edilir. ABD'deki işletmeler girdileri üzerinden satış vergisini geri talep etmez.
     </p>
     <p>
-      Practical implication: as a VAT-registered business, you charge
-      VAT on sales (&ldquo;output VAT&rdquo;), claim back VAT on
-      purchases (&ldquo;input VAT&rdquo;), and remit the difference
-      to the tax authority. This is why VAT is called a
-      &ldquo;value-added&rdquo; tax — you only remit tax on the value
-      you added.
+      Pratik sonuç: KDV'ye kayıtlı bir işletme olarak, satışlarda KDV tahsil eder ("çıktı KDV"), alışlarda KDV'yi geri talep eder ("girdi KDV") ve farkı vergi dairesine ödersiniz. Bu nedenle KDV'ye "katma değer" vergisi denir — yalnızca eklediğiniz değer üzerinden vergi ödersiniz.
     </p>
 
-    <h2>The two core formulas</h2>
+    <h2>İki temel formül</h2>
     <p>
-      <strong>Add VAT (you know net price, need to add VAT):</strong>
+      <strong>KDV ekleme (net fiyatı biliyorsunuz, KDV eklemeniz gerekiyor):</strong>
     </p>
     <p>
-      VAT amount = Net × (rate / 100)
+      KDV tutarı = Net × (oran / 100)
       <br />
-      Gross = Net + VAT amount = Net × (1 + rate / 100)
+      Brüt = Net + KDV tutarı = Net × (1 + oran / 100)
     </p>
     <p>
-      Example: £100 net at 20% UK VAT = £20 VAT = £120 gross.
+      Örnek: %20 Birleşik Krallık KDV ile 100 £ net = 20 £ KDV = 120 £ brüt.
     </p>
     <p>
-      <strong>Remove VAT (you know gross price, need to find net):</strong>
+      <strong>KDV çıkarma (brüt fiyatı biliyorsunuz, neti bulmanız gerekiyor):</strong>
     </p>
     <p>
-      Net = Gross / (1 + rate / 100)
+      Net = Brüt / (1 + oran / 100)
       <br />
-      VAT amount = Gross − Net
+      KDV tutarı = Brüt − Net
     </p>
     <p>
-      Example: £120 gross at 20% = £100 net + £20 VAT.
+      Örnek: %20 ile 120 £ brüt = 100 £ net + 20 £ KDV.
     </p>
     <p>
-      Common error: people compute &ldquo;remove VAT&rdquo; as Gross ×
-      0.80. That&rsquo;s wrong — you&rsquo;d get £96, not £100. The
-      correct division is by 1.20.
+      Yaygın hata: insanlar "KDV çıkarma" işlemini Brüt × 0,80 olarak hesaplar. Bu yanlıştır — 100 £ değil, 96 £ elde edersiniz. Doğru bölme 1,20'ye bölmektir.
     </p>
 
-    <h2>Standard rates by country</h2>
+    <h2>Ülkelere göre standart oranlar</h2>
     <p>
-      <strong>UK:</strong> 20% standard, 5% reduced (domestic fuel,
-      children&rsquo;s car seats), 0% zero-rated (most food,
-      children&rsquo;s clothing, books).
+      <strong>Birleşik Krallık:</strong> %20 standart, %5 indirimli (evsel yakıt, çocuk oto koltukları), %0 sıfır oranlı (çoğu gıda, çocuk giyimi, kitaplar).
     </p>
     <p>
-      <strong>Germany:</strong> 19% standard, 7% reduced.
+      <strong>Almanya:</strong> %19 standart, %7 indirimli.
     </p>
     <p>
-      <strong>France:</strong> 20% standard, 10% / 5.5% / 2.1%
-      reduced tiers.
+      <strong>Fransa:</strong> %20 standart, %10 / %5,5 / %2,1 indirimli kademeler.
     </p>
     <p>
-      <strong>Ireland:</strong> 23% standard, 13.5% / 9% / 4.8% / 0%
-      reduced.
+      <strong>İrlanda:</strong> %23 standart, %13,5 / %9 / %4,8 / %0 indirimli.
     </p>
     <p>
-      <strong>Netherlands:</strong> 21% standard, 9% reduced.
+      <strong>Hollanda:</strong> %21 standart, %9 indirimli.
     </p>
     <p>
-      <strong>Spain:</strong> 21% standard, 10% / 4% reduced.
+      <strong>İspanya:</strong> %21 standart, %10 / %4 indirimli.
     </p>
     <p>
-      <strong>Italy:</strong> 22% standard, 10% / 5% / 4% reduced.
+      <strong>İtalya:</strong> %22 standart, %10 / %5 / %4 indirimli.
     </p>
     <p>
-      <strong>Sweden / Denmark:</strong> 25% standard (highest in
-      Europe).
+      <strong>İsveç / Danimarka:</strong> %25 standart (Avrupa'nın en yükseği).
     </p>
     <p>
-      <strong>Hungary:</strong> 27% standard (highest in the EU).
+      <strong>Macaristan:</strong> %27 standart (AB'nin en yükseği).
     </p>
     <p>
-      <strong>Canada:</strong> GST 5% federal + PST/HST provincial
-      (varies). Not technically VAT but same mechanism.
+      <strong>Kanada:</strong> %5 federal GST + eyalet PST/HST (değişir). Teknik olarak KDV değil ancak aynı mekanizma.
     </p>
     <p>
-      <strong>Australia / New Zealand:</strong> GST 10% / 15% (VAT by
-      another name).
+      <strong>Avustralya / Yeni Zelanda:</strong> %10 / %15 GST (başka bir adla KDV).
     </p>
 
-    <h2>Reduced and zero rates — what qualifies</h2>
+    <h2>İndirimli ve sıfır oranlar — neler kapsar</h2>
     <p>
-      Reduced rates typically apply to essentials: food, books,
-      medicines, public transport, cultural goods. Each country sets
-      its own list — never assume transferability.
+      İndirimli oranlar genellikle temel ihtiyaçlar için geçerlidir: gıda, kitaplar, ilaçlar, toplu taşıma, kültürel ürünler. Her ülke kendi listesini belirler — asla aktarılabilir olduğunu varsaymayın.
     </p>
     <p>
-      <strong>Zero-rated</strong> ≠ <strong>exempt</strong>. Zero-rated
-      sales are still taxable (at 0%), so you can still reclaim input
-      VAT on related costs. Exempt sales are outside the VAT system —
-      you can&rsquo;t reclaim related input VAT. Big difference for
-      cash flow.
+      <strong>Sıfır oranlı</strong> ≠ <strong>muaf</strong>. Sıfır oranlı satışlar hâlâ vergilendirilebilir (%0 oranında), bu nedenle ilgili maliyetler üzerinden girdi KDV'sini geri talep edebilirsiniz. Muaf satışlar KDV sisteminin dışındadır — ilgili girdi KDV'sini geri talep edemezsiniz. Nakit akışı için büyük fark.
     </p>
 
-    <h2>B2B reverse charge — the cross-border rule</h2>
+    <h2>B2B tersine işlem — sınır ötesi kural</h2>
     <p>
-      When a VAT-registered business in one EU country sells to a
-      VAT-registered business in another EU country:
+      Bir AB ülkesindeki KDV'ye kayıtlı bir işletme, başka bir AB ülkesindeki KDV'ye kayıtlı bir işletmeye sattığında:
     </p>
     <p>
-      The seller charges 0% VAT (not zero-rated, but reverse-charged).
+      Satıcı %0 KDV tahsil eder (sıfır oranlı değil, tersine işlem uygulanır).
     </p>
     <p>
-      The buyer &ldquo;self-accounts&rdquo; — adds the VAT at their
-      local rate on purchase, then reclaims it on the same return.
-      Net VAT liability: zero. Just a paperwork entry.
+      Alıcı "kendi kendine muhasebeleştirir" — satın alımda kendi yerel oranında KDV ekler, ardından aynı beyannamede geri talep eder. Net KDV yükümlülüğü: sıfır. Sadece bir evrak kaydı.
     </p>
     <p>
-      <strong>Conditions:</strong> both parties VAT-registered, valid
-      VAT numbers displayed on invoice, goods/services actually
-      crossing borders. Invoice must state &ldquo;Reverse charge
-      applies — Article 196 of Council Directive 2006/112/EC&rdquo;
-      or similar.
+      <strong>Koşullar:</strong> her iki taraf da KDV'ye kayıtlı, faturada geçerli KDV numaraları görüntülenmeli, mal/hizmetler fiilen sınırları aşmalı. Faturada "Tersine işlem uygulanır — Konsey Direktifi 2006/112/EC Madde 196" veya benzeri ifade yer almalıdır.
     </p>
     <p>
-      Post-Brexit: UK → EU sales are no longer intra-EU. They&rsquo;re
-      exports (zero-rated) and the EU buyer handles import VAT on
-      arrival.
+      Brexit sonrası: Birleşik Krallık → AB satışları artık AB içi değildir. Bunlar ihracattır (sıfır oranlı) ve AB alıcısı varışta ithalat KDV'sini halleder.
     </p>
 
-    <h2>Registration thresholds</h2>
+    <h2>Kayıt eşikleri</h2>
     <p>
-      You must register for VAT once your taxable turnover crosses a
-      threshold:
+      Vergiye tabi cironuz bir eşiği aştığında KDV'ye kaydolmanız gerekir:
     </p>
     <p>
-      <strong>UK:</strong> £90,000 (as of April 2024 — up from £85k).
+      <strong>Birleşik Krallık:</strong> 90.000 £ (Nisan 2024 itibarıyla — 85 bin £'dan yükseltildi).
     </p>
     <p>
-      <strong>Germany:</strong> €22,000 (small business exemption if
-      under).
+      <strong>Almanya:</strong> 22.000 € (altındaysa küçük işletme muafiyeti).
     </p>
     <p>
-      <strong>France:</strong> €85,800 (goods) / €34,400 (services).
+      <strong>Fransa:</strong> 85.800 € (mallar) / 34.400 € (hizmetler).
     </p>
     <p>
-      <strong>Ireland:</strong> €75,000 (goods) / €37,500 (services).
+      <strong>İrlanda:</strong> 75.000 € (mallar) / 37.500 € (hizmetler).
     </p>
     <p>
-      <strong>Netherlands:</strong> €20,000 (optional small-business
-      scheme).
+      <strong>Hollanda:</strong> 20.000 € (isteğe bağlı küçük işletme planı).
     </p>
     <p>
-      <strong>EU non-residents selling B2C to EU:</strong> €10,000
-      combined across all EU countries triggers registration
-      somewhere (usually OSS).
+      <strong>AB'ye B2C satış yapan AB dışı yerleşikler:</strong> tüm AB ülkelerinde toplam 10.000 €, bir yerde (genellikle OSS) kaydı tetikler.
     </p>
     <p>
-      Voluntary registration below threshold is often worth it if you
-      sell B2B (clients reclaim your VAT, so your effective price is
-      unchanged) and have reclaimable input VAT on business costs.
+      Eşik altında gönüllü kayıt, B2B satış yapıyorsanız (müşteriler KDV'nizi geri talep eder, bu nedenle etkin fiyatınız değişmez) ve işletme maliyetlerinde geri talep edilebilir girdi KDV'niz varsa genellikle buna değer.
     </p>
 
-    <h2>Digital services and OSS</h2>
+    <h2>Dijital hizmetler ve OSS</h2>
     <p>
-      Selling digital services (SaaS, ebooks, online courses) to EU
-      consumers: VAT is charged at the <em>buyer&rsquo;s</em>
-      country rate, not yours. A UK company selling SaaS to a German
-      consumer charges 19% German VAT, not 20% UK.
+      AB tüketicilerine dijital hizmetler (SaaS, e-kitaplar, çevrimiçi kurslar) satmak: KDV, sizin ülkeniz oranında değil, <em>alıcının</em> ülke oranında tahsil edilir. Bir Alman tüketiciye SaaS satan Birleşik Krallık şirketi, %20 Birleşik Krallık KDV'si değil, %19 Alman KDV'si tahsil eder.
     </p>
     <p>
-      <strong>OSS (One Stop Shop):</strong> register in one EU
-      country, file a single return covering all EU B2C digital
-      sales. Replaces having to register in every country
-      individually. Simplified in 2021; most SaaS businesses use it.
+      <strong>OSS (Tek Durak Noktası):</strong> bir AB ülkesinde kaydolun, tüm AB B2C dijital satışlarını kapsayan tek bir beyanname verin. Her ülkede ayrı ayrı kaydolma zorunluluğunu ortadan kaldırır. 2021'de basitleştirildi; çoğu SaaS işletmesi kullanır.
     </p>
     <p>
-      <strong>IOSS</strong> (Import OSS): same idea for goods imports
-      into EU under €150.
+      <strong>IOSS</strong> (İthalat OSS): 150 € altındaki AB'ye mal ithalatı için aynı fikir.
     </p>
 
-    <h2>Invoice requirements</h2>
+    <h2>Fatura gereklilikleri</h2>
     <p>
-      A valid VAT invoice must include:
+      Geçerli bir KDV faturası şunları içermelidir:
     </p>
     <p>
-      Your business name, address, VAT number.
+      İşletme adınız, adresiniz, KDV numaranız.
     </p>
     <p>
-      Customer name, address, VAT number (for B2B).
+      Müşteri adı, adresi, KDV numarası (B2B için).
     </p>
     <p>
-      Unique invoice number, issue date, tax point date.
+      Benzersiz fatura numarası, düzenleme tarihi, vergi noktası tarihi.
     </p>
     <p>
-      Description of goods/services, quantity, unit price.
+      Mal/hizmet açıklaması, miktar, birim fiyat.
     </p>
     <p>
-      Net amount, VAT rate applied, VAT amount, gross total.
+      Net tutar, uygulanan KDV oranı, KDV tutarı, brüt toplam.
     </p>
     <p>
-      For reverse charge: explicit statement citing the directive
-      article.
+      Tersine işlem için: direktif maddesine atıfta bulunan açık ifade.
     </p>
     <p>
-      Missing any of these and your customer can&rsquo;t reclaim the
-      input VAT — they&rsquo;ll chase you for a corrected invoice.
+      Bunlardan herhangi biri eksikse, müşteriniz girdi KDV'sini geri talep edemez — düzeltilmiş bir fatura için sizi takip ederler.
     </p>
 
-    <h2>4 common VAT errors</h2>
+    <h2>4 yaygın KDV hatası</h2>
     <p>
-      <strong>Error 1: Wrong rate applied.</strong> Using 20% on a
-      reduced-rate item, or 0% when you should have charged standard.
-      HMRC/tax authority will reassess and you&rsquo;ll owe the
-      difference out of pocket (plus penalties).
+      <strong>Hata 1: Yanlış oran uygulanması.</strong> İndirimli oranlı bir üründe %20 kullanmak veya standart oran uygulanması gerekirken %0 kullanmak. HMRC/vergi dairesi yeniden değerlendirme yapar ve farkı cebinizden ödersiniz (artı cezalar).
     </p>
     <p>
-      <strong>Error 2: Rounding per-line instead of total.</strong>
-      VAT should generally be calculated on the total, with a single
-      rounding at the end. Rounding each line can create compounding
-      errors that don&rsquo;t match customer calculations.
+      <strong>Hata 2: Toplam yerine satır bazında yuvarlama.</strong> KDV genellikle toplam üzerinden hesaplanmalı ve sonunda tek bir yuvarlama yapılmalıdır. Her satırı yuvarlamak, müşteri hesaplamalarıyla uyuşmayan birikimli hatalar oluşturabilir.
     </p>
     <p>
-      <strong>Error 3: Missing the customer&rsquo;s VAT number on
-      B2B invoices.</strong> No valid number = you should have
-      charged VAT. Tax authority will reassess with VAT owed by you.
+      <strong>Hata 3: B2B faturalarında müşterinin KDV numarasının eksik olması.</strong> Geçerli numara yoksa KDV tahsil etmiş olmanız gerekirdi. Vergi dairesi yeniden değerlendirme yapar ve KDV tarafınızdan ödenir.
     </p>
     <p>
-      <strong>Error 4: Treating reverse charge as &ldquo;no VAT
-      involved.&rdquo;</strong> Reverse charge must still be reported
-      on your return (as net sale with VAT indicator) — it just
-      happens to net to zero. Skip the reporting and you&rsquo;re
-      filing incomplete returns.
+      <strong>Hata 4: Tersine işlemi "KDV dahil değil" olarak ele almak.</strong> Tersine işlem yine de beyannamenizde raporlanmalıdır (KDV göstergesi ile net satış olarak) — sadece net sıfır olur. Raporlamayı atlarsanız eksik beyanname veriyorsunuz demektir.
     </p>
 
-    <h2>When to get an accountant vs DIY</h2>
+    <h2>Ne zaman muhasebeci almalı vs kendi başınıza yapmalı</h2>
     <p>
-      DIY is fine when: single country, one VAT rate, B2C only, under
-      threshold or just over, simple products.
+      Kendi başınıza yapmak şu durumlarda uygundur: tek ülke, tek KDV oranı, yalnızca B2C, eşik altı veya biraz üstü, basit ürünler.
     </p>
     <p>
-      Get an accountant when: cross-border EU sales, mix of standard
-      and reduced-rate products, OSS registration, partial-exemption
-      businesses, VAT margin schemes (second-hand goods, tour
-      operators), or when you&rsquo;re being audited. The cost of
-      getting VAT wrong exceeds the accountant fee fast — personal
-      liability for uncollected VAT is common.
+      Şu durumlarda muhasebeci alın: sınır ötesi AB satışları, standart ve indirimli oranlı ürün karışımı, OSS kaydı, kısmi muafiyetli işletmeler, KDV marj planları (ikinci el mallar, tur operatörleri) veya denetim geçiriyorsanız. KDV'yi yanlış yapmanın maliyeti, muhasebeci ücretini hızla aşar — tahsil edilmeyen KDV için kişisel sorumluluk yaygındır.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları hesaplayın</h2>
     <p>
-      Compute add-VAT or remove-VAT at any country&rsquo;s rate with
-      the <a href="/tools/vat-calculator">VAT calculator</a>. Pair
-      with the <a href="/tools/invoice-generator">invoice generator</a>
-      {" "}to produce a compliant VAT invoice, and the{" "}
-      <a href="/tools/profit-margin-calculator">profit margin
-      calculator</a> to confirm margins on VAT-inclusive versus
-      VAT-exclusive pricing.
+      Herhangi bir ülkenin oranında KDV ekleme veya KDV çıkarma işlemini <a href="/tools/vat-calculator">KDV hesaplayıcı</a> ile yapın. Uyumlu bir KDV faturası oluşturmak için <a href="/tools/invoice-generator">fatura oluşturucu</a> ve KDV dahil ile KDV hariç fiyatlandırmada marjları onaylamak için <a href="/tools/profit-margin-calculator">kar marjı hesaplayıcı</a> ile birlikte kullanın.
     </p>
   </>
 );

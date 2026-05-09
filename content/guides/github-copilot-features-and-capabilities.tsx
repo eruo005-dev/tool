@@ -3,180 +3,183 @@
 export const intro = (
   <>
     <p>
-      What GitHub Copilot can and can&rsquo;t do, plus the workflow patterns that
-      get the most out of it. Covers accuracy expectations, code-writing scope,
-      debugging, web development, legacy code, tests + docs, team collaboration,
-      and the corner cases (mobile, customization, API integration).
+      GitHub Copilot'ın neler yapıp neler yapamayacağı ve ondan en iyi şekilde
+      yararlanmanızı sağlayacak iş akışı kalıpları. Doğruluk beklentilerini, kod
+      yazma kapsamını, hata ayıklamayı, web geliştirmeyi, eski kodu, testleri +
+      dokümantasyonu, ekip iş birliğini ve uç durumları (mobil, özelleştirme, API
+      entegrasyonu) kapsar.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "accuracy", label: "Code accuracy + correctness" },
-  { id: "scope", label: "What Copilot can and can&rsquo;t do" },
-  { id: "debug", label: "Debugging with Copilot" },
-  { id: "web", label: "Web development" },
-  { id: "legacy", label: "Legacy code + tests + docs" },
-  { id: "teams", label: "Teams + customization" },
-  { id: "stack", label: "Multi-language, mobile, API integration" },
+  { id: "accuracy", label: "Kod doğruluğu + tutarlılığı" },
+  { id: "scope", label: "Copilot'ın yapabilecekleri ve yapamayacakları" },
+  { id: "debug", label: "Copilot ile hata ayıklama" },
+  { id: "web", label: "Web geliştirme" },
+  { id: "legacy", label: "Eski kod + testler + dokümantasyon" },
+  { id: "teams", label: "Ekipler + özelleştirme" },
+  { id: "stack", label: "Çoklu dil, mobil, API entegrasyonu" },
 ];
 
 export const body = (
   <>
-    <h2 id="accuracy">How accurate is Copilot&rsquo;s code?</h2>
+    <h2 id="accuracy">Copilot'ın kodu ne kadar doğru?</h2>
     <p>
-      Mixed answer. For idiomatic patterns in popular languages (JS, Python, Go), 80-95%
-      of suggestions compile and pass basic tests. For unusual patterns or rare APIs,
-      accuracy drops fast. Common failure modes:
+      Karmaşık bir cevap. Popüler dillerdeki (JS, Python, Go) yaygın kalıplar için
+      önerilerin %80-95'i derlenir ve temel testleri geçer. Alışılmadık kalıplar veya
+      nadir API'ler için doğruluk hızla düşer. Yaygın hata modları:
     </p>
     <ul>
-      <li><strong>Confidently wrong API signatures.</strong> Hallucinated function names that don&rsquo;t exist.</li>
-      <li><strong>Plausible but subtly broken logic.</strong> Off-by-one, wrong comparison operator.</li>
-      <li><strong>Outdated patterns.</strong> Suggesting deprecated APIs from training data.</li>
-      <li><strong>Security antipatterns.</strong> SQL string concatenation, missing input validation.</li>
+      <li><strong>Kendinden emin ama yanlış API imzaları.</strong> Var olmayan hayali fonksiyon adları.</li>
+      <li><strong>Makul ama ince bir şekilde bozuk mantık.</strong> Bir eksik veya fazla, yanlış karşılaştırma operatörü.</li>
+      <li><strong>Güncelliğini yitirmiş kalıplar.</strong> Eğitim verilerinden kullanımdan kaldırılmış API'ler önerme.</li>
+      <li><strong>Güvenlik karşıtı kalıplar.</strong> SQL string birleştirme, eksik girdi doğrulaması.</li>
     </ul>
     <p>
-      Treat suggestions like junior-dev work: review before accepting. Tests catch
-      most hallucinations.
+      Önerilere, kıdemsiz bir geliştiricinin işi gibi davranın: kabul etmeden önce
+      gözden geçirin. Testler çoğu hayali sonucu yakalar.
     </p>
 
-    <h2 id="scope">Can Copilot write entire applications?</h2>
+    <h2 id="scope">Copilot tüm uygulamaları yazabilir mi?</h2>
     <p>
-      No, in any meaningful sense. Copilot completes lines and small blocks well; it
-      doesn&rsquo;t architect systems, make tradeoff decisions, or maintain
-      consistency across a 50K-line codebase. The right framing: Copilot is a
-      productivity multiplier on existing developers, not a developer replacement.
+      Hayır, anlamlı bir şekilde. Copilot satırları ve küçük blokları iyi tamamlar;
+      sistemleri mimari etmez, ödünleşim kararları almaz veya 50.000 satırlık bir kod
+      tabanında tutarlılığı sağlamaz. Doğru çerçeve: Copilot, mevcut geliştiriciler
+      için bir üretkenlik çarpanıdır, bir geliştirici yedeği değildir.
     </p>
     <p>
-      Specific capabilities + limits:
+      Belirli yetenekler + sınırlamalar:
     </p>
     <ul>
-      <li>✅ Function bodies from clear comments (90% accuracy on idiomatic).</li>
-      <li>✅ Boilerplate (CRUD, type definitions, test scaffolds).</li>
-      <li>✅ Translation between similar languages / frameworks.</li>
-      <li>✅ Documentation comments + JSDoc/Sphinx blocks.</li>
-      <li>⚠️ Multi-file refactors (Copilot Workspace + Chat helps but human in loop).</li>
-      <li>❌ Architecture decisions, novel algorithm design, system design.</li>
-      <li>❌ Cross-cutting concerns (logging strategy, error handling philosophy).</li>
+      <li>✅ Net yorumlardan fonksiyon gövdeleri (yaygın kalıplarda %90 doğruluk).</li>
+      <li>✅ Şablon kod (CRUD, tür tanımları, test iskeletleri).</li>
+      <li>✅ Benzer diller / çerçeveler arasında çeviri.</li>
+      <li>✅ Dokümantasyon yorumları + JSDoc/Sphinx blokları.</li>
+      <li>⚠️ Çok dosyalı yeniden düzenlemeler (Copilot Workspace + Chat yardımcı olur ancak insan döngüde).</li>
+      <li>❌ Mimari kararlar, yeni algoritma tasarımı, sistem tasarımı.</li>
+      <li>❌ Tüm kesitleri ilgilendiren konular (günlük kaydı stratejisi, hata yönetimi felsefesi).</li>
     </ul>
 
-    <h2 id="debug">Debugging with Copilot</h2>
+    <h2 id="debug">Copilot ile hata ayıklama</h2>
     <p>
-      Copilot Chat (the chat-style interface inside your IDE) is genuinely useful
-      for debugging:
+      Copilot Chat (IDE'niz içindeki sohbet arayüzü) hata ayıklama için gerçekten
+      kullanışlıdır:
     </p>
     <ul>
-      <li>Paste an error message + relevant code; ask &ldquo;why is this failing?&rdquo;</li>
-      <li>Ask for likely fixes; evaluate each.</li>
-      <li>Ask &ldquo;what tests would have caught this?&rdquo; to improve coverage.</li>
+      <li>Bir hata mesajı + ilgili kodu yapıştırın; "bu neden başarısız oluyor?" diye sorun.</li>
+      <li>Olası düzeltmeler isteyin; her birini değerlendirin.</li>
+      <li>"Bunu hangi testler yakalardı?" diye sorarak kapsamı iyileştirin.</li>
     </ul>
     <p>
-      Less useful for: subtle race conditions, distributed-systems bugs, anything
-      requiring multi-file context the model can&rsquo;t see.
+      Şunlar için daha az kullanışlıdır: ince yarış koşulları, dağıtık sistem
+      hataları, modelin göremediği çok dosyalı bağlam gerektiren her şey.
     </p>
 
-    <h2 id="web">Is Copilot good for web development?</h2>
+    <h2 id="web">Copilot web geliştirme için iyi mi?</h2>
     <p>
-      Yes, particularly strong for web stacks. JavaScript, TypeScript, React, Vue,
-      Next.js, CSS, HTML — all well-represented in training data. Common useful
-      cases:
+      Evet, özellikle web yığınlarında güçlü. JavaScript, TypeScript, React, Vue,
+      Next.js, CSS, HTML — tümü eğitim verilerinde iyi temsil edilir. Yaygın
+      kullanışlı durumlar:
     </p>
     <ul>
-      <li>Component scaffolding from a brief description.</li>
-      <li>Form validation logic.</li>
-      <li>Tailwind utility classes from styling intent.</li>
-      <li>API endpoint handlers.</li>
-      <li>Type definitions from JSON shapes.</li>
+      <li>Kısa bir açıklamadan bileşen iskeleti oluşturma.</li>
+      <li>Form doğrulama mantığı.</li>
+      <li>Stil amacına göre Tailwind yardımcı sınıfları.</li>
+      <li>API uç noktası işleyicileri.</li>
+      <li>JSON şekillerinden tür tanımları.</li>
     </ul>
     <p>
-      Less useful for: novel CSS layouts, animation curves, accessibility-specific
-      ARIA patterns. These need taste + testing more than pattern-matching.
+      Şunlar için daha az kullanışlıdır: yeni CSS düzenleri, animasyon eğrileri,
+      erişilebilirliğe özgü ARIA kalıpları. Bunlar, kalıp eşleştirmeden çok beğeni +
+      test gerektirir.
     </p>
 
-    <h2 id="legacy">Legacy code, tests, docs</h2>
+    <h2 id="legacy">Eski kod, testler, dokümantasyon</h2>
     <ul>
       <li>
-        <strong>Legacy code:</strong> Copilot can summarize unfamiliar functions
-        ("explain this code"). Less useful for refactoring without strong test
-        coverage as a safety net.
+        <strong>Eski kod:</strong> Copilot, bilinmeyen fonksiyonları özetleyebilir
+        ("bu kodu açıkla"). Güvenlik ağı olarak güçlü test kapsamı olmadan yeniden
+        düzenleme için daha az kullanışlıdır.
       </li>
       <li>
-        <strong>Test generation:</strong> good at scaffolding test files + happy-
-        path tests. Mediocre at edge cases — humans still need to think about
-        boundary conditions.
+        <strong>Test oluşturma:</strong> test dosyalarını ve mutlu yol testlerini
+        iskelet olarak oluşturmada iyidir. Uç durumlarda vasattır — insanların hala
+        sınır koşullarını düşünmesi gerekir.
       </li>
       <li>
-        <strong>Documentation:</strong> good first-pass JSDoc/Sphinx/docstring
-        blocks. Edit for accuracy and voice.
-      </li>
-    </ul>
-
-    <h2 id="teams">Teams + customization</h2>
-    <ul>
-      <li>
-        <strong>Team collaboration:</strong> Business + Enterprise tiers. Centralized
-        billing, opt-out, audit logs.
-      </li>
-      <li>
-        <strong>Custom instructions:</strong> Enterprise tier supports custom
-        instructions per repo (style guides, naming conventions). Business tier
-        doesn&rsquo;t.
-      </li>
-      <li>
-        <strong>Coding standards enforcement:</strong> Copilot doesn&rsquo;t enforce
-        your style guide. Use linters + formatters on top.
+        <strong>Dokümantasyon:</strong> iyi bir ilk geçiş JSDoc/Sphinx/docstring
+        bloğu. Doğruluk ve üslup için düzenleyin.
       </li>
     </ul>
 
-    <h2 id="stack">Multi-language, mobile, API integration</h2>
+    <h2 id="teams">Ekipler + özelleştirme</h2>
     <ul>
       <li>
-        <strong>Multi-language support:</strong> 20+ languages with varying quality.
-        Top tier: JS/TS, Python, Go, Java, Ruby, PHP, C#. Second tier: C/C++, Rust,
-        Swift, Kotlin. Third tier: Erlang, Elixir, Haskell, Clojure (works but
-        accuracy drops).
+        <strong>Ekip iş birliği:</strong> İş + Kurumsal katmanlar. Merkezi
+        faturalandırma, devre dışı bırakma seçeneği, denetim günlükleri.
       </li>
       <li>
-        <strong>Mobile dev:</strong> Swift (iOS) + Kotlin (Android) both decent.
-        React Native + Flutter very strong (web stack inheritance).
+        <strong>Özel talimatlar:</strong> Kurumsal katman, depo başına özel
+        talimatları (stil kılavuzları, adlandırma kuralları) destekler. İş katmanı
+        desteklemez.
       </li>
       <li>
-        <strong>API integration:</strong> good for popular APIs in training data
-        (Stripe, Twilio, AWS SDK). Weak on niche APIs the model hasn&rsquo;t seen
-        much. Always verify generated calls against current docs.
+        <strong>Kodlama standartlarının uygulanması:</strong> Copilot, stil
+        kılavuzunuzu uygulamaz. Üzerine linter'lar + biçimlendiriciler kullanın.
+      </li>
+    </ul>
+
+    <h2 id="stack">Çoklu dil, mobil, API entegrasyonu</h2>
+    <ul>
+      <li>
+        <strong>Çoklu dil desteği:</strong> Değişen kalitede 20'den fazla dil.
+        Birinci kademe: JS/TS, Python, Go, Java, Ruby, PHP, C#. İkinci kademe: C/C++,
+        Rust, Swift, Kotlin. Üçüncü kademe: Erlang, Elixir, Haskell, Clojure (çalışır
+        ancak doğruluk düşer).
       </li>
       <li>
-        <strong>IDE compatibility:</strong> VSCode, JetBrains, Neovim, Cursor, Visual
-        Studio. Tabnine works in more IDEs if you&rsquo;re on something niche.
+        <strong>Mobil geliştirme:</strong> Swift (iOS) + Kotlin (Android) ikisi de
+        makul. React Native + Flutter çok güçlü (web yığını mirası).
+      </li>
+      <li>
+        <strong>API entegrasyonu:</strong> eğitim verilerindeki popüler API'ler için
+        iyidir (Stripe, Twilio, AWS SDK). Modelin fazla görmediği niş API'lerde
+        zayıftır. Oluşturulan çağrıları her zaman güncel dokümantasyona karşı
+        doğrulayın.
+      </li>
+      <li>
+        <strong>IDE uyumluluğu:</strong> VSCode, JetBrains, Neovim, Cursor, Visual
+        Studio. Niş bir IDE kullanıyorsanız Tabnine daha fazla IDE'de çalışır.
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Calculate ROI for your team",
+  label: "Ekibiniz için ROI hesaplayın",
   targetSlug: "github-copilot-roi-calculator",
 };
 
 export const faq = [
   {
-    q: "How accurate is GitHub Copilot's code?",
-    a: "80-95% of idiomatic suggestions in popular languages compile and pass basic tests. Lower for unusual patterns or rare APIs. Common failures: hallucinated APIs, off-by-one logic, outdated patterns, security antipatterns. Treat suggestions like junior-dev work — review before accepting; tests catch most hallucinations.",
+    q: "GitHub Copilot'ın kodu ne kadar doğru?",
+    a: "Popüler dillerdeki yaygın önerilerin %80-95'i derlenir ve temel testleri geçer. Alışılmadık kalıplar veya nadir API'ler için daha düşüktür. Yaygın hatalar: hayali API'ler, bir eksik/fazla mantık, güncelliğini yitirmiş kalıplar, güvenlik karşıtı kalıplar. Önerilere kıdemsiz geliştirici işi gibi davranın — kabul etmeden önce gözden geçirin; testler çoğu hayali sonucu yakalar.",
   },
   {
-    q: "Can GitHub Copilot write entire applications?",
-    a: "No. Copilot completes lines and small blocks well; it doesn't architect systems, make tradeoffs, or maintain consistency across large codebases. Productivity multiplier, not replacement.",
+    q: "GitHub Copilot tüm uygulamaları yazabilir mi?",
+    a: "Hayır. Copilot satırları ve küçük blokları iyi tamamlar; sistemleri mimari etmez, ödünleşimler yapmaz veya büyük kod tabanlarında tutarlılığı sağlamaz. Üretkenlik çarpanıdır, yedek değildir.",
   },
   {
-    q: "Is GitHub Copilot good for web development?",
-    a: "Yes — particularly strong. JS/TS, React, Vue, Next.js, Tailwind all well-represented. Useful for component scaffolding, form validation, API handlers, type definitions. Less useful for novel CSS, animation, accessibility-specific ARIA patterns.",
+    q: "GitHub Copilot web geliştirme için iyi mi?",
+    a: "Evet — özellikle güçlü. JS/TS, React, Vue, Next.js, Tailwind tümü iyi temsil edilir. Bileşen iskeleti oluşturma, form doğrulama, API işleyicileri, tür tanımları için kullanışlıdır. Yeni CSS, animasyon, erişilebilirliğe özgü ARIA kalıpları için daha az kullanışlıdır.",
   },
   {
-    q: "What programming languages does GitHub Copilot support?",
-    a: "20+ languages with varying quality. Top tier: JS/TS, Python, Go, Java, Ruby, PHP, C#. Second tier: C/C++, Rust, Swift, Kotlin. Mobile: Swift, Kotlin, React Native, Flutter all decent. Niche: Erlang, Elixir, Haskell, Clojure work with reduced accuracy.",
+    q: "GitHub Copilot hangi programlama dillerini destekliyor?",
+    a: "Değişen kalitede 20'den fazla dil. Birinci kademe: JS/TS, Python, Go, Java, Ruby, PHP, C#. İkinci kademe: C/C++, Rust, Swift, Kotlin. Mobil: Swift, Kotlin, React Native, Flutter tümü makul. Niş: Erlang, Elixir, Haskell, Clojure azaltılmış doğrulukla çalışır.",
   },
   {
-    q: "Does Copilot work in my IDE?",
-    a: "VSCode, JetBrains (IntelliJ, WebStorm, GoLand, etc.), Neovim, Cursor, Visual Studio all officially supported. For niche IDEs, Tabnine has wider compatibility. Mobile/iPad development requires the IDE you're using to support extensions.",
+    q: "Copilot IDE'mde çalışıyor mu?",
+    a: "VSCode, JetBrains (IntelliJ, WebStorm, GoLand vb.), Neovim, Cursor, Visual Studio tümü resmi olarak desteklenir. Niş IDE'ler için Tabnine daha geniş uyumluluğa sahiptir. Mobil/iPad geliştirme, kullandığınız IDE'nin eklentileri desteklemesini gerektirir.",
   },
 ];

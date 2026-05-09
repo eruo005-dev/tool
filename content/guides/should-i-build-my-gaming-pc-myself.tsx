@@ -3,173 +3,173 @@
 export const intro = (
   <>
     <p>
-      The DIY-vs-hire question for gaming PCs comes up constantly on r/buildapc and
-      r/buildapcforme. Most answers reflexively recommend DIY because &ldquo;it&rsquo;s
-      easy.&rdquo; The honest answer: it depends on your time value, mistake risk
-      tolerance, and how much you&rsquo;d enjoy the build.
+      DIY'ye karşı hazır alma sorusu oyun bilgisayarları için r/buildapc ve
+      r/buildapcforme'da sürekli gündeme geliyor. Çoğu yanıt, "çok kolay" olduğu için
+      içgüdüsel olarak DIY'i öneriyor. Dürüst cevap: zamanınızın değerine, hata riski
+      toleransınıza ve montajı ne kadar keyif alacağınıza bağlı.
     </p>
     <p>
-      This guide is the structured comparison: how hard building actually is in 2026,
-      what could go wrong, and the inputs that flip the math one way or the other.
-      Pair with our <a href="/tools/pc-build-vs-hire-calculator">build-vs-hire calculator</a>{" "}
-      for your specific numbers.
+      Bu rehber yapılandırılmış bir karşılaştırmadır: 2026'da montaj yapmak aslında ne kadar zor,
+      ne ters gidebilir ve denklemi bir yöne çeviren girdiler nelerdir.
+      Kendi rakamlarınız için <a href="/tools/pc-build-vs-hire-calculator">montaj-vs-kiralama hesaplayıcımızı</a>{" "}
+      kullanın.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "how-hard", label: "Is it really hard to build?" },
-  { id: "what-could-go-wrong", label: "What could go wrong" },
-  { id: "savings", label: "How much can you save with DIY?" },
-  { id: "decision", label: "Decision factors that aren't price" },
+  { id: "how-hard", label: "Montaj yapmak gerçekten zor mu?" },
+  { id: "what-could-go-wrong", label: "Ne ters gidebilir" },
+  { id: "savings", label: "DIY ile ne kadar tasarruf edebilirsiniz?" },
+  { id: "decision", label: "Fiyat dışındaki karar faktörleri" },
 ];
 
 export const body = (
   <>
-    <h2 id="how-hard">Is it really hard to build a gaming PC yourself?</h2>
+    <h2 id="how-hard">Kendi oyun bilgisayarınızı monte etmek gerçekten zor mu?</h2>
     <p>
-      Easier than the marketing makes it sound, harder than the YouTube tutorials
-      suggest. The honest difficulty profile:
+      Pazarlamanın gösterdiğinden daha kolay, YouTube eğitimlerinin önerdiğinden daha zor.
+      Dürüst zorluk profili:
     </p>
     <ul>
       <li>
-        <strong>Mechanical assembly:</strong> easy. Modern parts are keyed; you
-        physically can&rsquo;t plug most things in wrong. CPU sockets are still the
-        riskiest moment — bent pins from heavy hands ruin a $300 part.
+        <strong>Mekanik montaj:</strong> kolay. Modern parçalar anahtarlıdır; çoğu şeyi
+        yanlış takmanız fiziksel olarak mümkün değildir. CPU soketleri hâlâ en
+        riskli an — ağır ellerden bükülen pinler 300 dolarlık bir parçayı mahveder.
       </li>
       <li>
-        <strong>Cable management:</strong> medium. Looks clean takes practice. Doesn&rsquo;t
-        affect performance — purely aesthetic. First builds always look messy.
+        <strong>Kablo yönetimi:</strong> orta. Temiz görünmesi pratik gerektirir. Performansı
+        etkilemez — tamamen estetiktir. İlk montajlar her zaman dağınık görünür.
       </li>
       <li>
-        <strong>BIOS + first boot:</strong> medium. Sometimes the system POSTs first try.
-        Sometimes it doesn&rsquo;t and you spend an hour with the QR-coded LED
-        debugger. Common first-boot issues: RAM in the wrong slots, monitor plugged
-        into motherboard instead of GPU, EPS power cable not seated.
+        <strong>BIOS + ilk açılış:</strong> orta. Bazen sistem ilk denemede POST geçer.
+        Bazen geçmez ve QR kodlu LED hata ayıklayıcıyla bir saat geçirirsiniz.
+        Yaygın ilk açılış sorunları: RAM yanlış yuvalarda, monitör GPU yerine anakarta
+        takılı, EPS güç kablosu tam oturmamış.
       </li>
       <li>
-        <strong>Thermal management:</strong> low difficulty for most builds. Modern AIO
-        coolers and CPU coolers are mostly idiot-proof at stock settings. Custom water
-        loops are an order of magnitude harder.
+        <strong>Termal yönetim:</strong> çoğu montaj için düşük zorluk. Modern AIO
+        soğutucular ve CPU soğutucuları, stok ayarlarda çoğunlukla aptal geçirmezdir. Özel
+        su soğutma devreleri çok daha zordur.
       </li>
       <li>
-        <strong>OS install + drivers:</strong> easy. Windows 11 install from USB takes
-        15 minutes; chipset + GPU drivers add another 15.
+        <strong>İşletim sistemi kurulumu + sürücüler:</strong> kolay. USB'den Windows 11 kurulumu
+        15 dakika sürer; yonga seti + GPU sürücüleri 15 dakika daha ekler.
       </li>
     </ul>
     <p>
-      Total realistic time investment for a first-time builder: 6–12 hours from
-      open-box to OS-installed-and-driver-updated. Experienced builders do it in 2–3
-      hours.
+      İlk kez montaj yapan biri için toplam gerçekçi zaman yatırımı: kutudan çıkarmadan
+      işletim sistemi kurulumu ve sürücü güncellemesine kadar 6–12 saat. Deneyimli montajcılar
+      bunu 2–3 saatte yapar.
     </p>
 
-    <h2 id="what-could-go-wrong">What could go wrong (and how often)</h2>
+    <h2 id="what-could-go-wrong">Ne ters gidebilir (ve ne sıklıkta)</h2>
     <p>
-      The mistake probability for first-time builders averages 15–25% per multiple
-      r/buildapc post-mortem threads. The most common mistakes:
+      Birden fazla r/buildapc ölüm sonrası incelemesine göre ilk kez montaj yapanlar için hata
+      olasılığı ortalama %15–25'tir. En yaygın hatalar:
     </p>
     <ul>
       <li>
-        <strong>Bent CPU pins (~5%).</strong> Costly. Either replace the CPU or attempt
-        bend-back with a needle (sometimes works, sometimes doesn&rsquo;t).
+        <strong>Bükülmüş CPU pinleri (~%5).</strong> Maliyetli. Ya CPU'yu değiştirin ya da
+        bir iğne ile geri bükmeyi deneyin (bazen işe yarar, bazen yaramaz).
       </li>
       <li>
-        <strong>RAM in wrong slots (~10%).</strong> Cheap fix once diagnosed (re-seat in
-        the dual-channel slots indicated by the manual), but causes a panicked first
-        boot.
+        <strong>RAM yanlış yuvalarda (~%10).</strong> Teşhis edildiğinde ucuz düzeltme (kılavuzun
+        belirttiği çift kanal yuvalarına yeniden takın), ancak panikli bir ilk
+        açılışa neden olur.
       </li>
       <li>
-        <strong>Monitor in motherboard port instead of GPU (~10%).</strong> Black screen
-        on first boot. Free fix.
+        <strong>Monitör GPU yerine anakart portunda (~%10).</strong> İlk açılışta siyah
+        ekran. Ücretsiz düzeltme.
       </li>
       <li>
-        <strong>Unplugged EPS / 24-pin power (~5%).</strong> Free fix.
+        <strong>EPS / 24-pin güç kablosu takılı değil (~%5).</strong> Ücretsiz düzeltme.
       </li>
       <li>
-        <strong>Forgotten standoffs causing motherboard short (~3%).</strong> Bad. Can
-        damage the motherboard. Always count standoffs against your case template.
+        <strong>Unutulan vidalı ayaklar anakart kısa devresine neden olur (~%3).</strong> Kötü.
+        Anakarta zarar verebilir. Vidalı ayakları her zaman kasa şablonunuza göre sayın.
       </li>
       <li>
-        <strong>Wrong RAM speed in BIOS (~15%).</strong> Free fix once you enable EXPO/XMP
-        in BIOS. RAM at default JEDEC speeds is 30% slower than rated; many builders
-        run their RAM slow without realizing it.
+        <strong>BIOS'ta yanlış RAM hızı (~%15).</strong> BIOS'ta EXPO/XMP'yi etkinleştirdiğinizde
+        ücretsiz düzeltme. Varsayılan JEDEC hızlarındaki RAM, belirtilenden %30 daha yavaştır;
+        birçok montajcı RAM'lerini farkında olmadan yavaş çalıştırır.
       </li>
       <li>
-        <strong>Inadequate PSU (~5%).</strong> Sometimes the system runs but power-spikes
-        the PSU under load, causing crashes. Diagnostic: stress test before celebrating.
+        <strong>Yetersiz PSU (~%5).</strong> Bazen sistem çalışır ancak yük altında güç
+        dalgalanmaları PSU'yu tetikler ve çökmelere neden olur. Teşhis: kutlamadan önce stres testi yapın.
       </li>
     </ul>
     <p>
-      Most of these are recoverable with troubleshooting time. The expensive mistakes
-      (bent pins, motherboard short) are the ones to insure against.
+      Bunların çoğu sorun giderme süresiyle düzeltilebilir. Maliyetli hatalar
+      (bükülmüş pinler, anakart kısa devresi) sigorta yapılması gerekenlerdir.
     </p>
 
-    <h2 id="savings">How much can you save with DIY?</h2>
+    <h2 id="savings">DIY ile ne kadar tasarruf edebilirsiniz?</h2>
     <p>
-      Compared to a custom-built PC from a service like NZXT BLD or Origin PC: 5–15%
-      savings on parts cost. Compared to a Best Buy or Amazon pre-built that&rsquo;s
-      already-built-and-shipped: 10–25%. Compared to an iBuyPower or CyberPower
-      bargain pre-built: usually a wash — those use cheap PSU/RAM/cooling that you
-      wouldn&rsquo;t buy yourself.
+      NZXT BLD veya Origin PC gibi bir hizmetten özel yapım bir bilgisayarla karşılaştırıldığında:
+      parça maliyetinde %5–15 tasarruf. Best Buy veya Amazon'dan önceden monte edilmiş ve
+      gönderilmiş bir bilgisayarla karşılaştırıldığında: %10–25. iBuyPower veya CyberPower
+      gibi ucuz ön montajlı bilgisayarlarla karşılaştırıldığında: genellikle başa baş — bunlar
+      kendinizin satın almayacağı ucuz PSU/RAM/soğutma kullanır.
     </p>
     <p>
-      The bigger savings vs hiring local assembly: typically $80–$300 service fee
-      vs your time. If your hourly value is $40 and you spend 8 hours, the math is
-      $320 of your time vs $150 service fee + warranty value. Run the
-      <a href="/tools/pc-build-vs-hire-calculator">build-vs-hire calculator</a> for
-      your specific numbers.
+      Yerel montaj hizmetine kıyasla daha büyük tasarruf: genellikle 80–300 dolar hizmet
+      ücretine karşılık sizin zamanınız. Saatlik değeriniz 40 dolar ve 8 saat harcıyorsanız, matematik
+      320 dolar zamanınız vs 150 dolar hizmet ücreti + garanti değeridir. Kendi
+      rakamlarınız için <a href="/tools/pc-build-vs-hire-calculator">montaj-vs-kiralama hesaplayıcısını</a> çalıştırın.
     </p>
 
-    <h2 id="decision">Decision factors that aren&rsquo;t price</h2>
+    <h2 id="decision">Fiyat dışındaki karar faktörleri</h2>
     <ul>
       <li>
-        <strong>Skill building.</strong> First DIY build teaches you the system in a
-        way no amount of reading does. Future upgrades and troubleshooting become
-        easier.
+        <strong>Beceri geliştirme.</strong> İlk DIY montajı, sistemi hiçbir okumanın
+        öğretemeyeceği şekilde öğretir. Gelecekteki yükseltmeler ve sorun giderme
+        kolaylaşır.
       </li>
       <li>
-        <strong>Customization.</strong> DIY lets you pick exactly the case, fans,
-        RGB, cable look you want. Pre-builts compromise on case quality and PSU.
+        <strong>Kişiselleştirme.</strong> DIY, tam olarak istediğiniz kasa, fan,
+        RGB, kablo görünümünü seçmenizi sağlar. Ön montajlı bilgisayarlar kasa kalitesi ve PSU'da
+        ödün verir.
       </li>
       <li>
-        <strong>Warranty preferences.</strong> Pre-built warranty covers the whole
-        system. DIY warranty is per-part and on you for assembly issues. Important
-        if you&rsquo;re anxious about reliability.
+        <strong>Garanti tercihleri.</strong> Ön montajlı garanti tüm sistemi
+        kapsar. DIY garantisi parça başınadır ve montaj sorunları size aittir. Güvenilirlik
+        konusunda endişeliyseniz önemlidir.
       </li>
       <li>
-        <strong>Time + risk tolerance.</strong> If you&rsquo;d enjoy the project
-        and have a free Saturday, DIY. If you&rsquo;d rather be playing games this
-        weekend, hire it out or pre-build.
+        <strong>Zaman + risk toleransı.</strong> Projeden keyif alacak
+        ve boş bir Cumartesi gününüz varsa, DIY. Bu hafta sonu oyun oynamayı
+        tercih ediyorsanız, dışarıdan kiralayın veya ön montajlı alın.
       </li>
       <li>
-        <strong>Local resources.</strong> Live near a Micro Center? They build for
-        ~$150 with a warranty. Live somewhere remote? Pre-built shipped is your
-        practical path.
+        <strong>Yerel kaynaklar.</strong> Bir Micro Center yakınında mı yaşıyorsunuz? ~150 dolara
+        garantiyle montaj yapıyorlar. Uzak bir yerde mi yaşıyorsunuz? Gönderilen ön montajlı
+        pratik yolunuzdur.
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Build vs hire calculator (free)",
+  label: "Montaj vs kiralama hesaplayıcısı (ücretsiz)",
   targetSlug: "pc-build-vs-hire-calculator",
 };
 
 export const faq = [
   {
-    q: "Should I build my gaming PC myself or hire someone?",
-    a: "Run the calculator with realistic mistake probabilities (15-25% for first-time builders). For experienced builders, DIY almost always wins. For first-time builders, it depends on hourly value and time tolerance. Non-monetary factors (skill building, customization satisfaction) push toward DIY. Convenience pushes toward hire.",
+    q: "Oyun bilgisayarımı kendim mi monte etmeliyim yoksa birine mi yaptırmalıyım?",
+    a: "Hesaplayıcıyı gerçekçi hata olasılıklarıyla (ilk kez montaj yapanlar için %15-25) çalıştırın. Deneyimli montajcılar için DIY neredeyse her zaman kazanır. İlk kez montaj yapanlar için saatlik değere ve zaman toleransına bağlıdır. Parasal olmayan faktörler (beceri geliştirme, kişiselleştirme memnuniyeti) DIY'i teşvik eder. Kolaylık, kiralamayı teşvik eder.",
   },
   {
-    q: "Is it really hard to build a gaming PC yourself?",
-    a: "Easier than marketing suggests, harder than YouTube tutorials show. Mechanical assembly is easy (parts are keyed). BIOS first-boot can take an hour. Cable management takes practice. Realistic time: 6-12 hours first build, 2-3 hours experienced. Total skill bar is low for the assembly; debugging when things don't post-first-try is the harder part.",
+    q: "Kendi oyun bilgisayarınızı monte etmek gerçekten zor mu?",
+    a: "Pazarlamanın önerdiğinden daha kolay, YouTube eğitimlerinin gösterdiğinden daha zor. Mekanik montaj kolaydır (parçalar anahtarlıdır). BIOS ilk açılışı bir saat sürebilir. Kablo yönetimi pratik gerektirir. Gerçekçi süre: ilk montaj 6-12 saat, deneyimli 2-3 saat. Montaj için toplam beceri seviyesi düşüktür; sistem ilk denemede POST geçmediğinde hata ayıklama daha zor kısımdır.",
   },
   {
-    q: "What could go wrong when building a gaming PC?",
-    a: "Most common mistakes (with frequencies): bent CPU pins (5%, expensive), RAM in wrong slots (10%, free fix), monitor in motherboard port (10%, free fix), unplugged EPS power (5%, free), missing standoffs causing short (3%, expensive), wrong RAM speed in BIOS (15%, free fix), inadequate PSU (5%). Most are recoverable; bent pins + motherboard short are the costly ones.",
+    q: "Oyun bilgisayarı monte ederken ne ters gidebilir?",
+    a: "En yaygın hatalar (sıklıklarıyla): bükülmüş CPU pinleri (%5, pahalı), RAM yanlış yuvalarda (%10, ücretsiz düzeltme), monitör anakart portunda (%10, ücretsiz düzeltme), EPS gücü takılı değil (%5, ücretsiz), eksik vidalı ayaklar kısa devreye neden olur (%3, pahalı), BIOS'ta yanlış RAM hızı (%15, ücretsiz düzeltme), yetersiz PSU (%5). Çoğu düzeltilebilir; bükülmüş pinler + anakart kısa devresi maliyetli olanlardır.",
   },
   {
-    q: "How much can you save building a gaming PC yourself?",
-    a: "5-15% savings vs custom-built from NZXT BLD / Origin PC. 10-25% vs pre-built from Best Buy / Amazon. Roughly a wash vs iBuyPower / CyberPower (those use cheap parts you wouldn't buy). The bigger savings vs local assembly is typically $80-300 service fee vs your time — run our calculator for your specific numbers.",
+    q: "Kendi oyun bilgisayarınızı monte ederek ne kadar tasarruf edebilirsiniz?",
+    a: "NZXT BLD / Origin PC'den özel yapıma kıyasla %5-15 tasarruf. Best Buy / Amazon'dan ön montajlıya kıyasla %10-25. iBuyPower / CyberPower ile kabaca başa baş (bunlar sizin satın almayacağınız ucuz parçalar kullanır). Yerel montaja kıyasla daha büyük tasarruf genellikle 80-300 dolar hizmet ücretine karşı sizin zamanınızdır — kendi rakamlarınız için hesaplayıcımızı çalıştırın.",
   },
 ];

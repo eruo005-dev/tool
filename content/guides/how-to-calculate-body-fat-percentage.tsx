@@ -3,135 +3,83 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Body fat percentage tells you what your weight is actually made of.
-      Two people at 170 lbs can look — and be — completely different: one at
-      15% body fat is a lean athlete, one at 30% is average and probably
-      carrying more visceral fat than they want. BMI can&rsquo;t distinguish
-      them. This guide walks through the five ways to measure body fat %, why
-      the US Navy tape method is the best free option for most people, and how
-      to track it reliably.
+      Vücut yağ yüzdesi, kilonuzun aslında nelerden oluştuğunu söyler. 170 libre olan iki kişi tamamen farklı görünebilir ve farklı olabilir: %15 vücut yağına sahip biri zayıf bir atlettir, %30'a sahip biri ise ortalamadır ve muhtemelen istediğinden daha fazla iç organ yağı taşıyordur. BMI bunları ayırt edemez. Bu rehber, vücut yağ yüzdesini ölçmenin beş yolunu, ABD Donanması bant yönteminin çoğu insan için neden en iyi ücretsiz seçenek olduğunu ve bunu güvenilir bir şekilde nasıl takip edeceğinizi anlatır.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Why body fat % matters more than BMI</h2>
+    <h2>Vücut yağ %'si neden BMI'dan daha önemlidir</h2>
     <p>
-      BMI is a two-number ratio — height and weight — that was never designed
-      for individual diagnosis. It was built in the 1830s for population
-      statistics. A lifter at 5&apos;10&quot;, 200 lbs, and 12% body fat shows
-      up as &ldquo;overweight&rdquo; on the BMI chart despite carrying less
-      fat than 90% of the population. Meanwhile a sedentary office worker at
-      the same height and 160 lbs might read as &ldquo;healthy&rdquo; BMI but
-      carry 30% fat and corresponding metabolic risk.
+      BMI, bireysel teşhis için asla tasarlanmamış iki sayılı bir orandır (boy ve kilo). 1830'larda nüfus istatistikleri için oluşturulmuştur. 5'10", 200 libre ve %12 vücut yağına sahip bir halterci, nüfusun %90'ından daha az yağ taşımasına rağmen BMI tablosunda "fazla kilolu" olarak görünür. Bu arada, aynı boyda ve 160 libre ağırlığındaki hareketsiz bir ofis çalışanı "sağlıklı" BMI olarak okunabilir ancak %30 yağ ve buna karşılık gelen metabolik risk taşır.
     </p>
     <p>
-      Body fat percentage is what doctors, coaches, and insurance actuaries
-      actually care about under the hood. If you can measure only one thing
-      beyond the scale, measure this.
+      Vücut yağ yüzdesi, doktorların, antrenörlerin ve sigorta aktüerlerinin perde arkasında gerçekten önemsediği şeydir. Tartının ötesinde yalnızca bir şeyi ölçebiliyorsanız, bunu ölçün.
     </p>
 
-    <h2>The five methods, ranked by accuracy</h2>
+    <h2>Beş yöntem, doğruluk sırasına göre sıralanmıştır</h2>
     <p>
-      <strong>1. DEXA scan.</strong> X-ray based, ±1% accuracy, splits fat
-      from lean mass and bone. The research-grade standard. Runs $50–$150 per
-      scan at a local clinic.
+      <strong>1. DEXA taraması.</strong> Röntgen tabanlı, ±%1 doğruluk, yağı yağsız kütle ve kemikten ayırır. Araştırma düzeyinde standarttır. Yerel bir klinikte tarama başına 50–150 dolar arasındadır.
     </p>
     <p>
-      <strong>2. BodPod.</strong> Air-displacement plethysmography. ±2%
-      accuracy. Similar cost to DEXA, less widely available.
+      <strong>2. BodPod.</strong> Hava değiştirme pletismografisi. ±%2 doğruluk. DEXA'ya benzer maliyet, daha az yaygın olarak bulunur.
     </p>
     <p>
-      <strong>3. Skinfold calipers.</strong> A trained operator pinches 3 or
-      7 sites and maps to a body fat %. ±3% if done by a pro; ±6% if
-      self-measured. Cheap and repeatable but operator-dependent.
+      <strong>3. Deri kıvrım kaliperleri.</strong> Eğitimli bir operatör 3 veya 7 bölgeyi sıkıştırır ve bir vücut yağ %'sine eşler. Bir profesyonel tarafından yapılırsa ±%3; kendi kendine ölçülürse ±%6. Ucuz ve tekrarlanabilir ancak operatöre bağlıdır.
     </p>
     <p>
-      <strong>4. US Navy tape method.</strong> Free, needs only a flexible
-      tape. ±3–4% accuracy for most adults. Based on neck and waist
-      circumference (plus hip for women). This is the best no-cost option.
+      <strong>4. ABD Donanması bant yöntemi.</strong> Ücretsizdir, yalnızca esnek bir bant gerektirir. Çoğu yetişkin için ±%3–4 doğruluk. Boyun ve bel çevresine (kadınlar için kalça eklenir) dayanır. Bu, en iyi ücretsiz seçenektir.
     </p>
     <p>
-      <strong>5. Bioimpedance (BIA) scales.</strong> Zap a low current
-      through your body and estimate from resistance. The numbers swing by
-      3–5% with hydration alone, so day-to-day trends are noisy. Better than
-      nothing, but the tape wins on consistency.
+      <strong>5. Biyoelektrik empedans (BIA) tartıları.</strong> Vücudunuzdan düşük bir akım geçirir ve dirençten tahmin eder. Sadece hidrasyonla sayılar %3–5 oranında dalgalanır, bu nedenle günlük eğilimler gürültülüdür. Yoktan iyidir, ancak bant tutarlılıkta kazanır.
     </p>
 
-    <h2>The US Navy tape method in practice</h2>
+    <h2>ABD Donanması bant yöntemi pratikte</h2>
     <p>
-      The Navy formula has been used by the US military since 1984 for PFA
-      compliance. It works because abdominal fat is the dominant
-      differentiator between body compositions at the same height.
+      Donanma formülü, 1984'ten beri ABD ordusu tarafından PFA uyumu için kullanılmaktadır. İşe yarar çünkü karın yağı, aynı boydaki vücut kompozisyonları arasındaki baskın ayırt edicidir.
     </p>
     <p>
-      For men:{" "}
+      Erkekler için:{" "}
       <code>
-        BF% = 86.010 × log10(waist − neck) − 70.041 × log10(height) + 36.76
+        VY% = 86,010 × log10(bel − boyun) − 70,041 × log10(boy) + 36,76
       </code>
-      . For women:{" "}
+      . Kadınlar için:{" "}
       <code>
-        BF% = 163.205 × log10(waist + hip − neck) − 97.684 × log10(height)
-        − 78.387
+        VY% = 163,205 × log10(bel + kalça − boyun) − 97,684 × log10(boy)
+        − 78,387
       </code>
-      . You measure in inches. Don&rsquo;t do the math by hand — the{" "}
-      <a href="/tools/body-fat-calculator">body fat calculator</a> handles it
-      instantly.
+      . İnç cinsinden ölçüm yaparsınız. Hesabı elle yapmayın —{" "}
+      <a href="/tools/body-fat-calculator">vücut yağ hesaplayıcı</a> anında halleder.
     </p>
     <p>
-      <strong>Measure correctly.</strong> Waist at the navel, tape level all
-      the way around, do not suck in. Neck just below the larynx, tape flat.
-      Hips (women) at the widest point. Measure first thing in the morning
-      before eating or drinking — a full stomach can add half an inch to the
-      waist and swing the result 1–2 percentage points.
+      <strong>Doğru ölçün.</strong> Beli göbek deliğinden, bandı her yerde aynı seviyede tutun, karnınızı içeri çekmeyin. Boynu gırtlağın hemen altından, bant düz olacak şekilde. Kalçayı (kadınlar) en geniş noktadan ölçün. Yemek yemeden veya içmeden önce sabah ilk iş olarak ölçün — dolu bir mide bele yarım inç ekleyebilir ve sonucu 1–2 puan oynatabilir.
     </p>
 
-    <h2>Healthy ranges</h2>
+    <h2>Sağlıklı aralıklar</h2>
     <p>
-      The American Council on Exercise bands body fat percentages roughly as
-      follows. Men: 2–5% essential, 6–13% athletic, 14–17% fit, 18–24%
-      average, 25%+ high. Women carry more essential fat: 10–13% essential,
-      14–20% athletic, 21–24% fit, 25–31% average, 32%+ high. These shift
-      slightly with age.
+      Amerikan Egzersiz Konseyi vücut yağ yüzdelerini kabaca aşağıdaki gibi gruplandırır. Erkekler: %2–5 temel, %6–13 atletik, %14–17 formda, %18–24 ortalama, %25+ yüksek. Kadınlar daha fazla temel yağ taşır: %10–13 temel, %14–20 atletik, %21–24 formda, %25–31 ortalama, %32+ yüksek. Bunlar yaşla birlikte biraz değişir.
     </p>
     <p>
-      &ldquo;Healthy&rdquo; isn&rsquo;t the same as &ldquo;low.&rdquo; Men
-      below 6% and women below 14% can lose menstrual function, bone density,
-      immune health, and testosterone. The athletic range is a better target
-      than the essential one for almost everyone.
+      "Sağlıklı", "düşük" ile aynı şey değildir. %6'nın altındaki erkekler ve %14'ün altındaki kadınlar adet fonksiyonunu, kemik yoğunluğunu, bağışıklık sağlığını ve testosteronu kaybedebilir. Atletik aralık, neredeyse herkes için temel aralıktan daha iyi bir hedeftir.
     </p>
 
-    <h2>How often to measure</h2>
+    <h2>Ne sıklıkla ölçülmeli</h2>
     <p>
-      Once every 2–4 weeks is enough. Body fat doesn&rsquo;t swing
-      meaningfully day-to-day — the scale does, but most of that is water
-      and glycogen. If you measure daily you&rsquo;ll drive yourself
-      insane chasing noise.
+      2–4 haftada bir yeterlidir. Vücut yağı günden güne anlamlı şekilde dalgalanmaz — tartı dalgalanır, ancak bunun çoğu su ve glikojendir. Her gün ölçerseniz, gürültünün peşinde koşarak kendinizi çıldırtırsınız.
     </p>
     <p>
-      Track two numbers over 8 weeks: body fat % and waist circumference. If
-      both trend down, you&rsquo;re losing fat. If waist drops but body fat
-      holds, it&rsquo;s probably hydration. If body fat rises while weight
-      holds, you&rsquo;re losing muscle — slow the cut or eat more protein.
+      8 hafta boyunca iki sayıyı takip edin: vücut yağ yüzdesi ve bel çevresi. İkisi de düşüyorsa, yağ kaybediyorsunuzdur. Bel düşüyor ancak vücut yağı sabit kalıyorsa, muhtemelen hidrasyondur. Vücut yağı kilo sabitken yükseliyorsa, kas kaybediyorsunuzdur — kesimi yavaşlatın veya daha fazla protein tüketin.
     </p>
 
-    <h2>What actually moves the number</h2>
+    <h2>Sayıyı gerçekten ne değiştirir</h2>
     <p>
-      There&rsquo;s no secret. A caloric deficit of 300–500/day (tracked
-      honestly), 0.8–1.0 grams of protein per pound of target weight,
-      resistance training 3+ days a week, and 7+ hours of sleep. Over 12
-      weeks that combination drops 2–4 points of body fat in most people —
-      repeatable by almost anyone, which is why it&rsquo;s not an advertised
-      magic protocol.
+      Sır yok. Günde 300–500 kalorilik bir açık (dürüstçe takip edilen), hedef kilonun libresi başına 0,8–1,0 gram protein, haftada 3+ gün direnç antrenmanı ve 7+ saat uyku. 12 hafta boyunca bu kombinasyon çoğu insanda vücut yağını 2–4 puan düşürür — neredeyse herkes tarafından tekrarlanabilir, bu yüzden reklamı yapılan bir sihirli protokol değildir.
     </p>
     <p>
-      Pair the body fat calculator with our{" "}
-      <a href="/tools/bmr-calculator">BMR calculator</a> to set the calorie
-      target, and the <a href="/tools/calorie-calculator">calorie
-      calculator</a> for a goal-based intake number. See the{" "}
-      <a href="/guides/how-to-build-muscle-as-a-beginner">build muscle as a
-      beginner</a> guide for the training side.
+      Vücut yağ hesaplayıcıyı, kalori hedefini belirlemek için{" "}
+      <a href="/tools/bmr-calculator">BMR hesaplayıcımız</a> ve hedef tabanlı bir alım sayısı için <a href="/tools/calorie-calculator">kalori hesaplayıcı</a> ile birlikte kullanın. Antrenman tarafı için{" "}
+      <a href="/guides/how-to-build-muscle-as-a-beginner">yeni başlayan biri olarak kas nasıl yapılır</a> rehberine bakın.
     </p>
   </>
 );

@@ -3,163 +3,96 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      The <code>&lt;title&gt;</code> tag is the single highest-leverage piece of SEO copy on a
-      page. It shows in the SERP as the blue clickable headline, in browser tabs, in social
-      shares that fall back to it, and in bookmarks. It is one of Google&rsquo;s oldest
-      confirmed ranking signals and still one of the strongest. It also has tight limits:
-      about 60 characters or roughly 600 pixels in desktop Google, with aggressive rewriting
-      when Google thinks your title doesn&rsquo;t match the content. A strong title combines
-      the exact query a searcher typed, a specific modifier that promises value, and enough
-      brand to build recall over time. This guide covers pixel and character limits, brand
-      placement, separator characters, click-worthy modifiers, and how Google rewrites titles.
+      <code>&lt;title&gt;</code> etiketi, bir sayfadaki en yüksek kaldıraçlı SEO metnidir. SERP'de mavi tıklanabilir başlık olarak, tarayıcı sekmelerinde, ona geri dönen sosyal paylaşımlarda ve yer imlerinde görünür. Google'ın en eski doğrulanmış sıralama sinyallerinden biridir ve hala en güçlülerinden biridir. Ayrıca sıkı sınırları vardır: masaüstü Google'da yaklaşık 60 karakter veya kabaca 600 piksel; Google, başlığınızın içerikle eşleşmediğini düşündüğünde agresif bir şekilde yeniden yazar. Güçlü bir başlık, bir arayanın yazdığı tam sorguyu, değer vaat eden belirli bir değiştiriciyi ve zaman içinde hatırlanabilirlik oluşturmak için yeterli markayı birleştirir. Bu kılavuz, piksel ve karakter sınırlarını, marka yerleşimini, ayırıcı karakterleri, tıklanmaya değer değiştiricileri ve Google'ın başlıkları nasıl yeniden yazdığını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Length limits: 60 characters, 600 pixels</h2>
+    <h2>Uzunluk sınırları: 60 karakter, 600 piksel</h2>
     <p>
-      Google displays about 600 pixels of title text on desktop, which corresponds to roughly
-      60 characters of average-width text. Mobile truncation is similar or slightly tighter.
-      The 50-60 character range is the safe target. Titles over 60 characters are frequently
-      truncated with an ellipsis. Titles under 30 characters tend to be too vague to differentiate.
-      Every character above 60 is a bet that Google will still show your title in full, and
-      that bet usually loses.
+      Google, masaüstünde yaklaşık 600 piksel başlık metni görüntüler; bu, ortalama genişlikteki metnin kabaca 60 karakterine karşılık gelir. Mobil kırpma benzer veya biraz daha dardır. 50-60 karakter aralığı güvenli hedeftir. 60 karakterin üzerindeki başlıklar genellikle üç nokta ile kırpılır. 30 karakterin altındaki başlıklar, farklılaşmak için çok belirsiz olma eğilimindedir. 60'ın üzerindeki her karakter, Google'ın başlığınızı tam olarak göstereceğine dair bir bahistir ve bu bahis genellikle kaybeder.
     </p>
-    <pre>{`Desktop Google:  ~600 px = ~60 chars
-Mobile Google:   ~600 px = ~60 chars (narrower rendering)
-Safe target:     50-60 chars
-Minimum useful:  30 chars`}</pre>
+    <pre>{`Masaüstü Google:  ~600 px = ~60 karakter
+Mobil Google:   ~600 px = ~60 karakter (dar işleme)
+Güvenli hedef:     50-60 karakter
+Minimum kullanışlı:  30 karakter`}</pre>
 
-    <h2>Pixel width beats character count</h2>
+    <h2>Piksel genişliği, karakter sayısından daha önemlidir</h2>
     <p>
-      Google uses pixel width, not characters, to decide where to truncate. Wide letters (M,
-      W, capitals generally) and special characters consume more pixels. Narrow letters (i, l,
-      t, punctuation) consume less. A title that fits 63 characters of narrow text may exceed
-      600 pixels; one that fits 57 characters of wide text may fit easily. Pixel-aware checkers
-      measure against the Arial font Google uses in its SERPs, which gives a more accurate
-      truncation point than a character count alone.
+      Google, nerede kırpılacağına karar vermek için karakterleri değil piksel genişliğini kullanır. Geniş harfler (M, W, genel olarak büyük harfler) ve özel karakterler daha fazla piksel tüketir. Dar harfler (i, l, t, noktalama işaretleri) daha az tüketir. 63 karakterlik dar metne sığan bir başlık 600 pikseli aşabilir; 57 karakterlik geniş metne sığan bir başlık rahatça sığabilir. Piksel duyarlı denetleyiciler, Google'ın SERP'lerinde kullandığı Arial yazı tipine göre ölçüm yapar ve bu, yalnızca karakter sayısından daha doğru bir kırpma noktası verir.
     </p>
 
-    <h2>Query match and click-worthiness</h2>
+    <h2>Sorgu eşleşmesi ve tıklanabilirlik</h2>
     <p>
-      The query term should appear in the title, ideally close to the front. Google bolds
-      matching terms in the SERP, which draws the eye. But match alone is not enough&mdash;the
-      title also has to promise something the searcher wants. Modifiers that boost <a href="/learn/ctr">CTR</a> include
-      numbers (&ldquo;10 ways&rdquo;, &ldquo;5-minute&rdquo;), year (&ldquo;2026 guide&rdquo;),
-      specificity (&ldquo;for freelancers&rdquo;, &ldquo;on a budget&rdquo;), emotional language
-      (&ldquo;ultimate&rdquo;, &ldquo;proven&rdquo;), and format promises (&ldquo;checklist&rdquo;,
-      &ldquo;template&rdquo;, &ldquo;calculator&rdquo;). Pick the modifier that matches user
-      intent for the target query, not the one that sounds catchiest in isolation.
+      Sorgu terimi başlıkta, ideal olarak başa yakın bir yerde görünmelidir. Google, SERP'de eşleşen terimleri kalın yapar ve bu da gözü çeker. Ancak yalnızca eşleşme yeterli değildir; başlık aynı zamanda arayan kişinin istediği bir şeyi vaat etmelidir. <a href="/learn/ctr">TO</a>'yu artıran değiştiriciler arasında sayılar (&ldquo;10 yol&rdquo;, &ldquo;5 dakika&rdquo;), yıl (&ldquo;2026 rehberi&rdquo;), özgüllük (&ldquo;serbest çalışanlar için&rdquo;, &ldquo;bütçe dostu&rdquo;), duygusal dil (&ldquo;nihai&rdquo;, &ldquo;kanıtlanmış&rdquo;) ve format vaatleri (&ldquo;kontrol listesi&rdquo;, &ldquo;şablon&rdquo;, &ldquo;hesap makinesi&rdquo;) bulunur. En akılda kalıcı olanı değil, hedef sorgu için kullanıcı amacına uyan değiştiriciyi seçin.
     </p>
 
-    <h2>Brand placement</h2>
+    <h2>Marka yerleşimi</h2>
     <p>
-      Most sites append the brand name at the end of every title, separated from the page-specific
-      content: <code>Primary Keyword &#124; Brand</code>. This order puts the unique, query-matching
-      content first while still building brand recognition over time. For strong brands
-      (Amazon, the New York Times, Wikipedia) the brand can go first because the brand itself
-      drives clicks. For smaller brands, brand-first wastes the premium characters. A sensible
-      default: brand last on content pages, brand first on the home page and primary category
-      pages.
+      Çoğu site, marka adını her başlığın sonuna, sayfaya özgü içerikten ayırarak ekler: <code>Birincil Anahtar Kelime &#124; Marka</code>. Bu sıralama, benzersiz, sorguyla eşleşen içeriği ilk sıraya koyarken zaman içinde marka bilinirliği oluşturur. Güçlü markalar (Amazon, New York Times, Wikipedia) için marka önce gelebilir çünkü markanın kendisi tıklamaları yönlendirir. Daha küçük markalar için markanın önce gelmesi değerli karakterleri boşa harcar. Mantıklı bir varsayılan: içerik sayfalarında marka sonda, ana sayfada ve birincil kategori sayfalarında marka başta.
     </p>
-    <pre>{`Content page:    How to Format JSON: A Beginner's Guide | Freetoolarea
-Category page:   Free SEO Tools - Title, Meta, Schema | Freetoolarea
-Home page:       Freetoolarea - Free Online Tools for Developers`}</pre>
+    <pre>{`İçerik sayfası:    JSON Nasıl Biçimlendirilir: Yeni Başlayanlar Kılavuzu | Freetoolarea
+Kategori sayfası:   Ücretsiz SEO Araçları - Başlık, Meta, Şema | Freetoolarea
+Ana sayfa:       Freetoolarea - Geliştiriciler için Ücretsiz Çevrimiçi Araçlar`}</pre>
 
-    <h2>Separator characters</h2>
+    <h2>Ayırıcı karakterler</h2>
     <p>
-      The pipe <code>|</code>, hyphen <code>-</code>, em dash <code>&mdash;</code>, and colon
-      <code>:</code> are the common separators. Pipes are the most visually distinct and the
-      most common in professional SEO. Hyphens feel slightly softer. Em dashes convey a more
-      editorial tone. Colons work when the title follows a &ldquo;subject: description&rdquo;
-      pattern. Avoid mixing separators within a single title. Every separator character costs
-      1-2 characters in your budget, so repeated separators add up fast on long titles.
+      Dikey çubuk <code>|</code>, kısa çizgi <code>-</code>, uzun çizgi <code>&mdash;</code> ve iki nokta üst üste
+      <code>:</code> yaygın ayırıcılardır. Dikey çubuklar görsel olarak en belirgin olanıdır ve profesyonel SEO'da en yaygın olanıdır. Kısa çizgiler biraz daha yumuşak hissettirir. Uzun çizgiler daha editoryal bir ton iletir. İki nokta üst üste, başlık &ldquo;konu: açıklama&rdquo; modelini takip ettiğinde işe yarar. Tek bir başlık içinde ayırıcıları karıştırmaktan kaçının. Her ayırıcı karakter bütçenizde 1-2 karaktere mal olur, bu nedenle uzun başlıklarda tekrarlanan ayırıcılar hızla birikir.
     </p>
 
-    <h2>Avoid title-tag patterns that get rewritten</h2>
+    <h2>Yeniden yazılan başlık etiketi kalıplarından kaçının</h2>
     <p>
-      Google rewrites titles it considers bad: overly long, stuffed with keywords, identical
-      across many pages, or mismatched with content. Common triggers: starting every title with
-      the brand name followed by generic category text, including multiple brackets or pipes,
-      repeating the same keyword two or three times, and using ALL CAPS. If Google rewrites
-      your title in the wild, you can find what replacement it chose by running a
-      <code>site:</code> search. Match your original title closer to what Google chose, and the
-      rewrite usually stops.
+      Google, kötü olduğunu düşündüğü başlıkları yeniden yazar: aşırı uzun, anahtar kelimelerle dolu, birçok sayfada aynı veya içerikle uyuşmayan. Yaygın tetikleyiciler: her başlığa marka adıyla başlayıp ardından genel kategori metni eklemek, birden çok parantez veya dikey çubuk eklemek, aynı anahtar kelimeyi iki veya üç kez tekrarlamak ve TAMAMI BÜYÜK HARF kullanmak. Google başlığınızı canlı ortamda yeniden yazarsa, bir <code>site:</code> araması yaparak hangi değiştirmeyi seçtiğini bulabilirsiniz. Orijinal başlığınızı Google'ın seçtiği şeye yaklaştırın; yeniden yazma genellikle durur.
     </p>
 
-    <h2>Unique titles per page</h2>
+    <h2>Sayfa başına benzersiz başlıklar</h2>
     <p>
-      Every indexable page should have a unique title tag. Duplicate titles (especially across
-      pagination, sort variations, or filter combinations) confuse Google and waste crawl
-      budget. Use canonical tags to consolidate filter URLs and make sure the canonical page
-      has a distinctive title. Google Search Console flags duplicate titles in the Coverage
-      report.
+      Dizine eklenebilir her sayfanın benzersiz bir başlık etiketi olmalıdır. Yinelenen başlıklar (özellikle sayfalama, sıralama varyasyonları veya filtre kombinasyonlarında) Google'ın kafasını karıştırır ve tarama bütçesini boşa harcar. Filtre URL'lerini birleştirmek için kanonik etiketler kullanın ve kanonik sayfanın ayırt edici bir başlığa sahip olduğundan emin olun. Google Search Console, Kapsam raporunda yinelenen başlıkları işaretler.
     </p>
 
-    <h2>Title-description pairing</h2>
+    <h2>Başlık-açıklama eşleştirmesi</h2>
     <p>
-      The title and <a href="/learn/meta-description">meta description</a> work together as a single SERP snippet. The title gets
-      600 pixels of bold blue space; the description gets 920 pixels of smaller text.
-      Well-paired titles and descriptions do not repeat each other: the title makes the primary
-      promise, the description adds specifics and a CTA. A title that says &ldquo;Free Online
-      SQL Formatter&rdquo; and a description that opens &ldquo;Free online SQL formatter&hellip;&rdquo;
-      wastes 30 characters. Make the description complement the title instead.
+      Başlık ve <a href="/learn/meta-description">meta açıklama</a>, tek bir SERP snippet'i olarak birlikte çalışır. Başlık 600 piksel kalın mavi alan alır; açıklama 920 piksel daha küçük metin alır. İyi eşleştirilmiş başlıklar ve açıklamalar birbirini tekrar etmez: başlık birincil vaadi yapar, açıklama ayrıntıları ve bir HAE ekler. &ldquo;Ücretsiz Çevrimiçi SQL Biçimlendirici&rdquo; diyen bir başlık ve &ldquo;Ücretsiz çevrimiçi SQL biçimlendirici&hellip;&rdquo; ile başlayan bir açıklama 30 karakteri boşa harcar. Bunun yerine açıklamanın başlığı tamamlamasını sağlayın.
     </p>
 
-    <h2>Tracking CTR in Search Console</h2>
+    <h2>Search Console'da TO takibi</h2>
     <p>
-      Google Search Console&rsquo;s Performance report shows CTR per query and per page.
-      Pages ranking in positions 2-6 with below-average CTR are title-rewrite candidates.
-      Benchmarks: position 1 averages around 30-35 percent CTR, position 3 around 10-12
-      percent, position 10 around 2-3 percent. If your page sits at position 3 with 4 percent
-      CTR, the title is underselling. Rewrite, wait two to four weeks, compare.
+      Google Search Console'un Performans raporu, sorgu ve sayfa başına TO'yu gösterir. 2-6. sıralarda yer alan ve ortalamanın altında TO'ya sahip sayfalar, başlık yeniden yazma adaylarıdır. Kıyaslamalar: 1. sıra ortalama yüzde 30-35 TO, 3. sıra yüzde 10-12, 10. sıra yüzde 2-3 civarındadır. Sayfanız yüzde 4 TO ile 3. sıradaysa, başlık yetersiz kalıyordur. Yeniden yazın, iki ila dört hafta bekleyin, karşılaştırın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Going over 60 characters.</strong> Truncation happens at around 600 pixels.
-      Titles that ellipsize waste the last characters and hide the call to action. Measure in
-      pixels, not just characters.
+      <strong>60 karakteri aşmak.</strong> Kırpma yaklaşık 600 pikselde gerçekleşir. Üç nokta ile biten başlıklar son karakterleri boşa harcar ve harekete geçirici mesajı gizler. Yalnızca karakter olarak değil, piksel olarak ölçün.
     </p>
     <p>
-      <strong>Leading with the brand name on content pages.</strong> Brand-first burns the
-      first 15-20 characters on content pages where the specific topic should lead.
+      <strong>İçerik sayfalarında marka adıyla başlamak.</strong> Markanın önce gelmesi, belirli konunun önde olması gereken içerik sayfalarında ilk 15-20 karakteri yakar.
     </p>
     <p>
-      <strong>Stuffing keywords.</strong> &ldquo;SQL Formatter, SQL Beautifier, Format SQL
-      Online&rdquo; repeats the same term three times and reads as spam to both users and
-      Google. One primary keyword plus one modifier is enough.
+      <strong>Anahtar kelime doldurmak.</strong> &ldquo;SQL Biçimlendirici, SQL Güzelleştirici, SQL Çevrimiçi Biçimlendir&rdquo; aynı terimi üç kez tekrarlar ve hem kullanıcılara hem de Google'a spam gibi okunur. Bir birincil anahtar kelime artı bir değiştirici yeterlidir.
     </p>
     <p>
-      <strong>Identical titles across many pages.</strong> Paginated archives, filtered
-      category pages, and templated product listings often share titles. Each should be unique
-      and describe what the specific page contains.
+      <strong>Birçok sayfada aynı başlıklar.</strong> Sayfalanmış arşivler, filtrelenmiş kategori sayfaları ve şablonlanmış ürün listeleri genellikle başlıkları paylaşır. Her biri benzersiz olmalı ve belirli sayfanın ne içerdiğini açıklamalıdır.
     </p>
     <p>
-      <strong>Writing titles that don&rsquo;t match content.</strong> Google detects this and
-      rewrites aggressively. If your title promises &ldquo;calculator&rdquo; the page better
-      have one, or Google will replace the title with whatever it thinks the page is about.
+      <strong>İçerikle eşleşmeyen başlıklar yazmak.</strong> Google bunu algılar ve agresif bir şekilde yeniden yazar. Başlığınız &ldquo;hesap makinesi&rdquo; vaat ediyorsa, sayfada bir tane olmalıdır; aksi takdirde Google, başlığı sayfanın ne hakkında olduğunu düşündüğüyle değiştirecektir.
     </p>
     <p>
-      <strong>Using ALL CAPS.</strong> All-caps titles look like spam and some tools or
-      browsers render them lowercased anyway. Use title case or sentence case consistently.
+      <strong>TAMAMI BÜYÜK HARF kullanmak.</strong> Tamamı büyük harf başlıklar spam gibi görünür ve bazı araçlar veya tarayıcılar bunları yine de küçük harfe dönüştürür. Tutarlı bir şekilde başlık durumu veya cümle durumu kullanın.
     </p>
     <p>
-      <strong>Forgetting emoji behavior.</strong> Some emoji show in SERPs, some are stripped,
-      and support changes over time. Use sparingly and verify the actual SERP display before
-      relying on visual differentiation from emoji.
+      <strong>Emoji davranışını unutmak.</strong> Bazı emojiler SERP'lerde gösterilir, bazıları kaldırılır ve destek zamanla değişir. Emojilerden görsel farklılaşmaya güvenmeden önce idareli kullanın ve gerçek SERP görüntüsünü doğrulayın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları kontrol edin</h2>
     <p>
-      Check pixel width, character count, and truncation with the{" "}
-      <a href="/tools/title-tag-length-checker">title tag length checker</a>. Pair with the{" "}
-      <a href="/tools/meta-description-length-checker">meta description length checker</a>
-      {" "}so the title and description work together as a single SERP snippet, and the{" "}
-      <a href="/tools/serp-snippet-preview">SERP snippet preview</a> to see the rendered
-      combination in both desktop and mobile formats before pushing the change live.
+      Piksel genişliğini, karakter sayısını ve kırpmayı{" "}
+      <a href="/tools/title-tag-length-checker">başlık etiketi uzunluk denetleyicisi</a> ile kontrol edin.{" "}
+      <a href="/tools/meta-description-length-checker">meta açıklama uzunluk denetleyicisi</a>
+      {" "}ile eşleştirin, böylece başlık ve açıklama tek bir SERP snippet'i olarak birlikte çalışır ve değişikliği canlıya almadan önce işlenmiş kombinasyonu hem masaüstü hem de mobil formatlarda görmek için{" "}
+      <a href="/tools/serp-snippet-preview">SERP snippet önizlemesini</a> kullanın.
     </p>
   </>
 );

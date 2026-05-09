@@ -1,91 +1,90 @@
 export const intro = (
   <>
     <p>
-      Quitting badly can cost you a reference, a burned bridge, sometimes even
-      a future job (industries are small). Quitting well leaves relationships
-      intact and reputation strong. The script is well-understood and most
-      people still botch it.
+      Kötü bir şekilde işten ayrılmak size bir referansa, yanmış bir köprüye, hatta bazen
+      gelecekteki bir işe mal olabilir (sektörler küçüktür). İyi bir şekilde ayrılmak ise ilişkileri
+      sağlam ve itibarı güçlü bırakır. Bu senaryo herkesçe bilinir ve çoğu insan hala
+      berbat eder.
     </p>
     <p>
-      Here&rsquo;s how to do it cleanly.
+      İşte bunu temiz bir şekilde nasıl yapacağınız.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Have the next job signed first</h2>
+    <h2>1. Önce bir sonraki işi imzalatın</h2>
     <p>
-      Resigning without a next offer is almost always a mistake. Unemployment
-      weakens negotiation and burns cash. The only exception is a toxic
-      environment destroying your health. Otherwise: signed offer in hand.
+      Elinizde bir sonraki teklif olmadan istifa etmek neredeyse her zaman bir hatadır. İşsizlik
+      pazarlığı zayıflatır ve parayı tüketir. Tek istisna, sağlığınızı mahveden toksik bir
+      ortamdır. Aksi halde: imzalanmış teklif elinizde olsun.
     </p>
 
-    <h2>2. Tell your boss first, in person or video</h2>
+    <h2>2. Patronunuza ilk önce, yüz yüze veya görüntülü olarak söyleyin</h2>
     <p>
-      Not Slack, not email, not a group meeting. One-on-one, direct. They
-      deserve to hear it first, and your professionalism here sets the tone
-      for everything after.
+      Slack değil, e-posta değil, grup toplantısı değil. Bire bir, doğrudan. Bunu
+      ilk duymayı hak ediyorlar ve buradaki profesyonelliğiniz sonrasındaki her şeyin
+      tonunu belirler.
     </p>
 
-    <h2>3. Give at least 2 weeks</h2>
+    <h2>3. En az 2 hafta verin</h2>
     <p>
-      Standard in most roles. For senior positions, 3-4 weeks is gracious.
-      Less than 2 weeks is a reputation ding unless explicitly negotiated.
-      Check your contract for any contractual notice period.
+      Çoğu rolde standarttır. Üst düzey pozisyonlar için 3-4 hafta kibarlıktır.
+      2 haftadan az, açıkça müzakere edilmediyse itibar zedeler.
+      Herhangi bir sözleşmeye bağlı bildirim süresi için sözleşmenizi kontrol edin.
     </p>
 
-    <h2>4. Keep the resignation letter short and positive</h2>
+    <h2>4. İstifa mektubunu kısa ve olumlu tutun</h2>
     <p>
-      One paragraph: &ldquo;I am resigning effective [date], last day [date].
-      I&rsquo;m grateful for the opportunities here. Happy to help with
-      transition.&rdquo; Don&rsquo;t vent. Don&rsquo;t explain in detail.
-      Don&rsquo;t mention the new job.
+      Bir paragraf: &ldquo;[tarih] itibarıyla istifa ediyorum, son günüm [tarih].
+      Buradaki fırsatlar için minnettarım. Geçiş sürecine yardımcı olmaktan
+      mutluluk duyarım.&rdquo; Dert yanmayın. Ayrıntılı açıklama yapmayın.
+      Yeni işten bahsetmeyin.
     </p>
 
-    <h2>5. Decline the counter-offer</h2>
+    <h2>5. Karşı teklifi reddedin</h2>
     <p>
-      Counter-offers are a trap 80% of the time. If your employer only values
-      you when you threaten to leave, the problem that led to quitting
-      isn&rsquo;t fixed. Plus, you&rsquo;re now flagged as a flight risk.
+      Karşı teklifler %80 oranında bir tuzaktır. İşvereniniz size yalnızca
+      ayrılmakla tehdit ettiğinizde değer veriyorsa, istifaya yol açan sorun
+      çözülmemiştir. Ayrıca, artık kaçış riski olarak işaretlenirsiniz.
     </p>
 
-    <h2>6. Document everything for handoff</h2>
+    <h2>6. Devir teslim için her şeyi belgeleyin</h2>
     <p>
-      Process docs, passwords (in the company password manager), project
-      context, contact lists. The person who inherits your work will
-      appreciate it and remember it. You&rsquo;ll need them for references
-      later.
+      Süreç dokümanları, şifreler (şirket şifre yöneticisinde), proje
+      bağlamı, iletişim listeleri. İşinizi devralan kişi bunu takdir edecek
+      ve hatırlayacaktır. Daha sonra referanslar için onlara ihtiyacınız olacak.
     </p>
 
-    <h2>7. Be honest but kind in exit interviews</h2>
+    <h2>7. Çıkış mülakatlarında dürüst ama nazik olun</h2>
     <p>
-      HR will ask why you&rsquo;re leaving. Truthful, constructive, brief.
-      Save the scathing criticisms for a journal. Anything you say can and
-      will be repeated in the company.
+      İK neden ayrıldığınızı soracaktır. Doğru, yapıcı, kısa.
+      Sert eleştirileri bir günlüğe saklayın. Söylediğiniz her şey
+      şirket içinde tekrarlanabilir ve tekrarlanacaktır.
     </p>
 
-    <h2>8. Keep working hard until the last day</h2>
+    <h2>8. Son güne kadar sıkı çalışmaya devam edin</h2>
     <p>
-      The last 2 weeks define how people remember you. Slacking off is how
-      you get badmouthed. Finishing strong is how you get recommended. Short
-      game vs. long game thinking.
+      Son 2 hafta, insanların sizi nasıl hatırlayacağını belirler. Kaytarmak,
+      hakkınızda kötü konuşulmasının yoludur. Güçlü bitirmek, tavsiye edilmenizin
+      yoludur. Kısa vadeli oyun vs. uzun vadeli oyun düşüncesi.
     </p>
 
-    <h2>9. Don&rsquo;t bad-mouth on the way out</h2>
+    <h2>9. Çıkarken kötü konuşmayın</h2>
     <p>
-      To coworkers, to LinkedIn, to anyone. Complaining about a former
-      employer makes you look unprofessional even if they deserved it. Future
-      employers notice.
+      İş arkadaşlarınıza, LinkedIn&rsquo;de, kimseye. Eski bir işveren hakkında
+      şikayet etmek, hak etseler bile profesyonelce görünmemenize neden olur.
+      Gelecekteki işverenler bunu fark eder.
     </p>
 
-    <h2>10. Stay in touch with the good ones</h2>
+    <h2>10. İyi olanlarla iletişimde kalın</h2>
     <p>
-      Your former coworkers are your future network. LinkedIn, occasional
-      messages, coffee when you&rsquo;re in town. Jobs come through these
-      relationships more often than through job boards. See{" "}
-      <a href="/guides/how-to-switch-careers">career switching guide</a> and{" "}
-      <a href="/guides/how-to-deal-with-a-bad-boss">bad boss guide</a>.
+      Eski iş arkadaşlarınız gelecekteki ağınızdır. LinkedIn, ara sıra
+      mesajlar, şehirdeyken kahve. İşler, iş ilanlarından daha sık
+      bu ilişkiler aracılığıyla gelir. Bkz.{" "}
+      <a href="/guides/how-to-switch-careers">kariyer değiştirme rehberi</a> ve{" "}
+      <a href="/guides/how-to-deal-with-a-bad-boss">kötü patron rehberi</a>.
     </p>
   </>
 );

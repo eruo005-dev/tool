@@ -1,35 +1,35 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>Tabby is a self-hosted, open-source alternative to GitHub Copilot &mdash; you run the <a href="/learn/inference">inference</a> server on your own GPU and get private code completions across every editor.</p>);
+export const intro: ReactElement = (<p>Tabby, GitHub Copilot'a kendi kendine barındırılabilen, açık kaynaklı bir alternatiftir &mdash; <a href="/learn/inference">çıkarım</a> sunucusunu kendi GPU'nuzda çalıştırır ve her düzenleyicide özel kod tamamlama alırsınız.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>Built by TabbyML, Tabby packages a Rust server, a curated set of small code models, and IDE extensions into a single Docker image. It&rsquo;s popular with teams that can&rsquo;t send source to third-party clouds but still want inline AI completions and repo-aware chat.</p>
-    <h2>What it is</h2>
-    <p>Tabby ships three things: an inference server (Rust, llama.cpp backend) that serves models like StarCoder2 or DeepSeek-Coder; editor plugins for VS Code, JetBrains, Vim, and Emacs; and a web Code Browser that indexes your Git repos for RAG-style chat. It runs on CPU, CUDA, ROCm, or Apple Metal.</p>
-    <h2>Install / sign up</h2>
-    <pre>{`# Docker with NVIDIA GPU
+    <p>TabbyML tarafından geliştirilen Tabby, bir Rust sunucusu, özenle seçilmiş küçük kod modelleri ve IDE uzantılarını tek bir Docker imajında paketler. Kaynak kodunu üçüncü taraf bulutlara gönderemeyen ancak yine de satır içi AI tamamlamaları ve depo bilincine sahip sohbet isteyen ekipler arasında popülerdir.</p>
+    <h2>Ne olduğu</h2>
+    <p>Tabby üç şey sunar: StarCoder2 veya DeepSeek-Coder gibi modelleri sunan bir çıkarım sunucusu (Rust, llama.cpp arka ucu); VS Code, JetBrains, Vim ve Emacs için düzenleyici eklentileri; ve RAG tarzı sohbet için Git depolarınızı indeksleyen bir web Kod Tarayıcısı. CPU, CUDA, ROCm veya Apple Metal üzerinde çalışır.</p>
+    <h2>Kurulum / kaydolma</h2>
+    <pre>{`# NVIDIA GPU ile Docker
 docker run -it --gpus all \\
   -p 8080:8080 -v $HOME/.tabby:/data \\
   tabbyml/tabby \\
   serve --model StarCoder2-3B --device cuda
 
-# Visit http://localhost:8080 and create the admin account`}</pre>
-    <h2>First session</h2>
-    <p>Once the server is up, install the VS Code extension, point it at http://localhost:8080, and paste the token from the admin UI. Start typing &mdash; grey completions appear within a few hundred milliseconds on a mid-range GPU.</p>
+# http://localhost:8080 adresini ziyaret edin ve yönetici hesabı oluşturun`}</pre>
+    <h2>İlk oturum</h2>
+    <p>Sunucu çalıştıktan sonra, VS Code uzantısını yükleyin, http://localhost:8080 adresine yönlendirin ve yönetici arayüzünden aldığınız token'ı yapıştırın. Yazmaya başlayın &mdash; orta seviye bir GPU'da birkaç yüz milisaniye içinde gri tamamlamalar belirir.</p>
     <pre>{`$ code --install-extension TabbyML.vscode-tabby
-# In settings, set tabby.endpoint = http://localhost:8080
-# Start typing a function signature, completions stream in`}</pre>
-    <h2>Everyday workflows</h2>
+# Ayarlarda, tabby.endpoint = http://localhost:8080 olarak ayarlayın
+# Bir fonksiyon imzası yazmaya başlayın, tamamlamalar akar`}</pre>
+    <h2>Günlük iş akışları</h2>
     <ul>
-      <li>1. Connect a GitHub/GitLab repo in the admin UI so chat answers cite your own code.</li>
-      <li>2. Swap models from the Models tab &mdash; bigger models for servers, Qwen2.5-Coder-1.5B for laptops.</li>
-      <li>3. Use the Answer Engine tab for repo-wide questions like &ldquo;where do we hash passwords&rdquo; with file citations.</li>
+      <li>1. Sohbet cevaplarının kendi kodunuzu kaynak göstermesi için yönetici arayüzünde bir GitHub/GitLab deposu bağlayın.</li>
+      <li>2. Modeller sekmesinden modelleri değiştirin &mdash; sunucular için daha büyük modeller, dizüstü bilgisayarlar için Qwen2.5-Coder-1.5B.</li>
+      <li>3. Dosya alıntılarıyla "şifreleri nerede hashliyoruz" gibi depo genelindeki sorular için Cevap Motoru sekmesini kullanın.</li>
     </ul>
-    <h2>Gotchas and tips</h2>
-    <p><a href="/learn/vrm-vram">VRAM</a> is the binding constraint: a 3B model fits in 6GB, 7B models want 12GB+, and anything larger benefits from int4 quantisation. Set TABBY_MODEL_CACHE_ROOT to a fast SSD to avoid re-downloading weights on every container restart.</p>
-    <p>Tabby&rsquo;s default telemetry is anonymous and easy to disable with --no-usage-tracking. For a team deployment, put it behind an OAuth proxy &mdash; the built-in auth is token-based and not meant for internet exposure.</p>
-    <h2>Who it&rsquo;s for</h2>
-    <p>Security-conscious teams, regulated industries, air-gapped shops, and hobbyists who want Copilot-style completions without a SaaS subscription.</p>
+    <h2>Püf noktaları ve ipuçları</h2>
+    <p><a href="/learn/vrm-vram">VRAM</a> sınırlayıcı faktördür: 3B model 6GB'a sığar, 7B modeller 12GB+ ister ve daha büyükleri int4 nicelemeden faydalanır. Her konteyner yeniden başlatıldığında ağırlıkları yeniden indirmemek için TABBY_MODEL_CACHE_ROOT'u hızlı bir SSD'ye ayarlayın.</p>
+    <p>Tabby'nin varsayılan telemetrisi anonimdir ve --no-usage-tracking ile kolayca devre dışı bırakılabilir. Bir ekip dağıtımı için, bir OAuth proxy'sinin arkasına koyun &mdash; yerleşik kimlik doğrulama token tabanlıdır ve internet erişimi için tasarlanmamıştır.</p>
+    <h2>Kimler için</h2>
+    <p>Güvenlik bilincine sahip ekipler, düzenlemeye tabi sektörler, hava boşluklu ortamlar ve SaaS aboneliği olmadan Copilot tarzı tamamlamalar isteyen hobiciler.</p>
   </>
 );

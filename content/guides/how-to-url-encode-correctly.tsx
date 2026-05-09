@@ -3,93 +3,65 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      URL encoding — percent-encoding — is one of those
-      fundamentals that quietly breaks things when it&rsquo;s wrong.
-      A space that should be %20 ends up as +; an ampersand in a
-      query value splits the URL; a Unicode character comes through
-      as mojibake. This guide covers what the encoding actually does,
-      which characters need it, the critical difference between
-      <code> encodeURI</code> and <code>encodeURIComponent</code>,
-      path vs query encoding, double-encoding traps, form encoding,
-      and the Unicode handling that catches people who only tested
-      with ASCII.
+      URL kodlaması — yüzde kodlaması — yanlış olduğunda sessizce işleri bozan temel konulardan biridir. %20 olması gereken bir boşluk + olarak kalır; sorgu değerindeki bir ve işareti URL'yi böler; bir Unicode karakter anlamsız karakterler halinde gelir. Bu kılavuz, kodlamanın gerçekte ne yaptığını, hangi karakterlerin buna ihtiyaç duyduğunu, <code>encodeURI</code> ve <code>encodeURIComponent</code> arasındaki kritik farkı, yol ve sorgu kodlamasını, çift kodlama tuzaklarını, form kodlamasını ve yalnızca ASCII ile test edenleri yakalayan Unicode işlemeyi kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What URL encoding is</h2>
+    <h2>URL kodlaması nedir</h2>
     <p>
-      URLs are limited to a specific set of ASCII characters by RFC
-      3986. Anything outside that set — spaces, most punctuation,
-      non-ASCII — must be represented as <code>%XX</code> where XX
-      is the byte&rsquo;s hex value.
+      URL'ler RFC 3986 tarafından belirli bir ASCII karakter kümesiyle sınırlandırılmıştır. Bu kümenin dışındaki her şey — boşluklar, çoğu noktalama işareti, ASCII olmayanlar — baytın onaltılık değeri XX olacak şekilde <code>%XX</code> olarak temsil edilmelidir.
     </p>
     <p>
-      Example: space (0x20) → %20. At sign (0x40) → %40. Non-ASCII
-      characters are encoded as their UTF-8 byte sequence, one %XX
-      per byte: é (U+00E9) → %C3%A9 (two bytes).
+      Örnek: boşluk (0x20) → %20. Et işareti (0x40) → %40. ASCII olmayan karakterler, UTF-8 bayt dizileri olarak, bayt başına bir %XX olacak şekilde kodlanır: é (U+00E9) → %C3%A9 (iki bayt).
     </p>
 
-    <h2>Reserved vs unreserved characters</h2>
+    <h2>Ayrılmış ve ayrılmamış karakterler</h2>
     <p>
-      RFC 3986 divides URL characters into categories:
+      RFC 3986 URL karakterlerini kategorize eder:
     </p>
     <p>
-      <strong>Unreserved:</strong> A-Z, a-z, 0-9, and
-      <code> - _ . ~</code>. Never need encoding.
+      <strong>Ayrılmamış:</strong> A-Z, a-z, 0-9 ve
+      <code> - _ . ~</code>. Asla kodlama gerektirmez.
     </p>
     <p>
-      <strong>Reserved (gen-delims):</strong> <code>: / ? # [ ] @</code>.
-      Have structural meaning in URLs. Encode if they&rsquo;re part of
-      data, not structure.
+      <strong>Ayrılmış (genel ayırıcılar):</strong> <code>: / ? # [ ] @</code>. URL'lerde yapısal anlam taşır. Verinin parçasıysa kodlayın, yapının parçasıysa kodlamayın.
     </p>
     <p>
-      <strong>Reserved (sub-delims):</strong> <code>! $ &amp; &apos;
-      ( ) * + , ; =</code>. Encode when used as data within query
-      values — they have meaning in forms and query syntax.
+      <strong>Ayrılmış (alt ayırıcılar):</strong> <code>! $ &amp; &apos;
+      ( ) * + , ; =</code>. Sorgu değerlerinde veri olarak kullanıldığında kodlayın — formlarda ve sorgu sözdiziminde anlam taşırlar.
     </p>
     <p>
-      <strong>Everything else:</strong> spaces, Unicode, unusual
-      punctuation — always encode.
+      <strong>Diğer her şey:</strong> boşluklar, Unicode, alışılmadık noktalama işaretleri — her zaman kodlayın.
     </p>
 
-    <h2>encodeURI vs encodeURIComponent — the JavaScript fork</h2>
+    <h2>encodeURI ve encodeURIComponent — JavaScript ayrımı</h2>
     <p>
-      JavaScript&rsquo;s two URL encoders have different purposes and
-      mixing them up is the #1 URL bug.
+      JavaScript'in iki URL kodlayıcısının farklı amaçları vardır ve bunları karıştırmak URL hatası #1'dir.
     </p>
     <p>
-      <strong>encodeURI:</strong> encodes a full URL. Preserves
-      reserved structural characters (<code>: / ? # &amp; =</code>).
-      Use when you have a complete URL that needs to be made safe
-      for transmission.
+      <strong>encodeURI:</strong> tam bir URL'yi kodlar. Ayrılmış yapısal karakterleri korur (<code>: / ? # &amp; =</code>). İletim için güvenli hale getirilmesi gereken tam bir URL'niz olduğunda kullanın.
     </p>
     <p>
       <code>encodeURI(&quot;https://x.com/a b?q=1&amp;r=2&quot;)</code>
-      {" "}→ <code>https://x.com/a%20b?q=1&amp;r=2</code>. Notice
-      the space got encoded but ? and &amp; did not.
+      {" "}→ <code>https://x.com/a%20b?q=1&amp;r=2</code>. Boşluğun kodlandığını ancak ? ve &amp;'nin kodlanmadığını fark edin.
     </p>
     <p>
-      <strong>encodeURIComponent:</strong> encodes a value that will
-      be placed inside a URL component (one segment of a path, one
-      value in a query). Encodes reserved characters. Use when
-      building URLs from parts.
+      <strong>encodeURIComponent:</strong> bir URL bileşeninin (bir yol parçası, sorguda bir değer) içine yerleştirilecek bir değeri kodlar. Ayrılmış karakterleri kodlar. URL'leri parçalardan oluştururken kullanın.
     </p>
     <p>
       <code>encodeURIComponent(&quot;a&amp;b=c&quot;)</code> →
-      <code> a%26b%3Dc</code>. Encodes both &amp; and = so they can
-      safely appear as a value.
+      <code> a%26b%3Dc</code>. Hem &amp; hem de ='yi kodlayarak bir değer olarak güvenle görünmelerini sağlar.
     </p>
     <p>
-      <strong>Rule:</strong> use encodeURIComponent on each part
-      when assembling, not encodeURI on the whole.
+      <strong>Pratik kural:</strong> birleştirme yaparken her parça için encodeURIComponent kullanın, tamamı için encodeURI kullanmayın.
     </p>
 
-    <h2>The URLSearchParams approach — safer, modern</h2>
+    <h2>URLSearchParams yaklaşımı — daha güvenli, modern</h2>
     <p>
-      Skip manual encoding entirely for query strings:
+      Sorgu dizeleri için manuel kodlamayı tamamen atlayın:
     </p>
     <p>
       <code>const params = new URLSearchParams(); params.append(
@@ -98,154 +70,105 @@ export const body: ReactElement = (
       params.toString();</code>
     </p>
     <p>
-      Produces <code>q=hello+world&amp;tag=a%26b</code> with correct
-      encoding and no off-by-one errors. Use this pattern whenever
-      possible.
+      Doğru kodlama ve hata payı olmadan <code>q=hello+world&amp;tag=a%26b</code> üretir. Mümkün olduğunda bu deseni kullanın.
     </p>
     <p>
-      Note: URLSearchParams uses <code>+</code> for spaces (legacy
-      form encoding), while encodeURIComponent uses <code>%20</code>.
-      Both decode correctly on the server; don&rsquo;t mix them in
-      the same URL.
+      Not: URLSearchParams boşluklar için <code>+</code> kullanır (eski form kodlaması), encodeURIComponent ise <code>%20</code> kullanır. Her ikisi de sunucuda doğru şekilde çözülür; aynı URL'de karıştırmayın.
     </p>
 
-    <h2>Path encoding vs query encoding</h2>
+    <h2>Yol kodlaması ve sorgu kodlaması</h2>
     <p>
-      Subtle differences between segments of a URL.
+      URL'nin farklı bölümleri arasında ince farklar.
     </p>
     <p>
-      <strong>Path segments:</strong> encode <code>/</code> if it
-      appears in data (otherwise it creates a new path segment).
-      Space as %20.
+      <strong>Yol bölümleri:</strong> veride geçiyorsa <code>/</code>'yi kodlayın (aksi halde yeni bir yol bölümü oluşturur). Boşluklar %20 olarak.
     </p>
     <p>
-      <strong>Query strings:</strong> <code>+</code> means space in
-      traditional form encoding (application/x-www-form-urlencoded).
-      In modern URL parsers, %20 works too and is unambiguous.
-      <code> &amp;</code> and <code>=</code> have structural meaning
-      and must be encoded in values.
+      <strong>Sorgu dizeleri:</strong> Geleneksel form kodlamasında (application/x-www-form-urlencoded) <code>+</code> boşluk anlamına gelir. Modern URL ayrıştırıcılarında %20 de çalışır ve nettir.
+      <code> &amp;</code> ve <code>=</code> yapısal anlam taşır ve değerlerde kodlanmalıdır.
     </p>
     <p>
-      <strong>Fragments (#):</strong> similar rules to query; encode
-      characters that break parsing.
+      <strong>Parçalar (#):</strong> sorguya benzer kurallar; ayrıştırmayı bozacak karakterleri kodlayın.
     </p>
 
-    <h2>Double-encoding — the classic trap</h2>
+    <h2>Çift kodlama — klasik tuzak</h2>
     <p>
-      Encoding an already-encoded URL turns %20 into %2520 (because
-      % becomes %25). The result looks URL-valid but the destination
-      server gets the literal string &ldquo;%20&rdquo; instead of a
-      space.
+      Zaten kodlanmış bir URL'yi kodlamak %20'yi %2520'ye dönüştürür (çünkü % %25 olur). Sonuç geçerli bir URL gibi görünür ancak hedef sunucu boşluk yerine &ldquo;%20&rdquo; gerçek dizesini alır.
     </p>
     <p>
-      Symptoms: product pages showing &ldquo;Item %26 Part&rdquo; in
-      the title, search queries returning no results for simple
-      terms, 404s on URLs with special characters.
+      Belirtiler: ürün sayfalarında başlıkta &ldquo;Item %26 Part&rdquo; görünmesi, basit terimler için arama sorgularının sonuç döndürmemesi, özel karakterli URL'lerde 404 hataları.
     </p>
     <p>
-      <strong>Fix:</strong> track whether a string is encoded or
-      decoded as it flows through your code. Don&rsquo;t encode on
-      the way in and again on the way out. Libraries that build URLs
-      should always take decoded strings and encode once at the edge.
+      <strong>Çözüm:</strong> kodunuzda bir dizenin kodlanmış mı yoksa çözülmüş mü olduğunu takip edin. Girişte ve ardından çıkışta kodlama yapmayın. URL oluşturan kütüphaneler her zaman çözülmüş dizeler almalı ve yalnızca sınırda bir kez kodlama yapmalıdır.
     </p>
 
-    <h2>UTF-8 and non-ASCII characters</h2>
+    <h2>UTF-8 ve ASCII olmayan karakterler</h2>
     <p>
-      Modern URL encoding is defined on UTF-8 bytes, not Unicode
-      code points directly. A character like é is first encoded as
-      UTF-8 (two bytes: 0xC3 0xA9), then each byte becomes %XX
-      (%C3%A9).
+      Modern URL kodlaması, doğrudan Unicode kod noktaları üzerinde değil, UTF-8 baytları üzerinde tanımlanır. é gibi bir karakter önce UTF-8 olarak kodlanır (iki bayt: 0xC3 0xA9), ardından her bayt %XX (%C3%A9) olur.
     </p>
     <p>
       <code>encodeURIComponent(&quot;café&quot;)</code> →
       <code> caf%C3%A9</code>.
     </p>
     <p>
-      <strong>IDN domains</strong> (example: münchen.de): the
-      domain portion uses Punycode (<code>xn--mnchen-3ya.de</code>),
-      not percent-encoding. Percent-encoding is only for the
-      path/query/fragment. Browsers handle the conversion; servers
-      usually see Punycode.
+      <strong>IDN alan adları</strong> (örnek: münchen.de): alan adı kısmı Punycode kullanır (<code>xn--mnchen-3ya.de</code>), yüzde kodlaması değil. Yüzde kodlaması yalnızca yol/sorgu/parça içindir. Tarayıcılar dönüşümü halleder; sunucular genellikle Punycode görür.
     </p>
     <p>
-      <strong>Old systems:</strong> some servers expect Windows-1252
-      or ISO-8859-1 encoding of non-ASCII (so é would be %E9, not
-      %C3%A9). Almost always wrong in 2026 but you&rsquo;ll still
-      meet it when integrating with legacy systems. Always check
-      what the receiver expects.
+      <strong>Eski sistemler:</strong> bazı sunucular ASCII olmayan karakterler için Windows-1252 veya ISO-8859-1 kodlaması bekler (böylece é %C3%A9 yerine %E9 olur). 2026'da bu neredeyse her zaman yanlıştır ancak eski sistemlerle entegrasyon yaparken yine de karşılaşabilirsiniz. Alıcının ne beklediğini her zaman kontrol edin.
     </p>
 
-    <h2>Form encoding — related but distinct</h2>
+    <h2>Form kodlaması — ilgili ancak farklı</h2>
     <p>
-      HTML forms submitted with <code>application/x-www-form-
-      urlencoded</code> use a variant of URL encoding:
+      <code>application/x-www-form-urlencoded</code> ile gönderilen HTML formları, URL kodlamasının bir varyantını kullanır:
     </p>
     <p>
-      Spaces become <code>+</code> (not %20).
+      Boşluklar <code>+</code> olur (%20 değil).
     </p>
     <p>
-      Line breaks in textareas become <code>%0D%0A</code> (CRLF).
+      Metin alanlarındaki satır sonları <code>%0D%0A</code> (CRLF) olur.
     </p>
     <p>
-      Everything else follows standard percent-encoding.
+      Diğer her şey standart yüzde kodlamasını takip eder.
     </p>
     <p>
-      <strong>multipart/form-data</strong> is different — used for
-      file uploads, it wraps values in boundary-separated parts and
-      doesn&rsquo;t need URL encoding at all.
+      <strong>multipart/form-data</strong> farklıdır — dosya yüklemeleri için kullanılır, değerleri sınırlayıcıyla ayrılmış parçalara sarar ve URL kodlaması gerektirmez.
     </p>
 
-    <h2>Server-side decoding</h2>
+    <h2>Sunucu tarafında çözme</h2>
     <p>
-      Most web frameworks decode automatically — <code>req.query.q</code>
-      in Express or <code>@QueryParam</code> in Java gives you the
-      decoded string. You rarely call decoder functions yourself.
+      Çoğu web framework'ü otomatik olarak çözer — Express'te <code>req.query.q</code> veya Java'da <code>@QueryParam</code> size çözülmüş dizeyi verir. Çözme işlevlerini nadiren kendiniz çağırırsınız.
     </p>
     <p>
-      <strong>Watch:</strong> if you need to re-emit a URL (in a
-      redirect, or storing it in a database), re-encode it before
-      output. Never store an encoded URL string then emit it as-is
-      — you&rsquo;ll hit double-encoding when downstream code
-      assumes decoded input.
+      <strong>Dikkat:</strong> bir URL'yi yeniden yayınlamanız gerekiyorsa (bir yönlendirmede veya veritabanında saklarken), çıktıdan önce yeniden kodlayın. Kodlanmış bir URL dizesini olduğu gibi asla saklamayın ve yayınlamayın — aşağı akış kodu çözülmüş girdi varsaydığında çift kodlamayla karşılaşırsınız.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Using encodeURI when you needed
-      encodeURIComponent.</strong> The most common bug: putting
-      user input in a query value without encoding the &amp; or =.
+      <strong>encodeURIComponent gerekirken encodeURI kullanmak.</strong>
+      En yaygın hata: kullanıcı girdisini &amp; veya ='yi kodlamadan bir sorgu değerine koymak.
     </p>
     <p>
-      <strong>Encoding data before it becomes data.</strong> Encoding
-      a database value when inserting it into storage, then again
-      when emitting it in a URL — double-encoding.
+      <strong>Veri olmadan önce veriyi kodlamak.</strong> Bir veritabanı değerini saklarken kodlamak, ardından bir URL'de yayınlarken tekrar kodlamak — çift kodlama.
     </p>
     <p>
-      <strong>Concatenating URL pieces as strings.</strong>
-      <code> const url = base + &quot;?q=&quot; + query;</code>. Use
-      URL/URLSearchParams objects — they encode properly.
+      <strong>URL parçalarını dize olarak birleştirmek.</strong>
+      <code> const url = base + &quot;?q=&quot; + query;</code>. URL/URLSearchParams nesnelerini kullanın — doğru şekilde kodlarlar.
     </p>
     <p>
-      <strong>Assuming UTF-8 everywhere.</strong> Very old endpoints
-      may demand a different byte encoding. Read the API spec.
+      <strong>Her yerde UTF-8 varsaymak.</strong> Çok eski uç noktalar farklı bir bayt kodlaması gerektirebilir. API belirtimini okuyun.
     </p>
     <p>
-      <strong>Encoding slashes in paths without meaning to.</strong>
-      If you have <code>a/b/c</code> and call encodeURIComponent, you
-      get <code>a%2Fb%2Fc</code> — one path segment, not three.
-      Split first, encode per segment, rejoin with /.
+      <strong>Yollardaki eğik çizgileri yanlışlıkla kodlamak.</strong>
+      <code>a/b/c</code> varsa ve encodeURIComponent çağırırsanız, <code>a%2Fb%2Fc</code> alırsınız — üç yerine bir yol bölümü. Önce bölün, her bölümü kodlayın, / ile yeniden birleştirin.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Encode and decode URLs instantly with the{" "}
-      <a href="/tools/url-encoder-decoder">URL encoder/decoder</a>.
-      Pair with the{" "}
-      <a href="/tools/base64-encoder-decoder">Base64 encoder/decoder</a>
-      {" "}when you need to embed binary payloads inside URL-safe
-      text, and the{" "}
-      <a href="/tools/slug-generator">slug generator</a> when turning
-      titles into URL path segments.
+      URL'leri anında kodlayın ve çözün{" "}
+      <a href="/tools/url-encoder-decoder">URL kodlayıcı/çözücü</a> ile. Bunu, ikili yükleri URL güvenli metne gömmek için{" "}
+      <a href="/tools/base64-encoder-decoder">Base64 kodlayıcı/çözücü</a>
+      {" "}ve başlıkları URL yol bölümlerine dönüştürürken{" "}
+      <a href="/tools/slug-generator">slug oluşturucu</a> ile birlikte kullanın.
     </p>
   </>
 );

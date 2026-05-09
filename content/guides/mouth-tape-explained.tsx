@@ -2,38 +2,37 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Mouth taping went mainstream in 2023-2024 via James Nestor&rsquo;s book &ldquo;Breath&rdquo; and Andrew Huberman.
-    By 2026 it&rsquo;s common enough that pharmacies stock the tape. Here&rsquo;s the honest evidence + when it
-    actually helps.
+    Ağız bantlama, 2023-2024 yıllarında James Nestor&rsquo;un &ldquo;Nefes&rdquo; kitabı ve Andrew Huberman sayesinde ana akım haline geldi.
+    2026&rsquo;ya gelindiğinde eczanelerin bantları stoklayacak kadar yaygınlaştı. İşte dürüst kanıtlar + gerçekten ne zaman işe yaradığı.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The claim</h2>
+    <h2>İddia</h2>
     <p>
-      Sealing your lips at night forces nasal breathing, which (proponents argue) improves sleep quality, reduces
-      snoring, raises blood oxygen.
+      Geceleri dudaklarınızı kapatmak burundan nefes almayı zorunlu kılar, bu da (savunucularına göre) uyku kalitesini artırır, horlamayı azaltır,
+      kan oksijenini yükseltir.
     </p>
-    <h2>The actual evidence</h2>
+    <h2>Gerçek kanıtlar</h2>
     <ul>
-      <li><strong>Confirmed mouth-breathers:</strong> mild improvement in sleep efficiency, real reduction in dry mouth + sore throat.</li>
-      <li><strong>Snoring reduction:</strong> moderate evidence in mild cases. NO substitute for CPAP if you have sleep apnea.</li>
-      <li><strong>General population:</strong> placebo-level effects in most studies. Most healthy nasal breathers don&rsquo;t see meaningful gains.</li>
-      <li><strong>Reduced sleep apnea events:</strong> NOT supported. Can be dangerous if you have undiagnosed obstructive sleep apnea.</li>
+      <li><strong>Doğrulanmış ağız solunumcuları:</strong> uyku verimliliğinde hafif iyileşme, ağız kuruluğu + boğaz ağrısında gerçek azalma.</li>
+      <li><strong>Horlama azaltma:</strong> hafif vakalarda orta düzeyde kanıt. Uyku apneniz varsa CPAP&rsquo;ın yerini TUTMAZ.</li>
+      <li><strong>Genel nüfus:</strong> çoğu çalışmada plasebo düzeyinde etkiler. Sağlıklı burun solunumcularının çoğu anlamlı kazanç görmez.</li>
+      <li><strong>Azalan uyku apnesi olayları:</strong> DESTEKLENMEMEKTEDİR. Teşhis edilmemiş obstrüktif uyku apneniz varsa tehlikeli olabilir.</li>
     </ul>
-    <h2>Who should NOT mouth tape</h2>
+    <h2>Kimler ağız bandı KULLANMAMALI</h2>
     <ul>
-      <li>Sleep apnea (diagnosed or suspected).</li>
-      <li>Severely deviated septum / chronic congestion.</li>
-      <li>Anyone with a recent cold / sinus infection.</li>
-      <li>Children &mdash; inconclusive safety data.</li>
+      <li>Uyku apnesi (teşhis edilmiş veya şüphelenilen).</li>
+      <li>Şiddetli septum deviasyonu / kronik tıkanıklık.</li>
+      <li>Yakın zamanda soğuk algınlığı / sinüs enfeksiyonu geçirenler.</li>
+      <li>Çocuklar &mdash; sonuçsuz güvenlik verileri.</li>
     </ul>
-    <h2>If you try it</h2>
+    <h2>Denemek isterseniz</h2>
     <ul>
-      <li>Use a tape designed for it (3M Microfoam, Hostage Tape, MyoTape) &mdash; not duct tape.</li>
-      <li>Apply across the mouth, not sealing entirely; allow safety opening.</li>
-      <li>Get a sleep study first if you snore loudly or feel exhausted at 7-8 hr sleep.</li>
+      <li>Bunun için tasarlanmış bir bant kullanın (3M Microfoam, Hostage Tape, MyoTape) &mdash; koli bandı değil.</li>
+      <li>Ağzın üzerine uygulayın, tamamen kapatmayın; güvenlik açıklığı bırakın.</li>
+      <li>Yüksek sesle horluyor veya 7-8 saat uykuya rağmen bitkin hissediyorsanız önce uyku testi yaptırın.</li>
     </ul>
   </>
 );

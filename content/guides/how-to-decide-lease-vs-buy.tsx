@@ -3,214 +3,193 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Lease or buy is one of the most common and most mis-argued personal finance decisions.
-      The loudest voices say &ldquo;leasing is a rip-off&rdquo; or &ldquo;buying is a waste
-      of capital.&rdquo; Both statements are too simple. The actual answer depends on how
-      long you&rsquo;ll keep the vehicle, how many miles you drive, how much you value new
-      features, your tax situation, and where the car sits on its depreciation curve. This
-      guide compares total cost of ownership for both options, explains residual values,
-      mileage caps, business-use deductions, and walks through the specific scenarios where
-      leasing beats buying &mdash; and the many more where buying (especially used) wins.
+      Kiralama veya satın alma, en yaygın ve en çok tartışmalı kişisel finans kararlarından biridir.
+      En yüksek sesler &ldquo;kiralama bir kazıktır&rdquo; ya da &ldquo;satın almak sermaye israfıdır&rdquo; der.
+      Her iki ifade de fazla basittir. Gerçek cevap, aracı ne kadar süre tutacağınıza, kaç kilometre yaptığınıza,
+      yeni özelliklere ne kadar değer verdiğinize, vergi durumunuza ve aracın amortisman eğrisinde nerede olduğuna bağlıdır.
+      Bu rehber, her iki seçenek için toplam sahip olma maliyetini karşılaştırır, kalıntı değerleri,
+      kilometre sınırlarını, iş kullanımı kesintilerini açıklar ve kiralamanın satın almaya üstün geldiği belirli senaryoları
+      &mdash; ve satın almanın (özellikle ikinci el) kazandığı çok daha fazla senaryoyu adım adım inceler.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>1. What you&rsquo;re actually paying for</h2>
+    <h2>1. Aslında ne için ödeme yapıyorsunuz</h2>
     <p>
-      <strong>Buying</strong>: you pay for the whole vehicle (minus trade-in), keep it until
-      you sell, and absorb all the depreciation.
+      <strong>Satın alma</strong>: aracın tamamı için (takas hariç) ödeme yapar, satana kadar elinizde tutar
+      ve tüm amortismanı üstlenirsiniz.
     </p>
     <p>
-      <strong>Leasing</strong>: you pay for the depreciation that happens during the lease
-      term plus a financing charge (money factor), then hand the car back.
+      <strong>Kiralama</strong>: kiralama süresi boyunca gerçekleşen amortisman artı bir finansman ücreti (para faktörü) için ödeme yapar,
+      ardından aracı geri verirsiniz.
     </p>
-    <pre>{`lease payment ≈ (cap cost - residual value) / term + money factor + tax`}</pre>
+    <pre>{`kira ödemesi ≈ (sermaye maliyeti - kalıntı değer) / süre + para faktörü + vergi`}</pre>
     <p>
-      If a $45,000 car is worth $27,000 after 36 months, you&rsquo;re financing $18,000 of
-      depreciation plus interest over 36 months = ~$550/month. Buying the same car with a
-      loan would be $750/month, but you keep an asset worth $27k at the end.
-    </p>
-
-    <h2>2. Total cost of ownership over time</h2>
-    <p>
-      5-year comparison on a $40,000 sedan:
-    </p>
-    <pre>{`Buy (60-month loan, 6%):
-  Payments:       $46,400
-  After 5 years:  worth ~$18,000
-  Net cost:       $28,400
-
-Lease (3-year then new 3-year):
-  Payments (6 yr): $42,000
-  Residual at 6:   $0
-  Net cost:        $42,000`}</pre>
-    <p>
-      Over 5-6 years, buying is typically $10k-20k cheaper. The gap widens the longer you
-      keep the car.
+      45.000$'lık bir araç 36 ay sonra 27.000$ değerindeyse, 36 ay boyunca 18.000$'lık amortisman artı faizi finanse ediyorsunuz
+      = ~550$/ay. Aynı aracı krediyle satın almak 750$/ay olur, ancak sonunda 27.000$ değerinde bir varlığa sahip olursunuz.
     </p>
 
-    <h2>3. The depreciation curve</h2>
+    <h2>2. Zaman içinde toplam sahip olma maliyeti</h2>
     <p>
-      A new car loses ~20% of value in year 1, another ~15% in year 2, then ~10% per year
-      through year 5. Years 1-3 are the most expensive years of ownership per mile.
+      40.000$'lık bir sedan için 5 yıllık karşılaştırma:
+    </p>
+    <pre>{`Satın alma (60 ay kredi, %6):
+  Ödemeler:       46.400$
+  5 yıl sonra:    ~18.000$ değerinde
+  Net maliyet:    28.400$
+
+Kiralama (3 yıl, ardından yeni 3 yıl):
+  Ödemeler (6 yıl): 42.000$
+  6 yılda kalıntı:  0$
+  Net maliyet:      42.000$`}</pre>
+    <p>
+      5-6 yıl boyunca satın almak tipik olarak 10.000-20.000$ daha ucuzdur. Fark, aracı ne kadar uzun süre tutarsanız o kadar açılır.
+    </p>
+
+    <h2>3. Amortisman eğrisi</h2>
+    <p>
+      Yeni bir araç 1. yılda değerinin ~%20'sini, 2. yılda ~%15'ini, ardından 5. yıla kadar yılda ~%10'unu kaybeder.
+      1-3. yıllar, kilometre başına sahip olmanın en pahalı yıllarıdır.
     </p>
     <ul>
-      <li>Year 0-3: ~40-50% depreciation (lease sweet spot)</li>
-      <li>Year 3-6: ~20% depreciation</li>
-      <li>Year 6-10: ~10-15% depreciation</li>
+      <li>0-3. yıllar: ~%40-50 amortisman (kiralama tatlı noktası)</li>
+      <li>3-6. yıllar: ~%20 amortisman</li>
+      <li>6-10. yıllar: ~%10-15 amortisman</li>
     </ul>
     <p>
-      Buying 2-3 year-old used captures the post-depreciation value phase. This is why
-      buying used is the mathematically dominant option for most households.
+      2-3 yaşında ikinci el satın almak, amortisman sonrası değer aşamasını yakalar. Bu nedenle ikinci el satın almak,
+      çoğu hane için matematiksel olarak baskın seçenektir.
     </p>
 
-    <h2>4. Residual value explained</h2>
+    <h2>4. Kalıntı değer açıklaması</h2>
     <p>
-      The residual is the manufacturer&rsquo;s guaranteed buyback price at lease end. High
-      residuals = cheaper lease payments. Different models have very different residuals:
-      Toyota and Honda hold value best, German luxury and most EVs depreciate fast. When
-      comparing leases, look at residual as % of MSRP after 36 months &mdash; 55%+ is
-      excellent, below 45% means steep lease payments.
+      Kalıntı değer, üreticinin kiralama sonunda garantili geri alım fiyatıdır. Yüksek kalıntı değerler = daha ucuz kira ödemeleri.
+      Farklı modellerin kalıntı değerleri çok farklıdır: Toyota ve Honda değerini en iyi korur, Alman lüksü ve çoğu EV hızlı amorti olur.
+      Kiralamaları karşılaştırırken, 36 ay sonra kalıntı değerin MSRP'ye oranına bakın &mdash; %55+ mükemmeldir, %45'in altı yüksek kira ödemeleri anlamına gelir.
     </p>
 
-    <h2>5. Mileage caps</h2>
+    <h2>5. Kilometre sınırları</h2>
     <p>
-      Standard leases allow 10,000, 12,000, or 15,000 miles per year. Excess mileage costs
-      $0.15-0.30 per mile. A driver who logs 20,000 miles/year on a 12,000-mile lease faces
-      $7,200-14,400 in overage over a 3-year lease. If you drive more than 15k/year,
-      leasing is almost always wrong. Higher-mileage lease packages exist but price in the
-      extra depreciation up front.
+      Standart kiralamalar yılda 10.000, 12.000 veya 15.000 kilometreye izin verir. Fazla kilometre başına 0,15-0,30$ maliyet vardır.
+      Yılda 20.000 km yapan bir sürücü, 12.000 km'lik bir kiralama ile 3 yıllık sürede 7.200-14.400$ fazla öder.
+      Yılda 15.000 km'den fazla yapıyorsanız, kiralama neredeyse her zaman yanlıştır. Daha yüksek kilometreli kiralama paketleri mevcuttur,
+      ancak ek amortismanı peşin fiyatlandırır.
     </p>
 
-    <h2>6. The money factor</h2>
+    <h2>6. Para faktörü</h2>
     <p>
-      Leases hide the interest rate as a &ldquo;money factor.&rdquo; To convert:
+      Kiralamalar faiz oranını &ldquo;para faktörü&rdquo; olarak gizler. Dönüştürmek için:
     </p>
-    <pre>{`<a href="/learn/apr">APR</a> ≈ money factor × 2400`}</pre>
+    <pre>{`<a href="/learn/apr">APR</a> ≈ para faktörü × 2400`}</pre>
     <p>
-      Money factor of 0.00250 = roughly 6% APR. Always ask for the money factor and compare
-      it to a typical auto loan rate. Dealers mark up the money factor for profit just like
-      they mark up loan rates.
+      Para faktörü 0,00250 = yaklaşık %6 APR. Her zaman para faktörünü sorun ve tipik bir oto kredisi oranıyla karşılaştırın.
+      Bayiler, kredi oranlarını artırdıkları gibi kar için para faktörünü de artırır.
     </p>
 
-    <h2>7. When leasing actually makes sense</h2>
+    <h2>7. Kiralamanın gerçekten mantıklı olduğu durumlar</h2>
     <ul>
       <li>
-        <strong>Business use with tax deductions.</strong> If the vehicle is primarily for
-        business, lease payments (including the business-use %) are deductible, often more
-        favorably than a purchase.
+        <strong>Vergi kesintileri ile iş kullanımı.</strong> Araç öncelikle iş için kullanılıyorsa, kira ödemeleri (iş kullanım yüzdesi dahil)
+        genellikle satın almadan daha avantajlı bir şekilde düşülebilir.
       </li>
       <li>
-        <strong>You always want the newest model.</strong> Someone who would replace a car
-        every 3 years regardless spends similar money either way, but leasing skips the
-        sale hassle.
+        <strong>Her zaman en yeni modeli istiyorsunuz.</strong> Her 3 yılda bir aracını değiştirecek biri her iki şekilde de benzer para harcar,
+        ancak kiralama satış zahmetini ortadan kaldırır.
       </li>
       <li>
-        <strong>You want warranty coverage for the whole period.</strong> Leases typically
-        match the 3-year bumper-to-bumper warranty window.
+        <strong>Tüm süre boyunca garanti kapsamı istiyorsunuz.</strong> Kiralamalar tipik olarak 3 yıllık tampondan tampona garanti süresiyle eşleşir.
       </li>
       <li>
-        <strong>Electric vehicles with tech risk.</strong> EV tech is improving fast and
-        batteries degrade. Leasing offloads that risk to the manufacturer.
+        <strong>Teknoloji riski olan elektrikli araçlar.</strong> EV teknolojisi hızla gelişiyor ve piller bozuluyor. Kiralama bu riski üreticiye aktarır.
       </li>
       <li>
-        <strong>High residual + low money factor promos.</strong> Manufacturer incentives
-        occasionally make a specific lease cheaper than equivalent financing.
+        <strong>Yüksek kalıntı değer + düşük para faktörü promosyonları.</strong> Üretici teşvikleri bazen belirli bir kiralamayı eşdeğer finansmandan daha ucuz hale getirir.
       </li>
     </ul>
 
-    <h2>8. When buying is obviously better</h2>
+    <h2>8. Satın almanın açıkça daha iyi olduğu durumlar</h2>
     <ul>
-      <li>You keep cars for 6+ years</li>
-      <li>You drive more than 15,000 miles/year</li>
-      <li>You have kids, pets, or hobbies that wear interiors (lease damage fees)</li>
-      <li>You want to modify the vehicle</li>
-      <li>You have the cash or can afford the payment without stretching</li>
-      <li>You can buy 2-3 year old used with low mileage</li>
+      <li>Araçları 6+ yıl tutuyorsanız</li>
+      <li>Yılda 15.000 km'den fazla yapıyorsanız</li>
+      <li>İç mekanı yıpratan çocuklarınız, evcil hayvanlarınız veya hobileriniz varsa (kiralama hasar ücretleri)</li>
+      <li>Aracı modifiye etmek istiyorsanız</li>
+      <li>Nakitiniz varsa veya ödemeyi zorlanmadan karşılayabiliyorsanız</li>
+      <li>Düşük kilometreli 2-3 yaşında ikinci el satın alabiliyorsanız</li>
     </ul>
 
-    <h2>9. Buy used: the quiet win</h2>
+    <h2>9. İkinci el satın alın: sessiz kazanç</h2>
     <p>
-      A 3-year-old certified pre-owned (CPO) vehicle from a major brand:
+      Büyük bir markadan 3 yaşında sertifikalı ikinci el (CPO) bir araç:
     </p>
     <ul>
-      <li>Costs ~60% of new MSRP</li>
-      <li>Often has remaining factory warranty</li>
-      <li>Has already weathered the steepest depreciation</li>
-      <li>Continued ownership drives out TCO/year</li>
+      <li>Yeni MSRP'nin ~%60'ına mal olur</li>
+      <li>Genellikle kalan fabrika garantisine sahiptir</li>
+      <li>En dik amortismanı çoktan atlatmıştır</li>
+      <li>Sürekli sahiplik, yıllık toplam sahip olma maliyetini düşürür</li>
     </ul>
     <p>
-      For most households, this is the financially optimal path. New-car leasing and new-car
-      buying both lose to CPO on a 10-year cost basis.
+      Çoğu hane için bu finansal olarak en uygun yoldur. Yeni araç kiralama ve yeni araç satın alma, 10 yıllık maliyet bazında CPO'ya kaybeder.
     </p>
 
-    <h2>10. Lease-end options</h2>
+    <h2>10. Kiralama sonu seçenekleri</h2>
     <p>
-      At lease end you can:
+      Kiralama sonunda şunları yapabilirsiniz:
     </p>
     <ul>
-      <li>Return the car (most common)</li>
-      <li>Buy it at the residual value (sometimes a good deal if market value is higher)</li>
-      <li>Trade in for another lease or purchase</li>
+      <li>Aracı iade edin (en yaygın)</li>
+      <li>Kalıntı değerden satın alın (piyasa değeri daha yüksekse bazen iyi bir anlaşma)</li>
+      <li>Başka bir kiralama veya satın alma için takas yapın</li>
     </ul>
     <p>
-      In 2021-2023, used car values spiked and residuals set in 2020 were suddenly below
-      market &mdash; lease buyouts became the best auto deals available. Always check
-      market value against residual before returning the car.
+      2021-2023'te ikinci el araç değerleri fırladı ve 2020'de belirlenen kalıntı değerler aniden piyasanın altında kaldı &mdash; kiralama satın almaları mevcut en iyi araba fırsatları haline geldi.
+      Aracı iade etmeden önce her zaman piyasa değerini kalıntı değerle karşılaştırın.
     </p>
 
-    <h2>11. Gap insurance and wear-and-tear</h2>
+    <h2>11. Gap sigortası ve aşınma-yıpranma</h2>
     <p>
-      Leases almost always require gap insurance (covers the gap between what you owe and
-      what the car is worth if totaled). Often built into the lease. Wear-and-tear charges
-      at return can be significant: dings, scratches beyond a credit-card-size, stained
-      upholstery, excess mileage, even unusual tire wear. Budget for $500-2,000 at return.
+      Kiralamalar neredeyse her zaman gap sigortası gerektirir (borcunuz ile aracın toplamda değeri arasındaki farkı kapsar). Genellikle kiralamaya dahildir.
+      İadede aşınma-yıpranma ücretleri önemli olabilir: kredi kartı boyutunu aşan göçükler, çizikler, lekeli döşeme, fazla kilometre, hatta olağandışı lastik aşınması.
+      İadede 500-2.000$ bütçe ayırın.
     </p>
 
-    <h2>12. The psychological trap</h2>
+    <h2>12. Psikolojik tuzak</h2>
     <p>
-      Lease marketing leans hard on monthly payment: &ldquo;Only $399/month!&rdquo; This
-      anchors on payment, not total cost. A $399 lease on a $55k car that you replace every
-      3 years is $143,600+ over 30 years with nothing to show. The same 30 years of
-      buying-and-keeping-for-10 years costs $90-100k and leaves you with a working vehicle
-      at year 30.
+      Kiralama pazarlaması aylık ödemeye çok yüklenir: &ldquo;Sadece 399$/ay!&rdquo; Bu, ödemeye odaklanır, toplam maliyete değil.
+      55.000$'lık bir araç için 399$'lık bir kiralama ve her 3 yılda bir değiştirme, 30 yılda 143.600$+ ve ortada hiçbir şey bırakmaz.
+      Aynı 30 yıl boyunca satın alıp 10 yıl tutmak 90-100.000$'a mal olur ve 30. yılda çalışan bir araç bırakır.
     </p>
 
-    <h2>13. Common mistakes</h2>
+    <h2>13. Yaygın hatalar</h2>
     <ul>
       <li>
-        <strong>Comparing lease payment to loan payment.</strong> Different products; compare
-        total 6-year or 10-year cost.
+        <strong>Kira ödemesini kredi ödemesiyle karşılaştırmak.</strong> Farklı ürünler; toplam 6 yıllık veya 10 yıllık maliyeti karşılaştırın.
       </li>
       <li>
-        <strong>Ignoring mileage reality.</strong> &ldquo;I&rsquo;ll drive less next year.&rdquo;
-        You won&rsquo;t.
+        <strong>Kilometre gerçeğini görmezden gelmek.</strong> &ldquo;Gelecek yıl daha az yaparım.&rdquo;
+        Yapmazsınız.
       </li>
       <li>
-        <strong>Signing a high money factor.</strong> Always negotiate the money factor —
-        dealers rarely offer the best they can do.
+        <strong>Yüksek para faktörü imzalamak.</strong> Her zaman para faktörünü pazarlık edin &mdash;
+        bayiler nadiren yapabileceklerinin en iyisini sunar.
       </li>
       <li>
-        <strong>Treating lease as renting.</strong> You&rsquo;re still on the hook for
-        maintenance, insurance, damage, and excess mileage.
+        <strong>Kiralamayı kiralama olarak görmek.</strong> Bakım, sigorta, hasar ve fazla kilometre için hala sorumlusunuz.
       </li>
       <li>
-        <strong>Leasing without doing the 5-year math.</strong> Run the numbers both ways,
-        at least once.
+        <strong>5 yıllık matematiği yapmadan kiralama yapmak.</strong> Sayıları her iki şekilde de en az bir kez hesaplayın.
       </li>
     </ul>
 
-    <h2>14. Run the numbers</h2>
+    <h2>14. Sayıları hesaplayın</h2>
     <p>
-      Enter the car price, loan terms, lease payment, residual, and expected annual mileage
-      to see which comes out ahead over your planned ownership period.
+      Araç fiyatını, kredi koşullarını, kira ödemesini, kalıntı değeri ve beklenen yıllık kilometreyi girerek planlanan sahiplik süreniz boyunca hangisinin daha avantajlı olduğunu görün.
     </p>
     <p>
-      <a href="/tools/lease-vs-buy-calculator">Lease vs buy calculator</a>
-      <a href="/tools/auto-loan-calculator">Auto loan calculator</a>
-      <a href="/tools/loan-calculator">Loan calculator</a>
+      <a href="/tools/lease-vs-buy-calculator">Kiralama vs satın alma hesaplayıcısı</a>
+      <a href="/tools/auto-loan-calculator">Oto kredisi hesaplayıcısı</a>
+      <a href="/tools/loan-calculator">Kredi hesaplayıcısı</a>
     </p>
   </>
 );

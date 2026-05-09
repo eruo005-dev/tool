@@ -1,114 +1,113 @@
 export const intro = (
   <>
     <p>
-      The best candidate on paper doesn&rsquo;t always get the offer — the best interviewer does.
-      Interviewing is a distinct skill from the job itself, and it&rsquo;s trainable. A few
-      specific moves, practiced deliberately, dramatically raise your hit rate.
+      Kağıt üzerinde en iyi aday her zaman teklifi almaz — en iyi mülakatı yapan alır.
+      Mülakat yapmak, işin kendisinden ayrı bir beceridir ve geliştirilebilir. Bilinçli olarak
+      uygulanan birkaç stratejik hamle, başarı oranınızı önemli ölçüde artırabilir.
     </p>
     <p>
-      This guide covers what actually matters in interviews: the mindset, the preparation, and
-      the in-room moves that make you the candidate they remember.
+      Bu rehber, mülakatlarda gerçekten önemli olan şeyleri kapsar: zihniyet, hazırlık ve
+      odadaki hamleler — sizi unutulmaz bir aday yapan şeyler.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Research the specific role, not just the company</h2>
+    <h2>1. Sadece şirketi değil, spesifik rolü de araştırın</h2>
     <p>
-      Everyone reads the About page. Few candidates read the team&rsquo;s recent blog posts, the
-      hiring manager&rsquo;s LinkedIn, the product&rsquo;s recent release notes. This second
-      layer of research signals real interest and surfaces smart questions you can ask that
-      generic candidates can&rsquo;t.
+      Herkes Hakkımızda sayfasını okur. Çok az aday ekibin son blog yazılarını,
+      işe alım yöneticisinin LinkedIn profilini, ürünün son sürüm notlarını okur. Bu ikinci
+      katman araştırma, gerçek ilgiyi gösterir ve ortalama adayların soramayacağı akıllı
+      sorular sormanızı sağlar.
     </p>
 
-    <h2>2. Prepare 5–7 stories in STAR format</h2>
+    <h2>2. STAR formatında 5-7 hikaye hazırlayın</h2>
     <p>
-      Situation, Task, Action, Result. Have stories for: a conflict, a win, a failure, leading
-      without authority, tough trade-offs, impact you&rsquo;re proud of. A strong story covers
-      three questions because interviewers ask different angles on the same themes. Practice out
-      loud, not in your head.
+      Durum, Görev, Eylem, Sonuç. Şunlar için hikayeleriniz olsun: bir çatışma, bir başarı, bir
+      başarısızlık, otorite olmadan liderlik yapma, zor ödünleşimler, gurur duyduğunuz bir etki.
+      Güçlü bir hikaye üç soruyu kapsar çünkü mülakatçılar aynı temalara farklı açılardan
+      yaklaşır. Sesli pratik yapın, kafanızda değil.
     </p>
 
-    <h2>3. Know your resume cold</h2>
+    <h2>3. Özgeçmişinizi ezbere bilin</h2>
     <p>
-      If your resume says you &ldquo;scaled the pipeline,&rdquo; you should be able to explain
-      exactly what you did, why, and what the numbers were. Vague resumes are fine until
-      you&rsquo;re asked to defend them. Prep a concrete story for every bullet.
+      Özgeçmişinizde "pipeline'ı ölçeklendirdim" yazıyorsa, tam olarak ne yaptığınızı,
+      neden yaptığınızı ve sayıların ne olduğunu açıklayabilmelisiniz. Belirsiz özgeçmişler,
+      savunmanız istenene kadar sorun değildir. Her madde işareti için somut bir hikaye hazırlayın.
     </p>
 
-    <h2>4. Practice out loud, ideally with video</h2>
+    <h2>4. Sesli pratik yapın, ideal olarak video ile</h2>
     <p>
-      Record yourself answering the top 10 questions. Watching yourself is uncomfortable and
-      extremely useful — fillers, long pauses, unclear structure show up immediately. Most
-      interview improvement comes from this one exercise.
+      En yaygın 10 soruyu yanıtlarken kendinizi kaydedin. Kendinizi izlemek rahatsız edicidir
+      ve son derece faydalıdır — dolgu kelimeler, uzun duraklamalar, belirsiz yapı anında
+      görünür hale gelir. Mülakat gelişiminin çoğu bu tek egzersizden gelir.
     </p>
 
-    <h2>5. Lead with the answer, then the evidence</h2>
+    <h2>5. Cevapla başlayın, sonra kanıtlayın</h2>
     <p>
-      Interviewers lose patience with candidates who warm up for 90 seconds before getting to
-      the point. Lead: &ldquo;The time I&rsquo;m proudest of leadership is…&rdquo; Then the story.
-      Answer first, context second. Same rule as good writing.
+      Mülakatçılar, konuya girmeden önce 90 saniye ısınan adaylardan sıkılır. Şöyle başlayın:
+      "Liderlikle ilgili en gurur duyduğum an…" Ardından hikaye. Önce cevap, sonra bağlam.
+      İyi yazıyla aynı kural.
     </p>
 
-    <h2>6. Use numbers wherever possible</h2>
+    <h2>6. Mümkün olduğunca sayı kullanın</h2>
     <p>
-      &ldquo;I improved the checkout flow&rdquo; is weak; &ldquo;I redesigned the checkout flow
-      and reduced cart abandonment 18%&rdquo; is strong. Numbers anchor interviewer memory.
-      Before any interview, compile 8–10 quantifiable outcomes you can drop in naturally.
+      "Ödeme akışını iyileştirdim" zayıftır; "Ödeme akışını yeniden tasarladım ve sepet
+      terk oranını %18 azalttım" güçlüdür. Sayılar mülakatçının hafızasında kalır.
+      Her mülakat öncesinde, doğal olarak kullanabileceğiniz 8-10 ölçülebilir sonuç derleyin.
     </p>
 
-    <h2>7. Ask real questions, not performative ones</h2>
+    <h2>7. Gösteriş için değil, gerçek sorular sorun</h2>
     <p>
-      &ldquo;What&rsquo;s the company culture like?&rdquo; is a question you could&rsquo;ve
-      Googled. &ldquo;You just launched X — what surprised you most about how it was
-      received?&rdquo; is a question only you asked. Good questions are often the single biggest
-      differentiator in otherwise-tied candidates.
+      "Şirket kültürü nasıl?" Google'da bulabileceğiniz bir sorudur. "Az önce X'i başlattınız —
+      nasıl karşılandığı konusunda sizi en çok şaşırtan ne oldu?" sadece sizin soracağınız bir
+      sorudur. İyi sorular, aksi takdirde eşit olan adaylar arasındaki en büyük farklılaştırıcıdır.
     </p>
 
-    <h2>8. Match the energy of the room</h2>
+    <h2>8. Odadaki enerjiyi eşleştirin</h2>
     <p>
-      Formal interviewer → formal responses. Casual, joke-cracking interviewer → don&rsquo;t stay
-      stiff. Mismatched energy feels off even when you can&rsquo;t name why. Read the room and
-      adjust your register.
+      Resmi mülakatçı → resmi cevaplar. Rahat, şaka yapan mülakatçı → gergin kalmayın.
+      Uyumsuz enerji, nedenini söyleyemeseniz bile rahatsız hissettirir. Ortamı okuyun ve
+      tonunuzu ayarlayın.
     </p>
 
-    <h2>9. When you don&rsquo;t know, say so cleanly</h2>
+    <h2>9. Bilmediğinizde dürüst olun</h2>
     <p>
-      &ldquo;I don&rsquo;t know, but here&rsquo;s how I&rsquo;d figure it out&rdquo; beats
-      bluffing every time. Experienced interviewers spot bluffs instantly, and the bluff costs
-      far more than the admission. Bonus points for genuine curiosity after: &ldquo;What&rsquo;s
-      the right answer?&rdquo;
+      "Bilmiyorum, ama nasıl öğreneceğimi biliyorum" her zaman blöf yapmaktan daha iyidir.
+      Deneyimli mülakatçılar blöfleri anında fark eder ve blöf yapmak, bilmediğinizi kabul
+      etmekten çok daha pahalıya mal olur. Ardından gelen gerçek merak bonus puan kazandırır:
+      "Doğru cevap nedir?"
     </p>
 
-    <h2>10. Handle the salary question deliberately</h2>
+    <h2>10. Maaş sorusunu stratejik olarak yönetin</h2>
     <p>
-      Deflect early in the process (&ldquo;I&rsquo;d like to learn more about the role first
-      before discussing comp&rdquo;). When forced to give a number, give a range anchored to your
-      research. Pair with our <a href="/guides/how-to-negotiate-salary">salary negotiation
-      guide</a> for the full playbook.
+      Konuyu sürecin başlarında erteleyin ("Önce rol hakkında daha fazla bilgi edinmek isterim,
+      sonra ücretlendirmeyi konuşabiliriz"). Bir sayı vermeniz gerektiğinde, araştırmanıza
+      dayalı bir aralık belirtin. Tam plan için bunu <a href="/guides/how-to-negotiate-salary">maaş
+      pazarlığı rehberimizle</a> birlikte kullanın.
     </p>
 
-    <h2>11. Follow up within 24 hours</h2>
+    <h2>11. 24 saat içinde takip edin</h2>
     <p>
-      A brief, specific thank-you email — mentioning something from the conversation —
-      differentiates you. Doesn&rsquo;t need to be long. Does need to be sent. Most candidates
-      don&rsquo;t. The ones who do stand out.
+      Konuşmadan bir şeyden bahseden kısa, spesifik bir teşekkür e-postası sizi
+      öne çıkarır. Uzun olması gerekmez. Sadece gönderilmesi gerekir. Çoğu aday
+      göndermez. Gönderenler öne çıkar.
     </p>
 
-    <h2>12. Reset between interviews</h2>
+    <h2>12. Mülakatlar arasında yenilenin</h2>
     <p>
-      Back-to-back interviews tank performance. Between rounds: walk, water, jot three things
-      that worked and one to improve. Short reset loops compound over a multi-round loop. Pair
-      with our <a href="/guides/how-to-write-a-resume">resume guide</a> — strong resume + strong
-      interviews is where offers come from.
+      Ardışık mülakatlar performansı düşürür. Turlar arasında: yürüyün, su için, iyi giden üç
+      şeyi ve iyileştirilecek bir şeyi not edin. Kısa yenilenme döngüleri, çok turlu bir
+      süreçte birikir. Bunu <a href="/guides/how-to-write-a-resume">özgeçmiş rehberimizle</a> birlikte kullanın —
+      güçlü özgeçmiş + güçlü mülakatlar, tekliflerin geldiği yerdir.
     </p>
 
-    <h2>Your pre-interview checklist</h2>
+    <h2>Mülakat öncesi kontrol listeniz</h2>
     <p>
-      Research the role. Prepare 5 STAR stories. Memorize 8 numbers from your career. Draft 5
-      questions. Do one mock interview out loud. Sleep. Show up 5 minutes early. That&rsquo;s
-      the whole preparation — everything else is noise.
+      Rolü araştırın. 5 STAR hikayesi hazırlayın. Kariyerinizden 8 sayı ezberleyin. 5
+      soru taslağı çıkarın. Sesli bir deneme mülakatı yapın. Uyuyun. 5 dakika erken
+      varın. Hazırlık budur — gerisi gürültüdür.
     </p>
   </>
 );

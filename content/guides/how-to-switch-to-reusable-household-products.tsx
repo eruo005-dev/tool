@@ -2,52 +2,52 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Reusables only work if you actually use them &mdash; so start with the four swaps that pay back in weeks, not years.
+    Yeniden kullanılabilir ürünler yalnızca onları gerçekten kullanırsanız işe yarar &mdash; bu yüzden yıllar değil, haftalar içinde kendini amorti eden dört değişiklikle başlayın.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      Most households waste money on reusable gadgets that sit in a drawer. The trick is a ruthless starter set: water bottle, coffee cup, shopping bags, and food containers. Those four cover roughly 80% of a typical family&rsquo;s single-use plastic. Everything else is optimization.
+      Çoğu hane, bir çekmecede duran yeniden kullanılabilir aletlere para harcar. İşin püf noktası acımasız bir başlangıç setidir: su şişesi, kahve fincanı, alışveriş çantaları ve gıda kapları. Bu dört ürün, tipik bir ailenin tek kullanımlık plastiğinin kabaca %80'ini kapsar. Geri kalan her şey optimizasyondur.
     </p>
 
-    <h2>The four high-impact swaps, in order</h2>
+    <h2>Sırasıyla yüksek etkili dört değişiklik</h2>
     <p>
-      A stainless water bottle replaces bottled water in 30&ndash;60 days of use &mdash; faster if you&rsquo;re buying $2 bottles at the gym. A reusable coffee cup saves $0.10&ndash;$0.50 per visit at chains that offer a discount. Keep 5&ndash;6 cloth shopping bags in the car (not the pantry) so you actually have them. Glass or stainless food containers replace plastic tubs and survive the dishwasher for years.
+      Paslanmaz çelik bir su şişesi, 30&ndash;60 günlük kullanımda şişe suyun yerini alır &mdash; spor salonunda 2 dolarlık şişeler alıyorsanız daha da hızlı. Yeniden kullanılabilir bir kahve fincanı, indirim sunan zincirlerde ziyaret başına 0,10&ndash;0,50 dolar tasarruf sağlar. 5&ndash;6 adet bez alışveriş çantasını arabanızda (kilerde değil) bulundurun ki gerçekten yanınızda olsun. Cam veya paslanmaz çelik gıda kapları, plastik kapların yerini alır ve yıllarca bulaşık makinesine dayanır.
     </p>
 
-    <h2>Kitchen</h2>
+    <h2>Mutfak</h2>
     <p>
-      Silicone zip bags (Stasher, Zip Top) replace sandwich bags and are freezer/microwave safe. Beeswax wraps replace plastic wrap for cheese, bread, and bowl covers &mdash; wash in cool water, skip the dishwasher. A reusable metal or cloth coffee filter pays for itself in 2&ndash;3 months of daily brewing. Cloth napkins last a decade; paper napkins last a meal.
+      Silikon fermuarlı poşetler (Stasher, Zip Top) sandviç poşetlerinin yerini alır ve dondurucuda/mikrodalgada kullanılabilir. Balmumu kaplar, peynir, ekmek ve kase örtüleri için streç filmin yerini alır &mdash; soğuk suda yıkayın, bulaşık makinesine koymayın. Yeniden kullanılabilir metal veya bez kahve filtresi, günlük demlemede 2&ndash;3 ayda kendini amorti eder. Bez peçeteler on yıl dayanır; kağıt peçeteler bir öğün dayanır.
     </p>
 
-    <h2>Bathroom</h2>
+    <h2>Banyo</h2>
     <ul>
-      <li>Safety razor: the handle is $20&ndash;$40, and a 10-pack of blades runs about $5. A year of shaving costs under $10 versus $50&ndash;$150 in cartridges.</li>
-      <li>Shampoo and conditioner bars last 60&ndash;80 washes and eliminate bottle waste &mdash; keep them dry between uses or they dissolve fast.</li>
-      <li>Menstrual cups ($30&ndash;$40, last 5&ndash;10 years) or period underwear replace tampons and pads for most users.</li>
-      <li>Bamboo toothbrushes, bar soap, and refillable floss dispensers round out the bathroom without much lifestyle change.</li>
+      <li>Güvenli tıraş makinesi: sapı 20&ndash;40 dolar, 10'lu bıçak paketi yaklaşık 5 dolar. Bir yıllık tıraş, kartuşlara 50&ndash;150 dolar yerine 10 doların altına mal olur.</li>
+      <li>Şampuan ve saç kremi barları 60&ndash;80 yıkamada dayanır ve şişe atığını ortadan kaldırır &mdash; kullanımlar arasında kuru tutun, aksi halde çabuk erirler.</li>
+      <li>Menstrüel kaplar (30&ndash;40 dolar, 5&ndash;10 yıl dayanır) veya dönem iç çamaşırı, çoğu kullanıcı için tampon ve pedlerin yerini alır.</li>
+      <li>Bambu diş fırçaları, kalıp sabun ve yeniden doldurulabilir diş ipi dağıtıcıları, fazla yaşam tarzı değişikliği gerektirmeden banyoyu tamamlar.</li>
     </ul>
 
-    <h2>Cleaning</h2>
+    <h2>Temizlik</h2>
     <p>
-      Reusable &ldquo;paper&rdquo; towels &mdash; typically bamboo or cotton rolls that wash 50&ndash;100 times &mdash; cut paper towel spending by 80%. Buy cleaning concentrates (Blueland, Grove, Branch Basics) and refill the same spray bottles instead of buying new plastic every month. Microfiber cloths replace disposable wipes for almost every surface.
+      Yeniden kullanılabilir &ldquo;kağıt&rdquo; havlular &mdash; genellikle 50&ndash;100 kez yıkanabilen bambu veya pamuk rulolar &mdash; kağıt havlu harcamasını %80 azaltır. Temizlik konsantreleri (Blueland, Grove, Branch Basics) satın alın ve her ay yeni plastik almak yerine aynı sprey şişelerini yeniden doldurun. Mikrofiber bezler, hemen hemen her yüzey için tek kullanımlık mendillerin yerini alır.
     </p>
 
-    <h2>The savings math</h2>
+    <h2>Tasarruf hesapları</h2>
     <p>
-      A $30 water bottle replaces roughly $1&ndash;$2 per day in bottled water &mdash; payback in 15&ndash;60 days. Cloth diapers ($300&ndash;$600 upfront) break even at around 18 months versus $2,500&ndash;$3,000 for disposables over the same period. A safety razor saves $40&ndash;$140 per year per shaver. Stack three or four of these and the annual savings usually clears $500 per household.
+      30 dolarlık bir su şişesi, günde yaklaşık 1&ndash;2 dolarlık şişe suyun yerini alır &mdash; 15&ndash;60 günde kendini amorti eder. Bez bezler (300&ndash;600 dolar peşin) aynı dönemde 2.500&ndash;3.000 dolarlık tek kullanımlık bezlere kıyasla yaklaşık 18 ayda başa baş noktasına gelir. Güvenli tıraş makinesi, tıraş olan kişi başına yılda 40&ndash;140 dolar tasarruf sağlar. Bunlardan üç veya dördünü birleştirin ve yıllık tasarruf genellikle hane başına 500 doları aşar.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Buying gimmicks (reusable straws you&rsquo;ll lose, collapsible silicone everything) before you own the basics. Reusing single-use plastic bottles or takeout containers &ldquo;because it saves&rdquo; &mdash; most aren&rsquo;t rated for repeated use and degrade quickly. Letting your reusable stash get dirty or disorganized: if the cloth bags are in a crumpled ball under the sink or the water bottle is growing science, you&rsquo;ll default back to disposable every time. Assign a spot, wash on a schedule, and replace items that are past their life instead of guilt-keeping them.
+      Temel ürünlere sahip olmadan önce gereksiz aletler (kaybedeceğiniz yeniden kullanılabilir pipetler, katlanabilir silikon her şey) satın almak. &ldquo;Tasarruf sağladığı için&rdquo; tek kullanımlık plastik şişeleri veya paket servis kaplarını yeniden kullanmak &mdash; çoğu tekrarlanan kullanım için derecelendirilmemiştir ve çabuk bozulur. Yeniden kullanılabilir stokunuzun kirlenmesine veya dağınık olmasına izin vermek: bez çantalar lavabonun altında buruşmuş bir top halindeyse veya su şişesinde bilim deneyi büyüyorsa, her seferinde tek kullanımlığa geri dönersiniz. Bir yer belirleyin, bir programa göre yıkayın ve ömrünü tamamlamış ürünleri suçluluk duygusuyla saklamak yerine değiştirin.
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Sonuç</h2>
     <p>
-      Start with the four core swaps, add one category per month, and treat reusables like any other system &mdash; they need a home and a cleaning routine or they fail. Most households recoup their investment inside a year and keep saving indefinitely. Run the numbers for your own usage with the <a href="/tools/reusable-vs-disposable-savings">reusable vs disposable savings calculator</a> before you buy another gadget.
+      Dört temel değişiklikle başlayın, ayda bir kategori ekleyin ve yeniden kullanılabilir ürünlere diğer sistemler gibi davranın &mdash; bir yerleri ve temizlik rutinleri olmalıdır, aksi halde başarısız olurlar. Çoğu hane, yatırımını bir yıl içinde geri kazanır ve süresiz olarak tasarruf etmeye devam eder. Başka bir alet satın almadan önce, kendi kullanımınız için <a href="/tools/reusable-vs-disposable-savings">yeniden kullanılabilir ve tek kullanımlık tasarruf hesaplayıcısı</a> ile rakamları hesaplayın.
     </p>
   </>
 );

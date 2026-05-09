@@ -3,233 +3,159 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Color contrast is the single most-violated accessibility rule on the web,
-      and it&rsquo;s also one of the easiest to fix. WCAG defines numeric ratios
-      between foreground and background luminance; fail them and people with low
-      vision, poor displays, or sunlit screens cannot read your text. The good
-      news is the math is fully automatable and the thresholds are well-defined.
-      This guide explains what the ratios mean, the difference between AA and
-      AAA, where large-text leniency applies, how luminance is actually
-      calculated, and the subtler cases &mdash; link colors, disabled states,
-      dark mode &mdash; that trip up teams who check the hero text once and call
-      it a day.
+      Renk kontrastı, web'de en sık ihlal edilen erişilebilirlik kuralıdır ve düzeltilmesi en kolay olanlardan biridir. WCAG, ön plan ve arka plan parlaklığı arasındaki sayısal oranları tanımlar; bunları karşılamazsanız, düşük görüşe sahip kişiler, kötü ekranlar veya güneş ışığı parlaması metninizi okuyamaz. İyi haber şu ki, matematik tamamen otomatikleştirilebilir ve eşikler iyi tanımlanmıştır. Bu kılavuz, oranların ne anlama geldiğini, AA ve AAA arasındaki farkı, büyük metin esnekliğinin nerede uygulandığını, parlaklığın aslında nasıl hesaplandığını ve ekiplerin gövde metnini bir kez kontrol edip işi bitmiş saymasına neden olan daha ince durumları (bağlantı renkleri, devre dışı durumlar, karanlık mod) açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The WCAG thresholds</h2>
+    <h2>WCAG eşikleri</h2>
     <p>
-      Contrast is expressed as a ratio between 1:1 (no contrast) and 21:1 (pure
-      white on pure black). The thresholds you need to memorize:
+      Kontrast, 1:1 (kontrast yok) ile 21:1 (saf siyah üzerinde saf beyaz) arasında bir oran olarak ifade edilir. Ezberlemeniz gereken eşikler:
     </p>
-    <pre>{`                     Normal text    Large text   UI components
-WCAG AA              4.5 : 1        3 : 1        3 : 1
-WCAG AAA             7 : 1          4.5 : 1      n/a`}</pre>
+    <pre>{`                     Normal metin   Büyük metin   UI bileşenleri
+WCAG AA              4.5 : 1        3 : 1         3 : 1
+WCAG AAA             7 : 1          4.5 : 1       yok`}</pre>
     <p>
-      <strong>Normal text</strong> is anything under 18pt (roughly 24px) regular
-      or 14pt bold. <strong>Large text</strong> is 18pt+ regular or 14pt+ bold.{" "}
-      <strong>UI components</strong> include form borders, icons, focus
-      indicators &mdash; anything non-text that carries meaning.
+      <strong>Normal metin</strong>, 18pt (≈24px) normal veya 14pt kalın'ın altındaki her şeydir. <strong>Büyük metin</strong>, 18pt+ normal veya 14pt+ kalın'dır. <strong>UI bileşenleri</strong>, form kenarlıkları, simgeler, odak göstergeleri — anlam taşıyan metin olmayan her şeyi içerir.
     </p>
 
-    <h2>AA vs AAA</h2>
+    <h2>AA ve AAA</h2>
     <p>
-      <strong>AA is the legal baseline</strong> in most jurisdictions (ADA,
-      Section 508, EN 301 549, AODA). If you&rsquo;re shipping a public product,
-      aim for AA at minimum.
+      <strong>AA, çoğu yargı bölgesinde yasal taban çizgisidir</strong> (ADA, Section 508, EN 301 549, AODA). Halka açık bir ürün gönderiyorsanız, en azından AA'yı hedefleyin.
     </p>
     <p>
-      <strong>AAA is the gold standard</strong>. It&rsquo;s required only for
-      government services in a few places. For product work, hitting AAA on body
-      copy is a reasonable north star &mdash; it costs you nothing and gives you
-      headroom for bad displays, direct sunlight, and aging users.
+      <strong>AAA altın standarttır</strong>. Yalnızca birkaç yerde devlet hizmetleri için gereklidir. Ürün çalışmaları için, gövde metninde AAA'ya ulaşmak makul bir kuzey yıldızıdır — size hiçbir maliyeti yoktur ve kötü ekranlar, doğrudan güneş ışığı ve yaşlanan kullanıcılar için size pay sağlar.
     </p>
 
-    <h2>How luminance is calculated</h2>
+    <h2>Parlaklık nasıl hesaplanır</h2>
     <p>
-      Contrast ratio comes from relative luminance, not raw RGB. Each channel is
-      normalized to 0&ndash;1, gamma-decoded, then weighted by how sensitive the
-      human eye is to that color:
+      Kontrast oranı, ham RGB'den değil, bağıl parlaklıktan gelir. Her kanal 0–1'e normalleştirilir, gama çözülür, ardından insan gözünün o renge ne kadar duyarlı olduğuna göre ağırlıklandırılır:
     </p>
     <pre>{`L = 0.2126 R + 0.7152 G + 0.0722 B`}</pre>
     <p>
-      Green dominates. A pure green (#00ff00) has luminance 0.7152; pure red is
-      0.2126; pure blue is 0.0722. That&rsquo;s why dark blue on black looks
-      horrible (both have tiny luminance) while dark red on black reads at least
-      a little.
+      Yeşil baskındır. Saf yeşil (#00ff00) 0.7152 parlaklığa sahiptir; saf kırmızı 0.2126; saf mavi 0.0722. Bu nedenle koyu mavi siyah üzerinde berbat görünür (her ikisi de çok düşük parlaklığa sahiptir) koyu kırmızı siyah üzerinde en azından biraz okunabilir.
     </p>
-    <pre>{`contrast ratio = (L_lighter + 0.05) / (L_darker + 0.05)`}</pre>
+    <pre>{`kontrast oranı = (L_açık + 0.05) / (L_koyu + 0.05)`}</pre>
     <p>
-      The <code>+ 0.05</code> prevents division by zero and accounts for
-      flare. The practical upshot: you can&rsquo;t intuit contrast from
-      &ldquo;how different the colors look.&rdquo; Run the numbers.
+      <code>+ 0.05</code> sıfıra bölmeyi önler ve parlamayı hesaba katar. Pratik çıkarım: kontrastı "renklerin ne kadar farklı göründüğünden" sezemezsiniz. Sayıları hesaplayın.
     </p>
 
-    <h2>Large-text leniency</h2>
+    <h2>Büyük metin esnekliği</h2>
     <p>
-      Bigger text is easier to read, so WCAG lets you drop to 3:1 for large
-      text. This is what lets you use medium-gray headlines that would fail on
-      body copy. The cutoffs:
+      Daha büyük metnin okunması daha kolaydır, bu nedenle WCAG büyük metin için 3:1'e düşmenize izin verir. Bu, gövde metninde başarısız olacak orta gri başlıklara izin verir. Sınırlar:
     </p>
-    <pre>{`18pt regular  =  24px           (AA large allowed)
-14pt bold     =  18.66px bold    (AA large allowed)`}</pre>
+    <pre>{`18pt normal  =  24px           (AA büyük izin verilir)
+14pt kalın    =  18.66px kalın   (AA büyük izin verilir)`}</pre>
     <p>
-      A common mistake: using the leniency for 18px bold subheads. 18px bold is
-      not 14pt bold &mdash; it&rsquo;s ~13.5pt. Measure in pt, not px, to stay
-      honest.
+      Yaygın bir hata: 18px kalın alt başlıklar için esnekliği kullanmak. 18px kalın, 14pt kalın değildir — ~13.5pt'dir. Dürüst olmak için pt cinsinden ölçün.
     </p>
 
-    <h2>Link colors inside paragraphs</h2>
+    <h2>Paragrafların içindeki bağlantı renkleri</h2>
     <p>
-      Links need <em>two</em> contrasts: against the page background{" "}
-      <strong>and</strong> against the surrounding body text. WCAG 1.4.1 says
-      color alone can&rsquo;t be the only signal. Two ways to pass:
+      Bağlantıların <em>iki</em> kontrasta ihtiyacı vardır: sayfa arka planına karşı <strong> ve</strong> çevreleyen gövde metnine karşı. WCAG 1.4.1, rengin tek sinyal olamayacağını söyler. Geçmek için iki yol:
     </p>
     <p>
-      <strong>Underline the link.</strong> Now the underline carries the signal
-      and contrast of the link color only needs to meet the text-vs-background
-      ratio.
+      <strong>Bağlantının altını çizin.</strong> Artık alt çizgi sinyali taşır ve bağlantı renginin yalnızca metin-arka plan oranını karşılaması gerekir.
     </p>
     <p>
-      <strong>Use a 3:1 color difference</strong> between the link and the body
-      text in addition to a passing contrast against the background.
+      <strong>Bağlantı ile gövde metni arasında 3:1 renk farkı</strong> ve arka plana karşı geçerli bir kontrast kullanın.
     </p>
     <p>
-      If you&rsquo;re stripping underlines for aesthetics, you need the
-      3:1-to-text test, plus another signal (bold, hover underline) to cover
-      non-color signaling.
+      Estetik için alt çizgileri kaldırırsanız, renk dışı sinyallemeyi kapsamak için 3:1-metne testine ve başka bir sinyale (kalın, üzerine gelindiğinde alt çizgi) ihtiyacınız vardır.
     </p>
 
-    <h2>Disabled states</h2>
+    <h2>Devre dışı durumlar</h2>
     <p>
-      WCAG explicitly exempts disabled controls from the contrast requirements
-      &mdash; but that doesn&rsquo;t mean &ldquo;invisible is fine.&rdquo;
-      Users still need to see there&rsquo;s a button, they just need to
-      understand it&rsquo;s not interactive. A common pattern: keep the text
-      contrast at ~3:1 against the button, and lighten the background fill.
-      Reduced opacity works visually; just don&rsquo;t drop below ~2:1 or the
-      control becomes impossible to locate.
+      WCAG, devre dışı kontrolleri kontrast gereksinimlerinden açıkça muaf tutar — ancak bu "görünmez olması sorun değil" anlamına gelmez. Kullanıcıların yine de bir düğmenin var olduğunu, sadece etkileşimli olmadığını görmeleri gerekir. Yaygın bir model: metin kontrastını düğmeye karşı ~3:1'de tutun ve arka plan dolgusunu açın. Azaltılmış opaklık görsel olarak işe yarar; sadece ~2:1'in altına düşmeyin, aksi takdirde kontrol bulunamaz hale gelir.
     </p>
 
-    <h2>Placeholder text</h2>
+    <h2>Yer tutucu metni</h2>
     <p>
-      Most browsers ship with placeholder text at ~40% opacity, which almost
-      always fails AA. Override it:
+      Çoğu tarayıcı, yer tutucu metnini ~%40 opaklıkta işler ve bu neredeyse her zaman AA'da başarısız olur. Bunu geçersiz kılın:
     </p>
     <pre>{`::placeholder {
-  color: #6b7280; /* gray-500, ~4.6:1 on white */
+  color: #6b7280; /* gray-500, beyaz üzerinde ~4.6:1 */
   opacity: 1;
 }`}</pre>
     <p>
-      And remember placeholders should never replace labels. Even at passing
-      contrast they disappear the moment the user starts typing.
+      Ve unutmayın, yer tutucular asla etiketlerin yerini almamalıdır. Geçerli kontrasta sahip olsalar bile, kullanıcı yazmaya başlar başlamaz kaybolurlar.
     </p>
 
-    <h2>Dark mode</h2>
+    <h2>Karanlık mod</h2>
     <p>
-      Pure white text on pure black is 21:1 &mdash; technically perfect but
-      actually painful on OLED screens. Soften both ends:
+      Saf siyah üzerinde saf beyaz 21:1'dir — teknik olarak mükemmel ancak OLED ekranlarda aslında acı vericidir. Her iki ucu da yumuşatın:
     </p>
-    <pre>{`bg:   #0a0a0a   (off-black)
-text: #e5e5e5   (off-white)
-ratio: 14.5 : 1   (plenty, easier on the eyes)`}</pre>
+    <pre>{`bg:   #0a0a0a   (siyaha yakın)
+text: #e5e5e5   (beyaza yakın)
+oran: 14.5 : 1   (yeterli, gözler için daha kolay)`}</pre>
     <p>
-      Check your dark-mode palette separately. Teams often nail light mode and
-      then invert colors without re-checking contrast for every component.
-      Border colors, disabled states, and brand colors usually need bespoke
-      dark-mode values.
+      Karanlık mod paletinizi ayrı ayrı denetleyin. Ekipler genellikle açık modu halleder, ardından her bileşen için kontrastı yeniden kontrol etmeden renkleri tersine çevirir. Kenarlık renkleri, devre dışı durumlar ve marka renkleri genellikle özel karanlık mod değerlerine ihtiyaç duyar.
     </p>
 
-    <h2>Images with text overlays</h2>
+    <h2>Görsellerin üzerindeki metin</h2>
     <p>
-      Hero images with headlines are where contrast fails most dramatically
-      because the background is not a flat color. Options:
+      Manşetli kahraman görselleri, kontrastın en dramatik şekilde başarısız olduğu yerdir çünkü arka plan düz bir renk değildir. Seçenekler:
     </p>
     <p>
-      <strong>Dark overlay.</strong> A 40&ndash;60% black gradient over the
-      image pushes average luminance down enough for white text to pass.
+      <strong>Koyu katman.</strong> Görselin üzerinde %40–60 siyah bir gradyan, ortalama parlaklığı beyaz metnin geçmesi için yeterince düşürür.
     </p>
     <p>
-      <strong>Text shadow.</strong> A subtle <code>text-shadow: 0 1px 3px rgba(0,0,0,0.6)</code>{" "}
-      adds local contrast without touching the image.
+      <strong>Metin gölgesi.</strong> İnce bir <code>text-shadow: 0 1px 3px rgba(0,0,0,0.6)</code> görsele dokunmadan yerel kontrast ekler.
     </p>
     <p>
-      <strong>Contained background.</strong> Put the text on a semi-opaque
-      panel rather than directly on the image.
+      <strong>Kapsayıcı arka planı.</strong> Metni doğrudan görselin üzerine değil, yarı saydam bir panelin üzerine yerleştirin.
     </p>
 
-    <h2>Brand colors that fail</h2>
+    <h2>Başarısız olan marka renkleri</h2>
     <p>
-      A surprising number of brand palettes fail AA at their default weights.
-      Medium greens (#4caf50-ish) on white are usually 2.2:1. Sky blues
-      (#3b82f6-ish) land around 3.7:1 &mdash; fine for large text or a button
-      background, but not for 14px body copy. When you inherit a failing brand
-      color:
+      Şaşırtıcı sayıda marka paleti, varsayılan ağırlıklarda AA'da başarısız olur. Beyaz üzerinde orta yeşiller (#4caf50 civarı) genellikle 2.2:1'dir. Gök mavileri (#3b82f6 civarı) yaklaşık 3.7:1'dir — büyük metin veya düğme arka planları için iyi, 14px gövde metni için değil. Başarısız bir marka rengini devraldığınızda:
     </p>
     <p>
-      Darken the shade for body use and keep the original for illustrations and
-      icons. Most design systems ship both &mdash; call them <code>blue-500</code>{" "}
-      and <code>blue-700</code> &mdash; and prescribe which is for text.
+      Tonu gövde kullanımı için koyulaştırın ve orijinalini çizimler ve simgeler için saklayın. Çoğu tasarım sistemi her ikisini de gönderir — onlara <code>blue-500</code> ve <code>blue-700</code> adını verin — ve hangisinin metin için olduğunu belgeleyin.
     </p>
 
-    <h2>Automated vs manual checks</h2>
+    <h2>Otomatik ve manuel kontroller</h2>
     <p>
-      Automated tools catch the arithmetic failures &mdash; flat color on flat
-      color &mdash; but miss:
+      Otomatik araçlar aritmetik başarısızlıkları yakalar — düz renk üzerinde düz renk — ancak şunları kaçırır:
     </p>
     <ul>
-      <li>Text over images or gradients</li>
-      <li>Content that depends on runtime theme state</li>
-      <li>Dynamically generated colors (user avatars, charts)</li>
-      <li>Focus indicators that only appear on keyboard nav</li>
+      <li>Görseller veya gradyanlar üzerindeki metin</li>
+      <li>Çalışma zamanı teması durumuna bağlı içerik</li>
+      <li>Dinamik olarak oluşturulan renkler (kullanıcı avatarları, çizelgeler)</li>
+      <li>Yalnızca klavye navigasyonu sırasında görünen odak göstergeleri</li>
     </ul>
     <p>
-      Run axe or Lighthouse as a baseline; then manually spot-check your top
-      ten pages in both light and dark mode, with focus visible.
+      Temel olarak axe veya Lighthouse'u çalıştırın; ardından en çok ziyaret edilen on sayfanızı hem açık hem de karanlık modda, odak görünür durumdayken manuel olarak nokta kontrolü yapın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Checking only the primary text color.</strong> Secondary, tertiary,
-      disabled, and placeholder colors all need their own pass.
+      <strong>Yalnızca birincil metin rengini kontrol etmek.</strong> İkincil, üçüncül, devre dışı ve yer tutucu renklerin tümü kendi kontrollerine ihtiyaç duyar.
     </p>
     <p>
-      <strong>Testing once on a beautiful monitor.</strong> Low-end mobile
-      screens, projectors, and sunlight effectively reduce contrast. AA leaves
-      headroom for that &mdash; don&rsquo;t spend it all in the design review.
+      <strong>Güzel bir monitörde bir kez test etmek.</strong> Düşük kaliteli mobil ekranlar, projektörler ve güneş ışığı kontrastı etkili bir şekilde azaltır. AA size pay sağlar — tasarım incelemesinde hepsini harcamayın.
     </p>
     <p>
-      <strong>Using gray-on-gray for &ldquo;subtle&rdquo; UI.</strong> Subtle
-      shouldn&rsquo;t mean unreadable. If your timestamp copy fails AA, raise
-      its contrast or accept that it will be skipped entirely.
+      "İnce" UI için <strong>gri üzerine gri kullanmak.</strong> İnce, okunamaz anlamına gelmemelidir. Zaman damgası metniniz AA'yı geçemiyorsa, kontrastını artırın veya tamamen atlanacağını kabul edin.
     </p>
     <p>
-      <strong>Relying on color to convey state.</strong> Red text for
-      &ldquo;error&rdquo; and green for &ldquo;success&rdquo; should always
-      pair with an icon or label.
+      <strong>Durumu iletmek için renge güvenmek.</strong> "Hata" için kırmızı metin ve "başarı" için yeşil metin her zaman bir simge veya etiketle eşleştirilmelidir.
     </p>
     <p>
-      <strong>Forgetting focus indicators.</strong> Focus rings need 3:1
-      against the adjacent colors. The default browser ring usually passes;
-      custom rings often don&rsquo;t.
+      <strong>Odak göstergelerini unutmak.</strong> Odak halkalarının bitişik renklere karşı 3:1 olması gerekir. Varsayılan tarayıcı halkası genellikle geçer; özel halkalar genellikle geçmez.
     </p>
     <p>
-      <strong>Picking gradients as text backgrounds.</strong> The worst-case
-      spot in the gradient is what you need to test, not the average.
+      <strong>Metin arka planı olarak bir gradyan seçmek.</strong> Test etmeniz gereken, ortalamayı değil, gradyandaki en kötü durum noktasıdır.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları hesaplayın</h2>
     <p>
-      Feed foreground and background values into the{" "}
-      <a href="/tools/contrast-checker">contrast checker</a> for an instant AA /
-      AAA verdict. When you need to massage a color into the passing range
-      without losing the brand, the{" "}
-      <a href="/tools/color-converter">color converter</a> lets you nudge hex,
-      HSL, and OKLCH side by side, and the{" "}
-      <a href="/tools/color-picker">color picker</a> pulls exact values out of
-      existing assets so you start from the real source, not a guess.
+      Anında bir AA / AAA kararı için ön plan ve arka plan değerlerinizi{" "}
+      <a href="/tools/contrast-checker">kontrast denetleyicisine</a> bırakın. Markayı kaybetmeden bir rengi geçme aralığına itmeniz gerektiğinde,{" "}
+      <a href="/tools/color-converter">renk dönüştürücü</a> hex, HSL ve OKLCH'yi yan yana değiştirmenize olanak tanır ve{" "}
+      <a href="/tools/color-picker">renk seçici</a> mevcut varlıklardan kesin değerleri çeker, böylece bir tahminden değil, gerçek kaynaktan başlarsınız.
     </p>
   </>
 );

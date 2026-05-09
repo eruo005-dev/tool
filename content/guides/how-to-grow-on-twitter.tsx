@@ -1,89 +1,65 @@
 export const intro = (
   <>
     <p>
-      Twitter (now X) remains the single highest-leverage platform for writers,
-      founders, and operators. A good account generates opportunities,
-      audience, and income. A bad one wastes hours. The difference is in the
-      specifics, not the broad strokes.
+      Twitter (şimdi X), yazarlar, kurucular ve operatörler için en yüksek kaldıraçlı platform olmaya devam ediyor. İyi bir hesap fırsatlar, kitle ve gelir yaratır. Kötü bir hesap saatlerinizi boşa harcar. Fark, genel hatlarda değil, ayrıntılarda gizlidir.
     </p>
     <p>
-      Here&rsquo;s what actually works in 2026.
+      İşte 2026'da gerçekten işe yarayanlar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Pick a niche and stay on topic</h2>
+    <h2>1. Bir niş seçin ve konuda kalın</h2>
     <p>
-      Generalist accounts rarely grow. Pick one domain (startups, fitness,
-      writing, a specific skill) and tweet about it 80% of the time. The
-      algorithm and humans both need to quickly categorize &ldquo;who you
-      are.&rdquo;
+      Genel hesaplar nadiren büyür. Bir alan seçin (girişimler, fitness, yazarlık, belirli bir beceri) ve zamanın %80'inde bununla ilgili tweet atın. Algoritma ve insanlar, "kim olduğunuzu" hızlıca kategorize edebilmelidir.
     </p>
 
-    <h2>2. Tweet consistently — 1-3 per day</h2>
+    <h2>2. Tutarlı bir şekilde tweet atın — günde 1-3</h2>
     <p>
-      Twitter rewards frequency. 1 excellent tweet per day beats 20 bad ones,
-      but 0 tweets beats 1 great one. Build the muscle of daily posting.
-      Consistency &gt; virality for long-term growth.
+      Twitter sıklığı ödüllendirir. Günde bir mükemmel tweet, 20 kötü tweetten iyidir, ancak 0 tweet, bir harika tweetten daha iyidir. Günlük paylaşım alışkanlığını geliştirin. Uzun vadeli büyüme için tutarlılık &gt; viral olmak.
     </p>
 
-    <h2>3. Reply to bigger accounts in your niche</h2>
+    <h2>3. Nişinizdeki büyük hesaplara yanıt verin</h2>
     <p>
-      Thoughtful replies to 10k+ accounts get you in front of their audience.
-      Not &ldquo;Great tweet&rdquo; — actual substance that adds to the
-      conversation. The replies are where most early growth happens.
+      10k+ takipçili hesaplara yapılan düşünceli yanıtlar, sizi onların kitlesinin önüne çıkarır. "Harika tweet" değil — sohbete katkı sağlayan gerçek içerik. Erken büyümenin çoğu yanıtlarda gerçekleşir.
     </p>
 
-    <h2>4. Write tweets people can save</h2>
+    <h2>4. İnsanların kaydedebileceği tweetler yazın</h2>
     <p>
-      Tweets that get bookmarked signal quality to the algorithm. Frameworks,
-      checklists, contrarian takes, before/after comparisons. These outperform
-      &ldquo;what I had for breakfast&rdquo; by 100x.
+      Yer imlerine eklenen tweetler, algoritmaya kalite sinyali gönderir. Çerçeveler, kontrol listeleri, aykırı görüşler, önce/sonra karşılaştırmaları. Bunlar, "kahvaltıda ne yedim" türünden 100 kat daha iyi performans gösterir.
     </p>
 
-    <h2>5. Threads for anything over 280 characters</h2>
+    <h2>5. 280 karakterin üzerindeki her şey için thread kullanın</h2>
     <p>
-      A good thread beats a blog post for reach. Hook tweet, 4-8 body tweets,
-      CTA. Teaches one thing clearly. A weekly thread can do more for growth
-      than a hundred one-liners.
+      İyi bir thread, erişim açısından bir blog yazısını geride bırakır. Dikkat çekici tweet, 4-8 gövde tweeti, harekete geçirici mesaj. Tek bir şeyi net bir şekilde öğretir. Haftalık bir thread, yüzlerce tek satırlık tweetten daha fazla büyüme sağlayabilir.
     </p>
 
-    <h2>6. Be concrete, not abstract</h2>
+    <h2>6. Soyut değil, somut olun</h2>
     <p>
-      &ldquo;Write more&rdquo; fails. &ldquo;Write 500 words before 9am, 5
-      days a week, for 3 months&rdquo; works. Numbers, specifics, timeframes.
-      Vague advice gets scrolled past.
+      "Daha çok yaz" başarısız olur. "3 ay boyunca, haftada 5 gün, sabah 9'dan önce 500 kelime yaz" işe yarar. Sayılar, ayrıntılar, zaman çizelgeleri. Belirsiz tavsiyeler kaydırılıp geçilir.
     </p>
 
-    <h2>7. DM the people you respect</h2>
+    <h2>7. Saygı duyduğunuz kişilere DM atın</h2>
     <p>
-      A short, specific DM to someone you admire gets a higher response rate
-      than cold emails. Reference a specific post of theirs. Ask one clear
-      question. Build relationships, not follower counts.
+      Hayran olduğunuz birine gönderilen kısa, spesifik bir DM, soğuk e-postalardan daha yüksek yanıt oranı alır. Onların belirli bir gönderisine atıfta bulunun. Net bir soru sorun. İlişkiler kurun, takipçi sayıları değil.
     </p>
 
-    <h2>8. Ignore vanity metrics</h2>
+    <h2>8. Gösteriş metriklerini görmezden gelin</h2>
     <p>
-      Followers are lagging and gamable. Look at: DMs received, newsletter
-      signups, meaningful conversations, actual income. 1k real followers &gt;
-      10k bot/inactive ones.
+      Takipçiler gecikmeli ve oynanabilir. Şunlara bakın: alınan DM'ler, bülten kayıtları, anlamlı sohbetler, gerçek gelir. 1k gerçek takipçi &gt; 10k bot/pasif takipçi.
     </p>
 
-    <h2>9. Don&rsquo;t post outrage or hot takes</h2>
+    <h2>9. Öfke veya çarpıcı görüşler paylaşmayın</h2>
     <p>
-      Ragebait works short-term and destroys your account long-term. The
-      audience you attract with anger doesn&rsquo;t buy anything or become
-      collaborators. Positive specificity beats negativity.
+      Öfke yemi kısa vadede işe yarar, uzun vadede hesabınızı mahveder. Öfkeyle çektiğiniz kitle hiçbir şey satın almaz veya işbirlikçiniz olmaz. Olumlu spesifiklik, olumsuzluğu yener.
     </p>
 
-    <h2>10. 12 months minimum to judge results</h2>
+    <h2>10. Sonuçları değerlendirmek için en az 12 ay</h2>
     <p>
-      Growth on Twitter is lumpy. You&rsquo;ll stagnate for months, then jump
-      500 followers in a week. Don&rsquo;t quit based on short-term results.
-      The people who broke through posted daily for years. See{" "}
-      <a href="/guides/how-to-grow-on-youtube">YouTube guide</a>.
+      Twitter'da büyüme düzensizdir. Aylarca durağan kalır, sonra bir haftada 500 takipçi atlarsınız. Kısa vadeli sonuçlara göre pes etmeyin. Patlama yapan insanlar yıllarca her gün paylaşım yaptı. Bkz.{" "}
+      <a href="/guides/how-to-grow-on-youtube">YouTube rehberi</a>.
     </p>
   </>
 );

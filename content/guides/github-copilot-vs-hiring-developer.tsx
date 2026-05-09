@@ -3,179 +3,143 @@
 export const intro = (
   <>
     <p>
-      &ldquo;Should we adopt Copilot or hire another developer?&rdquo; is the wrong
-      question — they&rsquo;re different categories. The right framing: give your
-      existing devs Copilot, and hire when you need new capacity. This guide breaks
-      down the math, security concerns, and adoption playbook.
+      &ldquo;Copilot'u mu benimseyelim yoksa başka bir geliştirici mi işe alalım?&rdquo; yanlış bir soru — bunlar farklı kategoriler. Doğru çerçeve: mevcut geliştiricilerinize Copilot verin ve yeni kapasiteye ihtiyacınız olduğunda işe alım yapın. Bu rehber, maliyet hesaplarını, güvenlik endişelerini ve benimseme oyun kitabını adım adım açıklıyor.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "framing", label: "Why it&rsquo;s not actually a tradeoff" },
-  { id: "cost-comparison", label: "Cost comparison" },
-  { id: "ai-replace", label: "Will AI replace developer jobs?" },
-  { id: "small-business", label: "Worth it for small businesses?" },
-  { id: "freelance", label: "Productivity for freelancers" },
+  { id: "framing", label: "Neden aslında bir takas değil" },
+  { id: "cost-comparison", label: "Maliyet karşılaştırması" },
+  { id: "ai-replace", label: "Yapay zeka geliştirici işlerini ortadan kaldıracak mı?" },
+  { id: "small-business", label: "Küçük işletmeler için buna değer mi?" },
+  { id: "freelance", label: "Serbest çalışanlar için verimlilik" },
 ];
 
 export const body = (
   <>
-    <h2 id="framing">Why it&rsquo;s not actually a tradeoff</h2>
+    <h2 id="framing">Neden aslında bir takas değil</h2>
     <p>
-      GitHub Copilot is a productivity multiplier on existing developers ($228/year per
-      seat). A developer hire is full headcount ($150K-300K total comp). They&rsquo;re
-      different financial categories with different ROIs and different decision
-      timelines.
+      GitHub Copilot, mevcut geliştiriciler için bir verimlilik çarpanıdır (koltuk başına $228/yıl). Bir geliştirici işe alımı ise tam bir çalışan maliyetidir (toplam $150K-300K). Bunlar farklı finansal kategorilerdir; farklı yatırım getirileri ve farklı karar zaman çizelgeleri vardır.
     </p>
     <p>
-      The right question pair:
+      Doğru soru çifti:
     </p>
     <ol>
       <li>
-        <strong>Should we give our existing developers Copilot?</strong> Almost always
-        yes — see our <a href="/tools/github-copilot-roi-calculator">ROI calculator</a>.
-        The math works at any team size where you have actively-coding developers.
+        <strong>Mevcut geliştiricilerimize Copilot vermeli miyiz?</strong> Neredeyse her zaman evet — <a href="/tools/github-copilot-roi-calculator">ROI hesaplayıcımıza</a> bakın. Aktif olarak kod yazan geliştiricilerin olduğu her ekip büyüklüğünde matematik işe yarar.
       </li>
       <li>
-        <strong>Do we need additional developer capacity?</strong> Separate question.
-        If yes, hire (and give the new hire Copilot). If no, optimize existing capacity
-        with Copilot first.
+        <strong>Ek geliştirici kapasitesine ihtiyacımız var mı?</strong> Ayrı bir soru. Cevap evetse, işe alın (ve yeni çalışana Copilot verin). Hayırsa, önce mevcut kapasiteyi Copilot ile optimize edin.
       </li>
     </ol>
     <p>
-      Companies that frame it as &ldquo;Copilot or hire&rdquo; usually under-invest in
-      both. The correct answer is almost always &ldquo;both, sequentially.&rdquo;
+      Bunu &ldquo;Copilot ya da işe alım&rdquo; olarak çerçeveleyen şirketler genellikle her ikisine de yetersiz yatırım yapar. Doğru cevap neredeyse her zaman &ldquo;her ikisi de, sırayla&rdquo;dır.
     </p>
 
-    <h2 id="cost-comparison">Cost comparison (when forced to choose)</h2>
+    <h2 id="cost-comparison">Maliyet karşılaştırması (seçim yapmak zorunda kalındığında)</h2>
     <ul>
       <li>
-        <strong>GitHub Copilot Business:</strong> $228/year/seat. For a 15-person team,
-        $3420/year. Conservative 15% productivity gain on coding tasks → $200K+ in
-        time savings annually for typical mid-tier comp.
+        <strong>GitHub Copilot Business:</strong> Koltuk başına $228/yıl. 15 kişilik bir ekip için $3420/yıl. Kodlama görevlerinde muhafazakar %15 verimlilik artışı → tipik orta seviye ücret için yıllık $200K+ zaman tasarrufu.
       </li>
       <li>
-        <strong>One additional mid-level developer (US):</strong> $180K base + $25K
-        bonus + $15K equity ≈ $220K total comp. Adds capacity equivalent to one
-        developer.
+        <strong>Bir ek orta seviye geliştirici (ABD):</strong> $180K taban + $25K ikramiye + $15K hisse senedi ≈ toplam $220K. Bir geliştiriciye eşdeğer kapasite ekler.
       </li>
       <li>
-        <strong>One additional offshore developer:</strong> $40K-80K total comp.
-        Adds capacity (with coordination overhead).
+        <strong>Bir ek yurtdışı geliştirici:</strong> Toplam $40K-80K. Kapasite ekler (koordinasyon yüküyle birlikte).
       </li>
       <li>
-        <strong>One contract/freelance developer:</strong> $80-200/hour. Variable
-        capacity matched to need.
+        <strong>Bir sözleşmeli/serbest geliştirici:</strong> Saat başına $80-200. İhtiyaca göre değişken kapasite.
       </li>
     </ul>
     <p>
-      Capacity-per-dollar: Copilot is the highest-leverage spend. New hire gives you
-      net-new capacity. They solve different problems.
+      Dolar başına kapasite: Copilot en yüksek kaldıraçlı harcamadır. Yeni işe alım size net yeni kapasite sağlar. Farklı sorunları çözerler.
     </p>
 
-    <h2 id="ai-replace">Will AI replace developer jobs?</h2>
+    <h2 id="ai-replace">Yapay zeka geliştirici işlerini ortadan kaldıracak mı?</h2>
     <p>
-      Honest assessment based on multi-year studies (GitHub, GitClear, Microsoft
-      Research) and industry observation 2023-2026:
+      Çok yıllı çalışmalara (GitHub, GitClear, Microsoft Research) ve 2023-2026 sektör gözlemlerine dayanan dürüst değerlendirme:
     </p>
     <ul>
       <li>
-        <strong>Productivity gains:</strong> 10-30% on coding tasks. Not 10× labor
-        displacement. The numbers are real but moderate.
+        <strong>Verimlilik kazanımları:</strong> Kodlama görevlerinde %10-30. 10 kat iş gücü kaybı değil. Rakamlar gerçek ama ılımlı.
       </li>
       <li>
-        <strong>Senior developer leverage:</strong> goes up. Senior devs use Copilot
-        as scaffolding for more ambitious projects. Gap between senior and junior in
-        leverage may widen.
+        <strong>Kıdemli geliştirici kaldıracı:</strong> artar. Kıdemli geliştiriciler Copilot'u daha iddialı projeler için iskele olarak kullanır. Kıdemsiz ve kıdemli arasındaki kaldıraç farkı açılabilir.
       </li>
       <li>
-        <strong>Junior developer skills:</strong> the floor of skill-required-to-be-
-        productive may rise. Junior devs need to be intentional about not over-relying
-        on Copilot for code they don&rsquo;t understand.
+        <strong>Kıdemsiz geliştirici becerileri:</strong> Üretken olmak için gereken asgari beceri seviyesi yükselebilir. Kıdemsiz geliştiriciler, anlamadıkları kod için Copilot'a aşırı güvenmemeye dikkat etmelidir.
       </li>
       <li>
-        <strong>Net employment effect:</strong> as of 2026, software-engineering
-        employment is roughly stable. The pessimistic predictions of 2023 didn&rsquo;t
-        materialize. Companies that adopted Copilot didn&rsquo;t fire developers — they
-        shipped more.
+        <strong>Net istihdam etkisi:</strong> 2026 itibarıyla, yazılım mühendisliği istihdamı kabaca istikrarlıdır. 2023'ün karamsar tahminleri gerçekleşmedi. Copilot'u benimseyen şirketler geliştiricileri işten çıkarmadı — daha fazla ürün çıkardı.
       </li>
       <li>
-        <strong>Long-term:</strong> uncertain. Models keep improving; the relationship
-        between AI capability and labor demand will keep evolving. Reasonable
-        framing: AI changes the work, not eliminates it, on a 5-year horizon.
+        <strong>Uzun vadeli:</strong> belirsiz. Modeller gelişmeye devam ediyor; yapay zeka yeteneği ile iş gücü talebi arasındaki ilişki gelişmeye devam edecek. Makul çerçeve: 5 yıllık ufukta yapay zeka işi değiştirir, ortadan kaldırmaz.
       </li>
     </ul>
 
-    <h2 id="small-business">Is GitHub Copilot worth it for small businesses?</h2>
+    <h2 id="small-business">GitHub Copilot küçük işletmeler için buna değer mi?</h2>
     <p>
-      Almost always yes for any team with developers. The math:
+      Geliştiricileri olan her ekip için neredeyse her zaman evet. Matematik:
     </p>
     <ul>
-      <li>3-person dev team: $684/year. 15% productivity gain × team comp ~$50K savings.</li>
-      <li>10-person dev team: $2280/year. 15% productivity gain × team comp ~$170K savings.</li>
+      <li>3 kişilik geliştirici ekibi: $684/yıl. %15 verimlilik artışı × ekip ücreti ~$50K tasarruf.</li>
+      <li>10 kişilik geliştirici ekibi: $2280/yıl. %15 verimlilik artışı × ekip ücreti ~$170K tasarruf.</li>
     </ul>
     <p>
-      The barrier isn&rsquo;t cost — it&rsquo;s adoption. Some developers resist
-      Copilot for taste, productivity-claim skepticism, or training-data concerns. The
-      right move:
+      Engel maliyet değil — benimseme. Bazı geliştiriciler beğeni, verimlilik iddiası şüpheciliği veya eğitim verisi endişeleri nedeniyle Copilot'a direnir. Doğru hamle:
     </p>
     <ol>
-      <li>Pilot with 3-5 willing volunteers for 60 days.</li>
-      <li>Track their PR throughput vs the team baseline.</li>
-      <li>Survey their satisfaction.</li>
-      <li>If positive, roll out to full team with optional opt-in (forced adoption causes resentment).</li>
+      <li>60 gün boyunca 3-5 gönüllü ile pilot uygulama yapın.</li>
+      <li>PR çıktılarını ekip taban çizgisiyle karşılaştırın.</li>
+      <li>Memnuniyetlerini anketle ölçün.</li>
+      <li>Olumluysa, isteğe bağlı katılımla tüm ekibe yayın (zorla benimsetme kızgınlığa yol açar).</li>
     </ol>
 
-    <h2 id="freelance">Copilot for freelancers + independent contractors</h2>
+    <h2 id="freelance">Serbest çalışanlar + bağımsız yükleniciler için Copilot</h2>
     <p>
-      For solo developers, Copilot Individual ($10/month or $100/year) is one of the
-      highest-leverage subscriptions in tech:
+      Bireysel geliştiriciler için Copilot Individual (ayda $10 veya yılda $100), teknolojideki en yüksek kaldıraçlı aboneliklerden biridir:
     </p>
     <ul>
       <li>
-        <strong>Faster project delivery.</strong> 10-30% on coding tasks compounds over
-        a project.
+        <strong>Daha hızlı proje teslimi.</strong> Kodlama görevlerinde %10-30, bir proje boyunca birikir.
       </li>
       <li>
-        <strong>Domain pivot speed.</strong> Working in a language you don&rsquo;t use
-        often becomes faster — Copilot fills in idioms you&rsquo;d Google.
+        <strong>Alan değiştirme hızı.</strong> Sık kullanmadığınız bir dilde çalışmak hızlanır — Copilot, Google'da arayacağınız deyimleri doldurur.
       </li>
       <li>
-        <strong>Documentation generation.</strong> Reasonably good at first-pass
-        comments + JSDoc/Sphinx blocks.
+        <strong>Dokümantasyon oluşturma.</strong> İlk geçiş yorumları + JSDoc/Sphinx bloklarında oldukça iyidir.
       </li>
       <li>
-        <strong>Proposal drafting.</strong> Good at scaffolding technical write-ups.
+        <strong>Teklif taslağı hazırlama.</strong> Teknik yazıları iskelelemekte iyidir.
       </li>
     </ul>
     <p>
-      The <a href="/learn/roi">ROI</a> for solo devs at any reasonable hourly rate is overwhelming. $100/year
-      for tools that save you a dozen hours pays back many times over.
+      Makul bir saatlik ücrete sahip bireysel geliştiriciler için <a href="/learn/roi">ROI</a> ezici bir şekilde yüksektir. Size bir düzine saat kazandıran araçlar için yılda $100, kendini defalarca amorti eder.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Run Copilot ROI for your team",
+  label: "Ekibiniz için Copilot ROI'sini hesaplayın",
   targetSlug: "github-copilot-roi-calculator",
 };
 
 export const faq = [
   {
-    q: "GitHub Copilot vs hiring a developer — which costs less?",
-    a: "Different categories. Copilot ($228/year/seat) is a productivity multiplier on existing devs. New developer hire ($150-300K total comp) is net-new capacity. Right framing: give existing devs Copilot, hire when you need new capacity. Almost never an either-or.",
+    q: "GitHub Copilot vs bir geliştirici işe almak — hangisi daha az maliyetli?",
+    a: "Farklı kategoriler. Copilot (koltuk başına $228/yıl) mevcut geliştiriciler için bir verimlilik çarpanıdır. Yeni geliştirici işe alımı (toplam $150-300K) net yeni kapasitedir. Doğru çerçeve: mevcut geliştiricilere Copilot verin, yeni kapasiteye ihtiyacınız olduğunda işe alın. Neredeyse hiçbir zaman ya-ya da değildir.",
   },
   {
-    q: "Will AI replace my developer job?",
-    a: "Multi-year studies show 10-30% productivity gains on coding tasks, not 10× labor displacement. Senior dev leverage goes up; junior dev skill floor rises. Net employment in software is roughly stable as of 2026. Companies that adopted AI shipped more rather than firing developers.",
+    q: "Yapay zeka geliştirici işimi ortadan kaldıracak mı?",
+    a: "Çok yıllı çalışmalar, kodlama görevlerinde %10-30 verimlilik artışı gösteriyor, 10 kat iş gücü kaybı değil. Kıdemli geliştirici kaldıracı artar; kıdemsiz geliştirici beceri tabanı yükselir. 2026 itibarıyla yazılımda net istihdam kabaca istikrarlıdır. Yapay zekayı benimseyen şirketler, geliştiricileri işten çıkarmak yerine daha fazla ürün çıkardı.",
   },
   {
-    q: "Is GitHub Copilot worth it for small businesses?",
-    a: "Almost always yes for teams with developers. 3-person team: $684/year for ~$50K productivity gains. 10-person team: $2280/year for ~$170K. The barrier is dev adoption (taste, skepticism, training-data concerns), not cost. Pilot with willing volunteers first.",
+    q: "GitHub Copilot küçük işletmeler için buna değer mi?",
+    a: "Geliştiricileri olan ekipler için neredeyse her zaman evet. 3 kişilik ekip: ~$50K verimlilik kazancı için $684/yıl. 10 kişilik ekip: ~$170K için $2280/yıl. Engel, geliştirici benimsemesidir (beğeni, şüphecilik, eğitim verisi endişeleri), maliyet değil. Önce gönüllülerle pilot uygulama yapın.",
   },
   {
-    q: "GitHub Copilot for freelancers — does it make you more productive?",
-    a: "Yes — meaningfully. $100/year Individual tier saves ~10-30% time on coding tasks; for solo devs at any reasonable hourly rate, ROI is overwhelming. Best uses: faster delivery, working in unfamiliar languages, documentation generation, proposal scaffolding.",
+    q: "Serbest çalışanlar için GitHub Copilot — sizi daha üretken yapıyor mu?",
+    a: "Evet — anlamlı ölçüde. Bireysel katman yılda $100, kodlama görevlerinde ~%10-30 zaman kazandırır; makul bir saatlik ücrete sahip bireysel geliştiriciler için ROI ezicidir. En iyi kullanım alanları: daha hızlı teslimat, yabancı dillerde çalışma, dokümantasyon oluşturma, teklif iskelesi hazırlama.",
   },
 ];

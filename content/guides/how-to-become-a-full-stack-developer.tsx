@@ -1,89 +1,87 @@
 export const intro = (
   <>
     <p>
-      &ldquo;Full-stack&rdquo; is the most common developer job title because
-      most real work touches both ends of the stack. The path from beginner to
-      hireable full-stack dev is roughly 12-18 months of focused effort. Not a
-      bootcamp weekend, not a lifetime — a realistic middle.
+      &ldquo;Full-stack&rdquo; en yaygın geliştirici iş unvanıdır çünkü
+      çoğu gerçek iş, yığının her iki ucunu da kapsar. Başlangıç seviyesinden
+      işe alınabilir bir full-stack geliştirici olmaya giden yol, yaklaşık 12-18 aylık odaklanmış bir çabadır. Bir bootcamp hafta sonu değil, bir ömür değil — gerçekçi bir orta yol.
     </p>
     <p>
-      Here&rsquo;s the curriculum that actually works.
+      İşte gerçekten işe yarayan müfredat.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. HTML, CSS, JavaScript fundamentals</h2>
+    <h2>1. HTML, CSS, JavaScript temelleri</h2>
     <p>
-      Before any framework, get comfortable with the basics. DOM manipulation,
-      event handling, CSS layout with flex and grid, modern JS (ES6+ syntax,
-      promises, async/await). 2-3 months of projects here pays dividends later.
+      Herhangi bir framework'ten önce, temel bilgilerle rahat olun. DOM manipülasyonu,
+      olay yönetimi, flex ve grid ile CSS düzeni, modern JS (ES6+ sözdizimi,
+      promise'ler, async/await). Burada 2-3 aylık projeler yapmak daha sonra karşılığını verir.
     </p>
 
-    <h2>2. One frontend framework: React</h2>
+    <h2>2. Bir ön yüz framework'ü: React</h2>
     <p>
-      React dominates the job market. Learn components, hooks, state management,
-      routing. Build 3-4 apps that store real data and fetch from APIs. Vue and
-      Svelte are fine for side projects; React is what pays bills.
+      React iş piyasasında baskındır. Bileşenleri, hook'ları, state yönetimini,
+      yönlendirmeyi öğrenin. Gerçek verileri depolayan ve API'lerden veri çeken 3-4 uygulama oluşturun.
+      Vue ve Svelte yan projeler için iyidir; faturayı ödeyen React'tir.
     </p>
 
-    <h2>3. One backend language + framework</h2>
+    <h2>3. Bir arka uç dili + framework'ü</h2>
     <p>
-      Pick one: Node.js+Express, Python+FastAPI, or Go. Don&rsquo;t split
-      attention. Learn HTTP, REST, authentication, sessions, middleware. See{" "}
-      <a href="/guides/what-is-an-api">API guide</a>.
+      Birini seçin: Node.js+Express, Python+FastAPI veya Go. Dikkatinizi
+      bölmeyin. HTTP, REST, kimlik doğrulama, oturumlar, ara yazılımları öğrenin. Bkz.{" "}
+      <a href="/guides/what-is-an-api">API rehberi</a>.
     </p>
 
-    <h2>4. SQL database fluency</h2>
+    <h2>4. SQL veritabanı akıcılığı</h2>
     <p>
-      PostgreSQL or MySQL. Learn joins, indexes, transactions, migrations. SQL
-      is the forever skill — it&rsquo;ll outlive every JS framework you learn.
-      Spend serious time here. MongoDB is optional; SQL is mandatory.
+      PostgreSQL veya MySQL. Birleştirmeleri, indeksleri, işlemleri, geçişleri öğrenin. SQL
+      sonsuz bir beceridir — öğrendiğiniz her JS framework'ünden daha uzun ömürlü olacaktır.
+      Burada ciddi zaman harcayın. MongoDB isteğe bağlıdır; SQL zorunludur.
     </p>
 
-    <h2>5. Git and GitHub</h2>
+    <h2>5. Git ve GitHub</h2>
     <p>
-      Not optional. Branches, merges, rebases, pull requests. Use it on every
-      project from day one. Be able to resolve merge conflicts without panic.
-      Hiring managers check your GitHub before interviews.
+      İsteğe bağlı değil. Dallar, birleştirmeler, rebase'ler, çekme istekleri. İlk günden
+      itibaren her projede kullanın. Birleştirme çakışmalarını panik yapmadan çözebilin.
+      İşe alım yöneticileri mülakatlardan önce GitHub'ınızı kontrol eder.
     </p>
 
-    <h2>6. Deployment and basic DevOps</h2>
+    <h2>6. Dağıtım ve temel DevOps</h2>
     <p>
-      Vercel, Netlify, Railway, Render — free tiers for all. Deploy every project
-      you finish. Learn environment variables, domain setup, HTTPS. Understand
-      what happens from laptop to production URL.
+      Vercel, Netlify, Railway, Render — herkes için ücretsiz katmanlar. Bitirdiğiniz her projeyi
+      dağıtın. Ortam değişkenlerini, alan adı kurulumunu, HTTPS'yi öğrenin. Dizüstü bilgisayardan
+      canlı URL'ye kadar ne olduğunu anlayın.
     </p>
 
-    <h2>7. Authentication done right</h2>
+    <h2>7. Doğru yapılmış kimlik doğrulama</h2>
     <p>
-      Password hashing, JWT vs. sessions, OAuth. Every real app needs auth and
-      most beginners get it wrong. Spend a focused weekend on this; it becomes
-      a superpower in interviews.
+      Parola hash'leme, JWT vs. oturumlar, OAuth. Her gerçek uygulama kimlik doğrulama gerektirir ve
+      çoğu başlangıç seviyesindeki bunu yanlış yapar. Buna odaklanmış bir hafta sonu ayırın; mülakatlarda
+      bir süper güç haline gelir.
     </p>
 
-    <h2>8. Build real projects, not tutorials</h2>
+    <h2>8. Eğitimleri değil, gerçek projeler oluşturun</h2>
     <p>
-      After fundamentals, stop following tutorials. Build your own projects
-      solving your own problems. Tutorial hell is real. The Google + docs +
-      Stack Overflow + AI loop is the real learning environment.
+      Temel bilgilerden sonra, eğitimleri takip etmeyi bırakın. Kendi sorunlarınızı çözen
+      kendi projelerinizi oluşturun. Eğitim cehennemi gerçektir. Google + dokümantasyon +
+      Stack Overflow + AI döngüsü gerçek öğrenme ortamıdır.
     </p>
 
-    <h2>9. TypeScript before you need it</h2>
+    <h2>9. İhtiyacınız olmadan önce TypeScript</h2>
     <p>
-      Type safety matters at scale. Start adding TypeScript to projects once
-      you&rsquo;re comfortable in JS. Many top jobs list TS as required.
-      It&rsquo;s easier to learn gradually than all at once.
+      Tip güvenliği ölçekte önemlidir. JS'de rahat olduğunuzda projelerinize TypeScript eklemeye
+      başlayın. Birçok üst düzey iş TS'yi zorunlu olarak listeler.
+      Kademeli olarak öğrenmek, hepsini birden öğrenmekten daha kolaydır.
     </p>
 
-    <h2>10. Ship, deploy, iterate</h2>
+    <h2>10. Yayınla, dağıt, yinele</h2>
     <p>
-      The full-stack dev job is really &ldquo;person who can take idea to
-      deployed product.&rdquo; Build 3-5 real projects, put them on your{" "}
-      <a href="/guides/how-to-build-a-developer-portfolio">portfolio</a>, and
-      apply. You&rsquo;ll learn more in your first job than in a second year of
-      self-study.
+      Full-stack geliştirici işi aslında &ldquo;fikri yayınlanmış ürüne dönüştürebilen kişi&rdquo;dir.
+      3-5 gerçek proje oluşturun, bunları{" "}
+      <a href="/guides/how-to-build-a-developer-portfolio">portföyünüze</a> koyun ve
+      başvurun. İlk işinizde, ikinci yıl kendi kendinize çalışmaktan daha fazlasını öğreneceksiniz.
     </p>
   </>
 );

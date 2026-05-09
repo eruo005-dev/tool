@@ -3,229 +3,236 @@
 export const intro = (
   <>
     <p>
-      The single biggest privacy concern with online file converters is also the
-      easiest to fix: most &ldquo;free&rdquo; converters upload your file to a
-      server, process it there, and email or download the result. Your contract,
-      tax document, scanned passport, or financial PDF lives on someone
-      else&rsquo;s machine — sometimes for hours, sometimes forever, depending on
-      their privacy policy.
+      Çevrimiçi dosya dönüştürücülerle ilgili en büyük gizlilik endişesi, aynı
+      zamanda düzeltilmesi en kolay olanıdır: çoğu &ldquo;ücretsiz&rdquo; dönüştürücü,
+      dosyanızı bir sunucuya yükler, orada işler ve sonucu e-posta ile gönderir
+      veya indirmenizi sağlar. Sözleşmeniz, vergi belgeniz, taranmış pasaportunuz
+      veya mali PDF&rsquo;niz, başka birinin makinesinde yaşar — bazen saatlerce,
+      bazen sonsuza kadar, gizlilik politikalarına bağlı olarak.
     </p>
     <p>
-      The browser-only alternative does the same conversion locally without ever
-      sending the file anywhere. Every converter on this site runs that way. This
-      guide explains what to look for, when online vs local matters, and the
-      situations where free + paid converters differ in ways most reviews miss.
+      Yalnızca tarayıcı tabanlı alternatif, aynı dönüşümü dosyayı hiçbir yere
+      göndermeden yerel olarak gerçekleştirir. Bu sitedeki her dönüştürücü bu
+      şekilde çalışır. Bu kılavuz, nelere dikkat etmeniz gerektiğini, çevrimiçi
+      ve yerel dönüşümün ne zaman önemli olduğunu ve çoğu incelemenin gözden
+      kaçırdığı şekillerde ücretsiz ve ücretli dönüştürücülerin farklılaştığı
+      durumları açıklar.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "why", label: "Why local conversion matters" },
-  { id: "test", label: "How to test if a converter is actually local" },
-  { id: "online-vs-desktop", label: "Online vs desktop converters" },
-  { id: "free-vs-paid", label: "Free vs paid: what's the real difference?" },
-  { id: "tools", label: "Browser-only converters by file type" },
+  { id: "why", label: "Yerel dönüşüm neden önemlidir" },
+  { id: "test", label: "Bir dönüştürücünün gerçekten yerel olup olmadığı nasıl test edilir" },
+  { id: "online-vs-desktop", label: "Çevrimiçi ve masaüstü dönüştürücüler" },
+  { id: "free-vs-paid", label: "Ücretsiz ve ücretli: gerçek fark nedir?" },
+  { id: "tools", label: "Dosya türüne göre yalnızca tarayıcı tabanlı dönüştürücüler" },
 ];
 
 export const body = (
   <>
-    <h2 id="why">Why local conversion matters</h2>
+    <h2 id="why">Yerel dönüşüm neden önemlidir</h2>
     <p>
-      Three categories of risk with cloud-based file converters:
+      Bulut tabanlı dosya dönüştürücülerle ilgili üç risk kategorisi:
     </p>
     <ul>
       <li>
-        <strong>Active retention.</strong> Many free converters explicitly retain
-        your file for 24 hours, 7 days, or longer to &ldquo;improve their
-        service.&rdquo; Your draft NDA, tax return, or medical scan sits on their
-        infrastructure during that window.
+        <strong>Aktif saklama.</strong> Birçok ücretsiz dönüştürücü, dosyanızı
+        &ldquo;hizmetlerini iyileştirmek&rdquo; için açıkça 24 saat, 7 gün veya daha
+        uzun süre saklar. Taslak Gizlilik Sözleşmeniz, vergi beyannameniz veya
+        tıbbi taramanız bu süre boyunca altyapılarında kalır.
       </li>
       <li>
-        <strong>Passive logging.</strong> Even when a vendor promises to delete
-        files, server access logs typically capture filenames, sizes, and
-        timestamps for 30–90 days. A breach exposes that metadata even if the
-        files themselves are gone.
+        <strong>Pasif günlükleme.</strong> Bir satıcı dosyaları sileceğine söz
+        verse bile, sunucu erişim günlükleri genellikle dosya adlarını,
+        boyutlarını ve zaman damgalarını 30–90 gün boyunca kaydeder. Bir ihlal,
+        dosyaların kendileri gitmiş olsa bile bu meta verileri açığa çıkarır.
       </li>
       <li>
-        <strong>Subprocessor exposure.</strong> The cheap online converter you
-        use is often a thin wrapper around AWS Lambda or Cloudflare Workers.
-        Their privacy policy is typically less strict than the converter&rsquo;s
-        marketing copy.
+        <strong>Alt işleyici maruziyeti.</strong> Kullandığınız ucuz çevrimiçi
+        dönüştürücü genellikle AWS Lambda veya Cloudflare Workers etrafında ince
+        bir sarmalayıcıdır. Gizlilik politikaları genellikle dönüştürücünün
+        pazarlama metninden daha az katıdır.
       </li>
     </ul>
     <p>
-      For day-to-day non-sensitive conversions (a meme, a public document, a
-      generic image), online is fine. For anything you wouldn&rsquo;t hand to a
-      stranger, local conversion is the right default.
+      Günlük hassas olmayan dönüşümler (bir meme, herkese açık bir belge, genel
+      bir görsel) için çevrimiçi kullanım sorun değildir. Bir yabancıya
+      vermeyeceğiniz herhangi bir şey için yerel dönüşüm doğru varsayılandır.
     </p>
 
-    <h2 id="test">How to test if a converter is actually local</h2>
+    <h2 id="test">Bir dönüştürücünün gerçekten yerel olup olmadığı nasıl test edilir</h2>
     <p>
-      Marketing copy lies. The actual test takes 30 seconds:
+      Pazarlama metinleri yalan söyler. Gerçek test 30 saniye sürer:
     </p>
     <ol>
       <li>
-        Open browser DevTools (F12 on Windows, Cmd+Opt+I on Mac).
+        Tarayıcı Geliştirici Araçları&rsquo;nı açın (Windows&rsquo;ta F12,
+        Mac&rsquo;te Cmd+Opt+I).
       </li>
-      <li>Go to the Network tab.</li>
-      <li>Clear the network log.</li>
-      <li>Run the conversion.</li>
+      <li>Ağ sekmesine gidin.</li>
+      <li>Ağ günlüğünü temizleyin.</li>
+      <li>Dönüştürmeyi çalıştırın.</li>
       <li>
-        Watch the network tab during the conversion. If you see your file going
-        to a server (look for POST requests with multipart/form-data or large
-        request bodies), the converter is online. If you only see static asset
-        loads (JS, CSS, fonts), it&rsquo;s local.
+        Dönüştürme sırasında ağ sekmesini izleyin. Dosyanızın bir sunucuya
+        gittiğini görürseniz (multipart/form-data veya büyük istek gövdeleri
+        içeren POST isteklerine bakın), dönüştürücü çevrimiçidir. Yalnızca
+        statik varlık yüklemeleri (JS, CSS, yazı tipleri) görürseniz, yereldir.
       </li>
     </ol>
     <p>
-      For our tools, this test will show zero file uploads — every converter on
-      this site is browser-only. We mention this not as a brag but because it&rsquo;s
-      the wedge: when you compare us against the cloud-based alternatives, the
-      privacy difference is structural, not marketing.
+      Araçlarımız için bu test sıfır dosya yüklemesi gösterecektir — bu sitedeki
+      her dönüştürücü yalnızca tarayıcı tabanlıdır. Bunu bir övünme olarak değil,
+      bir ayrım noktası olduğu için belirtiyoruz: bizi bulut tabanlı alternatiflerle
+      karşılaştırdığınızda, gizlilik farkı yapısal, pazarlama değil.
     </p>
 
-    <h2 id="online-vs-desktop">Online vs desktop converters: which to use when</h2>
+    <h2 id="online-vs-desktop">Çevrimiçi ve masaüstü dönüştürücüler: hangisini ne zaman kullanmalı</h2>
     <p>
-      Three categories, three answers:
+      Üç kategori, üç cevap:
     </p>
     <ul>
       <li>
-        <strong>Online cloud converter (file uploaded):</strong> fastest for huge
-        files because their servers are bigger than your laptop. Worst for
-        privacy. Use only for non-sensitive content.
+        <strong>Çevrimiçi bulut dönüştürücü (dosya yüklenir):</strong> büyük
+        dosyalar için en hızlısıdır çünkü sunucuları dizüstü bilgisayarınızdan
+        daha büyüktür. Gizlilik için en kötüsüdür. Yalnızca hassas olmayan
+        içerikler için kullanın.
       </li>
       <li>
-        <strong>Online browser-only converter:</strong> the sweet spot for most
-        people. No install required, conversion happens locally, file never leaves
-        your device. Slower than cloud servers for very large files, but fine for
-        anything under ~50 MB.
+        <strong>Çevrimiçi yalnızca tarayıcı tabanlı dönüştürücü:</strong> çoğu
+        kişi için ideal noktadır. Kurulum gerektirmez, dönüştürme yerel olarak
+        gerçekleşir, dosya cihazınızdan asla ayrılmaz. Çok büyük dosyalar için
+        bulut sunucularından daha yavaştır, ancak ~50 MB altındaki her şey için
+        yeterlidir.
       </li>
       <li>
-        <strong>Desktop application:</strong> right answer for power users with
-        repeated batch conversions, very large files (gigabytes), or air-gapped
-        environments. Pandoc, FFmpeg, ImageMagick command-line tools are free
-        and battle-tested. Higher learning curve.
+        <strong>Masaüstü uygulaması:</strong> tekrarlayan toplu dönüşümler, çok
+        büyük dosyalar (gigabaytlar) veya hava boşluklu ortamlar için güç
+        kullanıcıları için doğru cevaptır. Pandoc, FFmpeg, ImageMagick komut
+        satırı araçları ücretsiz ve savaşta test edilmiştir. Daha yüksek öğrenme
+        eğrisi.
       </li>
     </ul>
     <p>
-      For most everyday conversion needs the browser-only category covers it.
-      Desktop becomes worth installing when you&rsquo;re doing the same
-      conversion 50+ times a week.
+      Çoğu günlük dönüştürme ihtiyacı için yalnızca tarayıcı tabanlı kategori
+      yeterlidir. Masaüstü, aynı dönüşümü haftada 50+ kez yapıyorsanız kuruluma
+      değer.
     </p>
 
-    <h2 id="free-vs-paid">Free vs paid file converters: what&rsquo;s the real difference?</h2>
+    <h2 id="free-vs-paid">Ücretsiz ve ücretli dosya dönüştürücüler: gerçek fark nedir?</h2>
     <p>
-      The honest breakdown of paid converter offerings vs free:
+      Ücretli dönüştürücü tekliflerinin ücretsiz olanlara karşı dürüst
+      dökümü:
     </p>
     <ul>
       <li>
-        <strong>Batch processing limits.</strong> Free converters often cap at 1
-        file at a time or 5 files per session. Paid removes the cap. Real
-        difference if you batch convert; not relevant otherwise.
+        <strong>Toplu işleme sınırları.</strong> Ücretsiz dönüştürücüler genellikle
+        aynı anda 1 dosya veya oturum başına 5 dosya ile sınırlıdır. Ücretli
+        sınırı kaldırır. Toplu dönüştürme yapıyorsanız gerçek fark; aksi halde
+        önemsizdir.
       </li>
       <li>
-        <strong>File size limits.</strong> Free typically capped at 50–100 MB.
-        Paid handles gigabytes. Most users never hit the cap.
+        <strong>Dosya boyutu sınırları.</strong> Ücretsiz genellikle 50–100 MB
+        ile sınırlıdır. Ücretli gigabaytları işler. Çoğu kullanıcı sınıra
+        ulaşmaz.
       </li>
       <li>
-        <strong>OCR accuracy.</strong> Paid OCR services use GPU-accelerated
-        models with proprietary training data. Free OCR (Tesseract) hits ~85-95%
-        on clean print, 50-70% on messy handwriting. For high-volume professional
-        OCR (legal, healthcare), paid is meaningfully better.
+        <strong>OCR doğruluğu.</strong> Ücretli OCR hizmetleri, özel eğitim
+        verilerine sahip GPU hızlandırmalı modeller kullanır. Ücretsiz OCR
+        (Tesseract) temiz baskıda ~%85-95, dağınık el yazısında %50-70 arası
+        başarı sağlar. Yüksek hacimli profesyonel OCR (hukuk, sağlık) için
+        ücretli anlamlı derecede daha iyidir.
       </li>
       <li>
-        <strong>Format preservation.</strong> Paid converters often preserve
-        complex layouts (multi-column PDFs, tables) better than free. For simple
-        documents the difference is negligible.
+        <strong>Biçim koruma.</strong> Ücretli dönüştürücüler genellikle karmaşık
+        düzenleri (çok sütunlu PDF&rsquo;ler, tablolar) ücretsizden daha iyi
+        korur. Basit belgeler için fark ihmal edilebilir düzeydedir.
       </li>
       <li>
-        <strong>Customer support.</strong> Paid means there&rsquo;s a human you
-        can email. Most free tools you&rsquo;re on your own.
+        <strong>Müşteri desteği.</strong> Ücretli, e-posta gönderebileceğiniz bir
+        insan olduğu anlamına gelir. Çoğu ücretsiz araçta kendi başınızasınız.
       </li>
       <li>
-        <strong>Privacy.</strong> Counter-intuitively, paid is usually NOT more
-        private — many paid converters retain files for &ldquo;quality
-        improvement.&rdquo; Read the privacy policy specifically; don&rsquo;t
-        assume.
+        <strong>Gizlilik.</strong> Sezgisel olmayan bir şekilde, ücretli genellikle
+        DAHA ÖZEL DEĞİLDİR — birçok ücretli dönüştürücü, dosyaları &ldquo;kalite
+        iyileştirme&rdquo; için saklar. Gizlilik politikasını özellikle okuyun;
+        varsaymayın.
       </li>
     </ul>
     <p>
-      For most personal and small-business needs, free browser-only converters do
-      the job. Paid is worth it specifically for: high-volume batch work, very
-      large files, professional OCR, or when you need vendor support.
+      Çoğu kişisel ve küçük işletme ihtiyacı için ücretsiz yalnızca tarayıcı
+      tabanlı dönüştürücüler işi görür. Ücretli, özellikle şunlar için değerlidir:
+      yüksek hacimli toplu iş, çok büyük dosyalar, profesyonel OCR veya satıcı
+      desteğine ihtiyaç duyduğunuzda.
     </p>
 
-    <h2 id="tools">Browser-only converters by file type (on this site)</h2>
-    <p>The full inventory of browser-only conversion tools — every one runs locally:</p>
+    <h2 id="tools">Dosya türüne göre yalnızca tarayıcı tabanlı dönüştürücüler (bu sitede)</h2>
+    <p>Yalnızca tarayıcı tabanlı dönüştürme araçlarının tam envanteri — her biri yerel olarak çalışır:</p>
     <ul>
       <li>
         <strong>PDF:</strong>{" "}
-        <a href="/tools/pdf-to-text">PDF to text</a>,{" "}
-        <a href="/tools/pdf-ocr-to-text">PDF OCR (scanned + handwritten)</a>,{" "}
-        <a href="/tools/pdf-to-jpg">PDF to JPG</a>,{" "}
-        <a href="/tools/jpg-to-pdf">JPG to PDF</a>,{" "}
-        <a href="/tools/merge-pdf">merge PDFs</a>,{" "}
-        <a href="/tools/pdf-split">split PDF</a>,{" "}
-        <a href="/tools/pdf-to-long-image">PDF to long image</a>,{" "}
-        <a href="/tools/pdf-watermark">add watermark</a>,{" "}
-        <a href="/tools/pdf-organizer">reorder pages</a>,{" "}
-        <a href="/tools/pdf-page-numbers">add page numbers</a>,{" "}
-        <a href="/tools/pdf-crop">crop pages</a>,{" "}
-        <a href="/tools/pdf-page-range-extractor">extract page ranges</a>,{" "}
-        <a href="/tools/pdf-metadata-viewer">metadata viewer</a>,{" "}
-        <a href="/tools/pdf-metadata-remover">metadata remover</a>.
+        <a href="/tools/pdf-to-text">PDF&rsquo;den metne</a>,{" "}
+        <a href="/tools/pdf-ocr-to-text">PDF OCR (taranmış + el yazısı)</a>,{" "}
+        <a href="/tools/pdf-to-jpg">PDF&rsquo;den JPG&rsquo;ye</a>,{" "}
+        <a href="/tools/jpg-to-pdf">JPG&rsquo;den PDF&rsquo;ye</a>,{" "}
+        <a href="/tools/merge-pdf">PDF birleştirme</a>,{" "}
+        <a href="/tools/pdf-split">PDF bölme</a>,{" "}
+        <a href="/tools/pdf-to-long-image">PDF&rsquo;den uzun görsele</a>,{" "}
+        <a href="/tools/pdf-watermark">filigran ekleme</a>,{" "}
+        <a href="/tools/pdf-organizer">sayfaları yeniden sıralama</a>,{" "}
+        <a href="/tools/pdf-page-numbers">sayfa numarası ekleme</a>,{" "}
+        <a href="/tools/pdf-crop">sayfaları kırpma</a>,{" "}
+        <a href="/tools/pdf-page-range-extractor">sayfa aralığı çıkarma</a>,{" "}
+        <a href="/tools/pdf-metadata-viewer">meta veri görüntüleyici</a>,{" "}
+        <a href="/tools/pdf-metadata-remover">meta veri temizleyici</a>.
       </li>
       <li>
-        <strong>Images:</strong>{" "}
-        <a href="/tools/image-format-converter">PNG/JPG/WEBP converter</a>,{" "}
-        <a href="/tools/image-resizer">image resizer</a>,{" "}
-        <a href="/tools/image-compressor">compressor</a>,{" "}
-        <a href="/tools/image-cropper">cropper</a>,{" "}
-        <a href="/tools/svg-to-png">SVG to PNG</a>,{" "}
-        <a href="/tools/heic-to-jpg">HEIC to JPG</a>,{" "}
-        <a href="/tools/webp-to-jpg">WEBP to JPG</a>,{" "}
-        <a href="/tools/color-extractor">color palette extractor</a>,{" "}
-        <a href="/tools/gif-maker">GIF maker</a>.
+        <strong>Görseller:</strong>{" "}
+        <a href="/tools/image-format-converter">PNG/JPG/WEBP dönüştürücü</a>,{" "}
+        <a href="/tools/image-resizer">görsel yeniden boyutlandırıcı</a>,{" "}
+        <a href="/tools/image-compressor">sıkıştırıcı</a>,{" "}
+        <a href="/tools/image-cropper">kırpıcı</a>,{" "}
+        <a href="/tools/svg-to-png">SVG&rsquo;den PNG&rsquo;ye</a>,{" "}
+        <a href="/tools/heic-to-jpg">HEIC&rsquo;den JPG&rsquo;ye</a>,{" "}
+        <a href="/tools/webp-to-jpg">WEBP&rsquo;den JPG&rsquo;ye</a>,{" "}
+        <a href="/tools/color-extractor">renk paleti çıkarıcı</a>,{" "}
+        <a href="/tools/gif-maker">GIF oluşturucu</a>.
       </li>
       <li>
-        <strong>Data:</strong>{" "}
-        <a href="/tools/json-to-csv">JSON to CSV</a>,{" "}
-        <a href="/tools/csv-to-json">CSV to JSON</a>,{" "}
-        <a href="/tools/xml-to-csv">XML to CSV</a>,{" "}
-        <a href="/tools/csv-to-excel-xml">CSV to Excel</a>,{" "}
+        <strong>Veri:</strong>{" "}
+        <a href="/tools/json-to-csv">JSON&rsquo;dan CSV&rsquo;ye</a>,{" "}
+        <a href="/tools/csv-to-json">CSV&rsquo;den JSON&rsquo;a</a>,{" "}
+        <a href="/tools/xml-to-csv">XML&rsquo;den CSV&rsquo;ye</a>,{" "}
+        <a href="/tools/csv-to-excel-xml">CSV&rsquo;den Excel&rsquo;e</a>,{" "}
         <a href="/tools/yaml-json-converter">YAML ↔ JSON</a>.
       </li>
       <li>
-        <strong>Text + markup:</strong>{" "}
-        <a href="/tools/html-to-markdown">HTML to Markdown</a>,{" "}
-        <a href="/tools/markdown-to-html">Markdown to HTML</a>,{" "}
-        <a href="/tools/case-converter">case converter</a>,{" "}
-        <a href="/tools/base64-encoder-decoder">Base64 encode/decode</a>.
+        <strong>Metin + işaretleme:</strong>{" "}
+        <a href="/tools/html-to-markdown">HTML&rsquo;den Markdown&rsquo;a</a>,{" "}
+        <a href="/tools/markdown-to-html">Markdown&rsquo;dan HTML&rsquo;ye</a>,{" "}
+        <a href="/tools/case-converter">büyük/küçük harf dönüştürücü</a>,{" "}
+        <a href="/tools/base64-encoder-decoder">Base64 kodlama/kod çözme</a>.
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "OCR a PDF browser-side (no upload)",
+  label: "Bir PDF&rsquo;yi tarayıcı tarafında OCR ile tanı (yükleme yok)",
   targetSlug: "pdf-ocr-to-text",
 };
 
 export const faq = [
   {
-    q: "How can I convert files locally without uploading to the cloud?",
-    a: "Use a browser-only converter — it runs JavaScript in your browser to do the conversion locally. The file never leaves your device. Test by opening DevTools → Network tab while converting; if you see no upload requests, it's local. Every converter on this site runs this way.",
+    q: "Dosyaları buluta yüklemeden yerel olarak nasıl dönüştürebilirim?",
+    a: "Yalnızca tarayıcı tabanlı bir dönüştürücü kullanın — dönüştürmeyi yerel olarak yapmak için tarayıcınızda JavaScript çalıştırır. Dosya cihazınızdan asla ayrılmaz. Dönüştürme sırasında Geliştirici Araçları → Ağ sekmesini açarak test edin; yükleme isteği görmüyorsanız, yereldir. Bu sitedeki her dönüştürücü bu şekilde çalışır.",
   },
   {
-    q: "Is it safe to convert files online?",
-    a: "Cloud-based online converters upload your file to a server. Risk depends on the converter's retention policy, server logs, and subprocessor handling. For non-sensitive content (memes, public docs, generic images), online is fine. For anything you wouldn't hand to a stranger, use a browser-only or desktop converter.",
+    q: "Dosyaları çevrimiçi dönüştürmek güvenli midir?",
+    a: "Bulut tabanlı çevrimiçi dönüştürücüler dosyanızı bir sunucuya yükler. Risk, dönüştürücünün saklama politikasına, sunucu günlüklerine ve alt işleyici işlemlerine bağlıdır. Hassas olmayan içerikler (memler, herkese açık belgeler, genel görseller) için çevrimiçi kullanım sorun değildir. Bir yabancıya vermeyeceğiniz herhangi bir şey için yalnızca tarayıcı tabanlı veya masaüstü dönüştürücü kullanın.",
   },
   {
-    q: "Should I use online or desktop file converters?",
-    a: "Browser-only online converters are the sweet spot for most users — no install, runs locally, files don't leave your device. Cloud servers are fastest for huge files but worst for privacy. Desktop apps (Pandoc, FFmpeg, ImageMagick) are right for batch power users and air-gapped environments.",
-  },
-  {
-    q: "What's the real difference between free and paid file converters?",
-    a: "Paid removes batch + size caps, has better OCR accuracy and layout preservation, and offers customer support. Counter-intuitively, paid is NOT necessarily more private — many retain files for 'quality improvement.' Read the privacy policy. For everyday personal use, free browser-only works fine.",
+    q: "Çevrimiçi mi yoksa masaüstü dosya dönüştürücüler mi kullanmalıyım",
+    a: "Çoğu günlük kullanım için yalnızca tarayıcı tabanlı çevrimiçi dönüştürücüler idealdir: kurulum gerektirmez, dosyanız cihazınızdan ayrılmaz ve ~50 MB altındaki dosyalar için yeterince hızlıdır. Masaüstü uygulamaları (Pandoc, FFmpeg, ImageMagick gibi) şu durumlarda daha iyidir: aynı dönüşümü haftada 50+ kez yapıyorsanız, gigabayt boyutunda dosyalarla çalışıyorsanız veya internet bağlantısı olmayan bir ortamda çalışıyorsanız. Bulut tabanlı çevrimiçi dönüştürücüleri yalnızca dosya hassas değilse ve büyükse kullanın.",
   },
 ];

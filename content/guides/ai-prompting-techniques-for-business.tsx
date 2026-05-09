@@ -3,275 +3,225 @@
 export const intro = (
   <>
     <p>
-      Prompt engineering is the difference between AI being a productivity multiplier
-      and being a generic answer machine. The good news: 5–6 patterns cover 80% of
-      practical business use cases. You don&rsquo;t need a prompt engineering
-      certification — you need a few reliable templates and the discipline to use them.
+      Prompt mühendisliği, AI'ın bir üretkenlik çarpanı mı yoksa genel bir cevap makinesi mi olduğu arasındaki farktır. İyi haber: 5-6 desen, pratik iş kullanım durumlarının %80'ini kapsar. Bir prompt mühendisliği sertifikasına ihtiyacınız yok — birkaç güvenilir şablona ve bunları kullanma disiplinine ihtiyacınız var.
     </p>
     <p>
-      This guide covers the patterns that consistently outperform vibes-based
-      prompting, including chain-of-verification (the &ldquo;does the model agree
-      with itself?&rdquo; technique that reduces hallucinations), and how to apply
-      them to common business workflows like proposal drafting, financial analysis,
-      and legal-document review.
+      Bu rehber, sezgiye dayalı promptlamadan sürekli olarak daha iyi performans gösteren desenleri kapsar; buna doğrulama zinciri (modelin kendisiyle aynı fikirde olup olmadığını sorgulayan ve halüsinasyonları azaltan teknik) ve bunların teklif taslağı hazırlama, finansal analiz ve yasal belge incelemesi gibi yaygın iş akışlarına nasıl uygulanacağı dahildir.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "patterns", label: "The 6 patterns that work" },
-  { id: "operations", label: "Prompt engineering for business operations" },
-  { id: "chain", label: "Chain of verification" },
-  { id: "financial", label: "Better prompts for financial analysis" },
-  { id: "writing", label: "AI for proposals + legal docs" },
+  { id: "patterns", label: "İşe yarayan 6 desen" },
+  { id: "operations", label: "İş operasyonları için prompt mühendisliği" },
+  { id: "chain", label: "Doğrulama zinciri" },
+  { id: "financial", label: "Finansal analiz için daha iyi promptlar" },
+  { id: "writing", label: "Teklifler + yasal belgeler için AI" },
 ];
 
 export const body = (
   <>
-    <h2 id="patterns">The 6 prompting patterns that work for business</h2>
+    <h2 id="patterns">İş için işe yarayan 6 prompt deseni</h2>
 
-    <h3>1. Role + context + task + format</h3>
+    <h3>1. Rol + bağlam + görev + biçim</h3>
     <p>
-      The most reliable prompt structure for any business task:
+      Herhangi bir iş görevi için en güvenilir prompt yapısı:
     </p>
-    <pre><code>{`You are [role with relevant expertise].
-Context: [the situation, key facts, constraints].
-Task: [specific request].
-Format: [number of items, structure, length].`}</code></pre>
+    <pre><code>{`Sen [ilgili uzmanlığa sahip rol]'sün.
+Bağlam: [durum, temel gerçekler, kısıtlamalar].
+Görev: [özel talep].
+Biçim: [öğe sayısı, yapı, uzunluk].`}</code></pre>
     <p>
-      Example: &ldquo;You are a senior financial analyst. Context: I&rsquo;m
-      reviewing a SaaS company&rsquo;s Q3 10-Q with [these numbers]. Task: identify
-      the 3 most concerning trends. Format: bullet list, one sentence per trend,
-      include the specific number that&rsquo;s concerning.&rdquo; Beats &ldquo;analyze
-      this 10-Q&rdquo; by a wide margin.
+      Örnek: &ldquo;Sen kıdemli bir finansal analistsin. Bağlam: [bu rakamlarla] bir SaaS şirketinin Q3 10-Q'sunu inceliyorum. Görev: en endişe verici 3 eğilimi belirle. Biçim: madde işaretli liste, eğilim başına bir cümle, endişe verici olan belirli rakamı dahil et.&rdquo; &ldquo;Bu 10-Q'yu analiz et&rdquo; ifadesini açık ara farkla yener.
     </p>
 
-    <h3>2. Few-shot examples</h3>
+    <h3>2. Az örnekli gösterim</h3>
     <p>
-      Show the model 2–3 examples of the input/output you want, then give it a new
-      input. The model picks up your format and style much more reliably than from
-      description alone.
+      Modele istediğiniz girdi/çıktının 2-3 örneğini gösterin, ardından yeni bir girdi verin. Model, biçiminizi ve stilinizi yalnızca açıklamadan çok daha güvenilir bir şekilde yakalar.
     </p>
-    <pre><code>{`Here are examples of how I summarize customer feedback:
+    <pre><code>{`Müşteri geri bildirimlerini nasıl özetlediğime dair örnekler:
 
-Input: "App keeps crashing when I open the camera"
-Output: { category: "bug", severity: "high", area: "camera" }
+Girdi: "Kamerayı açtığımda uygulama çökmeye devam ediyor"
+Çıktı: { kategori: "hata", şiddet: "yüksek", alan: "kamera" }
 
-Input: "Would love a dark mode option"
-Output: { category: "feature_request", severity: "low", area: "ui" }
+Girdi: "Karanlık mod seçeneği olsa harika olurdu"
+Çıktı: { kategori: "özellik_talebi", şiddet: "düşük", alan: "arayüz" }
 
-Now categorize this:
-Input: "[the new feedback]"
-Output:`}</code></pre>
+Şimdi bunu kategorize et:
+Girdi: "[yeni geri bildirim]"
+Çıktı:`}</code></pre>
 
-    <h3>3. <a href="/learn/chain-of-thought">Chain of thought</a></h3>
+    <h3>3. <a href="/learn/chain-of-thought">Düşünce zinciri</a></h3>
     <p>
-      Add &ldquo;think step by step&rdquo; or &ldquo;before answering, list the
-      considerations&rdquo; to any complex reasoning task. Forces the model to
-      structure its work, which usually improves accuracy.
+      Herhangi bir karmaşık akıl yürütme görevine &ldquo;adım adım düşün&rdquo; veya &ldquo;cevaplamadan önce, dikkate alınması gerekenleri listele&rdquo; ekleyin. Modeli çalışmasını yapılandırmaya zorlar, bu da genellikle doğruluğu artırır.
     </p>
     <p>
-      Example: &ldquo;Before recommending a pricing model, list the relevant
-      considerations (customer payment habits, competition, willingness to pay,
-      operational complexity), then make a recommendation.&rdquo;
+      Örnek: &ldquo;Bir fiyatlandırma modeli önermeden önce, ilgili hususları (müşteri ödeme alışkanlıkları, rekabet, ödeme istekliliği, operasyonel karmaşıklık) listeleyin, ardından bir öneride bulunun.&rdquo;
     </p>
 
-    <h3>4. Decomposition</h3>
+    <h3>4. Ayrıştırma</h3>
     <p>
-      Don&rsquo;t ask one big question; ask 3 small ones. &ldquo;Write me a
-      marketing plan&rdquo; produces generic output. &ldquo;What&rsquo;s the right
-      target customer for [product]? What pain do they feel? What 3 channels reach
-      them best?&rdquo; — three focused prompts produce much better output.
+      Büyük bir soru sormayın; 3 küçük soru sorun. &ldquo;Bana bir pazarlama planı yaz&rdquo; genel çıktı üretir. &ldquo;[Ürün] için doğru hedef müşteri kim? Hangi acıyı hissediyorlar? Onlara en iyi hangi 3 kanal ulaşır?&rdquo; — üç odaklı prompt çok daha iyi çıktı üretir.
     </p>
 
-    <h3>5. Self-critique</h3>
+    <h3>5. Öz-eleştiri</h3>
     <p>
-      After getting an answer, ask: &ldquo;What&rsquo;s wrong with this? What did
-      you miss? What would a critic say?&rdquo; The follow-up surfaces issues the
-      first response glossed over. Often catches 30–50% of issues you&rsquo;d
-      otherwise miss.
+      Bir cevap aldıktan sonra şunu sorun: &ldquo;Bunda yanlış olan ne? Neyi kaçırdın? Bir eleştirmen ne derdi?&rdquo; Takip sorusu, ilk yanıtın üstünkörü geçtiği sorunları ortaya çıkarır. Genellikle aksi takdirde kaçıracağınız sorunların %30-50'sini yakalar.
     </p>
 
-    <h3>6. Constraint + persona injection</h3>
+    <h3>6. Kısıtlama + kişilik enjeksiyonu</h3>
     <p>
-      &ldquo;Respond as a skeptical investor reviewing this pitch.&rdquo;
-      &ldquo;Act as a security architect identifying risks.&rdquo; Personas
-      activate different parts of the model&rsquo;s training. Useful for getting
-      multiple lens reviews of one piece of content.
+      &ldquo;Bu sunumu inceleyen şüpheci bir yatırımcı olarak yanıtla.&rdquo; &ldquo;Riskleri belirleyen bir güvenlik mimarı gibi davran.&rdquo; Kişilikler, modelin eğitiminin farklı bölümlerini etkinleştirir. Bir içeriğin birden çok mercekten incelenmesini sağlamak için kullanışlıdır.
     </p>
 
-    <h2 id="operations">Prompt engineering for business operations</h2>
+    <h2 id="operations">İş operasyonları için prompt mühendisliği</h2>
     <p>
-      The high-leverage operational use cases:
+      Yüksek kaldıraçlı operasyonel kullanım durumları:
     </p>
     <ul>
       <li>
-        <strong>Customer support triage:</strong> classify + route + draft response.
-        Few-shot pattern with 5 example tickets categorized correctly.
+        <strong>Müşteri desteği triyajı:</strong> sınıflandır + yönlendir + taslak yanıt.
+        Doğru kategorize edilmiş 5 örnek biletle az örnekli desen.
       </li>
       <li>
-        <strong>Sales prospecting:</strong> research candidate accounts,
-        prioritize by fit, draft outreach. Role + context + task pattern with
-        explicit fit criteria.
+        <strong>Satış adayı bulma:</strong> aday hesapları araştır, uyuma göre önceliklendir, iletişim taslağı hazırla. Açık uyum kriterleriyle rol + bağlam + görev deseni.
       </li>
       <li>
-        <strong>Document processing:</strong> extract structured data from
-        contracts, invoices, receipts. Few-shot pattern with sample extractions.
+        <strong>Belge işleme:</strong> sözleşmelerden, faturalardan, makbuzlardan yapılandırılmış veri çıkarma. Örnek çıkarmalarla az örnekli desen.
       </li>
       <li>
-        <strong>Internal Q&amp;A:</strong> RAG-pattern. Retrieve relevant
-        docs from your knowledge base, then prompt with retrieved-context + the
-        question. Include &ldquo;say I don&rsquo;t know if the answer isn&rsquo;t
-        in the context&rdquo; to reduce <a href="/learn/hallucination">hallucination</a>.
+        <strong>Dahili S&amp;C:</strong> RAG deseni. Bilgi tabanınızdan ilgili belgeleri alın, ardından alınan bağlam + soru ile prompt yapın. <a href="/learn/hallucination">Halüsinasyonu</a> azaltmak için &ldquo;cevap bağlamda yoksa bilmiyorum de&rdquo; ekleyin.
       </li>
       <li>
-        <strong>Meeting summarization:</strong> structured output with action items,
-        decisions, open questions. Format-specified pattern wins.
+        <strong>Toplantı özetleme:</strong> eylem maddeleri, kararlar, açık sorularla yapılandırılmış çıktı. Biçim belirtilmiş desen kazanır.
       </li>
       <li>
-        <strong>Code review:</strong> &ldquo;Review this code as a senior engineer
-        focused on [security / performance / readability]. List specific issues
-        with line numbers.&rdquo; Persona + format combo.
+        <strong>Kod incelemesi:</strong> &ldquo;Bu kodu [güvenlik / performans / okunabilirlik] odaklı kıdemli bir mühendis olarak incele. Satır numaralarıyla belirli sorunları listele.&rdquo; Kişilik + biçim kombinasyonu.
       </li>
     </ul>
 
-    <h2 id="chain">Chain of verification (the hallucination killer)</h2>
+    <h2 id="chain">Doğrulama zinciri (halüsinasyon katili)</h2>
     <p>
-      Chain of verification is a multi-step technique that significantly reduces
-      hallucinations on factual tasks. The pattern:
+      Doğrulama zinciri, olgusal görevlerde halüsinasyonları önemli ölçüde azaltan çok adımlı bir tekniktir. Desen:
     </p>
     <ol>
       <li>
-        <strong>Step 1:</strong> Ask the model to answer the question.
+        <strong>Adım 1:</strong> Modelden soruyu cevaplamasını isteyin.
       </li>
       <li>
-        <strong>Step 2:</strong> Ask the model to generate verification questions
-        for each claim in its answer (&ldquo;What questions would I need to verify
-        this is correct?&rdquo;).
+        <strong>Adım 2:</strong> Modelden cevabındaki her iddia için doğrulama soruları oluşturmasını isteyin (&ldquo;Bunun doğru olduğunu doğrulamak için hangi soruları sormam gerekir?&rdquo;).
       </li>
       <li>
-        <strong>Step 3:</strong> Have the model answer each verification question
-        independently (in separate prompts is best — keeps it from anchoring on its
-        first answer).
+        <strong>Adım 3:</strong> Modelin her doğrulama sorusunu bağımsız olarak cevaplamasını sağlayın (ayrı promptlarda en iyisi — ilk cevabına sabitlenmesini önler).
       </li>
       <li>
-        <strong>Step 4:</strong> Reconcile. Where do the verification answers
-        contradict the original answer? Those are the hallucinations.
+        <strong>Adım 4:</strong> Uzlaştırın. Doğrulama cevapları orijinal cevapla nerede çelişiyor? Bunlar halüsinasyonlardır.
       </li>
     </ol>
     <p>
-      Published research (Dhuliawala et al., 2023) found CoVe reduces factual
-      errors by 30–50% on long-form question answering. In practice, it&rsquo;s
-      most useful for high-stakes outputs — financial analysis, legal summaries,
-      compliance reviews.
+      Yayınlanmış araştırma (Dhuliawala ve ark., 2023), CoVe'nin uzun biçimli soru cevaplamada olgusal hataları %30-50 oranında azalttığını buldu. Pratikte, en çok yüksek riskli çıktılar için kullanışlıdır — finansal analiz, yasal özetler, uyum incelemeleri.
     </p>
     <p>
-      Quick CoVe template:
+      Hızlı CoVe şablonu:
     </p>
-    <pre><code>{`Question: [your question]
-Initial answer: [model's first response]
+    <pre><code>{`Soru: [sorunuz]
+İlk cevap: [modelin ilk yanıtı]
 
-Now generate 3-5 verification questions whose answers would
-confirm or refute the claims in the initial answer.
+Şimdi, cevapları ilk cevaptaki iddiaları doğrulayacak
+veya çürütecek 3-5 doğrulama sorusu oluşturun.
 
-Answer each verification question independently, citing the
-specific source or reasoning.
+Her doğrulama sorusunu bağımsız olarak, belirli kaynağı
+veya gerekçeyi belirterek cevaplayın.
 
-Where do the verification answers contradict the initial answer?`}</code></pre>
+Doğrulama cevapları ilk cevapla nerede çelişiyor?`}</code></pre>
 
-    <h2 id="financial">Better prompts for financial analysis</h2>
+    <h2 id="financial">Finansal analiz için daha iyi promptlar</h2>
     <p>
-      Financial analysis is where vague prompts cost real money. The structured
-      pattern:
+      Finansal analiz, belirsiz promptların gerçek paraya mal olduğu yerdir. Yapılandırılmış desen:
     </p>
-    <pre><code>{`You are a senior CPA reviewing this for [purpose:
-investment / acquisition / lending / personal].
+    <pre><code>{`Sen bunu [amaç: yatırım / satın alma / borç verme / kişisel]
+için inceleyen kıdemli bir SMMM'sin.
 
-Context: [paste financials, with units and time period
-clear].
+Bağlam: [finansalları, birimler ve zaman dilimi net
+olacak şekilde yapıştırın].
 
-Tasks (do each separately):
-1. Identify any unusual line items (size, rate of change,
-   inconsistency with peers).
-2. Flag any accounting choices that affect comparability
-   (e.g. revenue recognition, capitalization).
-3. Compute [specific ratios or metrics relevant to the purpose].
-4. Note 3 questions you'd ask management.
+Görevler (her birini ayrı ayrı yapın):
+1. Olağandışı kalemleri belirleyin (boyut, değişim oranı,
+   emsallerle tutarsızlık).
+2. Karşılaştırılabilirliği etkileyen muhasebe seçimlerini
+   işaretleyin (ör. hasılat tanıma, aktifleştirme).
+3. [Amaçla ilgili belirli oranları veya metrikleri] hesaplayın.
+4. Yönetime soracağınız 3 soruyu not edin.
 
-Format: numbered list per task. Cite the specific dollar
-amount or percentage for each finding.`}</code></pre>
+Biçim: görev başına numaralı liste. Her bulgu için belirli
+dolar tutarını veya yüzdeyi belirtin.`}</code></pre>
     <p>
-      Always verify the model&rsquo;s numerical work against primary source —
-      financial hallucinations (wrong dollar amounts, wrong fiscal year) are
-      common. Use chain of verification for high-stakes analyses.
+      Modelin sayısal çalışmasını her zaman birincil kaynağa karşı doğrulayın — finansal halüsinasyonlar (yanlış dolar tutarları, yanlış mali yıl) yaygındır. Yüksek riskli analizler için doğrulama zincirini kullanın.
     </p>
 
-    <h2 id="writing">AI for proposals and legal documents</h2>
+    <h2 id="writing">Teklifler ve yasal belgeler için AI</h2>
     <p>
-      Proposals, contracts, MOUs — AI shines at first drafts; humans must own the
-      review.
+      Teklifler, sözleşmeler, mutabakat zabıtları — AI ilk taslaklarda parlar; insanlar incelemeyi üstlenmelidir.
     </p>
     <p>
-      The proposal-drafting pattern:
+      Teklif taslağı hazırlama deseni:
     </p>
-    <pre><code>{`Draft a 1-page proposal for [service] to [client].
+    <pre><code>{`[Müşteri]'ye [hizmet] için 1 sayfalık bir teklif taslağı hazırla.
 
-Context:
-- Client: [paste website summary]
-- Their goal: [what they said in discovery]
-- Our scope: [3-5 bullets of what we'll deliver]
-- Pricing approach: [fixed / T&M / retainer]
-- Timeline: [weeks]
+Bağlam:
+- Müşteri: [web sitesi özetini yapıştırın]
+- Hedefleri: [keşifte söyledikleri]
+- Kapsamımız: [teslim edeceklerimizin 3-5 maddesi]
+- Fiyatlandırma yaklaşımı: [sabit / zaman+malzeme / retainer]
+- Zaman çizelgesi: [hafta]
 
-Structure:
-1. Executive summary (2-3 sentences)
-2. Approach (3-5 bullets)
-3. Deliverables (numbered list)
-4. Timeline (table format)
-5. Investment (range, not a single number)
-6. Next step
+Yapı:
+1. Yönetici özeti (2-3 cümle)
+2. Yaklaşım (3-5 madde)
+3. Teslimatlar (numaralı liste)
+4. Zaman çizelgesi (tablo biçimi)
+5. Yatırım (tek bir sayı değil, aralık)
+6. Sonraki adım
 
-Tone: professional, confident, specific (no buzzwords).`}</code></pre>
+Ton: profesyonel, kendinden emin, spesifik (argo yok).`}</code></pre>
     <p>
-      For legal docs (NDAs, contracts, addendums): AI is good at first drafts and
-      red-lining. AI is bad at jurisdiction-specific compliance and case-law-
-      driven nuance. Always have a real lawyer review before signing anything
-      consequential.
+      Yasal belgeler için (Gizlilik Sözleşmeleri, sözleşmeler, ekler): AI ilk taslaklar ve kırmızı çizgi çekme konusunda iyidir. AI, yargı yetkisine özgü uyum ve içtihat hukuku kaynaklı nüans konusunda kötüdür. Önemli bir şeyi imzalamadan önce her zaman gerçek bir avukata incelettirin.
     </p>
     <p>
-      A useful red-line pattern:
+      Yararlı bir kırmızı çizgi deseni:
     </p>
-    <pre><code>{`Review this contract from [my role: vendor / customer]
-perspective. Identify:
-- Clauses that disadvantage me
-- Missing protections
-- Ambiguous language
-- Industry-standard items that are missing
+    <pre><code>{`Bu sözleşmeyi [benim rolüm: satıcı / müşteri] perspektifinden
+inceleyin. Şunları belirleyin:
+- Beni dezavantajlı duruma sokan maddeler
+- Eksik korumalar
+- Belirsiz dil
+- Eksik olan sektör standardı öğeler
 
-For each, propose a redline with specific replacement language.`}</code></pre>
+Her biri için, belirli değiştirme diliyle bir kırmızı çizgi
+önerin.`}</code></pre>
   </>
 );
 
 export const cta = {
-  label: "Try the free AI prompt generator",
+  label: "Ücretsiz AI prompt oluşturucuyu deneyin",
   targetSlug: "ai-prompt-generator",
 };
 
 export const faq = [
   {
-    q: "How can prompt engineering improve my business operations?",
-    a: "Six core patterns: role + context + task + format, few-shot examples, chain of thought, decomposition, self-critique, persona injection. Apply to support triage, sales prospecting, document processing, internal Q&A (RAG), meetings, and code review. The structured prompts consistently outperform vibes-based prompting.",
+    q: "Prompt mühendisliği iş operasyonlarımı nasıl iyileştirebilir?",
+    a: "Altı temel desen: rol + bağlam + görev + biçim, az örnekli gösterim, düşünce zinciri, ayrıştırma, öz-eleştiri, kişilik enjeksiyonu. Destek triyajına, satış adayı bulmaya, belge işlemeye, dahili S&amp;C'ye (RAG), toplantılara ve kod incelemesine uygulayın. Yapılandırılmış promptlar, sezgiye dayalı promptlamadan sürekli olarak daha iyi performans gösterir.",
   },
   {
-    q: "What does 'chain of verification' mean for AI decisions?",
-    a: "A multi-step technique to reduce hallucinations: (1) get initial answer, (2) generate verification questions for each claim, (3) answer them independently, (4) reconcile contradictions. Published research shows 30-50% reduction in factual errors on long-form QA. Most useful for high-stakes outputs like financial analysis or legal summaries.",
+    q: "'Doğrulama zinciri' AI kararları için ne anlama geliyor?",
+    a: "Halüsinasyonları azaltmak için çok adımlı bir teknik: (1) ilk cevabı al, (2) her iddia için doğrulama soruları oluştur, (3) bunları bağımsız olarak cevapla, (4) çelişkileri uzlaştır. Yayınlanmış araştırma, uzun biçimli S&amp;C'de olgusal hatalarda %30-50 azalma gösteriyor. En çok finansal analiz veya yasal özetler gibi yüksek riskli çıktılar için kullanışlıdır.",
   },
   {
-    q: "Can AI help me write better business proposals and legal docs?",
-    a: "Yes for first drafts and red-lining. No for jurisdiction-specific compliance and case-law nuance. Use the structured proposal pattern (context + structure + tone) for proposals; use a redline-from-perspective pattern for contracts. Always have a real lawyer review consequential legal documents.",
+    q: "AI daha iyi iş teklifleri ve yasal belgeler yazmama yardımcı olabilir mi?",
+    a: "İlk taslaklar ve kırmızı çizgi çekme için evet. Yargı yetkisine özgü uyum ve içtihat hukuku nüansı için hayır. Teklifler için yapılandırılmış teklif desenini (bağlam + yapı + ton) kullanın; sözleşmeler için perspektiften kırmızı çizgi desenini kullanın. Önemli yasal belgeleri her zaman gerçek bir avukata incelettirin.",
   },
   {
-    q: "How do I write better prompts for AI financial analysis?",
-    a: "Use the role + context + tasks + format pattern. State the purpose (investment / acquisition / lending). Decompose into separate tasks (unusual items, accounting choices, ratios, management questions). Verify numerical work against primary source — financial hallucinations are common. Apply chain of verification for high-stakes analyses.",
+    q: "AI finansal analizi için daha iyi promptlar nasıl yazarım?",
+    a: "Rol + bağlam + görevler + biçim desenini kullanın. Amacı belirtin (yatırım / satın alma / borç verme). Ayrı görevlere ayrıştırın (olağandışı kalemler, muhasebe seçimleri, oranlar, yönetim soruları). Sayısal çalışmayı birincil kaynağa karşı doğrulayın — finansal halüsinasyonlar yaygındır. Yüksek riskli analizler için doğrulama zincirini uygulayın.",
   },
 ];

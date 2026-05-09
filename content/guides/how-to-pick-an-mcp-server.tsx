@@ -2,42 +2,41 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    By 2026, hundreds of <a href="/learn/mcp">MCP</a> servers exist &mdash; some official, many community. Picking the right ones for your
-    setup is mostly about three questions: workflow, trust posture, hosting. Here&rsquo;s the framework.
+    2026 yılına kadar yüzlerce <a href="/learn/mcp">MCP</a> sunucusu var — bazıları resmi, çoğu topluluk tarafından oluşturulmuş. Kurulumunuz için doğru olanları seçmek çoğunlukla üç soruya dayanır: iş akışı, güven duruşu, barındırma. İşte çerçeve.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Question 1: what does your <a href="/learn/agent">AI agent</a> need to do?</h2>
+    <h2>Soru 1: <a href="/learn/agent">AI ajanınızın</a> ne yapması gerekiyor?</h2>
     <ul>
-      <li><strong>Coding:</strong> Filesystem, Git, GitHub, Sequential Thinking, Memory.</li>
-      <li><strong>Research:</strong> Brave Search, Fetch, Memory, Filesystem.</li>
-      <li><strong>Data analysis:</strong> Postgres, SQLite, Filesystem, Memory.</li>
-      <li><strong>Customer support:</strong> Slack, Notion, Linear, Memory.</li>
-      <li><strong>PM / ops:</strong> Linear, Notion, Slack, GitHub, Google Drive.</li>
+      <li><strong>Kodlama:</strong> Dosya Sistemi, Git, GitHub, Sıralı Düşünme, Bellek.</li>
+      <li><strong>Araştırma:</strong> Brave Arama, Getir, Bellek, Dosya Sistemi.</li>
+      <li><strong>Veri analizi:</strong> Postgres, SQLite, Dosya Sistemi, Bellek.</li>
+      <li><strong>Müşteri desteği:</strong> Slack, Notion, Linear, Bellek.</li>
+      <li><strong>PM / operasyonlar:</strong> Linear, Notion, Slack, GitHub, Google Drive.</li>
     </ul>
-    <h2>Question 2: official or community?</h2>
+    <h2>Soru 2: resmi mi yoksa topluluk mu?</h2>
     <ul>
-      <li><strong>Official</strong> (modelcontextprotocol/* + vendor-published): SOC 2 review usually possible, source maintained, breaks fixed.</li>
-      <li><strong>Community:</strong> often higher feature velocity, but vary in quality + abandon risk.</li>
-      <li><strong>Heuristic:</strong> use official for anything reading sensitive data; community is fine for additive tooling.</li>
+      <li><strong>Resmi</strong> (modelcontextprotocol/* + satıcı tarafından yayınlanan): Genellikle SOC 2 incelemesi mümkün, kaynak bakımı yapılır, hatalar düzeltilir.</li>
+      <li><strong>Topluluk:</strong> genellikle daha yüksek özellik hızı, ancak kalite ve terk edilme riski değişir.</li>
+      <li><strong>Kılavuz:</strong> hassas verileri okuyan her şey için resmi kullanın; ek araçlar için topluluk uygundur.</li>
     </ul>
-    <h2>Question 3: stdio or HTTP?</h2>
+    <h2>Soru 3: stdio mu yoksa HTTP mi?</h2>
     <ul>
-      <li><strong>stdio:</strong> local-only, simpler, no network exposure. Default choice.</li>
-      <li><strong>HTTP/SSE:</strong> remote-deployable, multi-user. Required if your agent runs in cloud.</li>
+      <li><strong>stdio:</strong> yalnızca yerel, daha basit, ağa maruz kalmaz. Varsayılan seçim.</li>
+      <li><strong>HTTP/SSE:</strong> uzaktan dağıtılabilir, çok kullanıcılı. Ajanınız bulutta çalışıyorsa gereklidir.</li>
     </ul>
-    <h2>Trust + safety</h2>
+    <h2>Güvenlik + emniyet</h2>
     <ul>
-      <li>Read the source for any community server before granting filesystem or network access.</li>
-      <li>Treat MCP servers as having user-level privileges. They CAN read your files.</li>
-      <li>Use scoped credentials &mdash; tokens with minimal permissions.</li>
-      <li>Audit access logs periodically (Anthropic + OpenAI both expose them).</li>
+      <li>Herhangi bir topluluk sunucusuna dosya sistemi veya ağ erişimi vermeden önce kaynağını okuyun.</li>
+      <li>MCP sunucularına kullanıcı düzeyinde ayrıcalıklara sahipmiş gibi davranın. Dosyalarınızı OKUYABİLİRLER.</li>
+      <li>Kapsamlı kimlik bilgileri kullanın — minimum izinlere sahip tokenlar.</li>
+      <li>Erişim günlüklerini periyodik olarak denetleyin (Anthropic + OpenAI bunları sunar).</li>
     </ul>
     <p>
-      Get a tailored picks + Claude Desktop config at the <a href="/tools/mcp-server-picker">MCP server picker</a>.
-      For the protocol overview see <a href="/guides/what-is-mcp-protocol">what is MCP protocol</a>.
+      Kişiselleştirilmiş seçimler ve Claude Desktop yapılandırması için <a href="/tools/mcp-server-picker">MCP sunucu seçici</a> sayfasını ziyaret edin.
+      Protokole genel bakış için <a href="/guides/what-is-mcp-protocol">MCP protokolü nedir</a> bölümüne bakın.
     </p>
   </>
 );

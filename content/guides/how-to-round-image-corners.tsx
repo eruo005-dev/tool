@@ -3,163 +3,163 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Rounded corners are a modern design default &mdash; cards, avatars, app icons, product tiles. Most of the time the browser handles them with a single CSS <code>border-radius</code> property, but sometimes you need the corners baked into the image file itself: for email, where CSS support is patchy; for exports to PDFs and presentations; for thumbnails rendered outside a styled environment; and for any case where you want transparent corners around a non-rectangular shape. This guide covers when to bake corners into the pixels, when to leave them as CSS, and how to pick the right radius for avatars, cards, and circular crops.
+      Yuvarlak köşeler modern tasarımın bir standardı haline geldi &mdash; kartlar, avatarlar, uygulama ikonları, ürün kutucukları. Çoğu zaman tarayıcı bunları tek bir CSS <code>border-radius</code> özelliği ile halleder, ancak bazen köşeleri doğrudan görüntü dosyasına işlemeniz gerekir: CSS desteğinin zayıf olduğu e-postalar için; PDF ve sunum dışa aktarımları için; stillendirilmiş bir ortam dışında oluşturulan küçük resimler için; ve dikdörtgen olmayan bir şeklin etrafında şeffaf köşelere ihtiyaç duyduğunuz her durum için. Bu kılavuz, köşeleri piksellere ne zaman işleyeceğinizi, ne zaman CSS olarak bırakacağınızı ve avatarlar, kartlar ve dairesel kırpmalar için doğru yarıçapı nasıl seçeceğinizi kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>CSS radius versus baked-in corners</h2>
+    <h2>CSS yarıçapı ve işlenmiş köşeler</h2>
     <p>
-      If you control the HTML and CSS, <code>border-radius</code> is almost always the right answer. It&rsquo;s a single line, it&rsquo;s resolution-independent, and you can change the shape without re-exporting the image.
+      HTML ve CSS'yi kontrol ediyorsanız, <code>border-radius</code> neredeyse her zaman doğru cevaptır. Tek satırlık bir koddur, çözünürlükten bağımsızdır ve görüntüyü yeniden dışa aktarmadan şekli değiştirebilirsiniz.
     </p>
     <pre>{`.card img {
   border-radius: 12px;
   overflow: hidden;
 }`}</pre>
     <p>
-      You need baked-in corners when the consuming environment strips CSS (email clients like Outlook), renders outside a browser (office docs, messaging apps), or needs a true image file with an alpha channel (PNG/WebP with transparent corners).
+      İşlenmiş köşelere ihtiyacınız olduğunda, tüketen ortam CSS'yi kaldırıyordur (Outlook gibi e-posta istemcileri), bir tarayıcı dışında oluşturuyordur (ofis belgeleri, mesajlaşma uygulamaları) veya alfa kanalı olan gerçek bir görüntü dosyasına ihtiyaç duyuyordur (şeffaf köşeli PNG/WebP).
     </p>
 
-    <h2>Radius in pixels versus percent</h2>
+    <h2>Piksel cinsinden yarıçap ve yüzde cinsinden yarıçap</h2>
     <p>
-      A fixed <strong>pixel radius</strong> (e.g. 12&nbsp;px) keeps the same physical roundness regardless of the image size. A 200&nbsp;px avatar and a 1000&nbsp;px card both get 12&nbsp;px of curve &mdash; visually tight on the big one, pronounced on the small one.
+      Sabit bir <strong>piksel yarıçapı</strong> (ör. 12&nbsp;px), görüntü boyutundan bağımsız olarak aynı fiziksel yuvarlaklığı korur. 200&nbsp;px'lik bir avatar ve 1000&nbsp;px'lik bir kartın her ikisi de 12&nbsp;px'lik bir eğri alır &mdash; büyük olanda görsel olarak sıkı, küçük olanda belirgindir.
     </p>
     <p>
-      A <strong>percentage radius</strong> scales with the image: 10% of the shorter side. A 200&nbsp;px square at 10% gets 20&nbsp;px of curve; a 1000&nbsp;px square at 10% gets 100&nbsp;px. Use percent when you want the shape to feel consistent across sizes &mdash; think app icons where the same squircle shape appears at 16, 32, 64, 128, and 512&nbsp;px.
-    </p>
-
-    <h2>Going full circle: 50% radius</h2>
-    <p>
-      A <code>border-radius</code> of 50% on a square produces a perfect circle; on a rectangle it produces a pill or ellipse. This is the standard shape for user avatars. When baking it into a file, you need both a square source image and a format that supports transparency (PNG, WebP, AVIF). JPEGs cannot hold a circular transparent background &mdash; they&rsquo;ll fill the corners with whatever background color you specify, usually white.
-    </p>
-    <p>
-      If you&rsquo;re going to paste a circular avatar onto an unpredictable background, always export PNG or WebP. If you know the placement background is solid white and unchanging, JPEG with white corner fill works and saves bytes.
+      Bir <strong>yüzde yarıçapı</strong> görüntüyle birlikte ölçeklenir: kısa kenarın %10'u. %10'da 200&nbsp;px'lik bir kare 20&nbsp;px'lik bir eğri alır; %10'da 1000&nbsp;px'lik bir kare 100&nbsp;px alır. Şeklin boyutlar arasında tutarlı hissetmesini istediğinizde yüzde kullanın &mdash; aynı squircle şeklinin 16, 32, 64, 128 ve 512&nbsp;px'de göründüğü uygulama ikonlarını düşünün.
     </p>
 
-    <h2>Transparency: PNG, WebP, AVIF</h2>
+    <h2>Tam daire: %50 yarıçap</h2>
     <p>
-      Transparent rounded corners require an alpha channel. Your format options:
+      Bir karede %50'lik bir <code>border-radius</code> mükemmel bir daire oluşturur; bir dikdörtgende bir hap veya elips oluşturur. Bu, kullanıcı avatarları için standart şekildir. Bunu bir dosyaya işlerken, hem kare bir kaynak görüntüye hem de şeffaflığı destekleyen bir formata (PNG, WebP, AVIF) ihtiyacınız vardır. JPEG'ler şeffaf dairesel bir arka plan tutamaz &mdash; köşeleri belirttiğiniz herhangi bir arka plan rengiyle, genellikle beyazla doldururlar.
+    </p>
+    <p>
+      Dairesel bir avatarı tahmin edilemeyen bir arka plana yapıştıracaksanız, her zaman PNG veya WebP olarak dışa aktarın. Yerleşim arka planının düz beyaz ve değişmez olduğunu biliyorsanız, beyaz köşe dolgulu JPEG işe yarar ve bayt tasarrufu sağlar.
+    </p>
+
+    <h2>Şeffaflık: PNG, WebP, AVIF</h2>
+    <p>
+      Şeffaf yuvarlak köşeler bir alfa kanalı gerektirir. Biçim seçenekleriniz:
     </p>
     <ul>
-      <li><strong>PNG</strong> &mdash; ubiquitous support, lossless, larger files. Safe default.</li>
-      <li><strong>WebP</strong> &mdash; 25&ndash;35% smaller than PNG at similar quality, supported in all modern browsers.</li>
-      <li><strong>AVIF</strong> &mdash; even smaller, slower to encode, growing support.</li>
-      <li><strong>GIF</strong> &mdash; supports only binary transparency (fully opaque or fully transparent), so the corner edge will look jagged. Avoid for this.</li>
+      <li><strong>PNG</strong> &mdash; her yerde desteklenir, kayıpsız, daha büyük dosyalar. Güvenli varsayılan.</li>
+      <li><strong>WebP</strong> &mdash; benzer kalitede PNG'den %25&ndash;35 daha küçük, tüm modern tarayıcılarda desteklenir.</li>
+      <li><strong>AVIF</strong> &mdash; daha da küçük, kodlaması daha yavaş, desteği artıyor.</li>
+      <li><strong>GIF</strong> &mdash; yalnızca ikili şeffaflığı destekler (tamamen opak veya tamamen şeffaf), bu nedenle köşe kenarı pürüzlü görünecektir. Bunun için kaçının.</li>
     </ul>
     <p>
-      JPEG is simply not an option for transparent corners; it has no alpha channel.
+      JPEG, şeffaf köşeler için kesinlikle bir seçenek değildir; alfa kanalı yoktur.
     </p>
 
-    <h2>Anti-aliasing the curve</h2>
+    <h2>Eğrinin kenar yumuşatması</h2>
     <p>
-      A round corner against a transparent background needs anti-aliasing: partially-transparent pixels along the curve edge so it doesn&rsquo;t look jagged. Good tools do this by default; bad ones produce a stair-step edge that&rsquo;s obvious at small sizes.
+      Şeffaf bir arka plana karşı yuvarlak bir köşenin kenar yumuşatmaya ihtiyacı vardır: pürüzlü görünmemesi için eğri kenarı boyunca kısmen şeffaf pikseller. İyi araçlar bunu varsayılan olarak yapar; kötü olanlar, küçük boyutlarda belirgin olan bir merdiven basamağı kenarı üretir.
     </p>
     <p>
-      If your exported image shows visible jaggies, check whether the tool is exporting at the target size or at a reduced size and then letting the browser scale up. Rendering at the final size with anti-aliasing on gives the cleanest curve.
+      Dışa aktarılan görüntünüzde görünür pürüzler varsa, aracın hedef boyutta mı yoksa küçültülmüş bir boyutta mı dışa aktardığını ve ardından tarayıcının ölçeklemesine izin verip vermediğini kontrol edin. Kenar yumuşatma açıkken son boyutta oluşturma, en temiz eğriyi verir.
     </p>
 
-    <h2>Picking a radius for the job</h2>
+    <h2>İş için yarıçap seçimi</h2>
     <ul>
-      <li><strong>Photo cards in a feed:</strong> 8&ndash;12&nbsp;px for a subtle modern look, 16&ndash;20&nbsp;px for a softer feel.</li>
-      <li><strong>App icons (iOS style):</strong> ~22.37% of the side (the iOS &ldquo;squircle&rdquo; formula), or use a dedicated squircle tool.</li>
-      <li><strong>Avatars:</strong> 50% for circle, or 25&ndash;35% for a rounded-square look.</li>
-      <li><strong>Product images:</strong> 4&ndash;8&nbsp;px for near-rectangular with a hint of softness.</li>
-      <li><strong>Hero banners:</strong> usually 0&nbsp;px (sharp edges) or 12&ndash;16&nbsp;px if they&rsquo;re inset in a colored container.</li>
+      <li><strong>Bir akıştaki fotoğraf kartları:</strong> İnce bir modern görünüm için 8&ndash;12&nbsp;px, daha yumuşak bir his için 16&ndash;20&nbsp;px.</li>
+      <li><strong>Uygulama ikonları (iOS stili):</strong> Kenarın ~%22,37'si (iOS &ldquo;squircle&rdquo; formülü) veya özel bir squircle aracı kullanın.</li>
+      <li><strong>Avatarlar:</strong> Daire için %50 veya yuvarlatılmış kare görünümü için %25&ndash;35.</li>
+      <li><strong>Ürün görselleri:</strong> Hafif bir yumuşaklık ipucu ile neredeyse dikdörtgen için 4&ndash;8&nbsp;px.</li>
+      <li><strong>Hero banner'lar:</strong> genellikle 0&nbsp;px (keskin kenarlar) veya renkli bir kapsayıcıya yerleştirilmişlerse 12&ndash;16&nbsp;px.</li>
     </ul>
 
-    <h2>Individual corner radii</h2>
+    <h2>Bireysel köşe yarıçapları</h2>
     <p>
-      Not all corners need the same radius. A common pattern for photo-text cards is to round only the top two corners (where the photo is) and leave the bottom square so the text section below aligns cleanly. The CSS:
+      Tüm köşelerin aynı yarıçapa ihtiyacı yoktur. Fotoğraf-metin kartları için yaygın bir desen, yalnızca üst iki köşeyi (fotoğrafın olduğu yer) yuvarlamak ve alt kısmı kare bırakmaktır, böylece aşağıdaki metin bölümü temiz bir şekilde hizalanır. CSS:
     </p>
     <pre>{`img.card-top {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
 }`}</pre>
     <p>
-      For baked-in asymmetric corners, pick a tool that exposes all four corner radii individually.
+      İşlenmiş asimetrik köşeler için, dört köşe yarıçapını da ayrı ayrı gösteren bir araç seçin.
     </p>
 
-    <h2>Elliptical (non-circular) corners</h2>
+    <h2>Elips (dairesel olmayan) köşeler</h2>
     <p>
-      A border radius can actually accept two values per corner: one for the horizontal curve, one for the vertical curve, producing an elliptical corner. In CSS:
+      Bir kenarlık yarıçapı aslında köşe başına iki değer alabilir: biri yatay eğri için, diğeri dikey eğri için, eliptik bir köşe üretir. CSS'de:
     </p>
-    <pre>{`border-radius: 40px / 20px; /* wide-short ellipse at every corner */`}</pre>
+    <pre>{`border-radius: 40px / 20px; /* her köşede geniş-kısa elips */`}</pre>
     <p>
-      Elliptical corners are rare in baked image form but useful for distinctive brand shapes or large hero images that shouldn&rsquo;t look like they have an identical curve to every card on the page.
-    </p>
-
-    <h2>Shadows and rounded corners together</h2>
-    <p>
-      If you&rsquo;re baking corners in because the target environment doesn&rsquo;t support CSS, odds are it doesn&rsquo;t support <code>box-shadow</code> either. In those cases, bake the shadow into the image too &mdash; export at a larger canvas, draw the rounded rectangle, add a soft shadow underneath, and save the whole composite as a transparent PNG.
-    </p>
-    <p>
-      This approach also solves the dreaded &ldquo;shadow clipped by the rounded mask&rdquo; problem that appears when CSS <code>overflow: hidden</code> on a rounded container crops the shadow of a child element.
+      Eliptik köşeler, işlenmiş görüntü biçiminde nadirdir, ancak ayırt edici marka şekilleri veya sayfadaki her kartla aynı eğriye sahipmiş gibi görünmemesi gereken büyük hero görüntüleri için kullanışlıdır.
     </p>
 
-    <h2>Batch rounding</h2>
+    <h2>Gölgeler ve yuvarlak köşeler birlikte</h2>
     <p>
-      For product catalogs, team photo galleries, or icon sets, batch tools round hundreds of files with the same radius in one pass. Useful options to look for: maintain aspect ratio, choose output format per file, add a transparent padding around the rounded shape to prevent cropping when the image is pasted.
+      Hedef ortam CSS'yi desteklemediği için köşeleri işliyorsanız, büyük olasılıkla <code>box-shadow</code>'u da desteklemiyordur. Bu durumlarda, gölgeyi de görüntüye işleyin &mdash; daha büyük bir tuvalde dışa aktarın, yuvarlak dikdörtgeni çizin, altına yumuşak bir gölge ekleyin ve tüm bileşimi şeffaf bir PNG olarak kaydedin.
+    </p>
+    <p>
+      Bu yaklaşım ayrıca, yuvarlatılmış bir kapsayıcıdaki CSS <code>overflow: hidden</code> bir alt öğenin gölgesini kırptığında ortaya çıkan &ldquo;gölgenin yuvarlak maske tarafından kırpılması&rdquo; sorununu da çözer.
     </p>
 
-    <h2>Safe padding for drop-in placement</h2>
+    <h2>Toplu yuvarlama</h2>
     <p>
-      When you export a rounded-corner image that will be pasted into another composition, add a few pixels of transparent padding around the shape. This prevents the edge of the rounding from touching the container border awkwardly and gives you wiggle room for alignment.
-    </p>
-    <pre>{`Source image: 500 x 500
-Target rounded output: 500 x 500
-Safer output: 520 x 520 with 10 px transparent padding`}</pre>
-    <p>
-      The padded version still reads as 500&nbsp;px but gives downstream editors a clean drop-in asset.
+      Ürün katalogları, ekip fotoğraf galerileri veya ikon setleri için toplu araçlar, yüzlerce dosyayı aynı yarıçapla tek seferde yuvarlar. Aranacak kullanışlı seçenekler: en boy oranını koru, dosya başına çıktı biçimini seç, görüntü yapıştırıldığında kırpmayı önlemek için yuvarlatılmış şeklin etrafına şeffaf bir dolgu ekle.
     </p>
 
-    <h2>Accessibility implications</h2>
+    <h2>Bırakma yerleşimi için güvenli dolgu</h2>
     <p>
-      Heavy rounding on buttons and interactive elements can hurt perceived tappability for some users &mdash; the shape starts to resemble decorative elements rather than controls. Design conventions suggest 4&ndash;8&nbsp;px radius for interactive elements so they still read as &ldquo;tappable thing,&rdquo; even if the rest of your design uses 16+&nbsp;px.
+      Başka bir kompozisyona yapıştırılacak yuvarlak köşeli bir görüntüyü dışa aktarırken, şeklin etrafına birkaç piksel şeffaf dolgu ekleyin. Bu, yuvarlamanın kenarının kapsayıcı kenarlığına garip bir şekilde dokunmasını önler ve hizalama için size hareket alanı sağlar.
     </p>
+    <pre>{`Kaynak görüntü: 500 x 500
+Hedef yuvarlatılmış çıktı: 500 x 500
+Daha güvenli çıktı: 10 px şeffaf dolgu ile 520 x 520`}</pre>
     <p>
-      For users with cognitive or motor accessibility needs, consistent shape language across buttons matters: a button with 16&nbsp;px radius, a card with 16&nbsp;px radius, and a pill-shaped tag can all live together, but buttons shouldn&rsquo;t vary randomly between radii in the same interface.
-    </p>
-
-    <h2>Email clients and rounded corners</h2>
-    <p>
-      Outlook, in particular, is famously inconsistent with CSS <code>border-radius</code>. For email signatures and marketing emails, bake the corners into the image file and ship PNG. Inline <code>&lt;img&gt;</code> tags with baked-in PNG corners survive every email client; CSS rules survive some and get ignored by others.
-    </p>
-    <p>
-      The same applies to many older PDF generators, Word-to-PDF converters, and some enterprise document systems. When the render environment is unpredictable, bake.
+      Dolgulu sürüm hala 500&nbsp;px olarak okunur, ancak aşağı akış düzenleyicilere temiz bir bırakma varlığı sağlar.
     </p>
 
-    <h2>Mask versus crop</h2>
+    <h2>Erişilebilirlik etkileri</h2>
     <p>
-      Rounding corners via a mask keeps the whole image intact and just hides the corner regions. Cropping to a circle (or rounded shape) actually removes pixels. For most purposes they&rsquo;re equivalent, but masks let you undo or change the mask later without losing the source; crops are permanent.
+      Düğmeler ve etkileşimli öğeler üzerinde ağır yuvarlama, bazı kullanıcılar için algılanan dokunulabilirliği zedeleyebilir &mdash; şekil, kontrollerden ziyade dekoratif öğelere benzemeye başlar. Tasarım kuralları, etkileşimli öğeler için 4&ndash;8&nbsp;px yarıçap önerir, böylece tasarımınızın geri kalanı 16+&nbsp;px kullansa bile hala &ldquo;dokunulabilir şey&rdquo; olarak okunurlar.
     </p>
     <p>
-      In CSS, <code>border-radius</code> is effectively a mask. In image editors, look for &ldquo;add layer mask&rdquo; or &ldquo;non-destructive round&rdquo; options if you want to preserve the original underneath.
-    </p>
-
-    <h2>Rounding ratio across sizes</h2>
-    <p>
-      If your design system uses the same radius across icon sizes 16&ndash;512&nbsp;px, the smallest icons end up barely rounded (a 2&nbsp;px curve on a 16&nbsp;px icon is nearly square) and the largest look harsh. A proportional scale works better:
-    </p>
-    <pre>{`16 px icon  -> 3 px radius
-24 px icon  -> 4 px radius
-32 px icon  -> 6 px radius
-64 px icon  -> 10 px radius
-128 px icon -> 20 px radius
-512 px app icon -> 100 px radius (roughly iOS squircle ratio)`}</pre>
-    <p>
-      Roughly 15&ndash;20% of the side length produces a consistent &ldquo;friendly rounded&rdquo; feel across all sizes.
+      Bilişsel veya motor erişilebilirlik ihtiyaçları olan kullanıcılar için, düğmeler arasında tutarlı şekil dili önemlidir: 16&nbsp;px yarıçaplı bir düğme, 16&nbsp;px yarıçaplı bir kart ve hap şeklinde bir etiket birlikte yaşayabilir, ancak düğmeler aynı arayüzde yarıçaplar arasında rastgele değişmemelidir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>E-posta istemcileri ve yuvarlak köşeler</h2>
     <p>
-      Saving rounded corners as JPEG and ending up with an ugly white corner fill on every asset &mdash; a confusion that costs designers a day when they discover all 400 exports have to be redone as PNG. Another frequent mistake: using a percentage radius on a rectangular rather than square canvas and getting a pill shape when you expected a rounded rectangle &mdash; remember that 50% of a 800&nbsp;&times;&nbsp;400 rectangle is 400&nbsp;px, which produces rounded half-circles at each short end. If you want a circle, the source must be square; if you want a rounded rectangle, use pixel values or a smaller percentage. Finally, baking corners into images you could have styled with CSS locks you out of easy redesigns &mdash; prefer CSS whenever the render environment supports it.
+      Outlook, özellikle CSS <code>border-radius</code> ile ünlü bir şekilde tutarsızdır. E-posta imzaları ve pazarlama e-postaları için köşeleri görüntü dosyasına işleyin ve PNG gönderin. İşlenmiş PNG köşelerine sahip satır içi <code>&lt;img&gt;</code> etiketleri her e-posta istemcisinde hayatta kalır; CSS kuralları bazılarında hayatta kalır ve diğerleri tarafından yok sayılır.
+    </p>
+    <p>
+      Aynı durum birçok eski PDF oluşturucu, Word'den PDF'ye dönüştürücü ve bazı kurumsal belge sistemleri için de geçerlidir. Oluşturma ortamı tahmin edilemez olduğunda, işleyin.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Maske ve kırpma</h2>
     <p>
-      Our <a href="/tools/image-round-corners">image round corners tool</a> bakes rounded corners into any image with per-corner radius control and transparent PNG/WebP output. For the CSS-first version when you have control of the markup, the <a href="/tools/border-radius-generator">border-radius generator</a> produces the exact rule. And for the specific case of circular avatars, the <a href="/tools/profile-pic-circle-cropper">profile pic circle cropper</a> handles the square-first crop and the 50% round in one step.
+      Bir maske aracılığıyla köşeleri yuvarlamak, görüntünün tamamını bozulmadan tutar ve yalnızca köşe bölgelerini gizler. Bir daireye (veya yuvarlatılmış şekle) kırpma aslında pikselleri kaldırır. Çoğu amaç için eşdeğerdirler, ancak maskeler, kaynağı kaybetmeden maskeyi daha sonra geri almanıza veya değiştirmenize olanak tanır; kırpmalar kalıcıdır.
+    </p>
+    <p>
+      CSS'de <code>border-radius</code> etkili bir şekilde bir maskedir. Görüntü düzenleyicilerde, altındaki orijinali korumak istiyorsanız &ldquo;katman maskesi ekle&rdquo; veya &ldquo;tahribatsız yuvarlama&rdquo; seçeneklerini arayın.
+    </p>
+
+    <h2>Boyutlar arasında yuvarlama oranı</h2>
+    <p>
+      Tasarım sisteminiz 16&ndash;512&nbsp;px ikon boyutları arasında aynı yarıçapı kullanıyorsa, en küçük ikonlar neredeyse hiç yuvarlatılmamış (16&nbsp;px'lik bir ikonda 2&nbsp;px'lik bir eğri neredeyse karedir) ve en büyükleri sert görünür. Orantılı bir ölçek daha iyi çalışır:
+    </p>
+    <pre>{`16 px ikon  -> 3 px yarıçap
+24 px ikon  -> 4 px yarıçap
+32 px ikon  -> 6 px yarıçap
+64 px ikon  -> 10 px yarıçap
+128 px ikon -> 20 px yarıçap
+512 px uygulama ikonu -> 100 px yarıçap (kabaca iOS squircle oranı)`}</pre>
+    <p>
+      Kenar uzunluğunun kabaca %15&ndash;20'si, tüm boyutlarda tutarlı bir &ldquo;dostça yuvarlatılmış&rdquo; his üretir.
+    </p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>
+      Yuvarlak köşeleri JPEG olarak kaydetmek ve her varlıkta çirkin bir beyaz köşe dolgusu ile bitmek &mdash; tasarımcıların 400 dışa aktarımın tamamının PNG olarak yeniden yapılması gerektiğini keşfettiklerinde bir gün kaybetmelerine neden olan bir karışıklık. Diğer bir sık yapılan hata: kare yerine dikdörtgen bir tuvalde yüzde yarıçapı kullanmak ve yuvarlatılmış bir dikdörtgen beklerken hap şekli elde etmek &mdash; 800&nbsp;&times;&nbsp;400 dikdörtgenin %50'sinin 400&nbsp;px olduğunu unutmayın, bu da her kısa uçta yuvarlak yarım daireler üretir. Bir daire istiyorsanız, kaynak kare olmalıdır; yuvarlatılmış bir dikdörtgen istiyorsanız, piksel değerleri veya daha küçük bir yüzde kullanın. Son olarak, CSS ile stillendirebileceğiniz görüntülere köşeleri işlemek, sizi kolay yeniden tasarımlardan kilitler &mdash; oluşturma ortamı desteklediğinde her zaman CSS'yi tercih edin.
+    </p>
+
+    <h2>Rakamları çalıştırın</h2>
+    <p>
+      <a href="/tools/image-round-corners">Görüntü köşe yuvarlama aracımız</a>, her köşe için yarıçap kontrolü ve şeffaf PNG/WebP çıktısı ile herhangi bir görüntüye yuvarlak köşeler işler. İşaretlemeyi kontrol ettiğinizde CSS-ilk sürümü için <a href="/tools/border-radius-generator">kenarlık yarıçapı oluşturucu</a> tam kuralı üretir. Ve dairesel avatarların özel durumu için <a href="/tools/profile-pic-circle-cropper">profil resmi daire kırpıcı</a>, kare-ilk kırpmayı ve %50 yuvarlamayı tek adımda halleder.
     </p>
   </>
 );

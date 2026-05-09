@@ -2,89 +2,49 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Devin by Cognition is a managed autonomous software engineer. You give
-    it a task in Slack, Linear, GitHub, or its own web UI, and it works in
-    its own cloud workspace &mdash; planning, editing, running tests,
-    opening PRs &mdash; reporting back when it&rsquo;s done or stuck. It&rsquo;s
-    the most hands-off coding agent on the market, and it&rsquo;s priced
-    accordingly.
+    Devin by Cognition, yönetilen bir otonom yazılım mühendisidir. Slack, Linear, GitHub veya kendi web arayüzü üzerinden bir görev verirsiniz; o da kendi bulut çalışma alanında çalışır &mdash; planlama, düzenleme, testleri çalıştırma, PR'lar açma &mdash; iş bittiğinde veya takıldığında size rapor verir. Piyasadaki en müdahalesiz kodlama ajanıdır ve fiyatı da buna göre belirlenmiştir.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What Devin actually is</h2>
+    <h2>Devin aslında nedir</h2>
     <p>
-      Devin is a fully hosted agent. There&rsquo;s no local install, no
-      Docker image, no model to pick. Each &ldquo;session&rdquo; spins up a
-      fresh cloud VM with a browser, a shell, and an editor. Devin drives
-      all three. It has long-running memory per workspace, learns from
-      corrections, and can run tasks in parallel. The tradeoff: you have
-      less control than with OpenHands or Claude Code, and you pay for
-      Cognition&rsquo;s infrastructure on top of <a href="/learn/inference">inference</a>.
+      Devin tamamen barındırılan bir ajandır. Yerel kurulum, Docker imajı veya seçilecek bir model yoktur. Her &ldquo;oturum&rdquo;, tarayıcı, kabuk ve düzenleyici içeren yeni bir bulut VM'i başlatır. Devin üçünü de yönetir. Çalışma alanı başına uzun süreli belleğe sahiptir, düzeltmelerden öğrenir ve görevleri paralel olarak çalıştırabilir. Ödünleşim: OpenHands veya Claude Code'a kıyasla daha az kontrolünüz vardır ve <a href="/learn/inference">çıkarım</a> üzerine Cognition'ın altyapısı için ödeme yaparsınız.
     </p>
 
-    <h2>Setting it up</h2>
+    <h2>Kurulum</h2>
     <p>
-      Sign up at <a href="https://app.devin.ai">app.devin.ai</a>, pick a
-      plan (the Core plan starts around $20/mo for pay-as-you-go ACU
-      credits; Team is $500/mo with a credit bundle), and connect your
-      integrations:
+      <a href="https://app.devin.ai">app.devin.ai</a> adresine kaydolun, bir plan seçin (Core planı, kullandıkça öde ACU kredileri için aylık yaklaşık $20'den başlar; Team planı, kredi paketiyle aylık $500'dür) ve entegrasyonlarınızı bağlayın:
     </p>
-    <pre>{`# Inside Devin's settings:
-# 1. Connect GitHub (repo access, PR permissions)
-# 2. Connect Slack or Linear (task intake)
-# 3. Add any secrets the agent needs (DB URLs, API keys) to the Secrets vault
-# 4. Write a "Devin Guidelines" doc describing your repo conventions`}</pre>
+    <pre>{`# Devin ayarları içinde:
+# 1. GitHub'ı bağlayın (repo erişimi, PR izinleri)
+# 2. Slack veya Linear'ı bağlayın (görev girişi)
+# 3. Ajanın ihtiyaç duyduğu gizli bilgileri (DB URL'leri, API anahtarları) Secrets kasasına ekleyin
+# 4. Repo kurallarınızı açıklayan bir "Devin Yönergeleri" belgesi yazın`}</pre>
     <p>
-      That Guidelines doc is load-bearing. Devin reads it before every
-      task, the same way Claude Code reads <code>CLAUDE.md</code>.
+      Bu Yönergeler belgesi kritik öneme sahiptir. Devin, her görevden önce onu okur; tıpkı Claude Code'un <code>CLAUDE.md</code> dosyasını okuması gibi.
     </p>
 
-    <h2>Your first session</h2>
+    <h2>İlk oturumunuz</h2>
     <p>
-      Click <strong>New session</strong> and write a brief: what you want,
-      which repo, any constraints. Devin produces a plan &mdash; read it
-      before approving. A good first task is something like &ldquo;upgrade
-      the project from React 18 to React 19, update any deprecated APIs,
-      keep the test suite green.&rdquo; Watch the VM stream while it works.
-      You can intervene at any time with a chat message.
+      <strong>Yeni oturum</strong>'a tıklayın ve bir özet yazın: ne istediğiniz, hangi repo, herhangi bir kısıtlama. Devin bir plan oluşturur &mdash; onaylamadan önce okuyun. İyi bir ilk görev, &ldquo;projeyi React 18'den React 19'a yükselt, kullanımdan kaldırılmış API'leri güncelle, test paketini yeşil tut&rdquo; gibi bir şeydir. Çalışırken VM akışını izleyin. İstediğiniz zaman bir sohbet mesajıyla müdahale edebilirsiniz.
     </p>
 
-    <h2>A realistic workflow</h2>
+    <h2>Gerçekçi bir iş akışı</h2>
     <p>
-      Devin shines for async, multi-step work. Good fits: dependency
-      bumps, adding telemetry across a codebase, writing migration
-      scripts, filling out test coverage, triaging Sentry errors into
-      PRs. Kick off two or three sessions in parallel from Slack, get a
-      coffee, come back to draft PRs ready for review. Treat each PR
-      like a junior&rsquo;s work &mdash; read the diff, run it locally,
-      and leave review comments. Devin responds to PR comments and pushes
-      fixes the same way a human would.
+      Devin, eşzamansız, çok adımlı işlerde parlar. Uygun görevler: bağımlılık güncellemeleri, bir kod tabanına telemetri ekleme, geçiş betikleri yazma, test kapsamını doldurma, Sentry hatalarını PR'lara dönüştürme. Slack'ten paralel olarak iki veya üç oturum başlatın, bir kahve alın, geri gelin ve incelemeye hazır taslak PR'lar bulun. Her PR'ı bir stajyerin işi gibi değerlendirin &mdash; diff'i okuyun, yerel olarak çalıştırın ve inceleme yorumları bırakın. Devin, PR yorumlarına yanıt verir ve bir insanın yapacağı gibi düzeltmeleri gönderir.
     </p>
 
-    <h2>Gotchas and limits</h2>
+    <h2>Tuzaklar ve sınırlamalar</h2>
     <p>
-      ACU (agent compute unit) burn is the main surprise. A meandering
-      task can eat $10&ndash;20 of credits before you notice. Set budget
-      limits in settings and cap session time. Devin is slower per task
-      than running Claude Code locally &mdash; you&rsquo;re paying for the
-      hands-off part, not speed. It also fails quietly on tasks that
-      require ambiguous product decisions; if the &ldquo;right&rdquo;
-      answer needs a human call, it will guess and you&rsquo;ll be
-      rewriting the PR anyway.
+      ACU (ajan bilgi işlem birimi) tüketimi ana sürprizdir. Amaçsız bir görev, fark etmeden $10&ndash;20 kredi harcayabilir. Ayarlardan bütçe limitleri belirleyin ve oturum süresini sınırlayın. Devin, görev başına Claude Code'u yerel olarak çalıştırmaktan daha yavaştır &mdash; hız için değil, müdahalesiz kısım için ödeme yapıyorsunuz. Ayrıca, belirsiz ürün kararları gerektiren görevlerde sessizce başarısız olur; eğer &ldquo;doğru&rdquo; cevap bir insan görüşmesi gerektiriyorsa, tahmin edecek ve yine de PR'ı yeniden yazmak zorunda kalacaksınız.
     </p>
 
-    <h2>When NOT to use it</h2>
+    <h2>Ne ZAMAN kullanılmamalı</h2>
     <p>
-      Don&rsquo;t use Devin for live, interactive coding &mdash; the latency
-      makes it miserable. Don&rsquo;t use it when you need to keep source
-      on-prem without exception; while Cognition has enterprise options,
-      default sessions run in their cloud. And don&rsquo;t use it for a
-      one-line bug fix &mdash; you&rsquo;ll spend more time writing the
-      brief than fixing it yourself. For cheaper self-hosted agents see
-      our <a href="/guides/how-to-use-openhands">OpenHands guide</a>; for
-      in-editor flow, <a href="/guides/how-to-set-up-cursor-ai-ide">Cursor</a>.
+      Devin'i canlı, etkileşimli kodlama için kullanmayın &mdash; gecikme süresi onu berbat hale getirir. Kaynak kodunu istisnasız olarak şirket içinde tutmanız gerektiğinde kullanmayın; Cognition'ın kurumsal seçenekleri olsa da, varsayılan oturumlar onların bulutunda çalışır. Ve tek satırlık bir hata düzeltmesi için kullanmayın &mdash; özeti yazmak, hatayı kendiniz düzeltmekten daha fazla zaman alır. Daha ucuz, kendi kendine barındırılan ajanlar için <a href="/guides/how-to-use-openhands">OpenHands rehberimize</a> bakın; düzenleyici içi akış için <a href="/guides/how-to-set-up-cursor-ai-ide">Cursor</a>'a göz atın.
     </p>
   </>
 );
+===END FILE===

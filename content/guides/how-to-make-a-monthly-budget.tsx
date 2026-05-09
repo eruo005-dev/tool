@@ -1,139 +1,86 @@
 export const intro = (
   <>
     <p>
-      A monthly budget isn&rsquo;t a spreadsheet that controls your life — it&rsquo;s a 15-minute
-      decision you make once and then mostly automate. The reason most budgets fail is that they
-      try to micromanage every latte. The reason this one will work is that we&rsquo;re going to
-      set the big numbers, automate the save, and leave the small stuff alone.
+      Aylık bütçe, hayatınızı kontrol eden bir elektronik tablo değildir; bir kez yapıp sonra büyük ölçüde otomatikleştirdiğiniz 15 dakikalık bir karardır. Çoğu bütçe, her bir kahveyi mikro düzeyde yönetmeye çalıştığı için başarısız olur. Bu bütçe işe yarar çünkü büyük rakamları belirler, tasarrufları otomatikleştirir ve küçük şeylere karışmayız.
     </p>
     <p>
-      By the end of this guide you&rsquo;ll have a monthly budget that fits on one screen, tells
-      you whether you&rsquo;re actually saving money, and takes 10 minutes a month to maintain.
-      Grab your last two months of bank and card statements before you start.
+      Bu rehberin sonunda, tek bir ekrana sığan, gerçekten para biriktirip biriktirmediğinizi söyleyen ve ayda 10 dakika bakım gerektiren bir aylık bütçeniz olacak. Başlamadan önce, son iki aylık banka ve kredi kartı ekstrelerinizi alın.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Start with take-home pay, not gross</h2>
+    <h2>1. Brüt değil, ele geçen maaşla başlayın</h2>
     <p>
-      Budget the money that actually hits your account after tax, retirement contributions, and
-      health insurance. Gross pay is a useful number for tax planning, but for a monthly budget
-      it just inflates your sense of what&rsquo;s available. If you&rsquo;re paid irregularly (a
-      contractor or freelancer), average your last six months and budget against that.
+      Vergi, emeklilik katkıları ve sağlık sigortası sonrası hesabınıza fiilen yatan parayı bütçeleyin. Brüt maaş, vergi planlaması için faydalı bir sayıdır ancak aylık bütçe için mevcut olanı olduğundan fazla gösterir. Düzensiz geliriniz varsa (serbest çalışan veya freelance), son altı ayın ortalamasını alın ve buna göre bütçe yapın.
     </p>
 
-    <h2>2. Use three buckets, not twenty categories</h2>
+    <h2>2. Yirmi kategori yerine üç kova kullanın</h2>
     <p>
-      Most budget templates have thirty line items because they&rsquo;re trying to look thorough.
-      In practice, three buckets give you 90% of the insight: <strong>fixed costs</strong> (rent,
-      utilities, insurance, subscriptions), <strong>variable spending</strong> (groceries,
-      transport, eating out, fun), and <strong>savings</strong>. If you want more granularity
-      later, add it — but start with three.
+      Çoğu bütçe şablonu, kapsamlı olmaya çalıştıkları için otuz satır öğesine sahiptir. Pratikte, üç kova size içgörünün %90'ını verir: <strong>sabit maliyetler</strong> (kira, faturalar, sigorta, abonelikler), <strong>değişken harcamalar</strong> (market, ulaşım, dışarıda yemek, eğlence) ve <strong>tasarruflar</strong>. İsterseniz daha sonra detay ekleyin—ancak üçle başlayın.
     </p>
 
-    <h2>3. Pay yourself first</h2>
+    <h2>3. Önce kendinize ödeme yapın</h2>
     <p>
-      Before you budget a single dollar of spending, decide your savings number and automate it.
-      20% of take-home is the classic target; 10% is fine if you&rsquo;re starting out; 5% is
-      better than nothing. The point is that savings comes off the top, not from whatever
-      happens to be left at the end of the month — because there&rsquo;s never anything left at
-      the end of the month.
+      Tek bir dolar harcamayı bütçelemeden önce, tasarruf rakamınıza karar verin ve otomatikleştirin. Ele geçen maaşın %20'si klasik hedeftir; yeni başlıyorsanız %10 iyidir; %5 hiç yoktan iyidir. Önemli olan, tasarrufların ay sonunda kalandan değil, en baştan ayrılmasıdır—çünkü ay sonunda asla bir şey kalmaz.
     </p>
 
-    <h2>4. Cap fixed costs at 50% of take-home</h2>
+    <h2>4. Sabit maliyetleri ele geçen maaşın %50'siyle sınırlayın</h2>
     <p>
-      Add rent, utilities, insurance, phone, internet, and any subscriptions you can&rsquo;t
-      realistically cut. If that number is over half your take-home pay, the budget is structurally
-      broken and no amount of coupon-cutting fixes it. Either income needs to come up or fixed
-      costs need to come down — usually housing, which dwarfs everything else.
+      Kira, faturalar, sigorta, telefon, internet ve gerçekçi olarak kesemeyeceğiniz abonelikleri toplayın. Bu rakam ele geçen maaşınızın yarısından fazlaysa, bütçe yapısal olarak bozuktur ve hiçbir kupon kesme işe yaramaz. Ya gelir artmalı ya da sabit maliyetler düşmeli—genellikle diğer her şeyi gölgede bırakan konut.
     </p>
 
-    <h2>5. Use our budget calculator for the actual math</h2>
+    <h2>5. Gerçek rakamlar için bütçe hesaplayıcımızı kullanın</h2>
     <p>
-      You don&rsquo;t need a spreadsheet. Open our{" "}
-      <a href="/tools/budget-calculator">free budget calculator</a>, type in your take-home pay,
-      fill in your real expense categories, and read the savings rate. It color-codes the result so
-      you know instantly whether you&rsquo;re on track (green), okay (amber), or spending more
-      than you earn (red).
+      Bir elektronik tabloya ihtiyacınız yok. Ücretsiz{" "}
+      <a href="/tools/budget-calculator">bütçe hesaplayıcımızı</a> açın, ele geçen maaşınızı girin, gerçek harcama kategorilerinizi doldurun ve tasarruf oranınızı okuyun. Sonucu renk kodlarıyla gösterir, böylece anında yolunda olup olmadığınızı (yeşil), idare edip etmediğinizi (sarı) veya kazandığınızdan fazla harcayıp harcamadığınızı (kırmızı) görürsünüz.
     </p>
 
-    <h2>6. Set a weekly variable-spending allowance</h2>
+    <h2>6. Haftalık değişken harcama ödeneği belirleyin</h2>
     <p>
-      Once fixed costs and savings are set, divide what&rsquo;s left by roughly 4.3 to get a
-      weekly variable-spending number. This is your groceries, eating out, transport, fun — all
-      together. Managing one weekly number is vastly easier than tracking seven categories, and
-      it naturally self-corrects: blow $200 on a Friday night out and the following week feels
-      tighter.
+      Sabit maliyetler ve tasarruflar belirlendikten sonra, kalanı kabaca 4,3'e bölerek haftalık değişken harcama rakamını elde edin. Bu, market, dışarıda yemek, ulaşım, eğlence—hepsini kapsar. Tek bir haftalık rakamı yönetmek, yedi kategoriyi takip etmekten çok daha kolaydır ve doğal olarak kendini düzeltir: Bir Cuma gecesi dışarıda 200 dolar harcayın, sonraki hafta daha sıkı olur.
     </p>
 
-    <h2>7. Do a 10-minute review at the end of every month</h2>
+    <h2>7. Her ayın sonunda 10 dakikalık bir inceleme yapın</h2>
     <p>
-      Month-end, open your accounts and check three things: Did the automatic savings transfer
-      go through? Is variable spending trending up or down versus last month? Any new recurring
-      charge I didn&rsquo;t plan for? That&rsquo;s it. Ten minutes of awareness beats an hour of
-      categorizing every transaction in an app you&rsquo;ll abandon in week three.
+      Ay sonunda hesaplarınızı açın ve üç şeyi kontrol edin: Otomatik tasarruf transferi gerçekleşti mi? Değişken harcamalar geçen aya göre artıyor mu azalıyor mu? Planlamadığım yeni bir yinelenen ücret var mı? Bu kadar. On dakikalık farkındalık, üçüncü haftada bırakacağınız bir uygulamada her işlemi kategorize ederek geçirilen bir saatten daha iyidir.
     </p>
 
-    <h2>8. Give every category a realistic number</h2>
+    <h2>8. Her kategoriye gerçekçi bir rakam verin</h2>
     <p>
-      Budgets collapse when the numbers are aspirational. If you spent $500 on groceries last
-      month and you write $300 in the budget, you&rsquo;re not budgeting — you&rsquo;re making a
-      wish. Start with what you actually spent, then work the number down by 10% a month if
-      needed. Slow cuts stick; dramatic ones don&rsquo;t.
+      Rakamlar hayal ürünü olduğunda bütçeler çöker. Geçen ay markete 500 dolar harcadıysanız ve 300 dolar bütçeliyorsanız, bütçe yapmıyorsunuz—dilek tutuyorsunuz. Gerçekte ne harcadığınızla başlayın, ardından gerekirse ayda %10 azaltın. Yavaş kesintiler kalıcı olur; dramatik olanlar olmaz.
     </p>
 
-    <h2>9. Keep one line for &ldquo;other&rdquo;</h2>
+    <h2>9. "Diğer" için bir satır ayırın</h2>
     <p>
-      Life throws odd expenses at you — the unexpected vet visit, a birthday gift, a parking
-      ticket. Reserve a buffer line (5–10% of variable spending is fine) called &ldquo;other&rdquo;
-      and leave it alone. When something weird hits, you&rsquo;ve got somewhere to put it without
-      redrawing the whole budget.
+      Hayat beklenmedik harcamalar çıkarır—plansız bir veteriner ziyareti, bir doğum günü hediyesi, bir park cezası. "Diğer" adında bir tampon satırınız olsun (değişken harcamaların %5-10'u yeterlidir) ve ona dokunmayın. Tuhaf bir şey geldiğinde, tüm bütçeyi yeniden çizmeden koyacak bir yeriniz olur.
     </p>
 
-    <h2>10. Budget for the annual stuff monthly</h2>
+    <h2>10. Yıllık giderler için aylık bütçe yapın</h2>
     <p>
-      Car registration, annual insurance renewals, holiday gifts, summer travel — these ruin
-      monthly budgets because they arrive as big one-off hits. Estimate the annual total, divide
-      by 12, and set that amount aside every month into a separate &ldquo;sinking fund&rdquo;
-      account. When the bill arrives, the money&rsquo;s already there.
+      Araç ruhsatı, yıllık sigorta yenilemeleri, tatil hediyeleri, yaz seyahati—bunlar büyük tek seferlik darbeler olarak geldikleri için aylık bütçeleri mahveder. Yıllık toplamı tahmin edin, 12'ye bölün ve bu tutarı her ay ayrı bir "batan fon" hesabına ayırın. Fatura geldiğinde, para zaten oradadır.
     </p>
 
-    <h2>11. Review fixed costs every 6 months</h2>
+    <h2>11. Sabit maliyetleri her 6 ayda bir gözden geçirin</h2>
     <p>
-      Fixed costs creep. <a href="/learn/stream">Streaming</a> prices rise, a subscription you forgot auto-renews, insurance
-      premiums drift up. Twice a year, spend 30 minutes auditing every recurring charge and cancel
-      or renegotiate. Pair this with our{" "}
-      <a href="/guides/how-to-save-money-fast">15 tactics to save money fast</a> for the
-      specific scripts and moves that recover the most.
+      Sabit maliyetler sürünür. <a href="/learn/stream">Yayın hizmeti</a> fiyatları yükselir, unuttuğunuz bir abonelik yenilenir, sigorta primleri yavaşça artar. Yılda iki kez, 30 dakika ayırarak her yinelenen ücreti denetleyin ve iptal edin veya yeniden müzakere edin. Bunu, en çok geri dönüş sağlayan belirli senaryolar ve hamleler için{" "}
+      <a href="/guides/how-to-save-money-fast">hızlı para biriktirmek için 15 taktik</a> rehberimizle birleştirin.
     </p>
 
-    <h2>12. Build a one-month emergency buffer before anything else</h2>
+    <h2>12. Her şeyden önce bir aylık acil durum tamponu oluşturun</h2>
     <p>
-      Before you start chasing aggressive savings or investing goals, make sure you&rsquo;ve got
-      one month of expenses in a boring savings account. This single buffer is what turns a flat
-      tire from a budget crisis into a mild annoyance. After that, build to three months, then
-      six — but one month is the difference between budget-working and budget-collapsing the
-      first time something goes wrong.
+      Agresif tasarruf veya yatırım hedeflerinin peşinden koşmadan önce, sıkıcı bir tasarruf hesabında bir aylık gideriniz olduğundan emin olun. Bu tek tampon, patlak bir lastiği bütçe krizinden hafif bir rahatsızlığa dönüştüren şeydir. Bundan sonra, üç aya, ardından altı aya çıkın—ancak bir ay, işe yarayan bir bütçe ile bir şeyler ters gittiğinde bozulan bir bütçe arasındaki farktır.
     </p>
 
-    <h2>13. Don&rsquo;t chase perfect</h2>
+    <h2>13. Mükemmelliğin peşinden koşmayın</h2>
     <p>
-      Every budget has messy weeks. You forgot about a friend&rsquo;s birthday dinner, the
-      dentist found a cavity, your partner&rsquo;s car needed tires. A good budget bends and
-      keeps going; a bad one you abandon the first time it breaks. If a month goes sideways,
-      just open the budget calculator next month and keep running. Consistency compounds; one
-      bad month doesn&rsquo;t.
+      Her bütçenin dağınık haftaları vardır. Bir arkadaşınızın doğum günü yemeğini unuttunuz, dişçi bir çürük buldu, eşinizin arabasının lastikleri değişmesi gerekiyordu. İyi bir bütçe esner ve devam eder; kötü bir bütçeyi ilk kırıldığında terk edersiniz. Bir ay ters giderse, gelecek ay bütçe hesaplayıcısını açın ve devam edin. Tutarlılık birikir; tek bir kötü ay birikmez.
     </p>
 
-    <h2>Your 10-minute setup</h2>
+    <h2>10 dakikalık kurulumunuz</h2>
     <p>
-      Open the <a href="/tools/budget-calculator">budget calculator</a>, type in last month&rsquo;s
-      numbers honestly, and look at the savings rate. If it&rsquo;s under 10%, pick one fixed
-      cost to cut and one variable category to cap. If it&rsquo;s 20%+, you&rsquo;re doing fine —
-      automate the save, put the budget on a monthly calendar reminder, and stop thinking about
-      it until next month. That&rsquo;s a working budget.
+      <a href="/tools/budget-calculator">Bütçe hesaplayıcısını</a> açın, geçen ayın rakamlarını dürüstçe girin ve tasarruf oranınıza bakın. %10'un altındaysa, keseceğiniz bir sabit maliyet ve sınırlayacağınız bir değişken kategori seçin. %20 veya üzerindeyse, iyi gidiyorsunuz—tasarrufları otomatikleştirin, bütçe için aylık bir takvim hatırlatıcısı koyun ve gelecek aya kadar bunu düşünmeyi bırakın. İşte çalışan bir bütçe.
     </p>
   </>
 );

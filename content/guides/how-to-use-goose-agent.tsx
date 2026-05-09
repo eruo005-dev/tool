@@ -2,77 +2,77 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Goose is an open-source, extensible <a href="/learn/agent">AI agent</a> from Block (the Square/Cash App company). It
-    runs on your machine, speaks <a href="/learn/mcp">MCP</a> natively, and is designed so you can plug in new tools
-    &mdash; GitHub, a browser, a database, your own scripts &mdash; and have the agent use them
-    without custom glue.
+    Goose, Block (Square/Cash App şirketi) tarafından geliştirilen, açık kaynaklı ve genişletilebilir bir <a href="/learn/agent">AI ajanıdır</a>.
+    Makinenizde çalışır, doğal olarak <a href="/learn/mcp">MCP</a> ile iletişim kurar ve yeni araçlar ekleyebilmeniz için tasarlanmıştır
+    &mdash; GitHub, tarayıcı, veritabanı, kendi betikleriniz &mdash; ve ajanın bunları özel bir bağlantı kodu olmadan
+    kullanmasını sağlar.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What Goose actually is</h2>
+    <h2>Goose aslında nedir</h2>
     <p>
-      Goose is a local agent you drive from either a desktop app or a CLI. It connects to any
-      <a href="/learn/llm">LLM</a> provider (Anthropic, OpenAI, Google, Databricks, Ollama, OpenRouter, and more) and uses{" "}
-      <strong>extensions</strong> &mdash; MCP servers, effectively &mdash; to gain capabilities.
-      The developer extension ships by default and gives it a shell, file editor, and text
-      tools; everything else is opt-in.
+      Goose, bir masaüstü uygulaması veya CLI üzerinden yönettiğiniz yerel bir ajandır. Herhangi bir
+      <a href="/learn/llm">LLM</a> sağlayıcısına (Anthropic, OpenAI, Google, Databricks, Ollama, OpenRouter ve daha fazlası) bağlanır ve
+      yetenekler kazanmak için <strong>eklentileri</strong> &mdash; yani MCP sunucularını &mdash; kullanır.
+      Geliştirici eklentisi varsayılan olarak gelir ve ajana bir kabuk, dosya düzenleyici ve metin
+      araçları sağlar; diğer her şey isteğe bağlıdır.
     </p>
 
-    <h2>Installing</h2>
+    <h2>Kurulum</h2>
     <pre>{`# macOS / Linux CLI
 curl -fsSL https://github.com/block/goose/releases/download/stable/download_cli.sh | bash
 
-# or install the Desktop app from block.github.io/goose`}</pre>
+# veya block.github.io/goose adresinden Masaüstü uygulamasını yükleyin`}</pre>
     <p>
-      Run <code>goose configure</code> once to pick a provider and model, then{" "}
-      <code>goose session</code> to start talking. The desktop app wraps the same engine with a
-      chat UI, extension toggles, and a log viewer; under the hood both share the same sessions.
+      Bir sağlayıcı ve model seçmek için <code>goose configure</code> komutunu bir kez çalıştırın, ardından
+      konuşmaya başlamak için <code>goose session</code> komutunu kullanın. Masaüstü uygulaması aynı motoru bir
+      sohbet arayüzü, eklenti anahtarları ve bir günlük görüntüleyici ile sarar; perde arkasında her ikisi de aynı oturumları paylaşır.
     </p>
 
-    <h2>A first session</h2>
+    <h2>İlk oturum</h2>
     <pre>{`cd my-project
 goose session --name refactor-auth`}</pre>
     <p>
-      Describe the task: &ldquo;audit how we pass the session token, move it to an httpOnly
-      cookie, and update the two fetch helpers that read it from localStorage.&rdquo; Goose will
-      grep, edit, run tests via the developer extension, and keep going until the task is done or
-      it hits a tool error. Named sessions mean you can <code>goose session --resume</code> the
-      next morning and pick up with full history.
+      Görevi tanımlayın: &ldquo;oturum token'ını nasıl ilettiğimizi denetle, onu bir httpOnly
+      çereze taşı ve localStorage'dan okuyan iki fetch yardımcısını güncelle.&rdquo; Goose,
+      geliştirici eklentisi aracılığıyla grep yapacak, düzenleyecek, testleri çalıştıracak ve görev tamamlanana veya
+      bir araç hatasıyla karşılaşana kadar devam edecektir. Adlandırılmış oturumlar, ertesi sabah
+      <code>goose session --resume</code> ile tam geçmişle kaldığınız yerden devam edebileceğiniz anlamına gelir.
     </p>
 
-    <h2>Extensions and recipes</h2>
+    <h2>Eklentiler ve tarifler</h2>
     <p>
-      The real power is extensions. Add the GitHub MCP to let Goose open PRs, the Playwright MCP
-      for browser automation, a Postgres MCP for schema work, or point it at your own internal
-      MCP server. <strong>Recipes</strong> are YAML files that predefine the provider, extensions,
-      and a starting prompt &mdash; version them in your repo so teammates launch the same agent
-      shape with one command.
+      Asıl güç eklentilerdedir. Goose'un PR açmasına izin vermek için GitHub MCP'yi, tarayıcı otomasyonu
+      için Playwright MCP'yi, şema çalışmaları için bir Postgres MCP'yi ekleyin veya kendi dahili
+      MCP sunucunuza yönlendirin. <strong>Tarifler</strong>, sağlayıcıyı, eklentileri
+      ve bir başlangıç istemini önceden tanımlayan YAML dosyalarıdır &mdash; bunları deponuzda sürümleyin, böylece takım arkadaşlarınız
+      tek bir komutla aynı ajan yapılandırmasını başlatabilir.
     </p>
 
-    <h2>Configuration pitfalls</h2>
+    <h2>Yapılandırma tuzakları</h2>
     <p>
-      Goose runs real commands on your machine, so the developer extension is effectively root-in-your-workspace.
-      Use a project directory you are happy to blow away, or sandbox with a devcontainer on first
-      contact. Also watch the context: Goose will happily pull in large files &mdash; set{" "}
-      <code>GOOSE_MAX_TURNS</code> or use the <code>lead/worker</code> model split so a cheap
-      model handles the long-running grunt work and only the planner uses your premium tokens.
+      Goose, makinenizde gerçek komutlar çalıştırır, bu nedenle geliştirici eklentisi etkili bir şekilde çalışma alanınızda kök yetkisine sahiptir.
+      Silmekten çekinmeyeceğiniz bir proje dizini kullanın veya ilk temasta bir devcontainer ile
+      yalıtın. Ayrıca bağlama dikkat edin: Goose büyük dosyaları mutlu bir şekilde içe aktaracaktır &mdash;
+      <code>GOOSE_MAX_TURNS</code> değişkenini ayarlayın veya <code>lead/worker</code> model ayrımını kullanın, böylece
+      uzun süren ağır işleri ucuz bir model halleder ve yalnızca planlayıcı premium token'larınızı kullanır.
     </p>
 
-    <h2>When Goose shines</h2>
+    <h2>Goose'un parladığı yerler</h2>
     <p>
-      Ops-flavored work where you want one agent to touch git, files, a database, and a browser
-      in the same session. Also a strong pick if you are MCP-curious, since the ecosystem is
-      native rather than bolted on.
+      Aynı oturumda git'e, dosyalara, bir veritabanına ve bir tarayıcıya dokunmasını istediğiniz
+      operasyon odaklı işler. Ayrıca MCP'ye meraklıysanız güçlü bir seçenektir, çünkü ekosistem
+      sonradan eklenmiş değil, doğaldır.
     </p>
 
-    <h2>When not to use it</h2>
+    <h2>Ne zaman kullanılmamalı</h2>
     <p>
-      If you want tight IDE integration with inline diffs and click-to-approve, Cline or
-      Windsurf feel more polished. Goose is a terminal-and-window tool first; the editor
-      experience is intentionally not the focus. And the docs move quickly &mdash; pin a version
-      for team use instead of chasing <code>stable</code>.
+      Satır içi farklar ve tıkla-onayla özellikleriyle sıkı bir IDE entegrasyonu istiyorsanız, Cline veya
+      Windsurf daha cilalı hissettirir. Goose öncelikle bir terminal ve pencere aracıdır; düzenleyici
+      deneyimi kasıtlı olarak odak noktası değildir. Ayrıca dokümantasyon hızlı değişir &mdash; takım kullanımı için
+      <code>stable</code> sürümünü takip etmek yerine bir sürümü sabitleyin.
     </p>
   </>
 );

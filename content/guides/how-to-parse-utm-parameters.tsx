@@ -3,32 +3,19 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Reading UTM parameters off an incoming URL sounds like a
-      one-liner &mdash;
+      UTM parametrelerini gelen bir URL'den okumak kulağa tek satırlık bir iş gibi geliyor &mdash;
       <code> new URLSearchParams(location.search).get(&apos;utm_source&apos;)</code>
-      {" "}and you&rsquo;re done &mdash; but using UTMs well means
-      deciding what to do with them: when to store, when to
-      overwrite, when to expire, and how to build an attribution
-      chain without leaking PII into your analytics. The five
-      parameters arrive clean from the URL but they need to be
-      promoted to first-party cookies or local storage for later
-      conversions, and the choice between first-touch and last-touch
-      attribution drives which campaigns get credit. This guide
-      covers the parsing API, building an attribution chain, the
-      first-touch vs last-touch decision, how GA4 handles the same
-      problem under the hood, the common server-side parsing
-      mistakes, and the privacy considerations when UTMs end up in
-      logs.
+      {" "}ve işiniz bitti &mdash; ancak UTMLeri iyi kullanmak, onlarla ne yapacağınıza karar vermek anlamına gelir: ne zaman saklanacağı, ne zaman üzerine yazılacağı, ne zaman süresinin dolacağı ve analitiklerinize PII sızdırmadan nasıl bir atıflama zinciri oluşturulacağı. Beş parametre URL'den temiz bir şekilde gelir, ancak daha sonraki dönüşümler için birinci taraf çerezlere veya yerel depolamaya yükseltilmeleri gerekir ve ilk dokunuş ile son dokunuş arasındaki seçim, hangi kampanyaların kredi alacağını belirler. Bu kılavuz, ayrıştırma API'sini, bir atıflama zinciri oluşturmayı, ilk dokunuş ile son dokunuş kararını, GA4'ün aynı sorunu perde arkasında nasıl ele aldığını, yaygın sunucu tarafı ayrıştırma hatalarını ve UTMLerin günlüklere düştüğünde gizlilikle ilgili hususları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Extracting UTMs from the URL</h2>
+    <h2>UTMleri URL'den Çıkarma</h2>
     <p>
-      Modern browsers and Node give you
-      <code> URLSearchParams</code> for free.
+      Modern tarayıcılar ve Node size ücretsiz olarak
+      <code> URLSearchParams</code> sağlar.
     </p>
     <pre>{`const params = new URLSearchParams(window.location.search);
 const utms = {
@@ -39,28 +26,21 @@ const utms = {
   content:  params.get('utm_content'),
 };`}</pre>
     <p>
-      <code>get()</code> returns <code>null</code> if the parameter
-      is absent. URL decoding is automatic &mdash; a
-      <code> utm_campaign=q1%20launch</code> comes back as
+      <code>get()</code> parametre eksikse <code>null</code> döndürür.
+      URL kod çözme otomatiktir &mdash; bir
+      <code> utm_campaign=q1%20launch</code> şu şekilde çıkar:
       <code> &quot;q1 launch&quot;</code>.
     </p>
 
-    <h2>When to read, when to store</h2>
+    <h2>Ne zaman okunmalı, ne zaman saklanmalı</h2>
     <p>
-      Read the UTMs on the first page load of a session. If any are
-      present, stash them. If none are present, keep whatever was
-      stored previously. Two stores you typically need:
+      UTMLeri bir oturumun ilk sayfa yüklenişinde okuyun. Herhangi biri varsa, saklayın. Hiçbiri yoksa, daha önce saklananı koruyun. Genellikle ihtiyacınız olan iki depolama alanı:
     </p>
     <p>
-      <strong>Session-scoped</strong> (current visit): the most
-      recent UTM set the user arrived with. Used for immediate
-      attribution on this visit&rsquo;s conversion.
+      <strong>Oturum kapsamlı</strong> (mevcut ziyaret): kullanıcının geldiği en son UTM seti. Bu ziyaretin dönüşümünde anlık atıflama için kullanılır.
     </p>
     <p>
-      <strong>First-touch</strong> (ever): the very first UTM set
-      this user ever arrived with, written once and never
-      overwritten. Lives until the user clears cookies or your
-      retention window expires (90 days is common).
+      <strong>İlk dokunuş</strong> (tüm zamanlar): bu kullanıcının geldiği ilk UTM seti, bir kez yazılır ve asla üzerine yazılmaz. Kullanıcı çerezleri temizleyene veya depolamanızın süresi dolana kadar (genellikle 90 gün) yaşar.
     </p>
     <pre>{`function captureUtms() {
   const p = new URLSearchParams(location.search);
@@ -79,58 +59,37 @@ const utms = {
   }
 }`}</pre>
 
-    <h2>First-touch vs last-touch vs multi-touch</h2>
+    <h2>İlk dokunuş, son dokunuş ve çoklu dokunuş</h2>
     <p>
-      <strong>First-touch</strong> gives full credit to the campaign
-      that first introduced the user. Great for top-of-funnel
-      evaluation. Blind to nurture campaigns that actually drove
-      the conversion.
+      <strong>İlk dokunuş</strong>, kullanıcıyı tanıtan kampanyaya tam kredi verir. Üst huniyi değerlendirmek için harikadır. Kullanıcıyı gerçekten dönüştüren besleme kampanyalarına karşı kördür.
     </p>
     <p>
-      <strong>Last-touch</strong> gives credit to the final
-      click before conversion. Easy to calculate, but tends to
-      over-credit retargeting and branded search.
+      <strong>Son dokunuş</strong>, dönüşümden önceki son tıklamaya kredi verir. Hesaplaması kolaydır, ancak yeniden hedefleme ve markalı aramayı aşırı kredilendirme eğilimindedir.
     </p>
     <p>
-      <strong>Linear or position-based</strong> multi-touch spreads
-      credit across all touches. Closer to reality, harder to
-      implement, and needs a stitched user journey across sessions.
+      <strong>Doğrusal veya konum tabanlı</strong> çoklu dokunuş, krediyi tüm dokunuşlar arasında dağıtır. Daha doğru, uygulaması daha zor ve oturumlar arasında birleştirilmiş bir kullanıcı yolculuğu gerektirir.
     </p>
     <p>
-      For most SaaS: capture both first and last touch, report both,
-      and let revenue ops argue about the ratio. Capturing both
-      costs nothing extra at pageview time.
+      Çoğu SaaS için: hem ilk hem de son dokunuşu yakalayın, ikisini de raporlayın ve gelir operasyonlarının oran hakkında tartışmasına izin verin. Sayfa görüntüleme anında ikisini de yakalamak ekstra bir maliyet getirmez.
     </p>
 
-    <h2>The attribution chain</h2>
+    <h2>Atıflama zinciri</h2>
     <p>
-      A user might visit your site six times before converting, each
-      visit with or without a UTM set. The sequence looks like:
+      Bir kullanıcı dönüşüm yapmadan önce sitenizi altı kez ziyaret edebilir ve her ziyaret bir UTM seti taşıyabilir veya taşımayabilir. Sıra şöyle görünür:
     </p>
-    <pre>{`visit 1: utm_source=reddit    medium=social     campaign=launch_post
-visit 2: (direct, no UTMs)
-visit 3: utm_source=newsletter medium=email      campaign=tip_tuesday
-visit 4: (direct)
-visit 5: utm_source=google     medium=cpc        campaign=brand
-visit 6: (direct) -> conversion`}</pre>
+    <pre>{`ziyaret 1: utm_source=reddit    medium=social     campaign=launch_post
+ziyaret 2: (doğrudan, UTM yok)
+ziyaret 3: utm_source=newsletter medium=email      campaign=tip_tuesday
+ziyaret 4: (doğrudan)
+ziyaret 5: utm_source=google     medium=cpc        campaign=brand
+ziyaret 6: (doğrudan) -> dönüşüm`}</pre>
     <p>
-      First-touch credits <code>reddit / social</code>. Last-touch
-      (of non-direct) credits <code>google / cpc</code>. Both can be
-      valuable; neither is complete. To build the full chain, store
-      an append-only array in local storage or on the server,
-      capped at a reasonable length (10&ndash;20 touches) to avoid
-      unbounded growth.
+      İlk dokunuş <code>reddit / social</code> kredisini verir. Son dokunuş (doğrudan olmayan) <code>google / cpc</code> kredisini verir. Her ikisi de değerli olabilir; hiçbiri tam değildir. Tam zinciri oluşturmak için, yerel depolamada veya sunucuda, sınırsız büyümeyi önlemek için makul bir uzunlukta (10&ndash;20 dokunuş) sınırlandırılmış, yalnızca ekleme yapılabilen bir dizi saklayın.
     </p>
 
-    <h2>Server-side parsing</h2>
+    <h2>Sunucu tarafında ayrıştırma</h2>
     <p>
-      Server parsing follows the same URL rules but comes with two
-      traps. First, frameworks like Express already decode query
-      parameters &mdash; reading <code>req.query.utm_source</code>
-      gives you a decoded string, so decoding again is
-      double-decoding. Second, when your app sits behind a CDN,
-      make sure the CDN forwards the query string intact; some
-      caching rules strip parameters before origin sees them.
+      Sunucu ayrıştırması aynı URL kurallarını izler ancak iki tuzakla birlikte gelir. İlk olarak, Express gibi çerçeveler sorgu parametrelerini zaten çözer &mdash; <code>req.query.utm_source</code> okumak size çözülmüş bir dize verir, bu nedenle tekrar çözmek çift kod çözmedir. İkinci olarak, uygulamanız bir CDN'nin arkasındayken, CDN'nin sorgu dizesini bozulmadan ilettiğinden emin olun; bazı önbelleğe alma kuralları, parametreleri kaynak sunucuya ulaşmadan önce kaldırır.
     </p>
     <pre>{`app.get('/landing', (req, res) => {
   const { utm_source, utm_medium, utm_campaign,
@@ -146,112 +105,84 @@ visit 6: (direct) -> conversion`}</pre>
   res.render('landing');
 });`}</pre>
 
-    <h2>Handing UTMs off to your analytics tool</h2>
+    <h2>UTMleri analitik aracınıza iletme</h2>
     <p>
-      If you run GA4, Amplitude, Mixpanel, or similar, they read
-      UTMs from the URL automatically &mdash; you don&rsquo;t need
-      to forward them. Your stored UTMs are extra, for internal
-      dashboards, CRM enrichment, and server-side event logs that
-      the client-side tag cannot reach.
+      GA4, Amplitude, Mixpanel veya benzerini kullanıyorsanız, UTMLeri URL'den otomatik olarak okurlar &mdash; onları iletmeniz gerekmez. Sakladığınız UTMLer, dahili panolar, CRM zenginleştirme ve istemci tarafı etiketinin ulaşamadığı sunucu tarafı olay günlüğü için ekstralardır.
     </p>
     <p>
-      When sending to your CRM, map the five UTMs onto named fields
-      (e.g., HubSpot&rsquo;s
-      <code> hs_analytics_source</code>) on lead creation. Set them
-      once; do not overwrite on subsequent visits unless your model
-      is pure last-touch.
+      CRM'nize gönderirken, beş UTM'yi potansiyel müşteri oluşturma sırasında adlandırılmış alanlarla eşleyin (örneğin, HubSpot'un
+      <code> hs_analytics_source</code>). Bunları bir kez ayarlayın; modeliniz tamamen son dokunuş değilse, sonraki ziyaretlerde üzerine yazmayın.
     </p>
 
-    <h2>Cross-domain and subdomain stitching</h2>
+    <h2>Çapraz alan ve alt alan birleştirme</h2>
     <p>
-      Local storage is per-origin, so a user flowing from
-      <code> www.example.com</code> to
-      <code> app.example.com</code> loses their stored UTMs. Three
-      options:
+      Yerel depolama kaynak bazında olduğundan,
+      <code> www.example.com</code> adresinden
+      <code> app.example.com</code> adresine akan bir kullanıcı, saklanan UTMLerini kaybeder. Üç seçenek:
     </p>
     <p>
-      <strong>Forward UTMs in the link</strong> between subdomains.
-      Good for a narrow handoff (marketing site &rarr; signup form).
+      <strong>Alt alanlar arasındaki bağlantıda UTMLeri iletin.</strong>
+      Dar bir aktarım için iyidir (pazarlama sitesi &rarr; kayıt formu).
     </p>
     <p>
-      <strong>Share a parent-domain cookie</strong>
-      (<code>Domain=.example.com</code>). Works across subdomains
-      but not across completely different domains.
+      <strong>Bir üst alan çerezi paylaşın</strong>
+      (<code>Domain=.example.com</code>). Alt alanlar arasında çalışır ancak tamamen farklı alanlar arasında çalışmaz.
     </p>
     <p>
-      <strong>Send the user a stable ID</strong> that both sides
-      share, and attribute server-side. The most reliable approach
-      but the most work.
+      <strong>Kullanıcıya her iki tarafın da paylaştığı sabit bir kimlik gönderin</strong>
+      ve atıflamayı sunucu tarafında yapın. En güvenilir yaklaşım ancak en çok işi gerektirir.
     </p>
 
-    <h2>Privacy considerations</h2>
+    <h2>Gizlilikle ilgili hususlar</h2>
     <p>
-      UTM parameters themselves are not personal data, but they sit
-      on URLs that are logged, indexed, and shared. A UTM like
-      <code> utm_content=abandoned_cart_24h_doug</code> leaks a user
-      name into logs if the template is careless. Two rules:
+      UTM parametreleri kişisel veri değildir, ancak günlüğe kaydedilen, indekslenen ve paylaşılan URL'lerde bulunurlar. Gibi bir UTM
+      <code> utm_content=abandoned_cart_24h_doug</code>, şablon dikkatsizse günlüklere bir kullanıcı adı sızdırır. İki kural:
     </p>
     <p>
-      Never put PII &mdash; name, email, phone, account ID &mdash;
-      into UTM values. The convenience is not worth the compliance
-      risk (GDPR, CCPA).
+      PII &mdash; ad, e-posta, telefon, hesap kimliği &mdash; asla UTM değerlerine koymayın. Kolaylık, uyumluluk riskine (GDPR, CCPA) değmez.
     </p>
     <p>
-      Do strip UTMs from the visible URL after capture, using
-      <code> history.replaceState</code>, to prevent them from being
-      copy-pasted onward and to keep the URL clean for canonical
-      purposes.
+      Yakalama işleminden sonra UTMLeri görünür URL'den
+      <code> history.replaceState</code> kullanarak kaldırın, böylece ileriye kopyalanmazlar ve URL'yi kurallı amaçlar için temiz tutun.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Overwriting first-touch on every visit.</strong>
-      Writing to the first-touch store unconditionally erases it.
-      Check for existence before setting.
+      <strong>Her ziyarette ilk dokunuşun üzerine yazmak.</strong>
+      İlk dokunuş deposuna koşulsuz yazmak onu siler. Ayarlamadan önce varlığını kontrol edin.
     </p>
     <p>
-      <strong>Double decoding.</strong> Query parameters come out of
-      <code> URLSearchParams</code> or <code>req.query</code> already
-      decoded. Calling <code>decodeURIComponent</code> on
-      <code> &quot;q1 launch&quot;</code> again is a no-op unless
-      the value happened to contain a <code>%</code>.
+      <strong>Çift kod çözme.</strong>
+      Sorgu parametreleri
+      <code> URLSearchParams</code> veya <code>req.query</code> adresinden zaten çözülmüş olarak gelir.
+      <code>decodeURIComponent</code> öğesini <code> &quot;q1 launch&quot;</code> üzerinde tekrar çağırmak, değer bir <code>%</code> içermiyorsa hiçbir şey yapmaz.
     </p>
     <p>
-      <strong>Tagging for campaigns that never launched.</strong>
-      Old UTM links lie around forever. A well-meaning customer
-      success rep links to a year-old landing URL and that campaign
-      lights up in today&rsquo;s report. Expire old URLs, or
-      version campaign names with the year.
+      <strong>Hiç bitmeyen kampanyaları etiketlemek.</strong>
+      Eski UTM bağlantıları sonsuza kadar yaşar. İyi niyetli bir müşteri başarı temsilcisi, bir yıllık bir açılış sayfası URL'sine bağlantı verir ve bu kampanya bugünün raporunda canlanır. Eski URL'lerin süresini doldurun veya kampanya adlarını yılla sürümlendirin.
     </p>
     <p>
-      <strong>Stripping UTMs before reading them.</strong> Some
-      security libraries canonicalize URLs on ingress; if they run
-      before your capture code, the parameters are already gone.
-      Order matters.
+      <strong>UTMleri okumadan önce kaldırmak.</strong>
+      Bazı güvenlik kitaplıkları, girişte URL'leri kurallaştırır; yakalama kodunuzdan önce çalışırlarsa, parametreler zaten gitmiştir. Sıra önemlidir.
     </p>
     <p>
-      <strong>Ignoring referrer for attribution gap-fill.</strong>
-      When UTMs are missing, <code>document.referrer</code> often
-      has useful signal (<code>facebook.com</code>,
-      <code> t.co</code>, <code>google.com</code>). Pair the two
-      sources.
+      <strong>Atıflama boşluğunu doldurmak için yönlendireni yok saymak.</strong>
+      UTMler eksik olduğunda, <code>document.referrer</code> genellikle yararlı sinyaller taşır (<code>facebook.com</code>,
+      <code> t.co</code>, <code>google.com</code>). İki kaynağı çapraz referanslayın.
     </p>
     <p>
-      <strong>Logging full URLs with UTMs into error reports.</strong>
-      UTM values leak campaign strategy and sometimes PII into
-      third-party error tracking. Scrub URLs before sending them off.
+      <strong>Hata raporlarında UTMlerle birlikte tam URL'leri günlüğe kaydetmek.</strong>
+      UTM değerleri, kampanya stratejisini ve bazen PII'yi üçüncü taraf hata izleme araçlarına sızdırır. Göndermeden önce URL'leri temizleyin.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Paste any URL into the{" "}
-      <a href="/tools/utm-parser">UTM parser</a> to see exactly how
-      your code will read it. Pair with the{" "}
-      <a href="/tools/query-string-parser">query string parser</a>
-      {" "}to decompose the full parameter set when a page has
-      non-UTM tracking too, and the{" "}
-      <a href="/tools/url-cleaner">URL cleaner</a> for producing the
-      UTM-free version of the URL you want users to share.
+      Herhangi bir URL'yi{" "}
+      <a href="/tools/utm-parser">UTM ayrıştırıcıya</a> yapıştırarak kodunuzun onu tam olarak nasıl okuyacağını görün. Bir sayfada UTM olmayan izleme de olduğunda tam parametre setini ayrıştırmak için{" "}
+      <a href="/tools/query-string-parser">sorgu dizesi ayrıştırıcı</a>
+      {" "}ile birlikte kullanın ve kullanıcıların paylaşmasını istediğiniz bir URL'nin UTM içermeyen bir sürümünü oluşturmak için{" "}
+      <a href="/tools/url-cleaner">URL temizleyiciyi</a>
+      {" "}kullanın.
     </p>
   </>
 );

@@ -1,76 +1,59 @@
 export const intro = (
   <>
     <p>
-      Model Context Protocol — <strong><a href="/learn/mcp">MCP</a></strong> — is an open standard for
-      connecting AI agents to external tools and data. In 2026 it has become
-      the default. Claude Code, the Claude Agent SDK, Cursor, and most
-      agent frameworks speak it; there&rsquo;s a growing ecosystem of MCP
-      servers for GitHub, Slack, Postgres, Notion, Linear, your internal APIs,
-      and hundreds of other systems.
+      Model Context Protocol — <strong><a href="/learn/mcp">MCP</a></strong> — AI ajanlarını harici araçlara ve verilere bağlamak için açık bir standarttır. 2026'da varsayılan haline gelmiştir. Claude Code, Claude Agent SDK, Cursor ve çoğu ajan çerçevesi bunu konuşur; GitHub, Slack, Postgres, Notion, Linear, dahili API'leriniz ve yüzlerce başka sistem için büyüyen bir MCP sunucu ekosistemi vardır.
     </p>
     <p>
-      This guide explains what MCP actually is, how to install and connect a
-      server, how to allow-list only the tools you want, and how to avoid the
-      security mistakes that bite people on the way in.
+      Bu kılavuz, MCP'nin aslında ne olduğunu, bir sunucunun nasıl kurulup bağlanacağını, yalnızca istediğiniz araçların nasıl izin listesine alınacağını ve yeni başlayanların sıkça yaptığı güvenlik hatalarından nasıl kaçınılacağını açıklar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>What MCP actually is (in plain terms)</h2>
+    <h2>MCP aslında nedir (basit terimlerle)</h2>
     <p>
-      MCP is a small JSON-RPC protocol that lets any agent talk to any
-      compatible tool provider. The provider is called an <strong>MCP
-      server</strong>; your agent is the <strong>MCP client</strong>. The
-      server advertises a list of tools (and resources, and prompts). The
-      client asks for a tool to be invoked with arguments. That&rsquo;s it.
+      MCP, herhangi bir ajanın uyumlu herhangi bir araç sağlayıcısıyla konuşmasını sağlayan küçük bir JSON-RPC protokolüdür. Sağlayıcıya <strong>MCP sunucusu</strong> denir; ajanınız <strong>MCP istemcisidir</strong>. Sunucu, bir araç listesi (ve kaynaklar ve istemler) yayınlar. İstemci, argümanlarla bir aracın çağrılmasını ister. Hepsi bu kadar.
     </p>
     <p>
-      The payoff: the same Slack MCP server works with Claude Code, the Claude
-      Agent SDK, and most other agent frameworks. You write the integration
-      once, you use it everywhere.
+      Getirisi: Aynı Slack MCP sunucusu, Claude Code, Claude Agent SDK ve diğer çoğu ajan çerçevesiyle çalışır. Entegrasyonu bir kez yazarsınız, her yerde kullanırsınız.
     </p>
 
-    <h2>Step 1 — Pick a server to start with</h2>
+    <h2>Adım 1 — Başlamak için bir sunucu seçin</h2>
     <p>
-      Pick something with a clear, low-risk tool set. Good first MCP servers:
+      Net ve düşük riskli bir araç setine sahip bir şey seçin. İyi ilk MCP sunucuları:
     </p>
     <ul>
       <li>
-        <strong>Filesystem</strong> — scoped to a directory.
+        <strong>Dosya Sistemi</strong> — bir dizine kapsamlı.
       </li>
       <li>
-        <strong>Fetch</strong> — fetches a URL and returns text.
+        <strong>Fetch</strong> — bir URL'yi getirir ve metin döndürür.
       </li>
       <li>
-        <strong>GitHub (read-only)</strong> — list repos, read issues, read code.
+        <strong>GitHub (salt okunur)</strong> — depoları listele, sorunları oku, kodu oku.
       </li>
       <li>
-        <strong>Postgres (read-only)</strong> — against a dev DB, not prod.
+        <strong>Postgres (salt okunur)</strong> — üretim değil, geliştirme veritabanına karşı.
       </li>
     </ul>
     <p>
-      Avoid starting with a server that can <em>write</em> — post to Slack,
-      send email, merge PRs. Add those after you trust the agent.
+      <em>Yazma</em> yapabilen bir sunucuyla başlamaktan kaçının — Slack'e gönderme, e-posta yollama, PR'leri birleştirme. Bunları ajana güvendikten sonra ekleyin.
     </p>
 
-    <h2>Step 2 — Install an MCP server</h2>
+    <h2>Adım 2 — Bir MCP sunucusu kurun</h2>
     <p>
-      Most MCP servers ship as npm or Python packages. Example — the
-      filesystem server:
+      Çoğu MCP sunucusu npm veya Python paketleri olarak gelir. Örnek — dosya sistemi sunucusu:
     </p>
     <pre><code>{`npx -y @modelcontextprotocol/server-filesystem /path/to/allowed/dir`}</code></pre>
     <p>
-      That single command starts an MCP server over stdio, scoped to the
-      directory you pass. It&rsquo;ll list tools like <code>read_file</code>,
-      <code>write_file</code>, <code>list_directory</code>.
+      Bu tek komut, geçirdiğiniz dizine kapsamlı, stdio üzerinden bir MCP sunucusu başlatır. <code>read_file</code>, <code>write_file</code>, <code>list_directory</code> gibi araçları listeleyecektir.
     </p>
 
-    <h2>Step 3 — Wire it into your agent</h2>
+    <h2>Adım 3 — Ajanınıza bağlayın</h2>
     <h3>Claude Code</h3>
     <p>
-      Create <code>.claude/mcp.json</code> in your repo:
+      Deponuzda <code>.claude/mcp.json</code> oluşturun:
     </p>
     <pre><code>{`{
   "mcpServers": {
@@ -81,10 +64,9 @@ export const body = (
   }
 }`}</code></pre>
     <p>
-      Restart Claude Code and the agent can call <code>mcp__fs__read_file</code>,
-      etc. See our{" "}
-      <a href="/guides/how-to-set-up-claude-code">Claude Code setup guide</a>{" "}
-      for the full picture.
+      Claude Code'u yeniden başlatın ve ajan <code>mcp__fs__read_file</code> vb. çağırabilir. Tam resim için{" "}
+      <a href="/guides/how-to-set-up-claude-code">Claude Code kurulum kılavuzumuza</a>{" "}
+      bakın.
     </p>
 
     <h3>Claude Agent SDK (Python)</h3>
@@ -100,69 +82,52 @@ opts = ClaudeAgentOptions(
     allowed_tools=["mcp__fs__read_file", "mcp__fs__list_directory"],
 )
 
-async for m in query(prompt="List files in docs and read README.md.", options=opts):
+async for m in query(prompt="Dosyaları docs'ta listele ve README.md'yi oku.", options=opts):
     print(m)`}</code></pre>
     <p>
-      Notice the <code>allowed_tools</code> list — only those tools can be
-      called. Even if the server advertises <code>write_file</code>, the
-      agent can&rsquo;t call it unless you list it.
+      <code>allowed_tools</code> listesine dikkat edin — yalnızca bu araçlar çağrılabilir. Sunucu <code>write_file</code> yayınlasa bile, ajan onu listelememişseniz çağıramaz.
     </p>
 
     <h3>Cursor</h3>
     <p>
-      Cursor reads <code>.cursor/mcp.json</code> with the same shape. Add the
-      server, restart, and the agent can use its tools in agent mode.
+      Cursor, aynı yapıya sahip <code>.cursor/mcp.json</code> dosyasını okur. Sunucuyu ekleyin, yeniden başlatın ve ajan, ajan modunda araçlarını kullanabilir.
     </p>
 
-    <h2>Step 4 — Allow-list narrowly</h2>
+    <h2>Adım 4 — Dar bir izin listesi oluşturun</h2>
     <p>
-      Default to <em>read-only</em> tools. Add write tools one at a time, each
-      time asking: &ldquo;if this tool is called wrongly, what does it take to
-      recover?&rdquo; Sending a Slack DM is recoverable. Dropping a Postgres
-      table is not.
+      Varsayılan olarak <em>salt okunur</em> araçları kullanın. Yazma araçlarını tek tek ekleyin, her seferinde şunu sorun: &ldquo;bu araç yanlış çağrılırsa, kurtarmak için ne gerekir?&rdquo; Bir Slack DM'si göndermek kurtarılabilir. Bir Postgres tablosunu düşürmek kurtarılamaz.
     </p>
 
-    <h2>Step 5 — Hook for audit + spend</h2>
+    <h2>Adım 5 — Denetim ve harcama için kanca ekleyin</h2>
     <p>
-      On the Claude Agent SDK, attach a <code>pre_tool_use</code> hook that
-      logs every tool call and can veto ones that look wrong. Free sanity
-      check, costs nothing, saves you once.
+      Claude Agent SDK'da, her araç çağrısını günlüğe kaydeden ve yanlış görünenleri veto edebilen bir <code>pre_tool_use</code> kancası ekleyin. Ücretsiz bir mantık kontrolü, hiçbir maliyeti yok, sizi bir kez kurtarır.
     </p>
 
-    <h2>Step 6 — Environment variables, not prompts, for secrets</h2>
+    <h2>Adım 6 — Sırlar için istemler değil, ortam değişkenleri kullanın</h2>
     <p>
-      Never put API keys in an MCP server&rsquo;s prompt or config visible to
-      the agent. Pass them as environment variables to the server process.
-      The agent should be able to use the tool without ever seeing the
-      credential.
+      API anahtarlarını asla bir MCP sunucusunun istemine veya ajana görünür yapılandırmasına koymayın. Bunları sunucu işlemine ortam değişkenleri olarak iletin. Ajan, kimlik bilgisini asla görmeden aracı kullanabilmelidir.
     </p>
 
-    <h2>Step 7 — Run untrusted MCP servers with care</h2>
+    <h2>Adım 7 — Güvenilmeyen MCP sunucularını dikkatle çalıştırın</h2>
     <p>
-      MCP servers are real code on your machine. A malicious MCP server can
-      exfiltrate data, especially if the agent passes sensitive inputs to it.
-      Rules of thumb:
+      MCP sunucuları, makinenizde çalışan gerçek kodlardır. Kötü niyetli bir MCP sunucusu, özellikle ajan hassas girdileri ona iletirse, verileri sızdırabilir. Temel kurallar:
     </p>
     <ul>
-      <li>Only run servers you&rsquo;d trust as a regular npm/pip dependency.</li>
-      <li>Prefer official servers (Anthropic, GitHub, Vercel, etc.) when they exist.</li>
-      <li>For sketchy third-party servers, run them in a container or a scratch user.</li>
-      <li>Keep the filesystem server&rsquo;s path scoped; don&rsquo;t point it at <code>/</code>.</li>
+      <li>Yalnızca normal bir npm/pip bağımlılığı olarak güveneceğiniz sunucuları çalıştırın.</li>
+      <li>Varsa resmi sunucuları (Anthropic, GitHub, Vercel vb.) tercih edin.</li>
+      <li>Şüpheli üçüncü taraf sunucular için, bunları bir kapsayıcıda veya sıfır kullanıcıda çalıştırın.</li>
+      <li>Dosya sistemi sunucusunun yolunu kapsamlı tutun; <code>/</code> işaretine yöneltmeyin.</li>
     </ul>
 
-    <h2>The clearest upside</h2>
+    <h2>En net avantaj</h2>
     <p>
-      MCP turns agent tool integration from a per-framework project into a
-      plug-and-play exercise. If you&rsquo;re still hand-coding REST clients
-      inside a single framework, you&rsquo;re paying a tax you no longer need
-      to pay. Pick one MCP server, wire it in, and you&rsquo;ll see why it
-      flipped to being the standard.
+      MCP, ajan araç entegrasyonunu çerçeve başına bir projeden tak-çalıştır bir alıştırmaya dönüştürür. Hala tek bir çerçeve içinde elle REST istemcileri kodluyorsanız, artık ödemeniz gerekmeyen bir vergi ödüyorsunuz. Bir MCP sunucusu seçin, bağlayın ve neden standart haline geldiğini göreceksiniz.
     </p>
 
     <p>
-      For context on where MCP fits into the bigger agent picture, see our{" "}
-      <a href="/guides/how-to-set-up-an-ai-agent">setup-an-AI-agent overview</a>{" "}
-      — MCP is the tools layer in almost every path on the decision tree.
+      MCP'nin daha büyük ajan resminde nereye oturduğu hakkında bağlam için{" "}
+      <a href="/guides/how-to-set-up-an-ai-agent">AI ajanı kurulumuna genel bakışımıza</a>{" "}
+      bakın — MCP, karar ağacındaki hemen hemen her yolda araç katmanıdır.
     </p>
   </>
 );

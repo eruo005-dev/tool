@@ -3,27 +3,26 @@
 export const intro = (
   <>
     <p>
-      GitHub Actions has a reputation for &ldquo;needs DevOps expertise.&rdquo;
-      Untrue for the 90% case. Most teams need test-on-PR + deploy-on-main, both of
-      which are 30-line YAML files using stock actions from the marketplace. This
-      guide is the practical playbook for using Actions without being a CI/CD
-      specialist.
+      GitHub Actions'ın &ldquo;DevOps uzmanlığı gerektirdiği&rdquo; yönünde bir ünü var.
+      Bu, %90'lık durum için doğru değil. Çoğu ekip, PR'da test + main'de dağıtım yapmak ister; her ikisi de
+      pazaryerindeki hazır action'ları kullanan 30 satırlık YAML dosyalarıdır. Bu
+      kılavuz, bir CI/CD uzmanı olmadan Actions'ı kullanmak için pratik bir oyun kitabıdır.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "automate-tests", label: "Automate tests without hiring DevOps" },
-  { id: "deploy", label: "Deploy your app via GitHub" },
-  { id: "speed-up", label: "Speed up development with automation" },
-  { id: "common-patterns", label: "Common patterns + templates" },
+  { id: "automate-tests", label: "DevOps işe almadan testleri otomatikleştirin" },
+  { id: "deploy", label: "Uygulamanızı GitHub üzerinden dağıtın" },
+  { id: "speed-up", label: "Otomasyonla geliştirmeyi hızlandırın" },
+  { id: "common-patterns", label: "Yaygın kalıplar + şablonlar" },
 ];
 
 export const body = (
   <>
-    <h2 id="automate-tests">How to automate code tests without hiring DevOps</h2>
+    <h2 id="automate-tests">DevOps işe almadan kod testleri nasıl otomatikleştirilir</h2>
     <p>
-      The minimum-viable test workflow:
+      Minimum uygulanabilir test iş akışı:
     </p>
     <pre><code>{`name: Tests
 on:
@@ -35,145 +34,142 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4   # or setup-python, setup-go, etc.
+      - uses: actions/setup-node@v4   # veya setup-python, setup-go, vb.
         with:
           node-version: '20'
       - run: npm ci
       - run: npm test`}</code></pre>
     <p>
-      Save as <code>.github/workflows/tests.yml</code>. Push. Tests run on every PR
-      and every merge to main. 30 minutes total to set up. Most language ecosystems
-      have an equivalent stock action (setup-python, setup-go, setup-java).
+      <code>.github/workflows/tests.yml</code> olarak kaydedin. Push yapın. Testler her PR'da
+      ve main'e yapılan her birleştirmede çalışır. Kurulum toplam 30 dakika sürer. Çoğu dil ekosisteminin
+      eşdeğer bir hazır action'ı vardır (setup-python, setup-go, setup-java).
     </p>
     <p>
-      Add coverage reporting once tests stabilize:
+      Testler oturduktan sonra kapsam raporlaması ekleyin:
     </p>
     <ul>
-      <li>Codecov / Coveralls integration via their action.</li>
-      <li>Run linting in the same workflow (eslint, ruff, golangci-lint).</li>
-      <li>Run on a matrix of OS / Node versions if you need cross-platform.</li>
+      <li>Codecov / Coveralls entegrasyonu, kendi action'ları aracılığıyla.</li>
+      <li>Aynı iş akışında lint çalıştırın (eslint, ruff, golangci-lint).</li>
+      <li>Platformlar arası ihtiyacınız varsa, bir işletim sistemi / Node sürüm matrisinde çalıştırın.</li>
     </ul>
 
-    <h2 id="deploy">How do I actually deploy my app using GitHub?</h2>
+    <h2 id="deploy">Uygulamamı GitHub'ı kullanarak nasıl dağıtabilirim?</h2>
     <p>
-      Three common patterns:
+      Üç yaygın kalıp:
     </p>
     <ol>
       <li>
-        <strong>Vercel / Netlify / Cloudflare Pages.</strong> Connect your repo via
-        their GitHub app. Auto-deploy on push to main. Zero CI/CD setup on your
-        side. The path of least resistance for web apps.
+        <strong>Vercel / Netlify / Cloudflare Pages.</strong> Deponuzu
+        GitHub uygulamaları aracılığıyla bağlayın. Main'e push yapıldığında otomatik dağıtım. Sizin tarafınızda sıfır CI/CD kurulumu.
+        Web uygulamaları için en az dirençli yol.
       </li>
       <li>
-        <strong>GitHub Actions deploys to your cloud.</strong> Use OIDC for
-        keyless auth (modern best practice). Stock actions exist for AWS
-        (aws-actions/configure-aws-credentials), GCP (google-github-actions/auth),
-        Azure (azure/login). Then run your deploy command (terraform apply, kubectl
-        apply, gcloud run deploy, etc.).
+        <strong>GitHub Actions, bulutunuza dağıtır.</strong> Anahtarsız kimlik doğrulama için OIDC kullanın
+        (modern en iyi uygulama). AWS (aws-actions/configure-aws-credentials), GCP (google-github-actions/auth),
+        Azure (azure/login) için hazır action'lar mevcuttur. Ardından dağıtım komutunuzu çalıştırın (terraform apply, kubectl
+        apply, gcloud run deploy, vb.).
       </li>
       <li>
-        <strong>Self-hosted runner deploys.</strong> For environments where you
-        can&rsquo;t expose cloud credentials to public CI. Self-hosted runners
-        live inside your network; deploys happen there.
+        <strong>Kendi barındırdığınız çalıştırıcı ile dağıtım.</strong> Bulut kimlik bilgilerini herkese açık CI'ya
+        açamadığınız ortamlar için. Kendi barındırdığınız çalıştırıcılar ağınızın içinde yaşar; dağıtımlar orada gerçekleşir.
       </li>
     </ol>
     <p>
-      Pick the simplest that meets your security requirements. For most web apps:
-      Vercel/Netlify connect-and-go. For backend services: GitHub Actions + cloud
+      Güvenlik gereksinimlerinizi karşılayan en basitini seçin. Çoğu web uygulaması için:
+      Vercel/Netlify bağlan ve çalıştır. Arka uç hizmetleri için: GitHub Actions + bulut
       OIDC.
     </p>
 
-    <h2 id="speed-up">Speed up development with GitHub automation</h2>
+    <h2 id="speed-up">GitHub otomasyonu ile geliştirmeyi hızlandırın</h2>
     <p>
-      Beyond CI/CD, common automations that save real time:
+      CI/CD'nin ötesinde, gerçekten zaman kazandıran yaygın otomasyonlar:
     </p>
     <ul>
       <li>
-        <strong>Auto-merge dependabot PRs.</strong> If your test coverage is good,
-        let dependency updates merge themselves on green CI.
+        <strong>Dependabot PR'larını otomatik birleştirme.</strong> Test kapsamınız iyiyse,
+        bağımlılık güncellemelerinin CI yeşil olduğunda kendiliğinden birleşmesine izin verin.
       </li>
       <li>
-        <strong>Stale issue / PR cleanup.</strong> actions/stale closes stale
-        issues + PRs after configurable periods. Keeps the issue tracker manageable.
+        <strong>Eski issue / PR temizliği.</strong> actions/stale, yapılandırılabilir sürelerden sonra eski
+        issue'ları ve PR'ları kapatır. Issue takibini yönetilebilir tutar.
       </li>
       <li>
-        <strong>Release automation.</strong> release-please or semantic-release
-        auto-generates changelogs + cuts releases on commits to main.
+        <strong>Sürüm otomasyonu.</strong> release-please veya semantic-release,
+        main'e yapılan commit'lerde otomatik olarak değişiklik günlükleri oluşturur ve sürümler yayınlar.
       </li>
       <li>
-        <strong>Cross-repo notifications.</strong> When a downstream repo&rsquo;s
-        tests break due to your change, notify the owner.
+        <strong>Depolar arası bildirimler.</strong> Bir alt deponun testleri sizin değişikliğiniz nedeniyle
+        bozulduğunda, sahibine bildirim gönderin.
       </li>
       <li>
-        <strong>Issue triage.</strong> Auto-label issues based on file paths
-        affected, project labels, or AI-driven categorization.
+        <strong>Issue triyajı.</strong> Etkilenen dosya yollarına, proje etiketlerine veya yapay zeka destekli
+        kategorizasyona göre issue'ları otomatik olarak etiketleyin.
       </li>
       <li>
-        <strong>Documentation deploy.</strong> Build docs site on push, publish to
-        GitHub Pages or your hosting.
+        <strong>Dokümantasyon dağıtımı.</strong> Push yapıldığında dokümantasyon sitesi oluşturun, GitHub Pages'e
+        veya barındırma hizmetinize yayınlayın.
       </li>
     </ul>
     <p>
-      Each takes 15-60 minutes to set up and saves hours over the project
-      lifetime.
+      Her biri 15-60 dakika kurulum gerektirir ve proje ömrü boyunca saatlerce
+      zaman kazandırır.
     </p>
 
-    <h2 id="common-patterns">Common Actions patterns + free templates</h2>
+    <h2 id="common-patterns">Yaygın Actions kalıpları + ücretsiz şablonlar</h2>
     <p>
-      The patterns that cover 90% of cases:
+      Vakaların %90'ını kapsayan kalıplar:
     </p>
     <ul>
       <li>
-        <strong>Test on PR + main.</strong> Above example.
+        <strong>PR + main'de test.</strong> Yukarıdaki örnek.
       </li>
       <li>
-        <strong>Lint on PR.</strong> Add eslint/ruff/etc as a separate job or step.
+        <strong>PR'da lint.</strong> Ayrı bir iş veya adım olarak eslint/ruff vb. ekleyin.
       </li>
       <li>
-        <strong>Deploy on push to main.</strong> Vercel/Netlify integration handles
-        for web apps; AWS/GCP OIDC for backend.
+        <strong>Main'e push yapıldığında dağıt.</strong> Vercel/Netlify entegrasyonu web uygulamaları için
+        halleder; arka uç için AWS/GCP OIDC.
       </li>
       <li>
-        <strong>Build + publish package.</strong> On tag push, build npm/PyPI/Maven
-        package and publish.
+        <strong>Paket oluştur + yayınla.</strong> Etiket push'unda, npm/PyPI/Maven
+        paketi oluşturun ve yayınlayın.
       </li>
       <li>
-        <strong>Scheduled runs.</strong> Daily security scan, weekly database
-        cleanup, monthly metric report.
+        <strong>Zamanlanmış çalıştırmalar.</strong> Günlük güvenlik taraması, haftalık veritabanı
+        temizliği, aylık metrik raporu.
       </li>
       <li>
-        <strong>Manual workflow_dispatch.</strong> Click a button in GitHub UI to
-        trigger a workflow with custom inputs. Useful for ad-hoc deploys, data
-        backfills.
+        <strong>Manuel workflow_dispatch.</strong> GitHub arayüzünde bir düğmeye tıklayarak
+        özel girdilerle bir iş akışı tetikleyin. Geçici dağıtımlar, veri doldurma işlemleri için kullanışlıdır.
       </li>
     </ul>
     <p>
-      For each, search GitHub&rsquo;s &ldquo;starter workflows&rdquo; or the actions
-      marketplace. Most patterns have official templates. Fork + customize.
+      Her biri için GitHub'ın &ldquo;başlangıç iş akışlarını&rdquo; veya actions
+      pazar yerini arayın. Çoğu kalıbın resmi şablonları vardır. Çatallayın + özelleştirin.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Estimate Actions costs before scaling",
+  label: "Ölçeklendirmeden önce Actions maliyetlerini tahmin edin",
   targetSlug: "github-actions-cost-estimator",
 };
 
 export const faq = [
   {
-    q: "How do I automate code tests without hiring DevOps?",
-    a: "30-line YAML in .github/workflows/tests.yml using stock actions (actions/checkout, actions/setup-node/python/go). Tests run on every PR + push to main. 30 minutes total setup. Add coverage (Codecov/Coveralls), linting, OS matrix as you grow.",
+    q: "DevOps işe almadan kod testlerini nasıl otomatikleştiririm?",
+    a: ".github/workflows/tests.yml dosyasında hazır action'lar (actions/checkout, actions/setup-node/python/go) kullanan 30 satırlık YAML. Testler her PR'da + main'e push'ta çalışır. Toplam 30 dakika kurulum. Büyüdükçe kapsam (Codecov/Coveralls), lint, işletim sistemi matrisi ekleyin.",
   },
   {
-    q: "How do I actually deploy my app using GitHub?",
-    a: "Three options: (1) Vercel/Netlify/Cloudflare Pages auto-deploy on push (easiest for web apps), (2) GitHub Actions + cloud OIDC for AWS/GCP/Azure backend deploys, (3) self-hosted runners for environments where cloud credentials can't go to public CI. Pick simplest that meets security needs.",
+    q: "Uygulamamı GitHub'ı kullanarak nasıl dağıtabilirim?",
+    a: "Üç seçenek: (1) Vercel/Netlify/Cloudflare Pages push'ta otomatik dağıtım (web uygulamaları için en kolayı), (2) AWS/GCP/Azure arka uç dağıtımları için GitHub Actions + bulut OIDC, (3) bulut kimlik bilgilerinin herkese açık CI'ya gidemediği ortamlar için kendi barındırdığınız çalıştırıcılar. Güvenlik ihtiyaçlarını karşılayan en basitini seçin.",
   },
   {
-    q: "How do I use GitHub Actions without being a DevOps expert?",
-    a: "Use stock marketplace actions for 90% of workflows. Don't build custom Docker images unless required. Match your workflow to the closest official starter template; customize from there. Most patterns (test on PR, deploy on main, scheduled jobs, package release) have battle-tested templates.",
+    q: "DevOps uzmanı olmadan GitHub Actions'ı nasıl kullanırım?",
+    a: "İş akışlarının %90'ı için pazaryerindeki hazır action'ları kullanın. Gerekmedikçe özel Docker imajları oluşturmayın. İş akışınızı en yakın resmi başlangıç şablonuyla eşleştirin; oradan özelleştirin. Çoğu kalıbın (PR'da test, main'de dağıt, zamanlanmış işler, paket sürümü) savaşta test edilmiş şablonları vardır.",
   },
   {
-    q: "How do I speed up development with GitHub automation?",
-    a: "Auto-merge dependabot PRs on green CI, stale issue cleanup (actions/stale), release automation (release-please, semantic-release), cross-repo notifications when downstream tests break, auto-labeling issues, automated docs deploy. Each saves hours over the project lifetime; 15-60 min setup each.",
+    q: "GitHub otomasyonu ile geliştirmeyi nasıl hızlandırırım?",
+    a: "Yeşil CI'da dependabot PR'larını otomatik birleştirme, eski issue temizliği (actions/stale), sürüm otomasyonu (release-please, semantic-release), alt depo testleri bozulduğunda depolar arası bildirimler, issue'ları otomatik etiketleme, otomatik dokümantasyon dağıtımı. Her biri proje ömrü boyunca saatler kazandırır; her biri 15-60 dk kurulum.",
   },
 ];

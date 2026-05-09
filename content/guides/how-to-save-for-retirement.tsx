@@ -1,120 +1,87 @@
 export const intro = (
   <>
     <p>
-      Retirement saving feels like a problem you solve &ldquo;later,&rdquo; which is how most
-      people arrive at 55 with a fraction of what they need. The math here is unforgiving: the
-      decade between 25 and 35 matters more than the entire decade between 45 and 55, because
-      compound growth does nearly all of the work.
+      Emeklilik birikimi, çoğu insanın 55 yaşına ihtiyaç duyduğunun çok azıyla varmasına neden olan, "sonra" çözülecek bir sorun gibi gelir. Buradaki matematik affetmez: 25 ile 35 yaş arasındaki on yıl, 45 ile 55 yaş arasındaki on yıldan daha önemlidir, çünkü bileşik büyüme işin neredeyse tamamını yapar.
     </p>
     <p>
-      This guide covers what to do at each income level, the accounts to use, and the rules of
-      thumb that actually hold up. Keep it boring; keep it automated. That&rsquo;s basically the
-      whole strategy.
+      Bu rehber, her gelir seviyesinde ne yapmanız gerektiğini, kullanılacak hesapları ve gerçekten geçerli olan pratik kuralları kapsar. Sıkıcı tutun; otomatikleştirin. Temel olarak tüm strateji budur.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. The rule that matters most: start now</h2>
+    <h2>1. En önemli kural: şimdi başlayın</h2>
     <p>
-      A dollar invested at 25 is roughly worth ten dollars at 65, assuming historical market
-      returns. A dollar at 45 is worth about two and a half. The math crushes people who wait.
-      If you&rsquo;re reading this and don&rsquo;t have a retirement account, that&rsquo;s the
-      highest-impact thing to fix this week.
+      Tarihsel piyasa getirilerine göre, 25 yaşında yatırılan bir dolar, 65 yaşında kabaca on dolara değerdir. 45 yaşında bir dolar ise yaklaşık iki buçuk dolar eder. Matematik bekleyenleri ezer. Bunu okuyorsanız ve bir emeklilik hesabınız yoksa, bu hafta düzeltebileceğiniz en yüksek etkili şey budur.
     </p>
 
-    <h2>2. Aim for 15% of gross income</h2>
+    <h2>2. Brüt gelirin %15'ini hedefleyin</h2>
     <p>
-      The classic target. If that&rsquo;s unreachable now, start wherever you can — 5% beats 0%,
-      10% is meaningfully better than 5%. Lift the rate every time you get a raise until
-      you&rsquo;re at 15%. The goal is the rate, not hitting a specific balance by 30.
+      Klasik hedef. Bu şu an ulaşılamazsa, nereden başlayabiliyorsanız oradan başlayın — %5, %0'dan iyidir, %10, %5'ten anlamlı ölçüde daha iyidir. %15'e ulaşana kadar her zam oranında katkı oranınızı yükseltin. Hedef orandır, 30 yaşında belirli bir bakiyeye ulaşmak değil.
     </p>
 
-    <h2>3. Always capture the full employer match first</h2>
+    <h2>3. Önce işveren eşleştirmesinin tamamını alın</h2>
     <p>
-      If your employer offers a 401(k) match (say, up to 5% of salary), not contributing to the
-      match is leaving free money. It&rsquo;s the only guaranteed 100% return in investing.
-      Before anything else — before debt payoff, before the emergency fund — contribute enough
-      to capture the full match.
+      İşvereniniz bir 401(k) eşleştirmesi sunuyorsa (örneğin, maaşın %5'ine kadar), eşleştirmeye katkıda bulunmamak bedava parayı bırakmaktır. Yatırımda garantili tek %100 getiri budur. Diğer her şeyden önce — borç ödemeden, acil durum fonundan önce — tam eşleştirmeyi alacak kadar katkıda bulunun.
     </p>
 
-    <h2>4. Understand the three account types</h2>
+    <h2>4. Üç hesap türünü anlayın</h2>
     <p>
-      Traditional (401(k), IRA): tax deduction now, taxed when you withdraw. Roth (401(k), IRA):
-      pay tax now, tax-free withdrawals. Taxable brokerage: no tax advantages, no withdrawal
-      restrictions. Most people need a mix; Roth is especially valuable when young and in a
-      lower tax bracket.
+      Geleneksel (401(k), IRA): şimdi vergi indirimi, çektiğinizde vergilendirilir. Roth (401(k), IRA): şimdi vergi ödeyin, vergisiz çekimler. Vergilendirilebilir aracı kurum: vergi avantajı yok, çekim kısıtlaması yok. Çoğu insanın bir karışıma ihtiyacı vardır; Roth özellikle gençken ve düşük vergi dilimindeyken değerlidir.
     </p>
 
-    <h2>5. The simple order of operations</h2>
+    <h2>5. Basit işlem sırası</h2>
     <ul>
-      <li>Capture full employer 401(k) match.</li>
-      <li>Pay off high-interest debt (20%+ <a href="/learn/apr">APR</a>) if any.</li>
-      <li>Build one month emergency fund (see{" "}
-        <a href="/guides/how-to-build-an-emergency-fund">emergency fund guide</a>).</li>
-      <li>Max Roth IRA ($7,000/year if under 50, 2025 limits).</li>
-      <li>Fill 401(k) up to contribution limit ($23,500/year in 2025).</li>
-      <li>Build 3–6 month emergency fund, taxable brokerage.</li>
+      <li>İşverenin 401(k) eşleştirmesinin tamamını alın.</li>
+      <li>Varsa yüksek faizli borcu (%20+ <a href="/learn/apr">APR</a>) ödeyin.</li>
+      <li>Bir aylık acil durum fonu oluşturun (bkz.{" "}
+        <a href="/guides/how-to-build-an-emergency-fund">acil durum fonu rehberi</a>).</li>
+      <li>Roth IRA'yı maksimuma çıkarın (50 yaş altıysanız yılda 7.000$, 2025 limitleri).</li>
+      <li>401(k)'yi katkı limitine kadar doldurun (2025'te yılda 23.500$).</li>
+      <li>3-6 aylık acil durum fonu, vergilendirilebilir aracı kurum oluşturun.</li>
     </ul>
 
-    <h2>6. Automate everything</h2>
+    <h2>6. Her şeyi otomatikleştirin</h2>
     <p>
-      401(k) comes out pre-payroll, which is automated by default — just set the rate. IRA
-      contributions: set a monthly auto-transfer from checking. Money you see in checking gets
-      spent; money that never lands there gets invested.
+      401(k) maaş öncesi kesilir, bu varsayılan olarak otomatiktir — sadece oranı ayarlayın. IRA katkıları: banka hesabından aylık otomatik transfer ayarlayın. Banka hesabında gördüğünüz para harcanır; oraya hiç ulaşmayan para yatırılır.
     </p>
 
-    <h2>7. Pick a boring low-cost index fund</h2>
+    <h2>7. Sıkıcı, düşük maliyetli bir endeks fonu seçin</h2>
     <p>
-      Target-date funds (e.g., Vanguard 2055, Fidelity Freedom 2055) are fully diversified, fully
-      automated, and a completely reasonable default for most people. Alternatively: a 3-fund
-      portfolio (US stocks, international stocks, bonds) at low-cost index ETFs like VTI, VXUS,
-      BND. What matters is: low fees, broad diversification, and leaving it alone.
+      Hedef tarihli fonlar (örneğin, Vanguard 2055, Fidelity Freedom 2055) tamamen çeşitlendirilmiş, tamamen otomatiktir ve çoğu insan için tamamen makul bir varsayılandır. Alternatif olarak: düşük maliyetli endeks ETF'leri (VTI, VXUS, BND gibi) ile 3 fonlu bir portföy (ABD hisseleri, uluslararası hisseler, tahviller). Önemli olan: düşük ücretler, geniş çeşitlendirme ve ona dokunmamak.
     </p>
 
-    <h2>8. Fees eat everything — check yours</h2>
+    <h2>8. Ücretler her şeyi yer — sizinkini kontrol edin</h2>
     <p>
-      A fund charging 1% annual fee vs 0.05% looks small, but over 30 years it can cost you 25%
-      of your final balance. Check your 401(k)&rsquo;s fund list, pick the lowest-expense-ratio
-      options that are reasonably diversified. Every tenth of a percent compounds brutally.
+      %1 yıllık ücret alan bir fon ile %0,05 alan bir fon arasındaki fark küçük görünür, ancak 30 yıl boyunca nihai bakiyenizin %25'ine mal olabilir. 401(k)'nizin fon listesini kontrol edin, makul ölçüde çeşitlendirilmiş en düşük gider oranlı seçenekleri seçin. Yüzdenin her onda biri acımasızca bileşik kazanır.
     </p>
 
-    <h2>9. Don&rsquo;t try to time the market</h2>
+    <h2>9. Piyasayı zamanlamaya çalışmayın</h2>
     <p>
-      You won&rsquo;t. Professionals mostly don&rsquo;t. Keep contributing through downturns —
-      that&rsquo;s when you get shares cheaply. Pausing investment during a recession is the
-      single most common wealth-destruction move amateurs make.
+      Başaramazsınız. Profesyoneller çoğunlukla başaramaz. Düşüş dönemlerinde katkıda bulunmaya devam edin — hisseleri ucuza aldığınız zaman budur. Durgunluk sırasında yatırımı durdurmak, amatörlerin yaptığı en yaygın servet yok etme hareketidir.
     </p>
 
-    <h2>10. Rebalance annually, not monthly</h2>
+    <h2>10. Aylık değil, yıllık olarak yeniden dengeleyin</h2>
     <p>
-      Once a year, check the split is still close to your target allocation. Adjust if a fund is
-      more than 5 percentage points off target. Don&rsquo;t touch it otherwise. Frequent tinkering
-      statistically hurts returns.
+      Yılda bir kez, dağılımın hedef dağılımınıza hala yakın olup olmadığını kontrol edin. Bir fon hedeften 5 puan veya daha fazla sapmışsa ayarlayın. Aksi takdirde dokunmayın. Sık sık kurcalamak istatistiksel olarak getirilere zarar verir.
     </p>
 
-    <h2>11. Raise the rate every time your salary rises</h2>
+    <h2>11. Maaşınız her yükseldiğinde oranı artırın</h2>
     <p>
-      When you get a raise, lift your 401(k) contribution by the same percentage. Your take-home
-      stays the same, but your retirement savings quietly grow. This is the single best way to
-      hit 15%+ without ever feeling the pinch.
+      Zam aldığınızda, 401(k) katkınızı aynı yüzde oranında artırın. Eve gelen paranız aynı kalır, ancak emeklilik birikiminiz sessizce büyür. Hiçbir zaman kıstığınızı hissetmeden %15+ oranına ulaşmanın en iyi yolu budur.
     </p>
 
-    <h2>12. Pair it with a budget that actually leaves room</h2>
+    <h2>12. Gerçekten yer bırakan bir bütçeyle eşleştirin</h2>
     <p>
-      Retirement saving only works if the budget leaves room for it. Our{" "}
-      <a href="/tools/budget-calculator">budget calculator</a> and{" "}
-      <a href="/guides/how-to-make-a-monthly-budget">monthly budget guide</a> cover how to
-      structure the income side so contributions come off the top.
+      Emeklilik birikimi, yalnızca bütçe buna yer bırakırsa işe yarar.{" "}
+      <a href="/tools/budget-calculator">Bütçe hesaplayıcımız</a> ve{" "}
+      <a href="/guides/how-to-make-a-monthly-budget">aylık bütçe rehberimiz</a>, katkıların en baştan kesilmesi için gelir tarafının nasıl yapılandırılacağını kapsar.
     </p>
 
-    <h2>Your next hour</h2>
+    <h2>Önümüzdeki bir saatiniz</h2>
     <p>
-      Check your 401(k) rate today. If you&rsquo;re not at the match, raise it. Open a Roth IRA
-      at any major broker (Fidelity, Vanguard, Schwab) if you don&rsquo;t have one — it takes 15
-      minutes. Set one automated contribution. That&rsquo;s the entire start. You&rsquo;ve now
-      done more than most of your peers will do for years.
+      Bugün 401(k) oranınızı kontrol edin. Eşleştirmede değilseniz, yükseltin. Yoksa herhangi bir büyük brokerda (Fidelity, Vanguard, Schwab) bir Roth IRA açın — bu 15 dakika sürer. Bir otomatik katkı ayarlayın. Başlangıç tamamen bu kadar. Artık akranlarınızın çoğunun yıllarca yapacağından daha fazlasını yapmış oldunuz.
     </p>
   </>
 );

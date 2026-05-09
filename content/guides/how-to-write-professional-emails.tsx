@@ -1,99 +1,91 @@
 export const intro = (
   <>
     <p>
-      Most work emails are too long, too vague, or buried under pleasantries. The best
-      professional emails are short, explicit about what&rsquo;s needed, and easy to
-      reply to. Write emails people want to open.
+      Çoğu iş e-postası çok uzun, çok belirsiz veya nezaket ifadelerinin altında gömülü kalır. En iyi
+      profesyonel e-postalar kısa, ne gerektiği konusunda net ve yanıtlaması kolaydır. İnsanların açmak isteyeceği e-postalar yazın.
     </p>
     <p>
-      This guide is the rules that actually get you faster responses and cleaner
-      communication.
+      Bu rehber, size daha hızlı yanıtlar ve daha temiz bir iletişim sağlayacak kuralları içerir.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Write the subject last</h2>
+    <h2>1. Konuyu en son yazın</h2>
     <p>
-      Finish the email, then write a subject that summarizes the ask in 6-8 words.
-      &ldquo;Decision needed by Thursday: Q2 budget split&rdquo; &gt; &ldquo;Quick
-      question.&rdquo; Specific subjects get opened first.
+      E-postayı bitirin, ardından talebi 6-8 kelimeyle özetleyen bir konu yazın.
+      &ldquo;Perşembeye kadar karar gerekli: Q2 bütçe dağılımı&rdquo; &gt; &ldquo;Küçük bir soru.&rdquo; Belirli konular önce açılır.
     </p>
 
-    <h2>2. State the ask in line 1</h2>
+    <h2>2. Talebi 1. satırda belirtin</h2>
     <p>
-      Don&rsquo;t bury the request 3 paragraphs in. First sentence: what you need and
-      by when. Then context. Busy readers skim the first line and decide whether to
-      keep reading.
+      İsteği 3 paragraf sonraya gömmeyin. İlk cümle: neye ihtiyacınız olduğu ve
+      hangi tarihe kadar. Ardından bağlam. Meşgul okuyucular ilk satırı tarar ve okumaya devam edip etmeyeceklerine karar verir.
     </p>
 
-    <h2>3. Short sentences, short paragraphs</h2>
+    <h2>3. Kısa cümleler, kısa paragraflar</h2>
     <p>
-      Walls of text get ignored. Aim for 1-3 sentences per paragraph. Whitespace makes
-      the email feel manageable. Most business emails should be under 150 words.
+      Metin yığınları görmezden gelinir. Paragraf başına 1-3 cümle hedefleyin. Boşluk, e-postayı
+      yönetilebilir hissettirir. Çoğu iş e-postası 150 kelimenin altında olmalıdır.
     </p>
 
-    <h2>4. Use bullet points for multi-part requests</h2>
+    <h2>4. Çok parçalı talepler için madde işaretleri kullanın</h2>
     <p>
-      If you&rsquo;re asking for 3 things, list them as 3 bullets. Otherwise the reader
-      will only reply to one and you&rsquo;ll have to chase the others. Format the reader
-      into answering.
+      3 şey istiyorsanız, bunları 3 madde işareti olarak listeleyin. Aksi takdirde okuyucu
+      yalnızca birine yanıt verir ve diğerlerini takip etmek zorunda kalırsınız. Okuyucuyu yanıt vermeye yönlendirin.
     </p>
 
-    <h2>5. One email, one ask</h2>
+    <h2>5. Bir e-posta, bir talep</h2>
     <p>
-      Two unrelated asks in one email means one gets forgotten. Split into two emails
-      with separate subject lines. Trackable, actionable, easier to respond to.
+      Bir e-postadaki iki ilgisiz talep, birinin unutulması anlamına gelir. Ayrı konu satırlarıyla iki e-postaya bölün.
+      Takip edilebilir, uygulanabilir, yanıtlaması daha kolay.
     </p>
 
-    <h2>6. Tell them exactly what to do</h2>
+    <h2>6. Onlara tam olarak ne yapmaları gerektiğini söyleyin</h2>
     <p>
-      &ldquo;Can you approve by EOD Friday?&rdquo; is a clear action. &ldquo;Let me know
-      your thoughts&rdquo; is vague — half of recipients will ignore it. Specific calls
-      to action get specific responses.
+      &ldquo;Cuma günü sonuna kadar onaylayabilir misiniz?&rdquo; net bir eylemdir. &ldquo;Düşüncelerinizi benimle paylaşın&rdquo; belirsizdir — alıcıların yarısı bunu görmezden gelir. Spesifik eylem çağrıları, spesifik yanıtlar alır.
     </p>
 
-    <h2>7. Pre-empt questions</h2>
+    <h2>7. Soruları önceden tahmin edin</h2>
     <p>
-      If you know they&rsquo;ll ask &ldquo;how much?&rdquo; or &ldquo;when?&rdquo;,
-      include it. Saves a round trip. Think about what they&rsquo;ll want to know and
-      put it in the first email.
+      &ldquo;Ne kadar?&rdquo; veya &ldquo;Ne zaman?&rdquo; diye soracaklarını biliyorsanız,
+      bunu ekleyin. Bir gidiş-dönüşten tasarruf sağlar. Bilmek isteyeceklerini düşünün ve
+      ilk e-postaya koyun.
     </p>
 
-    <h2>8. Proofread</h2>
+    <h2>8. Düzeltme okuyun</h2>
     <p>
-      Typos signal carelessness. Read it once before sending. With important emails,
-      read it out loud — you&rsquo;ll catch awkward sentences your eye skips over.
+      Yazım hataları dikkatsizlik sinyali verir. Göndermeden önce bir kez okuyun. Önemli e-postalarda,
+      yüksek sesle okuyun — gözünüzün atladığı garip cümleleri yakalarsınız.
     </p>
 
-    <h2>9. Mind the tone</h2>
+    <h2>9. Üsluba dikkat edin</h2>
     <p>
-      Email strips tone — neutral can read as angry. Be slightly warmer than you feel.
-      &ldquo;Thanks!&rdquo; at the end costs nothing. Avoid all-caps, exclamation
-      overload, and passive-aggressive phrasing (&ldquo;per my last email&rdquo;).
+      E-posta tonu kaldırır — nötr, kızgın olarak okunabilir. Hissettiğinizden biraz daha sıcak olun.
+      Sonunda &ldquo;Teşekkürler!&rdquo; demek hiçbir şeye mal olmaz. Tüm büyük harflerden, aşırı ünlemden
+      ve pasif-agresif ifadelerden (&ldquo;son e-postamda belirttiğim gibi&rdquo;) kaçının.
     </p>
 
-    <h2>10. Escalate sparingly</h2>
+    <h2>10. Ölçülü şekilde üst mercilere taşıyın</h2>
     <p>
-      CC&rsquo;ing someone&rsquo;s boss without warning is a nuclear move. If a request
-      is stalled, follow up directly first, then bring others in only if needed. Never
-      surprise people by looping in their manager.
+      Uyarmadan birinin patronunu CC'ye eklemek nükleer bir hamledir. Bir talep
+      durmuşsa, önce doğrudan takip edin, ardından yalnızca gerekirse başkalarını dahil edin. İnsanları yöneticilerini dahil ederek asla şaşırtmayın.
     </p>
 
-    <h2>11. Use templates for repeated messages</h2>
+    <h2>11. Tekrarlanan mesajlar için şablonlar kullanın</h2>
     <p>
-      Status updates, onboarding, recurring requests — write once, reuse. Tools like
-      Gmail templates save hours a week. Personalize the top line, keep the body
-      consistent.
+      Durum güncellemeleri, işe alıştırma, tekrarlanan talepler — bir kez yazın, tekrar kullanın. Gmail
+      şablonları gibi araçlar haftada saatler kazandırır. İlk satırı kişiselleştirin, gövdeyi
+      tutarlı tutun.
     </p>
 
-    <h2>12. Know when NOT to email</h2>
+    <h2>12. Ne zaman E-POSTA GÖNDERMEMENİZ gerektiğini bilin</h2>
     <p>
-      Sensitive conversations, complex decisions, tense discussions — do those live.
-      Email is great for async, terrible for nuance. If the stakes are high, pick up
-      the phone or hop on a call. See <a href="/guides/how-to-give-a-great-presentation">
-      presentation guide</a> for delivering verbal content.
+      Hassas konuşmalar, karmaşık kararlar, gergin tartışmalar — bunları canlı yapın.
+      E-posta eşzamansız için harikadır, incelik için berbattır. Riskler yüksekse, telefonu açın
+      veya bir aramaya katılın. Sözlü içerik sunumu için <a href="/guides/how-to-give-a-great-presentation">
+      sunum rehberine</a> bakın.
     </p>
   </>
 );

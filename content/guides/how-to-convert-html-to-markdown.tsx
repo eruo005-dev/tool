@@ -3,173 +3,177 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Converting HTML to Markdown sounds lossless until you hit your first <code>&lt;table&gt;</code>
-      with merged cells, a <code>&lt;div&gt;</code> soup full of inline styles, or a legacy CMS
-      export where every paragraph is wrapped in a decorative span. Markdown is a deliberately
-      small language&mdash;it covers roughly the subset of HTML a plain-prose writer needs&mdash;and
-      anything beyond that subset has to be dropped, approximated, or preserved as raw HTML
-      passthrough. Getting the conversion right means knowing which elements map cleanly, which
-      are lossy, and how to configure your converter to fail gracefully. This guide covers the
-      safe-mapping elements, the lossy ones, how to handle nested HTML, and the best strategies
-      for bulk-migrating content without losing structure.
+      HTML'yi Markdown'a dönüştürmek, kayıpsız gibi görünür; ta ki birleştirilmiş hücrelere sahip
+      ilk <code>&lt;table&gt;</code> etiketinizle, satır içi stillerle dolu bir <code>&lt;div&gt;</code>
+      çorbasıyla veya her paragrafın dekoratif bir span içine sarıldığı eski bir CMS
+      dışa aktarımıyla karşılaşana kadar. Markdown, kasıtlı olarak küçük bir dildir&mdash;kabaca
+      düz yazı yazan bir yazarın ihtiyaç duyduğu HTML alt kümesini kapsar&mdash;ve
+      bu alt kümenin ötesindeki her şey ya atılmalı, yaklaşık olarak ifade edilmeli ya da ham HTML
+      geçişi olarak korunmalıdır. Dönüşümü doğru yapmak, hangi öğelerin temiz bir şekilde eşleştiğini,
+      hangilerinin kayıplı olduğunu, iç içe HTML'nin nasıl ele alınacağını ve dönüştürücünüzü
+      yapıyı kaybetmeden başarısız olacak şekilde nasıl yapılandıracağınızı bilmek anlamına gelir.
+      Bu kılavuz, güvenli eşleme öğelerini, kayıplı olanları, iç içe HTML'nin nasıl işleneceğini
+      ve toplu içerik taşıma için en iyi stratejileri kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The safe subset</h2>
+    <h2>Güvenli alt küme</h2>
     <p>
-      A handful of HTML elements map one-to-one to Markdown with zero information loss. Headings
-      <code>&lt;h1&gt;</code> through <code>&lt;h6&gt;</code> become <code>#</code> through
-      <code>######</code>. Paragraphs become blank-line-separated text. <code>&lt;strong&gt;</code>
-      and <code>&lt;b&gt;</code> both become <code>**bold**</code>. <code>&lt;em&gt;</code> and
-      <code>&lt;i&gt;</code> become <code>_italic_</code>. <code>&lt;code&gt;</code> becomes
-      backtick spans, <code>&lt;pre&gt;&lt;code&gt;</code> becomes fenced code blocks, and
-      <code>&lt;blockquote&gt;</code> becomes <code>&gt;</code>-prefixed lines. If your source HTML
-      consists only of these tags, your converter can produce clean Markdown that round-trips
-      perfectly back to HTML.
+      Bir avuç HTML öğesi, sıfır bilgi kaybıyla bire bir Markdown'a eşlenir. Başlıklar
+      <code>&lt;h1&gt;</code>'den <code>&lt;h6&gt;</code>'ya <code>#</code>'den
+      <code>######</code>'ya dönüşür. Paragraflar, boş satırla ayrılmış metin haline gelir.
+      <code>&lt;strong&gt;</code> ve <code>&lt;b&gt;</code> ikisi de <code>**bold**</code> olur.
+      <code>&lt;em&gt;</code> ve <code>&lt;i&gt;</code> ise <code>_italic_</code> olur.
+      <code>&lt;code&gt;</code> ters tırnak aralıklarına, <code>&lt;pre&gt;&lt;code&gt;</code>
+      çitli kod bloklarına ve <code>&lt;blockquote&gt;</code> <code>&gt;</code>-ön ekli satırlara
+      dönüşür. Kaynak HTML'niz yalnızca bu etiketlerden oluşuyorsa, dönüştürücünüz HTML'ye
+      mükemmel bir şekilde geri dönen temiz Markdown üretebilir.
     </p>
 
-    <h2>Links and images</h2>
+    <h2>Bağlantılar ve resimler</h2>
     <p>
-      Links and images convert cleanly when the attributes are minimal.
-      <code>&lt;a href=&quot;/about&quot;&gt;About&rsquo;</code> becomes <code>[About](/about)</code>,
-      and <code>&lt;img src=&quot;x.png&quot; alt=&quot;X&quot;&gt;</code> becomes
-      <code>![X](x.png)</code>. Extra attributes like <code>class</code>, <code>id</code>,
-      <code>rel</code>, <code>target</code>, <code>loading</code>, or inline styles cannot be
-      expressed in standard Markdown and must be dropped. If any of those attributes carry
-      semantic meaning in your content&mdash;for example, <code>target=&quot;_blank&quot;</code> on
-      external links&mdash;your converter should be configured to either fall back to inline HTML
-      or warn you so you can add the attributes back manually after conversion.
+      Bağlantılar ve resimler, nitelikler minimum düzeyde olduğunda temiz bir şekilde dönüşür.
+      <code>&lt;a href=&quot;/about&quot;&gt;Hakkında</code> <code>[Hakkında](/about)</code> olur
+      ve <code>&lt;img src=&quot;x.png&quot; alt=&quot;X&quot;&gt;</code>
+      <code>![X](x.png)</code> olur. <code>class</code>, <code>id</code>,
+      <code>rel</code>, <code>target</code>, <code>loading</code> veya satır içi stiller gibi
+      ek nitelikler standart Markdown'da ifade edilemez ve atılmalıdır. Bu niteliklerden herhangi
+      biri içeriğinizde anlamsal bir anlam taşıyorsa&mdash;örneğin, harici bağlantılarda
+      <code>target=&quot;_blank&quot;</code>&mdash;dönüştürücünüz ya satır içi HTML'ye geri dönecek
+      ya da dönüşümden sonra nitelikleri manuel olarak ekleyebilmeniz için sizi uyaracak şekilde
+      yapılandırılmalıdır.
     </p>
-    <pre>{`HTML:  <a href="https://example.com" target="_blank" rel="noopener">Docs</a>
-Lossy: [Docs](https://example.com)
-Lossless: <a href="https://example.com" target="_blank" rel="noopener">Docs</a>`}</pre>
+    <pre>{`HTML:  <a href="https://example.com" target="_blank" rel="noopener">Dokümanlar</a>
+Kayıplı: [Dokümanlar](https://example.com)
+Kayıpsız: <a href="https://example.com" target="_blank" rel="noopener">Dokümanlar</a>`}</pre>
 
-    <h2>Lists and nesting</h2>
+    <h2>Listeler ve iç içe yerleştirme</h2>
     <p>
-      Unordered lists become <code>-</code>, <code>*</code>, or <code>+</code> lines; ordered lists
-      become <code>1.</code>, <code>2.</code>, etc. Most converters normalize the numbers to
-      <code>1.</code> on every line because Markdown renderers auto-increment. Nested lists work
-      but require four-space indentation per level in strict Markdown and two spaces in GFM. The
-      real trouble is when HTML lists contain block-level children&mdash;paragraphs, code blocks,
-      tables, or other lists. Those need a blank line and continuation-indented content inside the
-      list item, which many naive converters get wrong.
-    </p>
-
-    <h2>Tables and other lossy elements</h2>
-    <p>
-      HTML tables support things Markdown tables cannot: merged cells via <code>rowspan</code> and
-      <code>colspan</code>, captions, multiple tbody sections, headers in the left column, and
-      arbitrary HTML inside cells. A converter has three options: flatten the table into a GFM
-      pipe table and drop the unsupported features, emit the entire <code>&lt;table&gt;</code> as
-      raw HTML inside the Markdown, or throw an error and ask for human review. For documentation
-      content, raw HTML passthrough is usually the right call because preserving the structure
-      matters more than source readability.
+      Sırasız listeler <code>-</code>, <code>*</code> veya <code>+</code> satırları olur; sıralı
+      listeler <code>1.</code>, <code>2.</code> vb. olur. Çoğu dönüştürücü, sayıları her satırda
+      <code>1.</code> olarak normalleştirir çünkü Markdown işleyicileri otomatik olarak artırır.
+      İç içe listeler çalışır ancak katı Markdown'da her seviye için dört boşluk girintisi ve
+      GFM'de iki boşluk gerektirir. Asıl sorun, HTML listeleri blok düzeyinde alt öğeler
+      içerdiğinde ortaya çıkar&mdash;paragraflar, kod blokları, tablolar veya diğer listeler.
+      Bunlar, liste öğesi içinde boş bir satır ve devam girintili içerik gerektirir; bu da birçok
+      saf dönüştürücünün yanlış yaptığı bir şeydir.
     </p>
 
-    <h2>Nested and decorative HTML</h2>
+    <h2>Tablolar ve diğer kayıplı öğeler</h2>
     <p>
-      Legacy CMS exports often wrap content in decorative <code>&lt;div&gt;</code> and
-      <code>&lt;span&gt;</code> elements with classes like <code>wp-block-paragraph</code>,
-      <code>mce-container</code>, or <code>post-content</code>. Those elements carry no meaning
-      and should be stripped before conversion. A well-configured converter unwraps purely
-      decorative containers and keeps their children. More aggressive converters apply a
-      whitelist: anything outside a known-safe set of tags is either unwrapped or dropped
-      entirely.
+      HTML tabloları, Markdown tablolarının yapamadığı şeyleri destekler: <code>rowspan</code> ve
+      <code>colspan</code> ile birleştirilmiş hücreler, başlıklar, birden çok tbody bölümü, sol
+      sütundaki başlıklar ve hücrelerin içinde rastgele HTML. Bir dönüştürücünün üç seçeneği
+      vardır: tabloyu bir GFM boru tablosuna düzleştirip desteklenmeyen özellikleri atmak,
+      tüm <code>&lt;table&gt;</code> öğesini Markdown içinde ham HTML olarak yaymak veya bir hata
+      verip insan incelemesi istemek. Dokümantasyon içeriği için, ham HTML geçişi genellikle doğru
+      seçimdir çünkü yapıyı korumak, kaynağın okunabilirliğinden daha önemlidir.
     </p>
-    <pre>{`Input:
+
+    <h2>İç içe ve dekoratif HTML</h2>
+    <p>
+      Eski CMS dışa aktarımları genellikle içeriği <code>wp-block-paragraph</code>,
+      <code>mce-container</code> veya <code>post-content</code> gibi sınıflara sahip dekoratif
+      <code>&lt;div&gt;</code> ve <code>&lt;span&gt;</code> öğelerine sarar. Bu öğeler hiçbir anlam
+      taşımaz ve dönüşümden önce kaldırılmalıdır. İyi yapılandırılmış bir dönüştürücü, tamamen
+      dekoratif kapları açar ve alt öğelerini tutar. Daha agresif dönüştürücüler bir beyaz liste
+      uygular: bilinen güvenli etiketler kümesinin dışındaki her şey ya açılır ya da tamamen atılır.
+    </p>
+    <pre>{`Girdi:
 <div class="wp-block-group">
   <div class="wp-block-column">
-    <p>Hello <span class="emphasis">world</span>.</p>
+    <p>Merhaba <span class="emphasis">dünya</span>.</p>
   </div>
 </div>
 
-Output:
-Hello **world**.`}</pre>
+Çıktı:
+Merhaba **dünya**.`}</pre>
 
-    <h2>Inline styles and color</h2>
+    <h2>Satır içi stiller ve renk</h2>
     <p>
-      Markdown has no syntax for color, font family, size, or any other CSS property. If your
-      source uses <code>&lt;span style=&quot;color: red&quot;&gt;</code> to flag errors or
-      <code>&lt;mark&gt;</code> for highlights, you have to choose between dropping the styling,
-      replacing it with an emoji or unicode marker, or preserving the HTML passthrough. For
-      technical docs, passthrough is fine. For blog prose, dropping is usually cleaner and the
-      styling should be reintroduced via CSS classes once the Markdown renders.
-    </p>
-
-    <h2>Code blocks and language hints</h2>
-    <p>
-      A well-formed <code>&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;</code> block
-      converts cleanly into a fenced code block with the language tag. But many editors emit
-      <code>class=&quot;lang-python&quot;</code>, <code>class=&quot;python&quot;</code>, or nothing
-      at all, and highlight.js and Prism use different class conventions. A good converter detects
-      the language from any of the common class prefixes and falls back to an untagged fence when
-      no language can be identified. Preserve indentation carefully&mdash;Markdown renderers are
-      strict about the content between the fences.
+      Markdown'da renk, yazı tipi ailesi, boyut veya başka herhangi bir CSS özelliği için sözdizimi
+      yoktur. Kaynağınız hataları işaretlemek için <code>&lt;span style=&quot;color: red&quot;&gt;</code>
+      veya vurgulamalar için <code>&lt;mark&gt;</code> kullanıyorsa, stili atmak, bir emoji veya
+      unicode işaretiyle değiştirmek veya HTML geçişini korumak arasında seçim yapmanız gerekir.
+      Teknik dokümanlar için geçiş iyidir. Blog yazıları için, stili atmak genellikle daha temizdir
+      ve stil, Markdown işlendikten sonra CSS sınıfları aracılığıyla yeniden eklenmelidir.
     </p>
 
-    <h2>Bulk migration strategy</h2>
+    <h2>Kod blokları ve dil ipuçları</h2>
     <p>
-      For one-off conversions, paste the HTML into a converter and clean up the output by hand.
-      For a bulk migration&mdash;say, a thousand CMS posts&mdash;script the conversion with a tool
-      like Turndown (JavaScript) or html2text (Python), tune the rules to match your HTML patterns,
-      and run the conversion against a sample of twenty posts first. Look for patterns that break:
-      custom shortcodes, embedded widgets, <code>&lt;iframe&gt;</code> embeds, and anything
-      generated by a WYSIWYG editor. Build transformations for those patterns before running the
-      full batch, or you will spend weeks cleaning up the output.
+      İyi biçimlendirilmiş bir <code>&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;</code>
+      bloğu, dil etiketiyle birlikte çitli bir kod bloğuna temiz bir şekilde dönüşür. Ancak birçok
+      düzenleyici <code>class=&quot;lang-python&quot;</code>, <code>class=&quot;python&quot;</code>
+      veya hiçbir şey yaymaz ve highlight.js ile Prism farklı sınıf kuralları kullanır. İyi bir
+      dönüştürücü, dili yaygın sınıf ön eklerinden herhangi birinden algılar ve hiçbir dil
+      tanımlanamadığında etiketsiz bir çite geri döner. Girintiyi dikkatlice koruyun&mdash;Markdown
+      işleyicileri, çitler arasındaki içerik konusunda katıdır.
     </p>
 
-    <h2>Round-trip testing</h2>
+    <h2>Toplu taşıma stratejisi</h2>
     <p>
-      The fastest way to check converter quality is to convert a sample from HTML to Markdown and
-      back. Elements that survive the round trip without changing are safe. Elements that degrade,
-      lose attributes, or restructure are the ones you need to handle manually or with custom
-      rules. A round-trip diff run on a representative sample gives you a concrete coverage
-      number for your migration.
+      Tek seferlik dönüşümler için HTML'yi bir dönüştürücüye yapıştırın ve çıktıyı elle temizleyin.
+      Toplu bir taşıma için&mdash;örneğin, bin CMS gönderisi&mdash;dönüşümü Turndown (JavaScript)
+      veya html2text (Python) gibi bir araçla komut dosyası haline getirin, kuralları HTML
+      kalıplarınıza uyacak şekilde ayarlayın ve önce yirmi gönderilik bir örnek üzerinde dönüşümü
+      çalıştırın. Bozulan kalıpları arayın: özel kısa kodlar, gömülü widget'lar,
+      <code>&lt;iframe&gt;</code> gömmeleri ve bir WYSIWYG düzenleyici tarafından oluşturulan
+      her şey. Tam toplu işlemi çalıştırmadan önce bu kalıplar için dönüşümler oluşturun, aksi
+      takdirde çıktıyı temizlemek için haftalar harcarsınız.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Gidiş-dönüş testi</h2>
     <p>
-      <strong>Assuming the conversion is lossless.</strong> Markdown covers maybe sixty percent of
-      real-world HTML cleanly. The rest needs choices. Plan for review and cleanup in your
-      migration schedule.
-    </p>
-    <p>
-      <strong>Dropping tables silently.</strong> If your converter turns a complex table into
-      paragraphs of piped text, you lose the structure. Either force HTML passthrough for tables or
-      flag them for manual review.
-    </p>
-    <p>
-      <strong>Keeping decorative wrappers.</strong> Converting every <code>&lt;div&gt;</code> and
-      <code>&lt;span&gt;</code> into raw HTML passthrough defeats the point of going to Markdown.
-      Strip the ones that carry no semantic weight.
-    </p>
-    <p>
-      <strong>Forgetting image paths change.</strong> Markdown images use relative paths
-      differently than HTML, and a site reorganization during migration often breaks every image.
-      Rewrite image paths as part of the conversion, not after.
-    </p>
-    <p>
-      <strong>Ignoring whitespace inside code blocks.</strong> Leading tabs, trailing spaces, and
-      blank lines in code matter. Converters that trim whitespace aggressively will corrupt your
-      code samples.
-    </p>
-    <p>
-      <strong>Not handling HTML entities.</strong> Entities like <code>&amp;mdash;</code>,
-      <code>&amp;nbsp;</code>, and <code>&amp;#x2014;</code> should be decoded to their literal
-      characters during conversion unless they appear inside code blocks.
+      Dönüştürücü kalitesini kontrol etmenin en hızlı yolu, bir örneği HTML'den Markdown'a ve geri
+      dönüştürmektir. Gidiş-dönüşü değişmeden atlatan öğeler güvenlidir. Bozulan, niteliklerini
+      kaybeden veya yeniden yapılanan öğeler, elle veya özel kurallarla ele almanız gerekenlerdir.
+      Temsili bir örnek üzerinde çalıştırılan bir gidiş-dönüş farkı, taşıma işleminiz için somut
+      bir kapsama sayısı verir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Convert single files or whole batches with the{" "}
-      <a href="/tools/html-to-markdown">HTML to Markdown converter</a>. Pair with the{" "}
-      <a href="/tools/markdown-to-html">Markdown to HTML converter</a> for round-trip verification
-      that your output renders the same as your input, and the{" "}
-      <a href="/tools/html-formatter">HTML formatter</a> to tidy up the source before conversion
-      so the converter has a consistent input shape to work with.
+      <strong>Dönüşümün kayıpsız olduğunu varsaymak.</strong> Markdown, gerçek dünya HTML'sinin
+      belki yüzde altmışını temiz bir şekilde kapsar. Geri kalanı seçimler gerektirir. Taşıma
+      programınızda inceleme ve temizlik için plan yapın.
+    </p>
+    <p>
+      <strong>Tabloları sessizce atmak.</strong> Dönüştürücünüz karmaşık bir tabloyu borulu metin
+      paragraflarına dönüştürürse, yapıyı kaybedersiniz. Tablolar için ya HTML geçişini zorlayın
+      ya da manuel inceleme için işaretleyin.
+    </p>
+    <p>
+      <strong>Dekoratif sarmalayıcıları tutmak.</strong> Her <code>&lt;div&gt;</code> ve
+      <code>&lt;span&gt;</code> öğesini ham HTML geçişine dönüştürmek, Markdown'a geçmenin amacını
+      boşa çıkarır. Anlamsal ağırlık taşımayanları kaldırın.
+    </p>
+    <p>
+      <strong>Resim yollarının değiştiğini unutmak.</strong> Markdown resimleri, göreli yolları
+      HTML'den farklı kullanır ve taşıma sırasında bir site yeniden yapılanması genellikle her
+      resmi bozar. Resim yollarını dönüşümün bir parçası olarak yeniden yazın, sonradan değil.
+    </p>
+    <p>
+      <strong>Kod blokları içindeki boşlukları görmezden gelmek.</strong> Kodda baştaki sekmeler,
+      sondaki boşluklar ve boş satırlar önemlidir. Boşlukları agresif bir şekilde kırpan
+      dönüştürücüler, kod örneklerinizi bozacaktır.
+    </p>
+    <p>
+      <strong>HTML varlıklarını işlememek.</strong> <code>&amp;mdash;</code>,
+      <code>&amp;nbsp;</code> ve <code>&amp;#x2014;</code> gibi varlıklar, kod blokları içinde
+      olmadıkları sürece dönüşüm sırasında gerçek karakterlerine dönüştürülmelidir.
+    </p>
+
+    <h2>Rakamları çalıştırın</h2>
+    <p>
+      Tek dosyaları veya tüm grupları{" "}
+      <a href="/tools/html-to-markdown">HTML'den Markdown'a dönüştürücü</a> ile dönüştürün.
+      Çıktınızın girdinizle aynı şekilde işlendiğini doğrulamak için gidiş-dönüş{" "}
+      <a href="/tools/markdown-to-html">Markdown'dan HTML'ye dönüştürücü</a> ile eşleştirin ve
+      dönüştürücünün tutarlı bir girdi şekline sahip olması için dönüşümden önce kaynağı
+      düzenlemek üzere <a href="/tools/html-formatter">HTML biçimlendiriciyi</a> kullanın.
     </p>
   </>
 );

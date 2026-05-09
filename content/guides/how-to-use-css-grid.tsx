@@ -3,28 +3,16 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      CSS Grid is the first layout system in the browser that was actually
-      designed for two-dimensional layout. Rows and columns are first-class
-      citizens, track sizing has a dedicated unit (the <code>fr</code>), and you
-      can describe a whole page in about ten lines without a single wrapper div.
-      Grid is strictly more capable than flexbox for anything that needs to align
-      across both axes, but it&rsquo;s also more verbose for simple one-axis
-      jobs. This guide covers the properties you&rsquo;ll actually use, the
-      tricks (auto-fill, minmax, named areas) that make grid shine, and the rule
-      of thumb for when grid is the right tool.
+      CSS Grid, tarayıcıda iki boyutlu düzen için tasarlanmış ilk düzen sistemidir. Satırlar ve sütunlar birinci sınıf vatandaşlardır, iz boyutlandırması için özel bir birim (<code>fr</code>) vardır ve tek bir sarmalayıcı div olmadan yaklaşık on satırda tüm bir sayfayı tanımlayabilirsiniz. Grid, her iki eksende hizalama gerektiren her şey için flexbox'tan kesinlikle daha yeteneklidir, ancak basit tek eksenli işler için daha ayrıntılıdır. Bu kılavuz, gerçekten kullanacağınız özellikleri, grid'i parlak kılan püf noktalarını (auto-fill, minmax, adlandırılmış alanlar) ve grid'in doğru araç olduğu durumlar için temel kuralı kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The grid mental model</h2>
+    <h2>Grid zihinsel modeli</h2>
     <p>
-      A grid container defines <strong>tracks</strong> &mdash; rows and columns
-      &mdash; and grid items fall into cells at their intersections. You can
-      describe tracks explicitly (<code>grid-template-columns</code>) or let the
-      browser create them implicitly as items arrive. Everything else is: pick
-      which cells an item occupies.
+      Bir grid kabı, <strong>izleri</strong> (satırlar ve sütunlar) tanımlar ve grid öğeleri, kesişim noktalarındaki hücrelere yerleşir. İzleri açıkça tanımlayabilir (<code>grid-template-columns</code>) veya öğeler geldikçe tarayıcının bunları örtük olarak oluşturmasına izin verebilirsiniz. Geriye kalan her şey: bir öğenin hangi hücreleri kaplayacağını seçmektir.
     </p>
     <pre>{`.grid {
   display: grid;
@@ -32,85 +20,68 @@ export const body: ReactElement = (
   gap: 16px;
 }`}</pre>
     <p>
-      Three equal columns, 16px gap, done. No media queries, no wrappers.
+      Üç eşit sütun, 16px boşluk, bitti. Medya sorgusu yok, sarmalayıcı yok.
     </p>
 
-    <h2>The fr unit</h2>
+    <h2>fr birimi</h2>
     <p>
-      <code>fr</code> stands for &ldquo;fraction of remaining space.&rdquo; After
-      fixed-size tracks are allocated, the remaining space is divided among the
-      <code>fr</code> tracks in proportion.
+      <code>fr</code>, &ldquo;kalan alanın kesri&rdquo; anlamına gelir. Sabit boyutlu izler tahsis edildikten sonra, kalan alan <code>fr</code> izleri arasında orantılı olarak bölünür.
     </p>
     <pre>{`grid-template-columns: 200px 1fr 1fr;
-/* 200px sidebar, two equal flexible columns */
+/* 200px kenar çubuğu, iki eşit esnek sütun */
 
 grid-template-columns: 1fr 3fr;
-/* main column is 3x the sidebar */`}</pre>
+/* ana sütun, kenar çubuğunun 3 katı */`}</pre>
     <p>
-      <code>fr</code> is what makes grid feel fluid. Percentages also work but
-      don&rsquo;t account for gaps, so they often cause overflow. Prefer{" "}
-      <code>fr</code>.
+      <code>fr</code>, grid'in akışkan hissettirmesini sağlayan şeydir. Yüzdeler de çalışır ancak boşlukları hesaba katmaz, bu nedenle genellikle taşmaya neden olurlar. <code>fr</code>'yi tercih edin.
     </p>
 
-    <h2>grid-template-columns and grid-template-rows</h2>
+    <h2>grid-template-columns ve grid-template-rows</h2>
     <p>
-      Values can mix fixed sizes, fr units, <code>auto</code>, and functions:
+      Değerler sabit boyutları, fr birimlerini, <code>auto</code>'yu ve işlevleri karıştırabilir:
     </p>
-    <pre>{`grid-template-columns: 240px 1fr;        /* sidebar + main */
-grid-template-columns: repeat(4, 1fr);   /* four equal */
-grid-template-columns: 1fr 2fr 1fr;      /* weighted */
-grid-template-rows: auto 1fr auto;       /* header, main, footer */`}</pre>
+    <pre>{`grid-template-columns: 240px 1fr;        /* kenar çubuğu + ana */
+grid-template-columns: repeat(4, 1fr);   /* dört eşit */
+grid-template-columns: 1fr 2fr 1fr;      /* ağırlıklı */
+grid-template-rows: auto 1fr auto;       /* başlık, ana, altbilgi */`}</pre>
     <p>
-      <code>repeat(n, ...)</code> is syntactic sugar for repetitive tracks.{" "}
-      <code>auto</code> sizes to content. The classic &ldquo;sticky footer&rdquo;
-      layout is just <code>grid-template-rows: auto 1fr auto</code> on a body
-      with <code>min-height: 100vh</code>.
+      <code>repeat(n, ...)</code>, tekrarlayan izler için sözdizimsel şekerdir. <code>auto</code>, içeriğe göre boyutlandırır. Klasik &ldquo;sabit altbilgi&rdquo; düzeni, <code>min-height: 100vh</code> olan bir gövdede sadece <code>grid-template-rows: auto 1fr auto</code>'dur.
     </p>
 
-    <h2>minmax for responsive tracks</h2>
+    <h2>Duyarlı izler için minmax</h2>
     <p>
-      <code>minmax(a, b)</code> sets a minimum and a maximum size for a track.
-      It&rsquo;s how you keep columns from collapsing too small or stretching
-      too wide.
+      <code>minmax(a, b)</code>, bir iz için minimum ve maksimum boyut belirler. Sütunların çok küçülmesini veya çok genişlemesini bu şekilde engellersiniz.
     </p>
     <pre>{`grid-template-columns: repeat(3, minmax(200px, 1fr));
-/* three columns, each at least 200px */`}</pre>
+/* her biri en az 200px olan üç sütun */`}</pre>
 
-    <h2>auto-fill vs auto-fit</h2>
+    <h2>auto-fill ve auto-fit</h2>
     <p>
-      Combine <code>repeat</code> with <code>auto-fill</code> or{" "}
-      <code>auto-fit</code> to get cards that rewrap themselves as the viewport
-      changes &mdash; no breakpoints.
+      Görünüm alanı değiştikçe kendilerini yeniden saran kartlar elde etmek için <code>repeat</code>'i <code>auto-fill</code> veya <code>auto-fit</code> ile birleştirin &mdash; kesme noktaları gerekmez.
     </p>
-    <pre>{`/* auto-fill: empty columns are kept as invisible tracks */
+    <pre>{`/* auto-fill: boş sütunlar görünmez izler olarak korunur */
 grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 
-/* auto-fit: empty columns collapse, remaining items stretch */
+/* auto-fit: boş sütunlar daralır, kalan öğeler esner */
 grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));`}</pre>
     <p>
-      <strong>Rule of thumb:</strong> <code>auto-fit</code> if you want cards to
-      stretch to fill the row even when few; <code>auto-fill</code> if you want
-      them to stay a consistent size and leave empty space on the right.
+      <strong>Temel kural:</strong> Kartların az sayıda olsa bile satırı doldurmak için esnemesini istiyorsanız <code>auto-fit</code>; tutarlı bir boyutta kalmalarını ve sağda boşluk bırakmalarını istiyorsanız <code>auto-fill</code>.
     </p>
 
-    <h2>grid-column and grid-row on items</h2>
+    <h2>Öğelerde grid-column ve grid-row</h2>
     <p>
-      Place an item across multiple tracks with <code>grid-column</code> or{" "}
-      <code>grid-row</code>:
+      Bir öğeyi <code>grid-column</code> veya <code>grid-row</code> ile birden çok iz boyunca yerleştirin:
     </p>
-    <pre>{`.hero  { grid-column: 1 / -1; }          /* full width */
-.card  { grid-column: span 2; }          /* two columns wide */
+    <pre>{`.hero  { grid-column: 1 / -1; }          /* tam genişlik */
+.card  { grid-column: span 2; }          /* iki sütun genişliğinde */
 .photo { grid-row: 1 / 3; grid-column: 2 / 4; }`}</pre>
     <p>
-      Line numbers are 1-based. <code>-1</code> means the last line. The{" "}
-      <code>span N</code> shorthand says &ldquo;start wherever I land, take N
-      tracks.&rdquo;
+      Satır numaraları 1 tabanlıdır. <code>-1</code> son satır anlamına gelir. <code>span N</code> kısa yazımı &ldquo;neredeysem oradan başla, N tane iz al&rdquo; der.
     </p>
 
-    <h2>Named grid areas</h2>
+    <h2>Adlandırılmış grid alanları</h2>
     <p>
-      For page-level layouts, <code>grid-template-areas</code> is the most
-      readable option &mdash; you literally draw the layout in ASCII.
+      Sayfa düzeyindeki düzenler için <code>grid-template-areas</code> en okunabilir seçenektir &mdash; düzeni kelimenin tam anlamıyla ASCII olarak çizersiniz.
     </p>
     <pre>{`.page {
   display: grid;
@@ -127,68 +98,54 @@ aside   { grid-area: sidebar; }
 main    { grid-area: main; }
 footer  { grid-area: footer; }`}</pre>
     <p>
-      Changing the layout on mobile becomes a matter of rewriting the template
-      inside a media query &mdash; no DOM restructuring required.
+      Mobilde düzeni değiştirmek, bir medya sorgusu içinde şablonu yeniden yazmak meselesi haline gelir &mdash; DOM yeniden yapılandırması gerekmez.
     </p>
 
-    <h2>Responsive grids without media queries</h2>
+    <h2>Medya sorgusu olmadan duyarlı grid'ler</h2>
     <pre>{`.cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 16px;
 }`}</pre>
     <p>
-      Ten cards? Four rows of three plus a row of two at desktop, two columns
-      at tablet, one column on phone. All from one rule. This pattern alone
-      replaces most of the grid-system CSS that frameworks used to ship.
+      On kart mı? Masaüstünde üçlü dört sıra artı bir ikili sıra, tablette iki sütun, telefonda tek sütun. Hepsi tek bir kuraldan. Bu desen tek başına, çerçevelerin eskiden gönderdiği grid sistemi CSS'inin çoğunun yerini alır.
     </p>
 
-    <h2>Grid items alignment</h2>
+    <h2>Grid öğeleri hizalama</h2>
     <p>
-      Grid has two layers of alignment: the container aligns tracks
-      (<code>justify-content</code>, <code>align-content</code>), and each cell
-      aligns its content (<code>justify-items</code>, <code>align-items</code>,
-      or per-item <code>justify-self</code>, <code>align-self</code>).
+      Grid'in iki hizalama katmanı vardır: kap, izleri hizalar (<code>justify-content</code>, <code>align-content</code>) ve her hücre, içeriğini hizalar (<code>justify-items</code>, <code>align-items</code> veya öğe başına <code>justify-self</code>, <code>align-self</code>).
     </p>
     <pre>{`.grid {
-  justify-content: center;   /* tracks themselves centered */
-  align-items: center;       /* item content centered in its cell */
+  justify-content: center;   /* izlerin kendileri ortalanır */
+  align-items: center;       /* öğe içeriği hücresinde ortalanır */
 }`}</pre>
     <p>
-      Same keywords as flexbox, same mental model &mdash; just applied to grid
-      cells rather than a flex line.
+      Flexbox ile aynı anahtar kelimeler, aynı zihinsel model &mdash; sadece bir flex satırı yerine grid hücrelerine uygulanır.
     </p>
 
-    <h2>Grid vs Flexbox</h2>
+    <h2>Grid ve Flexbox</h2>
     <p>
-      <strong>One axis? Flexbox.</strong> Nav bars, toolbars, sidebars of stacked
-      items. The browser decides where items wrap.
+      <strong>Tek eksen mi? Flexbox.</strong> Navigasyon çubukları, araç çubukları, yığılmış öğelerin kenar çubukları. Tarayıcı, öğelerin nerede sarılacağına karar verir.
     </p>
     <p>
-      <strong>Two axes that must line up? Grid.</strong> Dashboards, photo
-      galleries with aligned rows, full-page layouts. You decide the tracks.
+      <strong>Hizalanması gereken iki eksen mi? Grid.</strong> Panolar, hizalanmış satırlara sahip fotoğraf galerileri, tam sayfa düzenleri. İzlere siz karar verirsiniz.
     </p>
     <p>
-      They nest happily &mdash; grid for the shell, flex inside each cell. Don&rsquo;t
-      pick one as your religion.
+      Mutlu bir şekilde iç içe geçerler &mdash; kabuk için grid, her hücrenin içinde flex. Birini dininiz olarak seçmeyin.
     </p>
 
-    <h2>Gaps and alignment</h2>
+    <h2>Boşluklar ve hizalama</h2>
     <p>
-      <code>gap</code> (formerly <code>grid-gap</code>) sets spacing between
-      tracks. Always use it &mdash; it handles wrapping correctly and avoids the
-      trailing-item margin problem.
+      <code>gap</code> (eski adıyla <code>grid-gap</code>) izler arasındaki boşluğu ayarlar. Her zaman kullanın &mdash; sarmayı doğru şekilde işler ve sondaki öğe kenar boşluğu sorununu önler.
     </p>
     <pre>{`.grid {
-  gap: 16px;        /* same for rows and columns */
-  gap: 24px 16px;   /* 24px row-gap, 16px column-gap */
+  gap: 16px;        /* satırlar ve sütunlar için aynı */
+  gap: 24px 16px;   /* 24px satır boşluğu, 16px sütun boşluğu */
 }`}</pre>
 
-    <h2>Implicit tracks</h2>
+    <h2>Örtük izler</h2>
     <p>
-      If items run out of explicit tracks, the grid creates new ones
-      automatically. Control their size with <code>grid-auto-rows</code> and{" "}
-      <code>grid-auto-columns</code>.
+      Öğeler açık izlerin dışına çıkarsa, grid otomatik olarak yenilerini oluşturur. Boyutlarını <code>grid-auto-rows</code> ve <code>grid-auto-columns</code> ile kontrol edin.
     </p>
     <pre>{`.gallery {
   display: grid;
@@ -196,47 +153,30 @@ footer  { grid-area: footer; }`}</pre>
   grid-auto-rows: 200px;
 }`}</pre>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Using percentages instead of fr.</strong> <code>33.33%</code>{" "}
-      doesn&rsquo;t account for gaps and causes overflow. <code>1fr</code>{" "}
-      does the math correctly.
+      <strong>fr yerine yüzde kullanmak.</strong> <code>33.33%</code> boşlukları hesaba katmaz ve taşmaya neden olur. <code>1fr</code> matematiği doğru yapar.
     </p>
     <p>
-      <strong>Reaching for flex when rows need to align.</strong> If two cards in
-      the same row have different heights and you want them equal, grid is the
-      cleaner answer.
+      <strong>Satırların hizalanması gerektiğinde flex'e yönelmek.</strong> Aynı satırdaki iki kartın farklı yükseklikleri varsa ve eşit olmalarını istiyorsanız, grid daha temiz bir cevaptır.
     </p>
     <p>
-      <strong>Forgetting to set min-width: 0 on items with overflow.</strong>{" "}
-      Grid items default to <code>min-width: auto</code> and can refuse to
-      shrink below their content width. Set <code>min-width: 0</code> if a long
-      word is breaking your layout.
+      <strong>Taşan öğelerde min-width: 0 ayarlamayı unutmak.</strong> Grid öğeleri varsayılan olarak <code>min-width: auto</code> değerine sahiptir ve içerik genişliklerinin altına küçülmeyi reddedebilir. Uzun bir kelime düzeninizi bozuyorsa <code>min-width: 0</code> ayarlayın.
     </p>
     <p>
-      <strong>Hard-coding breakpoints that <code>auto-fit</code> would handle.</strong>{" "}
-      <code>repeat(auto-fit, minmax(X, 1fr))</code> replaces a lot of media
-      queries.
+      <strong><code>auto-fit</code>'in halledebileceği kesme noktalarını sabit kodlamak.</strong> <code>repeat(auto-fit, minmax(X, 1fr))</code> birçok medya sorgusunun yerini alır.
     </p>
     <p>
-      <strong>Confusing auto-fit and auto-fill.</strong> They behave identically
-      until there are fewer items than tracks. Then <code>auto-fit</code>{" "}
-      stretches items to fill; <code>auto-fill</code> leaves gaps.
+      <strong>auto-fit ve auto-fill'i karıştırmak.</strong> İzlerden daha az öğe olana kadar aynı şekilde davranırlar. Ardından <code>auto-fit</code> öğeleri doldurmak için esnetir; <code>auto-fill</code> boşluklar bırakır.
     </p>
     <p>
-      <strong>Naming every grid line.</strong> Start simple; only name lines
-      once the layout gets complex enough to benefit.
+      <strong>Her grid satırını adlandırmak.</strong> Basit başlayın; satırları yalnızca düzen fayda sağlayacak kadar karmaşık hale geldiğinde adlandırın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Scaffold a grid visually with the{" "}
-      <a href="/tools/grid-layout-generator">grid layout generator</a>. For
-      one-dimensional rows inside each grid cell, drop into the{" "}
-      <a href="/tools/flexbox-playground">flexbox playground</a>, and round off
-      your card corners with the{" "}
-      <a href="/tools/border-radius-generator">border radius generator</a> so
-      the grid reads as one cohesive surface.
+      Bir grid'i görsel olarak <a href="/tools/grid-layout-generator">grid düzen oluşturucu</a> ile iskeleye oturtun. Her grid hücresinin içindeki tek boyutlu satırlar için <a href="/tools/flexbox-playground">flexbox oyun alanına</a> geçin ve grid'in tek bir uyumlu yüzey olarak okunması için kart köşelerinizi <a href="/tools/border-radius-generator">kenar yuvarlatma oluşturucu</a> ile yuvarlayın.
     </p>
   </>
 );
+===END FILE===

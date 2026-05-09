@@ -1,33 +1,36 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>Promptfoo is a CLI that treats prompts like code &mdash; YAML tests, assertions, diffs, and CI-friendly output.</p>);
+export const intro: ReactElement = (<p>Promptfoo, prompt'ları kod gibi ele alan bir CLI aracıdır &mdash; YAML testleri, iddialar, farklar ve CI dostu çıktı.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>Promptfoo is what unit tests look like for LLMs. You declare prompts, test cases, and assertions in a YAML file, run <code>promptfoo eval</code>, and get a side-by-side grid of outputs with pass/fail scoring. It plugs into CI, supports red-teaming, and speaks nearly every model provider natively.</p>
-    <h2>What it is</h2>
-    <p>A Node.js CLI and web viewer. It loads a config, fans out requests across providers and prompt variants, runs deterministic (contains, regex, equals) and model-graded (llm-rubric, similar) assertions, and writes results to a local SQLite database. The viewer renders diffs and lets you share results.</p>
-    <h2>Install / set up</h2>
-    <pre>{`# global install
+    <p>Promptfoo, LLM'ler için birim testlerinin nasıl göründüğüdür. Bir YAML dosyasında prompt'lar, test senaryoları ve iddialar tanımlar, <code>promptfoo eval</code> komutunu çalıştırır ve geçer/kalır puanlamasıyla yan yana bir çıktı ızgarası elde edersiniz. CI'ya entegre olur, kırmızı takım çalışmalarını destekler ve neredeyse tüm model sağlayıcılarıyla yerel olarak konuşur.</p>
+    <h2>Nedir</h2>
+    <p>Bir Node.js CLI ve web görüntüleyicisi. Bir yapılandırma yükler, sağlayıcılar ve prompt varyantları arasında istekleri dağıtır, deterministik (içerir, regex, eşittir) ve model dereceli (llm-rubric, benzer) iddiaları çalıştırır ve sonuçları yerel bir SQLite veritabanına yazar. Görüntüleyici farkları gösterir ve sonuçları paylaşmanıza olanak tanır.</p>
+    <h2>Kurulum / ayarlama</h2>
+    <pre>{`# global kurulum
 npm install -g promptfoo
 promptfoo init
 export OPENAI_API_KEY=sk-...`}</pre>
-    <h2>First run</h2>
-    <p><code>promptfoo init</code> creates a <code>promptfooconfig.yaml</code> with a sample prompt and two test cases. Run <code>promptfoo eval</code> and it executes every combination of prompts, providers, and tests, then opens a browser view of the results grid.</p>
+    <h2>İlk çalıştırma</h2>
+    <p><code>promptfoo init</code>, örnek bir prompt ve iki test senaryosu içeren bir <code>promptfooconfig.yaml</code> dosyası oluşturur. <code>promptfoo eval</code> komutunu çalıştırın; prompt'ların, sağlayıcıların ve testlerin her kombinasyonunu yürütür ve ardından sonuç ızgarasının bir tarayıcı görünümünü açar.</p>
     <pre>{`$ promptfoo eval
-[==================] 8/8 complete
+[
+
+
+] 8/8 tamamlandı
 $ promptfoo view
-Open http://localhost:15500`}</pre>
-    <h2>Everyday workflows</h2>
+http://localhost:15500 adresini aç`}</pre>
+    <h2>Günlük iş akışları</h2>
     <ul>
-      <li>Compare GPT-4o, Claude, and a local Llama on the same test set to pick the cheapest model that still passes.</li>
-      <li>Gate pull requests with <code>promptfoo eval --assert</code> in CI so prompt regressions never ship.</li>
-      <li>Run <code>promptfoo redteam</code> to generate adversarial inputs (jailbreaks, PII leaks, prompt injection) against your app.</li>
+      <li>Hala geçen en ucuz modeli seçmek için aynı test setinde GPT-4o, Claude ve yerel bir Llama'yı karşılaştırın.</li>
+      <li>Prompt regresyonlarının asla yayınlanmaması için CI'da <code>promptfoo eval --assert</code> ile pull request'leri engelleyin.</li>
+      <li>Uygulamanıza karşı düşmanca girdiler (jailbreak'ler, PII sızıntıları, prompt enjeksiyonu) oluşturmak için <code>promptfoo redteam</code> komutunu çalıştırın.</li>
     </ul>
-    <h2>Gotchas and tips</h2>
-    <p>Model-graded assertions use an <a href="/learn/llm">LLM</a> to grade outputs, which means cost doubles per test and the grader itself can be wrong. Pin the grader to a strong model (<code>gpt-4o</code> or <code>claude-3-5-sonnet</code>), cache aggressively with <code>--no-cache=false</code>, and spot-check failures manually for the first few runs.</p>
-    <p>Config files grow fast. Split tests into separate YAMLs and include them with <code>tests: file://tests/*.yaml</code>, and store expensive fixtures in <code>vars</code> files so you&rsquo;re not pasting 500-line prompts into the main config. Commit the SQLite database to keep a history if you don&rsquo;t have a shared backend.</p>
-    <h2>Who it&rsquo;s for</h2>
-    <p>Engineers who treat prompts as production code and want a Jest-style workflow for them. Also security teams running <a href="/learn/red-team">red-team</a> exercises &mdash; the built-in attack library is genuinely useful and saves weeks of manual work.</p>
+    <h2>Dikkat edilmesi gerekenler ve ipuçları</h2>
+    <p>Model dereceli iddialar, çıktıları derecelendirmek için bir <a href="/learn/llm">LLM</a> kullanır; bu, test başına maliyetin iki katına çıkması ve derecelendiricinin kendisinin yanlış olabilmesi anlamına gelir. Derecelendiriciyi güçlü bir modele (<code>gpt-4o</code> veya <code>claude-3-5-sonnet</code>) sabitleyin, <code>--no-cache=false</code> ile agresif bir şekilde önbelleğe alın ve ilk birkaç çalıştırmada başarısızlıkları manuel olarak kontrol edin.</p>
+    <p>Yapılandırma dosyaları hızla büyür. Testleri ayrı YAML dosyalarına bölün ve <code>tests: file://tests/*.yaml</code> ile dahil edin; pahalı sabitleri <code>vars</code> dosyalarında saklayın, böylece ana yapılandırmaya 500 satırlık prompt'lar yapıştırmazsınız. Paylaşılan bir arka uç yoksa geçmişi korumak için SQLite veritabanını kaydedin.</p>
+    <h2>Kimler için</h2>
+    <p>Prompt'ları üretim kodu olarak ele alan ve onlar için Jest tarzı bir iş akışı isteyen mühendisler. Ayrıca <a href="/learn/red-team">kırmızı takım</a> alıştırmaları yapan güvenlik ekipleri &mdash; yerleşik saldırı kütüphanesi gerçekten kullanışlıdır ve haftalarca süren manuel çalışmayı kurtarır.</p>
   </>
 );

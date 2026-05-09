@@ -1,120 +1,73 @@
 export const intro = (
   <>
     <p>
-      Splitting expenses with roommates, partners, or travel groups is one of those small friction
-      points that quietly damages relationships. The math is easy. The emotional accounting is
-      hard: who paid last time, who uses the Wi-Fi more, who drinks all the milk. A clear system
-      prevents the quiet resentment that builds when every shared cost feels like a negotiation.
+      Oda arkadaşları, partnerler veya seyahat gruplarıyla masrafları bölüşmek, ilişkilere sessizce zarar veren küçük sürtüşme noktalarından biridir. Matematik kolaydır. Duygusal muhasebe zordur: en son kim ödedi, Wi-Fi'yi kim daha çok kullanıyor, sütün hepsini kim içiyor. Net bir sistem, her ortak maliyet bir pazarlık gibi hissettirdiğinde biriken sessiz kırgınlığı önler.
     </p>
     <p>
-      This guide covers the three common ways to split expenses, how to pick the right one for
-      your situation, and the small conventions that keep the whole thing low-drama over months
-      and years.
+      Bu rehber, masrafları bölüşmenin üç yaygın yolunu, durumunuza uygun olanı nasıl seçeceğinizi ve aylar ve yıllar boyunca her şeyi düşük dramalı tutan küçük kuralları kapsar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>The three splitting methods</h2>
+    <h2>Üç bölüşme yöntemi</h2>
     <p>
-      <strong>Equal split</strong> — everyone pays the same amount. Simple, fast, fair when
-      incomes and usage are similar. <strong>Proportional split</strong> — everyone pays in
-      proportion to income. Fair when one partner earns significantly more. <strong>Itemized
-      split</strong> — track each expense and split based on who benefits. Most accurate; most
-      work to maintain.
+      <strong>Eşit bölüşme</strong> — herkes aynı miktarı öder. Gelirler ve kullanım benzer olduğunda basit, hızlı ve adildir. <strong>Oransal bölüşme</strong> — herkes geliriyle orantılı olarak öder. Bir partner önemli ölçüde daha fazla kazandığında adildir. <strong>Kalem kalem bölüşme</strong> — her masrafı takip edin ve kimin yararlandığına göre bölüşün. En doğru; sürdürmesi en çok iş gerektiren.
     </p>
 
-    <h2>When to use each</h2>
+    <h2>Her birini ne zaman kullanmalı</h2>
     <p>
-      Equal works for short trips and flatmates with similar incomes. Proportional works for
-      couples and partners with big income gaps — it stops the higher earner from feeling
-      resentful about carrying everything, and the lower earner from feeling excluded from
-      shared decisions about spend. Itemized works for housemates with different lifestyles —
-      the couple uses more electricity than the single person in the corner room, so flat-splitting
-      the utility bill isn&rsquo;t actually fair.
+      Eşit bölüşme, kısa geziler ve benzer gelirli ev arkadaşları için işe yarar. Oransal bölüşme, büyük gelir farkı olan çiftler ve partnerler için işe yarar — yüksek kazananın her şeyi üstlenmekten kırgın hissetmesini ve düşük kazananın harcamalarla ilgili ortak kararlardan dışlanmış hissetmesini engeller. Kalem kalem bölüşme, farklı yaşam tarzlarına sahip ev arkadaşları için işe yarar — çift, köşe odadaki bekar kişiden daha fazla elektrik kullanır, bu nedenle faturayı eşit bölüşmek aslında adil değildir.
     </p>
 
-    <h2>Use an expense calculator, not a spreadsheet</h2>
+    <h2>Bir hesap makinesi kullanın, elektronik tablo değil</h2>
     <p>
-      Spreadsheets decay. Someone forgets to update it, someone else edits a formula by accident,
-      and three months later nobody trusts the numbers. Use a purpose-built tool: our{" "}
-      <a href="/tools/expense-split-calculator">expense split calculator</a> handles any number
-      of people and any split method, and there&rsquo;s also a{" "}
-      <a href="/tools/bill-split-calculator">bill split calculator</a> for restaurant tabs where
-      people ordered different amounts.
+      Elektronik tablolar bozulur. Birisi güncellemeyi unutur, bir başkası yanlışlıkla bir formülü düzenler ve üç ay sonra kimse rakamlara güvenmez. Amaca yönelik bir araç kullanın: <a href="/tools/expense-split-calculator">masraf bölüşme hesaplayıcımız</a> herhangi bir sayıda kişiyi ve herhangi bir bölüşme yöntemini işler ve ayrıca insanların farklı miktarlarda sipariş verdiği restoran hesapları için bir <a href="/tools/bill-split-calculator">fatura bölüşme hesaplayıcısı</a> da vardır.
     </p>
 
-    <h2>Pick a settle-up cadence</h2>
+    <h2>Bir ödeme takvimi belirleyin</h2>
     <p>
-      Don&rsquo;t settle every transaction. Settle once a month (for housemates) or once per
-      trip (for travel). Everyone logs expenses as they happen; you reconcile in one batch. Fewer
-      payments, less mental load. Most settlement apps do the math automatically — whoever paid
-      out most gets money back from everyone else in one transfer.
+      Her işlemi ödemeyin. Ayda bir (ev arkadaşları için) veya seyahat başına bir (geziler için) ödeyin. Herkes masrafları olduğu gibi kaydeder; tek seferde mutabakat sağlarsınız. Daha az ödeme, daha az zihinsel yük. Çoğu ödeme uygulaması matematiği otomatik olarak yapar — en çok ödeyen kişi, herkesten tek bir transferde parasını geri alır.
     </p>
 
-    <h2>Rent splits deserve their own conversation</h2>
+    <h2>Kira bölüşmeleri kendi konuşmalarını hak eder</h2>
     <p>
-      Equal rent splits are common but often unfair. A bigger room is worth more. A room with a
-      private bathroom is worth more. A room with no window is worth less. Before the lease is
-      signed, have the conversation: walk through the place, agree on who takes which room and
-      what each room is &ldquo;worth&rdquo; as a percentage of total rent. Use our{" "}
-      <a href="/tools/rent-split-calculator">rent split calculator</a> to turn those percentages
-      into actual dollar amounts.
+      Eşit kira bölüşmeleri yaygındır ancak genellikle adil değildir. Daha büyük bir oda daha değerlidir. Özel banyolu bir oda daha değerlidir. Penceresiz bir oda daha az değerlidir. Kira sözleşmesi imzalanmadan önce konuşmayı yapın: yeri dolaşın, kimin hangi odayı alacağı ve her odanın toplam kiranın yüzde kaçına "değer" olduğu konusunda anlaşın. Bu yüzdeleri gerçek dolar miktarlarına dönüştürmek için <a href="/tools/rent-split-calculator">kira bölüşme hesaplayıcımızı</a> kullanın.
     </p>
 
-    <h2>Separate the fixed from the variable</h2>
+    <h2>Sabit olanı değişkenden ayırın</h2>
     <p>
-      Rent, internet, <a href="/learn/stream">streaming</a> subscriptions — these are fixed. Everyone splits them the same
-      way every month. Groceries, takeout, uber rides — these are variable. Decide in advance
-      whether variable costs are a common pot (everyone pays in equally, everyone eats equally)
-      or tracked individually. Mixing the two is where most fights start.
+      Kira, internet, <a href="/learn/stream">yayın</a> abonelikleri — bunlar sabittir. Herkes bunları her ay aynı şekilde böler. Bakkaliye, paket servis, Uber yolculukları — bunlar değişkendir. Değişken maliyetlerin ortak bir havuz mu (herkes eşit öder, herkes eşit yer) yoksa bireysel olarak mı takip edileceğine önceden karar verin. İkisini karıştırmak çoğu kavganın başladığı yerdir.
     </p>
 
-    <h2>Label the purpose of every transfer</h2>
+    <h2>Her transferin amacını etiketleyin</h2>
     <p>
-      When you settle up, put the reason in the transfer memo: &ldquo;April utilities,&rdquo;
-      &ldquo;Lisbon trip flights,&rdquo; &ldquo;Groceries week 2.&rdquo; Nobody remembers three
-      months later why they sent $142. A clear label is a month of future-you peace of mind.
+      Ödeme yaparken, transfer açıklamasına nedeni yazın: "Nisan faturaları", "Lizbon gezisi uçak biletleri", "2. hafta bakkaliye." Kimse üç ay sonra neden 142 TL gönderdiğini hatırlamaz. Net bir etiket, gelecekteki sizin için bir aylık huzurdur.
     </p>
 
-    <h2>Couples: separate + joint accounts</h2>
+    <h2>Çiftler: ayrı + ortak hesaplar</h2>
     <p>
-      The best-performing system for most couples: two individual accounts (your own money,
-      your own discretionary spending) plus one joint account for shared expenses. Each partner
-      transfers an agreed amount into the joint account each month — either equal or
-      proportional to income. Household bills pull from the joint account. Resentment about
-      who bought whose coffee disappears, because nobody&rsquo;s tracking it.
+      Çoğu çift için en iyi performans gösteren sistem: iki bireysel hesap (kendi paranız, kendi isteğe bağlı harcamalarınız) artı ortak masraflar için bir ortak hesap. Her partner, her ay ortak hesaba anlaşılan bir miktar aktarır — eşit veya gelirle orantılı. Ev faturaları ortak hesaptan ödenir. Kimin kimin kahvesini aldığına dair kırgınlık kaybolur, çünkü kimse bunu takip etmiyordur.
     </p>
 
-    <h2>Handle irregular costs with a buffer</h2>
+    <h2>Düzensiz maliyetleri bir tamponla yönetin</h2>
     <p>
-      Car repair, vet bills, appliance replacement — these blow up a simple split. Put an extra
-      5–10% into the shared pot every month as a buffer. When the washing machine dies,
-      it&rsquo;s already partially funded. If nothing breaks, roll it to next year.
+      Araba tamiri, veteriner faturaları, beyaz eşya değişimi — bunlar basit bir bölüşmeyi bozar. Her ay ortak havuza ekstra %5-10 tampon koyun. Çamaşır makinesi bozulduğunda, kısmen finanse edilmiş olur. Hiçbir şey bozulmazsa, gelecek yıla devredin.
     </p>
 
-    <h2>Talk about it once, in writing</h2>
+    <h2>Bir kez, yazılı olarak konuşun</h2>
     <p>
-      The biggest single move: a 20-minute conversation at the start of any shared living or
-      travel arrangement. What&rsquo;s shared, what&rsquo;s not, how we split, how often we
-      settle. Write it in a shared note. Any time something feels off, point at the note
-      instead of each other.
+      En büyük tek hamle: herhangi bir ortak yaşam veya seyahat düzenlemesinin başında 20 dakikalık bir konuşma. Ne paylaşılıyor, ne paylaşılmıyor, nasıl bölüşüyoruz, ne sıklıkla ödüyoruz. Ortak bir nota yazın. Bir şey ters geldiğinde, birbirinizi değil notu işaret edin.
     </p>
 
-    <h2>Review every six months</h2>
+    <h2>Altı ayda bir gözden geçirin</h2>
     <p>
-      Circumstances change. Someone gets a raise. Someone else goes back to school. The split
-      that was fair in January might not be fair in July. A short review, twice a year, keeps
-      the system in sync with reality — and prevents the year-long slow build of resentment that
-      ends friendships and relationships.
+      Koşullar değişir. Birisi zam alır. Bir başkası okula geri döner. Ocak ayında adil olan bölüşme Temmuz ayında adil olmayabilir. Yılda iki kez kısa bir gözden geçirme, sistemi gerçeklikle uyumlu tutar — ve arkadaşlıkları ve ilişkileri bitiren yıl boyu süren yavaş kırgınlık birikimini önler.
     </p>
 
     <p>
-      Related: <a href="/guides/how-to-make-a-monthly-budget">how to make a monthly budget</a>,{" "}
-      <a href="/guides/how-to-live-below-your-means">how to live below your means</a>, and{" "}
-      <a href="/guides/how-to-save-money-fast">how to save money fast</a> to stretch shared
-      budgets further.
+      İlgili: <a href="/guides/how-to-make-a-monthly-budget">aylık bütçe nasıl yapılır</a>, <a href="/guides/how-to-live-below-your-means">imkanlarının altında nasıl yaşanır</a> ve ortak bütçeleri daha da genişletmek için <a href="/guides/how-to-save-money-fast">hızlı para biriktirme yöntemleri</a>.
     </p>
   </>
 );

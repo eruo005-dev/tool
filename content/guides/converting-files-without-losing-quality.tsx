@@ -3,255 +3,256 @@
 export const intro = (
   <>
     <p>
-      &ldquo;Why does my file look worse after converting?&rdquo; is the
-      universal frustration. The good news: most quality loss is preventable
-      once you understand which conversion steps are lossy and which aren&rsquo;t.
-      This guide is the practical breakdown — what each conversion type does to
-      your file, when quality loss is inevitable, and how to minimize it.
+      &ldquo;Dosyam neden dönüştürdükten sonra daha kötü görünüyor?&rdquo; evrensel
+      bir hayal kırıklığıdır. İyi haber: hangi dönüştürme adımlarının kayıplı,
+      hangilerinin kayıpsız olduğunu anladığınızda çoğu kalite kaybı önlenebilir.
+      Bu rehber pratik bir dökümdür — her dönüştürme türünün dosyanıza ne yaptığı,
+      kalite kaybının kaçınılmaz olduğu durumlar ve bunu nasıl en aza indireceğiniz.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "lossy-vs-lossless", label: "Lossy vs lossless conversions" },
-  { id: "image-quality", label: "Preserving image quality" },
-  { id: "metadata", label: "Keeping metadata across conversions" },
-  { id: "compression", label: "Does compression affect conversion?" },
-  { id: "multi-stage", label: "Multi-stage conversion damage" },
-  { id: "structure", label: "Preserving structure (tables, lists)" },
+  { id: "lossy-vs-lossless", label: "Kayıplı ve kayıpsız dönüştürmeler" },
+  { id: "image-quality", label: "Görüntü kalitesini koruma" },
+  { id: "metadata", label: "Meta verileri dönüştürmeler arasında saklama" },
+  { id: "compression", label: "Sıkıştırma dönüştürmeyi etkiler mi?" },
+  { id: "multi-stage", label: "Çok aşamalı dönüştürme hasarı" },
+  { id: "structure", label: "Yapıyı koruma (tablolar, listeler)" },
 ];
 
 export const body = (
   <>
-    <h2 id="lossy-vs-lossless">Lossy vs lossless: the most important distinction</h2>
+    <h2 id="lossy-vs-lossless">Kayıplı ve kayıpsız: en önemli ayrım</h2>
     <p>
-      Every conversion is one of two types:
+      Her dönüştürme iki türden biridir:
     </p>
     <ul>
       <li>
-        <strong>Lossless:</strong> the original can be perfectly reconstructed
-        from the output. Examples: PNG to BMP, WAV to FLAC, plain text to plain
-        text. No quality concern; convert freely.
+        <strong>Kayıpsız:</strong> orijinal, çıktıdan mükemmel bir şekilde yeniden
+        oluşturulabilir. Örnekler: PNG'den BMP'ye, WAV'dan FLAC'a, düz metinden düz
+        metine. Kalite sorunu yok; özgürce dönüştürebilirsiniz.
       </li>
       <li>
-        <strong>Lossy:</strong> some information is permanently discarded.
-        Examples: PNG to JPG, WAV to MP3, complex PDF to plain text. Quality
-        degrades; only convert when you accept the loss.
+        <strong>Kayıplı:</strong> bazı bilgiler kalıcı olarak atılır.
+        Örnekler: PNG'den JPG'ye, WAV'dan MP3'e, karmaşık PDF'den düz metine. Kalite
+        düşer; yalnızca kaybı kabul ettiğinizde dönüştürün.
       </li>
     </ul>
     <p>
-      The trap: many lossy conversions LOOK lossless at default settings.
-      Converting a PNG to JPG at 100% quality still throws away color
-      information you can&rsquo;t see — but a third converter that re-saves
-      the same JPG will compound the loss. Quality degrades incrementally
-      with each save.
+      Tuzak: birçok kayıplı dönüştürme, varsayılan ayarlarda KAYIPSIZ gibi görünür.
+      Bir PNG'yi %100 kalitede JPG'ye dönüştürmek yine de göremediğiniz renk
+      bilgilerini atar — ancak aynı JPG'yi yeniden kaydeden üçüncü bir dönüştürücü
+      kaybı katlayacaktır. Kalite, her kaydetmeyle kademeli olarak düşer.
     </p>
 
-    <h2 id="image-quality">Preserving image quality during conversion</h2>
+    <h2 id="image-quality">Dönüştürme sırasında görüntü kalitesini koruma</h2>
     <p>
-      The hierarchy of image format quality:
+      Görüntü formatı kalite hiyerarşisi:
     </p>
     <ul>
       <li>
-        <strong>Lossless formats (no quality loss):</strong> PNG, BMP, TIFF,
-        WebP-lossless, AVIF-lossless. Use for screenshots, illustrations, line
-        art, anything with sharp edges.
+        <strong>Kayıpsız formatlar (kalite kaybı yok):</strong> PNG, BMP, TIFF,
+        WebP-kayıpsız, AVIF-kayıpsız. Ekran görüntüleri, illüstrasyonlar, çizgi
+        sanatı, keskin kenarlı her şey için kullanın.
       </li>
       <li>
-        <strong>Lossy formats:</strong> JPG (oldest), WebP-lossy, AVIF-lossy,
-        HEIC. Better compression for photos. Quality settings 85–95% are
-        usually visually indistinguishable from the source.
+        <strong>Kayıplı formatlar:</strong> JPG (en eski), WebP-kayıplı, AVIF-kayıplı,
+        HEIC. Fotoğraflar için daha iyi sıkıştırma. %85–95 kalite ayarları genellikle
+        kaynaktan görsel olarak ayırt edilemez.
       </li>
       <li>
-        <strong>Vector:</strong> SVG, PDF (sometimes). Infinite resolution.
-        Use for logos, icons, anything you need to scale.
+        <strong>Vektör:</strong> SVG, PDF (bazen). Sonsuz çözünürlük.
+        Logolar, simgeler, ölçeklemeniz gereken her şey için kullanın.
       </li>
     </ul>
     <p>
-      The conversion rules:
+      Dönüştürme kuralları:
     </p>
     <ul>
       <li>
-        <strong>Lossless ↔ lossless:</strong> safe. PNG ↔ BMP ↔ TIFF: no quality
-        change, just file size differences.
+        <strong>Kayıpsız ↔ kayıpsız:</strong> güvenli. PNG ↔ BMP ↔ TIFF: kalite
+        değişmez, yalnızca dosya boyutu farklılıkları.
       </li>
       <li>
-        <strong>Lossless → lossy:</strong> quality loss baked in. PNG → JPG at
-        90% is fine for one save. PNG → JPG → re-save → re-save accumulates
-        artifacts.
+        <strong>Kayıpsız → kayıplı:</strong> kalite kaybı kalıcıdır. PNG → %90
+        JPG tek kayıt için iyidir. PNG → JPG → yeniden kaydet → yeniden kaydet
+        artefaktları biriktirir.
       </li>
       <li>
-        <strong>Lossy → lossless:</strong> file gets bigger but you don&rsquo;t
-        recover quality. JPG → PNG keeps the JPG artifacts forever.
+        <strong>Kayıplı → kayıpsız:</strong> dosya büyür ancak kaliteyi geri
+        kazanamazsınız. JPG → PNG, JPG artefaktlarını sonsuza kadar korur.
       </li>
       <li>
-        <strong>Vector → raster:</strong> set the right output resolution. SVG
-        → PNG at 96 DPI vs 300 DPI is a huge quality difference. Use{" "}
-        <a href="/tools/svg-to-png">our SVG to PNG tool</a> with the resolution
-        slider.
+        <strong>Vektör → raster:</strong> doğru çıktı çözünürlüğünü ayarlayın. SVG
+        → PNG 96 DPI ile 300 DPI arasında büyük bir kalite farkı vardır.{" "}
+        <a href="/tools/svg-to-png">SVG'den PNG'ye aracımızı</a> çözünürlük
+        kaydırıcısıyla kullanın.
       </li>
       <li>
-        <strong>Raster → vector:</strong> brittle. Auto-tracing tools work for
-        clean line art, fail on photos. Better to find the original vector or
-        recreate.
+        <strong>Raster → vektör:</strong> kırılgan. Otomatik izleme araçları temiz
+        çizgi sanatı için çalışır, fotoğraflarda başarısız olur. Orijinal vektörü
+        bulmak veya yeniden oluşturmak daha iyidir.
       </li>
     </ul>
 
-    <h2 id="metadata">Keeping metadata across conversions</h2>
+    <h2 id="metadata">Meta verileri dönüştürmeler arasında saklama</h2>
     <p>
-      Metadata = the data <em>about</em> the file: author, creation date, GPS
-      coordinates, camera model, document properties. Every format handles it
-      differently:
+      Meta veri = dosya <em>hakkındaki</em> veri: yazar, oluşturma tarihi, GPS
+      koordinatları, kamera modeli, belge özellikleri. Her format bunu farklı
+      şekilde işler:
     </p>
     <ul>
       <li>
-        <strong>JPEG, HEIC, TIFF:</strong> embed EXIF metadata (camera, GPS,
-        date, exposure). Most converters preserve EXIF on simple format
-        changes; check the output if you need it. <a
-        href="/tools/pdf-metadata-viewer">Our PDF metadata viewer</a> shows what
-        survived a conversion.
+        <strong>JPEG, HEIC, TIFF:</strong> EXIF meta verilerini (kamera, GPS,
+        tarih, pozlama) gömer. Çoğu dönüştürücü, basit format değişikliklerinde
+        EXIF'i korur; ihtiyacınız varsa çıktıyı kontrol edin.{" "}
+        <a href="/tools/pdf-metadata-viewer">PDF meta veri görüntüleyicimiz</a>,
+        dönüştürmeden neyin kurtulduğunu gösterir.
       </li>
       <li>
-        <strong>PDF:</strong> embeds title, author, subject, keywords. Preserved
-        across most PDF→PDF operations; lost when you convert PDF → image
-        formats. Use{" "}
-        <a href="/tools/pdf-metadata-remover">our metadata remover</a> if you
-        want to strip metadata before sharing.
+        <strong>PDF:</strong> başlık, yazar, konu, anahtar kelimeleri gömer.
+        Çoğu PDF→PDF işleminde korunur; PDF'den görüntü formatlarına
+        dönüştürdüğünüzde kaybolur. Paylaşmadan önce meta verileri kaldırmak
+        istiyorsanız{" "}
+        <a href="/tools/pdf-metadata-remover">meta veri kaldırıcımızı</a> kullanın.
       </li>
       <li>
-        <strong>DOCX, ODT:</strong> embed author, last-modified-by,
-        revision history. Preserved across DOCX ↔ ODT round-trips; lost on
-        export to PDF unless you explicitly include document properties.
+        <strong>DOCX, ODT:</strong> yazar, son değiştiren, revizyon
+        geçmişini gömer. DOCX ↔ ODT dönüşümlerinde korunur; belge özelliklerini
+        açıkça dahil etmediğiniz sürece PDF'ye aktarımda kaybolur.
       </li>
       <li>
-        <strong>Plain text + CSV + JSON:</strong> no built-in metadata. Anything
-        you need to preserve goes in the file content itself (a header
-        comment, a metadata.json sidecar).
+        <strong>Düz metin + CSV + JSON:</strong> yerleşik meta veri yok. Korumak
+        istediğiniz her şey dosya içeriğine (bir başlık yorumu, bir metadata.json
+        yan dosyası) gider.
       </li>
     </ul>
     <p>
-      <strong>The privacy angle:</strong> metadata often contains things you
-      didn&rsquo;t intend to share — GPS coordinates from your home, the
-      Word document&rsquo;s revision history showing who edited what.
-      Always strip metadata before sharing sensitive files publicly.
+      <strong>Gizlilik açısı:</strong> meta veriler genellikle paylaşmayı
+      amaçlamadığınız şeyleri içerir — evinizden GPS koordinatları, Word
+      belgesinin kimin neyi düzenlediğini gösteren revizyon geçmişi.
+      Hassas dosyaları herkese açık olarak paylaşmadan önce meta verileri her zaman
+      kaldırın.
     </p>
 
-    <h2 id="compression">Does compression affect format conversion?</h2>
+    <h2 id="compression">Sıkıştırma format dönüştürmeyi etkiler mi?</h2>
     <p>
-      Three different things people mean by &ldquo;compression&rdquo;:
+      İnsanların &ldquo;sıkıştırma&rdquo; ile kastettiği üç farklı şey:
     </p>
     <ul>
       <li>
-        <strong>Lossless compression</strong> (ZIP, gzip, PNG&rsquo;s internal
-        compression, FLAC). Doesn&rsquo;t affect quality; just file size.
-        Convert freely.
+        <strong>Kayıpsız sıkıştırma</strong> (ZIP, gzip, PNG'nin dahili
+        sıkıştırması, FLAC). Kaliteyi etkilemez; yalnızca dosya boyutunu.
+        Özgürce dönüştürün.
       </li>
       <li>
-        <strong>Lossy compression</strong> (JPG quality slider, MP3 bitrate,
-        H.264 CRF). Quality degrades with more aggressive compression. Save at
-        the highest quality you can afford to.
+        <strong>Kayıplı sıkıştırma</strong> (JPG kalite kaydırıcısı, MP3 bit hızı,
+        H.264 CRF). Daha agresif sıkıştırmayla kalite düşer. Mümkün olan en yüksek
+        kalitede kaydedin.
       </li>
       <li>
-        <strong>Pre-compression archives</strong> (RAR, 7z, ZIP). The
-        underlying files are unchanged; the archive is just a container. Always
-        unzip before converting.
+        <strong>Sıkıştırma öncesi arşivler</strong> (RAR, 7z, ZIP). Alttaki
+        dosyalar değişmez; arşiv yalnızca bir kapsayıcıdır. Dönüştürmeden önce her zaman
+        açın.
       </li>
     </ul>
     <p>
-      Common pitfalls: converting a heavily-compressed JPG to PNG and expecting
-      better quality (you don&rsquo;t recover what was thrown away);
-      double-zipping (zipping a ZIP makes the file bigger, not smaller).
+      Yaygın tuzaklar: ağır sıkıştırılmış bir JPG'yi PNG'ye dönüştürüp daha iyi kalite
+      beklemek (atılanı geri alamazsınız); çift sıkıştırma (bir ZIP'i sıkıştırmak dosyayı
+      büyütür, küçültmez).
     </p>
 
-    <h2 id="multi-stage">Does converting files multiple times damage quality?</h2>
+    <h2 id="multi-stage">Dosyaları birden çok kez dönüştürmek kaliteye zarar verir mi?</h2>
     <p>
-      Depends on the chain:
+      Zincire bağlıdır:
     </p>
     <ul>
       <li>
-        <strong>All lossless:</strong> no damage no matter how many times.
-        PNG → BMP → TIFF → PNG is identical to the original.
+        <strong>Tamamen kayıpsız:</strong> kaç kez olursa olsun hasar yok.
+        PNG → BMP → TIFF → PNG orijinaliyle aynıdır.
       </li>
       <li>
-        <strong>One lossy step:</strong> quality reduced once, stable
-        thereafter if you stay in lossless formats. PNG → JPG → BMP → PNG
-        keeps the JPG&rsquo;s loss but doesn&rsquo;t add more.
+        <strong>Bir kayıplı adım:</strong> kalite bir kez düşer, ardından kayıpsız
+        formatlarda kalırsanız sabit kalır. PNG → JPG → BMP → PNG
+        JPG'nin kaybını korur ancak daha fazla eklemez.
       </li>
       <li>
-        <strong>Multiple lossy steps:</strong> generation loss compounds. PNG
-        → JPG → JPG (re-saved) → JPG accumulates artifacts. Even at 95%
-        quality each step, 10 generations of re-saves visibly degrade.
+        <strong>Birden çok kayıplı adım:</strong> nesil kaybı birikir. PNG
+        → JPG → JPG (yeniden kaydedilmiş) → JPG artefaktları biriktirir. Her adımda
+        %95 kalitede bile 10 nesil yeniden kaydetme gözle görülür şekilde bozar.
       </li>
       <li>
-        <strong>Mixed lossy formats:</strong> the worst case. PNG → JPG → WebP
-        → AVIF compounds different lossy algorithms&rsquo; artifacts in
-        unpredictable ways. Pick one lossy target and stay there, or stay
-        lossless throughout.
+        <strong>Karışık kayıplı formatlar:</strong> en kötü durum. PNG → JPG → WebP
+        → AVIF, farklı kayıplı algoritmaların artefaktlarını öngörülemez
+        şekillerde birleştirir. Bir kayıplı hedef seçin ve orada kalın veya
+        baştan sona kayıpsız kalın.
       </li>
     </ul>
     <p>
-      The practical rule: keep your master files in a lossless format. Export
-      to lossy formats only when needed for distribution. Never re-edit a
-      lossy file — go back to the lossless master, edit, re-export.
+      Pratik kural: ana dosyalarınızı kayıpsız bir formatta saklayın. Kayıplı
+      formatlara yalnızca dağıtım için ihtiyaç duyulduğunda dışa aktarın. Kayıplı bir
+      dosyayı asla yeniden düzenlemeyin — kayıpsız ana dosyaya dönün, düzenleyin,
+      yeniden dışa aktarın.
     </p>
 
-    <h2 id="structure">Preserving structure: tables, lists, hierarchy</h2>
+    <h2 id="structure">Yapıyı koruma: tablolar, listeler, hiyerarşi</h2>
     <p>
-      Format conversions across very different structures lose the most:
+      Çok farklı yapılar arasındaki format dönüştürmeleri en çok kaybettirir:
     </p>
     <ul>
       <li>
-        <strong>Tables in PDF → plain text:</strong> rows become lines, columns
-        become spaces. Original alignment is lost. Workaround: convert to
-        Markdown (preserves table syntax) or use ABBYY/Acrobat Pro for higher
-        fidelity.
+        <strong>PDF'deki tablolar → düz metin:</strong> satırlar satırlara, sütunlar
+        boşluklara dönüşür. Orijinal hizalama kaybolur. Geçici çözüm: Markdown'a
+        dönüştürün (tablo sözdizimini korur) veya daha yüksek doğruluk için
+        ABBYY/Acrobat Pro kullanın.
       </li>
       <li>
-        <strong>Headings + lists in HTML → plain text:</strong> hierarchy
-        signals are lost. Markdown is the better intermediate.
+        <strong>HTML'deki başlıklar + listeler → düz metin:</strong> hiyerarşi
+        sinyalleri kaybolur. Markdown daha iyi bir ara formattır.
       </li>
       <li>
-        <strong>Multi-column documents → linear text:</strong> columns
-        interleave. Free tools rarely handle this well.
+        <strong>Çok sütunlu belgeler → doğrusal metin:</strong> sütunlar
+        iç içe geçer. Ücretsiz araçlar bunu nadiren iyi işler.
       </li>
       <li>
-        <strong>Spreadsheet formulas → CSV:</strong> formulas evaluate to
-        their cached values; the formula logic is lost. Save as XLSX to
-        preserve formulas; CSV is values-only.
+        <strong>E-tablo formülleri → CSV:</strong> formüller önbelleğe alınmış
+        değerlerine dönüşür; formül mantığı kaybolur. Formülleri korumak için XLSX
+        olarak kaydedin; CSV yalnızca değerlerdir.
       </li>
     </ul>
     <p>
-      The honest take: if structure preservation matters, plan to manually
-      verify and clean up after conversion. Free converters get you 80%
-      there; the last 20% is human work.
+      Dürüst yaklaşım: yapı korunması önemliyse, dönüştürmeden sonra manuel olarak
+      doğrulamayı ve temizlemeyi planlayın. Ücretsiz dönüştürücüler sizi %80'e
+      getirir; son %20 insan işidir.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Strip PDF metadata before sharing",
+  label: "Paylaşmadan önce PDF meta verilerini kaldırın",
   targetSlug: "pdf-metadata-remover",
 };
 
 export const faq = [
   {
-    q: "Why does converting files sometimes lose quality?",
-    a: "Lossy conversions (PNG to JPG, WAV to MP3, complex PDF to plain text) discard information permanently. Even 'high quality' settings lose data — it just isn't visible. Quality degrades incrementally with each lossy save. Lossless conversions (PNG to BMP, FLAC to WAV) don't lose anything. Know which type you're doing.",
+    q: "Dosyaları dönüştürmek neden bazen kalite kaybına yol açar?",
+    a: "Kayıplı dönüştürmeler (PNG'den JPG'ye, WAV'dan MP3'e, karmaşık PDF'den düz metine) bilgileri kalıcı olarak atar. 'Yüksek kalite' ayarları bile veri kaybeder — sadece görünmez. Kalite, her kayıplı kaydetmeyle kademeli olarak düşer. Kayıpsız dönüştürmeler (PNG'den BMP'ye, FLAC'tan WAV'a) hiçbir şey kaybetmez. Hangisini yaptığınızı bilin.",
   },
   {
-    q: "How do I convert files without losing metadata?",
-    a: "JPG/HEIC/TIFF: most converters preserve EXIF on simple format changes. PDF: preserved across PDF↔PDF, lost converting to image formats. DOCX: preserved on DOCX↔ODT, lost on PDF export unless explicitly enabled. Plain text + CSV + JSON: no metadata support — embed in content if needed. Always check the output to verify.",
+    q: "Meta verileri kaybetmeden dosyaları nasıl dönüştürebilirim?",
+    a: "JPG/HEIC/TIFF: çoğu dönüştürücü, basit format değişikliklerinde EXIF'i korur. PDF: PDF↔PDF arasında korunur, görüntü formatlarına dönüştürürken kaybolur. DOCX: DOCX↔ODT arasında korunur, açıkça etkinleştirilmediği sürece PDF dışa aktarımında kaybolur. Düz metin + CSV + JSON: meta veri desteği yok — gerekirse içeriğe gömün. Doğrulamak için çıktıyı her zaman kontrol edin.",
   },
   {
-    q: "Does file compression affect format conversion?",
-    a: "Lossless compression (ZIP, PNG internal, FLAC): no impact on quality. Lossy compression (JPG, MP3, H.264): quality degrades with more aggressive settings. Pre-compression archives (ZIP, RAR): unzip first then convert — converting compressed archives doesn't process the underlying files.",
+    q: "Dosya sıkıştırması format dönüştürmeyi etkiler mi?",
+    a: "Kayıpsız sıkıştırma (ZIP, PNG dahili, FLAC): kalite üzerinde etkisi yok. Kayıplı sıkıştırma (JPG, MP3, H.264): daha agresif ayarlarla kalite düşer. Sıkıştırma öncesi arşivler (ZIP, RAR): önce açın, sonra dönüştürün — sıkıştırılmış arşivleri dönüştürmek alttaki dosyaları işlemez.",
   },
   {
-    q: "Does converting files multiple times damage quality?",
-    a: "Lossless chains: no damage no matter how many times. Single lossy step then lossless: stable after the first lossy save. Multiple lossy steps: generation loss compounds — visible after 10+ JPG re-saves at high quality, faster at lower quality. Keep masters in lossless format; export to lossy only for distribution.",
+    q: "Dosyaları birden çok kez dönüştürmek kaliteye zarar verir mi?",
+    a: "Kayıpsız zincirler: kaç kez olursa olsun hasar yok. Tek kayıplı adım, ardından kayıpsız: ilk kayıplı kaydetmeden sonra sabit. Birden çok kayıplı adım: nesil kaybı birikir — yüksek kalitede 10+ JPG yeniden kaydetmeden sonra görünür, düşük kalitede daha hızlı. Ana dosyaları kayıpsız formatta saklayın; yalnızca dağıtım için kayıplıya dışa aktarın.",
   },
   {
-    q: "How do I keep file structure when converting formats?",
-    a: "Tables and multi-column layouts lose structure on most free converters — use ABBYY FineReader or Adobe Acrobat Pro for high-fidelity. Use Markdown as an intermediate for HTML→text — preserves hierarchy. For spreadsheet formulas, save as XLSX (CSV is values-only). Plan to manually clean up after — free tools get 80% there.",
+    q: "Format dönüştürürken dosya yapısını nasıl korurum?",
+    a: "Tablolar ve çok sütunlu düzenler çoğu ücretsiz dönüştürücüde yapıyı kaybeder — yüksek doğruluk için ABBYY FineReader veya Adobe Acrobat Pro kullanın. HTML→metin için ara format olarak Markdown kullanın — hiyerarşiyi korur. E-tablo formülleri için XLSX olarak kaydedin (CSV yalnızca değerlerdir). Dönüştürmeden sonra manuel olarak temizlemeyi planlayın — ücretsiz araçlar %80'e ulaşır.",
   },
 ];

@@ -3,207 +3,168 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Road trip fuel cost is one of the simplest calculations in personal finance, yet it&rsquo;s
-      routinely off by 30-50% when people estimate by gut. The basic formula is three numbers
-      multiplied together: distance, fuel price, and fuel economy. Getting each number right
-      &mdash; and knowing when city MPG applies vs highway MPG, how elevation and headwinds
-      affect consumption, and how to compare two different vehicles or routes &mdash; lets
-      you make informed decisions about whether to drive, fly, or take the train. This guide
-      lays out the formula, the realistic inputs, and the common-sense adjustments that
-      make estimates actually match what shows up at the pump.
+      Yolculuk yakıt maliyeti, kişisel finansın en basit hesaplamalarından biridir, ancak insanlar tahmin yürütürken rutin olarak %30-50 oranında sapar. Temel formül, üç sayının çarpımından oluşur: mesafe, yakıt fiyatı ve yakıt ekonomisi. Her sayıyı doğru almak — şehir içi MPG ile otoyol MPG'sinin ne zaman geçerli olduğunu, rakım ve karşı rüzgarların tüketimi nasıl etkilediğini ve iki farklı aracı veya rotayı nasıl karşılaştıracağını bilmek — araba kullanmak, uçmak veya trenle gitmek konusunda bilinçli kararlar vermenizi sağlar. Bu rehber, formülü, gerçekçi girdileri ve tahminlerin pompadaki gerçek değerle uyuşmasını sağlayan sağduyulu ayarlamaları ortaya koyar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>1. The basic formula</h2>
-    <pre>{`fuel cost = (distance / MPG) × price per gallon
+    <h2>1. Temel formül</h2>
+    <pre>{`yakıt maliyeti = (mesafe / MPG) × galon başına fiyat
 
-In metric:
-fuel cost = (distance × L/100km / 100) × price per liter`}</pre>
+Metrik sistemde:
+yakıt maliyeti = (mesafe × L/100km / 100) × litre başına fiyat`}</pre>
     <p>
-      A 1,200-mile road trip in a 30 MPG car at $3.50/gallon: <code>1200 / 30 × 3.50 =
-      $140</code>. A 2,000-km trip at 8 L/100km and &euro;1.80/L:
-      <code> 2000 × 8 / 100 × 1.80 = &euro;288</code>.
+      30 MPG'lik bir arabayla 1.200 millik bir yolculuk, galonu 3,50$'dan: <code>1200 / 30 × 3,50 = 140$</code>. 8 L/100km ve 1,80€/L ile 2.000 km'lik bir yolculuk: <code>2000 × 8 / 100 × 1,80 = 288€</code>.
     </p>
 
-    <h2>2. Which MPG number to use</h2>
+    <h2>2. Hangi MPG değeri kullanılmalı</h2>
     <p>
-      Most cars publish three EPA numbers: city, highway, and combined. For road trips, use
-      <strong> highway MPG</strong>; for city driving, use <strong>city MPG</strong>. For
-      mixed, the combined is a good default. Real-world MPG is typically 10-15% below EPA
-      window-sticker numbers because EPA tests are conducted under idealized conditions.
+      Çoğu araba üç EPA değeri yayınlar: şehir içi, otoyol ve karma. Yolculuklar için <strong>otoyol MPG'si</strong>; şehir içi sürüş için <strong>şehir içi MPG'si</strong> kullanın. Karma sürüşler için, karma değer iyi bir varsayılandır. Gerçek dünya MPG'si tipik olarak EPA etiket değerlerinin %10-15 altındadır çünkü EPA testleri idealize edilmiş koşullar altında yapılır.
     </p>
     <p>
-      Your own fuel logs are the best source of truth. After 3-5 fill-ups, you&rsquo;ll
-      know your car&rsquo;s real MPG to within 1-2 MPG.
+      Kendi yakıt kayıtlarınız en güvenilir bilgi kaynağıdır. 3-5 depo dolumundan sonra, arabanızın gerçek MPG'sini 1-2 MPG hassasiyetle bileceksiniz.
     </p>
 
-    <h2>3. City vs highway: the gap can be huge</h2>
+    <h2>3. Şehir içi vs otoyol: fark çok büyük olabilir</h2>
     <p>
-      Typical modern car:
+      Tipik modern araba:
     </p>
     <ul>
-      <li>City: 25-28 MPG</li>
-      <li>Highway: 35-40 MPG</li>
-      <li>Combined: 30-33 MPG</li>
+      <li>Şehir içi: 25-28 MPG</li>
+      <li>Otoyol: 35-40 MPG</li>
+      <li>Karma: 30-33 MPG</li>
     </ul>
     <p>
-      Hybrids flip the gap: Priuses get <em>better</em> city MPG than highway because
-      regenerative braking recaptures energy. Diesel trucks and large SUVs can have 40%+
-      worse city MPG than highway. Always apply the right number.
+      Hibritler bu farkı tersine çevirir: Prius'lar otoyoldan <em>daha iyi</em> şehir içi MPG'si alır çünkü rejeneratif frenleme enerjiyi geri kazanır. Dizel kamyonlar ve büyük SUV'ler, otoyol MPG'sine kıyasla %40+ daha kötü şehir içi MPG'sine sahip olabilir. Her zaman doğru değeri uygulayın.
     </p>
 
-    <h2>4. Factors that reduce real-world MPG</h2>
+    <h2>4. Gerçek dünya MPG'sini düşüren faktörler</h2>
     <ul>
-      <li><strong>Speed above 60-65 mph</strong>: every 10 mph over 65 costs ~10% MPG</li>
-      <li><strong>Headwinds / crosswinds</strong>: 5-15% penalty</li>
-      <li><strong>Rain or snow</strong>: 5-20% penalty</li>
-      <li><strong>Mountain driving uphill</strong>: 20-40% penalty on the climb</li>
-      <li><strong>Cold weather</strong> (especially under 20°F): 15-30% penalty</li>
-      <li><strong>AC on at high temps</strong>: 5-10% penalty</li>
-      <li><strong>Roof box or bike rack</strong>: 10-25% penalty</li>
-      <li><strong>Heavy cargo</strong>: ~1% per 100 lbs above curb weight</li>
-      <li><strong>Low tire pressure</strong>: 0.2% per 1 psi under spec</li>
+      <li><strong>60-65 mil/saatin üzerinde hız</strong>: 65 mil/saatin üzerindeki her 10 mil/saat, MPG'yi ~%10 düşürür</li>
+      <li><strong>Karşı rüzgarlar / yan rüzgarlar</strong>: %5-15 kayıp</li>
+      <li><strong>Yağmur veya kar</strong>: %5-20 kayıp</li>
+      <li><strong>Dağlık arazide yokuş yukarı sürüş</strong>: Tırmanışta %20-40 kayıp</li>
+      <li><strong>Soğuk hava</strong> (özellikle -6°C'nin altında): %15-30 kayıp</li>
+      <li><strong>Yüksek sıcaklıklarda klima açık</strong>: %5-10 kayıp</li>
+      <li><strong>Tavan kutusu veya bisiklet taşıyıcısı</strong>: %10-25 kayıp</li>
+      <li><strong>Ağır yük</strong>: Boş ağırlığın üzerindeki her 45 kg için ~%1</li>
+      <li><strong>Düşük lastik basıncı</strong>: Belirtilen değerin altındaki her 0,07 bar için %0,2</li>
     </ul>
     <p>
-      Stacking factors: a mountain road trip in winter with a roof box can cut MPG by
-      40%+. Budget accordingly.
+      Faktörlerin birleşimi: Kışın tavan kutusuyla dağ yolculuğu MPG'yi %40+ düşürebilir. Buna göre bütçe yapın.
     </p>
 
-    <h2>5. A worked trip example</h2>
+    <h2>5. Örnek bir yolculuk hesabı</h2>
     <p>
-      Los Angeles to San Francisco, 380 miles, mostly highway, mostly flat, mid-size sedan
-      rated 35 highway MPG, gas at $4.20/gal:
+      Los Angeles'tan San Francisco'ya, 380 mil, çoğunlukla otoyol, çoğunlukla düz, 35 otoyol MPG'si olan orta boy sedan, benzin galonu 4,20$:
     </p>
-    <pre>{`gallons needed = 380 / 35 = 10.86 gallons
-fuel cost = 10.86 × $4.20 = $45.60`}</pre>
+    <pre>{`gerekli galon = 380 / 35 = 10,86 galon
+yakıt maliyeti = 10,86 × 4,20$ = 45,60$`}</pre>
     <p>
-      Apply 10% for headwinds and hills: ~$50 all-in. A pickup at 20 MPG highway: $80.
-      An EV at 3.5 mi/kWh and $0.35/kWh charging: ~$38. An Amtrak coach ticket: $60-80.
-      All competitive for a solo trip; EV wins with 2+ passengers.
+      Karşı rüzgarlar ve tepeler için %10 ekleyin: toplamda ~50$. 20 MPG otoyol değerine sahip bir kamyonet: 80$. 3,5 mil/kWh ve 0,35$/kWh şarj ile bir EV: ~38$. Bir Amtrak tren bileti: 60-80$. Tek başına bir yolculuk için hepsi rekabetçi; 2+ yolcu ile EV kazanır.
     </p>
 
-    <h2>6. Multi-leg trip math</h2>
+    <h2>6. Çok etaplı yolculuk hesabı</h2>
     <p>
-      Trips with mixed highway and urban driving need leg-by-leg breakdown:
+      Karma otoyol ve şehir içi sürüş içeren yolculuklar, etaplara bölünerek hesaplanmalıdır:
     </p>
-    <pre>{`LA → Phoenix (highway, 400 mi @ 35 MPG) = 11.4 gal
-Phoenix city (3 days, 75 mi @ 25 MPG)    =  3.0 gal
-Phoenix → LA (highway, 400 mi)           = 11.4 gal
-Total: 25.8 gal × $4.00/gal              = $103`}</pre>
+    <pre>{`LA → Phoenix (otoyol, 400 mi @ 35 MPG) = 11,4 gal
+Phoenix şehir içi (3 gün, 75 mi @ 25 MPG) = 3,0 gal
+Phoenix → LA (otoyol, 400 mi) = 11,4 gal
+Toplam: 25,8 gal × 4,00$/gal = 103$`}</pre>
     <p>
-      Don&rsquo;t average one MPG number across a whole trip if conditions vary. Split legs
-      and use appropriate MPG per segment.
-    </p>
-
-    <h2>7. Elevation change</h2>
-    <p>
-      Climbing eats fuel; descending gives some back (but only if you coast). A trip from
-      Denver (5,280 ft) to Aspen (7,908 ft) at moderate grade can reduce MPG by 20-30%
-      going up. Coming back, you&rsquo;ll recover 10-15%. Net: ~10% penalty for round trip
-      through mountains. One-way: ~25% penalty uphill, 10% gain downhill.
+      Koşullar değişiyorsa, tüm yolculuk için tek bir MPG değerini ortalamayın. Etaplara ayırın ve her bölüm için uygun MPG'yi kullanın.
     </p>
 
-    <h2>8. Price hunting along the route</h2>
+    <h2>7. Rakım değişimi</h2>
     <p>
-      Fuel prices vary by 40 cents/gallon within 50 miles in many regions. GasBuddy and
-      Google Maps now show live prices. For a 12-gallon fill-up, a 30-cent savings is
-      $3.60. Across a road trip with 5 fill-ups, that&rsquo;s $18. Worth a 2-minute check
-      but not a 20-mile detour. State borders can be dramatic — Oregon to California, New
-      Jersey to New York can swing $0.50+.
+      Tırmanmak yakıt tüketir; inmek bir kısmını geri verir (ancak yalnızca vites boşta giderseniz). Denver'dan (1.609 m) Aspen'e (2.410 m) orta eğimli bir yolculuk, yokuş yukarı MPG'yi %20-30 düşürebilir. Dönüşte %10-15 geri kazanırsınız. Net: dağlardan geçen gidiş-dönüş için ~%10 kayıp. Tek yön: yokuş yukarı ~%25 kayıp, yokuş aşağı %10 kazanç.
     </p>
 
-    <h2>9. Diesel and premium considerations</h2>
+    <h2>8. Rota üzerinde fiyat avı</h2>
     <p>
-      Diesel runs $0.30-0.80 higher per gallon than regular. Premium (91+ octane) runs
-      $0.30-0.60 higher. If your engine requires premium, don&rsquo;t downgrade &mdash;
-      knock sensors will pull timing and hurt both MPG and power. If your car only
-      &ldquo;recommends&rdquo; premium, regular is fine most of the time at a small MPG
-      penalty (2-4%).
+      Yakıt fiyatları birçok bölgede 50 mil içinde galon başına 40 sent değişebilir. GasBuddy ve Google Haritalar artık canlı fiyatları gösteriyor. 12 galonluk bir depo için 30 sentlik bir tasarruf 3,60$'dır. 5 depo dolumlu bir yolculukta bu 18$'dır. 2 dakikalık bir kontrole değer, ancak 20 millik bir sapmaya değmez. Eyalet sınırları çarpıcı olabilir — Oregon'dan Kaliforniya'ya, New Jersey'den New York'a 0,50$+ oynayabilir.
     </p>
 
-    <h2>10. Comparing two vehicles</h2>
+    <h2>9. Dizel ve premium yakıt hususları</h2>
     <p>
-      For the same 5,000 miles/year:
-    </p>
-    <pre>{`20 MPG SUV:     250 gallons × $3.50 = $875/year
-30 MPG sedan:   167 gallons × $3.50 = $584/year
-40 MPG hybrid:  125 gallons × $3.50 = $437/year
-EV (3 mi/kWh):  1,667 kWh × $0.18   = $300/year`}</pre>
-    <p>
-      Over 10 years, the SUV costs $4,400 more than the hybrid in fuel alone. Weight that
-      against purchase price, maintenance, and insurance differences.
+      Dizel, normal benzinden galon başına 0,30-0,80$ daha pahalıdır. Premium (91+ oktan) 0,30-0,60$ daha pahalıdır. Motorunuz premium gerektiriyorsa, düşük oktan kullanmayın — vuruntu sensörleri ateşleme zamanlamasını geri çeker ve hem MPG'yi hem de gücü düşürür. Arabanız premiumu yalnızca "tavsiye ediyorsa", küçük bir MPG kaybıyla (%2-4) çoğu zaman normal benzin iyidir.
     </p>
 
-    <h2>11. EV road trip math</h2>
+    <h2>10. İki aracı karşılaştırma</h2>
     <p>
-      EVs are priced by kWh:
+      Aynı yılda 5.000 mil için:
     </p>
-    <pre>{`cost = (distance / mi per kWh) × price per kWh`}</pre>
+    <pre>{`20 MPG SUV:     250 galon × 3,50$ = 875$/yıl
+30 MPG sedan:   167 galon × 3,50$ = 584$/yıl
+40 MPG hibrit:  125 galon × 3,50$ = 437$/yıl
+EV (3 mi/kWh):  1.667 kWh × 0,18$ = 300$/yıl`}</pre>
     <p>
-      At-home charging (off-peak): $0.08-0.15/kWh &mdash; far cheaper than gas. DC fast
-      chargers on highways: $0.35-0.60/kWh &mdash; often close to gas cost per mile. Road
-      trip EV costs vary wildly by charger network. Plan charger stops with ABRP (A Better
-      Route Planner) before leaving.
+      10 yıl boyunca, SUV sadece yakıtta hibritten 4.400$ daha fazla harcar. Bunu satın alma fiyatı, bakım ve sigorta farklılıklarıyla karşılaştırın.
     </p>
 
-    <h2>12. Tolls, ferries, and non-fuel costs</h2>
+    <h2>11. EV yolculuk hesabı</h2>
     <p>
-      A road trip budget should include:
+      EV'ler kWh başına fiyatlandırılır:
+    </p>
+    <pre>{`maliyet = (mesafe / mil başına kWh) × kWh başına fiyat`}</pre>
+    <p>
+      Evde şarj (düşük tarife): 0,08-0,15$/kWh — benzinden çok daha ucuz. Otoyollardaki DC hızlı şarj cihazları: 0,35-0,60$/kWh — genellikle mil başına benzin maliyetine yakındır. EV yolculuk maliyetleri, şarj ağına göre büyük farklılık gösterir. Yola çıkmadan önce ABRP (A Better Route Planner) ile şarj duraklarını planlayın.
+    </p>
+
+    <h2>12. Geçiş ücretleri, feribotlar ve yakıt dışı maliyetler</h2>
+    <p>
+      Bir yolculuk bütçesi şunları içermelidir:
     </p>
     <ul>
-      <li>Tolls: look up by route ($0-100+ for interstate trips through northeast)</li>
-      <li>Ferries: $10-100+ where applicable</li>
-      <li>Parking at destination: often forgotten</li>
-      <li>Wear and tear (IRS standard mileage is 67 cents/mile for a reason — fuel is less than half)</li>
+      <li>Geçiş ücretleri: rotaya göre araştırın (kuzeydoğudaki eyaletler arası yolculuklar için 0-100$+)</li>
+      <li>Feribotlar: uygulanabilir yerlerde 10-100$+</li>
+      <li>Varış noktasında park: genellikle unutulur</li>
+      <li>Aşınma ve yıpranma (IRS standart kilometresi bir nedenle mil başına 67 senttir — yakıt bunun yarısından azdır)</li>
     </ul>
     <p>
-      For true road-trip total cost, apply the IRS rate for depreciation estimation on the
-      vehicle side.
+      Gerçek yolculuk toplam maliyeti için, araç tarafında amortisman tahmini amacıyla IRS oranını uygulayın.
     </p>
 
-    <h2>13. Fuel-saving driving habits</h2>
+    <h2>13. Yakıt tasarrufu sağlayan sürüş alışkanlıkları</h2>
     <ul>
-      <li>Steady speed: cruise control on flat highway</li>
-      <li>Anticipate stops: coast rather than brake</li>
-      <li>Drive 60-65 mph if time allows &mdash; saves 10-15% over 75 mph</li>
-      <li>Avoid jackrabbit starts: 20-40% fuel penalty in city</li>
-      <li>Check tire pressure monthly</li>
-      <li>Remove roof boxes when not in use</li>
+      <li>Sabit hız: düz otoyolda hız sabitleyici</li>
+      <li>Duruşları önceden tahmin edin: fren yapmak yerine vites boşta git</li>
+      <li>Zamanınız varsa 60-65 mil/saat sürün — 75 mil/saat hıza göre %10-15 tasarruf sağlar</li>
+      <li>Ani kalkışlardan kaçının: şehir içinde %20-40 yakıt kaybı</li>
+      <li>Lastik basıncını ayda bir kontrol edin</li>
+      <li>Kullanılmadığında tavan kutularını çıkarın</li>
     </ul>
 
-    <h2>14. Common mistakes</h2>
+    <h2>14. Yaygın hatalar</h2>
     <ul>
       <li>
-        <strong>Using combined MPG for a pure highway trip.</strong> Understates MPG by
-        15-20% and overstates fuel cost.
+        <strong>Saf otoyol yolculuğu için karma MPG kullanmak.</strong> MPG'yi %15-20 düşük gösterir ve yakıt maliyetini olduğundan fazla hesaplar.
       </li>
       <li>
-        <strong>Assuming EPA numbers.</strong> Most cars return 10-15% less in real world.
+        <strong>EPA değerlerini varsaymak.</strong> Çoğu araba gerçek dünyada %10-15 daha az verim sağlar.
       </li>
       <li>
-        <strong>Ignoring weather.</strong> A winter trip in a cold car can burn 25%+ more.
+        <strong>Havayı görmezden gelmek.</strong> Soğuk bir arabada kış yolculuğu %25+ daha fazla yakıt tüketebilir.
       </li>
       <li>
-        <strong>Forgetting tolls.</strong> I-95 corridor tolls easily add $30-80 to a trip.
+        <strong>Geçiş ücretlerini unutmak.</strong> I-95 koridoru geçiş ücretleri bir yolculuğa kolayca 30-80$ ekler.
       </li>
       <li>
-        <strong>Not logging your own MPG.</strong> Your car&rsquo;s real MPG is the only
-        number that matters.
+        <strong>Kendi MPG'nizi kaydetmemek.</strong> Arabanızın gerçek MPG'si önemli olan tek değerdir.
       </li>
     </ul>
 
-    <h2>15. Run the numbers</h2>
+    <h2>15. Hesaplamaları yapın</h2>
     <p>
-      Enter your distance, MPG, and fuel price below for a fast estimate, then layer on
-      any of the adjustments from this guide for route-specific accuracy.
+      Hızlı bir tahmin için aşağıya mesafenizi, MPG'nizi ve yakıt fiyatınızı girin, ardından rota bazında doğruluk için bu kılavuzdaki ayarlamalardan herhangi birini ekleyin.
     </p>
     <p>
-      <a href="/tools/fuel-cost-calculator">Fuel cost calculator</a>
-      <a href="/tools/moving-cost-calculator">Moving cost calculator</a>
-      <a href="/tools/trip-cost-calculator">Trip cost calculator</a>
+      <a href="/tools/fuel-cost-calculator">Yakıt maliyeti hesaplayıcısı</a>
+      <a href="/tools/moving-cost-calculator">Taşınma maliyeti hesaplayıcısı</a>
+      <a href="/tools/trip-cost-calculator">Yolculuk maliyeti hesaplayıcısı</a>
     </p>
   </>
 );

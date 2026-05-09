@@ -1,34 +1,35 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>Dify is an open-source LLMOps platform that ships visual workflows, agents, datasets, and APIs in one stack.</p>);
+export const intro: ReactElement = (<p>Dify, tek bir yığında görsel iş akışları, ajanlar, veri kümeleri ve API'ler sunan açık kaynaklı bir LLMOps platformudur.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>Dify positions itself between &ldquo;no-code builder&rdquo; and &ldquo;full LLMOps platform.&rdquo; You design prompts and agents in a browser, attach datasets for RAG, and the platform exposes them as REST APIs with auth, rate limits, and analytics. Self-host for free or use the managed cloud.</p>
-    <h2>What it is</h2>
-    <p>A Python backend (Flask + Celery + Postgres + Redis + a vector store) plus a Next.js frontend. Apps come in four flavors: chat, agent, workflow, and text generation. Datasets handle ingestion and retrieval; models plug in via a provider registry with 30+ vendors supported.</p>
-    <h2>Install / set up</h2>
-    <pre>{`# self-host with docker compose
+    <p>Dify, &ldquo;kodsuz oluşturucu&rdquo; ile &ldquo;tam LLMOps platformu&rdquo; arasında bir yerde konumlanır. Tarayıcıda promptlar ve ajanlar tasarlar, RAG için veri kümeleri eklersiniz ve platform bunları kimlik doğrulama, hız sınırları ve analitiklerle REST API'leri olarak sunar. Kendi sunucunuzda ücretsiz olarak barındırın veya yönetilen bulutu kullanın.</p>
+    <h2>Nedir</h2>
+    <p>Bir Python arka ucu (Flask + Celery + Postgres + Redis + bir vektör deposu) artı bir Next.js ön ucu. Uygulamalar dört çeşittir: sohbet, ajan, iş akışı ve metin oluşturma. Veri kümeleri alım ve almayı yönetir; modeller, 30'dan fazla satıcıyı destekleyen bir sağlayıcı kaydı aracılığıyla bağlanır.</p>
+    <h2>Kurulum / yapılandırma</h2>
+    <pre>{`# docker compose ile kendi kendine barındırma
 git clone https://github.com/langgenius/dify
 cd dify/docker
 cp .env.example .env
 docker compose up -d`}</pre>
-    <h2>First run</h2>
-    <p>Browse to <code>http://localhost</code>, create the admin account, and wire up a model provider (OpenAI, Anthropic, or a local Ollama endpoint). Click Create App, pick Chatbot, write a <a href="/learn/system-prompt">system prompt</a>, and publish &mdash; Dify generates a shareable URL and an API token.</p>
+    <h2>İlk çalıştırma</h2>
+    <p><code>http://localhost</code> adresine gidin, yönetici hesabını oluşturun ve bir model sağlayıcısı (OpenAI, Anthropic veya yerel bir Ollama uç noktası) bağlayın. Uygulama Oluştur'a tıklayın, Sohbet Robotu'nu seçin, bir <a href="/learn/system-prompt">sistem promptu</a> yazın ve yayınlayın &mdash; Dify paylaşılabilir bir URL ve bir API tokeni oluşturur.</p>
     <pre>{`$ curl -X POST http://localhost/v1/chat-messages \\
   -H "Authorization: Bearer app-xxx" \\
-  -d '{"inputs":{},"query":"hi","user":"u1"}'
-{"answer":"Hello!","conversation_id":"..."}`}</pre>
-    <h2>Everyday workflows</h2>
+  -d '{"inputs":{},"query":"merhaba","user":"u1"}'
+{"answer":"Merhaba!","conversation_id":"..."}`}</pre>
+    <h2>Günlük iş akışları</h2>
     <ul>
-      <li>Build a RAG chatbot by creating a dataset, uploading files, and toggling retrieval on in the app settings.</li>
-      <li>Use the Workflow app type to chain HTTP calls, <a href="/learn/llm">LLM</a> nodes, code blocks, and conditionals for deterministic pipelines.</li>
-      <li>Ship an internal tool by embedding the generated web app URL or calling the API from your existing product.</li>
+      <li>Bir veri kümesi oluşturarak, dosyalar yükleyerek ve uygulama ayarlarında almayı etkinleştirerek bir RAG sohbet robotu oluşturun.</li>
+      <li>Deterministik ardışık düzenler için HTTP çağrılarını, <a href="/learn/llm">LLM</a> düğümlerini, kod bloklarını ve koşulları zincirlemek için İş Akışı uygulama türünü kullanın.</li>
+      <li>Oluşturulan web uygulaması URL'sini gömerek veya mevcut ürününüzden API'yi çağırarak bir dahili araç yayınlayın.</li>
     </ul>
-    <h2>Gotchas and tips</h2>
-    <p>The Docker Compose stack pulls a lot of images (Postgres, Redis, Weaviate, sandbox, SSRF proxy). Budget 4&ndash;6 GB of RAM minimum and don&rsquo;t run it on a 1 GB VPS. The <code>sandbox</code> container runs user code and needs <code>privileged</code> or a seccomp profile &mdash; read the security docs before exposing Dify publicly.</p>
-    <p>Version upgrades occasionally require database migrations that aren&rsquo;t automatic. Snapshot your Postgres volume before <code>docker compose pull</code>. The team moves quickly and breaking changes do happen between minor versions.</p>
-    <h2>Who it&rsquo;s for</h2>
-    <p>Product teams that want to ship LLM features without building the platform layer. If you need prompts, datasets, auth, logs, and an API gateway in one package, Dify is the most complete open-source option today.</p>
+    <h2>Püf noktaları ve ipuçları</h2>
+    <p>Docker Compose yığını birçok imaj çeker (Postgres, Redis, Weaviate, sandbox, SSRF proxy). En az 4&ndash;6 GB RAM ayırın ve 1 GB VPS'de çalıştırmayın. <code>sandbox</code> kabı, kullanıcı kodunu yürütür ve <code>privileged</code> veya bir seccomp profili gerektirir &mdash; Dify'yi herkese açmadan önce güvenlik belgelerini okuyun.</p>
+    <p>Sürüm yükseltmeleri bazen otomatik olmayan veritabanı geçişleri gerektirir. <code>docker compose pull</code> çalıştırmadan önce Postgres biriminizin anlık görüntüsünü alın. Ekip hızlı hareket eder ve küçük sürümler arasında bozucu değişiklikler olabilir.</p>
+    <h2>Kimler içindir</h2>
+    <p>Platform katmanını oluşturmadan LLM özellikleri göndermek isteyen ürün ekipleri. Promptlar, veri kümeleri, kimlik doğrulama, günlükler ve bir API ağ geçidini tek bir pakette istiyorsanız, Dify bugün mevcut olan en kapsamlı açık kaynak seçeneğidir.</p>
   </>
 );
+===END FILE===

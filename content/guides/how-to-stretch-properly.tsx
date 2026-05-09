@@ -1,89 +1,66 @@
 export const intro = (
   <>
     <p>
-      Most people stretch wrong: quick toe-touches before exercise, never
-      again. Stretching done right is a separate practice with real rewards —
-      better range of motion, less pain, better posture, faster recovery.
-      Done wrong, it&rsquo;s time wasted or even injury-causing.
+      Çoğu insan esnemeyi yanlış yapar: egzersizden önce hızlıca ayak parmaklarına dokunmak, bir daha asla. Doğru yapılan esneme, gerçek faydaları olan ayrı bir pratiktir — daha iyi hareket aralığı, daha az ağrı, daha iyi duruş, daha hızlı toparlanma. Yanlış yapıldığında ise boşa harcanmış zaman ya da sakatlığa yol açabilir.
     </p>
     <p>
-      Here&rsquo;s how to actually get the benefits.
+      İşte bu faydaları gerçekten nasıl elde edeceğiniz.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Dynamic stretches before workouts, static after</h2>
+    <h2>1. Antrenman öncesi dinamik esneme, sonrasında statik esneme</h2>
     <p>
-      Before training: movement-based (leg swings, arm circles, walking lunges)
-      to warm muscles and joints. After training or as a standalone session:
-      static holds (30-60s each). Mixing these up is the most common mistake.
+      Antrenmandan önce: kasları ve eklemleri ısıtmak için hareket temelli (bacak sallamalar, kol daireleri, yürüyerek hamleler). Antrenmandan sonra veya tek başına bir seans olarak: statik tutuşlar (her biri 30-60 saniye). Bunları karıştırmak en yaygın hatadır.
     </p>
 
-    <h2>2. Static holds: 30-60 seconds minimum</h2>
+    <h2>2. Statik tutuşlar: en az 30-60 saniye</h2>
     <p>
-      A 10-second stretch does almost nothing. Muscles need 30+ seconds to
-      actually lengthen. 60-120 seconds produces the most durable flexibility
-      gains. Set a timer.
+      10 saniyelik bir esneme neredeyse hiçbir şey yapmaz. Kasların gerçekten uzaması için 30+ saniyeye ihtiyacı vardır. 60-120 saniye en kalıcı esneklik kazanımlarını sağlar. Bir zamanlayıcı kurun.
     </p>
 
-    <h2>3. Focus on tight areas</h2>
+    <h2>3. Gergin bölgelere odaklanın</h2>
     <p>
-      For most desk workers: hips (hip flexors, glutes), chest (pec minor),
-      upper back, hamstrings, calves. Don&rsquo;t waste time on stretches for
-      muscles that aren&rsquo;t tight. See{" "}
-      <a href="/guides/how-to-fix-posture">posture guide</a>.
+      Çoğu masa başı çalışanı için: kalçalar (kalça fleksörleri, glutealler), göğüs (pektoral minör), sırtın üst kısmı, hamstringler, baldırlar. Gergin olmayan kaslar için esneme hareketleriyle zaman kaybetmeyin.{" "}
+      <a href="/guides/how-to-fix-posture">Duruş rehberine</a> bakın.
     </p>
 
-    <h2>4. Breathe into the stretch</h2>
+    <h2>4. Esnemeye nefes alarak girin</h2>
     <p>
-      Deep, slow breaths through the nose. Exhale as you sink deeper. Holding
-      your breath tightens the muscle you&rsquo;re trying to relax. Breathing
-      is 50% of the technique.
+      Burundan derin ve yavaş nefesler. Daha derine indikçe nefes verin. Nefesinizi tutmak, gevşetmeye çalıştığınız kası daha da gerer. Nefes almak tekniğin %50'sidir.
     </p>
 
-    <h2>5. Don&rsquo;t stretch to pain</h2>
+    <h2>5. Acıya kadar esnemeyin</h2>
     <p>
-      Stretch to moderate discomfort, not sharp pain. Pain triggers a
-      protective reflex that tightens the muscle further — the opposite of
-      what you want. Easy tension, held long, beats hard tension briefly.
+      Keskin acıya değil, orta düzeyde rahatsızlığa kadar esneyin. Acı, kası daha da geren koruyucu bir refleksi tetikler — istediğinizin tam tersi. Hafif gerginlik, uzun süre tutulduğunda, kısa süreli sert gerginlikten daha iyidir.
     </p>
 
-    <h2>6. Consistency beats intensity</h2>
+    <h2>6. Tutarlılık yoğunluktan daha önemlidir</h2>
     <p>
-      10 minutes daily &gt; 1 hour weekly. Flexibility is neural and tissue
-      adaptation, both of which require regular input. A daily 10-minute
-      routine after your shower is realistic and effective.
+      Haftada 1 saatten günde 10 dakika daha iyidir. Esneklik, sinirsel ve doku adaptasyonudur ve her ikisi de düzenli girdi gerektirir. Duştan sonra günlük 10 dakikalık bir rutin gerçekçi ve etkilidir.
     </p>
 
-    <h2>7. Try yoga or mobility work</h2>
+    <h2>7. Yoga veya mobilite çalışmalarını deneyin</h2>
     <p>
-      A beginner yoga class teaches correct form and full-body programming in
-      one session. YouTube videos from physical therapists (Squat University,
-      Bob and Brad, Tom Merrick) are free and excellent.
+      Başlangıç seviyesi bir yoga dersi, tek seansta doğru formu ve tüm vücut programlamasını öğretir. Fizyoterapistlerden (Squat University, Bob and Brad, Tom Merrick) YouTube videoları ücretsiz ve mükemmeldir.
     </p>
 
-    <h2>8. Foam rolling is not stretching but helps</h2>
+    <h2>8. Köpük rulo esneme değildir ancak yardımcı olur</h2>
     <p>
-      Myofascial release relaxes tissue before or after stretching, making
-      stretches more effective. 5 minutes of rolling tight areas before
-      stretching often doubles the quality of the session.
+      Miyofasyal gevşetme, esnemeden önce veya sonra dokuyu rahatlatır ve esnemeleri daha etkili hale getirir. Esnemeden önce gergin bölgelere 5 dakika rulo yapmak, seansın kalitesini genellikle ikiye katlar.
     </p>
 
-    <h2>9. Strength at end range &gt; flexibility alone</h2>
+    <h2>9. Son hareket aralığında güç, tek başına esneklikten daha iyidir</h2>
     <p>
-      Pure flexibility without strength is fragile. Deep squats with
-      bodyweight, Cossack squats, Jefferson curls — these build usable range
-      of motion. Flexibility you can&rsquo;t control is not useful.
+      Güç olmadan saf esneklik kırılgandır. Vücut ağırlığıyla derin squatlar, Kazak squatları, Jefferson curl'ları — bunlar kullanılabilir hareket aralığı oluşturur. Kontrol edemediğiniz esneklik işe yaramaz.
     </p>
 
-    <h2>10. Expect months, not weeks</h2>
+    <h2>10. Haftalar değil, aylar bekleyin</h2>
     <p>
-      Most people want to touch their toes by Friday. Real flexibility changes
-      take 3-6 months of consistent work. Patience. The daily habit is the
-      win; progress follows on its own schedule. See{" "}
-      <a href="/guides/how-to-build-muscle-as-a-beginner">muscle guide</a>.
+      Çoğu insan Cuma gününe kadar ayak parmaklarına dokunmak ister. Gerçek esneklik değişiklikleri, tutarlı çalışmayla 3-6 ay sürer. Sabır. Günlük alışkanlık kazandırır; ilerleme kendi takvimine göre gelir.{" "}
+      <a href="/guides/how-to-build-muscle-as-a-beginner">Kas rehberine</a> bakın.
     </p>
   </>
 );

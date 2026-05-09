@@ -1,90 +1,94 @@
 export const intro = (
   <>
     <p>
-      &ldquo;Spot reduction&rdquo; is a myth. You can&rsquo;t target belly fat
-      with crunches. Fat comes off your whole body in roughly genetic order.
-      But the belly is usually last to go for most people, which is why it
-      feels stubborn. Here&rsquo;s what actually works.
+      &ldquo;Bölgesel zayıflama&rdquo; bir efsanedir. Mekik çekerek göbek
+      yağını hedefleyemezsiniz. Yağ, vücudunuzdan genetik sıraya göre
+      atılır. Ancak çoğu insan için göbek en son giden bölgedir, bu yüzden
+      inatçı hissedilir. İşte gerçekten işe yarayan şey.
     </p>
     <p>
-      Boring fundamentals beat exciting gimmicks every time.
+      Sıkıcı temel prensipler, heyecan verici hileleri her zaman yener.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Caloric deficit — the only way</h2>
+    <h2>1. Kalori açığı — tek yol</h2>
     <p>
-      You lose fat by eating fewer calories than you burn. No supplement,
-      exercise, or trick overrides this. 300-500 calorie daily deficit = 0.5-1
-      lb/week loss, which is the sustainable range.
+      Yaktığınızdan daha az kalori alarak yağ kaybedersiniz. Hiçbir takviye,
+      egzersiz veya hile bunun yerine geçmez. Günlük 300-500 kalori açığı =
+      haftada 0.5-1 kg kayıp, sürdürülebilir aralık budur.
     </p>
 
-    <h2>2. Protein at every meal</h2>
+    <h2>2. Her öğünde protein</h2>
     <p>
-      0.7-1g protein per pound of goal body weight. Keeps you full, preserves
-      muscle during fat loss, has the highest thermic effect of any macro.
-      Eggs, chicken, Greek yogurt, cottage cheese, tuna, beans.
+      Hedef kilonuzun her kilosu başına 1.5-2.2 gram protein. Sizi tok tutar,
+      yağ kaybı sırasında kasları korur ve tüm makro besinler arasında en
+      yüksek termik etkiye sahiptir. Yumurta, tavuk, Yunan yoğurdu, süzme
+      peynir, ton balığı, fasulye.
     </p>
 
-    <h2>3. Cut liquid calories first</h2>
+    <h2>3. Önce sıvı kalorileri kesin</h2>
     <p>
-      Soda, juice, sugary coffee drinks, alcohol, sweetened teas — these are
-      pure calorie bombs with zero satiety. Drop them and most people lose 5-10
-      lbs without touching food. Water, tea, black coffee, sparkling water.
+      Soda, meyve suyu, şekerli kahve içecekleri, alkol, tatlandırılmış çaylar
+      — bunlar hiçbir tokluk hissi vermeyen saf kalori bombalarıdır. Bunları
+      bırakın ve çoğu kişi yemeğe dokunmadan 2-4 kilo verir. Su, çay, siyah
+      kahve, maden suyu.
     </p>
 
-    <h2>4. Strength training, not endless cardio</h2>
+    <h2>4. Sonsuz kardiyo değil, kuvvet antrenmanı</h2>
     <p>
-      Cardio burns calories during; strength training builds muscle that burns
-      calories 24/7. 3-4 days of weights + walking beats 6 days of running for
-      fat loss. See <a href="/guides/how-to-build-muscle-as-a-beginner">muscle
-      guide</a>.
+      Kardiyo anlık kalori yakar; kuvvet antrenmanı ise 7/24 kalori yakan kas
+      inşa eder. Yağ kaybı için haftada 3-4 gün ağırlık + yürüyüş, 6 gün
+      koşuyu yener. Bkz. <a href="/guides/how-to-build-muscle-as-a-beginner">kas
+      rehberi</a>.
     </p>
 
-    <h2>5. Walk 8,000-10,000 steps daily</h2>
+    <h2>5. Günde 8.000-10.000 adım atın</h2>
     <p>
-      Walking burns calories, reduces stress, doesn&rsquo;t interfere with
-      muscle recovery. Boring but elite-level effective. Aim for 10,000 as a
-      baseline, more is better.
+      Yürümek kalori yakar, stresi azaltır, kas iyileşmesine engel olmaz.
+      Sıkıcı ama elit seviyede etkili. Hedef olarak 10.000 adımı baz alın,
+      daha fazlası daha iyidir.
     </p>
 
-    <h2>6. Sleep 7-8 hours</h2>
+    <h2>6. 7-8 saat uyuyun</h2>
     <p>
-      Poor sleep spikes cortisol, increases hunger hormones, and directly stores
-      belly fat. You can&rsquo;t out-diet bad sleep. This is often the hidden
-      reason &ldquo;nothing works.&rdquo; See{" "}
-      <a href="/guides/how-to-sleep-better">sleep guide</a>.
+      Kötü uyku kortizolü yükseltir, açlık hormonlarını artırır ve doğrudan
+      göbek yağı depolanmasına neden olur. Kötü uykuyu diyetle
+      telafi edemezsiniz. Bu genellikle &ldquo;hiçbir şey işe yaramıyor&rdquo;
+      denmesinin gizli nedenidir. Bkz.{" "}
+      <a href="/guides/how-to-sleep-better">uyku rehberi</a>.
     </p>
 
-    <h2>7. Reduce stress where possible</h2>
+    <h2>7. Mümkün olduğunca stresi azaltın</h2>
     <p>
-      Chronic stress = chronic cortisol = visceral belly fat accumulation.
-      Exercise, nature, meditation, social time, therapy — all reduce cortisol.
-      Belly fat and stress are tightly linked.
+      Kronik stres = kronik kortizol = iç organ göbek yağı birikimi.
+      Egzersiz, doğa, meditasyon, sosyal zaman, terapi — hepsi kortizolü
+      düşürür. Göbek yağı ve stres sıkı sıkıya bağlıdır.
     </p>
 
-    <h2>8. Skip the detoxes and belly-fat teas</h2>
+    <h2>8. Detoks ve göbek yağı çaylarını atlayın</h2>
     <p>
-      No product targets belly fat. Detoxes don&rsquo;t work. Waist trainers
-      don&rsquo;t burn fat. These are marketing scams. Save your money for real
-      food.
+      Hiçbir ürün göbek yağını hedeflemez. Detokslar işe yaramaz. Bel
+      korseleri yağ yakmaz. Bunlar pazarlama dolandırıcılığıdır. Paranızı
+      gerçek yiyeceğe saklayın.
     </p>
 
-    <h2>9. Measure progress weekly, not daily</h2>
+    <h2>9. İlerlemeyi günlük değil, haftalık ölçün</h2>
     <p>
-      Daily weight fluctuates 2-5 lbs from water, food, salt, cycle. Weekly
-      averages show real trend. Also measure waist circumference — belly fat
-      often drops inches before pounds.
+      Günlük kilo, su, yiyecek, tuz ve döngü nedeniyle 1-2 kg oynar.
+      Haftalık ortalamalar gerçek eğilimi gösterir. Ayrıca bel çevrenizi
+      ölçün — göbek yağı genellikle kilodan önce santim olarak düşer.
     </p>
 
-    <h2>10. Patience. It takes 6-12 months</h2>
+    <h2>10. Sabır. 6-12 ay sürer</h2>
     <p>
-      Most people want abs in 30 days. Realistic timeline is 6-12 months for
-      meaningful belly fat loss. The process is slow because sustainable
-      changes are slow. Impatience kills more diets than any other factor. See{" "}
-      <a href="/guides/how-to-lose-weight-without-exercise">weight loss guide</a>.
+      Çoğu kişi 30 günde karın kası ister. Gerçekçi zaman çizelgesi, anlamlı
+      göbek yağı kaybı için 6-12 aydır. Süreç yavaştır çünkü sürdürülebilir
+      değişiklikler yavaştır. Sabırsızlık, diyetleri diğer tüm faktörlerden
+      daha fazla öldürür. Bkz.{" "}
+      <a href="/guides/how-to-lose-weight-without-exercise">kilo verme rehberi</a>.
     </p>
   </>
 );

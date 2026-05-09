@@ -3,188 +3,149 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Renting &ldquo;what you can afford&rdquo; depends on whether you&rsquo;re asking your
-      landlord, your budget spreadsheet, or your future self. Landlords want to see gross
-      income of 3x the monthly rent. Financial planners recommend spending no more than 30%
-      of your take-home pay. The 50/30/20 framework bundles rent into the &ldquo;needs&rdquo;
-      half of your income. This guide walks through each rule, shows where they disagree,
-      and explains why the right number depends on your other fixed costs (student loans,
-      car payment, childcare) more than on your salary alone. By the end you&rsquo;ll have
-      a rent ceiling that&rsquo;s realistic, not aspirational.
+      &ldquo;Gücünüzün yettiği kadar&rdquo; kiralama, bunu ev sahibinize, bütçe tablonuza veya gelecekteki kendinize sorup sormadığınıza bağlıdır. Ev sahipleri, brüt gelirin aylık kiranın 3 katı olmasını ister. Finansal planlamacılar, net gelirinizin en fazla %30&rsquo;unu kiraya harcamanızı önerir. 50/30/20 çerçevesi, kirayı gelirinizin &ldquo;ihtiyaçlar&rdquo; yarısına dahil eder. Bu rehber, her kuralı adım adım açıklar, nerede çeliştiklerini gösterir ve doğru rakamın, maaşınızdan çok diğer sabit maliyetlerinize (öğrenci kredileri, araba ödemesi, çocuk bakımı) bağlı olduğunu açıklar. Sonunda, ulaşılabilir değil, gerçekçi bir kira tavanınız olacak.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>1. The 30% rent rule</h2>
+    <h2>1. %30 kira kuralı</h2>
     <p>
-      The oldest rule of thumb: spend no more than 30% of <strong>gross monthly income</strong>
-      on rent. If you earn $72,000/year ($6,000/month gross), the ceiling is $1,800/month.
+      En eski temel kural: <strong>brüt aylık gelirinizin</strong> en fazla %30&rsquo;unu kiraya harcayın. Yılda 72.000$ (ayda 6.000$ brüt) kazanıyorsanız, tavan ayda 1.800$&rsquo;dır.
     </p>
-    <pre>{`max rent = gross monthly income × 0.30`}</pre>
+    <pre>{`max kira = brüt aylık gelir × 0.30`}</pre>
     <p>
-      This rule was codified in 1969 US housing policy and hasn&rsquo;t been updated. It
-      works as a quick sanity check but breaks in high-cost-of-living cities where 40-50%
-      is now normal, and in lower-income situations where 30% is crushing.
+      Bu kural, 1969 ABD konut politikasında kodlanmıştır ve güncellenmemiştir. Hızlı bir mantık kontrolü olarak işe yarar, ancak yaşam maliyetinin yüksek olduğu şehirlerde %40-50&rsquo;nin artık normal olduğu ve düşük gelirli durumlarda %30&rsquo;un ezici olduğu durumlarda geçerliliğini kaybeder.
     </p>
 
-    <h2>2. The net-income version (more realistic)</h2>
+    <h2>2. Net gelir versiyonu (daha gerçekçi)</h2>
     <p>
-      A better formulation uses <strong>take-home pay</strong> (after taxes, 401k, health
-      insurance):
+      Daha iyi bir formülasyon <strong>net maaş</strong> (vergiler, 401k, sağlık sigortası sonrası) kullanır:
     </p>
-    <pre>{`max rent = net monthly income × 0.30`}</pre>
+    <pre>{`max kira = net aylık gelir × 0.30`}</pre>
     <p>
-      On that same $72k salary, net pay might be $4,500/month. 30% of net = $1,350/month.
-      That&rsquo;s $450/month less than the gross version — and usually closer to what you
-      can actually sustain.
+      Aynı 72 bin dolarlık maaşta, net maaş ayda 4.500$ olabilir. Netin %30&rsquo;u = ayda 1.350$. Bu, brüt versiyondan ayda 450$ daha azdır ve genellikle gerçekten sürdürebileceğiniz rakama daha yakındır.
     </p>
 
-    <h2>3. The 50/30/20 budget check</h2>
+    <h2>3. 50/30/20 bütçe kontrolü</h2>
     <p>
-      Split your take-home pay:
+      Net maaşınızı bölün:
     </p>
     <ul>
-      <li>50% &mdash; needs (rent, utilities, groceries, insurance, minimum debt payments)</li>
-      <li>30% &mdash; wants (dining out, entertainment, subscriptions, travel)</li>
-      <li>20% &mdash; savings and extra debt payoff</li>
+      <li>%50 &mdash; ihtiyaçlar (kira, faturalar, market, sigorta, asgari borç ödemeleri)</li>
+      <li>%30 &mdash; istekler (dışarıda yemek, eğlence, abonelikler, seyahat)</li>
+      <li>%20 &mdash; tasarruf ve ek borç ödemesi</li>
     </ul>
     <p>
-      Rent is typically the largest &ldquo;need&rdquo; line. If rent alone eats 35%+ of net
-      income, the needs bucket overflows and you&rsquo;ll be stealing from wants or savings
-      every month.
+      Kira genellikle en büyük &ldquo;ihtiyaç&rdquo; kalemidir. Kira tek başına net gelirin %35&rsquo;ini veya daha fazlasını tüketiyorsa, ihtiyaç kovası taşar ve her ay isteklerden veya tasarruflardan çalmak zorunda kalırsınız.
     </p>
 
-    <h2>4. The landlord&rsquo;s 3x income requirement</h2>
+    <h2>4. Ev sahibinin 3 kat gelir şartı</h2>
     <p>
-      Most US landlords require gross annual income of at least <strong>40x monthly
-      rent</strong>, or monthly gross of <strong>3x rent</strong>. A $2,000/month apartment
-      typically requires $6,000/month gross income ($72k/year). Some cities and landlords
-      demand 2.5x or even 2x; luxury buildings and NYC often require 40x annual.
+      Çoğu ABD&rsquo;li ev sahibi, yıllık brüt gelirin en az <strong>aylık kiranın 40 katı</strong> veya aylık brüt gelirin <strong>kiranın 3 katı</strong> olmasını ister. Ayda 2.000$&rsquo;lık bir daire genellikle ayda 6.000$ brüt gelir (yılda 72 bin $) gerektirir. Bazı şehirler ve ev sahipleri 2,5 kat veya hatta 2 kat talep eder; lüks binalar ve New York genellikle yıllık 40 kat ister.
     </p>
     <p>
-      If you&rsquo;re short, options include a guarantor (someone with 80x income co-signs),
-      prepaying several months, or services like Insurent. But if you need these, you
-      probably can&rsquo;t truly afford the unit.
+      Eksik kalıyorsanız, seçenekler arasında bir kefil (80 kat geliri olan birinin ortak imzası), birkaç aylık peşin ödeme veya Insurent gibi hizmetler bulunur. Ancak bunlara ihtiyacınız varsa, muhtemelen birimi gerçekten karşılayamıyorsunuzdur.
     </p>
 
-    <h2>5. Security deposits and move-in costs</h2>
+    <h2>5. Depozito ve taşınma maliyetleri</h2>
     <p>
-      Budget for these as one-time costs at signing:
+      İmza sırasında tek seferlik maliyetler olarak bunları bütçeleyin:
     </p>
     <ul>
-      <li>First month&rsquo;s rent</li>
-      <li>Last month&rsquo;s rent (common)</li>
-      <li>Security deposit (usually 1 month, sometimes 1.5-2)</li>
-      <li>Broker fee (12-15% of annual rent in NYC/Boston)</li>
-      <li>Application fee ($30-100)</li>
-      <li>Renter&rsquo;s insurance (~$15/month)</li>
+      <li>İlk ayın kirası</li>
+      <li>Son ayın kirası (yaygın)</li>
+      <li>Depozito (genellikle 1 ay, bazen 1,5-2)</li>
+      <li>Emlakçı ücreti (New York/Boston&rsquo;da yıllık kiranın %12-15&rsquo;i)</li>
+      <li>Başvuru ücreti (30-100$)</li>
+      <li>Kiracı sigortası (~15$/ay)</li>
     </ul>
     <p>
-      Move-in cash for a $2,000 apartment can total $6,000-14,000. Have it saved before you
-      start searching.
+      2.000$&rsquo;lık bir daire için taşınma nakit toplamı 6.000-14.000$ olabilir. Aramaya başlamadan önce bunu biriktirmiş olun.
     </p>
 
-    <h2>6. Include utilities and you&rsquo;ll stop overshooting</h2>
+    <h2>6. Faturaları dahil edin ve aşmayı durdurun</h2>
     <p>
-      A &ldquo;$1,800 apartment&rdquo; with tenant-paid utilities often runs $2,100-2,300
-      all-in. Typical monthly adds:
+      Kiracı tarafından ödenen faturaları olan &ldquo;1.800$&rsquo;lık bir daire&rdquo; genellikle toplamda 2.100-2.300$&rsquo;a çıkar. Tipik aylık eklemeler:
     </p>
     <ul>
-      <li>Electricity: $50-150</li>
-      <li>Gas/heat: $30-150 seasonally</li>
-      <li>Water/sewer: $30-80</li>
-      <li>Internet: $50-80</li>
-      <li>Trash: $0-30</li>
-      <li>Renters insurance: $15-25</li>
+      <li>Elektrik: 50-150$</li>
+      <li>Gaz/ısıtma: mevsimsel olarak 30-150$</li>
+      <li>Su/kanalizasyon: 30-80$</li>
+      <li>İnternet: 50-80$</li>
+      <li>Çöp: 0-30$</li>
+      <li>Kiracı sigortası: 15-25$</li>
     </ul>
     <p>
-      Ask prospective landlords for the prior tenant&rsquo;s average utility bill. Most will
-      share it.
+      Potansiyel ev sahiplerine önceki kiracının ortalama fatura tutarını sorun. Çoğu paylaşacaktır.
     </p>
 
-    <h2>7. High-cost cities break the 30% rule</h2>
+    <h2>7. Yüksek maliyetli şehirler %30 kuralını bozar</h2>
     <p>
-      In NYC, San Francisco, Boston, Washington DC, and London, median rent-to-income ratios
-      are 35-50%. People make it work by: having roommates, forgoing a car, eating in,
-      limiting retirement contributions. None of these are free — the &ldquo;savings&rdquo;
-      come from somewhere else in the budget. If you&rsquo;re going above 30%, explicitly
-      decide which trade-offs you&rsquo;re making.
+      New York, San Francisco, Boston, Washington DC ve Londra&rsquo;da medyan kira-gelir oranları %35-50&rsquo;dir. İnsanlar bunu şu şekilde başarır: ev arkadaşı edinmek, arabadan vazgeçmek, evde yemek yemek, emeklilik katkılarını sınırlamak. Bunların hiçbiri bedava değildir &mdash; &ldquo;tasarruflar&rdquo; bütçenin başka bir yerinden gelir. %30&rsquo;un üzerine çıkıyorsanız, hangi ödünleşimleri yaptığınıza açıkça karar verin.
     </p>
 
-    <h2>8. Fixed-cost adjustments</h2>
+    <h2>8. Sabit maliyet ayarlamaları</h2>
     <p>
-      The 30% rule assumes typical debt loads. If you have:
+      %30 kuralı tipik borç yüklerini varsayar. Eğer varsa:
     </p>
     <ul>
-      <li>Student loans of $500+/month: drop rent target to 25%</li>
-      <li>Car payment + insurance $600+: drop to 25%</li>
-      <li>Childcare $1,500+: drop to 20-22%</li>
-      <li>No debt, no car: can justify 32-35%</li>
+      <li>Ayda 500$+ öğrenci kredisi: kira hedefini %25&rsquo;e düşürün</li>
+      <li>Araba ödemesi + sigorta 600$+: %25&rsquo;e düşürün</li>
+      <li>Çocuk bakımı 1.500$+: %20-22&rsquo;ye düşürün</li>
+      <li>Borç yok, araba yok: %32-35&rsquo;i haklı çıkarabilir</li>
     </ul>
     <p>
-      Your <strong>debt-to-income ratio</strong> matters as much as your salary. Landlords
-      and lenders both look at this.</p>
+      <strong>Borç-gelir oranınız</strong> maaşınız kadar önemlidir. Ev sahipleri ve borç verenler ikisine de bakar.</p>
 
-    <h2>9. Roommates change the math entirely</h2>
+    <h2>9. Ev arkadaşları matematiği tamamen değiştirir</h2>
     <p>
-      Splitting a $2,800 2-bedroom into two $1,400 rooms turns an unaffordable unit into an
-      easy one. Do the math on per-person basis, not per-unit. A roommate saves the average
-      US renter $500-1,200/month. Over a 2-year lease that&rsquo;s $12,000-29,000.
+      2.800$&rsquo;lık 2 yatak odalı bir daireyi iki adet 1.400$&rsquo;lık odaya bölmek, karşılanamaz bir birimi kolay bir birime dönüştürür. Hesaplamayı birim başına değil, kişi başına yapın. Bir ev arkadaşı, ortalama ABD&rsquo;li kiracıya ayda 500-1.200$ tasarruf sağlar. 2 yıllık bir kira sözleşmesinde bu 12.000-29.000$&rsquo;dır.
 
     </p>
 
-    <h2>10. Rent increases to plan for</h2>
+    <h2>10. Planlanması gereken kira artışları</h2>
     <p>
-      US rents have risen 4-6% annually over the last decade. If you sign at 30% of income
-      today, by year 3 you could be at 34%+ if your income is flat. Negotiate a cap in the
-      lease (2-3% maximum annual increase) when possible. Or plan to move if the ratio
-      blows past your ceiling.
+      ABD&rsquo;de kiralar son on yılda yıllık %4-6 oranında arttı. Bugün gelirin %30&rsquo;u ile imza atarsanız, geliriniz sabitse 3. yılda %34+&rsquo;e çıkabilirsiniz. Mümkün olduğunda kira sözleşmesinde bir tavan (yıllık maksimum %2-3 artış) pazarlığı yapın. Veya oran tavanınızı aşarsa taşınmayı planlayın.
     </p>
 
-    <h2>11. Rent-to-income benchmarks</h2>
+    <h2>11. Kira-gelir kıyaslamaları</h2>
     <ul>
-      <li>Under 25%: comfortable, leaves room for aggressive savings</li>
-      <li>25-30%: healthy, recommended range</li>
-      <li>30-35%: tight, requires discipline on other categories</li>
-      <li>35-45%: &ldquo;rent-burdened&rdquo; per HUD &mdash; common in HCOL cities</li>
-      <li>45%+: severely burdened, one bad month from crisis</li>
+      <li>%25&rsquo;in altı: rahat, agresif tasarruf için yer bırakır</li>
+      <li>%25-30: sağlıklı, önerilen aralık</li>
+      <li>%30-35: sıkı, diğer kategorilerde disiplin gerektirir</li>
+      <li>%35-45: HUD&rsquo;a göre &ldquo;kira yükü altında&rdquo; &mdash; yüksek maliyetli şehirlerde yaygın</li>
+      <li>%45+: ağır yük altında, bir kötü ayda kriz</li>
     </ul>
 
-    <h2>12. Common mistakes</h2>
+    <h2>12. Yaygın hatalar</h2>
     <ul>
       <li>
-        <strong>Using gross income when net is what you spend.</strong> Gross overstates
-        your rent ceiling by 25-35%.
+        <strong>Net gelir harcanabilirken brüt geliri kullanmak.</strong> Brüt, kira tavanınızı %25-35 oranında olduğundan fazla gösterir.
       </li>
       <li>
-        <strong>Forgetting one-time costs.</strong> Brokers fees and deposits can equal 3
-        months of rent in cash up front.
+        <strong>Tek seferlik maliyetleri unutmak.</strong> Emlakçı ücretleri ve depozitolar, peşin olarak 3 aylık kiraya eşit olabilir.
       </li>
       <li>
-        <strong>Ignoring commute costs.</strong> A cheaper suburb with $300/month in transit
-        and parking is sometimes more expensive than a closer-in $200/month upgrade.
+        <strong>İşe gidip gelme maliyetlerini görmezden gelmek.</strong> Ayda 300$&rsquo;lık ulaşım ve park ücreti olan daha ucuz bir banliyö, bazen daha yakındaki 200$&rsquo;lık bir yükseltmeden daha pahalı olabilir.
       </li>
       <li>
-        <strong>Not stress-testing for job loss.</strong> Can you cover rent for 3 months
-        from savings? If not, rent less.
+        <strong>İş kaybı için stres testi yapmamak.</strong> Kirayı 3 ay boyunca tasarruflarınızdan karşılayabilir misiniz? Cevap hayırsa, daha az kiralayın.
       </li>
       <li>
-        <strong>Overweighting the unit, underweighting the lease.</strong> Late fees,
-        non-refundable deposits, and automatic renewal clauses can cost thousands.
+        <strong>Birime aşırı ağırlık vermek, kira sözleşmesini hafife almak.</strong> Gecikme ücretleri, iade edilmeyen depozitolar ve otomatik yenileme maddeleri binlerce dolara mal olabilir.
       </li>
     </ul>
 
-    <h2>13. Run the numbers</h2>
+    <h2>13. Rakamları hesaplayın</h2>
     <p>
-      Enter your income and debts below to see what you can truly afford — both under the
-      30% rule and the stricter needs-based 50/30/20 check.
+      Gerçekten neyi karşılayabileceğinizi görmek için aşağıya gelirinizi ve borçlarınızı girin &mdash; hem %30 kuralına göre hem de daha katı ihtiyaç bazlı 50/30/20 kontrolüne göre.
     </p>
     <p>
-      <a href="/tools/apartment-affordability-calculator">Apartment affordability calculator</a>
-      <a href="/tools/mortgage-affordability-calculator">Mortgage affordability calculator</a>
-      <a href="/tools/budget-calculator">Budget calculator</a>
+      <a href="/tools/apartment-affordability-calculator">Daire satın alınabilirlik hesaplayıcısı</a>
+      <a href="/tools/mortgage-affordability-calculator">Mortgage satın alınabilirlik hesaplayıcısı</a>
+      <a href="/tools/budget-calculator">Bütçe hesaplayıcısı</a>
     </p>
   </>
 );

@@ -3,148 +3,146 @@
 export const intro = (
   <>
     <p>
-      The rent-vs-buy decision for gaming PCs is mostly determined by use frequency.
-      Daily users buy; occasional event users rent; everyone in between has a real
-      choice. This guide is the framework + the math.
+      Oyun bilgisayarı için kiralama vs satın alma kararı çoğunlukla kullanım sıklığına göre belirlenir.
+      Günlük kullanıcılar satın alır; ara sıra etkinlik kullanıcıları kiralar; aradaki herkes için gerçek bir
+      seçenek söz konusudur. Bu rehber, çerçeve + matematiği sunar.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "framework", label: "The decision framework" },
-  { id: "math", label: "The math" },
-  { id: "scenarios", label: "Common scenarios" },
+  { id: "framework", label: "Karar çerçevesi" },
+  { id: "math", label: "Matematik" },
+  { id: "scenarios", label: "Yaygın senaryolar" },
 ];
 
 export const body = (
   <>
-    <h2 id="framework">The rent-vs-buy decision framework</h2>
+    <h2 id="framework">Kiralama vs satın alma karar çerçevesi</h2>
     <p>
-      Five factors:
+      Beş faktör:
     </p>
     <ol>
       <li>
-        <strong>Use frequency.</strong> Daily &gt; weekly &gt; monthly &gt;
-        occasional. Beyond ~weekly use, ownership wins. Below ~6 events/year,
-        rental wins.
+        <strong>Kullanım sıklığı.</strong> Günlük &gt; haftalık &gt; aylık &gt;
+        ara sıra. Haftalık kullanımın ötesinde sahiplik kazanır. Yılda ~6 etkinliğin altında
+        kiralama kazanır.
       </li>
       <li>
-        <strong>Tenure.</strong> If you&rsquo;re going to need a PC for &gt; 18
-        months, ownership beats monthly rental. Below 12 months, monthly rental
-        wins on cash flow.
+        <strong>Süre.</strong> 18 aydan uzun süre bir bilgisayara ihtiyacınız varsa,
+        sahiplik aylık kiralamayı yener. 12 aydan kısa sürede aylık kiralama
+        nakit akışı açısından kazanır.
       </li>
       <li>
-        <strong>Cash flow.</strong> Can you afford $1500-3000 upfront? If not,
-        monthly rental or rent-to-own spreads the cost.
+        <strong>Nakit akışı.</strong> Peşin 1500-3000$ ödeyebiliyor musunuz? Ödeyemiyorsanız,
+        aylık kiralama veya kirala-sahip ol seçeneği maliyeti yayar.
       </li>
       <li>
-        <strong>Living situation.</strong> Settled vs nomadic. Frequent moves push
-        toward rental or laptop. Stable housing supports ownership.
+        <strong>Yaşam durumu.</strong> Yerleşik vs gezgin. Sık taşınmalar
+        kiralamaya veya dizüstü bilgisayara yöneltir. Stabil konut sahipliği destekler.
       </li>
       <li>
-        <strong>Tech aesthetics.</strong> Want to upgrade every 2 years for the
-        latest GPU? Owning + reselling beats long-term renting on cost. Want
-        consistent maintenance-free performance? Subscription is the
-        psychologically simpler path.
+        <strong>Teknoloji estetiği.</strong> En yeni GPU için her 2 yılda bir yükseltme mi yapmak istiyorsunuz? Sahip olma + yeniden satma, uzun vadeli kiralamayı maliyet açısından yener. Tutarlı, bakım gerektirmeyen performans mı istiyorsunuz? Abonelik psikolojik olarak
+        daha basit yoldur.
       </li>
     </ol>
 
-    <h2 id="math">The math</h2>
+    <h2 id="math">Matematik</h2>
     <p>
-      Use our <a href="/tools/pc-rental-vs-buy-calculator">rent vs buy calculator</a>{" "}
-      with your numbers. Quick benchmarks:
+      Kendi rakamlarınızla <a href="/tools/pc-rental-vs-buy-calculator">kiralama vs satın alma hesaplayıcımızı</a>{" "}
+      kullanın. Hızlı referans noktaları:
     </p>
     <ul>
       <li>
-        <strong>Daily user, $2200 PC, 5-year life, 35% resale:</strong> annualized
-        ownership ~$340/year. Equivalent monthly rental at $150/month would cost
-        $1800/year — ownership wins by 5×.
+        <strong>Günlük kullanıcı, 2200$'lık bilgisayar, 5 yıl ömür, %35 yeniden satış:</strong> yıllık
+        sahiplik maliyeti ~340$/yıl. Aylık 150$'dan eşdeğer kiralama
+        1800$/yıl tutar — sahiplik 5 kat kazanır.
       </li>
       <li>
-        <strong>Weekly event user (200 hours/year):</strong> annualized ownership
-        ~$340/year, ~$1.70/hour. Event rental at $180 × 50 events = $9000/year.
-        Ownership wins decisively.
+        <strong>Haftalık etkinlik kullanıcısı (yılda 200 saat):</strong> yıllık sahiplik
+        maliyeti ~340$/yıl, ~1.70$/saat. 180$ × 50 etkinlikten etkinlik kiralaması = 9000$/yıl.
+        Sahiplik kesin olarak kazanır.
       </li>
       <li>
-        <strong>Monthly event user (60 hours/year, 12 events):</strong> ownership
-        ~$340/year. Event rental $180 × 12 = $2160/year. Ownership wins by 6×.
+        <strong>Aylık etkinlik kullanıcısı (yılda 60 saat, 12 etkinlik):</strong> sahiplik
+        ~340$/yıl. Etkinlik kiralaması 180$ × 12 = 2160$/yıl. Sahiplik 6 kat kazanır.
       </li>
       <li>
-        <strong>Occasional event user (24 hours/year, 6 events):</strong> ownership
-        $340/year. Event rental $180 × 6 = $1080/year. Ownership still wins.
+        <strong>Ara sıra etkinlik kullanıcısı (yılda 24 saat, 6 etkinlik):</strong> sahiplik
+        340$/yıl. Etkinlik kiralaması 180$ × 6 = 1080$/yıl. Sahiplik hâlâ kazanır.
       </li>
       <li>
-        <strong>One-event-per-year user:</strong> rental wins. Don&rsquo;t buy a
-        PC for one weekend.
+        <strong>Yılda bir etkinlik kullanıcısı:</strong> kiralama kazanır. Bir hafta sonu için
+        bilgisayar almayın.
       </li>
     </ul>
     <p>
-      The breakeven for typical inputs is around 2-3 events/year for event
-      rentals. Below that, rent. Above, buy.
+      Tipik girdiler için başabaş noktası, etkinlik kiralamalarında yılda yaklaşık 2-3 etkinliktir.
+      Bunun altında kiralayın, üstünde satın alın.
     </p>
 
-    <h2 id="scenarios">Common scenarios</h2>
+    <h2 id="scenarios">Yaygın senaryolar</h2>
 
-    <h3>College student, dorm, 4 years</h3>
+    <h3>Üniversite öğrencisi, yurt, 4 yıl</h3>
     <p>
-      Daily use → buy. Pick a mid-tier 1440p build ($1500). Sells in 4 years for
-      ~$700. Net cost ~$200/year. Far cheaper than 4 years of monthly rentals or
-      cloud gaming.
+      Günlük kullanım → satın alın. Orta seviye bir 1440p sistem seçin (1500$). 4 yıl sonra
+      ~700$'a satar. Net maliyet ~200$/yıl. 4 yıllık aylık kiralamalardan veya
+      bulut oyunculuktan çok daha ucuz.
     </p>
 
-    <h3>Frequent traveler, gaming on the road</h3>
+    <h3>Sık seyahat eden, yolda oyun oynayan</h3>
     <p>
-      A gaming laptop or cloud gaming subscription beats either renting or buying
-      a desktop. The desktop math doesn&rsquo;t work for nomadic situations.
+      Bir oyun dizüstü bilgisayarı veya bulut oyun aboneliği, bir masaüstü kiralamak veya satın almaktan
+      daha iyidir. Masaüstü matematiği gezgin durumlar için işe yaramaz.
     </p>
 
-    <h3>Esports team, training scrims</h3>
+    <h3>Espor takımı, antrenman maçları</h3>
     <p>
-      Buy. Daily-use math is overwhelming. Plus the latency control of local
-      hardware matters for competitive play.
+      Satın alın. Günlük kullanım matematiği ezici. Ayrıca rekabetçi oyun için yerel donanımın
+      gecikme kontrolü önemlidir.
     </p>
 
-    <h3>Casual gamer, modest gaming 2-3 hours/week</h3>
+    <h3>Sıradan oyuncu, haftada 2-3 saat mütevazı oyun</h3>
     <p>
-      Cloud gaming wins. $10-20/month vs $340/year of ownership. The cost cross-
-      over for low-frequency casual users is firmly on the cloud-gaming side.
+      Bulut oyunculuk kazanır. Ayda 10-20$ vs yıllık 340$ sahiplik maliyeti. Düşük frekanslı
+      sıradan kullanıcılar için maliyet karşılaştırması kesinlikle bulut oyunculuk tarafındadır.
     </p>
 
-    <h3>Convention or tournament organizer</h3>
+    <h3>Kongre veya turnuva organizatörü</h3>
     <p>
-      Rental. You need 4-20 machines for one weekend a year. Event-rental
-      services exist exactly for this case.
+      Kiralama. Yılda bir hafta sonu için 4-20 makineye ihtiyacınız var. Etkinlik kiralama
+      hizmetleri tam olarak bu durum için vardır.
     </p>
 
-    <h3>Content creator, <a href="/learn/stream">streaming</a> + gaming</h3>
+    <h3>İçerik üreticisi, <a href="/learn/stream">yayıncı</a> + oyuncu</h3>
     <p>
-      Buy. Streaming-tier specs are expensive but the daily-use math holds. Plus
-      content creators benefit from owning their full chain (capture cards, audio
-      interfaces, peripherals tuned to the build).
+      Satın alın. Yayıncı seviyesi özellikler pahalıdır ancak günlük kullanım matematiği geçerlidir. Ayrıca
+      içerik üreticileri tüm zincire (yakalama kartları, ses arayüzleri,
+      sisteme göre ayarlanmış çevre birimleri) sahip olmaktan fayda sağlar.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Run the rent vs buy calculator",
+  label: "Kiralama vs satın alma hesaplayıcısını çalıştırın",
   targetSlug: "pc-rental-vs-buy-calculator",
 };
 
 export const faq = [
   {
-    q: "Gaming PC rental vs purchase — which makes sense?",
-    a: "Daily users buy. Occasional event users (1-2 events/year) rent. Everyone in between depends on event frequency, rental rates, and cash-flow situation. Use our calculator with your numbers. Breakeven for typical inputs is around 2-3 events/year — below that rent, above buy.",
+    q: "Oyun bilgisayarı kiralamak mı satın almak mı — hangisi mantıklı?",
+    a: "Günlük kullanıcılar satın alır. Ara sıra etkinlik kullanıcıları (yılda 1-2 etkinlik) kiralar. Aradaki herkes etkinlik sıklığına, kiralama ücretlerine ve nakit akışı durumuna bağlıdır. Kendi rakamlarınızla hesaplayıcımızı kullanın. Tipik girdiler için başabaş noktası yılda yaklaşık 2-3 etkinliktir — bunun altında kiralayın, üstünde satın alın.",
   },
   {
-    q: "Should I buy or rent a gaming PC for events?",
-    a: "Buy if you'll attend 6+ events/year (annualized ownership beats event-rental cost). Rent if 1-2 events/year. Between 2 and 6, depends on rental rates in your region. Use our calculator with your numbers — breakeven varies by purchase price, useful life, and rental rates.",
+    q: "Etkinlikler için oyun bilgisayarı satın almalı mıyım yoksa kiralamalı mıyım?",
+    a: "Yılda 6+ etkinliğe katılacaksanız satın alın (yıllık sahiplik maliyeti etkinlik kiralama maliyetini yener). Yılda 1-2 etkinlikse kiralayın. 2 ile 6 arasında bölgenizdeki kiralama ücretlerine bağlıdır. Kendi rakamlarınızla hesaplayıcımızı kullanın — başabaş noktası satın alma fiyatına, kullanım ömrüne ve kiralama ücretlerine göre değişir.",
   },
   {
-    q: "Is gaming PC ownership worth it for casual gamers?",
-    a: "For 2-3 hours/week of casual gaming: cloud gaming wins decisively ($10-20/month vs $340/year of ownership). For daily users: buy. Cloud gaming has bandwidth and game-support limitations but for casual usage it's often the rational choice.",
+    q: "Oyun bilgisayarı sahipliği sıradan oyuncular için değer mi?",
+    a: "Haftada 2-3 saat sıradan oyun için: bulut oyunculuk kesin olarak kazanır (ayda 10-20$ vs yılda 340$ sahiplik maliyeti). Günlük kullanıcılar için: satın alın. Bulut oyunculuğun bant genişliği ve oyun desteği sınırlamaları vardır ancak sıradan kullanım için genellikle mantıklı seçimdir.",
   },
   {
-    q: "What's the breakeven for renting vs owning a gaming PC?",
-    a: "For typical inputs ($2200 PC, 5-year life, 35% resale, $180 per 4-hour event rental): around 2-3 events/year. Below that, rent. Above, ownership wins by an increasing margin. Run our calculator with your specific purchase price and rental rates for your exact breakeven.",
+    q: "Oyun bilgisayarı kiralamakla satın almak arasındaki başabaş noktası nedir?",
+    a: "Tipik girdiler için (2200$'lık bilgisayar, 5 yıl ömür, %35 yeniden satış, 4 saatlik etkinlik kiralaması başına 180$): yılda yaklaşık 2-3 etkinlik. Bunun altında kiralayın. Üstünde sahiplik artan bir farkla kazanır. Kesin başabaş noktanız için kendi satın alma fiyatınız ve kiralama ücretlerinizle hesaplayıcımızı çalıştırın.",
   },
 ];

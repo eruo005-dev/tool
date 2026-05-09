@@ -1,111 +1,82 @@
 export const intro = (
   <>
     <p>
-      Your credit score quietly decides what you pay for everything — mortgage, car loan, even
-      car insurance in many states. A 700+ score saves tens of thousands of dollars over a
-      lifetime compared to a 600. The mechanics are boring but learnable, and the rewards
-      compound for decades.
+      Kredi puanınız, ipotekten araba kredisine, hatta birçok eyalette araba sigortasına kadar her şey için ne kadar ödeyeceğinizi sessizce belirler. 700+ puan, 600 puana kıyasla bir ömür boyu on binlerce dolar tasarruf sağlar. Mekanizmalar sıkıcı ama öğrenilebilir ve ödüller on yıllar boyunca birikir.
     </p>
     <p>
-      This guide covers how to build credit from zero (or rebuild it from damage), focused on
-      what actually moves the score rather than the myths.
+      Bu rehber, sıfırdan kredi puanı oluşturmayı (veya hasar görmüş bir puanı yeniden inşa etmeyi), efsanelerden ziyade puanı gerçekten etkileyen şeylere odaklanarak ele alıyor.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Understand what&rsquo;s in the score</h2>
+    <h2>1. Puanın içinde ne olduğunu anlayın</h2>
     <p>
-      FICO scores are ~35% payment history, ~30% credit utilization, ~15% age of accounts, ~10%
-      credit mix, ~10% new credit. Payment history + utilization is ~65% of the score — focus
-      95% of your effort there.
+      FICO puanları yaklaşık %35 ödeme geçmişi, %30 kredi kullanım oranı, %15 hesap yaşı, %10
+      kredi çeşitliliği, %10 yeni krediden oluşur. Ödeme geçmişi + kullanım oranı puanın ~%65'ini oluşturur — çabanızın %95'ini buraya odaklayın.
     </p>
 
-    <h2>2. Open a starter card</h2>
+    <h2>2. Bir başlangıç kartı açın</h2>
     <p>
-      With zero credit, start with a secured credit card (requires a refundable deposit) or a
-      student card. Use it for small monthly purchases. Pay in full each month. After 6–12
-      months of on-time payments, you can usually graduate to a regular unsecured card.
+      Sıfır krediniz varsa, güvenli bir kredi kartı (para iadesi gerektirir) veya bir öğrenci kartıyla başlayın. Küçük aylık alışverişler için kullanın. Her ay tamamını ödeyin. 6-12 ay düzenli ödemeden sonra, genellikle normal bir teminatsız karta geçebilirsiniz.
     </p>
 
-    <h2>3. Pay on time, every time</h2>
+    <h2>3. Her zaman, zamanında ödeyin</h2>
     <p>
-      Payment history is the biggest factor. One 30-day late payment can drop your score 60+
-      points and stay on your report for 7 years. Autopay at least the minimum on every account.
-      Forgetting once is a very expensive mistake.
+      Ödeme geçmişi en büyük faktördür. 30 günlük tek bir gecikmiş ödeme puanınızı 60+ puan düşürebilir ve 7 yıl boyunca raporunuzda kalır. Her hesapta en azından asgari tutar için otomatik ödeme ayarlayın. Bir kere unutmak çok pahalı bir hatadır.
     </p>
 
-    <h2>4. Keep utilization under 10%</h2>
+    <h2>4. Kullanım oranını %10'un altında tutun</h2>
     <p>
-      Utilization = (balance) / (credit limit). Under 30% is OK; under 10% optimizes the score.
-      If your limit is $1,000, keep the reported balance under $100. Pay before the statement
-      closes, not just before the due date — the statement balance is what gets reported.
+      Kullanım oranı = (bakiye) / (kredi limiti). %30'un altı iyidir; %10'un altı puanı optimize eder. Limitiniz 1.000 TL ise, raporlanan bakiyeyi 100 TL'nin altında tutun. Sadece son ödeme tarihinden önce değil, ekstre kapanmadan önce ödeyin — raporlanan bakiye ekstre bakiyesidir.
     </p>
 
-    <h2>5. Never close your oldest card</h2>
+    <h2>5. En eski kartınızı asla kapatmayın</h2>
     <p>
-      Average age of accounts matters. Closing your oldest card shortens your credit history
-      and can drop your score noticeably. Keep it open — use it for one small recurring charge
-      (Netflix) and pay it off monthly.
+      Hesapların ortalama yaşı önemlidir. En eski kartınızı kapatmak kredi geçmişinizi kısaltır ve puanınızı gözle görülür şekilde düşürebilir. Açık tutun — küçük bir yinelenen ödeme (Netflix) için kullanın ve aylık olarak ödeyin.
     </p>
 
-    <h2>6. Request credit limit increases</h2>
+    <h2>6. Kredi limiti artışı talep edin</h2>
     <p>
-      Every 6–12 months, ask your card issuer for a higher limit. Higher limit + same
-      spending = lower utilization = higher score. Most issuers let you request online, and
-      many don&rsquo;t do a hard pull for existing customers.
+      Her 6-12 ayda bir, kart sağlayıcınızdan daha yüksek bir limit isteyin. Daha yüksek limit + aynı harcama = daha düşük kullanım oranı = daha yüksek puan. Çoğu sağlayıcı çevrimiçi talep etmenize izin verir ve birçoğu mevcut müşteriler için sert sorgulama yapmaz.
     </p>
 
-    <h2>7. Avoid applying for many cards at once</h2>
+    <h2>7. Aynı anda birçok karta başvurmaktan kaçının</h2>
     <p>
-      Each hard inquiry dings your score ~5 points. Two or three over 2 years is fine; five
-      over 6 months looks desperate to algorithms. Space applications at least 6 months apart.
+      Her sert sorgulama puanınızı yaklaşık 5 puan düşürür. 2 yılda iki veya üç sorun değildir; 6 ayda beş, algoritmalara umutsuz görünür. Başvuruları en az 6 ay arayla yapın.
     </p>
 
-    <h2>8. Mix your credit types eventually</h2>
+    <h2>8. Zamanla kredi türlerinizi çeşitlendirin</h2>
     <p>
-      Revolving (cards) + installment (car loan, student loan) boosts score ~10%. Don&rsquo;t
-      take out loans just for this — but if you&rsquo;d need one anyway, know that on-time
-      payments help the score.
+      Döner (kartlar) + taksitli (araba kredisi, öğrenci kredisi) puanı ~%10 artırır. Sırf bunun için kredi çekmeyin — ancak zaten birine ihtiyacınız varsa, düzenli ödemelerin puana yardımcı olduğunu bilin.
     </p>
 
-    <h2>9. Check your report quarterly</h2>
+    <h2>9. Raporunuzu üç ayda bir kontrol edin</h2>
     <p>
-      AnnualCreditReport.com is the official free source from all three bureaus. Scan for
-      errors: wrong accounts, wrong balances, late payments that weren&rsquo;t late. Dispute
-      them — even one error can cost 50+ points.
+      AnnualCreditReport.com, üç bürodan da resmi ücretsiz kaynaktır. Hataları tarayın: yanlış hesaplar, yanlış bakiyeler, gecikmemiş gecikmiş ödemeler. Bunlara itiraz edin — tek bir hata bile 50+ puana mal olabilir.
     </p>
 
-    <h2>10. Authorized user tricks</h2>
+    <h2>10. Yetkili kullanıcı taktikleri</h2>
     <p>
-      Adding yourself as an authorized user on a trusted family member&rsquo;s old, high-limit
-      card boosts your score instantly — you &ldquo;inherit&rdquo; their history. Works best
-      for teens or new-to-credit people, and requires someone with excellent credit who trusts
-      you.
+      Güvendiğiniz bir aile üyesinin eski, yüksek limitli kartına yetkili kullanıcı olarak eklenmek puanınızı anında yükseltir — geçmişlerini "devralırsınız". En çok gençler veya kredisi olmayan kişiler için işe yarar ve mükemmel kredisi olan ve size güvenen birini gerektirir.
     </p>
 
-    <h2>11. Don&rsquo;t carry a balance for &ldquo;credit history&rdquo;</h2>
+    <h2>11. "Kredi geçmişi" için bakiye taşımayın</h2>
     <p>
-      Persistent myth: you need to carry a balance to build credit. You don&rsquo;t. Pay in full
-      every month. Carrying balances just pays interest for no score benefit. Use the card,
-      then zero it out.
+      Kalıcı bir efsane: kredi oluşturmak için bakiye taşımanız gerekir. Taşımazsınız. Her ay tamamını ödeyin. Bakiye taşımak, puan avantajı olmadan sadece faiz ödemektir. Kartı kullanın, ardından sıfırlayın.
     </p>
 
-    <h2>12. Be patient — it takes years</h2>
+    <h2>12. Sabırlı olun — yıllar alır</h2>
     <p>
-      From 0, you can hit ~700 in 2 years with perfect behavior. 750+ typically takes 4–5
-      years. Credit is a long game. Pair with our{" "}
-      <a href="/guides/how-to-pay-off-debt-fast">debt payoff guide</a> and our{" "}
-      <a href="/guides/how-to-make-a-monthly-budget">budget guide</a> to keep the habits in
-      place long enough for it to matter.
+      Sıfırdan, mükemmel davranışla 2 yılda ~700'e ulaşabilirsiniz. 750+ tipik olarak 4-5 yıl alır. Kredi uzun vadeli bir oyundur. Bunu{" "}
+      <a href="/guides/how-to-pay-off-debt-fast">borç ödeme rehberimiz</a> ve{" "}
+      <a href="/guides/how-to-make-a-monthly-budget">bütçe rehberimiz</a> ile birleştirerek alışkanlıkların önemli hale gelmesi için yeterince uzun süre devam etmesini sağlayın.
     </p>
 
-    <h2>Your first year</h2>
+    <h2>İlk yılınız</h2>
     <p>
-      Open one secured card. Set autopay for the minimum. Put one small subscription on it.
-      Pay in full monthly. Check your score quarterly. In 12 months you&rsquo;ll have the
-      foundation of a lifetime of cheap borrowing.
+      Bir güvenli kart açın. Asgari tutar için otomatik ödeme ayarlayın. Üzerine küçük bir abonelik koyun. Her ay tamamını ödeyin. Puanınızı üç ayda bir kontrol edin. 12 ay içinde, ömür boyu sürecek ucuz borçlanmanın temeline sahip olacaksınız.
     </p>
   </>
 );

@@ -3,170 +3,124 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Pulling a palette out of an image looks like magic but it&rsquo;s just
-      clustering. Given a photo of millions of pixels, you reduce them to a
-      handful of representative colors and output the result as a set of hex
-      codes. Designers use this to derive palettes from moodboards, brands use
-      it to reverse-engineer competitor assets, and developers use it to match
-      UI accents to uploaded content. This guide covers the two algorithms that
-      matter (k-means and median-cut), the difference between &ldquo;dominant&rdquo;
-      and &ldquo;average,&rdquo; how to extract clean palettes from logos, and the
-      gotchas &mdash; JPEG artifacts, transparent PNGs, near-duplicate colors
-      &mdash; that make naive extractions look messy.
+      Bir görselden palet çıkarmak sihir gibi görünse de aslında kümelemedir.
+      Milyonlarca pikselden oluşan bir fotoğrafı alıp, bunları bir avuç temsili renge indirger ve sonucu bir dizi hex kodu olarak çıktılarsınız.
+      Tasarımcılar bunu moodboard'lardan palet türetmek için, markalar rakip varlıklarını tersine mühendislikle analiz etmek için ve geliştiriciler UI vurgularını yüklenen içerikle eşleştirmek için kullanır.
+      Bu rehber, önemli olan iki algoritmayı (k-means ve median-cut), "baskın" ile "ortalama" arasındaki farkı, logolardan temiz paletlerin nasıl çıkarılacağını ve naif çıkarımları dağınık gösteren tuzakları (JPEG artefaktları, şeffaf PNG'ler, neredeyse aynı renkler) kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What &ldquo;extracting colors&rdquo; actually means</h2>
+    <h2>"Renk çıkarmak" aslında ne anlama geliyor</h2>
     <p>
-      An image is a cloud of points in 3D color space (R, G, B). Extracting a
-      palette of N colors is the task of finding N cluster centers that best
-      represent that cloud. Different algorithms define &ldquo;best&rdquo;
-      differently, which is why two tools can give you two different palettes
-      from the same photo.
+      Bir görsel, 3B renk uzayında (R, G, B) bir nokta bulutudur. N renkten oluşan bir palet çıkarmak, bu bulutu en iyi temsil eden N küme merkezini bulma görevidir.
+      Farklı algoritmalar "en iyi"yi farklı tanımlar; bu yüzden iki araç aynı fotoğraftan size iki farklı palet verebilir.
     </p>
     <p>
-      All extractors do some version of: downsample the image, choose a color
-      space, pick N centroids, iterate. The quality bar is &ldquo;does the
-      output reproduce the feel of the image.&rdquo;
+      Tüm çıkarıcılar şunun bir versiyonunu yapar: görseli alt örnekle, bir renk uzayı seç, N merkez noktası seç, yinele. Kalite çıtası "çıktının görselin hissini yansıtıp yansıtmadığı"dır.
     </p>
 
-    <h2>K-means clustering</h2>
+    <h2>K-means kümeleme</h2>
     <p>
-      The workhorse algorithm. Pick N random centers, assign each pixel to its
-      nearest center, recompute centers as the mean of their assigned pixels,
-      repeat until stable.
+      İşe yarar algoritma. Rastgele N merkez seç, her pikseli en yakın merkeze ata, merkezleri atanan piksellerin ortalaması olarak yeniden hesapla, sabitlenene kadar tekrarla.
     </p>
-    <pre>{`1. init N centroids randomly
-2. for each pixel: assign to nearest centroid
-3. update each centroid = mean of its pixels
-4. repeat 2-3 until movement < epsilon`}</pre>
+    <pre>{`1. N merkez noktasını rastgele başlat
+2. her piksel için: en yakın merkeze ata
+3. her merkezi = piksellerinin ortalaması olarak güncelle
+4. hareket < epsilon olana kadar 2-3'ü tekrarla`}</pre>
     <p>
-      <strong>Pros:</strong> simple, predictable, gives you exactly N colors.{" "}
-      <strong>Cons:</strong> sensitive to initial seeds, can merge distinct
-      small-but-important colors (a brand red inside a mostly-blue image), and
-      distances in raw RGB don&rsquo;t match human perception.
+      <strong>Artıları:</strong> basit, öngörülebilir, size tam olarak N renk verir.{" "}
+      <strong>Eksileri:</strong> başlangıç tohumlarına duyarlıdır, küçük ama önemli renkleri (çoğunlukla mavi bir görselin içindeki bir marka kırmızısı) birleştirebilir ve ham RGB'deki mesafeler insan algısıyla uyuşmaz.
     </p>
 
     <h2>Median-cut</h2>
     <p>
-      The algorithm GIF and PNG palette builders use. Recursively split the
-      color space: find the channel with the widest range, split at its median,
-      repeat on each half until you have N boxes.
+      GIF ve PNG palet oluşturucularının kullandığı algoritma. Renk uzayını yinelemeli olarak böler: en geniş aralığa sahip kanalı bul, medyanından böl, N kutu elde edene kadar her yarıda tekrarla.
     </p>
-    <pre>{`box = all pixels
-while box count < N:
-  pick the box with the largest channel range
-  split it at that channel's median
-output = average color of each final box`}</pre>
+    <pre>{`kutu = tüm pikseller
+kutu sayısı < N iken:
+  en büyük kanal aralığına sahip kutuyu seç
+  o kanalın medyanından böl
+çıktı = her son kutunun ortalama rengi`}</pre>
     <p>
-      <strong>Pros:</strong> deterministic, good at preserving outliers,
-      standard for image-<a href="/learn/quantization">quantization</a> tasks. <strong>Cons:</strong> can give
-      you oddly-similar neighbors if the image has narrow distributions.
+      <strong>Artıları:</strong> deterministiktir, aykırı değerleri korumada iyidir, görsel-<a href="/learn/quantization">niceleme</a> görevleri için standarttır. <strong>Eksileri:</strong> görsel dar dağılımlara sahipse size tuhaf şekilde benzer komşular verebilir.
     </p>
 
-    <h2>Dominant vs average</h2>
+    <h2>Baskın ve ortalama</h2>
     <p>
-      These are two different questions:
+      Bunlar iki farklı sorudur:
     </p>
     <p>
-      <strong>Dominant color</strong> = the most common color (the largest
-      cluster). For a photo of a sunset, the dominant color is the dominant
-      cloud/sky color, not some weighted blend.
+      <strong>Baskın renk</strong> = en yaygın renk (en büyük küme). Bir gün batımı fotoğrafı için baskın renk, baskın bulut/gökyüzü rengidir, ağırlıklı bir karışım değil.
     </p>
     <p>
-      <strong>Average color</strong> = the mean of all pixels. For a red-and-blue
-      image, the average is muddy purple &mdash; a color that doesn&rsquo;t
-      actually appear in the image.
+      <strong>Ortalama renk</strong> = tüm piksellerin ortalaması. Kırmızı ve mavi bir görsel için ortalama, çamur rengi bir mordur &mdash; görselde aslında bulunmayan bir renk.
     </p>
     <p>
-      Use dominant when picking a single representative accent. Average is
-      usually wrong; it tends to output dirty browns for anything colorful.
+      Tek bir temsili vurgu seçerken baskın rengi kullanın. Ortalama genellikle yanlıştır; renkli şeyler için kirli kahverengiler üretme eğilimindedir.
     </p>
 
-    <h2>Perceptually uniform color spaces</h2>
+    <h2>Algısal olarak tekdüze renk uzayları</h2>
     <p>
-      Clustering in raw RGB means distances don&rsquo;t match what your eye
-      sees. Two blues that look nearly identical can be 40 units apart in RGB
-      while a dark green and a light yellow are only 30 apart. Better results
-      come from Lab, OKLab, or HSL.
+      Ham RGB'de kümeleme, mesafelerin gözünüzün gördüğüyle eşleşmediği anlamına gelir. Neredeyse aynı görünen iki mavi, RGB'de 40 birim uzakta olabilirken, koyu yeşil ve açık sarı sadece 30 birim uzaktadır. Daha iyi sonuçlar Lab, OKLab veya HSL'den gelir.
     </p>
-    <pre>{`RGB:  fast, wrong (doesn't match perception)
-HSL:  okay, intuitive, weak on luminance
-Lab:  perceptually uniform, mildly slow
-OKLab: newer, perceptually excellent, fast`}</pre>
+    <pre>{`RGB:  hızlı, yanlış (algıyla eşleşmez)
+HSL:  iyi, sezgisel, parlaklıkta zayıf
+Lab:  algısal olarak tekdüze, biraz yavaş
+OKLab: daha yeni, algısal olarak mükemmel, hızlı`}</pre>
     <p>
-      If your output palette has near-duplicate colors, the extractor is
-      probably clustering in RGB. Switch tools or convert to Lab/OKLab first.
+      Çıktı paletiniz neredeyse aynı renklere sahipse, çıkarıcı muhtemelen RGB'de kümeleme yapıyordur. Araç değiştirin veya önce Lab/OKLab'a dönüştürün.
     </p>
 
-    <h2>Extracting brand colors from a logo</h2>
+    <h2>Bir logodan marka renkleri çıkarma</h2>
     <p>
-      Logos are special: they usually have 2&ndash;4 sharp, flat colors with
-      transparent or white backgrounds. Extraction rules:
+      Logolar özeldir: genellikle şeffaf veya beyaz arka planlı 2&ndash;4 keskin, düz renge sahiptirler. Çıkarma kuralları:
     </p>
     <ul>
-      <li>Ignore pure white pixels (they&rsquo;re usually the background).</li>
-      <li>Ignore near-transparent pixels (rendering artifacts).</li>
-      <li>Collapse colors that are within 5 units of each other.</li>
-      <li>Return 3&ndash;5 colors max &mdash; brand palettes are small.</li>
+      <li>Saf beyaz pikselleri yoksay (genellikle arka plandır).</li>
+      <li>Neredeyse şeffaf pikselleri yoksay (işleme artefaktları).</li>
+      <li>Birbirine 5 birimden daha yakın renkleri birleştir.</li>
+      <li>En fazla 3&ndash;5 renk döndür &mdash; marka paletleri küçüktür.</li>
     </ul>
     <p>
-      If your logo is a JPEG, you&rsquo;ll pull compression artifacts: halos
-      around edges, subtle banding. Convert to SVG or redraw in Figma before
-      extracting for color spec.
+      Logonuz bir JPEG ise, sıkıştırma artefaktları çekersiniz: kenarlarda haleler, ince bantlanma. Renk şartnamesi için çıkarmadan önce SVG'ye dönüştürün veya Figma'da yeniden çizin.
     </p>
 
-    <h2>Extracting palettes from photos</h2>
+    <h2>Fotoğraflardan palet çıkarma</h2>
     <p>
-      Photos have gradients. Millions of unique colors. Extraction choices:
+      Fotoğraflar gradyanlara sahiptir. Milyonlarca benzersiz renk. Çıkarma seçenekleri:
     </p>
     <p>
-      <strong>How many colors?</strong> Five is the sweet spot for a palette
-      people can read. Eight gives you tint variation. Above ten, users
-      can&rsquo;t tell some swatches apart.
+      <strong>Kaç renk?</strong> Beş, insanların okuyabileceği bir palet için ideal noktadır. Sekiz, ton çeşitliliği sağlar. Onun üzerinde, kullanıcılar bazı renk örneklerini ayırt edemez.
     </p>
     <p>
-      <strong>Saturation filter?</strong> Dropping low-saturation pixels before
-      clustering emphasizes the &ldquo;colorful&rdquo; colors and avoids a
-      palette full of beige. Useful for moodboards.
+      <strong>Doygunluk filtresi?</strong> Kümelemeden önce düşük doygunluktaki pikselleri atmak, "renkli" renkleri vurgular ve bej dolu bir paletten kaçınır. Moodboard'lar için kullanışlıdır.
     </p>
     <p>
-      <strong>Resize before processing.</strong> A 4K photo has 8M pixels;
-      resizing to 200px wide is 50K pixels and 99% as accurate. Always
-      downsample first.
+      <strong>İşlemeden önce yeniden boyutlandırın.</strong> 4K bir fotoğraf 8M piksele sahiptir; 200 piksel genişliğe yeniden boyutlandırmak 50K pikseldir ve %99 oranında doğrudur. Her zaman önce alt örnekleyin.
     </p>
 
-    <h2>The &ldquo;muddy middle&rdquo; problem</h2>
+    <h2>"Çamurlu orta" sorunu</h2>
     <p>
-      K-means on a photo with lots of skin tones tends to pull a narrow range
-      of tans &mdash; all technically correct, all visually useless. Mitigations:
+      Çok sayıda cilt tonuna sahip bir fotoğrafta k-means, dar bir bronzluk aralığı çekme eğilimindedir &mdash; hepsi teknik olarak doğru, hepsi görsel olarak işe yaramaz. Azaltmalar:
     </p>
     <p>
-      Cluster more centers (say 16) then keep the 5 most spread out. This
-      &ldquo;over-extract and deduplicate&rdquo; trick reliably produces
-      interesting palettes.
+      Daha fazla merkez (örneğin 16) kümeleyin, ardından en yaygın 5'i tutun. Bu "fazla çıkar ve yinelenenleri kaldır" hilesi güvenilir bir şekilde ilginç paletler üretir.
     </p>
     <p>
-      Weight pixels by saturation before clustering, so vivid colors have more
-      influence than neutrals.
+      Kümelemeden önce pikselleri doygunluğa göre ağırlıklandırın, böylece canlı renkler nötr renklerden daha fazla etkiye sahip olur.
     </p>
 
-    <h2>Transparent PNGs</h2>
+    <h2>Şeffaf PNG'ler</h2>
     <p>
-      If you skip the alpha channel, fully-transparent pixels contribute
-      &ldquo;colors&rdquo; that depend on the image&rsquo;s undefined RGB for
-      transparent areas &mdash; often arbitrary. Always filter pixels by
-      alpha &gt; 50% before clustering.
+      Alfa kanalını atlarsanız, tamamen şeffaf pikseller, görselin şeffaf alanlar için tanımlanmamış RGB'sine bağlı olan "renklere" katkıda bulunur &mdash; genellikle keyfi. Kümelemeden önce her zaman pikselleri alfa &gt; %50'ye göre filtreleyin.
     </p>
 
-    <h2>Output formats</h2>
+    <h2>Çıktı formatları</h2>
     <p>
-      Hex is what developers want; RGB is what some design tools want; HSL is
-      what CSS loves. A good extraction tool outputs all three plus the
-      percentage of the image each swatch represents.
+      Hex, geliştiricilerin istediğidir; RGB, bazı tasarım araçlarının istediğidir; HSL, CSS'nin sevdiğidir. İyi bir çıkarma aracı, her rengin görseldeki yüzdesiyle birlikte her üçünü de çıktılar.
     </p>
     <pre>{`#4a6fa5  RGB(74,111,165)    HSL(215,36%,47%)   38%
 #c8a862  RGB(200,168,98)    HSL(41,51%,58%)    24%
@@ -174,56 +128,41 @@ OKLab: newer, perceptually excellent, fast`}</pre>
 #e4e1d7  RGB(228,225,215)   HSL(46,17%,87%)    12%
 #8c3a2f  RGB(140,58,47)     HSL(7,50%,37%)     8%`}</pre>
 
-    <h2>Reproducibility</h2>
+    <h2>Tekrarlanabilirlik</h2>
     <p>
-      K-means with random seeds is non-deterministic &mdash; run it twice, get
-      slightly different palettes. Good tools seed the PRNG for stable output
-      or use median-cut which is deterministic by construction. If you&rsquo;re
-      extracting palettes as part of a design pipeline, reproducibility
-      matters.
+      Rastgele tohumlarla k-means deterministik değildir &mdash; iki kez çalıştırın, biraz farklı paletler elde edin. İyi araçlar, kararlı çıktı için PRNG'yi tohumlar veya yapısı gereği deterministik olan median-cut'ı kullanır. Paletleri bir tasarım hattının parçası olarak çıkarıyorsanız, tekrarlanabilirlik önemlidir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Trusting average color.</strong> It&rsquo;s almost never what you
-      want. Use dominant or the top-N cluster centers.
+      <strong>Ortalama renge güvenmek.</strong> Neredeyse hiçbir zaman istediğiniz şey değildir. Baskın veya en iyi N küme merkezini kullanın.
     </p>
     <p>
-      <strong>Extracting from a compressed JPEG.</strong> JPEG chroma subsampling
-      and block artifacts introduce colors that aren&rsquo;t really in the
-      original. Work from PNG or raw source when possible.
+      <strong>Sıkıştırılmış bir JPEG'den çıkarmak.</strong> JPEG renk alt örneklemesi ve blok artefaktları, orijinalde gerçekten olmayan renkler ekler. Mümkün olduğunda PNG veya ham kaynaktan çalışın.
     </p>
     <p>
-      <strong>Skipping the alpha channel.</strong> Transparent PNGs contribute
-      ghost colors if you don&rsquo;t filter.
+      <strong>Alfa kanalını atlamak.</strong> Filtrelemezseniz şeffaf PNG'ler hayalet renkler ekler.
     </p>
     <p>
-      <strong>Clustering in RGB and wondering why the palette looks wrong.</strong>{" "}
-      Lab or OKLab align with human vision far better.
+      <strong>RGB'de kümeleyip paletin neden yanlış göründüğünü merak etmek.</strong>{" "}
+      Lab veya OKLab, insan görüşüyle çok daha iyi uyum sağlar.
     </p>
     <p>
-      <strong>Asking for 20 colors.</strong> The human eye can only distinguish
-      5&ndash;8 palette entries reliably. More than that is noise.
+      <strong>20 renk istemek.</strong> İnsan gözü yalnızca 5&ndash;8 palet girişini güvenilir bir şekilde ayırt edebilir. Daha fazlası gürültüdür.
     </p>
     <p>
-      <strong>Not downsampling.</strong> Extracting from a 24MP photo at full
-      resolution is wasteful and doesn&rsquo;t improve accuracy.
+      <strong>Alt örneklememek.</strong> 24MP'lik bir fotoğraftan tam çözünürlükte çıkarma yapmak israftır ve doğruluğu artırmaz.
     </p>
     <p>
-      <strong>Forgetting to rank by frequency.</strong> A palette sorted
-      aesthetically can bury the dominant color. Rank by pixel count so users
-      know which one is the hero.
+      <strong>Sıklığa göre sıralamayı unutmak.</strong> Estetik olarak sıralanmış bir palet, baskın rengi gizleyebilir. Kullanıcılar hangisinin ana renk olduğunu bilsin diye piksel sayısına göre sıralayın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Drop an image into the{" "}
-      <a href="/tools/color-extractor">color extractor</a> for an instant
-      palette with hex, RGB, and HSL. Fine-tune a single color with the{" "}
-      <a href="/tools/color-picker">color picker</a> and convert any swatch
-      between formats with the{" "}
-      <a href="/tools/color-converter">color converter</a> when you need the
-      value in a format your design tool actually understands.
+      Anlık bir palet için bir görseli{" "}
+      <a href="/tools/color-extractor">renk çıkarıcıya</a> sürükleyin; hex, RGB ve HSL ile birlikte gelsin. Tek bir rengi{" "}
+      <a href="/tools/color-picker">renk seçici</a> ile ince ayar yapın ve tasarım aracınızın gerçekten anladığı bir formatta değere ihtiyacınız olduğunda herhangi bir renk örneğini{" "}
+      <a href="/tools/color-converter">renk dönüştürücü</a> ile formatlar arasında dönüştürün.
     </p>
   </>
 );

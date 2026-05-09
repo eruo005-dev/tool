@@ -2,167 +2,164 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    A single laptop with 16 GB of RAM can run a 7B model and feel snappy. It cannot run
-    Llama 3.3 70B or Qwen 3.5 72B. The fix isn&rsquo;t a $5,000 GPU upgrade &mdash; it&rsquo;s
-    pooling the machines you already own. With the right runtime, three or four laptops can
-    cooperatively load a model that none of them could hold alone, and serve it at the speed
-    of the slowest one in the ring.
+    Tek bir dizüstü bilgisayar 16 GB RAM ile 7B modelini çalıştırabilir ve hızlı hissettirebilir. Ancak
+    Llama 3.3 70B veya Qwen 3.5 72B'yi çalıştıramaz. Çözüm 5.000 dolarlık bir GPU yükseltmesi değil &mdash; çözüm,
+    sahip olduğunuz makineleri bir araya getirmektir. Doğru çalışma zamanı ile üç veya dört dizüstü bilgisayar,
+    hiçbirinin tek başına tutamayacağı bir modeli işbirlikçi bir şekilde yükleyebilir ve onu gruptaki en yavaş
+    olanın hızında sunabilir.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What &ldquo;combine laptops&rdquo; actually means</h2>
+    <h2>"Dizüstü bilgisayarları birleştirmek" aslında ne anlama geliyor</h2>
     <p>
-      Modern open-weight LLMs are stored as a stack of <a href="/learn/transformer">transformer</a> layers. Most layers are
-      independent &mdash; layer 12 doesn&rsquo;t need to be on the same machine as layer 11,
-      it just needs to receive the activations and pass them on. Distributed <a href="/learn/inference">inference</a>
-      runtimes exploit that: they slice the model into <em>shards</em>, hand each shard to a
-      different machine, and pipeline tokens through the resulting ring. The technique is
-      called <strong>pipeline parallelism</strong> and it works on any commodity network
-      (Wi-Fi, gigabit Ethernet, Thunderbolt-bridge).
+      Modern açık ağırlıklı LLM'ler, bir dizi <a href="/learn/transformer">transformer</a> katmanı olarak depolanır. Çoğu katman
+      bağımsızdır &mdash; katman 12'nin katman 11 ile aynı makinede olması gerekmez,
+      sadece aktivasyonları alması ve iletmesi yeterlidir. Dağıtık <a href="/learn/inference">çıkarım</a>
+      çalışma zamanları bundan yararlanır: modeli <em>parçalara</em> ayırır, her parçayı
+      farklı bir makineye verir ve token'ları ortaya çıkan halka üzerinden ardışık olarak iletir. Bu tekniğe
+      <strong>ardışık düzen paralelliği</strong> denir ve herhangi bir ticari ağda
+      (Wi-Fi, gigabit Ethernet, Thunderbolt köprüsü) çalışır.
     </p>
     <p>
-      You don&rsquo;t need identical machines. A 64-GB Mac Studio, a 32-GB ThinkPad, and a
-      16-GB MacBook Air can all join the same pod &mdash; the bigger machines just carry
-      more layers. Your bottleneck becomes the slowest member, not the smallest.
-    </p>
-
-    <h2>The four runtimes worth knowing in 2026</h2>
-
-    <h3>1. Hyperspace pods (easiest, OpenAI-compatible)</h3>
-    <p>
-      Hyperspace is a peer-to-peer pod manager: one machine runs <code>pod create</code>,
-      everyone else joins with an invite link, and the resulting cluster exposes an
-      OpenAI-compatible HTTP endpoint. Tools that already speak the OpenAI protocol &mdash;
-      Cursor, Continue.dev, the OpenAI Python SDK, custom agents &mdash; work without code
-      changes. NAT traversal is automatic, so members behind home routers don&rsquo;t need
-      port forwarding. See <a href="/guides/how-to-set-up-a-hyperspace-pod">how to set up a
-      hyperspace pod</a> for the full walkthrough.
+      Aynı makinelere ihtiyacınız yok. 64 GB Mac Studio, 32 GB ThinkPad ve
+      16 GB MacBook Air aynı gruba katılabilir &mdash; daha büyük makineler sadece
+      daha fazla katman taşır. Darboğazınız en küçük değil, en yavaş üye olur.
     </p>
 
-    <h3>2. exo (terminal-first, Apple Silicon shines)</h3>
+    <h2>2026'da bilmeye değer dört çalışma zamanı</h2>
+
+    <h3>1. Hyperspace grupları (en kolay, OpenAI uyumlu)</h3>
     <p>
-      exo (from exo Labs) is an open-source distributed inference engine that auto-discovers
-      machines on your local network and shards models across them by available memory. It
-      runs on macOS, Linux, iPhone, iPad, and Android, and it&rsquo;s especially fast on
-      unified-memory Apple Silicon because there&rsquo;s no copy across PCIe. Single command
-      to start a node:
+      Hyperspace, eşler arası bir grup yöneticisidir: bir makine <code>pod create</code> komutunu çalıştırır,
+      diğer herkes bir davet bağlantısıyla katılır ve ortaya çıkan küme,
+      OpenAI uyumlu bir HTTP uç noktası sunar. OpenAI protokolünü konuşan araçlar &mdash;
+      Cursor, Continue.dev, OpenAI Python SDK'sı, özel ajanlar &mdash; kod değişikliği olmadan
+      çalışır. NAT geçişi otomatiktir, bu nedenle ev yönlendiricilerinin arkasındaki üyelerin
+      bağlantı noktası yönlendirmesine ihtiyacı yoktur. Tam kılavuz için <a href="/guides/how-to-set-up-a-hyperspace-pod">hyperspace grubu nasıl kurulur</a> bölümüne bakın.
     </p>
-    <pre className="overflow-x-auto rounded bg-slate-900 p-3 text-xs text-slate-100"><code>{`# install
+
+    <h3>2. exo (terminal öncelikli, Apple Silicon parlar)</h3>
+    <p>
+      exo (exo Labs'tan), yerel ağınızdaki makineleri otomatik olarak keşfeden ve
+      modelleri mevcut belleğe göre parçalara ayıran açık kaynaklı bir dağıtık çıkarım motorudur.
+      macOS, Linux, iPhone, iPad ve Android'de çalışır ve PCIe üzerinden kopyalama olmadığı için
+      birleşik belleğe sahip Apple Silicon'da özellikle hızlıdır. Bir düğümü başlatmak için tek komut:
+    </p>
+    <pre className="overflow-x-auto rounded bg-slate-900 p-3 text-xs text-slate-100"><code>{`# kurulum
 pip install exo
 
-# on every machine on the same wifi:
+# aynı wifi üzerindeki her makinede:
 exo`}</code></pre>
     <p>
-      The first node prints a localhost API endpoint that speaks OpenAI&rsquo;s wire format.
-      Pull a model with <code>exo run llama-3.1-70b</code> and exo decides which layers go
-      where based on the cluster topology it discovered.
+      İlk düğüm, OpenAI'ın tel formatını konuşan bir localhost API uç noktası yazdırır.
+      <code>exo run llama-3.1-70b</code> ile bir model çekin ve exo, keşfettiği küme topolojisine
+      göre hangi katmanların nereye gideceğine karar verir.
     </p>
 
-    <h3>3. llama.cpp RPC (most control, lowest dependencies)</h3>
+    <h3>3. llama.cpp RPC (en fazla kontrol, en düşük bağımlılık)</h3>
     <p>
-      llama.cpp ships a built-in <code>rpc-server</code> mode that turns any machine into a
-      shard worker. The pattern is: start <code>rpc-server</code> on each helper machine,
-      then start <code>llama-server</code> on the &ldquo;leader&rdquo; with{" "}
-      <code>--rpc 192.168.1.10:50052,192.168.1.11:50052</code> pointing at the helpers. The
-      leader stripes layers across helpers automatically. No central registry, no daemon to
-      run &mdash; just two binaries and a list of IP addresses. Works on every platform
-      llama.cpp supports. Worth reading{" "}
-      <a href="/guides/how-to-use-llama-cpp">how to use llama.cpp</a> first if you haven&rsquo;t.
+      llama.cpp, herhangi bir makineyi bir parça işçisine dönüştüren yerleşik bir <code>rpc-server</code>
+      moduyla birlikte gelir. Desen şudur: her yardımcı makinede <code>rpc-server</code>'ı başlatın,
+      ardından "lider" makinede <code>llama-server</code>'ı yardımcıları işaret eden
+      <code>--rpc 192.168.1.10:50052,192.168.1.11:50052</code> ile başlatın. Lider,
+      katmanları yardımcılar arasında otomatik olarak dağıtır. Merkezi kayıt yok, çalıştırılacak arka plan
+      programı yok &mdash; sadece iki ikili dosya ve bir IP adresleri listesi. llama.cpp'nin desteklediği
+      her platformda çalışır. Daha önce yapmadıysanız önce <a href="/guides/how-to-use-llama-cpp">llama.cpp nasıl kullanılır</a>
+      bölümünü okumaya değer.
     </p>
 
-    <h3>4. Petals (truly distributed across the internet)</h3>
+    <h3>4. Petals (gerçekten internet üzerinde dağıtık)</h3>
     <p>
-      Petals is a BitTorrent-style network for LLMs: anyone can contribute spare compute,
-      anyone can join and run inference against a model that&rsquo;s currently loaded across
-      the swarm. It&rsquo;s the right choice if you want to run a 405B model and you&rsquo;re
-      OK with multi-second per-token latency from public-network hops. Not the right choice
-      for low-latency local pods on the same LAN.
+      Petals, LLM'ler için BitTorrent tarzı bir ağdır: herkes boş hesaplama gücüne katkıda bulunabilir,
+      herkes katılabilir ve şu anda sürü üzerinde yüklü olan bir modele karşı çıkarım çalıştırabilir.
+      405B modelini çalıştırmak istiyorsanız ve genel ağ atlamalarından kaynaklanan saniyeler süren
+      token başına gecikme süresini kabul ediyorsanız doğru seçimdir. Aynı LAN üzerindeki düşük gecikmeli
+      yerel gruplar için doğru seçim değildir.
     </p>
 
-    <h2>Choosing between them</h2>
+    <h2>Aralarında seçim yapmak</h2>
     <table className="my-4 w-full text-left text-sm">
       <thead className="text-xs uppercase tracking-wide text-slate-500">
         <tr>
-          <th className="py-1">Use case</th>
-          <th className="py-1">Pick</th>
+          <th className="py-1">Kullanım durumu</th>
+          <th className="py-1">Seçim</th>
         </tr>
       </thead>
       <tbody>
-        <tr className="border-t border-slate-100"><td className="py-1">Team of 3-8 sharing a pod, needs OpenAI API surface</td><td className="py-1">Hyperspace</td></tr>
-        <tr className="border-t border-slate-100"><td className="py-1">Apple-Silicon-heavy household, casual use</td><td className="py-1">exo</td></tr>
-        <tr className="border-t border-slate-100"><td className="py-1">Maximum control, custom <a href="/learn/quantization">quantization</a>, mixed Linux/Windows</td><td className="py-1">llama.cpp RPC</td></tr>
-        <tr className="border-t border-slate-100"><td className="py-1">Run something larger than any private pool can hold</td><td className="py-1">Petals</td></tr>
-        <tr className="border-t border-slate-100"><td className="py-1">Single machine with 64+ GB and good GPU</td><td className="py-1">No clustering &mdash; just use Ollama</td></tr>
+        <tr className="border-t border-slate-100"><td className="py-1">Bir grubu paylaşan 3-8 kişilik ekip, OpenAI API yüzeyine ihtiyaç duyar</td><td className="py-1">Hyperspace</td></tr>
+        <tr className="border-t border-slate-100"><td className="py-1">Apple Silicon ağırlıklı ev, gündelik kullanım</td><td className="py-1">exo</td></tr>
+        <tr className="border-t border-slate-100"><td className="py-1">Maksimum kontrol, özel <a href="/learn/quantization">niceleme</a>, karma Linux/Windows</td><td className="py-1">llama.cpp RPC</td></tr>
+        <tr className="border-t border-slate-100"><td className="py-1">Herhangi bir özel havuzun tutabileceğinden daha büyük bir şey çalıştırma</td><td className="py-1">Petals</td></tr>
+        <tr className="border-t border-slate-100"><td className="py-1">64+ GB ve iyi GPU'ya sahip tek makine</td><td className="py-1">Kümeleme yok &mdash; sadece Ollama kullanın</td></tr>
       </tbody>
     </table>
 
-    <h2>How big a model can you actually fit?</h2>
+    <h2>Gerçekte ne kadar büyük bir model sığdırabilirsiniz?</h2>
     <p>
-      Total available memory across the cluster has to exceed the model&rsquo;s on-disk size
-      at your chosen quantization, plus context-window overhead. Rough rules:
+      Küme genelindeki toplam kullanılabilir bellek, seçtiğiniz nicelemede modelin disk boyutunu
+      artı bağlam penceresi ek yükünü aşmalıdır. Kabaca kurallar:
     </p>
     <ul>
-      <li><strong>Q4_K_M (4-bit):</strong> model size in GB &asymp; parameters in billions &times; 0.6.
-        Llama 3.3 70B at Q4 is ~40 GB.</li>
-      <li><strong>Q5_K_M (5-bit):</strong> ~0.75&times; parameters. 70B is ~52 GB.</li>
-      <li><strong>Q8_0 (8-bit):</strong> ~1&times; parameters. 70B is ~70 GB.</li>
-      <li><strong>FP16 (16-bit):</strong> ~2&times; parameters. 70B is ~140 GB.</li>
-      <li><strong>Context overhead:</strong> add ~0.5 GB per 1k tokens of <a href="/learn/context-window">context window</a> for KV cache.</li>
+      <li><strong>Q4_K_M (4-bit):</strong> GB cinsinden model boyutu &asymp; milyar cinsinden parametreler &times; 0.6.
+        Q4'te Llama 3.3 70B ~40 GB'dir.</li>
+      <li><strong>Q5_K_M (5-bit):</strong> ~0.75&times; parametreler. 70B ~52 GB'dir.</li>
+      <li><strong>Q8_0 (8-bit):</strong> ~1&times; parametreler. 70B ~70 GB'dir.</li>
+      <li><strong>FP16 (16-bit):</strong> ~2&times; parametreler. 70B ~140 GB'dir.</li>
+      <li><strong>Bağlam ek yükü:</strong> KV önbelleği için <a href="/learn/context-window">bağlam penceresinin</a> her 1k token'ı için ~0.5 GB ekleyin.</li>
     </ul>
     <p>
-      Use the <a href="/tools/llm-context-window-calculator">LLM context window calculator</a>
-      to size the KV cache for a specific config, and the{" "}
-      <a href="/tools/ai-cost-estimator">AI cost estimator</a> to compare a self-hosted pod
-      against equivalent cloud-API spend. A 5-person team with three 32-GB laptops and one
-      64-GB desktop can comfortably host a 70B model at Q4 for the cost of electricity.
+      Belirli bir yapılandırma için KV önbelleğini boyutlandırmak üzere <a href="/tools/llm-context-window-calculator">LLM bağlam penceresi hesaplayıcısını</a>
+      ve kendi kendine barındırılan bir grubu eşdeğer bulut API harcamasıyla karşılaştırmak için
+      <a href="/tools/ai-cost-estimator">AI maliyet tahmincisini</a> kullanın. Üç adet 32 GB dizüstü bilgisayar ve bir
+      64 GB masaüstü bilgisayara sahip 5 kişilik bir ekip, elektrik maliyeti karşılığında Q4'te rahatça bir 70B modelini
+      barındırabilir.
     </p>
 
-    <h2>Network: the part most guides skip</h2>
+    <h2>Ağ: çoğu kılavuzun atladığı kısım</h2>
     <p>
-      Pipeline parallelism shuttles activations between layers across the network on every
-      token. The tensor sizes are small (typically 4&ndash;16 KB per token at 8B&ndash;70B
-      scales), so latency hurts more than bandwidth. In rough order of best-to-worst:
+      Ardışık düzen paralelliği, her token'da aktivasyonları ağ üzerinden katmanlar arasında taşır.
+      Tensör boyutları küçüktür (8B&ndash;70B ölçeklerinde tipik olarak token başına 4&ndash;16 KB), bu nedenle
+      gecikme süresi bant genişliğinden daha fazla zarar verir. Kabaca en iyiden en kötüye sıralama:
     </p>
     <ul>
-      <li><strong>Thunderbolt 4 / USB-C bridge (40 Gbps):</strong> two laptops cabled directly
-        feel like one machine. Best for two-node pods.</li>
-      <li><strong>2.5 GbE / 10 GbE wired:</strong> ideal for 3-8 node home setups; zero token-rate hit.</li>
-      <li><strong>1 GbE wired:</strong> fine for any current open-weight model up to 70B.</li>
-      <li><strong>Wi-Fi 6 (5 GHz, line-of-sight):</strong> usable for 7B-13B models; 70B is
-        slow but works.</li>
-      <li><strong>Wi-Fi over multiple walls:</strong> expect 2&ndash;3 tokens/sec at best.</li>
+      <li><strong>Thunderbolt 4 / USB-C köprüsü (40 Gbps):</strong> iki dizüstü bilgisayar doğrudan kabloyla
+        bağlandığında tek makine gibi hissettirir. İki düğümlü gruplar için en iyisi.</li>
+      <li><strong>2.5 GbE / 10 GbE kablolu:</strong> 3-8 düğümlü ev kurulumları için ideal; sıfır token hızı kaybı.</li>
+      <li><strong>1 GbE kablolu:</strong> 70B'ye kadar mevcut tüm açık ağırlıklı modeller için yeterli.</li>
+      <li><strong>Wi-Fi 6 (5 GHz, görüş hattı):</strong> 7B-13B modelleri için kullanılabilir; 70B
+        yavaştır ancak çalışır.</li>
+      <li><strong>Birden fazla duvardan geçen Wi-Fi:</strong> en iyi ihtimalle saniyede 2&ndash;3 token bekleyin.</li>
     </ul>
 
-    <h2>Quick troubleshooting</h2>
+    <h2>Hızlı sorun giderme</h2>
     <ul>
-      <li><strong>One machine&rsquo;s fans scream.</strong> Layers are unevenly assigned. Most runtimes
-        have a <code>--shard-mem</code> or <code>--max-vram</code> flag to bias the split.</li>
-      <li><strong>Tokens stutter mid-generation.</strong> Usually network jitter on Wi-Fi or a
-        background process pegging one node&rsquo;s CPU. Wire that node, kill the process.</li>
-      <li><strong>Cluster forms but inference fails.</strong> Mixed-precision mismatch &mdash; not
-        every machine supports the same quantization. Pull the same exact model file (same
-        SHA) on every machine.</li>
-      <li><strong>Mac mini is the bottleneck despite extra RAM.</strong> Power-cap kicks in on
-        small enclosures during sustained load. Plug in to wall power, not battery; raise the
-        machine for airflow.</li>
+      <li><strong>Bir makinenin fanları çığlık atıyor.</strong> Katmanlar eşit olmayan şekilde atanmış. Çoğu çalışma
+        zamanında bölmeyi ayarlamak için bir <code>--shard-mem</code> veya <code>--max-vram</code> bayrağı bulunur.</li>
+      <li><strong>Token'lar üretim sırasında takılıyor.</strong> Genellikle Wi-Fi'de ağ titreşimi veya
+        bir düğümün CPU'sunu zorlayan bir arka plan işlemi. O düğümü kabloya bağlayın, işlemi sonlandırın.</li>
+      <li><strong>Küme oluşuyor ancak çıkarım başarısız oluyor.</strong> Karma hassasiyet uyuşmazlığı &mdash; her
+        makine aynı nicelemeyi desteklemez. Her makinede aynı tam model dosyasını (aynı
+        SHA) çekin.</li>
+      <li><strong>Ek RAM'e rağmen Mac mini darboğaz oluyor.</strong> Küçük kasalarda sürekli yük altında güç sınırlaması
+        devreye girer. Prizden güç alın, pil değil; hava akışı için makineyi yükseltin.</li>
     </ul>
 
-    <h2>What the workflow actually looks like</h2>
+    <h2>İş akışı aslında neye benziyor</h2>
     <p>
-      Once a pod is up, you stop thinking about it. Cursor, Continue.dev, your custom
-      agent, or a script all point at <code>http://pod.local:5891/v1</code> with the same
-      OpenAI client they&rsquo;d use against api.openai.com. The pod handles failover when a
-      member sleeps, reshards on join/leave, and falls back to the cloud (at wholesale rates)
-      for the 5% of requests that genuinely need a frontier model.
+      Bir grup kurulduktan sonra, onu düşünmeyi bırakırsınız. Cursor, Continue.dev, özel
+      ajanınız veya bir betik, api.openai.com'a karşı kullanacakları aynı
+      OpenAI istemcisiyle <code>http://pod.local:5891/v1</code> adresini işaret eder. Grup, bir
+      üye uyuduğunda yük devretmeyi, katılma/ayrılma durumunda yeniden parçalamayı ve gerçekten bir sınır modeline
+      ihtiyaç duyan isteklerin %5'i için (toptan fiyatlarla) buluta geri dönmeyi halleder.
     </p>
     <p>
-      For the deeper architecture &mdash; how Raft picks leaders, what the treasury does,
-      how local-vs-cloud routing works &mdash; see the full{" "}
-      <a href="/guides/how-to-set-up-a-hyperspace-pod">hyperspace pod guide</a>. To compare
-      the open-weight options worth running on a pod, the{" "}
-      <a href="/tools/ai-model-compare">AI model compare tool</a> tracks current benchmarks.
+      Daha derin mimari &mdash; Raft'ın liderleri nasıl seçtiği, hazinenin ne yaptığı,
+      yerel-bulut yönlendirmesinin nasıl çalıştığı &mdash; için tam
+      <a href="/guides/how-to-set-up-a-hyperspace-pod">hyperspace grup kılavuzuna</a> bakın. Bir grupta çalıştırmaya değer
+      açık ağırlıklı seçenekleri karşılaştırmak için
+      <a href="/tools/ai-model-compare">AI model karşılaştırma aracı</a> güncel kıyaslamaları takip eder.
     </p>
   </>
 );

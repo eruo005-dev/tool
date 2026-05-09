@@ -1,112 +1,118 @@
 export const intro = (
   <>
     <p>
-      SEO has a reputation for being mysterious, technical, and ever-changing. The fundamentals
-      haven&rsquo;t changed in a decade: write useful content, make it findable, and earn links.
-      Everything else is decoration.
+      SEO'nun gizemli, teknik ve sürekli değişen bir üne sahiptir. Temel prensipler on yıldır
+      değişmedi: faydalı içerik yazın, bulunabilir hale getirin ve bağlantılar kazanın.
+      Geriye kalan her şey süslemedir.
     </p>
     <p>
-      This guide covers what actually matters for a new site to rank. You don&rsquo;t need to
-      learn every Google algorithm update from 2015. You need to do a few basics extremely well.
+      Bu rehber, yeni bir sitenin sıralamaya girmesi için gerçekten önemli olanı kapsar.
+      2015'ten beri her Google algoritma güncellemesini öğrenmenize gerek yok. Birkaç temel
+      şeyi son derece iyi yapmanız gerekiyor.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Start with search intent</h2>
+    <h2>1. Arama amacıyla başlayın</h2>
     <p>
-      Google tries to match pages to what the searcher actually wants. Someone searching
-      &ldquo;best headphones&rdquo; wants a comparison; &ldquo;how to clean headphones&rdquo;
-      wants steps; &ldquo;airpods pro&rdquo; wants a product page. Match intent first, and the
-      rest of SEO gets easier.
+      Google, sayfaları arayan kişinin gerçekte ne istediğiyle eşleştirmeye çalışır. "En iyi
+      kulaklıklar" diye arayan biri karşılaştırma ister; "kulaklıklar nasıl temizlenir" adım
+      adım talimat ister; "airpods pro" bir ürün sayfası ister. Önce amacı eşleştirin, SEO'nun
+      geri kalanı kolaylaşır.
     </p>
 
-    <h2>2. Target keywords with real volume and low difficulty</h2>
+    <h2>2. Gerçek hacimli ve düşük zorlukta anahtar kelimeleri hedefleyin</h2>
     <p>
-      Ranking for &ldquo;productivity&rdquo; is nearly impossible. Ranking for &ldquo;how to stay
-      productive while working from home as a parent&rdquo; is doable. Use free tools (Google
-      Keyword Planner, Ubersuggest) to find long-tail keywords with 100–1000 monthly searches
-      and low competition. Those are where new sites win.
+      "Verimlilik" için sıralamaya girmek neredeyse imkansızdır. "Evden çalışan bir ebeveyn
+      olarak nasıl verimli kalınır" için sıralamaya girmek yapılabilir. Uzun kuyruklu anahtar
+      kelimeleri (ayda 100–1000 arama ve düşük rekabet) bulmak için ücretsiz araçları (Google
+      Anahtar Kelime Planlayıcı, Ubersuggest) kullanın. Yeni sitelerin kazandığı yer burasıdır.
     </p>
 
-    <h2>3. One primary keyword per page</h2>
+    <h2>3. Sayfa başına bir birincil anahtar kelime</h2>
     <p>
-      Each page should target one primary keyword and 2–3 related variations. Trying to rank one
-      page for five unrelated terms means ranking for none. If you have five target keywords,
-      you need five pages.
+      Her sayfa bir birincil anahtar kelimeyi ve 2–3 ilgili varyasyonu hedeflemelidir. Bir
+      sayfayı beş ilgisiz terim için sıralamaya sokmaya çalışmak, hiçbiri için sıralamaya
+      girememek demektir. Beş hedef anahtar kelimeniz varsa, beş sayfaya ihtiyacınız var.
     </p>
 
-    <h2>4. Put the keyword where it counts</h2>
+    <h2>4. Anahtar kelimeyi önemli yerlere koyun</h2>
     <p>
-      Title tag, H1, URL slug, first 100 words, one H2. That&rsquo;s the basic checklist.
-      Don&rsquo;t stuff it unnaturally — modern Google punishes keyword stuffing. Use it where a
-      reader would expect it.
+      Başlık etiketi, H1, URL yolu, ilk 100 kelime, bir H2. Temel kontrol listesi budur.
+      Doğal olmayan bir şekilde doldurmayın — modern Google anahtar kelime doldurmayı
+      cezalandırır. Bir okuyucunun bekleyeceği yerde kullanın.
     </p>
 
-    <h2>5. Write for humans, Google second</h2>
+    <h2>5. Önce insanlar için yazın, Google ikinci sırada</h2>
     <p>
-      Pages that readers love get shared, linked, and earn Google&rsquo;s trust over time. Pages
-      optimized for bots but tedious for humans stall at page 2. Pair with our{" "}
-      <a href="/guides/how-to-write-better">better writing guide</a> — clarity beats SEO tricks.
+      Okuyucuların sevdiği sayfalar paylaşılır, bağlantı alır ve zamanla Google'ın güvenini
+      kazanır. Botlar için optimize edilmiş ancak insanlar için sıkıcı olan sayfalar 2. sayfada
+      takılı kalır.{" "}
+      <a href="/guides/how-to-write-better">daha iyi yazma rehberimiz</a> ile birleştirin —
+      açıklık, SEO hilelerini yener.
     </p>
 
-    <h2>6. Structure content with H2s and short paragraphs</h2>
+    <h2>6. İçeriği H2'ler ve kısa paragraflarla yapılandırın</h2>
     <p>
-      Scannable content works better. Readers and crawlers both skim. H2s tell the reader and
-      Google what&rsquo;s on the page. Short paragraphs (2–4 sentences) keep the mobile
-      experience readable.
+      Taranabilir içerik daha iyi çalışır. Hem okuyucular hem de tarayıcılar göz atar. H2'ler
+      okuyucuya ve Google'a sayfada ne olduğunu söyler. Kısa paragraflar (2–4 cümle) mobil
+      deneyimi okunabilir tutar.
     </p>
 
-    <h2>7. Build internal links deliberately</h2>
+    <h2>7. Dahili bağlantıları bilinçli olarak oluşturun</h2>
     <p>
-      Every new post should link 2–3 older related posts, and vice versa. Internal links spread
-      authority across pages, and they help Google understand your topical map. Most beginner
-      blogs under-use internal links by an order of magnitude.
+      Her yeni yazı, 2–3 eski ilgili yazıya bağlantı vermeli ve bunun tersi de geçerlidir.
+      Dahili bağlantılar, sayfalar arasında otoriteyi yayar ve Google'ın konu haritanızı
+      anlamasına yardımcı olur. Çoğu yeni başlayan blog, dahili bağlantıları katbekat az
+      kullanır.
     </p>
 
-    <h2>8. Earn a few good backlinks</h2>
+    <h2>8. Birkaç iyi geri bağlantı kazanın</h2>
     <p>
-      One link from a reputable site in your niche beats 50 random directory links. Guest posts,
-      genuine outreach, being quoted in roundups, HARO — these are slow and worth it. Link
-      buying is risky and against guidelines.
+      Nişinizdeki saygın bir siteden gelen bir bağlantı, 50 rastgele dizin bağlantısından daha
+      iyidir. Misafir yazıları, gerçek erişim, özetlerde alıntılanmak, HARO — bunlar yavaştır
+      ve buna değer. Bağlantı satın almak risklidir ve kurallara aykırıdır.
     </p>
 
-    <h2>9. Fix the obvious technical stuff</h2>
+    <h2>9. Bariz teknik sorunları düzeltin</h2>
     <p>
-      Fast load times, mobile-friendly layout, HTTPS, a clean sitemap, clear URL structure, no
-      broken links. These are non-negotiable but also one-time setup tasks. Run Lighthouse once
-      a quarter and fix the red items.
+      Hızlı yüklenme süreleri, mobil uyumlu düzen, HTTPS, temiz bir site haritası, net URL
+      yapısı, bozuk bağlantı yok. Bunlar tartışılmaz ancak aynı zamanda bir kerelik kurulum
+      görevleridir. Üç ayda bir Lighthouse'u çalıştırın ve kırmızı öğeleri düzeltin.
     </p>
 
-    <h2>10. Write longer than the top result, when it helps</h2>
+    <h2>10. Yardımcı olduğunda, en iyi sonuçtan daha uzun yazın</h2>
     <p>
-      Longer isn&rsquo;t automatically better, but pages that fully answer a question — covering
-      edge cases the top results missed — tend to outrank thin pages. Don&rsquo;t pad for word
-      count; do go deeper than the competition.
+      Daha uzun otomatik olarak daha iyi değildir, ancak bir soruyu tam olarak yanıtlayan — en
+      iyi sonuçların kaçırdığı uç durumları kapsayan — sayfalar, ince sayfaları geride bırakma
+      eğilimindedir. Kelime sayısı için şişirmeyin; rekabetten daha derine inin.
     </p>
 
-    <h2>11. Update older pages</h2>
+    <h2>11. Eski sayfaları güncelleyin</h2>
     <p>
-      Google favors freshness on many queries. Revisit older posts twice a year: update
-      statistics, add new sections, refresh examples. Updated pages often jump back to page 1
-      faster than publishing a whole new post.
+      Google birçok sorguda tazeliği tercih eder. Eski yazıları yılda iki kez tekrar ziyaret
+      edin: istatistikleri güncelleyin, yeni bölümler ekleyin, örnekleri yenileyin. Güncellenen
+      sayfalar, tamamen yeni bir yazı yayınlamaktan daha hızlı bir şekilde 1. sayfaya döner.
     </p>
 
-    <h2>12. Be patient; SEO is a 6-month game</h2>
+    <h2>12. Sabırlı olun; SEO 6 aylık bir oyundur</h2>
     <p>
-      New sites have almost no authority. Rankings take months to materialize. Most people quit
-      too early. Ship consistently for 6–12 months and review results then, not weekly. Pair
-      with our <a href="/guides/how-to-start-a-blog">blog-starting guide</a> — the two
-      disciplines compound together.
+      Yeni sitelerin neredeyse hiç otoritesi yoktur. Sıralamaların oluşması aylar alır. Çoğu
+      kişi çok erken pes eder. 6–12 ay boyunca tutarlı bir şekilde yayın yapın ve sonuçları o
+      zaman değerlendirin, haftalık değil.{" "}
+      <a href="/guides/how-to-start-a-blog">blog başlatma rehberimiz</a> ile birleştirin — iki
+      disiplin birlikte birleşir.
     </p>
 
-    <h2>Your first 30 days</h2>
+    <h2>İlk 30 gününüz</h2>
     <p>
-      Pick 10 long-tail keywords you can realistically rank for. Write one page per keyword, one
-      primary keyword each, internal-linked together. Submit the sitemap to Google Search
-      Console. Then keep writing. Nothing moves the needle in SEO like consistently shipping
-      actually-useful pages.
+      Gerçekçi bir şekilde sıralayabileceğiniz 10 uzun kuyruklu anahtar kelime seçin. Anahtar
+      kelime başına bir sayfa, her biri bir birincil anahtar kelime, dahili olarak birbirine
+      bağlı olacak şekilde yazın. Site haritasını Google Search Console'a gönderin. Sonra
+      yazmaya devam edin. SEO'da ibreyi hareket ettiren hiçbir şey, sürekli olarak gerçekten
+      faydalı sayfalar yayınlamak kadar etkili değildir.
     </p>
   </>
 );

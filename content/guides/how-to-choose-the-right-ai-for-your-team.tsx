@@ -2,90 +2,73 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Picking AI for a team in 2026 is bigger than picking AI for yourself. The wrong choice locks
-    in seat costs, training overhead, and integration debt for at least a year. Here&rsquo;s the
-    playbook that gets it right the first time.
+    2026 yılında bir ekip için yapay zeka seçmek, kendiniz için yapay zeka seçmekten daha büyük bir olaydır. Yanlış bir seçim, en az bir yıl boyunca koltuk maliyetleri, eğitim giderleri ve entegrasyon borcu anlamına gelir. İşte ilk seferde doğru yapmak için oyun planı.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The 4-week selection process</h2>
+    <h2>4 haftalık seçim süreci</h2>
 
-    <h3>Week 1: define the use cases</h3>
+    <h3>1. Hafta: Kullanım alanlarını tanımlayın</h3>
     <p>
-      Survey the team. List the top 5-10 jobs they want AI to do (drafting, coding, research,
-      meetings, customer support, etc). Rank by frequency and impact. Most teams discover 2-3
-      jobs cover 80% of usage.
+      Ekibi anket yapın. Yapay zekanın yapmasını istedikleri en iyi 5-10 görevi listeleyin (taslak yazma, kodlama, araştırma, toplantılar, müşteri desteği vb.). Sıklık ve etkiye göre sıralayın. Çoğu ekip, kullanımın %80'ini kapsayan 2-3 görev bulur.
     </p>
 
-    <h3>Week 2: shortlist 3 candidates</h3>
+    <h3>2. Hafta: 3 adayı kısa listeye alın</h3>
     <p>
-      For most teams in 2026, the shortlist is some subset of: ChatGPT Team, Claude Team, Gemini
-      in Workspace (if already on Google), Microsoft 365 Copilot (if already on Microsoft).
-      Don&rsquo;t boil the ocean &mdash; pick 3 max.
+      2026'da çoğu ekip için kısa liste şunların bir alt kümesidir: ChatGPT Team, Claude Team, Gemini in Workspace (zaten Google kullanıyorsanız), Microsoft 365 Copilot (zaten Microsoft kullanıyorsanız). İşi karmaşıklaştırmayın &mdash; en fazla 3 tane seçin.
     </p>
 
-    <h3>Week 3: pilot with 5 people</h3>
+    <h3>3. Hafta: 5 kişiyle pilot uygulama yapın</h3>
     <p>
-      Get 5 actual users on each of the 3 plans for a week. Have them tackle their real top-3
-      jobs from the survey. Track time saved, output quality (subjective), and frustration moments.
+      3 planın her birinde bir hafta boyunca 5 gerçek kullanıcı edinin. Anketten en iyi 3 görevlerini gerçekten yapmalarını sağlayın. Kazanılan zamanı, çıktı kalitesini (öznel) ve hayal kırıklığı anlarını takip edin.
     </p>
 
-    <h3>Week 4: decide + roll out</h3>
+    <h3>4. Hafta: Karar verin ve kullanıma sunun</h3>
     <p>
-      Pick the winner based on actual data, not vibes. Roll out across the team with a 30-minute
-      kickoff session, a shared prompt library, and one champion per department.
+      Duygulara değil, gerçek verilere dayanarak kazananı seçin. 30 dakikalık bir başlangıç oturumu, paylaşılan bir komut kütüphanesi ve her departman için bir şampiyon ile ekibe sunun.
     </p>
 
-    <h2>The big-picture defaults</h2>
+    <h2>Büyük resim varsayılanları</h2>
     <ul>
-      <li><strong>Workspace shop (Google):</strong> Gemini Advanced (bundled or $20/seat). Path of
-        least resistance.</li>
-      <li><strong>Microsoft 365 shop:</strong> Copilot for M365 ($30/seat). Excel Copilot alone
-        often justifies it.</li>
-      <li><strong>Engineering-heavy team:</strong> Claude Team ($25-30/seat) for everyone +
-        Cursor or Copilot for devs.</li>
-      <li><strong>Mixed knowledge work:</strong> ChatGPT Team ($25-30/seat). Broadest feature
-        surface; lowest training cost.</li>
-      <li><strong>Privacy-sensitive (regulated industries):</strong> Mistral / on-prem self-host
-        + Anthropic for analyses where data residency matters.</li>
+      <li><strong>Workspace (Google) kullanıyorsanız:</strong> Gemini Advanced (paketli veya $20/koltuk). En az dirençli yol.</li>
+      <li><strong>Microsoft 365 kullanıyorsanız:</strong> Copilot for M365 ($30/koltuk). Excel Copilot tek başına genellikle bunu haklı çıkarır.</li>
+      <li><strong>Mühendislik ağırlıklı ekip:</strong> Herkes için Claude Team ($25-30/koltuk) + Geliştiriciler için Cursor veya Copilot.</li>
+      <li><strong>Karma bilgi işi:</strong> ChatGPT Team ($25-30/koltuk). En geniş özellik seti; en düşük eğitim maliyeti.</li>
+      <li><strong>Gizliliğe duyarlı (düzenlemeye tabi sektörler):</strong> Veri saklamanın önemli olduğu analizler için Mistral / kendi barındırma + Anthropic.</li>
     </ul>
 
-    <h2>The team-cost math</h2>
+    <h2>Ekip maliyeti hesaplaması</h2>
     <ul>
-      <li>10 seats &times; $25/mo = $250/mo, $3000/yr.</li>
-      <li>50 seats &times; $25/mo = $1250/mo, $15k/yr.</li>
-      <li>200 seats &times; $30/mo = $6000/mo, $72k/yr &mdash; budget time for an enterprise contract.</li>
+      <li>10 koltuk &times; $25/ay = $250/ay, $3000/yıl.</li>
+      <li>50 koltuk &times; $25/ay = $1250/ay, $15k/yıl.</li>
+      <li>200 koltuk &times; $30/ay = $6000/ay, $72k/yıl &mdash; kurumsal sözleşme için bütçe ayırın.</li>
     </ul>
     <p>
-      Most teams underestimate adoption: only 30-50% of seats actually use the AI weekly in the
-      first 90 days. Plan training. Pick a champion per team.
+      Çoğu ekip benimsemeyi hafife alır: İlk 90 günde koltukların yalnızca %30-50'si yapay zekayı haftalık olarak kullanacaktır. Eğitim planlayın. Her ekip için bir şampiyon seçin.
     </p>
 
-    <h2>What to negotiate at scale</h2>
+    <h2>Ölçekte pazarlık edilecekler</h2>
     <ul>
-      <li>Minimum-seat commitment (lower than the public min).</li>
-      <li>SOC 2 / privacy reviews delivered upfront, not in the trial.</li>
-      <li>Custom retention windows (some industries require 0-day).</li>
-      <li>Annual prepay discounts (typically 10-20%).</li>
-      <li>Dedicated CSM for 100+ seat deals.</li>
+      <li>Minimum koltuk taahhüdü (kamu minimumundan daha düşük).</li>
+      <li>SOC 2 / gizlilik incelemeleri deneme sırasında değil, önceden teslim edilir.</li>
+      <li>Özel saklama süreleri (bazı sektörler 0 gün gerektirir).</li>
+      <li>Yıllık peşin ödeme indirimleri (genellikle %10-20).</li>
+      <li>100+ koltuk anlaşmaları için özel müşteri temsilcisi.</li>
     </ul>
 
-    <h2>What to skip</h2>
+    <h2>Atlanacaklar</h2>
     <ul>
-      <li>Don&rsquo;t buy &ldquo;all 4&rdquo; Team plans &mdash; pick one as the standard,
-        let power users pay personally for a second.</li>
-      <li>Don&rsquo;t require AI use. Mandates produce malicious compliance, not adoption.</li>
-      <li>Don&rsquo;t standardize on a single model that&rsquo;s already a year old. Refresh
-        annually.</li>
+      <li>4 "Team" planının tamamını satın almayın &mdash; standart olarak birini seçin, güç kullanıcılarının kişisel olarak ikinci bir plan için ödeme yapmasına izin verin.</li>
+      <li>Yapay zeka kullanımını zorunlu kılmayın. Zorunluluklar benimseme değil, kötü niyetli uyum üretir.</li>
+      <li>Zaten bir yaşında olan tek bir modelde standartlaşmayın. Yıllık olarak yenileyin.</li>
     </ul>
     <p>
-      Compare individual plans:{" "}
+      Bireysel planları karşılaştırın:{" "}
       <a href="/compare/chatgpt-plus-vs-claude-pro">ChatGPT Plus vs Claude Pro</a>,{" "}
-      <a href="/compare/anthropic-api-vs-openai-api">Anthropic API vs OpenAI API</a>. Run team
-      cost: <a href="/tools/ai-coding-tool-cost-comparison">coding tool comparison</a>,{" "}
-      <a href="/tools/ai-monthly-cost-budgeter">monthly budgeter</a>.
+      <a href="/compare/anthropic-api-vs-openai-api">Anthropic API vs OpenAI API</a>. Ekip maliyetini hesaplayın: <a href="/tools/ai-coding-tool-cost-comparison">kodlama aracı karşılaştırması</a>,{" "}
+      <a href="/tools/ai-monthly-cost-budgeter">aylık bütçe hesaplayıcısı</a>.
     </p>
   </>
 );

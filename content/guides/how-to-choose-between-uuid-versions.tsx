@@ -3,266 +3,261 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      UUIDs (Universally Unique Identifiers) are the most popular way
-      to generate IDs without coordination. 128 bits, effectively
-      guaranteed unique, no central authority needed. But
-      &ldquo;UUID&rdquo; is not one thing — there are seven specified
-      versions (v1 through v8) with very different properties. Picking
-      the wrong one can tank database performance, leak timing
-      information, or create predictable IDs in security-sensitive
-      contexts. This guide covers what each version is for, which to
-      use by default in 2026, the v4 vs. v7 debate for databases,
-      and when UUIDs are the wrong choice entirely.
+      UUID'ler (Evrensel Olarak Benzersiz Tanımlayıcılar), koordinasyon gerektirmeden
+      kimlik oluşturmanın en popüler yoludur. 128 bit, etkili bir şekilde
+      benzersizliği garanti eder, merkezi bir otoriteye ihtiyaç duymaz. Ancak
+      &ldquo;UUID&rdquo; tek bir şey değildir — çok farklı özelliklere sahip yedi
+      belirtilmiş sürüm (v1'den v8'e) vardır. Yanlış olanı seçmek veritabanı
+      performansını düşürebilir, zamanlama bilgisi sızdırabilir veya güvenlik
+      açısından hassas bağlamlarda tahmin edilebilir kimlikler oluşturabilir. Bu
+      kılavuz, her sürümün ne işe yaradığını, 2026'da varsayılan olarak hangisinin
+      kullanılacağını, veritabanları için v4 ve v7 tartışmasını ve UUID'lerin tamamen
+      yanlış seçim olduğu durumları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The UUID format</h2>
+    <h2>UUID formatı</h2>
     <p>
-      A UUID is 128 bits, typically rendered as 32 hex digits separated
-      by hyphens: <code>550e8400-e29b-41d4-a716-446655440000</code>.
+      Bir UUID 128 bittir ve genellikle tirelerle ayrılmış 32 onaltılık basamak
+      olarak gösterilir: <code>550e8400-e29b-41d4-a716-446655440000</code>.
     </p>
     <p>
-      The version is encoded in the first digit of the third group
-      (here, &ldquo;4&rdquo;). The variant is in the first digit of
-      the fourth group (here, &ldquo;a&rdquo; → RFC variant).
+      Sürüm, üçüncü grubun ilk basamağında (burada &ldquo;4&rdquo;) kodlanmıştır.
+      Varyant, dördüncü grubun ilk basamağındadır (burada &ldquo;a&rdquo; → RFC varyantı).
     </p>
     <p>
-      128 bits gives ~3.4×10^38 unique values. Collisions are
-      effectively impossible for any practical purpose.
-    </p>
-
-    <h2>Version 4 — random (the default for years)</h2>
-    <p>
-      v4 UUIDs are 122 bits of random data + 6 fixed bits for
-      version/variant. No information leakage, no timing, no MAC
-      address. Just randomness.
-    </p>
-    <p>
-      <strong>Pros:</strong> universally supported, no metadata leaks,
-      works everywhere, simple to generate.
-    </p>
-    <p>
-      <strong>Cons:</strong> not sortable. Inserted randomly into
-      B-tree indexes, causes page splits and poor cache locality in
-      databases. Random UUIDs as primary keys can cut database write
-      throughput 3-10× compared to sequential IDs.
-    </p>
-    <p>
-      <strong>Use when:</strong> the ID is primarily a reference (not
-      a hot index), or you need zero metadata leakage (security
-      tokens, public-facing identifiers, event IDs).
+      128 bit, yaklaşık 3.4×10^38 benzersiz değer sağlar. Çakışmalar pratik
+      herhangi bir amaç için etkili bir şekilde imkansızdır.
     </p>
 
-    <h2>Version 1 — MAC + timestamp</h2>
+    <h2>Sürüm 4 — rastgele (yıllardır varsayılan)</h2>
     <p>
-      v1 encodes a 60-bit timestamp + 14-bit clock sequence + 48-bit
-      node ID (often the MAC address of the generating machine).
+      v4 UUID'leri, 122 bit rastgele veri + sürüm/varyant için 6 sabit bitten
+      oluşur. Bilgi sızıntısı yok, zamanlama yok, MAC adresi yok. Sadece
+      rastgelelik.
     </p>
     <p>
-      <strong>Pros:</strong> partially sortable by time; guarantees
-      uniqueness if the MAC is unique.
+      <strong>Artıları:</strong> evrensel olarak desteklenir, meta veri sızdırmaz,
+      her yerde çalışır, oluşturması basittir.
     </p>
     <p>
-      <strong>Cons:</strong> leaks machine MAC and generation time.
-      Predictable. Old MAC-exposing implementations have been used to
-      identify document authors after the fact.
+      <strong>Eksileri:</strong> sıralanabilir değildir. B-tree indekslerine
+      rastgele eklenir, sayfa bölünmelerine ve veritabanlarında zayıf önbellek
+      yerelliğine neden olur. Birincil anahtar olarak rastgele UUID'ler, sıralı
+      kimliklere kıyasla veritabanı yazma verimini 3-10 kat azaltabilir.
     </p>
     <p>
-      <strong>Use when:</strong> almost never in 2026. v7 solved its
-      legitimate use cases without the leakage. v1 remains in legacy
-      systems.
-    </p>
-
-    <h2>Version 3 and 5 — namespace-based (deterministic)</h2>
-    <p>
-      v3 and v5 hash a name within a namespace (using MD5 or SHA-1).
-      Same inputs always produce the same UUID.
-    </p>
-    <p>
-      <strong>Use when:</strong> deterministic ID generation —
-      deduplicating records, generating consistent IDs from external
-      keys (URLs, email addresses) across systems. Prefer v5 (SHA-1)
-      over v3 (MD5) for collision resistance.
-    </p>
-    <p>
-      <strong>Warning:</strong> not random. An attacker who knows the
-      namespace and can guess the name can compute the UUID.
+      <strong>Şu durumlarda kullanın:</strong> kimlik öncelikle bir referanstır
+      (yoğun bir indeks değil) veya sıfır meta veri sızıntısına ihtiyacınız var
+      (güvenlik tokenları, herkese açık tanımlayıcılar, olay kimlikleri).
     </p>
 
-    <h2>Version 7 — time-ordered random (the new default for databases)</h2>
+    <h2>Sürüm 1 — MAC + zaman damgası</h2>
     <p>
-      v7 was standardized in RFC 9562 (2024). First 48 bits are a
-      Unix-millisecond timestamp; remaining 74 bits are random.
+      v1, 60 bitlik bir zaman damgası + 14 bitlik saat dizisi + 48 bitlik düğüm
+      kimliğini (genellikle oluşturan makinenin MAC adresi) kodlar.
     </p>
     <p>
-      <strong>Pros:</strong> lexicographically sortable (newer UUIDs
-      sort after older ones). Sequential enough to fit nicely into
-      B-tree indexes, dramatically better database write performance
-      than v4 while retaining most of v4&rsquo;s randomness.
+      <strong>Artıları:</strong> zamana göre kısmen sıralanabilir; MAC benzersizse
+      benzersizliği garanti eder.
     </p>
     <p>
-      <strong>Cons:</strong> leaks generation time (millisecond
-      precision). If that matters for your security model, use v4.
+      <strong>Eksileri:</strong> makine MAC'ini ve oluşturma zamanını sızdırır.
+      Tahmin edilebilir. MAC'i ifşa eden eski uygulamalar, belge yazarlarını sonradan
+      tespit etmek için kullanılmıştır.
     </p>
     <p>
-      <strong>Use when:</strong> primary key in a database, high-
-      cardinality index, event IDs where time-ordering helps. In most
-      cases, v7 is the best default for new systems in 2026.
-    </p>
-
-    <h2>Version 6 — reordered v1</h2>
-    <p>
-      v6 is v1 with timestamp bits reordered so sorting works
-      lexicographically. Rarely used; v7 superseded it in practice.
+      <strong>Şu durumlarda kullanın:</strong> 2026'da neredeyse hiçbir zaman. v7,
+      sızıntı olmadan meşru kullanım durumlarını çözmüştür. v1, eski sistemlerde
+      kalmıştır.
     </p>
 
-    <h2>Version 8 — custom</h2>
+    <h2>Sürüm 3 ve 5 — ad alanı tabanlı (belirleyici)</h2>
     <p>
-      v8 is the &ldquo;do what you want&rdquo; version for custom
-      ID schemes that still want the UUID format. Useful when you
-      need to embed specific data (tenant IDs, shard keys) while
-      remaining UUID-compatible.
+      v3 ve v5, bir ad alanı içindeki bir adı (MD5 veya SHA-1 kullanarak) hash'ler.
+      Aynı girdiler her zaman aynı UUID'yi üretir.
+    </p>
+    <p>
+      <strong>Şu durumlarda kullanın:</strong> belirleyici kimlik oluşturma —
+      kayıtların yinelenmesini önleme, sistemler arasında harici anahtarlardan
+      (URL'ler, e-posta adresleri) tutarlı kimlikler oluşturma. Çakışma direnci
+      için v3 (MD5) yerine v5'i (SHA-1) tercih edin.
+    </p>
+    <p>
+      <strong>Uyarı:</strong> rastgele değildir. Ad alanını bilen ve adı tahmin
+      edebilen bir saldırgan UUID'yi hesaplayabilir.
     </p>
 
-    <h2>The v4 vs. v7 database decision</h2>
+    <h2>Sürüm 7 — zamana göre sıralı rastgele (veritabanları için yeni varsayılan)</h2>
     <p>
-      <strong>Old advice:</strong> &ldquo;UUIDs destroy B-tree
-      indexes; use auto-increment integers.&rdquo; True for v4.
+      v7, RFC 9562 (2024) ile standartlaştırılmıştır. İlk 48 bit, Unix-milisaniye
+      zaman damgasıdır; kalan 74 bit rastgeledir.
     </p>
     <p>
-      <strong>New advice:</strong> v7 bridges the gap. Benchmarks on
-      PostgreSQL show v7 UUID inserts 2-5× faster than v4, and
-      comparable to sequential bigint for index-locality.
+      <strong>Artıları:</strong> sözlükbilimsel olarak sıralanabilir (daha yeni
+      UUID'ler eskilerinden sonra sıralanır). B-tree indekslerine düzgün bir şekilde
+      sığacak kadar sıralıdır, v4'ün rastgeleliğinin çoğunu korurken veritabanı
+      yazma performansını önemli ölçüde artırır.
     </p>
     <p>
-      <strong>Still choose bigint when:</strong> primary key is
-      internal only, storage efficiency matters (8 bytes vs 16), you
-      don&rsquo;t need distributed generation.
+      <strong>Eksileri:</strong> oluşturma zamanını (milisaniye hassasiyeti) sızdırır.
+      Güvenlik modeliniz için bu önemliyse v4 kullanın.
     </p>
     <p>
-      <strong>Choose UUID (v7) when:</strong> IDs need to be
-      generated without coordination (microservices, offline clients,
-      pre-generation for bulk imports), IDs are exposed externally
-      (URLs, APIs), merging data across systems.
-    </p>
-
-    <h2>Performance gotchas to understand</h2>
-    <p>
-      <strong>Storage:</strong> UUID is 16 bytes; bigint is 8. Across
-      hundreds of foreign-key columns in a large schema, this matters
-      (more RAM for indexes, more IO).
-    </p>
-    <p>
-      <strong>Text storage:</strong> storing UUIDs as strings
-      (VARCHAR(36)) is 2-3× the storage and slower comparisons.
-      Always use a native UUID type (Postgres, SQL Server), BINARY(16)
-      (MySQL), or at minimum CHAR(36).
-    </p>
-    <p>
-      <strong>Index order:</strong> v4 inserts scatter randomly
-      across the index, causing buffer pool churn. v7 and sequential
-      bigints insert at the end.
+      <strong>Şu durumlarda kullanın:</strong> veritabanında birincil anahtar,
+      yüksek kardinaliteli indeks, zaman sıralamasının yardımcı olduğu olay
+      kimlikleri. Çoğu durumda, v7 2026'da yeni sistemler için en iyi varsayılandır.
     </p>
 
-    <h2>When UUIDs are the wrong answer</h2>
+    <h2>Sürüm 6 — yeniden sıralanmış v1</h2>
     <p>
-      <strong>Human-readable IDs:</strong> order numbers, invoice
-      numbers, tickets. Customers can&rsquo;t reliably read a UUID
-      over the phone. Use short IDs (NanoID, ShortID) or custom
-      sequences.
-    </p>
-    <p>
-      <strong>Short URLs:</strong> bit.ly-style redirects. UUIDs
-      aren&rsquo;t short. Use base62 encoding of sequential IDs, or
-      NanoID (22 characters, URL-safe).
-    </p>
-    <p>
-      <strong>Security tokens:</strong> UUIDs are not cryptographically
-      strong in all versions. Use a proper CSPRNG (crypto.randomBytes
-      in Node, secrets in Python) for tokens. v4 is random enough in
-      many cases but use explicit crypto libraries for auth tokens.
+      v6, zaman damgası bitlerinin sözlükbilimsel olarak sıralanacak şekilde yeniden
+      düzenlenmiş halidir. Nadiren kullanılır; pratikte v7 onun yerini almıştır.
     </p>
 
-    <h2>Alternatives to UUID</h2>
+    <h2>Sürüm 8 — özel</h2>
     <p>
-      <strong>ULID</strong> (Universally Unique Lexicographically
-      Sortable Identifier): 128 bits, timestamp + random, Crockford
-      base32 encoded (26 chars). Case-insensitive, no special chars,
-      URL-safe. Essentially v7 UUIDs with a nicer encoding. Slight
-      decline in adoption since v7 became standard.
-    </p>
-    <p>
-      <strong>NanoID:</strong> shorter than UUID (22 chars by default),
-      customizable alphabet. Good for URLs.
-    </p>
-    <p>
-      <strong>KSUID:</strong> segments-style timestamp + random,
-      27 chars. Sortable. Popular in some Go ecosystems.
-    </p>
-    <p>
-      <strong>Snowflake-style IDs:</strong> 64-bit time + machine +
-      sequence. Twitter&rsquo;s original design; now used by
-      Discord, Instagram, etc. Tight, sortable, machine-coordinated.
-      Fit bigint columns.
+      v8, UUID formatını korurken özel kimlik şemaları için &ldquo;ne istersen yap&rdquo;
+      sürümüdür. Belirli verileri (kiracı kimlikleri, parça anahtarları) gömerken
+      UUID uyumlu kalmak istediğinizde kullanışlıdır.
     </p>
 
-    <h2>Generation best practices</h2>
+    <h2>v4 ve v7 veritabanı kararı</h2>
     <p>
-      <strong>Use a battle-tested library</strong>, not hand-rolled
-      randomness. Node: crypto.randomUUID() (v4) or uuid package
-      (v7+). Python: uuid module. Rust: uuid crate. Java:
-      java.util.UUID.
+      <strong>Eski tavsiye:</strong> &ldquo;UUID'ler B-tree indekslerini mahveder;
+      otomatik artan tamsayılar kullanın.&rdquo; v4 için doğruydu.
     </p>
     <p>
-      <strong>Generate at the source.</strong> Let clients, mobile
-      apps, or services generate IDs for their own entities before
-      inserting. Avoids the &ldquo;wait for database to return
-      auto-increment ID&rdquo; round-trip.
+      <strong>Yeni tavsiye:</strong> v7 boşluğu kapatıyor. PostgreSQL'deki
+      karşılaştırmalar, v7 UUID eklemelerinin v4'ten 2-5 kat daha hızlı olduğunu
+      ve indeks-yerelliği için sıralı bigint ile karşılaştırılabilir olduğunu
+      gösteriyor.
     </p>
     <p>
-      <strong>Store in native type.</strong> UUID column in Postgres/
-      SQL Server, BINARY(16) in MySQL. Avoid VARCHAR.
+      <strong>Yine de bigint'i seçin:</strong> birincil anahtar yalnızca dahiliyse,
+      depolama verimliliği önemliyse (8 bayt vs 16), dağıtık oluşturmaya ihtiyacınız
+      yoksa.
     </p>
     <p>
-      <strong>Don&rsquo;t expose v1 UUIDs.</strong> If you generated
-      v1 UUIDs historically, consider them low-entropy. Regenerate
-      security-sensitive ones.
-    </p>
-
-    <h2>Quick decision tree</h2>
-    <p>
-      Need a primary key in a database? → v7.
-    </p>
-    <p>
-      Need a public-facing ID with zero metadata leakage? → v4.
-    </p>
-    <p>
-      Need deterministic ID from some source data (URL, email)? → v5.
-    </p>
-    <p>
-      Need a short user-facing ID? → NanoID, not a UUID.
-    </p>
-    <p>
-      Need a security token? → crypto.randomBytes, not a UUID.
-    </p>
-    <p>
-      Purely internal with zero distributed-generation need? →
-      bigint auto-increment is fine.
+      <strong>UUID (v7) seçin:</strong> kimliklerin koordinasyon olmadan
+      oluşturulması gerekiyorsa (mikro hizmetler, çevrimdışı istemciler, toplu
+      içe aktarmalar için ön oluşturma), kimlikler harici olarak ifşa ediliyorsa
+      (URL'ler, API'ler), veriler sistemler arasında birleştiriliyorsa.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Anlaşılması gereken performans tuzakları</h2>
     <p>
-      Generate UUIDs (v4 random or v1 timestamp) with the{" "}
-      <a href="/tools/uuid-generator">UUID generator</a>. Pair with
-      the{" "}
-      <a href="/tools/password-generator">password generator</a> when
-      you need cryptographically strong secrets instead of UUIDs, and
-      the{" "}
-      <a href="/tools/hash-generator">hash generator</a> for v5-style
-      deterministic ID computation from namespace and name.
+      <strong>Depolama:</strong> UUID 16 bayttır; bigint 8 bayttır. Büyük bir
+      şemada yüzlerce yabancı anahtar sütununda bu önemlidir (indeksler için daha
+      fazla RAM, daha fazla G/Ç).
+    </p>
+    <p>
+      <strong>Metin depolama:</strong> UUID'leri dize olarak (VARCHAR(36)) depolamak
+      2-3 kat daha fazla depolama ve daha yavaş karşılaştırmalar demektir. Her zaman
+      yerel bir UUID türü (Postgres, SQL Server), BINARY(16) (MySQL) veya en
+      azından CHAR(36) kullanın.
+    </p>
+    <p>
+      <strong>İndeks sırası:</strong> v4 eklemeleri indeks boyunca rastgele dağılır
+      ve arabellek havuzu değişimine neden olur. v7 ve sıralı bigint'ler sona eklenir.
+    </p>
+
+    <h2>UUID'lerin yanlış cevap olduğu durumlar</h2>
+    <p>
+      <strong>İnsan tarafından okunabilir kimlikler:</strong> sipariş numaraları,
+      fatura numaraları, biletler. Müşteriler bir UUID'yi telefonla güvenilir bir
+      şekilde okuyamaz. Kısa kimlikler (NanoID, ShortID) veya özel diziler kullanın.
+    </p>
+    <p>
+      <strong>Kısa URL'ler:</strong> bit.ly tarzı yönlendirmeler. UUID'ler kısa
+      değildir. Sıralı kimliklerin base62 kodlamasını veya NanoID'yi (22 karakter,
+      URL güvenli) kullanın.
+    </p>
+    <p>
+      <strong>Güvenlik tokenları:</strong> UUID'ler tüm sürümlerde kriptografik
+      olarak güçlü değildir. Tokenlar için uygun bir CSPRNG (Node'da
+      crypto.randomBytes, Python'da secrets) kullanın. v4 birçok durumda yeterince
+      rastgeledir ancak kimlik doğrulama tokenları için açık kripto kütüphaneleri
+      kullanın.
+    </p>
+
+    <h2>UUID'ye alternatifler</h2>
+    <p>
+      <strong>ULID</strong> (Evrensel Olarak Benzersiz Sözlükbilimsel Olarak
+      Sıralanabilir Tanımlayıcı): 128 bit, zaman damgası + rastgele, Crockford
+      base32 kodlu (26 karakter). Büyük/küçük harf duyarsız, özel karakter yok,
+      URL güvenli. Esasen daha güzel bir kodlamaya sahip v7 UUID'leri. v7'nin
+      standart hale gelmesinden bu yana benimsenmede hafif bir düşüş.
+    </p>
+    <p>
+      <strong>NanoID:</strong> UUID'den daha kısa (varsayılan olarak 22 karakter),
+      özelleştirilebilir alfabe. URL'ler için iyidir.
+    </p>
+    <p>
+      <strong>KSUID:</strong> segment tarzı zaman damgası + rastgele, 27 karakter.
+      Sıralanabilir. Bazı Go ekosistemlerinde popülerdir.
+    </p>
+    <p>
+      <strong>Snowflake tarzı kimlikler:</strong> 64 bit zaman + makine + dizi.
+      Twitter'ın orijinal tasarımı; şimdi Discord, Instagram vb. tarafından
+      kullanılıyor. Sıkı, sıralanabilir, makine koordineli. Bigint sütunlarına
+      sığar.
+    </p>
+
+    <h2>Oluşturma en iyi uygulamaları</h2>
+    <p>
+      <strong>Kanıtlanmış bir kütüphane kullanın</strong>, elle yazılmış rastgelelik
+      değil. Node: crypto.randomUUID() (v4) veya uuid paketi (v7+). Python: uuid
+      modülü. Rust: uuid sandığı. Java: java.util.UUID.
+    </p>
+    <p>
+      <strong>Kaynakta oluşturun.</strong> İstemcilerin, mobil uygulamaların veya
+      hizmetlerin, eklemeden önce kendi varlıkları için kimlikler oluşturmasına izin
+      verin. &ldquo;Veritabanının otomatik artan kimlik döndürmesini bekle&rdquo;
+      gidiş-dönüşünü önler.
+    </p>
+    <p>
+      <strong>Yerel türde saklayın.</strong> Postgres/SQL Server'da UUID sütunu,
+      MySQL'de BINARY(16). VARCHAR'dan kaçının.
+    </p>
+    <p>
+      <strong>v1 UUID'lerini ifşa etmeyin.</strong> Geçmişte v1 UUID'leri
+      oluşturduysanız, bunları düşük entropili olarak kabul edin. Güvenlik açısından
+      hassas olanları yeniden oluşturun.
+    </p>
+
+    <h2>Hızlı karar ağacı</h2>
+    <p>
+      Veritabanında birincil anahtara mı ihtiyacınız var? → v7.
+    </p>
+    <p>
+      Sıfır meta veri sızıntısı olan herkese açık bir kimliğe mi ihtiyacınız var? → v4.
+    </p>
+    <p>
+      Bazı kaynak verilerden (URL, e-posta) belirleyici bir kimliğe mi ihtiyacınız var? → v5.
+    </p>
+    <p>
+      Kısa, kullanıcıya yönelik bir kimliğe mi ihtiyacınız var? → NanoID, UUID değil.
+    </p>
+    <p>
+      Bir güvenlik tokenına mı ihtiyacınız var? → crypto.randomBytes, UUID değil.
+    </p>
+    <p>
+      Tamamen dahili ve sıfır dağıtık oluşturma ihtiyacı mı var? → bigint otomatik
+      artan iyidir.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      <a href="/tools/uuid-generator">UUID oluşturucu</a> ile UUID'ler (v4 rastgele
+      veya v1 zaman damgası) oluşturun. UUID'ler yerine kriptografik olarak güçlü
+      sırlara ihtiyacınız olduğunda{" "}
+      <a href="/tools/password-generator">şifre oluşturucu</a> ile ve ad alanı ve
+      addan v5 tarzı belirleyici kimlik hesaplaması için{" "}
+      <a href="/tools/hash-generator">hash oluşturucu</a> ile eşleştirin.
     </p>
   </>
 );

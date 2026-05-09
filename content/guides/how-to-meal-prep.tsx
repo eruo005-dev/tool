@@ -1,112 +1,81 @@
 export const intro = (
   <>
     <p>
-      Meal prep isn&rsquo;t about eating identical chicken-rice-broccoli out of Tupperware for a
-      week. It&rsquo;s about making future-you&rsquo;s weeknight decisions easier and cheaper.
-      Done right, meal prep saves 3–5 hours a week, cuts the grocery bill 20–30%, and
-      dramatically improves how you eat.
+      Yemek hazırlığı, bir hafta boyunca plastik kaplardan aynı tavuk-pirinç-brokoli yemek değildir. Gelecekteki sizin için hafta içi akşam yemeklerini daha kolay ve daha ucuz hale getirmektir. Doğru yapıldığında, yemek hazırlığı haftada 3-5 saat kazandırır, market faturanızı %20-30 oranında azaltır ve yeme alışkanlıklarınızı önemli ölçüde iyileştirir.
     </p>
     <p>
-      This guide covers a practical, flexible approach — one that doesn&rsquo;t require being a
-      chef or spending all Sunday in the kitchen.
+      Bu rehber, pratik ve esnek bir yaklaşımı kapsar — şef olmanıza veya Pazar gününüzün tamamını mutfakta geçirmenize gerek yok.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Prep components, not complete meals</h2>
+    <h2>1. Tam öğünler değil, bileşenler hazırlayın</h2>
     <p>
-      Prepping five identical meals leads to burnout by Wednesday. Prep <em>components</em> —
-      roasted vegetables, cooked grains, a protein, a sauce — and mix them differently each
-      night. Same ingredients, five different meals.
+      Beş özdeş öğün yapmak Çarşamba gününe kadar tükenmişliğe yol açar. <em>Bileşenler</em> hazırlayın — kavrulmuş sebzeler, pişmiş tahıllar, bir protein, bir sos — ve her gece bunları farklı şekilde birleştirin. Aynı malzemeler, beş farklı öğün.
     </p>
 
-    <h2>2. Plan the week in 10 minutes</h2>
+    <h2>2. Haftayı 10 dakikada planlayın</h2>
     <p>
-      Before shopping, write down what you&rsquo;ll eat each night. Nothing fancy — 5 entrees
-      plus a couple of lunches. Vague plans collapse; specific ones execute. Pair with our{" "}
-      <a href="/guides/how-to-save-on-groceries">grocery savings guide</a> to drive the cost
-      down further.
+      Alışverişe çıkmadan önce, her gece ne yiyeceğinizi yazın. Süslü olması gerekmez — 5 akşam yemeği ve birkaç öğle yemeği. Belirsiz planlar başarısız olur; spesifik olanlar uygulanır. Maliyetleri daha da düşürmek için{" "}
+      <a href="/guides/how-to-save-on-groceries">market tasarrufu rehberimiz</a> ile birlikte kullanın.
     </p>
 
-    <h2>3. Pick a prep day and block it</h2>
+    <h2>3. Bir hazırlık günü seçin ve zamanı bloke edin</h2>
     <p>
-      Sunday afternoon for most people. 90 minutes is usually enough. Queue up a podcast or
-      album. Treat it as a fixed appointment, not a &ldquo;if I have time&rdquo; task. Inconsistent
-      prep days are how meal prep quietly dies.
+      Pazar öğleden sonrası çoğu insan için işe yarar. 90 dakika genellikle yeterlidir. Bir podcast veya albüm açın. Bunu "zamanım olursa" yapılacak bir iş değil, sabit bir randevu olarak kabul edin. Tutarsız hazırlık günleri, yemek hazırlığının sessizce ölmesine neden olur.
     </p>
 
-    <h2>4. Batch-cook grains and legumes</h2>
+    <h2>4. Tahılları ve baklagilleri toplu olarak pişirin</h2>
     <p>
-      Rice, quinoa, farro, lentils, chickpeas — cook 3–4 cups at a time. They&rsquo;re the
-      cheapest base for half your meals. Cool then refrigerate or freeze in portions. Cooked
-      grains last 4–5 days refrigerated; beans, similarly.
+      Pirinç, kinoa, farro, mercimek, nohut — her seferinde 3-4 su bardağı pişirin. Öğünlerinizin yarısı için en ucuz temel. Soğutun, ardından porsiyonlar halinde buzdolabında veya dondurucuda saklayın. Pişmiş tahıllar buzdolabında 4-5 gün dayanır; fasulyeler de benzer şekilde.
     </p>
 
-    <h2>5. Roast a sheet pan of vegetables</h2>
+    <h2>5. Bir fırın tepsisi sebze kızartın</h2>
     <p>
-      One sheet pan, 425°F, 25–35 minutes. Broccoli, sweet potatoes, carrots, peppers, onions —
-      whatever&rsquo;s in season. Salt, olive oil, a spice blend. They eat well cold, warm, or
-      folded into eggs, salads, or grain bowls.
+      Bir fırın tepsisi, 220°C, 25-35 dakika. Brokoli, tatlı patates, havuç, biber, soğan — mevsim neyse. Tuz, zeytinyağı, bir baharat karışımı. Soğuk, sıcak veya yumurtaya, salatalara veya tahıl kaselerine eklenerek güzel yenir.
     </p>
 
-    <h2>6. Cook a big protein</h2>
+    <h2>6. Büyük bir protein pişirin</h2>
     <p>
-      A tray of chicken thighs, a pork shoulder in the slow cooker, a pot of lentils, seared
-      tofu. One large-batch protein stretches across 3–4 meals. Roast or braise — high-effort
-      techniques like searing individual steaks don&rsquo;t batch well.
+      Bir tepsi tavuk but, yavaş pişiricide domuz omzu, bir tencere mercimek, mühürlenmiş tofu. Toplu olarak pişirilen bir protein, 3-4 öğüne yayılır. Kızartma veya buğulama — tek tek biftek mühürlemek gibi yüksek efor gerektiren teknikler ölçeklenmez.
     </p>
 
-    <h2>7. Make one killer sauce</h2>
+    <h2>7. Öldürücü bir sos yapın</h2>
     <p>
-      A single sauce transforms repetitive components into different meals. Peanut sauce, pesto,
-      chimichurri, tahini-lemon, salsa verde. 10 minutes to make a jar that lasts all week. The
-      biggest difference between &ldquo;boring meal prep&rdquo; and &ldquo;I loved that&rdquo; is
-      usually the sauce.
+      Tek bir sos, tekrarlayan bileşenleri farklı öğünlere dönüştürür. Fıstık sosu, pesto, chimichurri, tahin-limon, salsa verde. Tüm hafta yetecek bir kavanoz sosu yapmak on dakika. "Sıkıcı yemek hazırlığı" ile "Buna bayıldım" arasındaki en büyük fark genellikle sostur.
     </p>
 
-    <h2>8. Use containers you&rsquo;ll actually use</h2>
+    <h2>8. Gerçekten kullanacağınız kapları kullanın</h2>
     <p>
-      Glass containers with snap-on lids beat flimsy plastic. Clear sides mean you can see
-      what&rsquo;s inside. Matching sizes stack well in the fridge. Don&rsquo;t over-invest; 6
-      good containers is plenty.
+      Kilitli kapaklı cam kaplar, dayanıksız plastikten daha iyidir. Şeffaf kenarlar içinde ne olduğunu görmenizi sağlar. Aynı boyutlar buzdolabında iyi istiflenir. Fazla yatırım yapmayın; 6 iyi kap yeterlidir.
     </p>
 
-    <h2>9. Freeze smart, not lazy</h2>
+    <h2>9. Akıllıca dondurun, tembelce değil</h2>
     <p>
-      Freeze single portions flat in zip bags. Label with name and date. Cooked grains, soups,
-      chili, braised meats all freeze beautifully. Salads, dressings, and anything with raw
-      greens don&rsquo;t.
+      Tek porsiyonları fermuarlı poşetlerde düz olarak dondurun. Üzerine adını ve tarihini yazın. Pişmiş tahıllar, çorbalar, chili, buğulanmış etler iyi donar. Salatalar, soslar ve çiğ yeşillik içeren hiçbir şey donmaz.
     </p>
 
-    <h2>10. Prep only 4–5 days, not 7</h2>
+    <h2>10. 7 gün değil, 4-5 gün için hazırlık yapın</h2>
     <p>
-      Past day 5, leftovers degrade in flavor and safety. Plan a cook-fresh night or two
-      midweek. Most long-term meal preppers shifted from full-week prep to 4-day prep once they
-      realized they were throwing food away on day 7.
+      5. günden sonra artıkların tadı ve güvenliği bozulur. Hafta ortasında bir veya iki taze pişirilmiş akşam yemeği planlayın. Uzun süreli yemek hazırlığı yapanların çoğu, 7. gün öğünlerini çöpe attıklarını fark ettikten sonra tam haftalık hazırlıktan 4 günlük hazırlığa geçti.
     </p>
 
-    <h2>11. Prep breakfast too</h2>
+    <h2>11. Kahvaltıyı da hazırlayın</h2>
     <p>
-      Overnight oats, frittata muffins, chia pudding, hard-boiled eggs. Breakfast is where meal
-      prep saves the most morning chaos. 10 extra minutes on Sunday = no more cereal-for-dinner
-      decisions at 7am Tuesday.
+      Gece yulaf ezmesi, frittata muffin, chia pudingi, katı yumurta. Kahvaltı, yemek hazırlığının en çok sabah kaosunu önlediği yerdir. Pazar günü fazladan 10 dakika = Salı sabahı saat 7'de akşam yemeği için mısır gevreği kararı almak yok.
     </p>
 
-    <h2>12. Improve one step each week</h2>
+    <h2>12. Her hafta bir adımı iyileştirin</h2>
     <p>
-      Meal prep gets better with reps. Track what worked, what got wasted. Small adjustments —
-      roasting <a href="/learn/temperature-ai">temperature</a>, container size, which proteins to skip — compound fast. Pair with
-      our <a href="/guides/how-to-build-good-habits">habit building guide</a> to lock in the
-      Sunday routine.
+      Yemek hazırlığı tekrarla gelişir. Neyin işe yaradığını, neyin israf edildiğini takip edin. Küçük ayarlamalar — kızartma <a href="/learn/temperature-ai">sıcaklığı</a>, kap boyutu, hangi proteinlerin atlanacağı — hızla birikir. Pazar rutinini oturtmak için{" "}
+      <a href="/guides/how-to-build-good-habits">alışkanlık oluşturma rehberimiz</a> ile birlikte kullanın.
     </p>
 
-    <h2>Your first Sunday</h2>
+    <h2>İlk Pazar gününüz</h2>
     <p>
-      90 minutes, 5 days of food. Cook a pot of grains. Roast a sheet pan of veggies. Cook one
-      protein. Make one sauce. Pack them in four containers. That&rsquo;s week one. Build the
-      rhythm; sophistication comes later.
+      90 dakika, 5 günlük yemek. Bir tencere tahıl pişirin. Bir fırın tepsisi sebze kızartın. Bir protein pişirin. Bir sos yapın. Bunları dört kaba koyun. İşte birinci hafta. Ritmi oluşturun; incelik sonra gelir.
     </p>
   </>
 );

@@ -1,111 +1,109 @@
 export const intro = (
   <>
     <p>
-      Healthy eating is not the privilege of the wealthy. In fact, the cheapest foods in most
-      grocery stores — rice, beans, eggs, oats, frozen vegetables — are the staples of
-      diets that outperform most expensive health fads. The problem isn&rsquo;t money; it&rsquo;s
-      strategy.
+      Sağlıklı beslenme, zenginlerin ayrıcalığı değildir. Aslında çoğu marketteki en ucuz yiyecekler
+      — pirinç, fasulye, yumurta, yulaf, donmuş sebzeler — pahalı sağlık trendlerinin çoğundan daha iyi
+      sonuç veren diyetlerin temelini oluşturur. Sorun para değil; stratejidir.
     </p>
     <p>
-      This guide gives you a realistic framework for feeding yourself well on $50-75 per week,
-      with specific foods, techniques, and habits that scale indefinitely.
+      Bu rehber, haftada 50-75 dolarla kendinizi iyi beslemeniz için gerçekçi bir çerçeve sunuyor.
+      Belirli yiyecekler, teknikler ve süresiz olarak ölçeklenebilen alışkanlıklarla.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Learn the $5 protein rule</h2>
+    <h2>1. 5 dolar protein kuralını öğrenin</h2>
     <p>
-      Every meal should have a protein that costs under $1 per serving. Eggs ($0.30),
-      canned tuna ($0.60), chicken thighs ($0.80), lentils ($0.20), canned beans ($0.40),
-      Greek yogurt ($0.50). Protein is the most expensive macro — nail this and the rest
-      falls in line.
+      Her öğünde, porsiyon başına 1 doların altında maliyeti olan bir protein bulunmalıdır. Yumurta (0,30 dolar),
+      konserve ton balığı (0,60 dolar), tavuk but (0,80 dolar), mercimek (0,20 dolar), konserve fasulye (0,40 dolar),
+      Yunan yoğurdu (0,50 dolar). Protein en pahalı makro besindir — bunu hallederseniz gerisi kendiliğinden gelir.
     </p>
 
-    <h2>2. Build around cheap staples</h2>
+    <h2>2. Ucuz temel gıdalar etrafında inşa edin</h2>
     <p>
-      Rice, oats, potatoes, beans, lentils, frozen vegetables, eggs, cabbage, carrots, onions.
-      These are 70% of any cheap-healthy meal plan. They&rsquo;re dull alone; combined with
-      spices and a little fat, they&rsquo;re genuinely satisfying meals.
+      Pirinç, yulaf, patates, fasulye, mercimek, donmuş sebzeler, yumurta, lahana, havuç, soğan.
+      Bunlar her ucuz-sağlıklı yemek planının %70'ini oluşturur. Tek başlarına sıkıcıdır; baharatlar ve
+      biraz yağ ile birleştiğinde gerçekten tatmin edici yemeklere dönüşürler.
     </p>
 
-    <h2>3. Cook in batches</h2>
+    <h2>3. Toplu pişirin</h2>
     <p>
-      Sunday afternoon, cook 5-10 portions of the week&rsquo;s protein and starch. Store in
-      containers. Weeknight dinner becomes &ldquo;reheat and add vegetable,&rdquo; not
-      &ldquo;what do I make from scratch at 8 PM.&rdquo; Our{" "}
-      <a href="/guides/how-to-meal-prep">meal prep guide</a> has the full method.
+      Pazar öğleden sonra, haftanın protein ve karbonhidrat kaynağından 5-10 porsiyon pişirin. Kaplarda
+      saklayın. Hafta içi akşam yemeği "ısıt ve sebze ekle" haline gelir, "akşam 8'de sıfırdan ne yapsam"
+      değil.{" "}
+      <a href="/guides/how-to-meal-prep">Yemek hazırlama rehberimizde</a> tam yöntem var.
     </p>
 
-    <h2>4. Frozen vegetables = fresh vegetables</h2>
+    <h2>4. Donmuş sebzeler = taze sebzeler</h2>
     <p>
-      Frozen veg is cheaper, lasts longer, and nutritionally nearly identical to fresh. They&rsquo;re
-      flash-frozen at peak ripeness. Frozen broccoli, spinach, green beans, mixed stir-fry vegetables
-      — stock your freezer. Fresh only when you&rsquo;ll eat them within 3 days.
+      Donmuş sebzeler daha ucuzdur, daha uzun dayanır ve besinsel olarak tazeyle neredeyse aynıdır. En
+      olgun anlarında şoklanarak dondurulurlar. Donmuş brokoli, ıspanak, yeşil fasulye, karışık wok sebzeleri
+      — dondurucunuzu stoklayın. Taze sebzeleri yalnızca 3 gün içinde tüketecekseniz alın.
     </p>
 
-    <h2>5. Shop the perimeter of the store</h2>
+    <h2>5. Marketin çevresinden alışveriş yapın</h2>
     <p>
-      Produce, meat, dairy, bread. Skip the middle aisles except for your known staples (rice,
-      oats, canned beans). The middle is processed, expensive per calorie, and full of
-      sugar you don&rsquo;t need.
+      Sebze-meyve, et, süt ürünleri, ekmek. Bildiğiniz temel gıdalar (pirinç, yulaf, konserve fasulye) dışında
+      orta reyonları atlayın. Orta reyonlar işlenmiş, kalori başına pahalı ve ihtiyacınız olmayan şekerle
+      doludur.
     </p>
 
-    <h2>6. Buy generic/store brand</h2>
+    <h2>6. Jenerik/marka ürünleri satın alın</h2>
     <p>
-      Taste the difference blind test: usually you can&rsquo;t. Generic saves 20-40% and
-      contents are often identical. This alone drops your grocery bill noticeably. See our{" "}
-      <a href="/guides/how-to-save-money-on-groceries">grocery savings guide</a>.
+      Kör testte farkı tadın: genellikle anlayamazsınız. Jenerik ürünler %20-40 tasarruf sağlar ve
+      içerikleri genellikle aynıdır. Bu tek başına market faturanızı gözle görülür şekilde düşürür.{" "}
+      <a href="/guides/how-to-save-money-on-groceries">Market tasarruf rehberimize</a> bakın.
     </p>
 
-    <h2>7. Cook beans and lentils from dried</h2>
+    <h2>7. Fasulye ve mercimeği kuru olarak pişirin</h2>
     <p>
-      Dried beans cost $0.15 per serving. Canned beans cost $0.45 per serving. Same food, 3x
-      price. Soak overnight, simmer 60 minutes, freeze in portions. One hour a month saves
-      $200 a year.
+      Kuru fasulyenin porsiyon maliyeti 0,15 dolar. Konserve fasulyenin porsiyon maliyeti 0,45 dolar. Aynı yiyecek, 3 kat
+      fiyat. Geceden ıslatın, 60 dakika kaynatın, porsiyonlar halinde dondurun. Ayda bir saat, yılda
+      200 dolar tasarruf sağlar.
     </p>
 
-    <h2>8. Master 5 simple meals</h2>
+    <h2>8. 5 basit yemeği ustalaşın</h2>
     <p>
-      Stir fry (protein + frozen veg + rice + soy sauce). Chili (beans + tomato + spice). Eggs
-      + toast + sautéed spinach. Grain bowls (rice + protein + veg + sauce). Pasta with
-      tomato sauce + veg. That&rsquo;s your whole weeknight rotation.
+      Wok (protein + donmuş sebze + pirinç + soya sosu). Chili (fasulye + domates + baharat). Yumurta
+      + tost + sote ıspanak. Tahıl kasesi (pirinç + protein + sebze + sos). Domates soslu makarna +
+      sebze. Hafta içi dönüşümünüz bu kadar.
     </p>
 
-    <h2>9. Reduce meat to 1-2 meals a day</h2>
+    <h2>9. Eti günde 1-2 öğüne düşürün</h2>
     <p>
-      The default American plate is meat-heavy. Flipping to beans or eggs for one or two meals
-      daily cuts your grocery bill 30% and is healthier for most adults. You don&rsquo;t have
-      to go vegetarian — just less reflexive.
+      Standart Amerikan tabağı et ağırlıklıdır. Günde bir veya iki öğünde fasulye veya yumurtaya geçmek
+      market faturanızı %30 düşürür ve çoğu yetişkin için daha sağlıklıdır. Vejetaryen olmanıza gerek yok
+      — sadece daha az alışkanlık haline getirin.
     </p>
 
-    <h2>10. Plan meals around sales and seasonality</h2>
+    <h2>10. Yemekleri indirimler ve mevsimselliğe göre planlayın</h2>
     <p>
-      Check the weekly circular. Build the week around what&rsquo;s cheap. Chicken on sale?
-      Chicken recipes all week. Seasonal produce is cheaper and tastes better. Flexibility with
-      the menu is where real savings live.
+      Haftalık broşürü kontrol edin. Haftayı ucuz olanın etrafında inşa edin. Tavuk indirimde mi?
+      Hafta boyunca tavuk tarifleri. Mevsim sebzeleri daha ucuzdur ve tadı daha güzeldir. Menüde
+      esneklik, gerçek tasarrufun olduğu yerdir.
     </p>
 
-    <h2>11. Drink water, not liquid calories</h2>
+    <h2>11. Su için, sıvı kalorileri değil</h2>
     <p>
-      Soda, juice, energy drinks, sugary coffees — expensive, nutritionally empty, and drive
-      weight gain. Water is free. Coffee or tea at home is cheap. Drop liquid calories and
-      both your budget and waistline benefit.
+      Soda, meyve suyu, enerji içecekleri, şekerli kahveler — pahalı, besinsiz ve kilo alımına
+      yol açar. Su bedavadır. Evde kahve veya çay ucuzdur. Sıvı kalorileri bırakın ve
+      hem bütçeniz hem de beliniz kazansın.
     </p>
 
-    <h2>12. Minimize waste</h2>
+    <h2>12. İsrafı en aza indirin</h2>
     <p>
-      Americans throw away 30-40% of food purchased. Check what&rsquo;s in the fridge before
-      shopping. Use leftovers. Freeze meat before it goes bad. Don&rsquo;t over-buy produce
-      you &ldquo;might eat.&rdquo; Waste tracking is a grocery budget superpower.
+      Amerikalılar satın aldıkları yiyeceklerin %30-40'ını çöpe atar. Alışverişe çıkmadan önce
+      buzdolabında ne olduğunu kontrol edin. Artıkları kullanın. Et bozulmadan dondurun. "Belki yerim"
+      diye fazla sebze-meyve almayın. İsraf takibi, market bütçesi için süper bir güçtür.
     </p>
 
-    <h2>Your first week</h2>
+    <h2>İlk haftanız</h2>
     <p>
-      Buy: rice, oats, eggs, chicken thighs, canned beans, frozen broccoli, onions, carrots,
-      one sauce you like. Cook Sunday: 3 cups rice + batch of chicken + beans. Eat from the
-      fridge all week. Budget: $40. Calories: adequate. Protein: solid.
+      Alın: pirinç, yulaf, yumurta, tavuk but, konserve fasulye, donmuş brokoli, soğan, havuç,
+      sevdiğiniz bir sos. Pazar günü pişirin: 3 su bardağı pirinç + bir miktar tavuk + fasulye. Hafta boyunca
+      buzdolabından yiyin. Bütçe: 40 dolar. Kalori: yeterli. Protein: sağlam.
     </p>
   </>
 );

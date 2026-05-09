@@ -1,66 +1,69 @@
 import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
-  <p>Mastra is a TypeScript-native AI framework for agents, workflows, and <a href="/learn/evals">evals</a>, from the team behind Gatsby.</p>
+  <p>Mastra, Gatsby ekibinden gelen, ajanlar, iş akışları ve <a href="/learn/evals">değerlendirmeler</a> için TypeScript-native bir AI framework'üdür.</p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      Mastra brings the LangChain-style primitives &mdash; agents, tools, memory, RAG, workflows &mdash; to idiomatic
-      TypeScript with a strong focus on DX. It ships a local dev playground, built-in tracing, and a workflow engine
-      with branching and retries that feels closer to a real orchestrator than a pile of callbacks. It deploys to Node,
-      Vercel, Cloudflare Workers, or as a standalone server.
+      Mastra, LangChain tarzı ilkelleri &mdash; ajanlar, araçlar, bellek, RAG, iş akışları &mdash; güçlü bir DX odağıyla
+      doğal TypeScript'e taşır. Yerel bir geliştirme oyun alanı, yerleşik izleme ve dallanma ve yeniden denemelerle
+      gerçek bir orkestratöre benzeyen bir iş akışı motoru sunar. Node, Vercel, Cloudflare Workers veya bağımsız bir
+      sunucu olarak dağıtılabilir.
     </p>
 
-    <h2>What it is</h2>
+    <h2>Ne olduğu</h2>
     <p>
-      Mastra is an Elastic-2.0 licensed open-source project maintained by the Mastra team (many ex-Gatsby engineers).
-      It is built on top of the Vercel AI SDK for model access, so any provider that SDK supports &mdash; OpenAI,
-      Anthropic, Google, Groq, Ollama &mdash; is available. TypeScript-first, Zod-powered schemas throughout.
+      Mastra, Mastra ekibi (çoğu eski Gatsby mühendisi) tarafından sürdürülen, Elastic-2.0 lisanslı açık kaynaklı bir
+      projedir. Model erişimi için Vercel AI SDK üzerine inşa edilmiştir, bu nedenle SDK'nın desteklediği her sağlayıcı
+      &mdash; OpenAI, Anthropic, Google, Groq, Ollama &mdash; kullanılabilir. TypeScript-ilk, Zod destekli şemalar
+      her yerde.
     </p>
 
-    <h2>Install</h2>
+    <h2>Kurulum</h2>
     <pre>{`npm create mastra@latest
-# or add to an existing project
+# veya mevcut bir projeye ekleyin
 npm install @mastra/core @ai-sdk/openai zod`}</pre>
 
-    <h2>First run</h2>
-    <p>Define an agent and call it &mdash; the playground at localhost:4111 gives you a chat UI for free:</p>
+    <h2>İlk çalıştırma</h2>
+    <p>Bir ajan tanımlayın ve çağırın &mdash; localhost:4111'deki oyun alanı size ücretsiz bir sohbet arayüzü sunar:</p>
     <pre>{`import { Agent } from "@mastra/core/agent"
 import { openai } from "@ai-sdk/openai"
 
 export const assistant = new Agent({
   name: "assistant",
-  instructions: "You are a concise coding helper.",
+  instructions: "Sen kısa ve öz bir kodlama yardımcısısın.",
   model: openai("gpt-4o-mini"),
 })
 
-const { text } = await assistant.generate("Explain useEffect in 2 lines.")
+const { text } = await assistant.generate("useEffect'i 2 satırda açıkla.")
 console.log(text)`}</pre>
 
-    <h2>Everyday workflows</h2>
+    <h2>Günlük iş akışları</h2>
     <ul>
-      <li>Compose createWorkflow().step().then().branch() to build durable multi-step pipelines with typed inputs.</li>
-      <li>Attach tools defined with createTool and a Zod schema &mdash; Mastra handles the JSON-schema conversion.</li>
-      <li>Add evals (mastra/evals) to score agent outputs against golden datasets in CI.</li>
+      <li>createWorkflow().step().then().branch() ile türlü girdilere sahip dayanıklı çok adımlı boru hatları oluşturun.</li>
+      <li>createTool ve bir Zod şeması ile tanımlanan araçları ekleyin &mdash; Mastra JSON-şema dönüşümünü halleder.</li>
+      <li>CI'da ajan çıktılarını altın veri kümelerine karşı puanlamak için değerlendirmeler (mastra/evals) ekleyin.</li>
     </ul>
 
-    <h2>Gotchas and tips</h2>
+    <h2>Püf noktaları ve ipuçları</h2>
     <p>
-      Mastra is young and pre-1.0 &mdash; APIs still shift between minor versions. Commit a package-lock and read the
-      changelog before upgrading. The storage layer defaults to LibSQL file-on-disk, which is convenient in dev but
-      needs swapping for Postgres or Upstash in production.
+      Mastra genç ve 1.0 öncesi &mdash; API'ler küçük sürümler arasında hala değişiyor. Yükseltmeden önce bir
+      package-lock dosyasını kaydedin ve değişiklik günlüğünü okuyun. Depolama katmanı varsayılan olarak LibSQL
+      dosya-diskte kullanır, bu geliştirme için uygundur ancak üretimde Postgres veya Upstash ile değiştirilmesi gerekir.
     </p>
     <p>
-      Because Mastra sits on top of the Vercel AI SDK, any quirk there leaks through &mdash; including the occasional
-      breaking change in tool-call formats between providers. Integration-test across models if you expect to swap.
+      Mastra, Vercel AI SDK üzerinde çalıştığı için, oradaki herhangi bir tuhaflık buraya da yansır &mdash; sağlayıcılar
+      arasında araç çağrısı formatlarında ara sıra yapılan kırıcı değişiklikler dahil. Değiştirmeyi planlıyorsanız
+      modeller arasında entegrasyon testi yapın.
     </p>
 
-    <h2>Who it&rsquo;s for</h2>
+    <h2>Kimler için</h2>
     <p>
-      TypeScript teams tired of translating Python tutorials into JS. Tip: even if you only need one agent, start with a
-      Workflow &mdash; retries and tracing are free and you&rsquo;ll want them the first time a tool call times out.
+      Python eğitimlerini JS'ye çevirmekten bıkmış TypeScript ekipleri. İpucu: sadece bir ajana ihtiyacınız olsa bile,
+      bir İş Akışı ile başlayın &mdash; yeniden denemeler ve izleme ücretsizdir ve bir araç çağrısı zaman aşımına
+      uğradığında ilk seferde bunlara ihtiyacınız olacak.
     </p>
   </>
 );

@@ -3,280 +3,280 @@
 export const intro = (
   <>
     <p>
-      &ldquo;What file formats do I actually need to know about?&rdquo; gets
-      asked weekly on r/learnprogramming and r/computerscience. The honest
-      answer: maybe 20 formats cover 95% of everyday usage. The rest are
-      historical curiosities or domain-specific.
+      &ldquo;Hangi dosya formatlarını gerçekten bilmem gerekiyor?&rdquo; sorusu
+      r/learnprogramming ve r/computerscience'da haftalık olarak soruluyor. Dürüst
+      cevap: belki 20 format günlük kullanımın %95'ini kapsıyor. Geri kalanı
+      tarihsel meraklar veya alana özgü.
     </p>
     <p>
-      This guide is the practical taxonomy: the formats you&rsquo;ll actually
-      encounter, what they&rsquo;re for, and the real differences between
-      similar-looking ones (PNG vs JPG vs SVG, for example).
+      Bu rehber pratik bir sınıflandırmadır: gerçekten karşılaşacağınız
+      formatlar, ne işe yaradıkları ve benzer görünenler arasındaki gerçek
+      farklar (örneğin PNG vs JPG vs SVG).
     </p>
   </>
 );
 
 export const toc = [
-  { id: "documents", label: "Document formats" },
-  { id: "images", label: "Image formats: PNG, JPG, SVG, WebP, AVIF" },
-  { id: "data", label: "Data formats: CSV, JSON, XML, YAML" },
-  { id: "audio-video", label: "Audio + video formats" },
-  { id: "archives", label: "Archive + compression formats" },
-  { id: "rare", label: "Converting between rare file formats" },
+  { id: "documents", label: "Belge formatları" },
+  { id: "images", label: "Görsel formatları: PNG, JPG, SVG, WebP, AVIF" },
+  { id: "data", label: "Veri formatları: CSV, JSON, XML, YAML" },
+  { id: "audio-video", label: "Ses + video formatları" },
+  { id: "archives", label: "Arşiv + sıkıştırma formatları" },
+  { id: "rare", label: "Nadir dosya formatları arasında dönüşüm" },
 ];
 
 export const body = (
   <>
-    <h2 id="documents">Document formats</h2>
+    <h2 id="documents">Belge formatları</h2>
     <ul>
       <li>
-        <strong>PDF (Portable Document Format):</strong> visual-fidelity-first.
-        Looks the same on every device. Hard to edit. Default for sharing
-        finished documents.
+        <strong>PDF (Taşınabilir Belge Formatı):</strong> görsel bütünlük öncelikli.
+        Her cihazda aynı görünür. Düzenlemesi zordur. Tamamlanmış belgeleri
+        paylaşmak için varsayılan.
       </li>
       <li>
-        <strong>DOCX (Microsoft Word):</strong> editable rich text + layout.
-        Works in Word, Google Docs, LibreOffice, Pages. The default for
-        collaborative drafting.
+        <strong>DOCX (Microsoft Word):</strong> düzenlenebilir zengin metin + düzen.
+        Word, Google Dokümanlar, LibreOffice, Pages'te çalışır. İşbirlikçi
+        taslak hazırlamada varsayılan.
       </li>
       <li>
-        <strong>ODT (OpenDocument Text):</strong> open-source DOCX equivalent.
-        Used by LibreOffice. Round-trips with DOCX with minor formatting drift.
+        <strong>ODT (OpenDocument Metin):</strong> açık kaynak DOCX eşdeğeri.
+        LibreOffice tarafından kullanılır. Küçük biçimlendirme kaymalarıyla DOCX
+        ile dönüşümlüdür.
       </li>
       <li>
-        <strong>RTF (Rich Text Format):</strong> simpler than DOCX, plain-ish
-        text with basic formatting. Mostly historical; useful for compatibility
-        with old or specialized software.
+        <strong>RTF (Zengin Metin Formatı):</strong> DOCX'ten daha basit, temel
+        biçimlendirmeye sahip düz metin benzeri. Çoğunlukla tarihsel; eski veya
+        özel yazılımlarla uyumluluk için kullanışlı.
       </li>
       <li>
-        <strong>TXT (plain text):</strong> just characters, no formatting. The
-        universal lowest-common-denominator format.
+        <strong>TXT (düz metin):</strong> sadece karakterler, biçimlendirme yok.
+        Evrensel en düşük ortak payda formatı.
       </li>
       <li>
-        <strong>MD (Markdown):</strong> plain text with structural conventions
-        (# for headings, * for bold, etc.). The format engineers and technical
-        writers prefer.
+        <strong>MD (Markdown):</strong> yapısal kuralları olan düz metin
+        (# başlıklar için, * kalın için vb.). Mühendislerin ve teknik
+        yazarların tercih ettiği format.
       </li>
       <li>
-        <strong>EPUB:</strong> reflowable ebook format. Used by Kindle (via
-        conversion to AZW3), iBooks, Adobe Digital Editions. Better than PDF
-        for reading on small screens.
+        <strong>EPUB:</strong> yeniden akıcı e-kitap formatı. Kindle (AZW3'e
+        dönüşüm yoluyla), iBooks, Adobe Digital Editions tarafından kullanılır.
+        Küçük ekranlarda okumak için PDF'den daha iyidir.
       </li>
     </ul>
 
-    <h2 id="images">Image formats: PNG, JPG, SVG, WebP, AVIF (the differences explained)</h2>
+    <h2 id="images">Görsel formatları: PNG, JPG, SVG, WebP, AVIF (farklar açıklandı)</h2>
     <p>
-      Each image format optimizes for something different:
+      Her görsel formatı farklı bir şey için optimize edilmiştir:
     </p>
     <ul>
       <li>
-        <strong>JPG / JPEG:</strong> lossy compression for photos. 30+ years
-        old; universal compatibility. Use for: photos, photo-realistic
-        images, anywhere you need maximum compatibility.
+        <strong>JPG / JPEG:</strong> fotoğraflar için kayıplı sıkıştırma. 30+
+        yıllık; evrensel uyumluluk. Şunlar için kullanın: fotoğraflar,
+        foto-gerçekçi görseller, maksimum uyumluluk gereken her yer.
       </li>
       <li>
-        <strong>PNG:</strong> lossless. Supports transparency. Use for:
-        screenshots, line art, logos with transparency, anything with sharp
-        edges.
+        <strong>PNG:</strong> kayıpsız. Saydamlığı destekler. Şunlar için
+        kullanın: ekran görüntüleri, çizimler, saydam logolar, keskin
+        kenarlı her şey.
       </li>
       <li>
-        <strong>GIF:</strong> animated images, lossless palette compression
-        (256 colors max). Mostly replaced by video formats and WebP/AVIF for
-        animation. Still ubiquitous because of compatibility.
+        <strong>GIF:</strong> animasyonlu görseller, kayıpsız palet sıkıştırması
+        (maksimum 256 renk). Animasyon için çoğunlukla video formatları ve
+        WebP/AVIF ile değiştirildi. Uyumluluk nedeniyle hâlâ yaygın.
       </li>
       <li>
-        <strong>SVG (Scalable Vector Graphics):</strong> vector format. Defined
-        by math, not pixels — infinite resolution. Use for logos, icons,
-        anything that needs to scale.
+        <strong>SVG (Ölçeklenebilir Vektör Grafikleri):</strong> vektör formatı.
+        Piksel değil matematikle tanımlanır — sonsuz çözünürlük. Logolar,
+        simgeler, ölçeklenmesi gereken her şey için kullanın.
       </li>
       <li>
-        <strong>WebP:</strong> Google&rsquo;s modern format. Both lossy + lossless
-        modes. 25–35% smaller than JPG/PNG at similar quality. Wide browser
-        support. Use for web images.
+        <strong>WebP:</strong> Google'ın modern formatı. Hem kayıplı hem kayıpsız
+        modlar. Benzer kalitede JPG/PNG'den %25–35 daha küçük. Geniş tarayıcı
+        desteği. Web görselleri için kullanın.
       </li>
       <li>
-        <strong>AVIF:</strong> newer than WebP, even better compression.
-        Browser support reaching parity. Use for cutting-edge web; fallback to
-        WebP for older browsers.
+        <strong>AVIF:</strong> WebP'den daha yeni, daha iyi sıkıştırma.
+        Tarayıcı desteği eşitleniyor. En yeni web için kullanın; eski
+        tarayıcılar için WebP'ye düşüş yapın.
       </li>
       <li>
-        <strong>HEIC / HEIF:</strong> Apple&rsquo;s default for iPhone photos.
-        Better compression than JPG. Compatibility outside Apple ecosystem is
-        spotty — convert to JPG before sharing widely. Use{" "}
-        <a href="/tools/heic-to-jpg">our HEIC to JPG tool</a>.
+        <strong>HEIC / HEIF:</strong> iPhone fotoğrafları için Apple'ın varsayılanı.
+        JPG'den daha iyi sıkıştırma. Apple ekosistemi dışında uyumluluk
+        sorunludur — geniş çapta paylaşmadan önce JPG'ye dönüştürün.{" "}
+        <a href="/tools/heic-to-jpg">HEIC'den JPG'ye aracımızı</a> kullanın.
       </li>
       <li>
-        <strong>BMP:</strong> uncompressed bitmap. Huge files. Mostly
-        historical / Windows-specific.
+        <strong>BMP:</strong> sıkıştırılmamış bitmap. Büyük dosyalar. Çoğunlukla
+        tarihsel / Windows'a özgü.
       </li>
       <li>
-        <strong>TIFF:</strong> high-quality lossless image. Used in publishing,
-        scanning, professional photography. Big files.
+        <strong>TIFF:</strong> yüksek kaliteli kayıpsız görsel. Yayıncılıkta,
+        taramada, profesyonel fotoğrafçılıkta kullanılır. Büyük dosyalar.
       </li>
     </ul>
     <p>
-      Quick conversions on this site: <a
-      href="/tools/image-format-converter">PNG/JPG/WebP converter</a>,{" "}
-      <a href="/tools/svg-to-png">SVG to PNG</a>,{" "}
-      <a href="/tools/heic-to-jpg">HEIC to JPG</a>,{" "}
-      <a href="/tools/webp-to-jpg">WebP to JPG</a>.
+      Bu sitede hızlı dönüşümler: <a
+      href="/tools/image-format-converter">PNG/JPG/WebP dönüştürücü</a>,{" "}
+      <a href="/tools/svg-to-png">SVG'den PNG'ye</a>,{" "}
+      <a href="/tools/heic-to-jpg">HEIC'den JPG'ye</a>,{" "}
+      <a href="/tools/webp-to-jpg">WebP'den JPG'ye</a>.
     </p>
 
-    <h2 id="data">Data formats: CSV, JSON, XML, YAML</h2>
+    <h2 id="data">Veri formatları: CSV, JSON, XML, YAML</h2>
     <ul>
       <li>
-        <strong>CSV (comma-separated values):</strong> oldest, simplest,
-        spreadsheet-native. Each row is a line; columns separated by commas.
-        Works with Excel, R, Python pandas, anything. Limitation: no nested
-        data.
+        <strong>CSV (virgülle ayrılmış değerler):</strong> en eski, en basit,
+        elektronik tablo yerel. Her satır bir satırdır; sütunlar virgülle ayrılır.
+        Excel, R, Python pandas, her şeyle çalışır. Sınırlama: iç içe veri
+        yok.
       </li>
       <li>
-        <strong>JSON (JavaScript Object Notation):</strong> nested data
-        structure. Web API default. Hierarchical objects + arrays. Most
-        modern data exchange.
+        <strong>JSON (JavaScript Nesne Gösterimi):</strong> iç içe veri
+        yapısı. Web API varsayılanı. Hiyerarşik nesneler + diziler. En
+        modern veri alışverişi.
       </li>
       <li>
-        <strong>XML (eXtensible Markup Language):</strong> hierarchical with
-        attributes. Older than JSON; common in enterprise systems, SOAP APIs,
-        document formats (DOCX, ODT internally are zipped XML). More verbose
-        than JSON but more expressive (attributes, namespaces).
+        <strong>XML (Genişletilebilir İşaretleme Dili):</strong> niteliklerle
+        hiyerarşik. JSON'dan daha eski; kurumsal sistemlerde, SOAP API'lerinde,
+        belge formatlarında (DOCX, ODT dahili olarak sıkıştırılmış XML'dir) yaygın.
+        JSON'dan daha ayrıntılı ancak daha ifade gücü yüksek (nitelikler, ad alanları).
       </li>
       <li>
-        <strong>YAML (YAML Ain&rsquo;t Markup Language):</strong> human-friendly
-        nested data. Used for configs (Kubernetes, Ansible, GitHub Actions).
-        Indentation-sensitive — easy to break with whitespace.
+        <strong>YAML (YAML Bir İşaretleme Dili Değildir):</strong> insan dostu
+        iç içe veri. Yapılandırmalar için kullanılır (Kubernetes, Ansible, GitHub Actions).
+        Girintiye duyarlı — boşlukla bozulması kolay.
       </li>
       <li>
-        <strong>TOML:</strong> simpler than YAML for configs. Used by Cargo
-        (Rust), Poetry (Python).
+        <strong>TOML:</strong> yapılandırmalar için YAML'dan daha basit. Cargo
+        (Rust), Poetry (Python) tarafından kullanılır.
       </li>
       <li>
-        <strong>Parquet, Avro, ORC:</strong> columnar binary formats for big
-        data. Smaller and faster than CSV/JSON for analytics workloads. Used
-        with Spark, BigQuery, Snowflake. Not human-readable.
+        <strong>Parquet, Avro, ORC:</strong> büyük veri için sütunlu ikili formatlar.
+        Analitik iş yükleri için CSV/JSON'dan daha küçük ve daha hızlı. Spark,
+        BigQuery, Snowflake ile kullanılır. İnsan tarafından okunamaz.
       </li>
     </ul>
     <p>
-      Conversions on this site:{" "}
-      <a href="/tools/json-to-csv">JSON to CSV</a>,{" "}
-      <a href="/tools/csv-to-json">CSV to JSON</a>,{" "}
-      <a href="/tools/xml-to-csv">XML to CSV</a>,{" "}
+      Bu sitede dönüşümler:{" "}
+      <a href="/tools/json-to-csv">JSON'dan CSV'ye</a>,{" "}
+      <a href="/tools/csv-to-json">CSV'den JSON'a</a>,{" "}
+      <a href="/tools/xml-to-csv">XML'den CSV'ye</a>,{" "}
       <a href="/tools/yaml-json-converter">YAML ↔ JSON</a>,{" "}
-      <a href="/tools/csv-to-excel-xml">CSV to Excel</a>.
+      <a href="/tools/csv-to-excel-xml">CSV'den Excel'e</a>.
     </p>
 
-    <h2 id="audio-video">Audio + video formats</h2>
+    <h2 id="audio-video">Ses + video formatları</h2>
     <p>
-      Quick reference:
+      Hızlı başvuru:
     </p>
     <ul>
       <li>
-        <strong>Audio lossless:</strong> WAV (uncompressed), FLAC (compressed
-        lossless), ALAC (Apple lossless).
+        <strong>Ses kayıpsız:</strong> WAV (sıkıştırılmamış), FLAC (sıkıştırılmış
+        kayıpsız), ALAC (Apple kayıpsız).
       </li>
       <li>
-        <strong>Audio lossy:</strong> MP3 (universal), AAC (newer, better
-        compression), OGG (open-source), Opus (best compression).
+        <strong>Ses kayıplı:</strong> MP3 (evrensel), AAC (daha yeni, daha iyi
+        sıkıştırma), OGG (açık kaynak), Opus (en iyi sıkıştırma).
       </li>
       <li>
-        <strong>Video lossy:</strong> H.264/MP4 (universal default), H.265/HEVC
-        (better compression but patent-encumbered), VP9 (Google&rsquo;s
-        royalty-free), AV1 (newest royalty-free, best compression).
+        <strong>Video kayıplı:</strong> H.264/MP4 (evrensel varsayılan), H.265/HEVC
+        (daha iyi sıkıştırma ancak patent engelli), VP9 (Google'ın
+        telifsiz), AV1 (en yeni telifsiz, en iyi sıkıştırma).
       </li>
       <li>
-        <strong>Video containers:</strong> MP4, MOV, MKV, WebM, AVI. The
-        container holds the codec — same H.264 video can be in MP4, MOV, or
-        MKV.
+        <strong>Video kapları:</strong> MP4, MOV, MKV, WebM, AVI. Kap,
+        codec'i tutar — aynı H.264 videosu MP4, MOV veya MKV'de olabilir.
       </li>
     </ul>
     <p>
-      Audio/video conversion on this site is intentionally limited — proper
-      transcoding needs FFmpeg, which is too heavy for browser-only.
+      Bu sitede ses/video dönüşümü kasıtlı olarak sınırlıdır — uygun
+      dönüştürme, yalnızca tarayıcı için çok ağır olan FFmpeg'i gerektirir.
     </p>
 
-    <h2 id="archives">Archive + compression formats</h2>
+    <h2 id="archives">Arşiv + sıkıştırma formatları</h2>
     <ul>
       <li>
-        <strong>ZIP:</strong> universal, every OS supports. Combines lossless
-        compression + multiple files in one archive.
+        <strong>ZIP:</strong> evrensel, her işletim sistemi destekler. Kayıpsız
+        sıkıştırma + birden çok dosyayı tek bir arşivde birleştirir.
       </li>
       <li>
-        <strong>7z:</strong> better compression than ZIP. Requires 7-Zip or
-        compatible.
+        <strong>7z:</strong> ZIP'ten daha iyi sıkıştırma. 7-Zip veya
+        uyumlu bir yazılım gerektirir.
       </li>
       <li>
-        <strong>RAR:</strong> proprietary. Was popular for piracy; declining.
+        <strong>RAR:</strong> tescilli. Korsanlık için popülerdi; azalıyor.
       </li>
       <li>
-        <strong>TAR:</strong> Unix archive (just bundles, no compression).
-        Combined with gzip → .tar.gz, with bzip2 → .tar.bz2, with xz →
+        <strong>TAR:</strong> Unix arşivi (sadece birleştirir, sıkıştırma yok).
+        gzip ile birleştirilir → .tar.gz, bzip2 ile → .tar.bz2, xz ile →
         .tar.xz.
       </li>
       <li>
-        <strong>Single-file compression:</strong> gz, bz2, xz — compress one
-        file at a time. Combined with TAR for archives of multiple files.
+        <strong>Tek dosya sıkıştırma:</strong> gz, bz2, xz — her seferinde bir
+        dosyayı sıkıştırır. Birden çok dosyanın arşivleri için TAR ile birleştirilir.
       </li>
     </ul>
 
-    <h2 id="rare">Converting between rare file formats</h2>
+    <h2 id="rare">Nadir dosya formatları arasında dönüşüm</h2>
     <p>
-      For unusual or domain-specific formats:
+      Olağandışı veya alana özgü formatlar için:
     </p>
     <ul>
       <li>
-        <strong>3D printing (STL, OBJ, 3MF, STEP):</strong> see our{" "}
-        <a href="/guides/ebook-and-3d-file-conversion">ebook + 3D conversion guide</a>.
+        <strong>3D baskı (STL, OBJ, 3MF, STEP):</strong>{" "}
+        <a href="/guides/ebook-and-3d-file-conversion">e-kitap + 3D dönüşüm rehberimize</a> bakın.
       </li>
       <li>
-        <strong>CAD (DWG, DXF):</strong> AutoCAD&rsquo;s DWG is proprietary;
-        DXF is more open. Free tools: LibreCAD, FreeCAD, ODA File Converter.
+        <strong>CAD (DWG, DXF):</strong> AutoCAD'in DWG'si tescillidir;
+        DXF daha açıktır. Ücretsiz araçlar: LibreCAD, FreeCAD, ODA Dosya Dönüştürücü.
       </li>
       <li>
-        <strong>GIS (Shapefile, GeoJSON, KML):</strong> QGIS handles them all,
-        free + open-source.
+        <strong>CBS (Shapefile, GeoJSON, KML):</strong> QGIS hepsini işler,
+        ücretsiz ve açık kaynak.
       </li>
       <li>
-        <strong>DAW project files (.als, .flp, .logicx):</strong> proprietary,
-        no clean cross-DAW conversion. Export stems as WAV/AIFF.
+        <strong>DAW proje dosyaları (.als, .flp, .logicx):</strong> tescilli,
+        temiz bir DAW'lar arası dönüşüm yok. Stem'leri WAV/AIFF olarak dışa aktarın.
       </li>
       <li>
-        <strong>E-reader formats (AZW3, MOBI, KFX):</strong> Calibre is the
-        universal converter. KFX (Kindle&rsquo;s newest) is partially supported.
+        <strong>E-okuyucu formatları (AZW3, MOBI, KFX):</strong> Calibre evrensel
+        dönüştürücüdür. KFX (Kindle'ın en yenisi) kısmen desteklenir.
       </li>
       <li>
-        <strong>Genealogy (GEDCOM):</strong> universal genealogy format. Most
-        genealogy software imports / exports it.
+        <strong>Soybilim (GEDCOM):</strong> evrensel soybilim formatı. Çoğu
+        soybilim yazılımı onu içe/dışa aktarır.
       </li>
     </ul>
     <p>
-      For truly rare formats, the workflow is: search GitHub for an
-      open-source converter (often exists), or extract the underlying data
-      via a library (most rare formats are zipped XML or binary with a
-      published spec).
+      Gerçekten nadir formatlar için iş akışı şudur: GitHub'da açık kaynaklı bir
+      dönüştürücü arayın (genellikle vardır) veya bir kütüphane aracılığıyla
+      temel verileri çıkarın (çoğu nadir format, yayınlanmış bir özellikle
+      sıkıştırılmış XML veya ikilidir).
     </p>
   </>
 );
 
 export const cta = {
-  label: "PNG/JPG/WebP image converter (free)",
+  label: "PNG/JPG/WebP görsel dönüştürücü (ücretsiz)",
   targetSlug: "image-format-converter",
 };
 
 export const faq = [
   {
-    q: "What file formats do I actually need to know about?",
-    a: "About 20 formats cover 95% of everyday use: PDF/DOCX/ODT/RTF/TXT/MD/EPUB for documents, JPG/PNG/GIF/SVG/WebP/AVIF/HEIC/TIFF for images, CSV/JSON/XML/YAML for data, MP3/AAC/MP4/H.264 for audio/video, ZIP/TAR.GZ for archives. Everything else is domain-specific.",
+    q: "Hangi dosya formatlarını gerçekten bilmem gerekiyor?",
+    a: "Yaklaşık 20 format günlük kullanımın %95'ini kapsar: belgeler için PDF/DOCX/ODT/RTF/TXT/MD/EPUB, görseller için JPG/PNG/GIF/SVG/WebP/AVIF/HEIC/TIFF, veri için CSV/JSON/XML/YAML, ses/video için MP3/AAC/MP4/H.264, arşivler için ZIP/TAR.GZ. Geri kalan her şey alana özgüdür.",
   },
   {
-    q: "What's the difference between PNG, JPG, and SVG?",
-    a: "JPG: lossy compression for photos. PNG: lossless with transparency, for screenshots and line art. SVG: vector format, infinite resolution, for logos and icons. JPG/PNG are pixel-based; SVG is math-based. Use JPG for photos, PNG for sharp-edged content, SVG for anything that needs to scale.",
+    q: "PNG, JPG ve SVG arasındaki fark nedir?",
+    a: "JPG: fotoğraflar için kayıplı sıkıştırma. PNG: saydamlıkla kayıpsız, ekran görüntüleri ve çizimler için. SVG: vektör formatı, sonsuz çözünürlük, logolar ve simgeler için. JPG/PNG piksel tabanlıdır; SVG matematik tabanlıdır. Fotoğraflar için JPG, keskin kenarlı içerik için PNG, ölçeklenmesi gereken her şey için SVG kullanın.",
   },
   {
-    q: "Can I convert between rare file formats?",
-    a: "Yes for most cases. 3D printing (STL/OBJ/3MF) — see our 3D conversion guide. CAD (DWG/DXF) — LibreCAD/FreeCAD. GIS (Shapefile/GeoJSON/KML) — QGIS. E-reader (AZW3/MOBI) — Calibre. Genealogy (GEDCOM) — most genealogy software. For truly obscure formats, search GitHub — open-source converters often exist.",
+    q: "Nadir dosya formatları arasında dönüşüm yapabilir miyim?",
+    a: "Çoğu durumda evet. 3D baskı (STL/OBJ/3MF) — 3D dönüşüm rehberimize bakın. CAD (DWG/DXF) — LibreCAD/FreeCAD. CBS (Shapefile/GeoJSON/KML) — QGIS. E-okuyucu (AZW3/MOBI) — Calibre. Soybilim (GEDCOM) — çoğu soybilim yazılımı. Gerçekten belirsiz formatlar için GitHub'da arama yapın — açık kaynaklı dönüştürücüler genellikle vardır.",
   },
   {
-    q: "What's the best file converter for graphics?",
-    a: "For PNG/JPG/WebP/AVIF: our image format converter handles all of them browser-side. For HEIC: HEIC to JPG. For SVG to raster: SVG to PNG with resolution slider. For batch image conversion: macOS Quick Actions, Windows ImageMagick, or cross-platform GIMP for advanced work.",
+    q: "Grafikler için en iyi dosya dönüştürücü hangisidir?",
+    a: "PNG/JPG/WebP/AVIF için: görsel format dönüştürücümüz hepsini tarayıcı tarafında işler. HEIC için: HEIC'den JPG'ye. SVG'den rastere: çözünürlük kaydırıcılı SVG'den PNG'ye. Toplu görsel dönüşümü için: macOS Hızlı Eylemler, Windows ImageMagick veya gelişmiş işler için platformlar arası GIMP.",
   },
 ];

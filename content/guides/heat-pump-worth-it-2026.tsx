@@ -2,41 +2,38 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Heat pumps are the dominant 2026 home-electrification story. With the IRA tax credit + state rebates often
-    cutting effective install cost by half, the math has shifted. Here&rsquo;s when it pays back and when it doesn&rsquo;t.
+    Isı pompaları, 2026 yılının ev elektrifikasyonunda baskın hikaye. IRA vergi kredisi + eyalet indirimleri genellikle kurulum maliyetini yarıya indirince, hesap değişti. İşte ne zaman kendini amorti ettiği ve etmediği.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The basic math</h2>
+    <h2>Temel hesap</h2>
     <p>
-      Heat pumps move heat instead of generating it &mdash; coefficient of performance (COP) typically 2.5-4.0,
-      meaning they deliver 2.5-4&times; the heat per unit of energy vs electric resistance. That&rsquo;s the entire
-      cost story.
+      Isı pompaları ısıyı üretmek yerine taşır &mdash; performans katsayısı (COP) tipik olarak 2,5-4,0 arasındadır, yani elektrik dirençli ısıtmaya kıyasla birim enerji başına 2,5-4 kat daha fazla ısı sağlarlar. Tüm maliyet hikayesi bu.
     </p>
-    <h2>When payback is fast (under 5 yr)</h2>
+    <h2>Amorti süresi kısa olduğunda (5 yılın altında)</h2>
     <ul>
-      <li>Replacing oil heat in the Northeast/Midwest.</li>
-      <li>Replacing propane.</li>
-      <li>Replacing electric resistance / baseboard in cold climates.</li>
-      <li>Stacking federal IRA credit + state rebates that cover 50%+ of install.</li>
+      <li>Kuzeydoğu/Ortabatı'da petrolle ısıtmanın yerini alması.</li>
+      <li>Propanın yerini alması.</li>
+      <li>Soğuk iklimlerde elektrik dirençli/süpürgelik ısıtmanın yerini alması.</li>
+      <li>Federal IRA kredisi + kurulumun %50'sinden fazlasını karşılayan eyalet indirimlerinin birleştirilmesi.</li>
     </ul>
-    <h2>When payback is long (10+ yr)</h2>
+    <h2>Amorti süresi uzun olduğunda (10+ yıl)</h2>
     <ul>
-      <li>Replacing efficient natural gas + low electricity rates.</li>
-      <li>Mild climates where heating bills were already low.</li>
-      <li>Older homes needing major electrical or duct upgrades.</li>
+      <li>Verimli doğal gaz + düşük elektrik tarifelerinin yerini alması.</li>
+      <li>Isınma faturalarının zaten düşük olduğu ılıman iklimler.</li>
+      <li>Büyük elektrik veya kanal yükseltmesi gerektiren eski evler.</li>
     </ul>
-    <h2>Practical notes</h2>
+    <h2>Pratik notlar</h2>
     <ul>
-      <li>Cold-climate heat pumps (Mitsubishi Hyper-Heat, Bosch IDS) work to -5°F+.</li>
-      <li>Below that, dual-fuel hybrid setups bridge the gap.</li>
-      <li>Find a contractor with heat-pump certification, not a generic HVAC shop.</li>
-      <li>Check <code>energy.gov</code> for your state&rsquo;s rebate programs.</li>
+      <li>Soğuk iklim ısı pompaları (Mitsubishi Hyper-Heat, Bosch IDS) -5°F ve altında çalışır.</li>
+      <li>Bunun altında, çift yakıtlı hibrit kurulumlar boşluğu doldurur.</li>
+      <li>Genel bir HVAC dükkanı değil, ısı pompası sertifikasına sahip bir yüklenici bulun.</li>
+      <li>Eyaletinizin indirim programları için <code>energy.gov</code> adresini kontrol edin.</li>
     </ul>
     <p>
-      Run your numbers with the <a href="/tools/heat-pump-savings-calculator">heat pump savings calculator</a>.
+      <a href="/tools/heat-pump-savings-calculator">Isı pompası tasarruf hesaplayıcısı</a> ile kendi rakamlarınızı hesaplayın.
     </p>
   </>
 );

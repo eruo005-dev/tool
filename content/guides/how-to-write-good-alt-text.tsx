@@ -3,277 +3,208 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Alt text is the invisible label that makes images accessible to
-      screen readers, searchable to Google, and visible when the
-      image fails to load. Good alt text is specific and functional;
-      bad alt text is either missing, overly verbose, or just
-      repeats the filename. This guide covers what alt text should
-      and shouldn&rsquo;t say, when images are decorative (empty alt
-      is correct), alt text for complex graphics and infographics,
-      SEO implications, WCAG requirements, and common patterns that
-      get flagged by accessibility audits.
+      Alt metin, görselleri ekran okuyucular için erişilebilir, Google için aranabilir ve görsel yüklenemediğinde görünür kılan görünmez etikettir. İyi alt metin spesifik ve işlevseldir; kötü alt metin ise ya eksiktir, aşırı uzundur ya da sadece dosya adını tekrarlar. Bu rehber, alt metnin ne söylemesi gerektiğini ve söylememesi gerektiğini, görsellerin dekoratif olduğu durumları (boş alt doğrudur), karmaşık grafikler ve infografikler için alt metni, SEO etkilerini, WCAG gereksinimlerini ve erişilebilirlik denetimlerinde sıkça işaretlenen yaygın kalıpları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What alt text is for</h2>
+    <h2>Alt metnin amacı</h2>
     <p>
-      Alt text serves three audiences:
+      Alt metin üç kitleye hizmet eder:
     </p>
     <p>
-      <strong>Screen reader users:</strong> blind and low-vision
-      users hear alt text instead of seeing the image. Without it,
-      they hear nothing — or worse, the filename.
+      <strong>Ekran okuyucu kullanıcıları:</strong> kör ve az gören kullanıcılar, görseli görmek yerine alt metni duyar. Alt metin olmadan hiçbir şey duymazlar — veya daha kötüsü, dosya adını duyarlar.
     </p>
     <p>
-      <strong>Search engines:</strong> Google uses alt text as a
-      signal for image search and page relevance.
+      <strong>Arama motorları:</strong> Google, alt metni görsel arama ve sayfa alaka düzeyi için bir sinyal olarak kullanır.
     </p>
     <p>
-      <strong>Users with images disabled or broken links:</strong>{" "}
-      alt text renders as fallback text when the image fails to
-      load.
+      <strong>Görselleri devre dışı veya bozuk bağlantıları olan kullanıcılar:</strong>{" "}
+      alt metin, görsel yüklenemediğinde yedek metin olarak görüntülenir.
     </p>
     <p>
-      Every <code>&lt;img&gt;</code> tag needs an <code>alt</code>
-      {" "}attribute. Always. The value can be empty for decorative
-      images (<code>alt=&quot;&quot;</code>), but the attribute must
-      be present.
+      Her <code>&lt;img&gt;</code> etiketinin bir <code>alt</code>
+      {" "}niteliğine ihtiyacı vardır. Her zaman. Dekoratif görseller için değer boş olabilir (<code>alt=&quot;&quot;</code>), ancak nitelik mevcut olmalıdır.
     </p>
 
-    <h2>The functional-equivalent rule</h2>
+    <h2>İşlevsel eşdeğerlik kuralı</h2>
     <p>
-      Good alt text describes what the image <em>does</em> in
-      context, not every visual detail.
+      İyi alt metin, görselin bağlam içinde ne <em>yaptığını</em> tanımlar, her görsel detayı değil.
     </p>
     <p>
-      Example: an image of a chef cooking, used in an article about
-      recipes.
+      Örnek: tariflerle ilgili bir makalede kullanılan, yemek yapan bir şef görseli.
     </p>
     <p>
-      <strong>Bad:</strong> <code>alt=&quot;image&quot;</code> —
-      useless.
+      <strong>Kötü:</strong> <code>alt=&quot;görsel&quot;</code> — işe yaramaz.
     </p>
     <p>
-      <strong>Bad:</strong>{" "}
-      <code>alt=&quot;A photo of a chef wearing a white hat and
-      apron stirring a pot on a gas stove with wooden utensils in the
-      foreground&quot;</code> — overly verbose.
+      <strong>Kötü:</strong>{" "}
+      <code>alt=&quot;Beyaz şapka ve önlük giyen, gazlı ocakta tahta mutfak aletleriyle tencere karıştıran bir şefin fotoğrafı&quot;</code> — aşırı uzun.
     </p>
     <p>
-      <strong>Good:</strong>{" "}
-      <code>alt=&quot;Chef stirring pasta sauce on a stove&quot;</code>
-      {" "}— specific, functional, under 125 characters.
+      <strong>İyi:</strong>{" "}
+      <code>alt=&quot;Şef ocakta makarna sosu karıştırıyor&quot;</code>
+      {" "}— spesifik, işlevsel, 125 karakterin altında.
     </p>
 
-    <h2>Decorative images — empty alt</h2>
+    <h2>Dekoratif görseller — boş alt</h2>
     <p>
-      Not every image conveys information. Purely decorative images —
-      background patterns, dividers, stock filler — should have{" "}
-      <code>alt=&quot;&quot;</code> so screen readers skip them.
+      Her görsel bilgi iletmez. Tamamen dekoratif görseller — arka plan desenleri, ayırıcılar, stok doldurucular —{" "}
+      <code>alt=&quot;&quot;</code> olmalıdır, böylece ekran okuyucular onları atlar.
     </p>
     <p>
-      <strong>Indicators of decorative:</strong> image is background
-      or texture; adjacent text already fully describes it; image
-      conveys no meaning without the surrounding context.
+      <strong>Dekoratif olduğunu gösteren işaretler:</strong> görsel arka plan veya doku; yanındaki metin zaten tam olarak tanımlıyor; görsel, çevreleyen bağlam olmadan hiçbir anlam taşımıyor.
     </p>
     <p>
-      <strong>Indicators of informative:</strong> image shows data;
-      image is the only source of information about something; image
-      is the link&rsquo;s target (icon-only button, for instance).
+      <strong>Bilgilendirici olduğunu gösteren işaretler:</strong> görsel veri gösteriyor; görsel, bir şey hakkında tek bilgi kaynağı; görsel, bağlantının hedefi (örneğin, simge düğmesi).
     </p>
     <p>
-      Never use <code>alt=&quot;decorative&quot;</code> or{" "}
-      <code>alt=&quot;spacer&quot;</code>. Screen readers announce
-      those words. Empty is correct.
+      Asla <code>alt=&quot;dekoratif&quot;</code> veya{" "}
+      <code>alt=&quot;aralayıcı&quot;</code> kullanmayın. Ekran okuyucular bu kelimeleri okur. Boş olan doğrudur.
     </p>
 
-    <h2>Alt text length</h2>
+    <h2>Alt metin uzunluğu</h2>
     <p>
-      <strong>125 characters</strong> is the commonly cited limit.
-      It&rsquo;s not an HTML or ARIA rule — it comes from older JAWS
-      screen reader behavior. Aim for this length.
+      <strong>125 karakter</strong> yaygın olarak belirtilen sınırdır. Bu bir HTML veya ARIA kuralı değildir — eski JAWS ekran okuyucu davranışından gelir. Bu uzunluğu hedefleyin.
     </p>
     <p>
-      <strong>Under 50 characters:</strong> ideal for simple images.
+      <strong>50 karakterin altı:</strong> basit görseller için idealdir.
     </p>
     <p>
-      <strong>50-125 characters:</strong> fine for most informative
-      images.
+      <strong>50-125 karakter:</strong> çoğu bilgilendirici görsel için uygundur.
     </p>
     <p>
-      <strong>Over 125 characters:</strong> consider a{" "}
-      <code>longdesc</code>, an adjacent paragraph, or splitting the
-      image concept.
+      <strong>125 karakterin üzeri:</strong> bir{" "}
+      <code>longdesc</code>, bitişik bir paragraf veya görsel konseptini bölmeyi düşünün.
     </p>
 
-    <h2>Complex images — charts, diagrams, infographics</h2>
+    <h2>Karmaşık görseller — çizelgeler, diyagramlar, infografikler</h2>
     <p>
-      A single alt attribute can&rsquo;t describe a bar chart
-      effectively. Use layered text:
+      Tek bir alt niteliği bir çubuk grafiği etkili bir şekilde tanımlayamaz. Katmanlı metin kullanın:
     </p>
     <p>
-      <strong>Short alt:</strong> identifies the image —{" "}
-      <code>alt=&quot;Bar chart: Revenue by quarter, 2020-2024&quot;</code>.
+      <strong>Kısa alt:</strong> görseli tanımlar —{" "}
+      <code>alt=&quot;Çubuk grafik: 2020-2024 yılları arasında çeyreklere göre gelir&quot;</code>.
     </p>
     <p>
-      <strong>Adjacent text or caption:</strong> summarizes the data
-      — &ldquo;Revenue grew from $12M in 2020 to $31M in 2024, with
-      the biggest jump in Q3 2022.&rdquo;
+      <strong>Bitişik metin veya başlık:</strong> verileri özetler — &ldquo;Gelir, 2020'de 12 milyon dolardan 2024'te 31 milyon dolara yükseldi ve en büyük sıçrama 2022'nin üçüncü çeyreğinde gerçekleşti.&rdquo;
     </p>
     <p>
-      <strong>Data table below the image:</strong> for accessibility,
-      include the raw data in an HTML table that screen readers can
-      navigate.
+      <strong>Görselin altında veri tablosu:</strong> erişilebilirlik için, ekran okuyucuların gezinebileceği bir HTML tablosunda ham verileri ekleyin.
     </p>
     <p>
-      <strong>Linked full description:</strong> if the image is
-      complex (flowchart, architecture diagram), link to a text
-      page with the full explanation.
+      <strong>Bağlantılı tam açıklama:</strong> görsel karmaşıksa (akış şeması, mimari diyagramı), tam açıklamanın bulunduğu bir metin sayfasına bağlantı verin.
     </p>
 
-    <h2>Alt text for images that are links</h2>
+    <h2>Bağlantı olan görseller için alt metin</h2>
     <p>
-      When an image is the only content inside an{" "}
-      <code>&lt;a&gt;</code> tag, the alt text is what screen readers
-      announce as the link&rsquo;s destination.
+      Bir görsel, bir <code>&lt;a&gt;</code> etiketi içindeki tek içerik olduğunda, alt metin ekran okuyucuların bağlantının hedefi olarak okuduğu şeydir.
     </p>
     <p>
-      <strong>Bad:</strong>{" "}
-      <code>&lt;a href=&quot;/profile&quot;&gt;&lt;img alt=&quot;icon&quot;&gt;&lt;/a&gt;</code>
-      {" "}— screen reader says &ldquo;icon link&rdquo;.
+      <strong>Kötü:</strong>{" "}
+      <code>&lt;a href=&quot;/profil&quot;&gt;&lt;img alt=&quot;simge&quot;&gt;&lt;/a&gt;</code>
+      {" "}— ekran okuyucu &ldquo;simge bağlantısı&rdquo; der.
     </p>
     <p>
-      <strong>Good:</strong>{" "}
-      <code>&lt;a href=&quot;/profile&quot;&gt;&lt;img alt=&quot;View your profile&quot;&gt;&lt;/a&gt;</code>.
+      <strong>İyi:</strong>{" "}
+      <code>&lt;a href=&quot;/profil&quot;&gt;&lt;img alt=&quot;Profilinizi görüntüleyin&quot;&gt;&lt;/a&gt;</code>.
     </p>
     <p>
-      Describe the destination/action, not the icon itself.
+      Simgenin kendisini değil, hedefi/eylemi tanımlayın.
     </p>
 
-    <h2>Images with text</h2>
+    <h2>Metin içeren görseller</h2>
     <p>
-      If an image is mostly text (a quote card, a promo graphic), the
-      alt text should repeat the text.
+      Bir görsel çoğunlukla metinse (bir alıntı kartı, bir promosyon grafiği), alt metin metni tekrarlamalıdır.
     </p>
     <p>
-      Example: a promotional graphic reading{" "}
-      <code>&quot;50% off sale — ends Friday&quot;</code>. Alt text:{" "}
-      <code>alt=&quot;50% off sale — ends Friday&quot;</code>. Not
-      &ldquo;promotional image with text&rdquo;.
+      Örnek: üzerinde{" "}
+      <code>&quot;%50 indirim — Cuma günü sona eriyor&quot;</code> yazan bir promosyon grafiği. Alt metin:{" "}
+      <code>alt=&quot;%50 indirim — Cuma günü sona eriyor&quot;</code>. &ldquo;Metin içeren promosyon görseli&rdquo; değil.
     </p>
     <p>
-      <strong>Better yet:</strong> avoid text in images when possible.
-      Real HTML text is indexable, translatable, resizable, and
-      accessible without alt text hacks.
+      <strong>Daha da iyisi:</strong> mümkün olduğunda görsellerde metin kullanmaktan kaçının. Gerçek HTML metni indekslenebilir, çevrilebilir, yeniden boyutlandırılabilir ve alt metin hileleri olmadan erişilebilirdir.
     </p>
 
-    <h2>Redundancy — don&rsquo;t repeat context</h2>
+    <h2>Gereksizlik — bağlamı tekrarlamayın</h2>
     <p>
-      If the surrounding text already names the image, alt text
-      should stay brief. Example:
+      Çevreleyen metin görseli zaten adlandırıyorsa, alt metin kısa kalmalıdır. Örnek:
     </p>
     <p>
-      Body: &ldquo;Our founder, Jane Doe, started the company in
-      2018.&rdquo;
+      Gövde: &ldquo;Kurucumuz Jane Doe, şirketi 2018'de kurdu.&rdquo;
       <br />
-      Image: Jane at a podium.
+      Görsel: Jane bir kürsüde.
     </p>
     <p>
-      <strong>Bad:</strong>{" "}
-      <code>alt=&quot;Jane Doe, our founder, speaking at a
-      podium&quot;</code> — duplicates &ldquo;Jane Doe, our
-      founder&rdquo; already in body.
+      <strong>Kötü:</strong>{" "}
+      <code>alt=&quot;Kurucumuz Jane Doe bir kürsüde konuşuyor&quot;</code> — gövdede zaten bulunan &ldquo;Kurucumuz Jane Doe&rdquo;yu tekrarlar.
     </p>
     <p>
-      <strong>Good:</strong>{" "}
-      <code>alt=&quot;Jane speaking at a podium&quot;</code>. Reader
-      gets fresh information.
+      <strong>İyi:</strong>{" "}
+      <code>alt=&quot;Jane bir kürsüde konuşuyor&quot;</code>. Okuyucu yeni bilgi alır.
     </p>
 
-    <h2>Never start with &ldquo;Image of&rdquo; or &ldquo;Picture of&rdquo;</h2>
+    <h2>Asla &ldquo;Görseli&rdquo; veya &ldquo;Resmi&rdquo; ile başlamayın</h2>
     <p>
-      Screen readers already announce that it&rsquo;s an image.
-      &ldquo;Image of a dog&rdquo; becomes &ldquo;Image, image of a
-      dog&rdquo;.
+      Ekran okuyucular zaten bunun bir görsel olduğunu bildirir. &ldquo;Köpek görseli&rdquo;, &ldquo;Görsel, köpek görseli&rdquo; olur.
     </p>
     <p>
-      Skip the prefix. Start with the subject: &ldquo;Golden retriever
-      catching a frisbee&rdquo;.
+      Ön eki atlayın. Konuyla başlayın: &ldquo;Frisbee yakalayan golden retriever&rdquo;.
     </p>
 
-    <h2>SEO implications</h2>
+    <h2>SEO etkileri</h2>
     <p>
-      Google uses alt text for image search ranking and as a content
-      signal. Keyword-stuffed alt text ranks worse, not better.
+      Google, alt metni görsel arama sıralaması ve bir içerik sinyali olarak kullanır. Anahtar kelime dolu alt metin daha kötü sıralanır, daha iyi değil.
     </p>
     <p>
-      <strong>Write for users first.</strong> Search engines
-      rewarding natural language has been consistent for a decade.
+      <strong>Önce kullanıcılar için yazın.</strong> Arama motorlarının doğal dili ödüllendirmesi on yıldır tutarlıdır.
     </p>
     <p>
-      <strong>Relevant keywords are fine</strong> when they describe
-      the image accurately. If your page is about sourdough and the
-      image shows a sourdough loaf,{" "}
-      <code>alt=&quot;Sourdough bread with a crackled crust&quot;</code>
-      {" "}beats <code>alt=&quot;bread&quot;</code>.
+      <strong>İlgili anahtar kelimeler iyidir</strong> görseli doğru bir şekilde tanımladıklarında. Sayfanız ekşi mayalı ekmekle ilgiliyse ve görsel bir ekşi mayalı somun gösteriyorsa,{" "}
+      <code>alt=&quot;Çatlak kabuklu ekşi mayalı ekmek&quot;</code>
+      {" "}<code>alt=&quot;ekmek&quot;</code>'ten daha iyidir.
     </p>
 
-    <h2>WCAG requirements</h2>
+    <h2>WCAG gereksinimleri</h2>
     <p>
-      <strong>WCAG 1.1.1 Non-text Content (Level A):</strong> all
-      non-text content that conveys information must have text
-      alternatives. Legal requirement in many countries.
+      <strong>WCAG 1.1.1 Metin Dışı İçerik (Seviye A):</strong> bilgi ileten tüm metin dışı içerik, metin alternatiflerine sahip olmalıdır. Birçok ülkede yasal gerekliliktir.
     </p>
     <p>
-      <strong>Automated testing</strong> (Lighthouse, axe, WAVE)
-      catches missing alt attributes but can&rsquo;t judge quality.
-      Manual review needed for the tricky cases.
+      <strong>Otomatik test</strong> (Lighthouse, axe, WAVE) eksik alt niteliklerini yakalar ancak kaliteyi değerlendiremez. Zor durumlar için manuel inceleme gerekir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Leaving alt missing.</strong> Screen readers read the
-      filename. <code>DSC_00123.jpg</code> becomes
-      &ldquo;D-S-C-zero-zero-one-two-three-dot-j-p-g&rdquo;.
+      <strong>Alt'ı eksik bırakmak.</strong> Ekran okuyucular dosya adını okur. <code>DSC_00123.jpg</code>, &ldquo;D-S-C-sıfır-sıfır-bir-iki-üç-nokta-j-p-g&rdquo; olur.
     </p>
     <p>
-      <strong>Using filename as alt.</strong>{" "}
-      <code>alt=&quot;hero-bg.png&quot;</code> is worse than nothing.
+      <strong>Dosya adını alt olarak kullanmak.</strong>{" "}
+      <code>alt=&quot;hero-bg.png&quot;</code> hiç yoktan kötüdür.
     </p>
     <p>
-      <strong>Copy-pasting the same alt across many images.</strong>
-      Each image needs specific alt.
+      <strong>Aynı alt metni birçok görsele kopyalamak.</strong> Her görselin spesifik alt metne ihtiyacı vardır.
     </p>
     <p>
-      <strong>Describing every pixel.</strong> Functional equivalence,
-      not photo-realism.
+      <strong>Her pikseli tanımlamak.</strong> İşlevsel eşdeğerlik, foto-gerçekçilik değil.
     </p>
     <p>
-      <strong>Keyword stuffing.</strong> Google catches it; it hurts
-      rankings.
+      <strong>Anahtar kelime doldurmak.</strong> Google bunu yakalar; sıralamalara zarar verir.
     </p>
     <p>
-      <strong>Using title instead of alt.</strong> Title attribute
-      shows as tooltip; alt is the accessibility standard. Both can
-      coexist but don&rsquo;t substitute.
+      <strong>Alt yerine title kullanmak.</strong> Title niteliği araç ipucu olarak gösterilir; alt, erişilebilirlik standardıdır. İkisi bir arada bulunabilir ancak birbirinin yerine geçmez.
     </p>
     <p>
-      <strong>Forgetting CMS bulk uploads.</strong> WordPress,
-      Shopify, etc. add empty alt fields. Audit regularly.
+      <strong>CMS toplu yüklemelerini unutmak.</strong> WordPress, Shopify vb. boş alt alanları ekler. Düzenli olarak denetleyin.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Generate alt text drafts for your images with the{" "}
-      <a href="/tools/alt-text-helper">alt text helper</a>. Pair
-      with the{" "}
-      <a href="/tools/image-format-converter">image format converter</a>
-      {" "}to optimize the image itself, and the{" "}
-      <a href="/tools/image-compressor">image compressor</a> before
-      you upload.
+      Görselleriniz için{" "}
+      <a href="/tools/alt-text-helper">alt metin yardımcısı</a> ile alt metin taslakları oluşturun. Görselin kendisini optimize etmek için{" "}
+      <a href="/tools/image-format-converter">görsel format dönüştürücü</a> ve yüklemeden önce{" "}
+      <a href="/tools/image-compressor">görsel sıkıştırıcı</a> ile birlikte kullanın.
     </p>
   </>
 );

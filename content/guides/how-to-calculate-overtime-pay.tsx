@@ -3,131 +3,71 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Overtime pay sounds simple — time-and-a-half after 40 hours — and it
-      almost always turns out to be more complicated than that. Federal rules
-      are one layer. State rules can stack on top. Shift differentials,
-      double-time thresholds, salaried non-exempt classifications, and paid
-      leave all introduce edge cases that can swing a paycheck by hundreds of
-      dollars. This guide walks through the math that actually governs your
-      OT check and how to verify it.
+      Fazla mesai ücreti kulağa basit gelir — 40 saatten sonra bir buçuk katı — ve neredeyse her zaman bundan daha karmaşık olduğu ortaya çıkar. Federal kurallar bir katmandır. Eyalet kuralları üstüne eklenebilir. Vardiya farkları, çift mesai eşikleri, maaşlı-muaf olmayan sınıflandırmalar ve ücretli izinlerin tümü, bir maaş çekini yüzlerce dolar oynatabilecek uç durumlar yaratır. Bu kılavuz, fazla mesai çekinizi gerçekte yöneten matematiği ve bunu nasıl doğrulayacağınızı adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The federal baseline: the FLSA 40-hour rule</h2>
+    <h2>Federal temel: FLSA 40 saat kuralı</h2>
     <p>
-      The Fair Labor Standards Act (FLSA) — the federal wage-and-hour law —
-      requires employers to pay non-exempt workers at least 1.5 × their
-      regular rate for every hour over 40 in a workweek. That&rsquo;s the
-      floor. Your state may require more; it can&rsquo;t require less.
+      Adil Çalışma Standartları Yasası (FLSA) — federal ücret ve saat yasası — işverenlerin, muaf olmayan çalışanlara bir çalışma haftasında 40 saatin üzerindeki her saat için normal ücretlerinin en az 1,5 katını ödemesini zorunlu kılar. Bu tabandır. Eyaletiniz daha fazlasını talep edebilir; daha azını talep edemez.
     </p>
     <p>
-      A workweek is any fixed, recurring 168-hour period — doesn&rsquo;t have
-      to be Monday–Sunday. Your employer picks it and has to keep it
-      consistent. Days off don&rsquo;t count against the 40 threshold, and
-      federal law does <em>not</em> require daily overtime or double-time.
+      Bir çalışma haftası, sabit, yinelenen herhangi bir 168 saatlik dönemdir — Pazartesi–Pazar olmak zorunda değildir. İşvereniniz bunu seçer ve tutarlı tutmalıdır. İzin günleri 40 saatlik eşiğe dahil edilmez ve federal yasa günlük fazla mesai veya çift mesai <em>gerektirmez</em>.
     </p>
 
-    <h2>State rules that stack on top</h2>
+    <h2>Üstüne eklenen eyalet kuralları</h2>
     <p>
-      <strong>California</strong> is the strictest: time-and-a-half after 8
-      hours in a day <em>and</em> after 40 in a week (whichever hits first),
-      double-time after 12 hours in a day, and double-time for hours 9+ on a
-      seventh consecutive workday. A 14-hour shift in California generates 8
-      hours regular, 4 hours at 1.5×, and 2 hours at 2×.
+      <strong>Kaliforniya</strong> en katı olanıdır: bir günde 8 saatten sonra bir buçuk katı <em>ve</em> bir haftada 40 saatten sonra (hangisi önce gelirse), bir günde 12 saatten sonra çift mesai ve art arda yedinci çalışma gününde 9+ saat için çift mesai. Kaliforniya'da 14 saatlik bir vardiya, 8 saat normal, 4 saat 1,5× ve 2 saat 2× ücret üretir.
     </p>
     <p>
-      <strong>Colorado</strong> has daily OT after 12 hours (not 8). Alaska
-      has daily OT after 8 hours. Nevada has daily OT after 8 hours only for
-      workers making less than 1.5× the state minimum wage. Every other state
-      defaults to the federal 40-hour rule unless a union contract says
-      otherwise.
+      <strong>Colorado</strong>'da 12 saatten sonra (8 değil) günlük fazla mesai vardır. Alaska'da 8 saatten sonra günlük fazla mesai vardır. Nevada'da yalnızca eyalet asgari ücretinin 1,5 katından az kazanan işçiler için 8 saatten sonra günlük fazla mesai vardır. Diğer her eyalet, bir sendika sözleşmesi aksini belirtmedikçe federal 40 saat kuralına uyar.
     </p>
 
-    <h2>Time-and-a-half vs double-time — the math</h2>
+    <h2>Bir buçuk katı ve çift mesai — matematik</h2>
     <p>
-      <strong>Time-and-a-half</strong> = 1.5 × base rate. On $22/hour, that&rsquo;s
-      $33/hour. A 45-hour week at $22 pays 40 × $22 + 5 × $33 = $880 + $165 =
-      $1,045 gross — not 45 × $22 = $990.
+      <strong>Bir buçuk katı</strong> = 1,5 × taban ücret. Saatte 22 dolarda bu 33 dolar/saattir. Saatte 22 dolardan 45 saatlik bir hafta, 40 × 22 $ + 5 × 33 $ = 880 $ + 165 $ = 1.045 $ brüt öder — 45 × 22 $ = 990 $ değil.
     </p>
     <p>
-      <strong>Double-time</strong> = 2 × base rate. $22/hour becomes $44/hour.
-      Only triggered by state rules (California 12+/day, 7th-day 9+ hours) or
-      union contracts. Federal law alone never mandates double-time.
+      <strong>Çift mesai</strong> = 2 × taban ücret. Saatte 22 dolarda 44 dolar/saattir. Yalnızca eyalet kuralları (Kaliforniya 12+/gün, 7. gün 9+ saat) veya sendika sözleşmeleri tarafından tetiklenir. Federal yasa tek başına asla çift mesaiyi zorunlu kılmaz.
     </p>
     <p>
-      The <a href="/tools/overtime-calculator">overtime calculator</a> handles
-      federal, California, and custom rule sets including the daily-plus-weekly
-      stacking that trips most payroll software up.
+      <a href="/tools/overtime-calculator">Fazla mesai hesaplayıcı</a>, federal, Kaliforniya ve çoğu bordro yazılımını zorlayan günlük-artı-haftalık birikimi içeren özel kural kümelerini işler.
     </p>
 
-    <h2>Paid leave doesn&rsquo;t count</h2>
+    <h2>Ücretli izin sayılmaz</h2>
     <p>
-      Federal law counts only <em>hours worked</em> toward the 40-hour OT
-      threshold. If you work 32 hours and take 16 hours of PTO, your check
-      shows 48 hours but you&rsquo;re owed zero overtime. Some states and
-      union contracts override this — read the fine print.
+      Federal yasa, 40 saatlik fazla mesai eşiğine yalnızca <em>çalışılan saatleri</em> sayar. 32 saat çalışır ve 16 saat ücretli izin kullanırsanız, çekiniz 48 saat gösterir ancak size sıfır fazla mesai borçludur. Bazı eyaletler ve sendika sözleşmeleri bunu geçersiz kılar — ayrıntılı bilgiyi okuyun.
     </p>
     <p>
-      Same story with holidays. Working on a company holiday doesn&rsquo;t
-      automatically trigger overtime or holiday pay premiums under federal
-      law. Any holiday 1.5× or 2× premium is contractual, not statutory.
+      Tatiller için de aynı hikaye. Bir şirket tatilinde çalışmak, federal yasa kapsamında otomatik olarak fazla mesai veya tatil primi tetiklemez. Herhangi bir tatil 1,5× veya 2× primi sözleşmeye bağlıdır, yasal değildir.
     </p>
 
-    <h2>The salaried non-exempt trap</h2>
+    <h2>Maaşlı-muaf olmayan tuzağı</h2>
     <p>
-      If you&rsquo;re salaried but non-exempt (paid a fixed weekly amount,
-      but classified hourly for OT purposes), you&rsquo;re still owed
-      overtime. The math: weekly salary ÷ 40 = implied regular rate. Hours
-      over 40 get 1.5× that implied rate.
+      Maaşlı-muaf değilseniz (fazla mesai amaçları için saatlik olarak sınıflandırılsanız da sabit bir haftalık maaş alıyorsanız), yine de fazla mesaiye hak kazanırsınız. Matematik: haftalık maaş ÷ 40 = varsayılan normal ücret. 40 saatin üzerindeki saatler, bu varsayılan ücretin 1,5 katını alır.
     </p>
     <p>
-      On a $1,000/week salary: $1,000 ÷ 40 = $25/hour regular. A 50-hour week
-      pays $1,000 + 10 × $37.50 = $1,375. Some employers use the
-      &ldquo;fluctuating workweek&rdquo; method (FLSA § 778.114) which lowers
-      the OT premium to 0.5× (since the salary already covers straight-time
-      for all hours) — that&rsquo;s legal but has to meet specific conditions
-      including a written agreement.
+      1.000 dolar/hafta maaşta: 1.000 $ ÷ 40 = saatte 25 $ normal. 50 saatlik bir hafta, 1.000 $ + 10 × 37,50 $ = 1.375 $ öder. Bazı işverenler, fazla mesai primini 0,5×'e düşüren (maaş zaten tüm saatler için normal ücreti kapsadığından) &ldquo;değişken çalışma haftası&rdquo; yöntemini (FLSA § 778.114) kullanır — bu yasaldır ancak yazılı bir anlaşma dahil olmak üzere belirli koşulları karşılamalıdır.
     </p>
 
-    <h2>How to verify your paycheck</h2>
+    <h2>Maaş çekinizi nasıl doğrulayabilirsiniz</h2>
     <p>
-      Pull your last pay stub. Find: hours worked that week, regular rate,
-      overtime hours, overtime rate, and gross pay. Plug the first four into
-      the <a href="/tools/overtime-calculator">overtime calculator</a> with
-      your state&rsquo;s rule set. If the gross matches within a dollar,
-      you&rsquo;re fine. If it doesn&rsquo;t, print the calculator&rsquo;s
-      breakdown and show it to HR — payroll software gets this wrong often
-      enough that checking is worthwhile.
+      Son maaş bordronuzu çekin. Bulun: o hafta çalışılan saatler, normal ücret, fazla mesai saatleri, fazla mesai ücreti ve brüt ücret. İlk dördünü, eyaletinizin kural kümesiyle birlikte <a href="/tools/overtime-calculator">fazla mesai hesaplayıcıya</a> girin. Bir dolar içinde eşleşiyorsa, sorun yoktur. Eşleşmiyorsa, hesaplayıcının dökümünü yazdırın ve İK'ya gösterin — bordro yazılımı bunu yeterince sık yanlış alır, kontrol etmeye değer.
     </p>
     <p>
-      Common error patterns: OT calculated on base rate when a shift
-      differential should have been included (differentials count toward
-      &ldquo;regular rate&rdquo; under FLSA), daily-plus-weekly double-counting
-      in California, and salaried non-exempt workers getting zero OT because
-      someone in payroll treated them as exempt. All three are worth
-      catching.
+      Yaygın hata kalıpları: bir vardiya farkı dahil edilmesi gerekirken (farklar FLSA kapsamında &ldquo;normal ücretin&rdquo; bir parçasıdır) fazla mesainin taban ücret üzerinden hesaplanması, Kaliforniya'da günlük-artı-haftalık çift sayma ve maaşlı-muaf olmayan çalışanların bordrodaki birinin onları muaf olarak ele alması nedeniyle sıfır fazla mesai alması. Üçünü de yakalamaya değer.
     </p>
 
-    <h2>If you suspect wage theft</h2>
+    <h2>Ücret hırsızlığından şüpheleniyorsanız</h2>
     <p>
-      Document everything — shift logs, pay stubs, schedule emails, Slack
-      messages. Start with HR or payroll politely; most cases are honest
-      errors. If that doesn&rsquo;t resolve it, the{" "}
-      <a href="https://www.dol.gov/agencies/whd" rel="nofollow">US Department
-      of Labor Wage and Hour Division</a> accepts confidential complaints and
-      investigates without cost to you. State labor boards often recover
-      wages faster than federal.
+      Her şeyi belgeleyin — vardiya kayıtları, maaş bordroları, zamanlama e-postaları, Slack mesajları. İK veya bordro ile kibarca başlayın; çoğu vaka masum hatalardır. Bu çözülmezse,{" "}
+      <a href="https://www.dol.gov/agencies/whd" rel="nofollow">ABD Çalışma Bakanlığı Ücret ve Saat Birimi</a> gizli şikayetleri kabul eder ve size hiçbir maliyeti olmadan soruşturur. Eyalet çalışma kurulları genellikle ücretleri federalden daha hızlı geri alır.
     </p>
     <p>
-      Pair the overtime calculator with our{" "}
-      <a href="/tools/paycheck-calculator">paycheck calculator</a> to model
-      take-home after taxes, or the{" "}
-      <a href="/tools/hourly-rate-calculator">hourly rate calculator</a> to
-      figure out what your real per-hour number looks like factoring in
-      benefits and PTO.
+      Vergi sonrası ele geçeni modellemek için fazla mesai hesaplayıcıyı <a href="/tools/paycheck-calculator">maaş çeki hesaplayıcımızla</a> birlikte kullanın veya yan haklar ve ücretli izin dahil gerçek saatlik rakamınızı bulmak için <a href="/tools/hourly-rate-calculator">saatlik ücret hesaplayıcıyı</a> kullanın.
     </p>
   </>
 );

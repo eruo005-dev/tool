@@ -3,141 +3,80 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A dollar in a checking account isn&rsquo;t a stable dollar. Inflation
-      quietly reprices it downward every year — at 3% annual inflation,
-      $100 today buys what $74 bought ten years from now. This guide
-      explains how inflation math actually works, why a high-yield savings
-      account isn&rsquo;t always &ldquo;making money&rdquo;, and how to
-      run the numbers on your own cash before deciding where to park it.
+      Bir vadesiz hesaptaki dolar sabit bir dolar değildir. Enflasyon her yıl değerini sessizce aşındırır — yıllık %3 enflasyonda, bugün 100 dolar olan paranın on yıl sonra alım gücü 74 dolara düşer. Bu rehber, enflasyon matematiğinin gerçekte nasıl işlediğini, yüksek getirili bir tasarruf hesabının neden her zaman "size para kazandırmadığını" ve paranızı nereye koymaya karar vermeden önce kendi nakitiniz üzerinde hesaplamaları nasıl yapacağınızı açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>How inflation is measured</h2>
+    <h2>Enflasyon nasıl ölçülür</h2>
     <p>
-      The number you see in the news is almost always the{" "}
-      <strong>Consumer Price Index (CPI-U)</strong>, published monthly by
-      the US Bureau of Labor Statistics. It tracks the price of a fixed
-      basket of ~80,000 goods and services consumed by urban households
-      — rent, gas, groceries, medical, apparel. When CPI-U rises 3% year
-      over year, the cost of that basket rose 3%.
+      Haberlerde gördüğünüz rakam neredeyse her zaman ABD Çalışma İstatistikleri Bürosu tarafından aylık yayınlanan{" "}
+      <strong>Tüketici Fiyat Endeksi (CPI-U)</strong>'dir. Kentsel hanelerin tükettiği sabit bir ~80.000 mal ve hizmet sepetini takip eder — kira, benzin, bakkaliye, sağlık, giyim. CPI-U yıllık bazda %3 arttığında, bu sepet %3 daha pahalı hale gelir.
     </p>
     <p>
-      The long-run US average since 1913 is about 3.1% per year. The
-      Federal Reserve targets 2% inflation, considers anything under 2%
-      worryingly low (deflation risk), and anything over 4% worryingly
-      high.
+      1913'ten bu yana ABD uzun vadeli ortalaması yılda yaklaşık %3,1'dir. Federal Rezerv %2 enflasyonu hedefler, %2'nin altını endişe verici derecede düşük (deflasyon riski) ve %4'ün üstünü endişe verici derecede yüksek olarak değerlendirir.
     </p>
 
-    <h2>The purchasing-power formula</h2>
+    <h2>Satın alma gücü formülü</h2>
     <p>
-      Future dollars are worth less. To compute purchasing power after{" "}
-      <code>n</code> years at inflation rate <code>r</code>:{" "}
-      <code>Future purchasing power = Present $ ÷ (1 + r)^n</code>.
+      Gelecekteki dolarlar daha az değerlidir. <code>n</code> yıl sonraki satın alma gücünü <code>r</code> enflasyon oranında hesaplamak için:{" "}
+      <code>Gelecekteki satın alma gücü = Şimdiki $ ÷ (1 + r)^n</code>.
     </p>
     <p>
-      $10,000 today at 3% annual inflation has a purchasing power of{" "}
-      <code>10,000 ÷ 1.03^10 = $7,441</code> in 10 years. Not 3% × 10 =
-      70% of value — that&rsquo;s the linear approximation. Compounding
-      makes the real loss slightly less, because each year&rsquo;s
-      inflation applies to the already-devalued base.
+      Bugün 10.000 dolar, yıllık %3 enflasyonla, 10 yıl içinde <code>10.000 ÷ 1.03^10 = 7.441 dolar</code> satın alma gücüne sahiptir. Değerin %3 × 10 = %70'i değil — bu doğrusal yaklaşımdır. Bileşik etki, gerçek kaybı biraz daha küçük yapar çünkü her yılın enflasyonu zaten değer kaybetmiş bir tabana uygulanır.
     </p>
     <p>
-      To go the other direction — how much future money do I need to
-      match $10k of today&rsquo;s purchasing power:{" "}
-      <code>Future $ = Present $ × (1 + r)^n</code>. $10,000 × 1.03^10 =
-      $13,439. That&rsquo;s what you&rsquo;d need in 10 years to feel
-      equally rich. The <a href="/tools/inflation-calculator">inflation
-      calculator</a> does both directions instantly.
+      Ters yöne gitmek için — bugün 10.000 doların satın alma gücüne eşit olmak için ne kadar gelecek paraya ihtiyacınız var:{" "}
+      <code>Gelecek $ = Şimdiki $ × (1 + r)^n</code>. 10.000 $ × 1.03^10 = 13.439 $. 10 yıl içinde aynı zenginliği hissetmek için ihtiyacınız olan miktar budur. <a href="/tools/inflation-calculator">Enflasyon hesaplayıcısı</a> her iki yönü de anında yapar.
     </p>
 
-    <h2>Real return vs nominal return</h2>
+    <h2>Reel getiri vs nominal getiri</h2>
     <p>
-      The difference between &ldquo;inflation is 3%&rdquo; and &ldquo;my
-      savings earn 4%&rdquo; isn&rsquo;t a 7% gain — it&rsquo;s barely a
-      gain at all. Real return (what you keep in purchasing power terms)
-      is approximately: <code>nominal rate − inflation rate</code>. More
-      precisely: <code>(1 + nominal) / (1 + inflation) − 1</code>.
+      "Enflasyon %3" ve "birikimlerim %4 kazandırıyor" %7'lik bir kazanç değildir — neredeyse hiç kazanç değildir. Reel getiri (satın alma gücünde elinizde kalan) yaklaşık olarak: <code>nominal oran − enflasyon oranı</code>'dır. Daha kesin olarak: <code>(1 + nominal) / (1 + enflasyon) − 1</code>.
     </p>
     <p>
-      A high-yield savings account paying 4.5% with 3% inflation produces
-      a real return of (1.045 / 1.03) − 1 = 1.46%. Real. That&rsquo;s
-      what&rsquo;s actually compounding. Any time you see a
-      &ldquo;savings rate,&rdquo; do this subtraction before getting
-      excited.
+      %4,5 ödeyen yüksek getirili bir tasarruf hesabı, %3 enflasyonla (1.045 / 1.03) − 1 = %1,46 reel getiri sağlar. İşte bu kadar. Gerçekte bileşik kazandıran budur. Ne zaman bir "tasarruf oranı" görseniz, heyecanlanmadan önce bu çıkarmayı yapın.
     </p>
     <p>
-      A checking account paying 0.01% during a 3% inflation year has a
-      real return of roughly <em>−3%</em>. That cash is actively losing
-      purchasing power. It hasn&rsquo;t gotten smaller in dollar terms,
-      which is why this is easy to miss, but it buys less every month.
+      %3 enflasyonun olduğu bir yılda %0,01 ödeyen bir vadesiz hesabın reel getirisi kabaca <em>−%3</em>'tür. Bu nakit aktif olarak satın alma gücü kaybediyor. Dolar bazında küçülmemiştir, bu yüzden gözden kaçırmak kolaydır, ancak her ay daha az satın alır.
     </p>
 
-    <h2>What this means for emergency funds</h2>
+    <h2>Bunun acil durum fonları için anlamı</h2>
     <p>
-      Emergency funds should stay liquid — HYSA, money market, T-bills —
-      even though real return on liquid cash is often 0–1% or negative.
-      The whole point is immediate availability. Losing 2% of purchasing
-      power on 3–6 months of expenses is the price of insurance against
-      having to sell investments at a loss during a crisis.
+      Acil durum fonlarının likit kalması gerekir — Yüksek Getirili Tasarruf Hesabı (HYSA), para piyasası, Hazine bonoları — likit nakdin reel getirisi genellikle %0-1 veya negatif olsa bile. Amaç anında erişilebilirliktir. 3-6 aylık giderlerde %2 satın alma gücü kaybetmek, bir kriz sırasında yatırımları zararına satmaktan kaçınmak için ödediğiniz sigorta primidir.
     </p>
     <p>
-      Liquid cash above 6 months of expenses is where inflation damage
-      gets expensive. $50,000 parked in a checking account at 0.01% vs a
-      HYSA at 4.5% is a $2,250/year opportunity cost — $22,500 over ten
-      years of pure friction. Move it.
+      6 aylık giderlerin üzerindeki likit nakit, enflasyon hasarının pahalılaştığı yerdir. %0,01 faizli bir vadesiz hesapta duran 50.000 dolar ile %4,5 faizli bir HYSA arasındaki fark, yılda 2.250 dolar fırsat maliyetidir — saf sürtünmeden on yılda 22.500 dolar. Taşıyın.
     </p>
 
-    <h2>Inflation and long-term goals</h2>
+    <h2>Enflasyon ve uzun vadeli hedefler</h2>
     <p>
-      Retirement planning has to be inflation-adjusted or the numbers lie
-      to you. $1 million in 30 years isn&rsquo;t $1 million of today&rsquo;s
-      money — at 3% inflation, it&rsquo;s $412,000 in today&rsquo;s terms.
-      A retirement target of &ldquo;$1M nominal&rdquo; in 2055 is
-      actually a modest goal, not the mountain it sounds like.
+      Emeklilik planlaması enflasyona göre ayarlanmalıdır, aksi takdirde rakamlar size yalan söyler. 30 yıl içinde 1 milyon dolar, bugün 1 milyon dolar değildir — %3 enflasyonda, bugünün parasıyla 412.000 dolardır. 2055'te "nominal 1 milyon dolar" emeklilik hedefi aslında mütevazı bir hedeftir, göründüğü gibi bir dağ değildir.
     </p>
     <p>
-      The fix: target real (inflation-adjusted) numbers. Use a 7% real
-      return assumption for stocks (10% nominal minus 3% inflation — the
-      long-run historical real return of the S&amp;P 500), and think in
-      today&rsquo;s dollars. Our{" "}
-      <a href="/tools/401k-calculator">401(k) calculator</a> and{" "}
-      <a href="/tools/compound-interest-calculator">compound interest
-      calculator</a> let you toggle real vs nominal assumptions.
+      Çözüm: reel (enflasyona göre düzeltilmiş) rakamları hedefleyin. Hisse senetleri için %7 reel getiri varsayımı kullanın (%10 nominal eksi %3 enflasyon — S&P 500'ün uzun vadeli tarihsel reel getirisi) ve bugünün dolarıyla düşünün.{" "}
+      <a href="/tools/401k-calculator">401(k) hesaplayıcımız</a> ve{" "}
+      <a href="/tools/compound-interest-calculator">bileşik faiz hesaplayıcımız</a>, reel ve nominal varsayımlar arasında geçiş yapmanızı sağlar.
     </p>
 
-    <h2>When inflation is actively helping you</h2>
+    <h2>Enflasyonun aktif olarak size yardımcı olduğu zamanlar</h2>
     <p>
-      Fixed-rate debt. Your 3.5% mortgage from 2021, in a 4% inflation
-      world, has a real interest rate of negative-0.5%. The bank is
-      paying you (in purchasing power terms) to hold their money. This
-      is why people with low-rate mortgages shouldn&rsquo;t rush to pay
-      them off during inflation spikes — the arithmetic favors holding.
+      Sabit faizli borç. 2021'den kalma %3,5 ipoteğiniz, %4 enflasyon dünyasında negatif %0,5 reel faiz oranına sahiptir. Banka, paralarını tutmanız için size (satın alma gücü olarak) ödeme yapıyor. Bu nedenle düşük faizli ipoteği olan kişiler enflasyon yükselişleri sırasında borcu kapatmak için acele etmemelidir — aritmetik borcu tutmayı destekler.
     </p>
     <p>
-      The opposite applies to floating-rate debt and credit cards, which
-      reprice upward with inflation and do active damage every month.
-      The <a href="/tools/debt-payoff-calculator">debt payoff
-      calculator</a> handles that side of the math.
+      Bunun tersi, enflasyonla yeniden fiyatlanan ve her ay aktif hasar veren değişken faizli borç ve kredi kartları için geçerlidir.{" "}
+      <a href="/tools/debt-payoff-calculator">Borç ödeme hesaplayıcısı</a> bu tarafın matematiğini halleder.
     </p>
 
-    <h2>A two-minute inflation audit</h2>
+    <h2>İki dakikalık enflasyon denetimi</h2>
     <p>
-      Open your accounts. For each balance over $1,000, note the <a href="/learn/apy">APY</a>.
-      Subtract 3% (a reasonable long-run inflation assumption). Anything
-      with a real return below zero is actively losing ground —
-      prioritize moving those balances into HYSA, T-bills, or investments
-      matched to the time horizon you need them for.
+      Hesaplarınızı açın. 1.000 doların üzerindeki her bakiye için <a href="/learn/apy">APY</a>'yi not edin. %3 çıkarın (makul bir uzun vadeli enflasyon varsayımı). Reel getirisi sıfırın altında olan her şey aktif olarak değer kaybediyor — bu bakiyeleri HYSA'lara, Hazine bonolarına veya zaman ufkunuza uygun yatırımlara taşımaya öncelik verin.
     </p>
     <p>
-      For the math on any specific amount over any timeframe, use the{" "}
-      <a href="/tools/inflation-calculator">inflation calculator</a>. For
-      the full picture of what your savings turn into over time, the{" "}
-      <a href="/tools/compound-interest-calculator">compound interest
-      calculator</a> lets you model returns against an inflation
-      assumption.
+      Herhangi bir miktar ve zaman dilimi için matematiği <a href="/tools/inflation-calculator">enflasyon hesaplayıcısı</a> ile yapın. Birikimlerinizin zaman içinde ne hale geldiğinin tam resmi için{" "}
+      <a href="/tools/compound-interest-calculator">bileşik faiz hesaplayıcısı</a>, getirileri bir enflasyon varsayımına karşı modellemenizi sağlar.
     </p>
   </>
 );

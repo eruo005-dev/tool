@@ -1,13 +1,13 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>Semantic Kernel is Microsoft&rsquo;s open-source SDK for orchestrating LLMs, plugins, and planners in C#, Python, or Java.</p>);
+export const intro: ReactElement = (<p>Semantic Kernel, Microsoft&rsquo;un C#, Python veya Java ile LLM'leri, eklentileri ve planlayıcıları düzenlemek için geliştirdiği açık kaynaklı SDK'sıdır.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>Where LangChain optimises for breadth and experimentation, Semantic Kernel targets enterprise apps: strong typing, dependency injection, telemetry, and first-class support for Azure OpenAI. It&rsquo;s the framework powering much of Microsoft&rsquo;s own Copilot surface.</p>
-    <h2>What it is</h2>
-    <p>Semantic Kernel exposes a Kernel object that wires together AI services (chat, embeddings, image), plugins (callable functions the model can invoke), memory (vector stores), and planners that turn a goal into a sequence of function calls. It&rsquo;s available as NuGet, PyPI, and Maven packages with near-parity across languages.</p>
-    <h2>Install / sign up</h2>
+    <p>LangChain genişlik ve deney için optimize edilirken, Semantic Kernel kurumsal uygulamaları hedefler: güçlü tipleme, bağımlılık enjeksiyonu, telemetri ve Azure OpenAI için birinci sınıf destek. Microsoft'un kendi Copilot yüzeyinin çoğuna güç veren çerçevedir.</p>
+    <h2>Ne olduğu</h2>
+    <p>Semantic Kernel, AI hizmetlerini (sohbet, gömme, görüntü), eklentileri (modelin çağırabileceği çağrılabilir işlevler), belleği (vektör depoları) ve bir hedefi işlev çağrıları dizisine dönüştüren planlayıcıları birbirine bağlayan bir Kernel nesnesi sunar. NuGet, PyPI ve Maven paketleri olarak diller arasında neredeyse eşitlikle kullanılabilir.</p>
+    <h2>Kurulum / kaydolma</h2>
     <pre>{`# Python
 pip install semantic-kernel
 
@@ -15,12 +15,12 @@ pip install semantic-kernel
 dotnet add package Microsoft.SemanticKernel
 
 # Java
-# Add to pom.xml:
+# pom.xml'e ekleyin:
 # <dependency>com.microsoft.semantic-kernel:semantickernel-api</dependency>
 
-# Need an OpenAI or Azure OpenAI key`}</pre>
-    <h2>First session</h2>
-    <p>Create a Kernel, register a chat service, and add a plugin. The model can then call your plugin functions automatically when it decides they&rsquo;re relevant.</p>
+# Bir OpenAI veya Azure OpenAI anahtarı gerekli`}</pre>
+    <h2>İlk oturum</h2>
+    <p>Bir Kernel oluşturun, bir sohbet hizmeti kaydedin ve bir eklenti ekleyin. Model daha sonra, ilgili olduğuna karar verdiğinde eklenti işlevlerinizi otomatik olarak çağırabilir.</p>
     <pre>{`$ python
 import semantic_kernel as sk
 from semantic_kernel.connectors.ai.open_ai import OpenAIChatCompletion
@@ -31,16 +31,16 @@ kernel.add_plugin(parent_directory="./plugins", plugin_name="Weather")
 
 reply = await kernel.invoke_prompt("What's the weather in Oslo?")
 print(reply)`}</pre>
-    <h2>Everyday workflows</h2>
+    <h2>Günlük iş akışları</h2>
     <ul>
-      <li>1. Wrap existing REST APIs as plugins &mdash; the model will call them via <a href="/learn/function-calling">function calling</a> when appropriate.</li>
-      <li>2. Use the Handlebars or Stepwise planner to decompose complex goals into ordered plugin calls.</li>
-      <li>3. Plug in a memory store (Azure AI Search, Qdrant, Redis) for retrieval-augmented chat.</li>
+      <li>1. Mevcut REST API'lerini eklenti olarak sarın &mdash; model, uygun olduğunda bunları <a href="/learn/function-calling">işlev çağırma</a> yoluyla çağıracaktır.</li>
+      <li>2. Karmaşık hedefleri sıralı eklenti çağrılarına ayırmak için Handlebars veya Stepwise planlayıcısını kullanın.</li>
+      <li>3. Alım artırımlı sohbet için bir bellek deposu (Azure AI Search, Qdrant, Redis) ekleyin.</li>
     </ul>
-    <h2>Gotchas and tips</h2>
-    <p>Semantic Kernel leans heavily on dependency injection; in .NET especially, register services on the host builder rather than newing up a Kernel manually &mdash; you&rsquo;ll get proper logging and configuration. Use the OpenTelemetry integration early so you can debug long plugin chains.</p>
-    <p>Planners can burn tokens quickly; prefer explicit function composition when the workflow is known and reserve planners for open-ended goals. The Python and .NET SDKs occasionally drift &mdash; pin versions in production and check release notes for breaking changes in the preview packages.</p>
-    <h2>Who it&rsquo;s for</h2>
-    <p>Enterprise teams building Copilot-style features, especially on Azure, who want a supported SDK with strong typing and observability instead of a research-grade framework.</p>
+    <h2>Tuzaklar ve ipuçları</h2>
+    <p>Semantic Kernel büyük ölçüde bağımlılık enjeksiyonuna dayanır; özellikle .NET'te, bir Kernel'i manuel olarak oluşturmak yerine hizmetleri ana bilgisayar oluşturucuya kaydedin &mdash; böylece doğru günlük kaydı ve yapılandırma elde edersiniz. Uzun eklenti zincirlerinde hata ayıklayabilmek için OpenTelemetry entegrasyonunu erken kullanın.</p>
+    <p>Planlayıcılar token'ları hızla tüketebilir; iş akışı bilindiğinde açık işlev kompozisyonunu tercih edin ve planlayıcıları açık uçlu hedefler için saklayın. Python ve .NET SDK'ları bazen farklılaşır &mdash; üretimde sürümleri sabitleyin ve önizleme paketlerindeki kırıcı değişiklikler için sürüm notlarını kontrol edin.</p>
+    <h2>Kimin için olduğu</h2>
+    <p>Özellikle Azure'da, araştırma düzeyinde bir çerçeve yerine güçlü tipleme ve gözlemlenebilirliğe sahip desteklenen bir SDK isteyen, Copilot tarzı özellikler oluşturan kurumsal ekipler.</p>
   </>
 );

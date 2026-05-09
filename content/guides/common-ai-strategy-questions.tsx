@@ -3,188 +3,112 @@
 export const intro = (
   <>
     <p>
-      Short answers to the AI strategy questions that come up over and over in business
-      threads, paired with links to deeper guides where the answer needs more space.
-      Covers consulting types, fintech, currency, training, ethics, and the many
-      adjacent topics that don&rsquo;t fit cleanly into one of the longer guides.
+      Hızlı yanıtlar iş dünyasında karşılaştığınız yaygın yapay zeka stratejisi sorularına; daha derinlemesine bilgiye ihtiyaç duyduğunuzda kapsamlı rehberlere bağlantılar içerir. Danışmanlık türleri, fintech, para birimi, eğitim, etik ve uzun rehberlerin hiçbirine tam olarak uymayan bir dizi ilgili konuyu kapsar.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "consulting-types", label: "Consulting + strategy types" },
-  { id: "fintech", label: "AI in fintech" },
-  { id: "currency", label: "Currency + international expansion" },
-  { id: "training", label: "Team training + budget" },
-  { id: "small-biz", label: "AI on a small budget" },
-  { id: "ethics-legal", label: "Ethics + legal quick refs" },
+  { id: "consulting-types", label: "Danışmanlık + strateji türleri" },
+  { id: "fintech", label: "Fintech'te yapay zeka" },
+  { id: "currency", label: "Para birimi + uluslararası genişleme" },
+  { id: "training", label: "Ekip eğitimi + bütçe" },
+  { id: "small-biz", label: "Küçük bütçeyle yapay zeka" },
+  { id: "ethics-legal", label: "Etik + yasal hızlı başvurular" },
 ];
 
 export const body = (
   <>
-    <h2 id="consulting-types">Consulting + strategy types</h2>
+    <h2 id="consulting-types">Danışmanlık + strateji türleri</h2>
 
-    <h3>What&rsquo;s the difference between AI consulting and AI strategy development?</h3>
+    <h3>Yapay zeka danışmanlığı ile yapay zeka stratejisi geliştirme arasındaki fark nedir?</h3>
     <p>
-      <strong>AI strategy</strong> is the planning and prioritization phase: which
-      use cases, which order, build vs buy, vendor shortlist, <a href="/learn/roi">ROI</a> estimates. Output is
-      typically a roadmap document. Engagement: 4–12 weeks, $25K–$80K.{" "}
-      <strong>AI consulting</strong> covers the strategy phase plus the implementation:
-      actually building the system, integrating it into your workflow, training your
-      team. Engagement: 3–6 months, $50K–$300K. The terms get used interchangeably in
-      marketing, but the deliverables differ — confirm what you&rsquo;re buying before
-      signing. Full breakdown in our{" "}
-      <a href="/guides/how-to-choose-an-ai-consulting-firm">how to choose an AI
-      consulting firm</a> guide.
+      <strong>Yapay zeka stratejisi</strong> planlama ve önceliklendirme aşamasıdır: hangi kullanım durumları, hangi sırayla, oluşturma vs satın alma, satıcı kısa listesi, <a href="/learn/roi">ROI</a> tahminleri. Çıktı genellikle bir yol haritası belgesidir. Süre: 4–12 hafta, $25k–$80k.{" "}
+      <strong>Yapay zeka danışmanlığı</strong> stratejiye ek olarak uygulamayı da içerir: sistemi fiilen oluşturmak, iş akışınıza entegre etmek, ekibinizi eğitmek. Süre: 3–6 ay, $50k–$300k. Terimler pazarlamada birbirinin yerine kullanılır, ancak teslimatlar farklılık gösterir — imzalamadan önce ne satın aldığınızı teyit edin. Tam dökümümüzü <a href="/guides/how-to-choose-an-ai-consulting-firm">yapay zeka danışmanlık firması nasıl seçilir</a> sayfasında görebilirsiniz.
     </p>
 
-    <h3>What does &ldquo;agentic AI&rdquo; mean for my business?</h3>
+    <h3>"Ajan yapay zeka" işim için ne anlama geliyor?</h3>
     <p>
-      An &ldquo;agent&rdquo; is an AI system that can take actions over multiple
-      steps, not just generate text. In 2026 the realistic agent use cases are:
-      structured workflows where each step is well-defined (research a company, find
-      contacts, draft outreach, log to CRM). The marketing claims about &ldquo;fully
-      autonomous AI employees&rdquo; mostly don&rsquo;t hold up under load — agents
-      still need human checkpoints. Plan for human-in-the-loop unless your scope is
-      narrow and well-tested.
+      Bir "ajan", yalnızca metin üretmekle kalmayıp birden çok adımda eylemler gerçekleştirebilen bir yapay zeka sistemidir. 2026'da gerçekçi ajan kullanım durumları şunlardır: her adımın iyi tanımlandığı yapılandırılmış iş akışları (bir şirketi araştır, kişileri bul, iletişim taslağı hazırla, CRM'e kaydet). "Tamamen otonom yapay zeka çalışanları" hakkındaki pazarlama iddiaları çoğunlukla yük altında geçerli değildir — ajanların hala insan kontrol noktalarına ihtiyacı vardır. Kapsamınız dar ve iyi test edilmiş değilse, insanın sürece dahil olduğu bir model planlayın.
     </p>
 
-    <h2 id="fintech">AI in fintech</h2>
+    <h2 id="fintech">Fintech'te yapay zeka</h2>
 
-    <h3>How do successful fintech companies use AI?</h3>
+    <h3>Başarılı fintech şirketleri yapay zekayı nasıl kullanıyor?</h3>
     <p>
-      Five well-documented use cases: (1) fraud detection — pattern matching on
-      transaction streams, well-suited to AI; (2) credit underwriting — AI augmenting
-      traditional bureau models, with regulatory limits; (3) customer support
-      automation — Tier 1 ticket triage and FAQ; (4) compliance monitoring — KYC/AML
-      pattern flagging; (5) personalized financial advice within tight regulatory
-      guardrails. The unsexy areas (fraud, compliance) generally produce the best
-      ROI. The trendy ones (personalized investment advice) carry the highest
-      regulatory and liability risk.
+      Beş iyi belgelenmiş kullanım durumu: (1) dolandırıcılık tespiti — işlem akışlarında örüntü eşleştirme, yapay zeka için çok uygun; (2) kredi puanlaması — yapay zekanın geleneksel büro modellerini desteklemesi, düzenleyici kısıtlamalarla; (3) müşteri desteği otomasyonu — seviye 1 bilet triyajı ve SSS; (4) uyumluluk izleme — KYC/AML örüntü işaretleme; (5) sıkı düzenleyici çerçeveler dahilinde kişiselleştirilmiş finansal tavsiye. Sıkıcı alanlar (dolandırıcılık, uyumluluk) genellikle en iyi ROI'yi sağlar. Gösterişli olanlar (kişiselleştirilmiş yatırım tavsiyesi) en yüksek düzenleyici ve sorumluluk riskini taşır.
     </p>
 
-    <h2 id="currency">Currency + international expansion</h2>
+    <h2 id="currency">Para birimi + uluslararası genişleme</h2>
 
-    <h3>Should I use multiple currency platforms for international expansion?</h3>
+    <h3>Uluslararası genişleme için birden fazla para birimi platformu kullanmalı mıyım?</h3>
     <p>
-      Depends on volume + complexity. For early-stage international (under $500K
-      annual non-USD revenue), one platform like Wise Business or Stripe&rsquo;s
-      multi-currency receiving is enough — single dashboard, predictable FX margins
-      around 0.5–1%. For mid-stage international ($500K–$5M annual non-USD), consider
-      a primary platform (Wise, Mercury) plus a secondary for niche corridors not
-      well-served by the primary. For mature international ($5M+), you&rsquo;ll often
-      want a dedicated FX provider (Cambridge, OFX, Convera) for spot rates plus your
-      payment platform for operational accounts. The cost of consolidating to one
-      platform too early: hidden FX margins of 2–4% on transactions. The cost of too
-      many platforms: operational overhead and reconciliation complexity.
+      Hacim + karmaşıklığa bağlıdır. Erken aşama uluslararası (yılda $500k'nın altında USD dışı gelir) için Wise Business veya Stripe'ın çoklu para birimi alma gibi tek bir platform yeterlidir — tek gösterge paneli, %0.5–1 civarında öngörülebilir FX marjları. Orta aşama uluslararası (yılda $500k–$5M USD dışı) için birincil bir platform (Wise, Mercury) ve birincil tarafından iyi hizmet verilmeyen niş koridorlar için ikincil bir platform düşünün. Olgun uluslararası ($5M+) için, spot kurlar için genellikle özel bir FX sağlayıcısına (Cambridge, OFX, Convera) ve operasyonel hesaplar için ödeme platformunuza ihtiyacınız vardır. Tek bir platformda çok erken konsolide etmenin maliyeti: işlemlerde %2–4 gizli FX marjı. Çok fazla platformun maliyeti: operasyonel yük ve mutabakat karmaşıklığı.
     </p>
 
-    <h3>How do I evaluate FX / multi-currency platforms?</h3>
+    <h3>FX / çoklu para birimi platformlarını nasıl değerlendiririm?</h3>
     <p>
-      Five criteria: real-time FX margin transparency (not just &ldquo;competitive
-      rates&rdquo;), corridor coverage for your specific currencies, settlement speed,
-      regulatory licensing in source/destination countries, integration with your
-      accounting stack. Always test with a small transaction in each corridor before
-      committing — published rates and actual rates often differ.
+      Beş kriter: gerçek zamanlı FX marj şeffaflığı (sadece "rekabetçi oranlar" değil), belirli para birimleriniz için koridor kapsamı, mutabakat hızı, kaynak/varış ülkelerinde düzenleyici lisanslama, muhasebe yığınınızla entegrasyon. Taahhüt vermeden önce her koridorda küçük bir işlemle test edin — yayınlanan oranlar ve gerçek oranlar genellikle farklılık gösterir.
     </p>
 
-    <h2 id="training">Team training + budget</h2>
+    <h2 id="training">Ekip eğitimi + bütçe</h2>
 
-    <h3>How should I invest in AI training for my team?</h3>
+    <h3>Ekibim için yapay zeka eğitimine nasıl yatırım yapmalıyım?</h3>
     <p>
-      Layered approach across roles. <strong>For everyone:</strong> 4–8 hours of
-      free Anthropic / DeepLearning.AI / Hugging Face courses on prompt engineering
-      and AI fundamentals. <strong>For senior engineers:</strong> conference
-      attendance ($1K–$3K/seat — AI Engineer Summit, applied tracks at QCon /
-      MLSys), vendor certifications ($200–$500/seat), and 4–6 weeks pair-programming
-      with a senior consultant ($20K–$50K). <strong>For leadership:</strong> a 4-week
-      AI strategy engagement ($15K–$30K) so they make informed build/buy decisions.
-      Total annual budget for a 10-person team: $30K–$80K. ROI: typically positive
-      within 12–18 months in faster delivery and better tool selection.
+      Role göre kademeli yaklaşım. <strong>Herkes için:</strong> 4–8 saatlik ücretsiz Anthropic / DeepLearning.AI / Hugging Face kursları (istem mühendisliği ve yapay zeka temelleri). <strong>Kıdemli mühendisler için:</strong> konferans katılımı (koltuk başına $1k–$3k — AI Engineer Summit, QCon / MLSys'te uygulamalı oturumlar), satıcı sertifikaları (koltuk başına $200–$500) ve kıdemli bir danışmanla 4–6 haftalık çift programlama ($20k–$50k). <strong>Liderlik için:</strong> bilinçli oluşturma/satın alma kararları vermeleri için 4 haftalık bir yapay zeka stratejisi angajmanı ($15k–$30k). 10 kişilik bir ekip için toplam yıllık bütçe: $30k–$80k. ROI: daha hızlı teslimat ve daha iyi araç seçimi sayesinde genellikle 12–18 ay içinde pozitif.
     </p>
 
-    <h2 id="small-biz">AI on a small budget</h2>
+    <h2 id="small-biz">Küçük bütçeyle yapay zeka</h2>
 
-    <h3>How can small businesses use AI without breaking the budget?</h3>
+    <h3>Küçük işletmeler bütçeyi aşmadan yapay zekayı nasıl kullanabilir?</h3>
     <p>
-      Five high-leverage actions under $200/month: (1) ChatGPT or Claude paid tier
-      ($20/month) for the team — enough usage and reasoning depth for real work; (2)
-      structured prompt templates for the recurring tasks (sales outreach, customer
-      support, content drafts) — free; (3) one tactical AI integration through your
-      existing SaaS stack (Notion AI, HubSpot AI features, Intercom Fin) — typically
-      $0–$50/month uplift on existing subscriptions; (4) free training for team —
-      Anthropic course, DeepLearning.AI; (5) avoid AI subscription apps that promise
-      to do everything (under-perform best-of-breed tools). The overlooked move:
-      teach your team to use the <a href="/learn/llm">LLM</a> they already pay for properly, rather than
-      buying additional AI tools they won&rsquo;t use.
+      Ayda $200'ın altında beş yüksek kaldıraçlı eylem: (1) ekip için ücretli ChatGPT veya Claude katmanı (ayda $20) — gerçek iş için yeterli kullanım ve akıl yürütme derinliği; (2) tekrarlayan görevler için yapılandırılmış istem şablonları (satış iletişimi, müşteri desteği, içerik taslakları) — ücretsiz; (3) mevcut SaaS yığınınız aracılığıyla tek bir taktiksel yapay zeka entegrasyonu (Notion AI, HubSpot AI özellikleri, Intercom Fin) — mevcut aboneliklerde genellikle $0–$50/ay artış; (4) ekip için ücretsiz eğitim — Anthropic kursu, DeepLearning.AI; (5) her şeyi yapma vaadiyle yapay zeka abonelik uygulamalarından kaçının (en iyi araçlardan daha kötü performans gösterirler). Gözden kaçan hamle: ekibinize, kullanmayacakları ek yapay zeka araçları satın almak yerine, halihazırda ödedikleri <a href="/learn/llm">LLM</a>'yi doğru kullanmayı öğretin.
     </p>
 
-    <h2 id="ethics-legal">Ethics + legal quick refs</h2>
+    <h2 id="ethics-legal">Etik + yasal hızlı başvurular</h2>
 
-    <h3>What ethical issues should I consider before using AI?</h3>
+    <h3>Yapay zeka kullanmadan önce hangi etik hususları düşünmeliyim?</h3>
     <p>
-      Six items: transparency with users, human review on consequential decisions,
-      bias testing against historically-discriminated groups, worker impact when AI
-      displaces employees, environmental footprint at high volume, consent for
-      training on customer data. See{" "}
-      <a href="/guides/how-to-evaluate-an-ai-tool">how to evaluate an AI tool</a> for
-      the structured framework.
+      Altı madde: kullanıcılarla şeffaflık, sonuçsal kararlar için insan incelemesi, tarihsel olarak dezavantajlı gruplara karşı önyargı testi, yapay zeka işçilerin yerini aldığında işgücü etkisi, yüksek hacimde çevresel ayak izi, müşteri verileri üzerinde eğitim için onay. Yapılandırılmış bir çerçeve için <a href="/guides/how-to-evaluate-an-ai-tool">bir yapay zeka aracı nasıl değerlendirilir</a> sayfasına bakın.
     </p>
 
-    <h3>What legal risks should I know?</h3>
+    <h3>Hangi yasal riskleri bilmeliyim?</h3>
     <p>
-      Five areas: data privacy (GDPR / CCPA / sector-specific), copyright + IP
-      (purely AI-generated content isn&rsquo;t copyrightable in the US), disclosure
-      requirements (AI-driven hiring / lending often requires disclosure),
-      output liability (most vendors disclaim it; you may carry it), bias /
-      discrimination (existing law applies regardless of AI involvement). Detailed
-      breakdown in <a href="/guides/how-to-evaluate-an-ai-tool">how to evaluate an
-      AI tool</a>.
+      Beş alan: veri gizliliği (GDPR / CCPA / sektöre özel), telif hakkı + fikri mülkiyet (tamamen yapay zeka tarafından oluşturulan içerik ABD'de telif hakkına tabi değildir), ifşa gereklilikleri (yapay zeka destekli işe alım / borç verme genellikle ifşa gerektirir), çıktı sorumluluğu (çoğu satıcı bunu reddeder; size ait olabilir), önyargı / ayrımcılık (yapay zeka katılımına bakılmaksızın mevcut yasa geçerlidir). Ayrıntılı bir döküm için <a href="/guides/how-to-evaluate-an-ai-tool">bir yapay zeka aracı nasıl değerlendirilir</a> sayfasına bakın.
     </p>
 
-    <h3>How do I document AI decision-making for compliance?</h3>
+    <h3>Uyumluluk için yapay zeka karar alma sürecini nasıl belgelendiririm?</h3>
     <p>
-      Three minimum-viable artifacts: (1) input log — what data went into the
-      decision; (2) model + version log — exactly which model produced the output,
-      with version pinning where possible; (3) output log + human review record —
-      what the model returned and how a human reviewed it. Most regulated
-      industries also want a human attestation that the final decision was reviewed
-      by a qualified person, not just rubber-stamped. Start with these three logs;
-      add more as your specific compliance regime requires.
+      Üç asgari geçerli yapıt: (1) girdi günlüğü — karara hangi veriler girdi; (2) model + sürüm günlüğü — çıktıyı tam olarak hangi model üretti, mümkünse sürüm sabitleme ile; (3) çıktı günlüğü + insan inceleme kaydı — modelin ne döndürdüğü ve bir insanın bunu nasıl incelediği. Düzenlemeye tabi çoğu sektör, nihai kararın yalnızca onaylanmış değil, nitelikli bir kişi tarafından incelendiğine dair bir insan beyanı da gerektirir. Bu üç günlükle başlayın; özel uyumluluk rejiminiz gerektirdikçe daha fazlasını ekleyin.
     </p>
 
-    <h3>How do I handle privacy when using AI tools?</h3>
+    <h3>Yapay zeka araçlarını kullanırken gizliliği nasıl ele alırım?</h3>
     <p>
-      Three rules: (1) classify data sensitivity before any AI input; (2) match the
-      sensitivity to the right tier — public data anywhere, internal data on
-      paid-tier with no-train guarantee, sensitive data on enterprise tier or
-      self-hosted models, regulated data only on certified-compliant tools; (3)
-      strip identifiers when possible (account numbers, full PII) even on paid
-      tiers — defense in depth. Audit AI usage quarterly to catch drift.
+      Üç kural: (1) herhangi bir yapay zeka girdisinden önce veri hassasiyetini sınıflandırın; (2) hassasiyeti doğru katmanla eşleştirin — her yerde herkese açık veri, eğitim garantisi olmayan ücretli katmanda dahili veri, kurumsal katmanda veya kendi kendine barındırılan modellerde hassas veri, yalnızca sertifikalı uyumlu araçlarda düzenlemeye tabi veri; (3) mümkün olduğunda ücretli katmanlarda bile tanımlayıcıları (hesap numaraları, tam PII) kaldırın — derinlemesine savunma. Kaymayı yakalamak için yapay zeka kullanımını üç ayda bir denetleyin.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Score your AI vendor (structured checklist)",
+  label: "Yapay zeka satıcınızı puanlayın (yapılandırılmış kontrol listesi)",
   targetSlug: "ai-tool-evaluation-scorecard",
 };
 
 export const faq = [
   {
-    q: "What's the difference between AI consulting and AI strategy?",
-    a: "Strategy is the planning phase (roadmap, prioritization, vendor shortlist) — 4-12 weeks, $25-80K. Consulting includes implementation (building, integrating, training your team) — 3-6 months, $50-300K. The terms get used interchangeably; confirm what's actually being delivered before signing.",
+    q: "Yapay zeka danışmanlığı ile yapay zeka stratejisi arasındaki fark nedir?",
+    a: "Strateji planlama aşamasıdır (yol haritası, önceliklendirme, satıcı kısa listesi) — 4-12 hafta, $25k-$80k. Danışmanlık uygulamayı içerir (oluşturma, entegre etme, ekibinizi eğitme) — 3-6 ay, $50k-$300k. Terimler birbirinin yerine kullanılır; imzalamadan önce fiilen neyin teslim edildiğini teyit edin.",
   },
   {
-    q: "How do successful fintech companies use AI?",
-    a: "Five proven patterns: fraud detection, credit underwriting (with regulatory limits), customer support tier-1 automation, KYC/AML compliance monitoring, personalized financial advice within strict regulatory guardrails. The unsexy uses (fraud, compliance) often produce the best ROI; the trendy ones (investment advice) carry the highest regulatory risk.",
+    q: "Başarılı fintech şirketleri yapay zekayı nasıl kullanıyor?",
+    a: "Beş kanıtlanmış model: dolandırıcılık tespiti, kredi puanlaması (düzenleyici kısıtlamalarla), müşteri desteği seviye 1 otomasyonu, KYC/AML uyumluluk izleme, sıkı düzenleyici çerçeveler dahilinde kişiselleştirilmiş finansal tavsiye. Sıkıcı kullanımlar (dolandırıcılık, uyumluluk) genellikle en iyi ROI'yi sağlar; gösterişli olanlar (yatırım tavsiyesi) en yüksek düzenleyici riski taşır.",
   },
   {
-    q: "How should I invest in AI training for my team?",
-    a: "Layered: free fundamentals for everyone (Anthropic, DeepLearning.AI), conference attendance for senior engineers ($1-3K/seat), AI strategy engagement for leadership ($15-30K), pair-programming with consultants for hands-on engineers ($20-50K). Annual budget for a 10-person team: $30-80K with positive ROI typically within 12-18 months.",
+    q: "Ekibim için yapay zeka eğitimine nasıl yatırım yapmalıyım?",
+    a: "Kademeli: herkes için ücretsiz temel bilgiler (Anthropic, DeepLearning.AI), kıdemli mühendisler için konferans katılımı (koltuk başına $1k-$3k), liderlik için yapay zeka stratejisi angajmanı ($15k-$30k), uygulamalı mühendisler için danışmanlarla çift programlama ($20k-$50k). 10 kişilik bir ekip için yıllık bütçe: $30k-$80k, genellikle 12-18 ay içinde pozitif ROI.",
   },
   {
-    q: "How can small businesses use AI without breaking the budget?",
-    a: "$200/month or less: paid LLM tier for the team, structured prompt templates for recurring tasks, one tactical AI integration on existing SaaS, free training, and avoiding AI subscription apps that under-perform best-of-breed tools. Most overlooked move: teach your team to properly use the LLM you already pay for.",
+    q: "Küçük işletmeler bütçeyi aşmadan yapay zekayı nasıl kullanabilir?",
+    a: "Ayda $200 veya daha az: ekip için ücretli LLM katmanı, tekrarlayan görevler için yapılandırılmış istem şablonları, mevcut SaaS'te tek bir taktiksel yapay zeka entegrasyonu, ücretsiz eğitim ve en iyi araçlardan daha kötü performans gösteren yapay zeka abonelik uygulamalarından kaçınma. En çok gözden kaçan hamle: ekibinize halihazırda ödedikleri LLM'yi doğru kullanmayı öğretin.",
   },
 ];

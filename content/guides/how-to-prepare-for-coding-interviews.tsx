@@ -1,118 +1,83 @@
 export const intro = (
   <>
     <p>
-      Coding interviews are their own skill. Strong engineers who don&rsquo;t prepare routinely
-      bomb them, and mediocre engineers who prepare well get offers. The good news: the skill is
-      narrow, trainable, and the return on preparation is enormous — an offer from a top
-      employer can change your income by six figures annually.
+      Kodlama mülakatları kendine özgü bir beceridir. Hazırlık yapmayan güçlü mühendisler rutin olarak başarısız olurken, iyi hazırlanan vasat mühendisler iş teklifi alır. İyi haber: bu beceri dar kapsamlı, öğrenilebilir ve hazırlığın getirisi muazzamdır — en iyi işverenlerden gelen bir teklif yıllık gelirinizi altı haneli rakamlara çıkarabilir.
     </p>
     <p>
-      This guide is the efficient-prep version, not the 500-hour LeetCode version. Most
-      candidates can get where they need to be with 40–100 focused hours, spread over 8–12 weeks.
+      Bu rehber, 500 saatlik LeetCode versiyonu değil, verimli hazırlık versiyonudur. Çoğu aday, 8-12 haftaya yayılmış 40-100 odaklanmış saatle ihtiyaç duydukları seviyeye ulaşabilir.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Pick the target company level first</h2>
+    <h2>1. Önce hedef şirket seviyesini belirleyin</h2>
     <p>
-      Prep depth varies with target. FAANG L4/L5 roles need systems design <em>and</em>{" "}
-      algorithms under time pressure. Series-B startup might be a take-home and a real-world
-      coding pairing. Know what you&rsquo;re walking into before you spend a month on
-      dynamic-programming drills you&rsquo;ll never use.
+      Hazırlık derinliği hedefe göre değişir. FAANG L4/L5 rolleri, zaman baskısı altında sistem tasarımı <em>ve</em>{" "}
+      algoritmalar gerektirir. Seri-B startup ise ev ödevi ve gerçek dünya kodlama eşleştirmesi olabilir. Asla kullanmayacağınız dinamik programlama alıştırmalarıyla bir ay geçirmeden önce neyle karşılaşacağınızı bilin.
     </p>
 
-    <h2>2. Know the patterns, not the problems</h2>
+    <h2>2. Sorunları değil, kalıpları bilin</h2>
     <p>
-      There are about 15 core problem patterns: two pointers, sliding window, BFS/DFS on
-      graphs, binary search variations, dynamic programming (1D and 2D), intervals, heaps,
-      tries, topological sort, union-find, monotonic stack. Learning the patterns lets you
-      recognize a new problem as a known shape. Memorizing specific solutions doesn&rsquo;t
-      scale.
+      Yaklaşık 15 temel sorun kalıbı vardır: iki işaretçi, kayan pencere, grafiklerde BFS/DFS, ikili arama varyasyonları, dinamik programlama (1B ve 2B), aralıklar, yığınlar, trie'ler, topolojik sıralama, birleştir-bul, monoton yığın. Kalıpları öğrenmek, yeni bir sorunu bilinen bir şekil olarak tanımanızı sağlar. Belirli çözümleri ezberlemek ölçeklenmez.
     </p>
 
-    <h2>3. Start with easy problems, finish each one</h2>
+    <h2>3. Kolay sorunlarla başlayın, her birini bitirin</h2>
     <p>
-      Early prep trap: jumping to hard problems, getting stuck, looking at solutions. That
-      builds nothing. Do easy problems until you can solve them comfortably, then move to
-      medium. Stop trying to get better by doing things beyond your current level.
+      Erken hazırlık tuzağı: zor sorunlara atlamak, takılıp kalmak, çözümlere bakmak. Bu hiçbir şey kazandırmaz. Kolay sorunları rahatça çözene kadar yapın, ardından orta seviyeye geçin. Mevcut seviyenizin ötesinde şeyler yaparak daha iyi olmaya çalışmayı bırakın.
     </p>
 
-    <h2>4. Solve a problem three times</h2>
+    <h2>4. Bir sorunu üç kez çözün</h2>
     <p>
-      Attempt it fresh → read the solution → implement it from scratch, closed book, the next
-      day. This three-pass approach turns exposure into retention. Just reading a solution
-      teaches almost nothing.
+      Sıfırdan deneyin → çözümü okuyun → ertesi gün kitap kapalı, sıfırdan uygulayın. Bu üç aşamalı yaklaşım, maruz kalmayı kalıcılığa dönüştürür. Sadece bir çözümü okumak neredeyse hiçbir şey öğretmez.
     </p>
 
-    <h2>5. Practice talking through the solution</h2>
+    <h2>5. Çözümü konuşarak anlatma pratiği yapın</h2>
     <p>
-      Interviews score communication as much as correctness. Narrate your thinking: &ldquo;My
-      first thought is BFS because we need the shortest path. Let me consider edge cases
-      first…&rdquo; If you practice silent, you&rsquo;ll interview silent, which reads as panic
-      even when you&rsquo;re not.
+      Mülakatlar, doğruluk kadar iletişimi de puanlar. Düşüncelerinizi seslendirin: &ldquo;İlk aklıma gelen BFS çünkü en kısa yola ihtiyacımız var. Önce uç durumları ele alayım…&rdquo; Sessiz pratik yaparsanız, mülakatta sessiz olursunuz, bu da panik olarak algılanır, panik olmasanız bile.
     </p>
 
-    <h2>6. Use a timer, always</h2>
+    <h2>6. Her zaman zamanlayıcı kullanın</h2>
     <p>
-      Real interviews are 45 minutes. Practice with a 35-minute timer using our{" "}
-      <a href="/tools/countdown-timer">countdown timer</a>. Pressure changes everything —
-      problems you can solve in an hour unstructured are very different from problems you can
-      solve in 35 minutes with someone watching.
+      Gerçek mülakatlar 45 dakikadır. 35 dakikalık bir zamanlayıcıyla pratik yapın,{" "}
+      <a href="/tools/countdown-timer">geri sayım zamanlayıcımızı</a> kullanarak. Baskı her şeyi değiştirir — yapılandırılmamış bir saatte çözebileceğiniz sorunlar, birinin izlediği 35 dakikada çözebileceğiniz sorunlardan çok farklıdır.
     </p>
 
-    <h2>7. Do mock interviews, not just solo prep</h2>
+    <h2>7. Sadece bireysel değil, deneme mülakatları yapın</h2>
     <p>
-      Solo prep misses 40% of what makes interviews hard: the person on the other side, the
-      pacing, the pressure. Pramp, interviewing.io, or a friend. Even 5 mock interviews add
-      more than another 30 solo problems.
+      Bireysel hazırlık, mülakatları zorlaştıran şeylerin %40'ını kaçırır: karşıdaki kişi, tempo, baskı. Pramp, interviewing.io veya bir arkadaş. Sadece 5 deneme mülakatı, 30 bireysel sorundan daha fazla katkı sağlar.
     </p>
 
-    <h2>8. Study systems design proportional to target seniority</h2>
+    <h2>8. Sistem tasarımını hedef kıdemle orantılı çalışın</h2>
     <p>
-      For senior+ roles, systems design is half the loop. Pick 2–3 canonical systems (URL
-      shortener, Twitter feed, chat system, ride-sharing) and practice designing them in 45
-      minutes — capacity estimates, APIs, data models, scaling bottlenecks. &ldquo;Designing Data
-      Intensive Applications&rdquo; is the one book worth reading for this.
+      Kıdemli+ roller için sistem tasarımı, sürecin yarısıdır. 2-3 kanonik sistem seçin (URL kısaltıcı, Twitter akışı, sohbet sistemi, araç paylaşımı) ve 45 dakikada tasarlama pratiği yapın — kapasite tahminleri, API'ler, veri modelleri, ölçekleme darboğazları. &ldquo;Designing Data Intensive Applications&rdquo; bunun için okumaya değer tek kitaptır.
     </p>
 
-    <h2>9. Behavioral prep is not optional</h2>
+    <h2>9. Davranışsal hazırlık isteğe bağlı değildir</h2>
     <p>
-      Most engineers think behavioral rounds are easy and then tank them. Have 5–7 specific
-      stories that cover: conflict, leadership, technical trade-offs, failure, and ambiguity.
-      Use STAR structure (Situation, Task, Action, Result) and practice out loud. One great
-      story covers three questions.
+      Çoğu mühendis davranışsal turların kolay olduğunu düşünür ve sonra başarısız olur. Şunları kapsayan 5-7 spesifik hikayeniz olsun: çatışma, liderlik, teknik ödünleşimler, başarısızlık ve belirsizlik. STAR yapısını (Durum, Görev, Eylem, Sonuç) kullanın ve sesli pratik yapın. Harika bir hikaye üç soruyu kapsar.
     </p>
 
-    <h2>10. Review your own code under pressure</h2>
+    <h2>10. Baskı altında kendi kodunuzu gözden geçirin</h2>
     <p>
-      After each problem, re-read what you wrote. What was messy? Where did you hesitate? What
-      edge cases did you miss? This self-review is where growth happens. Pair with our{" "}
-      <a href="/guides/how-to-write-clean-code">clean code guide</a> for the style and structure
-      side.
+      Her sorundan sonra yazdıklarınızı tekrar okuyun. Neresi dağınıktı? Nerede tereddüt ettiniz? Hangi uç durumları kaçırdınız? Bu öz değerlendirme, gelişimin gerçekleştiği yerdir. Stil ve yapı tarafı için{" "}
+      <a href="/guides/how-to-write-clean-code">temiz kod rehberimizle</a> birlikte kullanın.
     </p>
 
-    <h2>11. Sleep, exercise, and don&rsquo;t grind the day before</h2>
+    <h2>11. Uyuyun, egzersiz yapın ve bir gün önce sıkı çalışmayın</h2>
     <p>
-      The day before the interview, do one warmup problem and rest. Grinding hard problems 24
-      hours out makes you tired and shaky, not sharper. Cognitive performance is dominated by
-      sleep and energy far more than by the marginal problem you did the night before.
+      Mülakattan bir gün önce bir ısınma sorunu yapın ve dinlenin. 24 saat kala zor sorunlara yüklenmek sizi yorar ve sarsar, daha keskin yapmaz. Bilişsel performans, bir önceki gece yaptığınız marjinal sorundan çok daha fazla uyku ve enerji tarafından belirlenir.
     </p>
 
-    <h2>12. Build a structured weekly plan</h2>
+    <h2>12. Yapılandırılmış bir haftalık plan oluşturun</h2>
     <p>
-      8–12 weeks of prep, 4–6 hours a week, is enough for most people with some background. Use
-      our <a href="/guides/how-to-plan-your-week">weekly planning guide</a> to keep consistent
-      progress. Skipping weeks is the #1 reason prep stalls.
+      8-12 haftalık hazırlık, haftada 4-6 saat, biraz geçmişi olan çoğu kişi için yeterlidir. Tutarlı ilerleme için{" "}
+      <a href="/guides/how-to-plan-your-week">haftalık planlama rehberimizi</a> kullanın. Haftaları atlamak, hazırlığın durmasının 1 numaralı nedenidir.
     </p>
 
-    <h2>Your first week of prep</h2>
+    <h2>İlk hazırlık haftanız</h2>
     <p>
-      Pick a target company. Identify the likely rounds. Spend one hour mapping the 15 patterns
-      to example problems. Start with 3 easy problems, each done three times. Do one mock
-      interview at the end of week two. Run that rhythm for 8 weeks. That&rsquo;s the whole
-      playbook.
+      Bir hedef şirket seçin. Olası turları belirleyin. 15 kalıbı örnek sorunlarla eşleştirmek için bir saat harcayın. Her biri üç kez yapılan 3 kolay sorunla başlayın. İkinci haftanın sonunda bir deneme mülakatı yapın. Bu ritmi 8 hafta boyunca sürdürün. Tüm oyun kitabı bu.
     </p>
   </>
 );

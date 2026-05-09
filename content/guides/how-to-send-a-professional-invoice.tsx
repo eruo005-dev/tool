@@ -3,242 +3,149 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      An invoice is a legal document that asks for money, triggers
-      accounting entries, and records the terms of a sale. A sloppy
-      invoice takes longer to get paid, creates tax problems, and
-      occasionally ends up disputed. This guide walks through every
-      field that should be on a proper invoice, the formatting that
-      gets paid fastest, and the payment-terms tactics that move DSO
-      from 45 days to 18.
+      Fatura, para talep eden, muhasebe kayıtlarını tetikleyen ve bir satışın koşullarını kaydeden yasal bir belgedir. Özensiz bir fatura, ödenmesi daha uzun sürer, vergi sorunları yaratır ve zaman zaman anlaşmazlıklarla sonuçlanır. Bu rehber, uygun bir faturada bulunması gereken her alanı, en hızlı ödenen biçimlendirmeyi ve DSO'yu 45 günden 18 güne indiren ödeme koşulu taktiklerini adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The 10 fields every invoice needs</h2>
+    <h2>Her faturanın ihtiyaç duyduğu 10 alan</h2>
     <p>
-      <strong>(1) The word &ldquo;Invoice.&rdquo;</strong> Seems
-      obvious. A document titled &ldquo;Statement&rdquo; or
-      &ldquo;Receipt&rdquo; may get routed differently by the
-      customer&rsquo;s AP system. &ldquo;Invoice&rdquo; is the magic
-      word.
+      <strong>(1) &ldquo;Fatura&rdquo; kelimesi.</strong> Apaçık görünüyor. &ldquo;Ekstre&rdquo; veya &ldquo;Makbuz&rdquo; başlıklı bir belge, müşterinin AP sistemi tarafından farklı şekilde yönlendirilebilir. &ldquo;Fatura&rdquo; sihirli kelimedir.
     </p>
     <p>
-      <strong>(2) Invoice number.</strong> Sequential, unique. INV-
-      2026-0142 format works. Required for your own accounting and
-      for any client using a PO-matched AP system.
+      <strong>(2) Fatura numarası.</strong> Sıralı, benzersiz. INV-2026-0142 formatı işe yarar. Kendi muhasebeniz ve PO eşleştirmeli AP sistemi kullanan herhangi bir müşteri için gereklidir.
     </p>
     <p>
-      <strong>(3) Issue date and due date.</strong> Both explicit. Not
-      &ldquo;Net 30&rdquo; — an actual due date (&ldquo;Due: June 15,
-      2026&rdquo;). Clients process faster when they don&rsquo;t
-      have to calculate.
+      <strong>(3) Düzenleme tarihi ve vade tarihi.</strong> Her ikisi de açık. &ldquo;Net 30&rdquo; değil — gerçek bir vade tarihi (&ldquo;Vade: 15 Haziran 2026&rdquo;). Müşteriler hesaplama yapmak zorunda kalmadıklarında daha hızlı işlem yaparlar.
     </p>
     <p>
-      <strong>(4) Your business details.</strong> Legal business name,
-      address, tax ID (EIN in US, VAT number in EU/UK), phone, email.
-      If you operate under a DBA, include both.
+      <strong>(4) İşletme bilgileriniz.</strong> Yasal işletme adı, adres, vergi kimliği (ABD'de EIN, AB/İngiltere'de KDV numarası), telefon, e-posta. Bir ticari unvan (DBA) altında faaliyet gösteriyorsanız, her ikisini de ekleyin.
     </p>
     <p>
-      <strong>(5) Client details.</strong> Legal entity (not just
-      &ldquo;John&rdquo; — &ldquo;Acme Corp Inc.&rdquo;), billing
-      address, AP contact name, AP email. Wrong billing address is
-      a top-3 cause of invoice delays.
+      <strong>(5) Müşteri bilgileri.</strong> Yasal kuruluş (sadece &ldquo;John&rdquo; değil — &ldquo;Acme Corp Inc.&rdquo;), fatura adresi, AP iletişim kişisi, AP e-postası. Yanlış fatura adresi, fatura gecikmelerinin ilk 3 nedeninden biridir.
     </p>
     <p>
-      <strong>(6) Line items.</strong> Each item: description,
-      quantity, unit price, extended amount. Specific descriptions
-      (&ldquo;Web design services — April 2026&rdquo;) beat vague
-      ones (&ldquo;services rendered&rdquo;) because AP teams need
-      context to approve quickly.
+      <strong>(6) Satır kalemleri.</strong> Her kalem: açıklama, miktar, birim fiyat, toplam tutar. Spesifik açıklamalar (&ldquo;Web tasarım hizmetleri — Nisan 2026&rdquo;) belirsiz olanlardan (&ldquo;sunulan hizmetler&rdquo;) daha iyidir çünkü AP ekiplerinin hızlı onay için bağlama ihtiyacı vardır.
     </p>
     <p>
-      <strong>(7) Subtotal, tax, total.</strong> Show each separately.
-      Total should be in a larger font — the AP team scans for it.
+      <strong>(7) Ara toplam, vergi, genel toplam.</strong> Her birini ayrı ayrı gösterin. Genel toplam daha büyük bir yazı tipinde olmalıdır — AP ekibi onu tarar.
     </p>
     <p>
-      <strong>(8) Payment terms.</strong> Net 15 / 30 / 60, early-pay
-      discount if offered (&ldquo;2/10 net 30&rdquo; = 2% off if paid
-      within 10 days, else full amount due in 30).
+      <strong>(8) Ödeme koşulları.</strong> Net 15 / 30 / 60, teklif ediliyorsa erken ödeme indirimi (&ldquo;2/10 net 30&rdquo; = 10 gün içinde ödenirse %2 indirim, aksi halde tam tutar 30 günde vadesi gelir).
     </p>
     <p>
-      <strong>(9) Payment methods and instructions.</strong> ACH
-      details, wire instructions, check mailing address, Stripe or
-      PayPal link. Make it easy — an invoice with only &ldquo;check
-      payable to...&rdquo; gets paid slower than one with
-      ACH + credit-card options.
+      <strong>(9) Ödeme yöntemleri ve talimatları.</strong> EFT detayları, havale talimatları, çek posta adresi, Stripe veya PayPal bağlantısı. Kolaylaştırın — yalnızca &ldquo;... emrine çek&rdquo; olan bir fatura, EFT + kredi kartı seçenekleri olan bir faturadan daha yavaş ödenir.
     </p>
     <p>
-      <strong>(10) PO number (if applicable).</strong> If the client
-      issued a PO, it must match. No PO on the invoice = no payment
-      from a big-company AP system.
+      <strong>(10) Sipariş numarası (varsa).</strong> Müşteri bir PO düzenlediyse, eşleşmelidir. Faturada PO yoksa = büyük şirket AP sisteminden ödeme yapılmaz.
     </p>
 
-    <h2>Professional formatting rules</h2>
+    <h2>Profesyonel biçimlendirme kuralları</h2>
     <p>
-      PDF, not Word or Google Doc. Lockable, non-editable, consistent
-      rendering.
+      PDF, Word veya Google Doküman değil. Kilitlenebilir, düzenlenemez, tutarlı görüntüleme.
     </p>
     <p>
-      One page. If you need more, summarize line items and attach a
-      detail sheet. Many AP systems cap at one page for auto-routing.
+      Tek sayfa. Daha fazlasına ihtiyacınız varsa, satır kalemlerini özetleyin ve bir detay sayfası ekleyin. Birçok AP sistemi, otomatik yönlendirme için tek sayfayla sınırlıdır.
     </p>
     <p>
-      Your logo at the top, small. Professional appearance matters
-      more than you&rsquo;d think — a logo-less Word doc looks like
-      an individual; a branded PDF looks like a real business that
-      will follow up.
+      Logonuz en üstte, küçük. Profesyonel görünüm, düşündüğünüzden daha önemlidir — logosuz bir Word belgesi bir birey gibi görünür; markalı bir PDF, takip edecek gerçek bir işletme gibi görünür.
     </p>
     <p>
-      Clear font. Arial or a similar sans-serif at 10–11pt for body,
-      14pt+ for the invoice total. Decorative fonts signal amateur.
+      Net yazı tipi. Gövde metni için 10–11 punto, fatura toplamı için 14 punto ve üzeri Arial veya benzeri bir sans-serif. Dekoratif yazı tipleri amatör olduğunuzu gösterir.
     </p>
 
-    <h2>Payment terms — what to ask for, and what you&rsquo;ll get</h2>
+    <h2>Ödeme koşulları — ne istemeli ve ne alacaksınız</h2>
     <p>
-      <strong>Net 15</strong> — aggressive. Some small clients will
-      pay this; most enterprise won&rsquo;t, because their AP cycles
-      are monthly.
+      <strong>Net 15</strong> — agresif. Bazı küçük müşteriler bunu ödeyecektir; çoğu kurumsal müşteri ödemez çünkü AP döngüleri aylıktır.
     </p>
     <p>
-      <strong>Net 30</strong> — industry standard. Default unless
-      you know otherwise.
+      <strong>Net 30</strong> — sektör standardı. Aksini bilmiyorsanız varsayılan.
     </p>
     <p>
-      <strong>Net 60, Net 90</strong> — imposed by large enterprises.
-      You can sometimes negotiate down but rarely fully.
+      <strong>Net 60, Net 90</strong> — büyük işletmeler tarafından dayatılır. Bazen pazarlık ederek düşürebilirsiniz ancak nadiren tamamen kurtulursunuz.
     </p>
     <p>
-      <strong>Deposit + milestone payments</strong> — for project
-      work &gt;$10k. Typical: 30% on contract signing, 30% at
-      milestone, 40% on delivery. Reduces your risk of working
-      uncompensated if the engagement sours.
+      <strong>Depozito + kilometre taşı ödemeleri</strong> — 10 bin doların üzerindeki proje işleri için. Tipik: sözleşme imzalandığında %30, kilometre taşında %30, teslimatta %40. İşin kötüye gitmesi durumunda karşılıksız çalışma riskinizi azaltır.
     </p>
     <p>
-      <strong>Retainer</strong> — fixed monthly, paid at the start of
-      each period. Best cash flow structure if you can get it.
+      <strong>Retainer (Danışmanlık ücreti)</strong> — sabit aylık, her dönemin başında ödenir. Alabilirseniz en iyi nakit akışı yapısı.
     </p>
 
-    <h2>Early-pay discount math (2/10 net 30)</h2>
+    <h2>Erken ödeme indirimi matematiği (2/10 net 30)</h2>
     <p>
-      Offering 2% off for payment within 10 days (instead of the full
-      30-day window) is equivalent to a ~36% annualized discount
-      rate. Steep but it works: many AP teams are incentivized to
-      capture early-pay discounts, and you get paid 20 days sooner.
+      30 günlük tam süre yerine 10 gün içinde ödeme için %2 indirim sunmak, yaklaşık %36 yıllık indirim oranına eşdeğerdir. Sert ama işe yarar: birçok AP ekibi erken ödeme indirimlerini yakalamak için teşvik edilir ve siz 20 gün daha erken ödeme alırsınız.
     </p>
     <p>
-      Good tactic when: you need faster cash, you&rsquo;re billing
-      larger amounts, or your cost of capital (or your line of
-      credit rate) is high.
+      Şu durumlarda iyi bir taktik: daha hızlı nakde ihtiyacınız varsa, daha büyük meblağlar faturalandırıyorsanız veya sermaye maliyetiniz (veya kredi limiti faiz oranınız) yüksekse.
     </p>
     <p>
-      Bad tactic when: most of your invoices are small, the 2% is
-      meaningful to your margin, or your clients usually pay on
-      time anyway.
+      Şu durumlarda kötü bir taktik: faturalarınızın çoğu küçükse, %2 marjınız için anlamlıysa veya müşterileriniz genellikle zamanında ödüyorsa.
     </p>
 
-    <h2>Send-day tactics to get paid faster</h2>
+    <h2>Daha hızlı ödeme almak için gönderme taktikleri</h2>
     <p>
-      <strong>Send Tuesday or Wednesday morning.</strong> Monday
-      gets buried in weekend email; Friday afternoon sits over the
-      weekend. Mid-week invoices get reviewed same day.
+      <strong>Salı veya Çarşamba sabahı gönderin.</strong> Pazartesi hafta sonu e-postalarına gömülür; Cuma öğleden sonra hafta sonu boyunca bekler. Hafta ortası faturalar aynı gün incelenir.
     </p>
     <p>
-      <strong>Email subject: &ldquo;Invoice INV-2026-0142 — Due June
-      15, Acme Corp.&rdquo;</strong> Include the invoice number and
-      client name; AP teams track by exact subject.
+      <strong>E-posta konusu: &ldquo;Fatura INV-2026-0142 — Vade 15 Haziran, Acme Corp.&rdquo;</strong> Fatura numarasını ve müşteri adını ekleyin; AP ekipleri tam konuya göre takip eder.
     </p>
     <p>
-      <strong>Body: 2-3 sentences.</strong> &ldquo;Attached is invoice
-      INV-2026-0142 for the April engagement, $8,400 total, due June
-      15. Payment methods listed on the invoice. Happy to answer any
-      questions.&rdquo; Short, professional, payment-oriented.
+      <strong>Gövde: 2-3 cümle.</strong> &ldquo;Nisan ayı çalışması için INV-2026-0142 numaralı fatura ekte olup, toplam 8.400 dolar olup vadesi 15 Haziran'dır. Ödeme yöntemleri faturada listelenmiştir. Herhangi bir sorunuzu yanıtlamaktan mutluluk duyarım.&rdquo; Kısa, profesyonel, ödeme odaklı.
     </p>
     <p>
-      <strong>Send a second reminder at day 28.</strong> Short, polite
-      nudge. Non-defensive. &ldquo;Hi — just a heads up, invoice
-      0142 is due on the 15th. Let me know if you need anything.&rdquo;
-      60% of &ldquo;forgotten&rdquo; invoices are paid within a week
-      of this reminder.
+      <strong>28. günde ikinci bir hatırlatma gönderin.</strong> Kısa, kibar bir dürtme. Savunmacı olmayan. &ldquo;Merhaba — sadece hatırlatayım, 0142 numaralı faturanın vadesi 15'inde. Herhangi bir şeye ihtiyacınız olursa bana bildirin.&rdquo; &ldquo;Unutulan&rdquo; faturaların %60'ı bu hatırlatmadan sonraki bir hafta içinde ödenir.
     </p>
 
-    <h2>What to do when an invoice is overdue</h2>
+    <h2>Bir fatura vadesi geçtiğinde ne yapmalı</h2>
     <p>
-      <strong>Day 31 (1 day late):</strong> friendly ping asking
-      whether everything is in order.
+      <strong>31. gün (1 gün gecikme):</strong> her şeyin yolunda olup olmadığını soran dostça bir mesaj.
     </p>
     <p>
-      <strong>Day 37 (1 week late):</strong> more direct. Reference
-      the due date explicitly and ask for an update.
+      <strong>37. gün (1 hafta gecikme):</strong> daha doğrudan. Vade tarihine açıkça atıfta bulunun ve bir güncelleme isteyin.
     </p>
     <p>
-      <strong>Day 45 (2 weeks late):</strong> escalate to a manager
-      or procurement contact. Include a copy of the invoice and all
-      prior emails.
+      <strong>45. gün (2 hafta gecikme):</strong> bir yöneticiye veya satın alma irtibatına yükseltin. Faturanın bir kopyasını ve önceki tüm e-postaları ekleyin.
     </p>
     <p>
-      <strong>Day 60+:</strong> formal past-due notice with mention
-      of late fees (if your contract allows them — typical is 1.5%
-      per month on unpaid balance). Consider halting new work on
-      other engagements for that client until paid.
+      <strong>60. gün ve sonrası:</strong> gecikme ücretlerinden bahseden resmi vadesi geçmiş bildirimi (sözleşmeniz izin veriyorsa — tipik olarak ödenmemiş bakiye üzerinde aylık %1,5). O müşteri için diğer işlerde yeni çalışmayı durdurmayı düşünün.
     </p>
     <p>
-      <strong>Day 90+:</strong> collections or small claims. Usually
-      a last-resort option after you&rsquo;ve exhausted direct
-      follow-up.
+      <strong>90. gün ve sonrası:</strong> tahsilat veya küçük alacaklar davası. Genellikle doğrudan takibi tükettikten sonraki son çare seçeneği.
     </p>
 
-    <h2>Late fees — should you include them?</h2>
+    <h2>Gecikme ücretleri — bunları eklemeli misiniz?</h2>
     <p>
-      Contract language allowing 1–2% per month late fee on overdue
-      invoices is standard and enforceable. Advantages:
+      Vadesi geçmiş faturalarda aylık %1-2 gecikme ücretine izin veren sözleşme dili standarttır ve uygulanabilir. Avantajları:
     </p>
     <p>
-      Most clients will move your invoice up in the queue rather
-      than pay the fee.
+      Çoğu müşteri, ücreti ödemek yerine faturanızı kuyrukta yukarı taşıyacaktır.
     </p>
     <p>
-      If it comes to small claims, the fee is collectible and
-      covers some of your time cost.
+      Küçük alacaklar davasına gelirse, ücret tahsil edilebilir ve zaman maliyetinizin bir kısmını karşılar.
     </p>
     <p>
-      Disadvantages: small-business clients may push back or resent
-      the clause. Judgment call based on the clients you typically
-      work with.
+      Dezavantajları: küçük işletme müşterileri geri adım atabilir veya maddeye içerleyebilir. Genellikle çalıştığınız müşterilere bağlı olarak bir karar.
     </p>
 
-    <h2>Tax handling — jurisdictional basics</h2>
+    <h2>Vergi işlemleri — yargı yetkisi temelleri</h2>
     <p>
-      <strong>US:</strong> sales tax only on physical products
-      (generally) or certain services (varies by state). Most B2B
-      services aren&rsquo;t sales-taxable.
+      <strong>ABD:</strong> satış vergisi yalnızca fiziksel ürünlerde (genellikle) veya belirli hizmetlerde (eyalete göre değişir). Çoğu B2B hizmeti satış vergisine tabi değildir.
     </p>
     <p>
-      <strong>EU / UK:</strong> VAT on most sales. Rate varies (UK
-      20%, Germany 19%, France 20%, etc). Reverse charge applies for
-      B2B cross-border within EU.
+      <strong>AB / İngiltere:</strong> çoğu satışta KDV. Oran değişir (İngiltere %20, Almanya %19, Fransa %20, vb.). AB içi sınır ötesi B2B için ters ibra uygulanır.
     </p>
     <p>
-      <strong>Canada:</strong> GST/HST/PST depending on province and
-      product type.
+      <strong>Kanada:</strong> eyalete ve ürün türüne bağlı olarak GST/HST/PST.
     </p>
     <p>
-      When in doubt, consult an accountant — collection and remittance
-      rules are strict and getting it wrong creates tax liability for
-      you, not the customer.
+      Şüpheye düştüğünüzde, bir muhasebeciye danışın — tahsilat ve ödeme kuralları katıdır ve yanlış yapmak, müşteri için değil sizin için vergi yükümlülüğü yaratır.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Generate a print-ready invoice with the{" "}
-      <a href="/tools/invoice-generator">invoice generator</a> —
-      line items, tax, payment instructions, PDF export. Pair with
-      the <a href="/tools/hourly-rate-calculator">hourly rate
-      calculator</a> to make sure your bill rate matches the margin
-      you want, and the{" "}
-      <a href="/tools/vat-calculator">VAT calculator</a> if you&rsquo;re
-      billing EU/UK clients.
+      <a href="/tools/invoice-generator">Fatura oluşturucu</a> ile baskıya hazır bir fatura oluşturun — satır kalemleri, vergi, ödeme talimatları, PDF dışa aktarma. Fatura oranınızın istediğiniz marjla eşleştiğinden emin olmak için <a href="/tools/hourly-rate-calculator">saatlik ücret hesaplayıcı</a> ve AB/İngiltere müşterilerine fatura kesiyorsanız <a href="/tools/vat-calculator">KDV hesaplayıcı</a> ile birlikte kullanın.
     </p>
   </>
 );

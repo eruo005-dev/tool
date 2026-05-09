@@ -3,196 +3,192 @@
 export const intro = (
   <>
     <p>
-      Professional PC building services range from a $150 Micro Center bench-build to
-      $800 boutique custom-loop systems. Knowing what each tier includes and what to
-      expect is the difference between a fair price and overpaying for what amounts
-      to 2 hours of labor.
+      Profesyonel PC montaj hizmetleri, 150 dolarlık Micro Center tezgah montajından
+      800 dolarlık butik özel sıvı soğutma sistemlerine kadar uzanır. Her seviyenin neler içerdiğini ve ne bekleyeceğinizi bilmek, adil bir fiyat ile
+      2 saatlik işçilik için fazla ödeme yapmak arasındaki farktır.
     </p>
     <p>
-      This guide is the practical breakdown: what&rsquo;s included, what to ask
-      before booking, costs by retailer, and how to vet builders you can&rsquo;t
-      walk into.
+      Bu rehber pratik bir dökümdür: neler dahil, rezervasyon öncesi ne sorulmalı,
+      perakendeciye göre maliyetler ve içine giremeyeceğiniz montajcıları nasıl değerlendireceğiniz.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "whats-included", label: "What&rsquo;s included in PC assembly" },
-  { id: "service-types", label: "Online vs in-store vs local shop" },
-  { id: "costs", label: "Specific retailer pricing" },
-  { id: "ask-before", label: "Questions to ask before booking" },
-  { id: "vetting", label: "Vetting builders + warranty" },
+  { id: "whats-included", label: "PC montajında neler var" },
+  { id: "service-types", label: "Online vs mağaza içi vs yerel dükkan" },
+  { id: "costs", label: "Belirli perakendeci fiyatlandırması" },
+  { id: "ask-before", label: "Rezervasyon öncesi sorulması gereken sorular" },
+  { id: "vetting", label: "Montajcıları değerlendirme + garanti" },
 ];
 
 export const body = (
   <>
-    <h2 id="whats-included">What&rsquo;s included in a professional PC building service</h2>
+    <h2 id="whats-included">Profesyonel bir PC montaj hizmetinde neler var</h2>
     <p>
-      Standard scope (the typical $100-300 tier):
+      Standart kapsam (tipik 100-300 dolar seviyesi):
     </p>
     <ul>
-      <li>Component installation (CPU, cooler, RAM, GPU, storage, PSU)</li>
-      <li>Cable routing + basic cable management</li>
-      <li>BIOS update to current version</li>
-      <li>OS install (Windows 11) — sometimes you bring the license, sometimes included</li>
-      <li>Chipset + GPU driver install</li>
-      <li>Basic stress test (10–30 minutes load)</li>
-      <li>1–4 hour build time</li>
-      <li>30-day–12-month labor warranty (varies by builder)</li>
+      <li>Bileşen montajı (CPU, soğutucu, RAM, GPU, depolama, PSU)</li>
+      <li>Kablo yönlendirme + temel kablo yönetimi</li>
+      <li>BIOS'un güncel sürüme güncellenmesi</li>
+      <li>İşletim sistemi kurulumu (Windows 11) — bazen lisansı siz getirirsiniz, bazen dahildir</li>
+      <li>Chipset + GPU sürücü kurulumu</li>
+      <li>Temel stres testi (10–30 dakika yük)</li>
+      <li>1–4 saat montaj süresi</li>
+      <li>30 gün–12 ay işçilik garantisi (montajcıya göre değişir)</li>
     </ul>
     <p>
-      Premium scope ($300-800 tier) adds:
+      Premium kapsam (300-800 dolar seviyesi) şunları ekler:
     </p>
     <ul>
-      <li>Custom cable extensions / sleeved PSU cables</li>
-      <li>BIOS overclocking validation (XMP/EXPO + light CPU OC if requested)</li>
-      <li>Premium cable routing (every cable hidden, no visible zip ties)</li>
-      <li>Extended stress test (1–4 hours under multiple workload types)</li>
-      <li>12–24 month labor warranty</li>
-      <li>Sometimes: custom paint, art, or themed lighting</li>
+      <li>Özel kablo uzatmaları / kılıflı PSU kabloları</li>
+      <li>BIOS overclock doğrulaması (istenirse XMP/EXPO + hafif CPU OC)</li>
+      <li>Premium kablo yönlendirme (tüm kablolar gizli, görünür kablo bağı yok)</li>
+      <li>Genişletilmiş stres testi (birden fazla iş yükü türünde 1–4 saat)</li>
+      <li>12–24 ay işçilik garantisi</li>
+      <li>Bazen: özel boya, sanat veya temalı aydınlatma</li>
     </ul>
 
-    <h2 id="service-types">Online vs in-store vs local shop</h2>
+    <h2 id="service-types">Online vs mağaza içi vs yerel dükkan</h2>
     <ul>
       <li>
-        <strong>Big-box in-store (Micro Center, Best Buy):</strong> ~$150-200. Predictable
-        quality, OS install included, 12-month labor warranty typical. Bring your parts;
-        leave with a working PC same-day. The default for anyone with a Micro Center
-        nearby.
+        <strong>Büyük mağaza içi (Micro Center, Best Buy):</strong> ~150-200 dolar. Tahmin edilebilir
+        kalite, işletim sistemi kurulumu dahil, tipik 12 ay işçilik garantisi. Parçalarınızı getirin;
+        aynı gün çalışan bir PC ile çıkın. Yakınında Micro Center olan herkes için varsayılan seçenek.
       </li>
       <li>
-        <strong>Local PC shop:</strong> $80-300. Quality varies widely. Best for
-        unusual case form factors or custom requests. Read Google reviews before
-        committing — quality at small shops ranges from excellent to abysmal.
+        <strong>Yerel PC dükkanı:</strong> 80-300 dolar. Kalite büyük ölçüde değişir. Sıra dışı
+        kasa form faktörleri veya özel istekler için en iyisi. Karar vermeden önce Google yorumlarını okuyun
+        — küçük dükkanlarda kalite mükemmelden berbat seviyesine kadar değişir.
       </li>
       <li>
-        <strong>Online builder + ship (NZXT BLD, Origin PC, Maingear, BLD by NZXT):</strong>{" "}
-        $300-800 over parts cost. Standardized quality, clean cable management,
-        long warranties (1-2 years on labor). Slower turnaround (1-3 weeks). Best for
-        people not near a Micro Center or who want a polished aesthetic.
+        <strong>Online montajcı + kargo (NZXT BLD, Origin PC, Maingear, BLD by NZXT):</strong>{" "}
+        Parça maliyeti üzerine 300-800 dolar. Standartlaştırılmış kalite, temiz kablo yönetimi,
+        uzun garantiler (işçilikte 1-2 yıl). Daha yavaş teslimat (1-3 hafta). Micro Center'a yakın olmayan
+        veya cilalı bir estetik isteyenler için en iyisi.
       </li>
       <li>
-        <strong>Custom builders (boutique):</strong> $500-2000 above parts. Custom water
-        loops, premium aesthetics, paint jobs, RGB programming. Best for halo builds
-        where the look matters as much as the spec.
+        <strong>Özel montajcılar (butik):</strong> Parçaların üzerine 500-2000 dolar. Özel su
+        soğutma döngüleri, premium estetik, boya işleri, RGB programlama. Görünümün teknik özellikler kadar
+        önemli olduğu halo yapılar için en iyisi.
       </li>
       <li>
-        <strong>Independent builders (r/buildapcsales, local listings):</strong>{" "}
-        $100-250 typical. Quality entirely depends on the individual; vet thoroughly.
+        <strong>Bağımsız montajcılar (r/buildapcsales, yerel ilanlar):</strong>{" "}
+        Tipik 100-250 dolar. Kalite tamamen kişiye bağlıdır; iyice araştırın.
       </li>
     </ul>
 
-    <h2 id="costs">Specific retailer pricing (2025-2026)</h2>
+    <h2 id="costs">Belirli perakendeci fiyatlandırması (2025-2026)</h2>
     <ul>
       <li>
-        <strong>Micro Center PC Build Service:</strong> ~$150 + parts. OS install,
-        BIOS update, driver install, 24-hour stress test, 12-month labor warranty.
-        Need parts purchased from Micro Center for best price.
+        <strong>Micro Center PC Montaj Hizmeti:</strong> ~150 dolar + parçalar. İşletim sistemi kurulumu,
+        BIOS güncellemesi, sürücü kurulumu, 24 saat stres testi, 12 ay işçilik garantisi.
+        En iyi fiyat için parçaların Micro Center'dan satın alınması gerekir.
       </li>
       <li>
-        <strong>Best Buy Geek Squad PC Setup:</strong> ~$199 + parts. Less polished than
-        Micro Center for builds; better for upgrades + troubleshooting.
+        <strong>Best Buy Geek Squad PC Kurulumu:</strong> ~199 dolar + parçalar. Montajlar için Micro Center'dan
+        daha az cilalı; yükseltme ve sorun giderme için daha iyi.
       </li>
       <li>
-        <strong>NZXT BLD:</strong> $399 service fee, $299 if you buy parts through them.
-        Online + ships. 2-year labor warranty. Known for clean cable management.
+        <strong>NZXT BLD:</strong> 399 dolar hizmet ücreti, parçaları onlardan alırsanız 299 dolar.
+        Online + kargo. 2 yıl işçilik garantisi. Temiz kablo yönetimiyle bilinir.
       </li>
       <li>
-        <strong>Origin PC + Maingear:</strong> $300-800 service fee depending on tier.
-        Custom paint and aesthetic options. Slower turnaround.
+        <strong>Origin PC + Maingear:</strong> Seviyeye bağlı olarak 300-800 dolar hizmet ücreti.
+        Özel boya ve estetik seçenekleri. Daha yavaş teslimat.
       </li>
       <li>
-        <strong>Local PC repair shops:</strong> $80-300. Quality varies; verify with
-        Google reviews + ask about warranty terms.
+        <strong>Yerel PC tamir dükkanları:</strong> 80-300 dolar. Kalite değişir; Google yorumlarıyla
+        doğrulayın ve garanti koşullarını sorun.
       </li>
     </ul>
 
-    <h2 id="ask-before">Questions to ask before booking PC assembly</h2>
+    <h2 id="ask-before">PC montajı rezervasyonu öncesi sorulması gereken sorular</h2>
     <ol>
       <li>
-        <strong>What&rsquo;s the warranty on labor?</strong> Should be at least 12
-        months for any reputable builder. 24+ for premium.
+        <strong>İşçilik garantisi nedir?</strong> Saygın herhangi bir montajcı için en az 12
+        ay olmalıdır. Premium için 24+ ay.
       </li>
       <li>
-        <strong>Is OS install + driver install included?</strong> Some places charge
-        extra. Confirm before dropping off parts.
+        <strong>İşletim sistemi kurulumu + sürücü kurulumu dahil mi?</strong> Bazı yerler ekstra
+        ücret alır. Parçaları bırakmadan önce teyit edin.
       </li>
       <li>
-        <strong>Do you stress test? For how long?</strong> 10-minute &ldquo;passed&rdquo; isn&rsquo;t
-        enough. Ask for 30+ min Prime95 + Furmark or AIDA64.
+        <strong>Stres testi yapıyor musunuz? Ne kadar süreyle?</strong> 10 dakikalık "geçti" yeterli
+        değildir. 30+ dakika Prime95 + Furmark veya AIDA64 isteyin.
       </li>
       <li>
-        <strong>Will you enable XMP / EXPO in BIOS?</strong> Without this your RAM runs
-        30% slower than rated. Many low-tier builders skip this step.
+        <strong>BIOS'ta XMP / EXPO'yu etkinleştirecek misiniz?</strong> Bu olmadan RAM'iniz
+        belirtilen hızın %30 altında çalışır. Birçok düşük seviye montajcı bu adımı atlar.
       </li>
       <li>
-        <strong>Can I bring my own parts?</strong> Most yes; some require parts purchase
-        through them. Verify upfront.
+        <strong>Kendi parçalarımı getirebilir miyim?</strong> Çoğu evet; bazıları parçaların
+        kendilerinden satın alınmasını ister. Önceden doğrulayın.
       </li>
       <li>
-        <strong>Turnaround time?</strong> Same-day at Micro Center; 3-7 days at most
-        local shops; 1-3 weeks for online builders.
+        <strong>Teslimat süresi?</strong> Micro Center'da aynı gün; çoğu yerel dükkanda 3-7 gün;
+        online montajcılarda 1-3 hafta.
       </li>
       <li>
-        <strong>Can I watch the build?</strong> Some shops allow this (especially for
-        learning). Some don&rsquo;t for liability reasons. Worth asking if you want
-        the experience.
+        <strong>Montajı izleyebilir miyim?</strong> Bazı dükkanlar buna izin verir (özellikle
+        öğrenmek için). Bazıları sorumluluk nedenleriyle izin vermez. Deneyimi istiyorsanız sormaya değer.
       </li>
       <li>
-        <strong>What happens if a part is DOA?</strong> Will they help RMA, or is that
-        on you?
+        <strong>Bir parça arızalı çıkarsa ne olur?</strong> RMA'ya yardımcı olacaklar mı, yoksa bu
+        size mi kalıyor?
       </li>
     </ol>
 
-    <h2 id="vetting">Vetting builders + warranty terms</h2>
+    <h2 id="vetting">Montajcıları değerlendirme + garanti koşulları</h2>
     <p>
-      Red flags:
+      Kırmızı bayraklar:
     </p>
     <ul>
       <li>
-        <strong>No labor warranty.</strong> Some local shops do this. Walk away.
+        <strong>İşçilik garantisi yok.</strong> Bazı yerel dükkanlar bunu yapar. Uzaklaşın.
       </li>
       <li>
-        <strong>Extreme rush job (under 1 hour).</strong> Quality stress testing
-        takes longer than the build.
+        <strong>Aşırı acele iş (1 saatten az).</strong> Kaliteli stres testi
+        montajdan daha uzun sürer.
       </li>
       <li>
-        <strong>No OS install or driver install.</strong> Adding it later is fine if
-        you&rsquo;re comfortable; for the &ldquo;leave with a working PC&rdquo;
-        promise, it should be included.
+        <strong>İşletim sistemi kurulumu veya sürücü kurulumu yok.</strong> Daha sonra eklemek sorun değil
+        eğer rahatsanız; "çalışan bir PC ile çıkma" vaadi için
+        dahil edilmelidir.
       </li>
       <li>
-        <strong>Unwilling to discuss specific stress-test methodology.</strong>{" "}
-        &ldquo;We test it&rdquo; isn&rsquo;t an answer.
+        <strong>Belirli stres testi metodolojisini tartışmaya isteksiz.</strong>{" "}
+        "Test ediyoruz" bir cevap değildir.
       </li>
       <li>
-        <strong>Dramatic pricing variation</strong> from the local market. Suspiciously
-        cheap = corner-cutting; suspiciously expensive = padding.
+        <strong>Yerel piyasadan çarpıcı fiyat farkı.</strong> Şüpheli
+        ucuz = kesintiler; şüpheli pahalı = şişirme.
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Compare DIY cost vs hiring (calculator)",
+  label: "DIY maliyetini kiralamayla karşılaştır (hesap makinesi)",
   targetSlug: "pc-build-vs-hire-calculator",
 };
 
 export const faq = [
   {
-    q: "What's included in professional PC building services?",
-    a: "Standard ($100-300): assembly, cable routing, BIOS update, OS install, driver install, basic stress test, 30-day to 12-month labor warranty. Premium ($300-800): custom cable extensions, BIOS OC validation, premium cable routing, extended stress tests, 12-24 month warranty.",
+    q: "Profesyonel PC montaj hizmetlerinde neler var?",
+    a: "Standart (100-300 dolar): montaj, kablo yönlendirme, BIOS güncellemesi, işletim sistemi kurulumu, sürücü kurulumu, temel stres testi, 30 gün ila 12 ay işçilik garantisi. Premium (300-800 dolar): özel kablo uzatmaları, BIOS OC doğrulaması, premium kablo yönlendirme, genişletilmiş stres testleri, 12-24 ay garanti.",
   },
   {
-    q: "How much does Micro Center charge for PC assembly?",
-    a: "~$150 + parts when you buy parts from Micro Center. Includes OS install, BIOS update, driver install, 24-hour stress test, 12-month labor warranty. Same-day turnaround typical. The default choice for most US builders within driving distance.",
+    q: "Micro Center PC montajı için ne kadar ücret alıyor?",
+    a: "Parçaları Micro Center'dan satın aldığınızda ~150 dolar + parçalar. İşletim sistemi kurulumu, BIOS güncellemesi, sürücü kurulumu, 24 saat stres testi, 12 ay işçilik garantisi dahildir. Tipik olarak aynı gün teslimat. Sürüş mesafesindeki çoğu ABD'li montajcı için varsayılan seçenek.",
   },
   {
-    q: "What questions should I ask before booking PC assembly?",
-    a: "Warranty length on labor (12+ months minimum), is OS + driver install included, stress-test duration + methodology, will they enable XMP/EXPO in BIOS, can I bring my own parts, turnaround time, can I watch the build, what happens if a part is DOA. Specific answers to all 8 = reputable builder.",
+    q: "PC montajı rezervasyonu öncesi hangi soruları sormalıyım?",
+    a: "İşçilikte garanti süresi (en az 12+ ay), işletim sistemi + sürücü kurulumu dahil mi, stres testi süresi + metodolojisi, BIOS'ta XMP/EXPO'yu etkinleştirecekler mi, kendi parçalarımı getirebilir miyim, teslimat süresi, montajı izleyebilir miyim, bir parça arızalı çıkarsa ne olur. 8 sorunun tamamına belirli cevaplar = saygın montajcı.",
   },
   {
-    q: "Online vs in-store PC assembly — which is better?",
-    a: "In-store (Micro Center / Best Buy): predictable quality, ~$150, same-day. Local PC shop: variable quality, $80-300, vet via Google reviews. Online + ship (NZXT BLD, Origin, Maingear): polished aesthetic, $300-800, 1-3 week turnaround, 1-2 year warranties. Pick by what's available locally.",
+    q: "Online vs mağaza içi PC montajı — hangisi daha iyi?",
+    a: "Mağaza içi (Micro Center / Best Buy): tahmin edilebilir kalite, ~150 dolar, aynı gün. Yerel PC dükkanı: değişken kalite, 80-300 dolar, Google yorumlarıyla araştırın. Online + kargo (NZXT BLD, Origin, Maingear): cilalı estetik, 300-800 dolar, 1-3 hafta teslimat, 1-2 yıl garanti. Yerel olarak mevcut olana göre seçim yapın.",
   },
 ];

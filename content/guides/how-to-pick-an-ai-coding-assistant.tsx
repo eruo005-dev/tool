@@ -2,66 +2,66 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Picking an AI coding assistant in 2026 is a real decision &mdash; the gaps between Cursor,
-    Copilot, Claude Code, and Windsurf are bigger than they look from the marketing pages. Here&rsquo;s
-    how to pick correctly the first time, with the questions that actually matter.
+    2026'da bir yapay zeka kodlama asistanı seçmek gerçek bir karar &mdash; Cursor,
+    Copilot, Claude Code ve Windsurf arasındaki farklar, pazarlama sayfalarında göründüğünden
+    çok daha büyük. İşte ilk seferde doğru seçimi yapmanın yolu, gerçekten önemli olan sorularla.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Three questions that decide the answer</h2>
+    <h2>Cevabı belirleyen üç soru</h2>
     <ol>
-      <li><strong>Do you commit to one IDE?</strong> If yes &rarr; Cursor or Windsurf is fine. If no
-        (you bounce between VS Code and JetBrains, or use Vim) &rarr; Copilot.</li>
-      <li><strong>Is your work mostly inline edits or mostly multi-file refactors?</strong> Inline
-        &rarr; Copilot or Cursor Tab. Multi-file &rarr; Claude Code.</li>
-      <li><strong>What&rsquo;s your monthly budget?</strong> $10 &rarr; Copilot. $20 &rarr; one of
-        Cursor / Claude Pro. $40+ &rarr; both.</li>
+      <li><strong>Tek bir IDE'ye bağlı mısınız?</strong> Evet ise &rarr; Cursor veya Windsurf iş görür. Hayır
+        (VS Code ile JetBrains arasında geçiş yapıyorsanız veya Vim kullanıyorsanız) &rarr; Copilot.</li>
+      <li><strong>İşiniz çoğunlukla satır içi düzenlemeler mi yoksa çoğunlukla çok dosyalı yeniden düzenlemeler mi?</strong> Satır içi
+        &rarr; Copilot veya Cursor Tab. Çok dosyalı &rarr; Claude Code.</li>
+      <li><strong>Aylık bütçeniz ne kadar?</strong> 10$ &rarr; Copilot. 20$ &rarr; Cursor / Claude Pro'dan biri.
+        40$+ &rarr; ikisi de.</li>
     </ol>
 
-    <h2>The honest 2026 ranking</h2>
+    <h2>Dürüst 2026 sıralaması</h2>
     <ul>
-      <li><strong>Best autocomplete:</strong> Cursor Tab (slightly ahead of Copilot in 2026).</li>
-      <li><strong>Best agent / multi-file:</strong> Claude Code.</li>
-      <li><strong>Best multi-IDE:</strong> Copilot.</li>
-      <li><strong>Best agent UX in IDE:</strong> Windsurf Cascades.</li>
-      <li><strong>Best for solo founders + indie hackers:</strong> Cursor Pro alone.</li>
-      <li><strong>Cheapest:</strong> Copilot Pro at $10/mo or Continue.dev (free, BYO API).</li>
+      <li><strong>En iyi otomatik tamamlama:</strong> Cursor Tab (2026'da Copilot'un biraz önünde).</li>
+      <li><strong>En iyi ajan / çok dosyalı:</strong> Claude Code.</li>
+      <li><strong>En iyi çoklu IDE:</strong> Copilot.</li>
+      <li><strong>IDE'de en iyi ajan kullanıcı deneyimi:</strong> Windsurf Cascades.</li>
+      <li><strong>Tek kurucu ortaklar ve bağımsız geliştiriciler için en iyisi:</strong> Sadece Cursor Pro.</li>
+      <li><strong>En ucuz:</strong> Aylık 10$'a Copilot Pro veya Continue.dev (ücretsiz, kendi API anahtarınızla).</li>
     </ul>
 
-    <h2>Free tier worth knowing</h2>
+    <h2>Bilmeye değer ücretsiz katmanlar</h2>
     <ul>
-      <li><strong>GitHub Copilot Free</strong> &mdash; 50 chat messages, 2k completions/mo. Genuine
-        productivity for occasional users.</li>
-      <li><strong>Cursor free</strong> &mdash; 2-week Pro trial, then degraded but usable free
-        tier with slow requests.</li>
-      <li><strong>Continue.dev</strong> &mdash; free OSS plugin, plug in your own API keys.</li>
-      <li><strong>Claude.ai web</strong> &mdash; not in your IDE, but free for chat-driven coding.</li>
+      <li><strong>GitHub Copilot Free</strong> &mdash; Ayda 50 sohbet mesajı, 2.000 tamamlama. Ara sıra kullananlar için
+        gerçek bir üretkenlik.</li>
+      <li><strong>Cursor ücretsiz</strong> &mdash; 2 haftalık Pro denemesi, ardından yavaş isteklerle düşürülmüş ancak
+        kullanılabilir ücretsiz katman.</li>
+      <li><strong>Continue.dev</strong> &mdash; ücretsiz açık kaynak eklentisi, kendi API anahtarlarınızı ekleyin.</li>
+      <li><strong>Claude.ai web</strong> &mdash; IDE'nizde değil, ancak sohbet odaklı kodlama için ücretsiz.</li>
     </ul>
 
-    <h2>The 5-minute decision tree</h2>
+    <h2>5 dakikalık karar ağacı</h2>
     <ul>
-      <li>I write Python all day &rarr; <strong>Cursor Pro + Claude Code</strong>.</li>
-      <li>I write JS/TS in a big monorepo &rarr; <strong>Cursor Pro</strong> alone.</li>
-      <li>I work in JetBrains &rarr; <strong>Copilot</strong> (Cursor isn&rsquo;t available).</li>
-      <li>I&rsquo;m an indie / solo dev refactoring my own codebase &rarr; <strong>Claude Code</strong>
-        (bundled with Claude Pro).</li>
-      <li>I&rsquo;m on a team and IT picks one &rarr; <strong>Copilot Business</strong> or{" "}
+      <li>Bütün gün Python yazıyorum &rarr; <strong>Cursor Pro + Claude Code</strong>.</li>
+      <li>Büyük bir monorepoda JS/TS yazıyorum &rarr; <strong>Sadece Cursor Pro</strong>.</li>
+      <li>JetBrains'te çalışıyorum &rarr; <strong>Copilot</strong> (Cursor mevcut değil).</li>
+      <li>Kendi kod tabanımı yeniden düzenleyen bağımsız / solo bir geliştiriciyim &rarr; <strong>Claude Code</strong>
+        (Claude Pro'ya dahil).</li>
+      <li>Bir ekipteyim ve BT tek birini seçiyor &rarr; <strong>Copilot Business</strong> veya{" "}
         <strong>Cursor Business</strong>.</li>
-      <li>I want to spend $0 &rarr; <strong>Continue.dev</strong> + Claude.ai free for chat.</li>
+      <li>0$ harcamak istiyorum &rarr; <strong>Continue.dev</strong> + sohbet için ücretsiz Claude.ai.</li>
     </ul>
 
-    <h2>Don&rsquo;t pick wrong</h2>
+    <h2>Yanlış seçmeyin</h2>
     <p>
-      The biggest mistake: picking by &ldquo;which has the best model&rdquo; when models change
-      every quarter and all flagship harnesses route to the same Claude Sonnet 4.6 / GPT-5 anyway.
-      Pick by harness UX, IDE coverage, and price point. The model under the hood is mostly
-      interchangeable.
+      En büyük hata: "en iyi modele" göre seçim yapmak. Modeller her çeyrekte değişiyor
+      ve tüm amiral gemisi araçlar zaten aynı Claude Sonnet 4.6 / GPT-5'e yönlendiriyor.
+      Kullanıcı deneyimine, IDE kapsamına ve fiyat noktasına göre seçim yapın. Perde arkasındaki model
+      çoğunlukla birbirinin yerine geçebilir.
     </p>
     <p>
-      Use the <a href="/tools/ai-coding-tool-cost-comparison">AI coding tool cost comparison</a>
-      for the full $/seat math. Compare:{" "}
+      Tam $/koltuk hesabı için <a href="/tools/ai-coding-tool-cost-comparison">AI kodlama aracı maliyet karşılaştırması</a>nı
+      kullanın. Karşılaştırın:{" "}
       <a href="/compare/claude-code-vs-cursor">Claude Code vs Cursor</a>,{" "}
       <a href="/compare/cursor-vs-github-copilot">Cursor vs Copilot</a>.
     </p>

@@ -3,253 +3,251 @@
 export const intro = (
   <>
     <p>
-      &ldquo;What's the cheapest way to track candidates without paying for an ATS?&rdquo;
-      shows up in <a href="https://www.reddit.com/r/recruiting/" rel="noreferrer">r/recruiting</a>{" "}
-      and <a href="https://www.reddit.com/r/smallbusiness/" rel="noreferrer">r/smallbusiness</a>{" "}
-      every week. The honest answer: there's a real free stack that handles 80% of what
-      Greenhouse Essential or Workable does — for 5-to-20-req teams. Above that volume,
-      stitching free tools costs more than the subscription.
+      &ldquo;Adayları bir ATS'ye para ödemeden takip etmenin en ucuz yolu nedir?&rdquo;
+      sorusu her hafta <a href="https://www.reddit.com/r/recruiting/" rel="noreferrer">r/recruiting</a>{" "}
+      ve <a href="https://www.reddit.com/r/smallbusiness/" rel="noreferrer">r/smallbusiness</a>{" "}
+      sayfalarında karşımıza çıkıyor. Dürüst cevap: Greenhouse Essential veya Workable'ın yaptığının %80'ini
+      karşılayan gerçek bir ücretsiz araç seti var — 5 ila 20 pozisyonlu ekipler için. Bu hacmin üzerinde,
+      ücretsiz araçları birleştirmek abonelik ücretinden daha pahalıya patlıyor.
     </p>
     <p>
-      This guide is the full stack. Each pick is a tool we've used or stress-tested,
-      with the limit you'll hit and what to swap to when you do. Use the{" "}
-      <a href="/tools/free-recruiting-tool-true-cost-calculator">true cost calculator</a>{" "}
-      to find your own breakeven point.
+      Bu rehber, eksiksiz araç setini sunuyor. Her seçim, kullandığımız veya stres testine tabi tuttuğumuz
+      bir araçtır; karşılaşacağınız sınır ve bu sınıra ulaştığınızda neye geçmeniz gerektiği belirtilmiştir.{" "}
+      <a href="/tools/free-recruiting-tool-true-cost-calculator">Gerçek maliyet hesaplayıcıyı</a>{" "}
+      kullanarak kendi başabaş noktanızı bulun.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "stack", label: "The 6-tool free stack" },
-  { id: "pipeline", label: "Candidate pipeline" },
-  { id: "screening", label: "Resume screening" },
-  { id: "scheduling", label: "Interview scheduling" },
-  { id: "outreach", label: "Outreach + sourcing" },
-  { id: "metrics", label: "Metrics + reporting" },
-  { id: "limits", label: "When to graduate" },
+  { id: "stack", label: "6 araçlık ücretsiz set" },
+  { id: "pipeline", label: "Aday havuzu" },
+  { id: "screening", label: "Özgeçmiş taraması" },
+  { id: "scheduling", label: "Mülakat planlaması" },
+  { id: "outreach", label: "Aday bulma + kaynak oluşturma" },
+  { id: "metrics", label: "Metrikler + raporlama" },
+  { id: "limits", label: "Ücretliye ne zaman geçilmeli" },
 ];
 
 export const body = (
   <>
-    <h2 id="stack">The 6-tool free stack (zero subscription)</h2>
+    <h2 id="stack">6 araçlık ücretsiz set (sıfır abonelik)</h2>
     <p>
-      Six tools, no paid tiers, no credit card. Plug them together and you have a working
-      pipeline for a small team:
+      Altı araç, ücretli katman yok, kredi kartı gerekmez. Bunları birleştirin ve küçük bir ekip için
+      çalışan bir aday havuzu elde edin:
     </p>
     <ol>
       <li>
-        <strong>Pipeline / candidate tracker:</strong>{" "}
-        <a href="/tools/recruiting-pipeline-tracker">our recruiting pipeline tracker</a> or
-        a Trello board with stage columns. We built ours specifically because Trello&rsquo;s
-        free tier caps you at 10 boards and the per-card fields are limited.
+        <strong>Havuz / aday takipçisi:</strong>{" "}
+        <a href="/tools/recruiting-pipeline-tracker">aday havuzu takip aracımız</a> veya
+        aşama sütunları olan bir Trello panosu. Bunu özellikle geliştirdik çünkü Trello'nun
+        ücretsiz katmanı sizi 10 pano ile sınırlıyor ve kart başına alanlar kısıtlı.
       </li>
       <li>
-        <strong>Resume screening:</strong>{" "}
-        <a href="/tools/resume-keyword-match-scorer">our resume keyword scorer</a> for
-        match scores; for quick parsing without subscriptions, paste resumes into ChatGPT
-        free or Claude free with a structured prompt.
+        <strong>Özgeçmiş taraması:</strong>{" "}
+        <a href="/tools/resume-keyword-match-scorer">özgeçmiş anahtar kelime puanlayıcımız</a> ile
+        eşleşme puanları; aboneliksiz hızlı ayrıştırma için özgeçmişleri yapılandırılmış bir
+        komutla ChatGPT ücretsiz veya Claude ücretsiz'e yapıştırın.
       </li>
       <li>
-        <strong>Interview scheduling:</strong> Calendly free (1 event type, unlimited
-        bookings) or Google Calendar appointment slots (free with Google Workspace personal).
+        <strong>Mülakat planlaması:</strong> Calendly ücretsiz (1 etkinlik türü, sınırsız
+        rezervasyon) veya Google Takvim randevu aralıkları (Google Workspace kişisel ile ücretsiz).
       </li>
       <li>
-        <strong>Outreach:</strong> Gmail with mail merge via the Google Sheets +{" "}
-        <code>GMass</code> free trial, or LinkedIn connect notes (no Recruiter seat).
+        <strong>Aday bulma:</strong> Google Sheets + <code>GMass</code> ücretsiz deneme sürümü ile
+        posta birleştirme özellikli Gmail veya LinkedIn bağlantı notları (Recruiter koltuğu yok).
       </li>
       <li>
-        <strong>Job posting:</strong> Indeed free (organic), LinkedIn free (1 active job),
-        ZipRecruiter free trial, then Google Jobs auto-aggregates anything with structured
-        markup.
+        <strong>İş ilanı:</strong> Indeed ücretsiz (organik), LinkedIn ücretsiz (1 aktif iş),
+        ZipRecruiter ücretsiz deneme, ardından Google Jobs yapılandırılmış işaretlemeye sahip
+        her şeyi otomatik olarak toplar.
       </li>
       <li>
-        <strong>Metrics:</strong> Google Sheets template — copy applicants per source,
-        days-in-stage, offer-acceptance rate. We have a template in the metrics section
-        below.
+        <strong>Metrikler:</strong> Google Sheets şablonu — kaynağa göre başvuranları, aşamadaki
+        gün sayısını, teklif kabul oranını kopyalayın. Aşağıdaki metrikler bölümünde bir şablonumuz var.
       </li>
     </ol>
 
-    <h2 id="pipeline">Candidate pipeline (replaces: Workable Starter, Greenhouse Free Trial)</h2>
+    <h2 id="pipeline">Aday havuzu (Workable Starter, Greenhouse Ücretsiz Deneme yerine geçer)</h2>
     <p>
-      The hardest part of going stack-free is the pipeline view — the kanban-with-stages
-      thing every paid ATS gives you. The two real free options:
+      Araç seti olmadan yapmanın en zor kısmı, her ücretli ATS'nin sunduğu aşamalı kanban görünümüdür.
+      İki gerçek ücretsiz seçenek:
     </p>
     <ul>
       <li>
-        <strong>Trello:</strong> Free tier is fine. Make one board per role, columns =
-        stages, cards = candidates. Limit: card-level fields are restricted, no automation
-        on free, hits 10-board ceiling fast.
+        <strong>Trello:</strong> Ücretsiz katman yeterlidir. Her pozisyon için bir pano oluşturun,
+        sütunlar = aşamalar, kartlar = adaylar. Sınır: kart düzeyindeki alanlar kısıtlıdır,
+        ücretsizde otomasyon yoktur, 10 pano sınırına hızla ulaşılır.
       </li>
       <li>
-        <strong>Notion free:</strong> Database view with a stage select. Better
-        custom-field support than Trello, but the unlock for &ldquo;timeline&rdquo; views
-        is a paid feature.
+        <strong>Notion ücretsiz:</strong> Aşama seçimi olan veritabanı görünümü. Trello'dan daha iyi
+        özel alan desteği sunar, ancak &ldquo;zaman çizelgesi&rdquo; görünümlerinin kilidini açmak
+        ücretli bir özelliktir.
       </li>
       <li>
-        <strong>Our pipeline tracker:</strong> 6 fixed stages, in-stage day timer, CSV
-        export. Single-machine (browser localStorage) — no team sync. The right pick if
-        one person owns hiring; not the right pick for two coordinated recruiters.
+        <strong>Havuz takip aracımız:</strong> 6 sabit aşama, aşama içi gün sayacı, CSV
+        dışa aktarma. Tek makine (tarayıcı localStorage) — ekip senkronizasyonu yok. İşe alımın
+        sorumlusu tek bir kişiyse doğru seçim; iki koordineli işe alımcı için uygun değil.
       </li>
     </ul>
 
-    <h2 id="screening">Resume screening (replaces: Jobscan, Teal premium)</h2>
+    <h2 id="screening">Özgeçmiş taraması (Jobscan, Teal premium yerine geçer)</h2>
     <p>
-      Two complementary tools cover most of what paid resume-screen tools do:
+      İki tamamlayıcı araç, ücretli özgeçmiş tarama araçlarının yaptığının çoğunu karşılar:
     </p>
     <ol>
       <li>
-        <strong>Keyword match score:</strong>{" "}
-        <a href="/tools/resume-keyword-match-scorer">our scorer</a> tokenizes the JD and
-        shows what's in the resume vs missing. Free, browser-only, no monthly scan cap.
+        <strong>Anahtar kelime eşleşme puanı:</strong>{" "}
+        <a href="/tools/resume-keyword-match-scorer">puanlayıcımız</a> iş tanımını tokenize eder
+        ve özgeçmişte ne olduğunu ve neyin eksik olduğunu gösterir. Ücretsiz, yalnızca tarayıcı,
+        aylık tarama sınırı yok.
       </li>
       <li>
-        <strong>Structured prompt screening:</strong> paste 10 resumes into a ChatGPT or
-        Claude free conversation and ask: &ldquo;Score each on a 1-5 scale for [3 specific
-        requirements from JD]. Output as a table.&rdquo; Faster than reading 10 PDFs cold.
-        Don&rsquo;t paste anything you wouldn&rsquo;t want logged — both providers may
-        retain prompts on free tiers.
+        <strong>Yapılandırılmış komut taraması:</strong> 10 özgeçmişi bir ChatGPT veya Claude
+        ücretsiz sohbetine yapıştırın ve şunu sorun: &ldquo;Her birini [JD'den 3 spesifik
+        gereksinim] için 1-5 ölçeğinde puanla. Çıktıyı tablo olarak ver.&rdquo; 10 PDF'i
+        soğuk okumaktan daha hızlıdır. Kaydedilmesini istemeyeceğiniz hiçbir şeyi yapıştırmayın
+        — her iki sağlayıcı da ücretsiz katmanlarda komutları saklayabilir.
       </li>
     </ol>
     <p>
-      What this stack <em>can&rsquo;t</em> do: skill normalization (&ldquo;React.js&rdquo;
-      = &ldquo;ReactJS&rdquo;), education extraction, work-authorization checks. If your
-      compliance regime requires those signals, you've outgrown free tools.
+      Bu setin <em>yapamadığı</em> şeyler: beceri normalizasyonu (&ldquo;React.js&rdquo;
+      = &ldquo;ReactJS&rdquo;), eğitim bilgisi çıkarma, çalışma izni kontrolleri. Uyumluluk
+      rejiminiz bu sinyalleri gerektiriyorsa, ücretsiz araçları aşmışsınız demektir.
     </p>
 
-    <h2 id="scheduling">Interview scheduling (replaces: GoodTime, Calendly Pro)</h2>
+    <h2 id="scheduling">Mülakat planlaması (GoodTime, Calendly Pro yerine geçer)</h2>
     <p>
-      Calendly free is enough for solo recruiters: one event type, your link, candidates
-      pick a slot. The limits hurt with team interviews:
+      Calendly ücretsiz, tek başına çalışan işe alımcılar için yeterlidir: bir etkinlik türü,
+      bağlantınız, adaylar bir zaman seçer. Sınırlamalar ekip mülakatlarında can sıkar:
     </p>
     <ul>
       <li>
-        <strong>Round-robin:</strong> not on free. Workaround: Google Calendar &ldquo;find
-        a time&rdquo; with multiple invitees + send the candidate 3 specific options.
+        <strong>Sıralı dağıtım:</strong> ücretsizde yok. Geçici çözüm: birden fazla davetliyle
+        Google Takvim &ldquo;uygun zaman bul&rdquo; özelliği + adaya 3 spesifik seçenek gönderin.
       </li>
       <li>
-        <strong>Buffer time:</strong> not on free. Workaround: bake it into your
-        availability windows manually (set Calendly to 9–10 AM and 11 AM–12 PM
-        separately).
+        <strong>Tampon süre:</strong> ücretsizde yok. Geçici çözüm: müsaitlik aralıklarınıza
+        manuel olarak ekleyin (Calendly'yi ayrı ayrı 9–10 ve 11–12 olarak ayarlayın).
       </li>
       <li>
-        <strong>Multi-stage scheduling:</strong> not on free. Workaround: send one link
-        per stage; tag the booked event in your pipeline tracker.
+        <strong>Çok aşamalı planlama:</strong> ücretsizde yok. Geçici çözüm: her aşama için
+        bir bağlantı gönderin; rezerve edilen etkinliği havuz takipçinizde etiketleyin.
       </li>
     </ul>
 
-    <h2 id="outreach">Outreach + sourcing (replaces: LinkedIn Recruiter)</h2>
+    <h2 id="outreach">Aday bulma + kaynak oluşturma (LinkedIn Recruiter yerine geçer)</h2>
     <p>
-      LinkedIn Recruiter starts at ~$170/seat/month. The free workarounds:
+      LinkedIn Recruiter, koltuk başına aylık ~170$'dan başlar. Ücretsiz geçici çözümler:
     </p>
     <ul>
       <li>
-        <strong>Free LinkedIn search + connect notes:</strong> 100 searches/month soft cap;
-        connect requests with a personalized note get accepted at ~30% (the trick:
-        reference one specific post or project of theirs).
+        <strong>Ücretsiz LinkedIn araması + bağlantı notları:</strong> ayda 100 arama yumuşak
+        sınırı; kişiselleştirilmiş not içeren bağlantı talepleri ~%30 oranında kabul edilir
+        (püf nokta: belirli bir gönderilerine veya projelerine atıfta bulunun).
       </li>
       <li>
-        <strong>Boolean searches in Google:</strong>{" "}
-        <code>site:linkedin.com/in/ "react developer" "san francisco"</code> surfaces
-        public profiles outside LinkedIn's gated search.
+        <strong>Google'da Boolean aramaları:</strong>{" "}
+        <code>site:linkedin.com/in/ "react developer" "san francisco"</code> LinkedIn'in
+        kapalı aramasının dışındaki herkese açık profilleri gösterir.
       </li>
       <li>
-        <strong>GitHub for engineering roles:</strong> public commits are public; search
-        by language + activity.
+        <strong>Mühendislik rolleri için GitHub:</strong> herkese açık commit'ler herkese açıktır;
+        dile ve aktiviteye göre arama yapın.
       </li>
       <li>
-        <strong>Slack communities:</strong> niche dev/design Slacks have job boards.
-        #hiring channels in Designer Hangout, Reactiflux, etc.
+        <strong>Slack toplulukları:</strong> niş geliştirici/tasarımcı Slack'lerinde iş panoları
+        bulunur. Designer Hangout, Reactiflux vb. #hiring kanalları.
       </li>
     </ul>
     <p>
-      For the sourcing playbook in detail, see our{" "}
+      Kaynak oluşturma stratejisinin ayrıntıları için{" "}
       <a href="/guides/sourcing-candidates-without-linkedin-recruiter">
-        sourcing without LinkedIn Recruiter
+        LinkedIn Recruiter olmadan aday bulma
       </a>{" "}
-      guide.
+      rehberimize bakın.
     </p>
 
-    <h2 id="metrics">Metrics + reporting (replaces: Lever Analytics, Greenhouse Insights)</h2>
+    <h2 id="metrics">Metrikler + raporlama (Lever Analytics, Greenhouse Insights yerine geçer)</h2>
     <p>
-      The 4 metrics that actually matter for small teams:
+      Küçük ekipler için gerçekten önemli olan 4 metrik:
     </p>
     <ul>
       <li>
-        <strong>Applicants per source:</strong> where are good candidates coming from?
+        <strong>Kaynağa göre başvuran sayısı:</strong> iyi adaylar nereden geliyor?
       </li>
       <li>
-        <strong>Stage conversion:</strong> phone-to-onsite %, onsite-to-offer %, offer
-        accept rate.
+        <strong>Aşama dönüşümü:</strong> telefon-yüzyüze %, yüzyüze-teklif %, teklif kabul oranı.
       </li>
       <li>
-        <strong>Days-in-stage:</strong> if candidates sit in &ldquo;phone screen&rdquo; for
-        14 days, your scheduling is the bottleneck.
+        <strong>Aşamadaki gün sayısı:</strong> adaylar &ldquo;telefon görüşmesi&rdquo; aşamasında
+        14 gün kalıyorsa, planlama darboğazdır.
       </li>
       <li>
-        <strong>Time-to-hire:</strong> sourced → offer accepted, in calendar days.
+        <strong>İşe alım süresi:</strong> kaynak oluşturma → teklif kabulü, takvim günü olarak.
       </li>
     </ul>
     <p>
-      Our pipeline tracker exports CSV with all four. Drop it into a Google Sheet pivot
-      table, refresh weekly. See{" "}
+      Havuz takip aracımız dördünü de içeren CSV dışa aktarır. Bunu bir Google Sheet pivot
+      tablosuna aktarın, haftalık güncelleyin. Tam şablon için{" "}
       <a href="/guides/recruiting-metrics-on-a-free-spreadsheet">
-        recruiting metrics on a free spreadsheet
+        ücretsiz bir e-tabloda işe alım metrikleri
       </a>{" "}
-      for the full template.
+      sayfasına bakın.
     </p>
 
-    <h2 id="limits">When to graduate to paid</h2>
+    <h2 id="limits">Ücretliye ne zaman geçilmeli</h2>
     <p>
-      The free stack breaks down at predictable thresholds:
+      Ücretsiz araç seti öngörülebilir eşiklerde yetersiz kalır:
     </p>
     <ul>
       <li>
-        <strong>~15 active reqs.</strong> Trello hits its board cap; Notion gets messy.
+        <strong>~15 aktif pozisyon.</strong> Trello pano sınırına ulaşır; Notion karmaşıklaşır.
       </li>
       <li>
-        <strong>2+ recruiters working in parallel.</strong> No real-time sync between
-        people without a shared backend.
+        <strong>Paralel çalışan 2+ işe alımcı.</strong> Paylaşılan bir arka uç olmadan kişiler
+        arasında gerçek zamanlı senkronizasyon yoktur.
       </li>
       <li>
-        <strong>Compliance / EEO reporting.</strong> Free tools don&rsquo;t track
-        protected-class data; paid ATSes do, with audit trails.
+        <strong>Uyumluluk / EEO raporlaması.</strong> Ücretsiz araçlar korunan sınıf verilerini
+        takip etmez; ücretli ATS'ler denetim izleriyle bunu yapar.
       </li>
       <li>
-        <strong>Candidate self-service portal.</strong> &ldquo;Where am I in the process?&rdquo; emails get
-        burdensome above ~50 active candidates.
+        <strong>Aday self-servis portalı.</strong> &ldquo;Süreçte neredeyim?&rdquo; e-postaları
+        ~50 aktif adayın üzerinde yük haline gelir.
       </li>
     </ul>
     <p>
-      Run the{" "}
+      Sizin rakamlarınız için ücretlinin ne zaman kazandığını görmek üzere{" "}
       <a href="/tools/free-recruiting-tool-true-cost-calculator">
-        true cost calculator
+        gerçek maliyet hesaplayıcıyı
       </a>{" "}
-      to see when paid wins for your numbers — typically around 8–12 hires/year, depending
-      on hiring-manager hourly rate.
+      çalıştırın — genellikle işe alım yöneticisinin saatlik ücretine bağlı olarak yılda 8-12
+      işe alım civarında.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Start tracking candidates now (free, no account)",
+  label: "Adayları şimdi takip etmeye başlayın (ücretsiz, hesap gerekmez)",
   targetSlug: "recruiting-pipeline-tracker",
 };
 
 export const faq = [
   {
-    q: "What's the single most-recommended free recruiting tool?",
-    a: "Trello for the pipeline view; the recurring complaint is the 10-board cap. For solo recruiters our pipeline tracker is denser since it has fixed hiring stages and an in-stage day counter built in.",
+    q: "En çok önerilen ücretsiz işe alım aracı hangisidir?",
+    a: "Havuz görünümü için Trello; tekrarlanan şikayet 10 pano sınırıdır. Tek başına çalışan işe alımcılar için havuz takip aracımız daha yoğundur çünkü sabit işe alım aşamaları ve yerleşik bir aşama içi gün sayacı vardır.",
   },
   {
-    q: "Is there a fully free ATS that handles compliance?",
-    a: "No. Every ATS that handles EEO reporting, OFCCP audit trails, and structured-data candidate records charges. Below those compliance triggers, free tools are fine; above them, paid is the only legal path.",
+    q: "Uyumluluğu yöneten tamamen ücretsiz bir ATS var mı?",
+    a: "Hayır. EEO raporlaması, OFCCP denetim izleri ve yapılandırılmış veri aday kayıtlarını yöneten her ATS ücretlidir. Bu uyumluluk tetikleyicilerinin altında ücretsiz araçlar yeterlidir; üstünde ise ücretli olan tek yasal yoldur.",
   },
   {
-    q: "Will Google penalize me for posting jobs on free job boards?",
-    a: "No — Google Jobs aggregates structured-data postings regardless of paid vs free placement. Use JobPosting JSON-LD on your careers page and you'll get indexed.",
+    q: "Google, ücretsiz iş panolarına iş ilanı verdiğim için beni cezalandırır mı?",
+    a: "Hayır — Google Jobs, ücretli veya ücretsiz yerleştirmeden bağımsız olarak yapılandırılmış veri ilanlarını toplar. Kariyer sayfanızda JobPosting JSON-LD kullanın ve indekslenirsiniz.",
   },
   {
-    q: "Can I use Trello + Calendly + Gmail and call it an ATS?",
-    a: "Functionally for a 5-req team, yes. Legally if you're hiring at scale in regulated industries (finance, healthcare, government contracting), no — you need an audit trail.",
+    q: "Trello + Calendly + Gmail kullanıp buna ATS diyebilir miyim?",
+    a: "5 pozisyonlu bir ekip için işlevsel olarak evet. Düzenlemeye tabi sektörlerde (finans, sağlık, devlet sözleşmeleri) ölçekli işe alım yapıyorsanız yasal olarak hayır — bir denetim izine ihtiyacınız var.",
   },
 ];

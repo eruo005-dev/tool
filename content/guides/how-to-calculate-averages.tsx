@@ -3,178 +3,186 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      &ldquo;The average&rdquo; is doing a lot of work in most sentences, and people usually
-      mean the arithmetic mean&mdash;add everything up, divide by the count. But the median and
-      the mode are also averages, and in skewed data they often describe the typical case
-      better than the mean does. The average household income in the United States is higher
-      than the median household income because a handful of billionaires pull the mean upward;
-      report the mean and you&rsquo;ll mislead people about the &ldquo;middle&rdquo; household.
-      Weighted averages appear everywhere grades are calculated, geometric means show up in
-      finance and biology, and harmonic means matter when averaging rates. This guide covers
-      the three main averages and when to use each, weighted averages, how outliers distort the
-      mean, and when geometric or harmonic means are the right choice.
+      &ldquo;Ortalama&rdquo; çoğu cümlede büyük bir iş yapar ve insanlar genellikle
+      aritmetik ortalamayı kasteder&mdash;her şeyi topla, sayıya böl. Ancak medyan ve
+      mod da ortalamadır ve çarpık verilerde tipik durumu ortalamadan daha iyi
+      tanımlarlar. Amerika Birleşik Devletleri'ndeki ortalama hane geliri, medyan hane
+      gelirinden daha yüksektir çünkü bir avuç milyarder ortalamayı yukarı çeker;
+      ortalamayı bildirirseniz insanları &ldquo;orta&rdquo; hane hakkında yanıltırsınız.
+      Ağırlıklı ortalamalar notların hesaplandığı her yerde karşımıza çıkar, geometrik
+      ortalamalar finans ve biyolojide görülür ve harmonik ortalamalar oranları
+      ortalamada önemlidir. Bu kılavuz, üç ana ortalamayı ve her birinin ne zaman
+      kullanılacağını, ağırlıklı ortalamaları, aykırı değerlerin ortalamayı nasıl
+      bozduğunu ve geometrik veya harmonik ortalamaların ne zaman doğru seçim olduğunu
+      kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The arithmetic mean</h2>
+    <h2>Aritmetik ortalama</h2>
     <p>
-      Sum the values, divide by the count. For test scores 80, 90, 70, 100: sum = 340, count =
-      4, mean = 85. This is what most people call &ldquo;the average.&rdquo; It&rsquo;s the
-      balance point of the data&mdash;if you placed weights at each value on a number line,
-      the mean is where the line balances.
+      Değerleri toplayın, sayıya bölün. 80, 90, 70, 100 test puanları için: toplam = 340, sayı =
+      4, ortalama = 85. Çoğu insanın &ldquo;ortalama&rdquo; dediği şey budur. Verilerin
+      denge noktasıdır&mdash;her değere bir sayı doğrusu üzerinde ağırlık koyarsanız,
+      ortalama, doğrunun dengelendiği yerdir.
     </p>
-    <pre>{`values: 80, 90, 70, 100
-sum:    340
-count:  4
-mean:   340 / 4 = 85`}</pre>
+    <pre>{`değerler: 80, 90, 70, 100
+toplam:    340
+sayı:  4
+ortalama:   340 / 4 = 85`}</pre>
 
-    <h2>The median</h2>
+    <h2>Medyan</h2>
     <p>
-      Sort the values and pick the middle one. For an even count, take the mean of the two
-      middle values. The median is insensitive to outliers&mdash;changing the largest value
-      from 100 to 1,000,000 doesn&rsquo;t move the median at all. This makes it the right
-      choice for skewed distributions like income, house prices, and web page load times.
+      Değerleri sıralayın ve ortadakini seçin. Çift sayı için, iki ortadaki değerin
+      ortalamasını alın. Medyan aykırı değerlere karşı duyarsızdır&mdash;en büyük değeri
+      100'den 1.000.000'a değiştirmek medyanı hiç etkilemez. Bu, onu gelir, ev fiyatları
+      ve web sayfası yüklenme süreleri gibi çarpık dağılımlar için doğru seçim yapar.
     </p>
-    <pre>{`sorted: 70, 80, 90, 100
-even count → median = (80 + 90) / 2 = 85
+    <pre>{`sıralanmış: 70, 80, 90, 100
+çift sayı → medyan = (80 + 90) / 2 = 85
 
-sorted: 70, 80, 90, 100, 1000000
-odd count → median = 90 (unchanged by the outlier)
-mean would be 200,148 — wildly unrepresentative`}</pre>
+sıralanmış: 70, 80, 90, 100, 1000000
+tek sayı → medyan = 90 (aykırı değerden etkilenmez)
+ortalama 200.148 olurdu — son derece temsil edici değil`}</pre>
 
-    <h2>The mode</h2>
+    <h2>Mod</h2>
     <p>
-      The value that appears most often. There can be zero modes (all values unique), one mode
-      (unimodal), or multiple modes (bimodal, multimodal). Mode is useful for categorical data
-      (&ldquo;most common shirt size&rdquo;) where mean and median don&rsquo;t make sense, and
-      for spotting clustering in numeric data.
+      En sık görünen değer. Hiç mod olmayabilir (tüm değerler benzersiz), bir mod
+      (tek modlu) veya birden çok mod (çift modlu, çok modlu) olabilir. Mod, kategorik
+      veriler (&ldquo;en yaygın tişört bedeni&rdquo;) için kullanışlıdır; burada ortalama
+      ve medyan anlamlı değildir ve sayısal verilerde kümelenmeyi tespit etmek için
+      kullanılır.
     </p>
-    <pre>{`values: 2, 3, 3, 5, 7, 7, 7, 9
-mode: 7 (appears three times)
+    <pre>{`değerler: 2, 3, 3, 5, 7, 7, 7, 9
+mod: 7 (üç kez görünür)
 
-values: 4, 4, 6, 8, 8, 10
-modes: 4 and 8 (bimodal)`}</pre>
+değerler: 4, 4, 6, 8, 8, 10
+modlar: 4 ve 8 (çift modlu)`}</pre>
 
-    <h2>Mean vs. median vs. mode: when to use each</h2>
+    <h2>Ortalama vs. medyan vs. mod: her birini ne zaman kullanmalı</h2>
     <p>
-      Use the <strong>mean</strong> when data is roughly symmetric and you care about the total
-      (grades, dice rolls, heights). Use the <strong>median</strong> when data is skewed or has
-      outliers (income, home prices, response times). Use the <strong>mode</strong> for
-      categorical data or when you want to describe &ldquo;the typical choice.&rdquo;
+      Veriler kabaca simetrik olduğunda ve toplamı önemsediğinizde (notlar, zar atışları,
+      boylar) <strong>ortalamayı</strong> kullanın. Veriler çarpık olduğunda veya aykırı
+      değerler içerdiğinde (gelir, ev fiyatları, yanıt süreleri) <strong>medyanı</strong>
+      kullanın. Kategorik veriler için veya &ldquo;tipik seçimi&rdquo; tanımlamak
+      istediğinizde <strong>modu</strong> kullanın.
     </p>
 
-    <h2>Weighted averages</h2>
+    <h2>Ağırlıklı ortalamalar</h2>
     <p>
-      When some values count more than others, multiply each by its weight, sum, then divide by
-      the total weight. Course grades are classic: homework 20%, midterm 30%, final 50%. A
-      student with 85/100/70 on those gets (85&times;0.2 + 100&times;0.3 + 70&times;0.5) /
-      1 = (17 + 30 + 35) = 82.
+      Bazı değerler diğerlerinden daha fazla sayıldığında, her birini ağırlığıyla çarpın,
+      toplayın, ardından toplam ağırlığa bölün. Ders notları klasiktir: ödev %20, ara
+      sınav %30, final %50. Bunlarda 85/100/70 alan bir öğrenci (85&times;0,2 +
+      100&times;0,3 + 70&times;0,5) / 1 = (17 + 30 + 35) = 82 alır.
     </p>
-    <pre>{`Weights: 20, 30, 50  (must sum to 100)
-Scores:  85, 100, 70
+    <pre>{`Ağırlıklar: 20, 30, 50  (toplamı 100 olmalı)
+Puanlar:  85, 100, 70
 
-Weighted mean = (85×20 + 100×30 + 70×50) / 100
+Ağırlıklı ortalama = (85×20 + 100×30 + 70×50) / 100
               = (1700 + 3000 + 3500) / 100
               = 8200 / 100
               = 82`}</pre>
 
-    <h2>The effect of outliers</h2>
+    <h2>Aykırı değerlerin etkisi</h2>
     <p>
-      A single extreme value can wildly distort the mean. Consider seven salaries: six at
-      $50,000 and one CEO at $2,000,000. The mean salary is $328,571. The median is $50,000.
-      The mean is mathematically correct but communicatively misleading. When reporting
-      averages to humans, check the shape of the distribution first&mdash;if there&rsquo;s a
-      long tail, the median is more honest.
+      Tek bir uç değer ortalamayı çarpıtabilir. Yedi maaş düşünün: altısı 50.000 $ ve bir
+      CEO 2.000.000 $. Ortalama maaş 328.571 $'dır. Medyan 50.000 $'dır. Ortalama
+      matematiksel olarak doğrudur ancak iletişimsel olarak yanıltıcıdır. Ortalamaları
+      insanlara bildirirken önce dağılımın şeklini kontrol edin&mdash;uzun bir kuyruk
+      varsa medyan daha dürüsttür.
     </p>
 
-    <h2>Geometric mean</h2>
+    <h2>Geometrik ortalama</h2>
     <p>
-      For <em>n</em> values, the geometric mean is the <em>n</em>-th root of their product. It
-      is the right tool for averaging ratios, growth rates, and multiplicative quantities.
-      Annual investment returns of +20%, &minus;10%, +30% have a geometric mean of
-      <code>&radic;[3]{`(1.20 × 0.90 × 1.30)`}</code> &minus; 1 &asymp; 12.0%, which matches the
-      actual compound growth. Taking the arithmetic mean (13.3%) overstates your returns.
+      <em>n</em> değer için geometrik ortalama, çarpımlarının <em>n</em>-inci
+      köküdür. Oranları, büyüme oranlarını ve çarpımsal miktarları ortalamak için doğru
+      araçtır. +%20, &minus;%10, +%30 yıllık yatırım getirilerinin geometrik ortalaması
+      <code>&radic;[3]{`(1,20 × 0,90 × 1,30)`}</code> &minus; 1 &asymp; %12,0'dır ve bu
+      gerçek bileşik büyümeyle eşleşir. Aritmetik ortalamayı (%13,3) almak getirilerinizi
+      olduğundan fazla gösterir.
     </p>
-    <pre>{`Returns: +20%, −10%, +30%
-As multipliers: 1.20, 0.90, 1.30
+    <pre>{`Getiriler: +%20, −%10, +%30
+Çarpanlar olarak: 1,20, 0,90, 1,30
 
-Arithmetic mean: (0.20 + (−0.10) + 0.30) / 3 = 13.3%  ← WRONG
-Geometric mean: (1.20 × 0.90 × 1.30)^(1/3) − 1 ≈ 12.0%  ← correct`}</pre>
+Aritmetik ortalama: (0,20 + (−0,10) + 0,30) / 3 = %13,3  ← YANLIŞ
+Geometrik ortalama: (1,20 × 0,90 × 1,30)^(1/3) − 1 ≈ %12,0  ← doğru`}</pre>
 
-    <h2>Harmonic mean</h2>
+    <h2>Harmonik ortalama</h2>
     <p>
-      The harmonic mean of <em>n</em> values is <em>n</em> divided by the sum of reciprocals.
-      It&rsquo;s the right average for rates when the base unit is the same. If you drive 60
-      miles at 30 mph and 60 miles at 60 mph, your average speed is NOT 45 mph. Using the
-      harmonic mean: <code>2 / (1/30 + 1/60) = 2 / (3/60) = 40 mph</code>, which matches the
-      total distance (120 miles) over total time (3 hours).
-    </p>
-
-    <h2>When to use geometric or harmonic</h2>
-    <p>
-      Use the <strong>geometric mean</strong> when averaging rates of change, growth rates,
-      investment returns, or any multiplicative process. Use the <strong>harmonic mean</strong>
-      when averaging rates where you&rsquo;re holding the numerator constant (speeds over equal
-      distances, prices per item). The arithmetic mean is almost always wrong for these cases.
+      <em>n</em> değerin harmonik ortalaması, <em>n</em>'nin karşılıkların toplamına
+      bölümüdür. Temel birim aynı olduğunda oranlar için doğru ortalamadır. 60 mili 30
+      mph'de ve 60 mili 60 mph'de sürerseniz, ortalama hızınız 45 mph DEĞİLDİR. Harmonik
+      ortalamayı kullanarak: <code>2 / (1/30 + 1/60) = 2 / (3/60) = 40 mph</code>, bu da
+      toplam mesafeye (120 mil) bölü toplam süreye (3 saat) eşittir.
     </p>
 
-    <h2>Range and spread don&rsquo;t disappear</h2>
+    <h2>Geometrik veya harmonik ne zaman kullanılır</h2>
     <p>
-      An average alone is usually insufficient. Two datasets can have identical means with
-      wildly different spreads: {`{49, 50, 51}`} and {`{0, 50, 100}`} both average 50, but
-      you&rsquo;d prefer to know you&rsquo;re walking into the first one. Report an average
-      alongside a measure of spread&mdash;standard deviation, interquartile range, or min/max.
+      Değişim oranlarını, büyüme oranlarını, yatırım getirilerini veya herhangi bir
+      çarpımsal süreci ortalamak için <strong>geometrik ortalamayı</strong> kullanın.
+      Payı sabit tuttuğunuz oranları (eşit mesafelerdeki hızlar, öğe başına fiyatlar)
+      ortalamak için <strong>harmonik ortalamayı</strong> kullanın. Bu durumlar için
+      aritmetik ortalama neredeyse her zaman yanlıştır.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Aralık ve yayılım kaybolmaz</h2>
     <p>
-      <strong>Reporting a mean for skewed data.</strong> Income, housing costs, load times,
-      and viral popularity are heavily right-skewed. The mean drifts upward with the tail;
-      the median stays with the typical case. Use the median.
-    </p>
-    <p>
-      <strong>Averaging averages without weights.</strong> If class A has 30 students with a
-      mean of 80 and class B has 10 students with a mean of 90, the combined mean is NOT 85.
-      It&rsquo;s <code>(30&times;80 + 10&times;90) / 40 = 82.5</code>. You have to weight by
-      group size.
-    </p>
-    <p>
-      <strong>Using arithmetic mean on growth rates.</strong> Compounding is multiplicative;
-      arithmetic mean overstates returns. Geometric mean is the correct average.
-    </p>
-    <p>
-      <strong>Using arithmetic mean on rates.</strong> Average speed over fixed distances,
-      average price per fixed quantity, and similar problems call for the harmonic mean, not
-      the arithmetic mean.
-    </p>
-    <p>
-      <strong>Ignoring the mode for categorical data.</strong> You can&rsquo;t take the mean of
-      &ldquo;red, blue, blue, green.&rdquo; Mode is the only average that makes sense for
-      non-numeric categories.
-    </p>
-    <p>
-      <strong>Treating the mean as &ldquo;the answer.&rdquo;</strong> Always check min, max,
-      and spread. A mean of 50 with range 0&ndash;100 is very different from a mean of 50 with
-      range 49&ndash;51.
-    </p>
-    <p>
-      <strong>Forgetting that median can equal mean.</strong> For symmetric distributions like
-      the normal distribution, mean, median, and mode all coincide. The difference only shows
-      up in skewed data, which is why people get sloppy with them on test scores and then
-      mislead themselves on salaries.
+      Tek başına bir ortalama genellikle yetersizdir. İki veri kümesi aynı ortalamalara
+      sahip olabilir ancak çok farklı yayılımlara sahip olabilir: {`{49, 50, 51}`} ve
+      {`{0, 50, 100}`} her ikisinin de ortalaması 50'dir, ancak birincisine girdiğinizi
+      bilmeyi tercih edersiniz. Bir ortalamayı bir yayılım ölçüsüyle birlikte
+      bildirin&mdash;standart sapma, çeyrekler arası aralık veya min/maks.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Drop your dataset into our <a href="/tools/average-calculator">average calculator</a> and
-      get mean, median, mode, range, and standard deviation in one pass. Pair it with the{" "}
-      <a href="/tools/percentage-calculator">percentage calculator</a> for expressing
-      differences from the average as percentages, and the{" "}
-      <a href="/tools/ratio-calculator">ratio calculator</a> when you&rsquo;re comparing
-      averages across groups.
+      <strong>Çarpık veriler için ortalama bildirmek.</strong> Gelir, konut maliyetleri,
+      yüklenme süreleri ve viral popülerlik ağır bir şekilde sağa çarpıktır. Ortalama
+      kuyrukla birlikte yukarı kayar; medyan tipik durumda kalır. Medyanı kullanın.
+    </p>
+    <p>
+      <strong>Ortalamaları ağırlıksız ortalamak.</strong> A sınıfında ortalaması 80 olan
+      30 öğrenci ve B sınıfında ortalaması 90 olan 10 öğrenci varsa, birleşik ortalama 85
+      DEĞİLDİR. <code>(30&times;80 + 10&times;90) / 40 = 82,5</code>'tir. Grup boyutuna
+      göre ağırlıklandırmanız gerekir.
+    </p>
+    <p>
+      <strong>Büyüme oranlarında aritmetik ortalama kullanmak.</strong> Bileşik büyüme
+      çarpımsaldır; aritmetik ortalama getirileri olduğundan fazla gösterir. Geometrik
+      ortalama doğru ortalamadır.
+    </p>
+    <p>
+      <strong>Oranlarda aritmetik ortalama kullanmak.</strong> Sabit mesafelerde ortalama
+      hız, sabit miktar başına ortalama fiyat ve benzeri problemler harmonik ortalamayı
+      gerektirir, aritmetik ortalamayı değil.
+    </p>
+    <p>
+      <strong>Kategorik veriler için modu göz ardı etmek.</strong> &ldquo;Kırmızı, mavi,
+      mavi, yeşil&rdquo;in ortalamasını alamazsınız. Sayısal olmayan kategoriler için
+      anlamlı olan tek ortalama moddur.
+    </p>
+    <p>
+      <strong>Ortalamayı &ldquo;cevap&rdquo; olarak ele almak.</strong> Her zaman min,
+      maks ve yayılımı kontrol edin. 0&ndash;100 aralığına sahip 50 ortalaması,
+      49&ndash;51 aralığına sahip 50 ortalamasından çok farklıdır.
+    </p>
+    <p>
+      <strong>Medyanın ortalamaya eşit olabileceğini unutmak.</strong> Normal dağılım
+      gibi simetrik dağılımlar için ortalama, medyan ve mod çakışır. Fark yalnızca çarpık
+      verilerde ortaya çıkar, bu yüzden insanlar test puanlarında bunlarla özensiz
+      davranır ve sonra maaşlarda kendilerini yanıltırlar.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      Veri kümenizi <a href="/tools/average-calculator">ortalama hesaplayıcımıza</a> bırakın ve
+      tek seferde ortalama, medyan, mod, aralık ve standart sapmayı alın. Ortalamadan
+      farklılıkları yüzde olarak ifade etmek için{" "}
+      <a href="/tools/percentage-calculator">yüzde hesaplayıcı</a> ile ve gruplar arası
+      ortalamaları karşılaştırırken <a href="/tools/ratio-calculator">oran
+      hesaplayıcı</a> ile birlikte kullanın.
     </p>
   </>
 );

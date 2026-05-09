@@ -3,169 +3,167 @@
 export const intro = (
   <>
     <p>
-      GitHub Pages is free static hosting tied to your repository. For many small
-      projects + portfolios it&rsquo;s the right choice. For others (dynamic content,
-      auth, large files) you need traditional web hosting. This guide walks the
-      tradeoffs, plus what GitHub costs once you outgrow free tiers.
+      GitHub Pages, deponuza bağlı ücretsiz bir statik barındırma hizmetidir. Birçok küçük
+      proje ve portföy için doğru seçimdir. Diğerleri (dinamik içerik,
+      kimlik doğrulama, büyük dosyalar) için geleneksel web barındırma hizmetine ihtiyacınız vardır. Bu kılavuz,
+      artıları ve eksileri ve ayrıca ücretsiz katmanları aştığınızda GitHub'ın maliyetini ele alır.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "pages-vs-hosting", label: "GitHub Pages vs traditional hosting" },
-  { id: "cost", label: "How much does GitHub cost?" },
-  { id: "non-code", label: "Using GitHub for non-code documents" },
-  { id: "replace-slack", label: "Can GitHub replace Slack?" },
+  { id: "pages-vs-hosting", label: "GitHub Pages vs geleneksel barındırma" },
+  { id: "cost", label: "GitHub'ın maliyeti nedir?" },
+  { id: "non-code", label: "GitHub'ı kod dışı belgeler için kullanma" },
+  { id: "replace-slack", label: "GitHub, Slack'in yerini alabilir mi?" },
 ];
 
 export const body = (
   <>
-    <h2 id="pages-vs-hosting">GitHub Pages vs web hosting</h2>
+    <h2 id="pages-vs-hosting">GitHub Pages vs web barındırma</h2>
     <p>
-      GitHub Pages strengths:
+      GitHub Pages'in güçlü yönleri:
     </p>
     <ul>
-      <li>Free for public repos (and private with paid GitHub plans).</li>
-      <li>Auto-deploys on push to your designated branch.</li>
-      <li>Custom domain support via CNAME.</li>
-      <li>HTTPS by default.</li>
-      <li>1 GB storage, 100 GB/month bandwidth soft limits.</li>
+      <li>Genel depolar için ücretsiz (ve ücretli GitHub planlarıyla özel depolar).</li>
+      <li>Belirlenen dalınıza gönderim yaptığınızda otomatik olarak dağıtılır.</li>
+      <li>CNAME ile özel alan adı desteği.</li>
+      <li>Varsayılan olarak HTTPS.</li>
+      <li>1 GB depolama, ayda 100 GB bant genişliği yumuşak limitleri.</li>
     </ul>
     <p>
-      Limitations:
+      Sınırlamalar:
     </p>
     <ul>
-      <li>Static only — no server-side code (no databases, no auth, no APIs).</li>
-      <li>Build timeout (10 minutes per Pages build).</li>
-      <li>No log access for debugging.</li>
-      <li>Some build step constraints (Jekyll natively; other generators via GitHub Actions).</li>
+      <li>Yalnızca statik — sunucu tarafı kod yok (veritabanı yok, kimlik doğrulama yok, API yok).</li>
+      <li>Derleme zaman aşımı (Pages derlemesi başına 10 dakika).</li>
+      <li>Hata ayıklama için günlük erişimi yok.</li>
+      <li>Bazı derleme adımı kısıtlamaları (yerel olarak Jekyll; GitHub Actions aracılığıyla diğer oluşturucular).</li>
     </ul>
     <p>
-      When to use GitHub Pages: docs sites, project landing pages, simple
-      portfolios, static blogs (Jekyll/Hugo/Astro/Next-static-export). Best for
-      content sites with no backend.
+      GitHub Pages ne zaman kullanılır: dokümantasyon siteleri, proje açılış sayfaları, basit
+      portföyler, statik bloglar (Jekyll/Hugo/Astro/Next-static-export). Arka ucu olmayan
+      içerik siteleri için en iyisidir.
     </p>
     <p>
-      When you need traditional hosting (Vercel, Netlify, AWS, your own server):
-      dynamic content, server-rendered pages, auth flows, databases, APIs, file
-      uploads. The Vercel/Netlify free tiers are also generous and cover more
-      use cases than Pages.
+      Geleneksel barındırmaya (Vercel, Netlify, AWS, kendi sunucunuz) ihtiyacınız olduğunda:
+      dinamik içerik, sunucu tarafından oluşturulan sayfalar, kimlik doğrulama akışları, veritabanları, API'ler, dosya
+      yüklemeleri. Vercel/Netlify ücretsiz katmanları da cömerttir ve Pages'den daha fazla kullanım durumunu kapsar.
     </p>
 
-    <h2 id="cost">How much does GitHub cost?</h2>
+    <h2 id="cost">GitHub'ın maliyeti nedir?</h2>
     <ul>
       <li>
-        <strong>Free tier:</strong> unlimited public + private repos. 2000 GitHub
-        Actions minutes/month for personal accounts; 3000 for orgs. 500 MB Packages
-        storage. Codespaces 60 hours/month (2-core).
+        <strong>Ücretsiz katman:</strong> sınırsız genel + özel depo. Kişisel hesaplar için ayda 2000 GitHub
+        Actions dakikası; kuruluşlar için 3000. 500 MB Paket
+        depolama. Codespaces ayda 60 saat (2 çekirdek).
       </li>
       <li>
-        <strong>Pro ($4/month):</strong> more Actions minutes (3000), more Codespaces
-        hours, advanced features (codeowners, draft PRs, required reviews).
+        <strong>Pro (aylık $4):</strong> daha fazla Actions dakikası (3000), daha fazla Codespaces
+        saati, gelişmiş özellikler (codeowners, taslak PR'ler, gerekli incelemeler).
       </li>
       <li>
-        <strong>Team ($4/seat/month):</strong> for organizations — adds team
-        permissions + tooling.
+        <strong>Team (aylık/koltuk $4):</strong> kuruluşlar için — ekip izinleri
+        ve araçları ekler.
       </li>
       <li>
-        <strong>Enterprise ($21/seat/month):</strong> SAML SSO, audit log API,
-        Enterprise Cloud-only features.
+        <strong>Enterprise (aylık/koltuk $21):</strong> SAML SSO, denetim günlüğü API'si,
+        Enterprise Cloud'a özel özellikler.
       </li>
     </ul>
     <p>
-      For solo devs + small teams: free tier covers most use cases. The
-      surprise bill source is GitHub Actions minutes — see our{" "}
-      <a href="/tools/github-actions-cost-estimator">Actions cost estimator</a>.
+      Tek başına geliştiriciler ve küçük ekipler için: ücretsiz katman çoğu kullanım durumunu kapsar.
+      Sürpriz fatura kaynağı GitHub Actions dakikalarıdır —{" "}
+      <a href="/tools/github-actions-cost-estimator">Actions maliyet hesaplayıcımıza</a> bakın.
     </p>
 
-    <h2 id="non-code">Using GitHub for non-code documents</h2>
+    <h2 id="non-code">GitHub'ı kod dışı belgeler için kullanma</h2>
     <p>
-      Yes — increasingly common for technical writing, design docs, structured
-      content. Strengths:
+      Evet — teknik yazım, tasarım dokümanları, yapılandırılmış
+      içerik için giderek daha yaygın hale geliyor. Güçlü yönler:
     </p>
     <ul>
       <li>
-        <strong>Version control on Markdown / text.</strong> See exactly what changed
-        between versions. Diff view is great for prose review.
+        <strong>Markdown / metin üzerinde sürüm kontrolü.</strong> Sürümler arasında tam olarak neyin değiştiğini görün.
+        Diff görünümü, düzyazı incelemesi için harikadır.
       </li>
       <li>
-        <strong>PR-based review process.</strong> Same tooling as code review for
-        documentation changes.
+        <strong>PR tabanlı inceleme süreci.</strong> Dokümantasyon değişiklikleri için kod incelemesiyle aynı araçlar.
       </li>
       <li>
-        <strong>Branching for drafts.</strong> Keep work-in-progress separate from
-        published content.
+        <strong>Taslaklar için dallandırma.</strong> Devam eden çalışmaları yayınlanan
+        içerikten ayrı tutun.
       </li>
       <li>
-        <strong>Free hosting via Pages.</strong> Convert Markdown to a published site
-        with one config file.
+        <strong>Pages aracılığıyla ücretsiz barındırma.</strong> Markdown'ı tek bir yapılandırma dosyasıyla yayınlanan bir siteye
+        dönüştürün.
       </li>
     </ul>
     <p>
-      Weaknesses for non-code use:
+      Kod dışı kullanım için zayıf yönler:
     </p>
     <ul>
-      <li>Binary files (Figma, Sketch, Word docs) don&rsquo;t diff well.</li>
-      <li>Non-technical collaborators struggle with the Git workflow.</li>
-      <li>Image-heavy content bloats repos (use Git LFS for large media).</li>
+      <li>İkili dosyalar (Figma, Sketch, Word belgeleri) iyi diff yapmaz.</li>
+      <li>Teknik olmayan işbirlikçiler Git iş akışıyla zorlanır.</li>
+      <li>Görsel ağırlıklı içerik depoları şişirir (büyük medya için Git LFS kullanın).</li>
     </ul>
     <p>
-      Best fit: documentation, technical writing, blogs, structured content,
-      design specs. Worst fit: visual design files, large binaries, fast-iterating
-      with non-technical people.
+      En uygun: dokümantasyon, teknik yazım, bloglar, yapılandırılmış içerik,
+      tasarım şartnameleri. En uygunsuz: görsel tasarım dosyaları, büyük ikili dosyalar, teknik olmayan
+      kişilerle hızlı yineleme.
     </p>
 
-    <h2 id="replace-slack">Can GitHub replace Slack?</h2>
+    <h2 id="replace-slack">GitHub, Slack'in yerini alabilir mi?</h2>
     <p>
-      For most teams, no. GitHub Discussions, Issues, and Pull Request comments
-      handle async, structured conversation around code. Slack handles synchronous,
-      free-form team chat. Different tools for different jobs.
+      Çoğu ekip için hayır. GitHub Discussions, Issues ve Pull Request yorumları,
+      kod etrafında eşzamansız, yapılandırılmış konuşmayı yönetir. Slack ise
+      eşzamanlı, serbest biçimli ekip sohbetini yönetir. Farklı işler için farklı araçlar.
     </p>
     <p>
-      What GitHub <em>can</em> replace from your Slack workflow:
-    </p>
-    <ul>
-      <li>Code-related discussions (move to PR comments + Issues).</li>
-      <li>Async questions about specific repos (move to Discussions).</li>
-      <li>Status updates on shipped features (move to release notes + Discussions).</li>
-    </ul>
-    <p>
-      What GitHub <em>can&rsquo;t</em> replace:
+      GitHub'ın Slack iş akışınızdan <em>neyi</em> değiştirebileceği:
     </p>
     <ul>
-      <li>Synchronous team chat (water-cooler, quick questions, hallway conversations).</li>
-      <li>Voice/video calls.</li>
-      <li>Cross-team announcements.</li>
-      <li>Non-engineering team coordination.</li>
+      <li>Kodla ilgili tartışmalar (PR yorumlarına + Issues'a taşıyın).</li>
+      <li>Belirli depolar hakkında eşzamansız sorular (Discussions'a taşıyın).</li>
+      <li>Yayınlanan özelliklerle ilgili durum güncellemeleri (sürüm notlarına + Discussions'a taşıyın).</li>
     </ul>
     <p>
-      The realistic move is consolidating engineering-specific Slack channels into
-      GitHub — not eliminating Slack entirely. You&rsquo;ll still want one for the
-      synchronous + cross-team needs.
+      GitHub'ın <em>neyi</em> değiştiremeyeceği:
+    </p>
+    <ul>
+      <li>Eşzamanlı ekip sohbeti (su soğutucusu muhabbeti, hızlı sorular, koridor konuşmaları).</li>
+      <li>Sesli/görüntülü aramalar.</li>
+      <li>Ekipler arası duyurular.</li>
+      <li>Mühendislik dışı ekip koordinasyonu.</li>
+    </ul>
+    <p>
+      Gerçekçi hamle, mühendisliğe özel Slack kanallarını GitHub'da
+      birleştirmektir — Slack'i tamamen ortadan kaldırmak değil. Eşzamanlı
+      ve ekipler arası ihtiyaçlar için yine de bir taneye ihtiyacınız olacak.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Estimate GitHub Actions costs",
+  label: "GitHub Actions maliyetlerini tahmin edin",
   targetSlug: "github-actions-cost-estimator",
 };
 
 export const faq = [
   {
-    q: "What's the difference between GitHub Pages and web hosting?",
-    a: "GitHub Pages: free static hosting, auto-deploy on push, HTTPS, custom domains. Best for docs sites, portfolios, simple static blogs. Limits: no server-side code, 10-min build timeout, no logs. Traditional hosting (Vercel, Netlify, AWS): dynamic content, server-rendering, auth, databases, APIs.",
+    q: "GitHub Pages ile web barındırma arasındaki fark nedir?",
+    a: "GitHub Pages: ücretsiz statik barındırma, gönderimde otomatik dağıtım, HTTPS, özel alan adları. Dokümantasyon siteleri, portföyler, basit statik bloglar için en iyisidir. Sınırlamalar: sunucu tarafı kod yok, 10 dakikalık derleme zaman aşımı, günlük yok. Geleneksel barındırma (Vercel, Netlify, AWS): dinamik içerik, sunucu tarafı oluşturma, kimlik doğrulama, veritabanları, API'ler.",
   },
   {
-    q: "How much does GitHub actually cost?",
-    a: "Free tier: unlimited public + private repos, 2000 Actions minutes/mo personal (3000 org), 500 MB Packages, 60 Codespaces hours. Pro $4/mo: more capacity. Team $4/seat: org features. Enterprise $21/seat: SAML SSO, audit logs. Surprise bills usually come from Actions overage.",
+    q: "GitHub'ın gerçek maliyeti nedir?",
+    a: "Ücretsiz katman: sınırsız genel + özel depo, kişisel için ayda 2000 Actions dakikası (kuruluş için 3000), 500 MB Paket, 60 Codespaces saati. Pro aylık $4: daha fazla kapasite. Team koltuk başına $4: kuruluş özellikleri. Enterprise koltuk başına $21: SAML SSO, denetim günlükleri. Sürpriz faturalar genellikle Actions aşımından gelir.",
   },
   {
-    q: "Can I use GitHub to manage non-code documents?",
-    a: "Yes — version control, PR review, branching all work for Markdown/text. Best for docs, technical writing, blogs, design specs. Weak for binary files (Figma, Word) that don't diff well, and for non-technical collaborators who struggle with Git.",
+    q: "Kod dışı belgeleri yönetmek için GitHub'ı kullanabilir miyim?",
+    a: "Evet — sürüm kontrolü, PR incelemesi, dallandırma Markdown/metin için çalışır. Dokümanlar, teknik yazım, bloglar, tasarım şartnameleri için en iyisidir. İyi diff yapmayan ikili dosyalar (Figma, Word) ve Git ile zorlanan teknik olmayan işbirlikçiler için zayıftır.",
   },
   {
-    q: "Can GitHub replace Slack for team communication?",
-    a: "For most teams, no. GitHub handles async structured conversation around code (Discussions, Issues, PR comments). Slack handles synchronous free-form team chat. Realistic move: consolidate engineering-specific Slack channels into GitHub, keep Slack for the rest.",
+    q: "GitHub, ekip iletişimi için Slack'in yerini alabilir mi?",
+    a: "Çoğu ekip için hayır. GitHub, kod etrafında eşzamansız yapılandırılmış konuşmayı yönetir (Discussions, Issues, PR yorumları). Slack, eşzamanlı serbest biçimli ekip sohbetini yönetir. Gerçekçi hamle: mühendisliğe özel Slack kanallarını GitHub'da birleştirin, geri kalanı için Slack'i koruyun.",
   },
 ];

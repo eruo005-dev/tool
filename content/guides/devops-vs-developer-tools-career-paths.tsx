@@ -1,172 +1,173 @@
-/* eslint-disable react/no-unescaped-entities */
-
 export const intro = (
   <>
     <p>
-      DevOps and Developer Tools (DevTools / DPE / DevX) are the two big
-      &ldquo;internal-facing&rdquo; engineering specializations. They overlap, get
-      confused often, and lead to different career arcs. Picking between them — or
-      navigating roles that blend both — is a recurring question on
-      r/cscareerquestions and r/devops.
+      DevOps ve Geliştirici Araçları (DevTools / DPE / DevX), iki büyük
+      &ldquo;içe dönük&rdquo; mühendislik uzmanlık alanıdır. Örtüşürler, sıkça
+      karıştırılırlar ve farklı kariyer yollarına yol açarlar. Bunlar arasında
+      seçim yapmak veya her ikisini de harmanlayan rolleri yönetmek,
+      r/cscareerquestions ve r/devops'ta sıkça sorulan bir sorudur.
     </p>
     <p>
-      This guide is the honest comparison: what each role actually does, how comp +
-      growth differ, and which to pick based on your strengths.
+      Bu rehber dürüst bir karşılaştırmadır: her rolün gerçekte ne yaptığı,
+      ücret ve büyümenin nasıl farklılaştığı ve güçlü yönlerinize göre hangisini
+      seçmeniz gerektiği.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "definitions", label: "Clear definitions" },
-  { id: "differences", label: "What's actually different" },
-  { id: "comp-growth", label: "Comp + growth comparison" },
-  { id: "which-to-pick", label: "Which to pick (decision framework)" },
+  { id: "definitions", label: "Net tanımlar" },
+  { id: "differences", label: "Gerçek farklar" },
+  { id: "comp-growth", label: "Ücret ve büyüme karşılaştırması" },
+  { id: "which-to-pick", label: "Hangisini seçmeli (karar çerçevesi)" },
 ];
 
 export const body = (
   <>
-    <h2 id="definitions">Clear definitions</h2>
+    <h2 id="definitions">Net tanımlar</h2>
     <p>
-      <strong>DevOps:</strong> the discipline of bridging dev and ops — owning the
-      deploy pipeline, runtime infrastructure, on-call, monitoring, incident
-      response. Originated to break down silos between engineering teams and ops
-      teams.
+      <strong>DevOps:</strong> geliştirme ve operasyon arasında köprü kurma
+      disiplini — dağıtım hattına, çalışma zamanı altyapısına, nöbetçiliğe,
+      izlemeye ve olay müdahalesine sahip olmak. Mühendislik ekipleri ve operasyon
+      ekipleri arasındaki siloları yıkmak için ortaya çıkmıştır.
     </p>
     <p>
-      <strong>Developer Tools / DPE / DevX:</strong> the discipline of measuring
-      and improving the productivity of developers in your organization. Focus on
-      local environments, build performance, internal tooling, the developer-facing
-      slice of the SDLC.
+      <strong>Geliştirici Araçları / DPE / DevX:</strong> kuruluşunuzdaki
+      geliştiricilerin üretkenliğini ölçme ve iyileştirme disiplini. Yerel
+      ortamlara, derleme performansına, dahili araçlara ve SDLC'nin geliştiriciye
+      yönelik kısmına odaklanır.
     </p>
     <p>
-      <strong>Platform Engineering:</strong> the umbrella term that&rsquo;s become
-      common in 2024–2026. Often combines DevOps + DevTools at smaller companies; at
-      bigger companies, sub-teams specialize.
+      <strong>Platform Mühendisliği:</strong> 2024–2026'da yaygınlaşan şemsiye
+      terim. Küçük şirketlerde genellikle DevOps ve DevTools'u birleştirir; büyük
+      şirketlerde alt ekipler uzmanlaşır.
     </p>
     <p>
-      <strong>Site Reliability Engineering (SRE):</strong> the runtime-reliability
-      sub-specialty. Closer to DevOps than DevTools but with its own tradition
-      (Google&rsquo;s SRE book).
+      <strong>Site Güvenilirliği Mühendisliği (SRE):</strong> çalışma zamanı
+      güvenilirliği alt uzmanlığı. DevTools'tan çok DevOps'a yakındır ancak kendi
+      geleneğine sahiptir (Google'ın SRE kitabı).
     </p>
 
-    <h2 id="differences">What&rsquo;s actually different</h2>
+    <h2 id="differences">Gerçek farklar</h2>
     <ul>
       <li>
-        <strong>Daily work:</strong>
+        <strong>Günlük iş:</strong>
         <ul>
-          <li><strong>DevOps:</strong> deploy pipelines, runtime config, monitoring dashboards, on-call rotations, incident write-ups, capacity planning, infrastructure-as-code.</li>
-          <li><strong>DevTools:</strong> local dev environments, build-system performance, test infrastructure, internal CLI/SDK design, dev-facing observability, codebase tooling (linters, formatters, codemods).</li>
+          <li><strong>DevOps:</strong> dağıtım hatları, çalışma zamanı yapılandırması, izleme panoları, nöbetçi rotasyonları, olay raporları, kapasite planlaması, altyapı-kod.</li>
+          <li><strong>DevTools:</strong> yerel geliştirme ortamları, derleme sistemi performansı, test altyapısı, dahili CLI/SDK tasarımı, geliştiriciye yönelik gözlemlenebilirlik, kod tabanı araçları (lint'ler, biçimlendiriciler, kod dönüşümleri).</li>
         </ul>
       </li>
       <li>
-        <strong>Tech stack:</strong>
+        <strong>Teknoloji yığını:</strong>
         <ul>
           <li><strong>DevOps:</strong> Kubernetes, Terraform, Helm, AWS/GCP/Azure, Prometheus, Grafana, ArgoCD, FluxCD.</li>
-          <li><strong>DevTools:</strong> Bazel, Buck2, language-specific build systems (Webpack, Vite, Cargo), GitHub Actions, internal CLIs (often Go), observability tooling.</li>
+          <li><strong>DevTools:</strong> Bazel, Buck2, dile özgü derleme sistemleri (Webpack, Vite, Cargo), GitHub Actions, dahili CLI'lar (genellikle Go), gözlemlenebilirlik araçları.</li>
         </ul>
       </li>
       <li>
-        <strong>On-call burden:</strong>
+        <strong>Nöbetçi yükü:</strong>
         <ul>
-          <li><strong>DevOps:</strong> high. The role is partly defined by 24/7 reliability ownership.</li>
-          <li><strong>DevTools:</strong> low to moderate. Some teams have on-call for build infra, but it&rsquo;s typically business-hours-ish.</li>
+          <li><strong>DevOps:</strong> yüksek. Rol kısmen 7/24 güvenilirlik sahipliği ile tanımlanır.</li>
+          <li><strong>DevTools:</strong> düşük ila orta. Bazı ekiplerin derleme altyapısı için nöbetçisi vardır, ancak genellikle iş saatleri içindedir.</li>
         </ul>
       </li>
       <li>
-        <strong>User type:</strong>
+        <strong>Kullanıcı türü:</strong>
         <ul>
-          <li><strong>DevOps:</strong> production runtime + end users (indirectly).</li>
-          <li><strong>DevTools:</strong> internal developers as direct users.</li>
+          <li><strong>DevOps:</strong> üretim çalışma zamanı + son kullanıcılar (dolaylı olarak).</li>
+          <li><strong>DevTools:</strong> doğrudan kullanıcı olarak dahili geliştiriciler.</li>
         </ul>
       </li>
       <li>
-        <strong>Failure-mode psychology:</strong>
+        <strong>Başarısızlık modu psikolojisi:</strong>
         <ul>
-          <li><strong>DevOps:</strong> high-stakes failure (production outage, customer impact). Stress profile of incident response.</li>
-          <li><strong>DevTools:</strong> low-stakes failure mostly (dev productivity drops, but no customer-visible impact). Different stress profile — more about long-term improvement, less about firefighting.</li>
+          <li><strong>DevOps:</strong> yüksek riskli başarısızlık (üretim kesintisi, müşteri etkisi). Olay müdahalesinin stres profili.</li>
+          <li><strong>DevTools:</strong> çoğunlukla düşük riskli başarısızlık (geliştirici üretkenliği düşer, ancak müşteri tarafından görülebilir bir etki olmaz). Farklı stres profili — daha çok uzun vadeli iyileştirme, daha az yangın söndürme.</li>
         </ul>
       </li>
     </ul>
 
-    <h2 id="comp-growth">Comp + growth comparison</h2>
+    <h2 id="comp-growth">Ücret ve büyüme karşılaştırması</h2>
     <ul>
       <li>
-        <strong>Comp:</strong> roughly equivalent at every level. Pay-transparency
-        disclosures show DevTools/DPE 5–15% above generic SWE; DevOps comparable.
-        SRE at top tech (Google, Meta) often above both. See our{" "}
-        <a href="/tools/dev-tool-salary-estimator">salary estimator</a>.
+        <strong>Ücret:</strong> her seviyede kabaca eşdeğer. Ücret şeffaflığı
+        açıklamaları, DevTools/DPE'nin genel SWE'den %5–15 daha yüksek olduğunu;
+        DevOps'un karşılaştırılabilir olduğunu gösteriyor. Google, Meta gibi en iyi
+        teknoloji şirketlerinde SRE genellikle her ikisinden de yüksektir.{" "}
+        <a href="/tools/dev-tool-salary-estimator">Maaş tahmin aracımıza</a> bakın.
       </li>
       <li>
-        <strong>Growth runway:</strong> both are growing categories in 2026.
-        DevOps as a labeled discipline is older; DevTools is the relative growth
-        driver as companies invest in productivity.
+        <strong>Büyüme potansiyeli:</strong> her ikisi de 2026'da büyüyen
+        kategorilerdir. DevOps etiketli bir disiplin olarak daha eskidir; DevTools,
+        şirketlerin üretkenliğe yatırım yapmasıyla göreceli büyüme itici gücüdür.
       </li>
       <li>
-        <strong>Job-listing volume:</strong> DevOps has more open roles in absolute
-        terms; DevTools/DPE has fewer but is growing faster.
+        <strong>İş ilanı hacmi:</strong> DevOps'un mutlak anlamda daha fazla açık
+        pozisyonu vardır; DevTools/DPE'nin daha azı vardır ancak daha hızlı
+        büyümektedir.
       </li>
       <li>
-        <strong>Remote-friendliness:</strong> both lean remote-friendly. DevOps
-        on-call coordination sometimes argues for time-zone alignment; DevTools
-        less constrained.
+        <strong>Uzaktan çalışma dostluğu:</strong> her ikisi de uzaktan çalışmaya
+        yatkındır. DevOps nöbetçi koordinasyonu bazen saat dilimi uyumu gerektirir;
+        DevTools daha az kısıtlamaya sahiptir.
       </li>
     </ul>
 
-    <h2 id="which-to-pick">Which to pick — decision framework</h2>
+    <h2 id="which-to-pick">Hangisini seçmeli — karar çerçevesi</h2>
     <p>
-      Five questions to clarify the choice:
+      Seçimi netleştirmek için beş soru:
     </p>
     <ol>
       <li>
-        <strong>Do you like operational pressure?</strong> The 3 AM page,
-        debugging a live outage, managing risk under time pressure. Yes → DevOps.
-        Indifferent or no → DevTools.
+        <strong>Operasyonel baskıyı sever misiniz?</strong> Gece 3'teki sayfa,
+        canlı bir kesintiyi hata ayıklama, zaman baskısı altında risk yönetimi.
+        Evet → DevOps. Kayıtsız veya hayır → DevTools.
       </li>
       <li>
-        <strong>Do you enjoy building tools other engineers will use?</strong>
-        The empathy + product-thinking-for-internal-users angle. Yes → DevTools.
-        Indifferent → DevOps.
+        <strong>Diğer mühendislerin kullanacağı araçlar oluşturmaktan hoşlanır
+        mısınız?</strong> İç kullanıcılar için empati + ürün düşüncesi. Evet →
+        DevTools. Kayıtsız → DevOps.
       </li>
       <li>
-        <strong>How comfortable are you with infrastructure?</strong> Heavy K8s,
-        cloud, networking interest → DevOps. More codebase / build-system /
-        compiler / language-tooling interest → DevTools.
+        <strong>Altyapı konusunda ne kadar rahatsınız?</strong> Yoğun K8s, bulut,
+        ağ ilgisi → DevOps. Daha çok kod tabanı / derleme sistemi / derleyici / dil
+        araçları ilgisi → DevTools.
       </li>
       <li>
-        <strong>Are you optimizing for stability or visibility?</strong> DevOps
-        is generally more visible (outages get attention); DevTools is more
-        background but shapes the org&rsquo;s capability.
+        <strong>İstikrar mı yoksa görünürlük mü için optimize ediyorsunuz?</strong>
+        DevOps genellikle daha görünürdür (kesintiler dikkat çeker); DevTools daha
+        arka plandadır ancak organizasyonun yeteneğini şekillendirir.
       </li>
       <li>
-        <strong>Switching cost:</strong> low. The skills transfer in both
-        directions. Many engineers have been both at different companies.
-        Don&rsquo;t over-think the lock-in.
+        <strong>Geçiş maliyeti:</strong> düşük. Beceriler her iki yönde de
+        aktarılabilir. Birçok mühendis farklı şirketlerde her ikisinde de
+        bulunmuştur. Kilitlenme konusunda fazla düşünmeyin.
       </li>
     </ol>
     <p>
-      The 2026 reality: hybrid &ldquo;Platform Engineer&rdquo; roles that touch
-      both are increasingly common. If you&rsquo;re early in the decision, those
-      roles let you sample both before specializing.
+      2026 gerçeği: her ikisine de dokunan hibrit &ldquo;Platform Mühendisi&rdquo;
+      rolleri giderek yaygınlaşıyor. Karar aşamasının başındaysanız, bu roller
+      uzmanlaşmadan önce her ikisini de denemenize olanak tanır.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Salary ranges for DevTools / DPE / DevOps roles",
+  label: "DevTools / DPE / DevOps rolleri için maaş aralıkları",
   targetSlug: "dev-tool-salary-estimator",
 };
 
 export const faq = [
   {
-    q: "Is DevOps or developer tools the better career path?",
-    a: "Both are growing; comp is roughly equivalent at every level. DevOps has more total open roles and on-call burden; DevTools/DPE is growing faster, has lower on-call, and focuses on internal-facing developer experience. Pick based on whether you enjoy operational pressure (DevOps) or building tools other engineers use (DevTools).",
+    q: "DevOps mu yoksa geliştirici araçları mı daha iyi bir kariyer yolu?",
+    a: "Her ikisi de büyüyor; ücret her seviyede kabaca eşdeğer. DevOps'un daha fazla toplam açık pozisyonu ve nöbetçi yükü vardır; DevTools/DPE daha hızlı büyüyor, daha düşük nöbetçi yüküne sahip ve içe dönük geliştirici deneyimine odaklanıyor. Operasyonel baskıyı seviyorsanız (DevOps) veya diğer mühendislerin kullanacağı araçlar oluşturmaktan hoşlanıyorsanız (DevTools) buna göre seçim yapın.",
   },
   {
-    q: "What's the difference between DevOps and developer tools?",
-    a: "DevOps: deploy pipelines, runtime infrastructure, on-call, incident response, IaC. DevTools/DPE: local dev environments, build performance, internal tooling, codebase tooling. Different daily work, similar tech-adjacency, similar pay. Platform Engineer is the umbrella term that often combines both at smaller companies.",
+    q: "DevOps ve geliştirici araçları arasındaki fark nedir?",
+    a: "DevOps: dağıtım hatları, çalışma zamanı altyapısı, nöbetçilik, olay müdahalesi, IaC. DevTools/DPE: yerel geliştirme ortamları, derleme performansı, dahili araçlar, kod tabanı araçları. Farklı günlük işler, benzer teknoloji yakınlığı, benzer maaş. Platform Mühendisi, küçük şirketlerde genellikle her ikisini de birleştiren şemsiye terimdir.",
   },
   {
-    q: "Can you switch between DevOps and developer tools?",
-    a: "Yes — skills transfer well in both directions. Many engineers have done both at different companies. The 2026 reality is that hybrid 'Platform Engineer' roles increasingly span both, letting you sample before specializing. Switching cost is low; don't over-think the lock-in.",
+    q: "DevOps ve geliştirici araçları arasında geçiş yapabilir misiniz?",
+    a: "Evet — beceriler her iki yönde de iyi aktarılır. Birçok mühendis farklı şirketlerde her ikisinde de bulunmuştur. 2026 gerçeği, hibrit 'Platform Mühendisi' rollerinin giderek her ikisini de kapsaması ve uzmanlaşmadan önce denemenize olanak tanımasıdır. Geçiş maliyeti düşüktür; kilitlenme konusunda fazla düşünmeyin.",
   },
 ];

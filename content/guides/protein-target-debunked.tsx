@@ -2,36 +2,34 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    The 1g of protein per pound of body weight rule is everywhere on fitness social media. The actual research
-    suggests less for most people. Here&rsquo;s what 2026 evidence says and how to set your real target.
+    Vücut ağırlığının kilosu başına 1 gram protein kuralı, fitness sosyal medyasında her yerde. Gerçek araştırmalar çoğu insan için daha azını öneriyor. İşte 2026 kanıtlarının söyledikleri ve gerçek hedefinizi nasıl belirleyeceğiniz.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The actual numbers</h2>
+    <h2>Gerçek rakamlar</h2>
     <ul>
-      <li><strong>Sedentary adults:</strong> 0.36 g/lb (RDA) is enough to avoid deficiency. Most people exceed this without trying.</li>
-      <li><strong>Recreational lifters / runners:</strong> 0.6-0.8 g/lb is plenty for most goals.</li>
-      <li><strong>Serious lifters in surplus / deficit:</strong> 0.8-1.0 g/lb covers it. Above 1.0 has diminishing returns.</li>
-      <li><strong>Older adults (50+):</strong> 0.8 g/lb minimum. Higher (vs RDA) protects against sarcopenia.</li>
-      <li><strong>People on GLP-1s:</strong> 0.8-1.0 g/lb is genuinely important to preserve lean mass during loss.</li>
+      <li><strong>Hareketsiz yetişkinler:</strong> Eksikliği önlemek için 0.36 g/lb (RDA) yeterlidir. Çoğu kişi denemeden bile bu miktarı aşar.</li>
+      <li><strong>Rekreasyonel ağırlık kaldıranlar / koşucular:</strong> Çoğu hedef için 0.6-0.8 g/lb fazlasıyla yeterlidir.</li>
+      <li><strong>Fazla / eksik kaloriyle ciddi ağırlık kaldıranlar:</strong> 0.8-1.0 g/lb ihtiyacı karşılar. 1.0'ın üzerinde azalan getiri vardır.</li>
+      <li><strong>Yaşlı yetişkinler (50+):</strong> Minimum 0.8 g/lb. Daha yükseği (RDA'ya kıyasla) sarkopeniye karşı korur.</li>
+      <li><strong>GLP-1 kullananlar:</strong> Kayıp sırasında yağsız kütleyi korumak için 0.8-1.0 g/lb gerçekten önemlidir.</li>
     </ul>
-    <h2>Where the &ldquo;1g/lb&rdquo; came from</h2>
+    <h2>&ldquo;1g/lb&rdquo; kuralı nereden geldi</h2>
     <p>
-      Bodybuilding lore from the 80s, popularized by social media. It&rsquo;s not wrong &mdash; it&rsquo;s just not
-      necessary for most people, and it crowds out other dietary goals (fiber, micronutrients, calorie balance).
+      80'lerden kalma vücut geliştirme efsanesi, sosyal medyada popülerleşti. Yanlış değil &mdash; sadece çoğu insan için gerekli değil ve diğer beslenme hedeflerini (lif, mikro besinler, kalori dengesi) dışlıyor.
     </p>
-    <h2>What to spend optimization energy on instead</h2>
+    <h2>Optimizasyon enerjinizi bunun yerine neye harcamalısınız</h2>
     <ul>
-      <li>Hitting 25-40g per meal (the leucine threshold for synthesis).</li>
-      <li>Eating protein within 2 hours of strength training.</li>
-      <li>Spreading protein across 3-4 meals, not stacking it at dinner.</li>
-      <li>Quality (complete amino acid profile) before quantity.</li>
+      <li>Öğün başına 25-40g protein almak (sentez için lösin eşiği).</li>
+      <li>Kuvvet antrenmanından sonraki 2 saat içinde protein tüketmek.</li>
+      <li>Proteini akşam yemeğinde yığmak yerine 3-4 öğüne yaymak.</li>
+      <li>Miktardan önce kalite (tam amino asit profili).</li>
     </ul>
     <p>
-      Build a meal plan around it &mdash; see the <a href="/tools/macro-calculator">macro calculator</a> and{" "}
-      <a href="/guides/how-to-meal-prep">how to meal prep</a>.
+      Buna göre bir yemek planı oluşturun &mdash; <a href="/tools/macro-calculator">makro hesaplayıcı</a> ve{" "}
+      <a href="/guides/how-to-meal-prep">yemek hazırlama rehberi</a>'ne bakın.
     </p>
   </>
 );

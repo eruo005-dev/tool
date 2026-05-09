@@ -3,211 +3,138 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Most first-time racers go out too fast, blow up at the halfway
-      mark, and finish far slower than their fitness suggests they
-      should. The fix isn&rsquo;t more training — it&rsquo;s a pacing
-      plan that matches your actual aerobic capacity, the course
-      profile, and race-day conditions. This guide walks through how
-      to set a realistic goal pace, how to split it across the race,
-      and the tactical rules that prevent bonking.
+      Çoğu ilk kez yarışan kişi çok hızlı başlar, yarı yolda tükenir ve bitiş süresi, kondisyonlarının izin verdiğinden çok daha yavaş olur. Çözüm daha fazla antrenman değil, gerçek aerobik kapasitenize, parkur profiline ve yarış günü koşullarına uygun bir tempo planıdır. Bu rehber, adım adım gerçekçi bir hedef tempo belirlemenizi, yarış boyunca tempoyu nasıl böleceğinizi ve tükenmeyi önleyen taktiksel kuralları anlatır.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Step 1 — find your realistic goal pace</h2>
+    <h2>Adım 1 — gerçekçi hedef temponuzu bulun</h2>
     <p>
-      Pace should come from <strong>recent race data or a threshold
-      test</strong>, not hope. Three ways to find yours:
+      Tempo, <strong>son yarış verilerinden veya eşik testinden</strong> gelmelidir, umuttan değil. Kendinizinkini bulmanın üç yolu:
     </p>
     <p>
-      <strong>(1) Recent race conversion.</strong> A recent 5K time
-      predicts longer distances reasonably well. Rough multipliers:
+      <strong>(1) Son yarış dönüşümü.</strong> Son 5K süreniz, daha uzun mesafeleri makul ölçüde tahmin eder. Yaklaşık çarpanlar:
     </p>
     <p>
-      <strong>10K time ≈ 5K time × 2.10</strong> (so 22:00 5K →
-      46:12 10K).
+      <strong>10K süresi ≈ 5K süresi × 2.10</strong> (22:00 5K → 46:12 10K).
     </p>
     <p>
-      <strong>Half marathon ≈ 5K × 4.67</strong> (22:00 5K →
-      1:42:45).
+      <strong>Yarı maraton ≈ 5K × 4.67</strong> (22:00 5K → 1:42:45).
     </p>
     <p>
-      <strong>Full marathon ≈ 5K × 9.80</strong> (22:00 5K → 3:35:36).
+      <strong>Tam maraton ≈ 5K × 9.80</strong> (22:00 5K → 3:35:36).
     </p>
     <p>
-      These assume similar training volume for the longer distance.
-      If you trained for 5K and jump to a marathon cold, the marathon
-      will be much slower than the formula predicts.
+      Bunlar, daha uzun mesafe için benzer antrenman hacmini varsayar. 5K için antrenman yapıp soğuk bir maratona atlarsanız, maraton formülün tahmin ettiğinden çok daha yavaş olur.
     </p>
     <p>
-      <strong>(2) VDOT tables.</strong> Jack Daniels&rsquo; VDOT system
-      (from <em>Daniels&rsquo; Running Formula</em>) converts any recent
-      race into an equivalent across all distances. Free online
-      calculators use this.
+      <strong>(2) VDOT tabloları.</strong> Jack Daniels'ın VDOT sistemi (<em>Daniels' Running Formula</em> kitabından) herhangi bir son yarışı tüm mesafelerde eşdeğerine dönüştürür. Ücretsiz çevrimiçi hesaplayıcılar bunu kullanır.
     </p>
     <p>
-      <strong>(3) Lactate threshold pace.</strong> The pace you can
-      sustain for ~1 hour all-out is your lactate threshold. Half
-      marathon pace is close to threshold; marathon pace is about
-      15–30 sec/mile slower than threshold.
+      <strong>(3) Laktat eşik temposu.</strong> Yaklaşık 1 saat boyunca maksimum eforla sürdürebileceğiniz tempo, laktat eşiğinizdir. Yarı maraton temposu eşiğe yakındır; maraton temposu eşikten mil başına yaklaşık 15–30 saniye daha yavaştır.
     </p>
 
-    <h2>Step 2 — decide your pacing strategy</h2>
+    <h2>Adım 2 — tempo stratejinize karar verin</h2>
     <p>
-      <strong>Even split (identical pace throughout):</strong> most
-      efficient pacing in terms of physics. Hard to execute because
-      you usually feel fresh early and want to go faster.
+      <strong>Eşit bölünmeler (boyunca aynı tempo):</strong> fiziksel olarak en verimli tempo. Uygulaması zordur çünkü genellikle başlangıçta dinç hissedersiniz ve daha hızlı gitmek istersiniz.
     </p>
     <p>
-      <strong>Negative split (second half faster):</strong> the
-      gold-standard strategy for most distances. World records in
-      marathons are almost always run with negative splits. Start 5–10
-      sec/mile slower than goal, finish 5–15 sec/mile faster than
-      goal. Requires discipline the first 5K.
+      <strong>Negatif bölünmeler (ikinci yarı daha hızlı):</strong> çoğu mesafe için altın standart stratejidir. Neredeyse tüm maraton dünya rekorları negatif bölünmelerle koşulur. Hedef tempodan mil başına 5–10 saniye daha yavaş başlayın, hedef tempodan mil başına 5–15 saniye daha hızlı bitirin. İlk 5K'da disiplin gerektirir.
     </p>
     <p>
-      <strong>Positive split (first half faster):</strong> what
-      happens by default if you don&rsquo;t plan. Usually leads to
-      blowup. Not a strategy, just a failure mode.
+      <strong>Pozitif bölünmeler (ilk yarı daha hızlı):</strong> plan yapmazsanız varsayılan olarak olan şeydir. Genellikle tükenmeye yol açar. Bir strateji değil, sadece bir başarısızlık modudur.
     </p>
     <p>
-      <strong>Strategy for race day:</strong> pick negative-split
-      target. First 5–10% of race at +10 sec/mile slower than goal
-      pace, middle at goal pace, final 20% at goal pace or faster if
-      you have it.
+      <strong>Yarış günü stratejisi:</strong> negatif bölünme hedefi seçin. Yarışın ilk %5-10'u hedef tempodan mil başına +10 saniye daha yavaş, ortası hedef tempoda, son %20'si hedef tempoda veya gücünüz varsa daha hızlı.
     </p>
 
-    <h2>Step 3 — split the race into chunks</h2>
+    <h2>Adım 3 — yarışı bölümlere ayırın</h2>
     <p>
-      Don&rsquo;t think about the full distance. Break it into
-      segments you&rsquo;ve already run in training.
+      Tam mesafeyi düşünmeyin. Antrenmanda daha önce koştuğunuz bölümlere ayırın.
     </p>
     <p>
-      <strong>Marathon:</strong> 4 × 10K + 2.2K. Hit planned splits at
-      each 10K mark. If 15 sec slow through 10K, don&rsquo;t try to
-      make it up; hold goal pace. If 30 sec fast, slow down
-      immediately — you&rsquo;re cashing a check that will bounce
-      later.
+      <strong>Maraton:</strong> 4 × 10K + 2.2K. Her 10K işaretinde planlanan bölünme sürelerini tutturun. 10K'da 15 saniye yavaşsanız, telafi etmeye çalışmayın; hedef tempoyu koruyun. 30 saniye hızlıysanız, hemen yavaşlayın — daha sonra karşılığını ödeyeceğiniz bir çek bozduruyorsunuz.
     </p>
     <p>
-      <strong>Half marathon:</strong> 3 × 7K approx. First 7K:
-      controlled, slight restraint. Middle 7K: goal pace. Final 7K:
-      goal pace or faster if legs allow.
+      <strong>Yarı maraton:</strong> kabaca 3 × 7K. İlk 7K: kontrollü, hafif kısıtlama. Orta 7K: hedef tempo. Son 7K: bacaklar izin veriyorsa hedef tempo veya daha hızlı.
     </p>
     <p>
-      <strong>10K:</strong> 3 × 5-min efforts (rough). First 5 min:
-      don&rsquo;t get swept up by the start. Middle: find rhythm.
-      Final: empty the tank last 1-2K.
+      <strong>10K:</strong> kabaca 3 × 5 dakikalık efor. İlk 5 dakika: başlangıç heyecanına kapılmayın. Orta: ritminizi bulun. Son: son 1-2K'da depoyu boşaltın.
     </p>
     <p>
-      <strong>5K:</strong> Slight negative split works but mainly: hold
-      threshold pace from km 1 onward. It will feel hard; that&rsquo;s
-      the point.
+      <strong>5K:</strong> Hafif bir negatif bölünme işe yarar ancak esas olarak: km 1'den itibaren eşik temposunu koruyun. Zor hissettirecek; amaç bu.
     </p>
 
-    <h2>Course and weather adjustments</h2>
+    <h2>Parkur ve hava durumu ayarlamaları</h2>
     <p>
-      <strong>Hills.</strong> Go by effort, not pace. On uphills, pace
-      slows 15–30 sec/mile; on downhills, pace speeds 10–20 sec/mile.
-      Don&rsquo;t fight to hold pace up hills — you&rsquo;ll blow up.
-      Run uphill steady, let downhills come to you.
+      <strong>Tepeler.</strong> Tempoya değil, efora göre gidin. Yokuş yukarı tempo mil başına 15–30 saniye yavaşlar; yokuş aşağı tempo mil başına 10–20 saniye hızlanır. Tepelerde tempoyu korumak için zorlamayın — tükenirsiniz. Yokuş yukarı istikrarlı koşun, yokuş aşağıların size gelmesine izin verin.
     </p>
     <p>
-      <strong>Heat.</strong> Over 60°F / 15°C, expect 5–10 sec/mile
-      slower per 10°F rise. A 75°F marathon is typically 2–4 min
-      slower than the same fitness at 55°F.
+      <strong>Sıcaklık.</strong> 15°C / 60°F üzerinde, her 5.5°C / 10°F artış için mil başına 5–10 saniye daha yavaş bekleyin. 24°C / 75°F'deki bir maraton, aynı kondisyonla 13°C / 55°F'dekinden tipik olarak 2–4 dakika daha yavaştır.
     </p>
     <p>
-      <strong>Humidity.</strong> High humidity (&gt;70%) effectively adds
-      to heat penalty. Your body can&rsquo;t cool as efficiently.
+      <strong>Nem.</strong> Yüksek nem ({'>'}%70), sıcaklık cezasını etkili bir şekilde artırır. Vücudunuz verimli bir şekilde soğuyamaz.
     </p>
     <p>
-      <strong>Wind.</strong> Headwinds cost about 5 sec/mile per 10
-      mph of wind. Tailwinds give back about half that.
+      <strong>Rüzgar.</strong> Karşı rüzgarlar, 16 km/s / 10 mph rüzgar başına mil başına yaklaşık 5 saniyeye mal olur. Arkadan esen rüzgarlar bunun yaklaşık yarısını geri verir.
     </p>
     <p>
-      <strong>Altitude.</strong> Above 4,000 feet, reduce pace
-      expectation 5–10 sec/mile per 2,000 feet above your home
-      elevation, more for races above 6,000 feet.
+      <strong>Rakım.</strong> 1.200 metre / 4.000 feet üzerinde, kendi rakımınızın üzerindeki her 600 metre / 2.000 feet için tempo beklentisini mil başına 5–10 saniye azaltın, 1.800 metre / 6.000 feet üzerindeki yarışlar için daha fazla.
     </p>
 
-    <h2>Fueling and hydration pace</h2>
+    <h2>Beslenme ve sıvı alımı temposu</h2>
     <p>
-      Pacing isn&rsquo;t just running speed — it&rsquo;s caloric and
-      fluid intake over time:
+      Tempo sadece koşu hızı değildir — zaman içinde kalori ve sıvı alımıdır:
     </p>
     <p>
-      <strong>Marathon and longer:</strong> 30–60g carbs per hour
-      starting at minute 30–45. Skip the first aid station, take every
-      one after that.
+      <strong>Maraton ve daha uzun:</strong> 30–45 dakikadan başlayarak saatte 30–60g karbonhidrat. İlk yardım istasyonunu atlayın, ondan sonra her birini alın.
     </p>
     <p>
-      <strong>Half marathon:</strong> one gel at 45 min if practiced;
-      otherwise just hydrate.
+      <strong>Yarı maraton:</strong> alışkınsanız 45 dakikada bir jel; aksi takdirde sadece su.
     </p>
     <p>
-      <strong>10K and shorter:</strong> no fueling needed; don&rsquo;t
-      drink more than a sip (stomach sloshing will slow you more than
-      hydration helps).
+      <strong>10K ve daha kısa:</strong> beslenmeye gerek yok; bir yudumdan fazla içmeyin (midede sallanması, sıvı alımının yardım ettiğinden daha fazla yavaşlatır).
     </p>
     <p>
-      <strong>Hydration:</strong> in a cool race, drink when thirsty
-      at aid stations. In heat, drink at every station regardless of
-      thirst.
+      <strong>Sıvı alımı:</strong> serin bir yarışta, susadığınızda yardım istasyonlarında için. Sıcakta, susamasanız bile her istasyonda için.
     </p>
 
-    <h2>The taper — the forgotten pacing factor</h2>
+    <h2>Dinlenme dönemi — unutulan tempo faktörü</h2>
     <p>
-      Your race-day pace depends on race-day legs, which depend on the
-      taper. Common taper guidance:
+      Yarış günü temponuz, dinlenme dönemine bağlı olan yarış günü bacaklarınıza bağlıdır. Yaygın dinlenme dönemi önerileri:
     </p>
     <p>
-      <strong>Marathon:</strong> 3-week taper. Week 3 out: 80% volume,
-      full intensity. Week 2: 60% volume. Week 1: 40% volume, very
-      short race-pace work.
+      <strong>Maraton:</strong> 3 haftalık dinlenme dönemi. 3. hafta: %80 hacim, tam yoğunluk. 2. hafta: %60 hacim. 1. hafta: %40 hacim, çok kısa yarış temposu çalışması.
     </p>
     <p>
-      <strong>Half marathon:</strong> 10–14 days. Reduce volume 30–40%
-      but keep some race-pace running.
+      <strong>Yarı maraton:</strong> 10–14 gün. Hacmi %30–40 azaltın ancak biraz yarış temposunda koşun.
     </p>
     <p>
-      <strong>10K:</strong> 7–10 days light taper. Last hard workout
-      4–5 days out.
+      <strong>10K:</strong> 7–10 gün hafif dinlenme dönemi. Son zorlu antrenmanı 4–5 gün önce yapın.
     </p>
     <p>
-      <strong>5K:</strong> 5 days very light taper. Last intensity 3
-      days out.
+      <strong>5K:</strong> 5 gün çok hafif dinlenme dönemi. Son yoğunluğu 3 gün önce yapın.
     </p>
     <p>
-      The worst pacing plan can&rsquo;t rescue bad taper legs; the
-      best training can&rsquo;t rescue bad pacing. Both matter.
+      En kötü tempo planı, kötü dinlenme dönemi bacaklarını kurtaramaz; en iyi antrenman, kötü tempoyu kurtaramaz. Her ikisi de önemlidir.
     </p>
 
-    <h2>The mental-checkpoint trick</h2>
+    <h2>Zihinsel kontrol noktası taktiği</h2>
     <p>
-      Most runners have one spot in every race where things get hard
-      and the mind starts bargaining for a slower pace. For marathons,
-      it&rsquo;s usually miles 18–22. For halfs, miles 9–11. For 10K,
-      the 4th kilometer. Plan for it in advance: a specific mantra, a
-      song, a memory, a cue to just hold pace for the next mile.
+      Çoğu koşucunun her yarışta işlerin zorlaştığı ve zihnin daha yavaş bir tempo için pazarlık yapmaya başladığı bir noktası vardır. Maratonlarda bu genellikle kilometre 29–35'tir (mil 18–22). Yarı maratonlarda kilometre 14–18 (mil 9–11). 10K'da kilometre 4. Önceden plan yapın: belirli bir mantra, bir şarkı, bir anı, sadece bir sonraki kilometre için tempoyu korumaya yönelik bir ipucu.
     </p>
     <p>
-      Pacing discipline at the checkpoint is the difference between a
-      PR and a blowup. The fitness is already there; the question is
-      whether you execute.
+      Kontrol noktasında tempo disiplini, kişisel rekor ile tükenme arasındaki farktır. Kondisyon zaten oradadır; soru, onu uygulayıp uygulamayacağınızdır.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları hesaplayın</h2>
     <p>
-      Enter your target time or pace into the{" "}
-      <a href="/tools/running-pace-calculator">running pace
-      calculator</a> to see splits for every km or mile. Use the{" "}
-      <a href="/tools/calorie-calculator">calorie calculator</a> to
-      estimate your race-day fuel needs, and the{" "}
-      <a href="/tools/stopwatch">stopwatch</a> for interval workouts
-      leading into the race.
+      Hedef sürenizi veya temponuzu{" "}
+      <a href="/tools/running-pace-calculator">koşu tempo hesaplayıcısına</a> girerek her km veya mil için bölünme sürelerini görün. Yarış günü yakıt ihtiyaçlarınızı tahmin etmek için{" "}
+      <a href="/tools/calorie-calculator">kalori hesaplayıcısını</a> ve yarış öncesi interval antrenmanları için{" "}
+      <a href="/tools/stopwatch">kronometreyi</a> kullanın.
     </p>
   </>
 );

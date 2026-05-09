@@ -1,114 +1,104 @@
 export const intro = (
   <>
     <p>
-      Some stress is useful — it sharpens focus and drives action. Chronic stress is the problem:
-      it corrodes sleep, mood, relationships, and health over months and years. The goal
-      isn&rsquo;t zero stress; it&rsquo;s keeping stress from becoming the background hum of your
-      life.
+      Biraz stres faydalıdır — odaklanmayı keskinleştirir ve harekete geçirir. Sorun kronik strestir:
+      aylar ve yıllar boyunca uykuyu, ruh halini, ilişkileri ve sağlığı aşındırır. Amaç
+      sıfır stres değil; stresin hayatınızın arka plan uğultusu haline gelmesini engellemektir.
     </p>
     <p>
-      This guide covers practical, evidence-backed tactics that reduce stress without requiring a
-      lifestyle overhaul. Pick three, run them for a month, and notice the difference.
+      Bu rehber, yaşam tarzınızı kökten değiştirmenizi gerektirmeden stresi azaltan pratik, kanıta dayalı taktikleri kapsar. Üç tanesini seçin, bir ay boyunca uygulayın ve farkı fark edin.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Fix sleep first</h2>
+    <h2>1. Önce uykuyu düzeltin</h2>
     <p>
-      Sleep deprivation amplifies everything — small problems feel big, patience shrinks,
-      emotional regulation collapses. If you&rsquo;re chronically under-slept, no stress tactic
-      will outrun it. Start with our{" "}
-      <a href="/guides/how-to-sleep-better">sleep guide</a> before anything else.
+      Uyku yoksunluğu her şeyi büyütür — küçük sorunlar büyük görünür, sabır azalır,
+      duygusal düzenleme çöker. Kronik olarak az uyuyorsanız, hiçbir stres taktiği
+      bunun önüne geçemez. Başka bir şey yapmadan önce{" "}
+      <a href="/guides/how-to-sleep-better">uyku rehberimize</a> göz atın.
     </p>
 
-    <h2>2. Move your body daily</h2>
+    <h2>2. Her gün vücudunuzu hareket ettirin</h2>
     <p>
-      Exercise is the most reliable stress reducer we know. Even 20 minutes of brisk walking
-      measurably lowers cortisol. You don&rsquo;t need a gym — you need consistency. Most of the
-      benefit is in the first 20–30 minutes; marginal gains after that taper.
+      Egzersiz, bildiğimiz en güvenilir stres azaltıcıdır. 20 dakikalık tempolu bir yürüyüş bile
+      kortizolü ölçülebilir şekilde düşürür. Spor salonuna ihtiyacınız yok — tutarlılığa ihtiyacınız var.
+      Faydanın çoğu ilk 20–30 dakikadadır; sonrasındaki marjinal kazançlar azalır.
     </p>
 
-    <h2>3. Name what&rsquo;s actually stressing you</h2>
+    <h2>3. Sizi gerçekten neyin strese soktuğunu adlandırın</h2>
     <p>
-      &ldquo;I&rsquo;m stressed&rdquo; is vague and un-actionable. &ldquo;I&rsquo;m stressed
-      because I&rsquo;m behind on the Q2 deliverable and haven&rsquo;t told my manager yet&rdquo;
-      is a problem you can solve. Write down what&rsquo;s actually weighing on you. Vague dread
-      collapses into a to-do list roughly 80% of the time.
+      &ldquo;Stresliyim&rdquo; ifadesi belirsiz ve eyleme dönüştürülemez. &ldquo;Q2 teslimatında geride kaldığım ve henüz yöneticime söylemediğim için stresliyim&rdquo;
+      çözebileceğiniz bir sorundur. Sizi gerçekten neyin zorladığını yazın. Belirsiz endişe,
+      yaklaşık %80 oranında bir yapılacaklar listesine dönüşür.
     </p>
 
-    <h2>4. Control what you can, drop what you can&rsquo;t</h2>
+    <h2>4. Kontrol edebildiklerinizi kontrol edin, edemediklerinizi bırakın</h2>
     <p>
-      Sort stressors into two buckets: things you can influence and things you cannot. Most
-      people waste enormous energy on the second bucket — politics, other people&rsquo;s choices,
-      the economy. Reinvest that energy into the first bucket. This one mental move reduces more
-      stress than most techniques.
+      Stres kaynaklarını iki kovaya ayırın: etkileyebilecekleriniz ve etkileyemeyecekleriniz.
+      Çoğu insan ikinci kovaya — siyaset, başkalarının seçimleri,
+      ekonomi — muazzam enerji harcar. Bu enerjiyi ilk kovaya yeniden yatırın. Bu tek zihinsel hamle, çoğu teknikten daha fazla stresi azaltır.
     </p>
 
-    <h2>5. Breathe out longer than you breathe in</h2>
+    <h2>5. Nefes alıştan daha uzun nefes verin</h2>
     <p>
-      A 4-second inhale followed by a 6–8 second exhale activates the parasympathetic nervous
-      system. Do five cycles when you feel tension rising. It&rsquo;s not magic — it&rsquo;s the
-      vagus nerve — and it works in 90 seconds.
+      4 saniyelik bir nefes alışın ardından 6–8 saniyelik bir nefes veriş, parasempatik sinir
+      sistemini harekete geçirir. Gerginlik yükseldiğinde beş döngü yapın. Bu sihir değil —
+      vagus siniri — ve 90 saniyede işe yarar.
     </p>
 
-    <h2>6. Cut back on caffeine when stressed</h2>
+    <h2>6. Stresliyken kafeini azaltın</h2>
     <p>
-      Caffeine amplifies the stress response. When you&rsquo;re already anxious, more coffee
-      turns stress into jitters. Try cutting to one cup before 10am for a week when things feel
-      heavy — it&rsquo;s often bigger than expected.
+      Kafein, stres tepkisini güçlendirir. Zaten kaygılıyken daha fazla kahve
+      stresi sinirliliğe dönüştürür. İşler ağırlaştığında bir hafta boyunca sabah 10&rsquo;dan önce bir fincana düşürmeyi deneyin — etkisi genellikle beklenenden büyüktür.
     </p>
 
-    <h2>7. Time-box worry</h2>
+    <h2>7. Endişeyi zaman kutusuna koyun</h2>
     <p>
-      If your mind loops on a problem, give it a scheduled container: 15 minutes at 6pm to worry
-      deliberately about the thing. Outside the box, you redirect. The brain will eventually
-      stop trying to solve it at 2am because it knows the box is coming.
+      Zihniniz bir sorun üzerinde dönüp duruyorsa, ona planlı bir kap verin: akşam 6&rsquo;da 15 dakika boyunca o şey hakkında bilinçli olarak endişelenmek için.
+      Kutunun dışında, yönlendirin. Beyin sonunda sorunu sabah 2&rsquo;de çözmeye çalışmayı bırakacaktır çünkü kutunun geleceğini bilir.
     </p>
 
-    <h2>8. Take real breaks during the day</h2>
+    <h2>8. Gün içinde gerçek molalar verin</h2>
     <p>
-      Scrolling between tasks isn&rsquo;t a break — it&rsquo;s context-switch tax. Real breaks
-      are: walking outside, stretching, eyes away from screens, a non-work conversation. Use our{" "}
-      <a href="/tools/pomodoro-timer">pomodoro timer</a> to build them in structurally. 3–5
-      minutes every hour pays back in afternoon calm.
+      Görevler arasında kaydırmak bir mola değildir — bu bir bağlam değiştirme vergisidir. Gerçek
+      molalar şunlardır: dışarıda yürümek, esnemek, gözleri ekranlardan uzaklaştırmak, iş dışı bir sohbet. Bunları yapısal olarak eklemek için{" "}
+      <a href="/tools/pomodoro-timer">pomodoro zamanlayıcımızı</a> kullanın. Her saat başı 3–5
+      dakika, öğleden sonra sakinliği olarak geri döner.
     </p>
 
-    <h2>9. Protect a no-obligations slot every week</h2>
+    <h2>9. Her hafta zorunluluk içermeyen bir zaman dilimini koruyun</h2>
     <p>
-      Pick a block — say, Saturday morning — where nothing is scheduled. No errands, no catch-up
-      work, no obligations. Most burnout comes from the feeling of being owned by the calendar.
-      Having a reliable pocket of unclaimed time acts like a release valve.
+      Bir blok seçin — örneğin Cumartesi sabahı — hiçbir şeyin planlanmadığı. Hiçbir iş, hiçbir yetişme
+      çalışması, hiçbir zorunluluk. Tükenmişliğin çoğu, takvime ait olma hissinden gelir.
+      Güvenilir bir boş zaman cebine sahip olmak bir tahliye vanası gibi çalışır.
     </p>
 
-    <h2>10. Say no more often</h2>
+    <h2>10. Daha sık hayır deyin</h2>
     <p>
-      Most stress comes from over-commitment, not from task difficulty. Every yes is a no to
-      something else — sleep, relationships, recovery. Default to no on new commitments unless
-      they clearly earn their place. Your calendar is the clearest mirror of your priorities.
+      Çoğu stres, görev zorluğundan değil, aşırı taahhütten gelir. Her evet, başka bir şeye hayırdır —
+      uyku, ilişkiler, toparlanma. Yeni taahhütlere, açıkça yerlerini hak etmedikçe varsayılan olarak hayır deyin. Takviminiz, önceliklerinizin en net aynasıdır.
     </p>
 
-    <h2>11. Talk to someone</h2>
+    <h2>11. Biriyle konuşun</h2>
     <p>
-      Naming stress to another human — a friend, partner, therapist — reduces it more than
-      internal rumination ever will. Research on social support is extremely strong. Isolation
-      makes every stressor feel 2x bigger.
+      Stresi başka bir insana — bir arkadaşa, partnere, terapiste — adlandırmak, onu içsel
+      düşünceden daha fazla azaltır. Sosyal destek üzerine araştırmalar son derece güçlüdür.
+      Yalnızlık, her stres kaynağını 2 kat daha büyük hissettirir.
     </p>
 
-    <h2>12. Identify your stress signature</h2>
+    <h2>12. Stres imzanızı belirleyin</h2>
     <p>
-      Everyone has a personal tell: jaw tension, shallow breathing, short patience, stomach
-      tightness. Learn yours. Catching it early means you intervene in 10 minutes instead of two
-      days later. Pair this with our <a href="/guides/how-to-build-good-habits">habits guide</a>{" "}
-      to wire a default response — a walk, a breath exercise, a message to a friend.
+      Herkesin kişisel bir işareti vardır: çene gerginliği, sığ nefes alma, kısa sabır, mide
+      sıkışması. Kendinizinkini öğrenin. Erken yakalamak, iki gün sonra değil, 10 dakika içinde müdahale etmeniz anlamına gelir. Bunu, varsayılan bir tepki — bir yürüyüş, bir nefes egzersizi, bir arkadaşa mesaj — oluşturmak için{" "}
+      <a href="/guides/how-to-build-good-habits">alışkanlık rehberimizle</a> eşleştirin.
     </p>
 
-    <h2>Your first week</h2>
+    <h2>İlk haftanız</h2>
     <p>
-      Sleep consistent times. Walk 20 minutes daily. Do a nightly brain-dump of whatever&rsquo;s
-      on your mind for 5 minutes. Notice the difference by day 7. Stress rarely requires heroic
-      interventions — it requires the small, boring ones, run every day.
+      Tutarlı saatlerde uyuyun. Her gün 20 dakika yürüyün. Aklınızdaki her şeyi 5 dakika boyunca gece zihninizi boşaltma egzersizi yapın. 7. günde farkı fark edin. Stres nadiren kahramanca müdahaleler gerektirir — her gün yapılan küçük, sıkıcı olanları gerektirir.
     </p>
   </>
 );

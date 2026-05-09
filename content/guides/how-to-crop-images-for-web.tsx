@@ -3,193 +3,130 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A great photo badly cropped looks amateur. A mediocre photo well cropped looks
-      intentional. Cropping for the web is less about taste than about hitting specific
-      aspect ratios &mdash; Instagram wants 1:1 or 4:5, Twitter wants 16:9, LinkedIn
-      header wants 4:1, Pinterest wants 2:3, and your own site&rsquo;s grid probably
-      wants something else. Get the ratio wrong and the platform crops for you, usually
-      badly. This guide covers the aspect ratios that matter, where to put the focal
-      point, when to use smart-crop automation versus manual control, Retina 2x math,
-      and the safe-zone rules that keep faces and key elements from being chopped off
-      in unpredictable containers.
+      Harika bir fotoğraf kötü kırpıldığında amatör görünür. Vasat bir fotoğraf iyi kırpıldığında ise bilinçli bir tercih gibi durur. Web için kırpma işlemi, zevkten çok belirli en-boy oranlarını tutturmakla ilgilidir &mdash; Instagram 1:1 veya 4:5 ister, Twitter 16:9 ister, LinkedIn başlığı 4:1 ister, Pinterest 2:3 ister ve kendi sitenizin ızgarası muhtemelen başka bir oran ister. Oranı yanlış ayarlayın, platform sizin için kırpar ve genellikle de kötü kırpar. Bu rehber, önemli olan en-boy oranlarını, odak noktasının nereye konulacağını, akıllı kırpma otomasyonu ile manuel kontrol arasında ne zaman seçim yapılacağını, Retina 2x matematiğini ve yüzler ile ana öğelerin öngörülemeyen kaplarda kesilmesini önleyen güvenli bölge kurallarını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Aspect ratios by platform</h2>
-    <pre>{`Context                         Aspect   Recommended size
-Instagram feed (square)         1:1      1080x1080
-Instagram feed (portrait)       4:5      1080x1350
-Instagram story / Reels         9:16     1080x1920
-Twitter/X inline                16:9     1200x675
-Twitter/X header                3:1      1500x500
-Facebook link share             1.91:1   1200x630
-Facebook cover                  16:9     820x312
-LinkedIn post image             1.91:1   1200x628
-LinkedIn cover                  4:1      1584x396
-Pinterest pin                   2:3      1000x1500
-YouTube thumbnail               16:9     1280x720
-Open Graph default              1.91:1   1200x630
-Blog hero                       16:9     1920x1080
-Product card                    1:1      800x800`}</pre>
+    <h2>Platformlara göre en-boy oranları</h2>
+    <pre>{`Bağlam                         En-Boy Oranı   Önerilen boyut
+Instagram akışı (kare)         1:1            1080x1080
+Instagram akışı (dikey)        4:5            1080x1350
+Instagram hikaye / Reels       9:16           1080x1920
+Twitter/X satır içi            16:9           1200x675
+Twitter/X başlık               3:1            1500x500
+Facebook link paylaşımı        1.91:1         1200x630
+Facebook kapak                 16:9           820x312
+LinkedIn gönderi görseli       1.91:1         1200x628
+LinkedIn kapak                 4:1            1584x396
+Pinterest pin                  2:3            1000x1500
+YouTube küçük resim            16:9           1280x720
+Open Graph varsayılan          1.91:1         1200x630
+Blog kahraman görseli          16:9           1920x1080
+Ürün kartı                     1:1            800x800`}</pre>
     <p>
-      These change occasionally &mdash; platforms update their specs &mdash; but the
-      underlying aspect ratios are stable. Crop to the ratio, then resize to the target
-      pixels.
+      Bunlar zaman zaman değişir &mdash; platformlar özelliklerini günceller &mdash; ancak temel en-boy oranları sabittir. Önce orana göre kırpın, ardından hedef piksel boyutlarına yeniden boyutlandırın.
     </p>
 
-    <h2>The rule of thirds as a starting point</h2>
+    <h2>Başlangıç noktası olarak üçte bir kuralı</h2>
     <p>
-      Divide the frame into a 3&times;3 grid. Place key subjects on the intersections
-      of the lines or along the lines themselves. Horizons go on the upper or lower
-      third, not dead center. Eyes in a portrait go on the top horizontal third. This
-      isn&rsquo;t a rigid law &mdash; centered symmetry works for formal portraits and
-      product shots &mdash; but it&rsquo;s the default that reads as composed rather
-      than snapshotted.
+      Kareyi 3&times;3'lük bir ızgaraya bölün. Ana konuları çizgilerin kesişim noktalarına veya çizgilerin üzerine yerleştirin. Ufuk çizgileri tam ortada değil, üst veya alt üçte birlik kısımda olur. Bir portrede gözler üst yatay üçte birlik kısma gelir. Bu katı bir kural değildir &mdash; merkezi simetri resmi portreler ve ürün fotoğrafları için işe yarar &mdash; ancak anlık bir çekimden ziyade kompoze edilmiş olarak algılanan varsayılan kuraldır.
     </p>
 
-    <h2>Focal point: where the eye lands first</h2>
+    <h2>Odak noktası: gözün ilk takıldığı yer</h2>
     <p>
-      When you crop, you&rsquo;re choosing what the viewer sees first. For a portrait,
-      that&rsquo;s usually the face. For a product, the product. For a landscape, the
-      specific feature (the mountain, the lighthouse) rather than the whole vista. If
-      the viewer&rsquo;s eye has to search the image to find the subject, the crop is
-      wrong. Move the subject until it&rsquo;s obvious.
+      Kırpma yaparken, izleyicinin ilk ne göreceğini seçiyorsunuz. Bir portre için bu genellikle yüzdür. Bir ürün için ürünün kendisidir. Bir manzara için tüm manzaradan ziyade belirli bir özelliktir (dağ, deniz feneri). İzleyicinin gözü konuyu bulmak için görselde arama yapmak zorunda kalıyorsa, kırpma yanlış demektir. Konuyu belirgin hale gelene kadar hareket ettirin.
     </p>
     <p>
-      For responsive images that may get cropped by the browser, set an explicit focal
-      point with CSS:
+      Tarayıcı tarafından kırpılabilecek duyarlı görseller için CSS ile net bir odak noktası belirleyin:
     </p>
     <pre>{`img {
   width: 100%;
   height: 400px;
   object-fit: cover;
-  object-position: 50% 30%;  /* center horizontally,
-                                 30% from top -> keeps faces */
+  object-position: 50% 30%;  /* yatayda ortala,
+                                 üstten %30 -> yüzleri korur */
 }`}</pre>
     <p>
-      The default <code>object-position: 50% 50%</code> crops equally from all sides,
-      which cuts off heads in portraits. <code>50% 30%</code> is a safer default for
-      portrait-heavy content.
+      Varsayılan <code>object-position: 50% 50%</code> değeri her taraftan eşit şekilde kırpar ve portrelerde kafaları keser. <code>50% 30%</code>, portre ağırlıklı içerik için daha güvenli bir varsayılandır.
     </p>
 
-    <h2>Smart crop vs manual</h2>
+    <h2>Akıllı kırpma vs manuel</h2>
     <p>
-      Smart-crop algorithms (face detection, saliency detection) pick a center for you.
-      They work well for batches of similar photos &mdash; a catalog of product shots
-      or a gallery of portraits. They fail on complex compositions: two faces at
-      different depths, a face far from center, images where the &ldquo;important&rdquo;
-      element is contextual (a hand holding a watch, not the face next to it).
+      Akıllı kırpma algoritmaları (yüz algılama, belirginlik algılama) sizin için bir merkez seçer. Benzer fotoğraf grupları için iyi çalışırlar &mdash; bir ürün fotoğrafı kataloğu veya bir portre galerisi gibi. Karmaşık kompozisyonlarda başarısız olurlar: farklı derinliklerde iki yüz, merkezden uzak bir yüz, "önemli" öğenin bağlamsal olduğu görseller (yanındaki yüz değil, bir saati tutan el).
     </p>
     <p>
-      For any hero image, marketing asset, or published thumbnail, crop manually. Five
-      minutes per image beats the 15 minutes you spend fixing a smart-crop that cut off
-      the CEO&rsquo;s head.
+      Herhangi bir kahraman görseli, pazarlama varlığı veya yayınlanmış küçük resim için manuel olarak kırpın. Görsel başına beş dakika, CEO'nun kafasını kesen bir akıllı kırpmayı düzeltmek için harcayacağınız 15 dakikadan iyidir.
     </p>
 
-    <h2>Retina and pixel density</h2>
+    <h2>Retina ve piksel yoğunluğu</h2>
     <p>
-      High-density displays (iPhone, MacBook Retina, most modern Android) render at 2x
-      or 3x the logical pixel count. A 400px-wide card on a Retina screen is actually
-      800 physical pixels. Export your source at 2x the display size to keep it sharp.
+      Yüksek yoğunluklu ekranlar (iPhone, MacBook Retina, çoğu modern Android), mantıksal piksel sayısının 2 katı veya 3 katı olarak işleme koyar. Retina ekranda 400 piksel genişliğindeki bir kart aslında 800 fiziksel pikseldir. Kaynağınızı, keskin kalması için ekran boyutunun 2 katı olarak dışa aktarın.
     </p>
-    <pre>{`Display size   Export at (2x)  Export at (3x)
+    <pre>{`Ekran boyutu   2x dışa aktar   3x dışa aktar
 200x200        400x400         600x600
 400x400        800x800         1200x1200
 800x600        1600x1200       2400x1800`}</pre>
     <p>
-      3x export is overkill for most cases &mdash; the file size penalty isn&rsquo;t
-      worth the barely-perceptible sharpness gain. 2x is the sensible baseline. Serve
-      different densities with <code>srcset</code> to avoid pushing the 2x file to
-      people on 1x screens.
+      3x dışa aktarma çoğu durumda gereksizdir &mdash; dosya boyutu cezası, zar zor algılanabilen keskinlik kazancına değmez. 2x mantıklı temel seviyedir. 1x ekran kullananlara 2x dosyayı göndermemek için farklı yoğunlukları <code>srcset</code> ile sunun.
     </p>
 
-    <h2>Safe zones for responsive layouts</h2>
+    <h2>Duyarlı düzenler için güvenli bölgeler</h2>
     <p>
-      Your hero image might render as 16:9 on desktop, 4:5 on mobile, and get cropped by
-      a share card as 1.91:1. Plan for the worst-case crop. Keep critical elements
-      (faces, text, logos, CTAs) in the central <strong>safe zone</strong> &mdash;
-      roughly the middle 50% horizontally and 60% vertically. Anything outside that
-      zone might get cropped on some platform.
+      Kahraman görseliniz masaüstünde 16:9, mobilde 4:5 olarak işlenebilir ve bir paylaşım kartı tarafından 1.91:1 olarak kırpılabilir. En kötü kırpma senaryosuna göre plan yapın. Kritik öğeleri (yüzler, metinler, logolar, harekete geçirici mesajlar) merkezi <strong>güvenli bölgede</strong> tutun &mdash; kabaca yatayda orta %50 ve dikeyde %60. Bu bölgenin dışındaki her şey bazı platformlarda kırpılabilir.
     </p>
 
-    <h2>Avoiding face cropping</h2>
+    <h2>Yüz kırpmasından kaçınma</h2>
     <p>
-      The most common crop failure is chopping the top of a head. Phone cameras compose
-      with headroom; social crops remove it. Rules: leave at least 10% of the frame
-      above the top of the subject&rsquo;s head. Never crop between the shoulders and
-      the chin &mdash; cut at the shoulders or mid-chest. Never crop at a joint (knee,
-      elbow, wrist) &mdash; it looks amputated; crop mid-limb instead.
+      En yaygın kırpma hatası, kafanın üst kısmını kesmektir. Telefon kameraları baş boşluğu bırakarak kompozisyon yapar; sosyal medya kırpmaları bunu kaldırır. Kurallar: Konunun kafasının üstünde en az %10 boşluk bırakın. Asla omuzlar ve çene arasından kırpmayın &mdash; omuzlardan veya göğüs ortasından kesin. Asla bir eklemden (diz, dirsek, bilek) kırpmayın &mdash; ampüte edilmiş gibi görünür; bunun yerine uzvun ortasından kırpın.
     </p>
 
-    <h2>Text in images</h2>
+    <h2>Görsellerde metin</h2>
     <p>
-      If your image includes overlaid text (a product label, a quote card, a CTA),
-      keep that text inside the safe zone and leave 10&ndash;15% margin on all sides.
-      Platforms penalize text-heavy images (Facebook used to reject ads with &gt;20%
-      text) and any crop will chop unprotected text first.
+      Görseliniz üzerine yerleştirilmiş metin içeriyorsa (bir ürün etiketi, bir alıntı kartı, bir harekete geçirici mesaj), bu metni güvenli bölgenin içinde tutun ve her tarafta %10&ndash;15 boşluk bırakın. Platformlar metin ağırlıklı görselleri cezalandırır (Facebook, %20'den fazla metin içeren reklamları reddederdi) ve herhangi bir kırpma, korunmayan metni ilk önce kesecektir.
     </p>
 
-    <h2>Cropping versus extending</h2>
+    <h2>Kırpmaya karşı genişletme</h2>
     <p>
-      If a photo is 4:3 and you need 16:9, you have two options: crop off the top and
-      bottom (loses content) or extend left and right (requires either blurred-edge
-      fill, solid background, or generative fill). For most editorial contexts, crop.
-      For formal logos, product packaging, or when the full composition matters,
-      extend with a matching color background rather than crop.
+      Bir fotoğraf 4:3 ise ve 16:9'a ihtiyacınız varsa, iki seçeneğiniz vardır: üst ve alt kısmı kırpmak (içerik kaybı) veya sağa ve sola genişletmek (bulanık kenar dolgusu, düz arka plan veya üretken dolgu gerektirir). Çoğu editoryal bağlamda kırpın. Resmi logolar, ürün ambalajları veya tüm kompozisyonun önemli olduğu durumlarda, kırpmak yerine uyumlu bir renk arka planı ile genişletin.
     </p>
 
-    <h2>Square vs portrait on mobile feeds</h2>
+    <h2>Mobil akışlarda kare vs dikey</h2>
     <p>
-      Instagram&rsquo;s feed used to be strictly square; now 4:5 portrait takes more
-      vertical screen real estate and typically gets higher engagement. If you&rsquo;re
-      shooting for social, prefer portrait aspect ratios for content, square for grid
-      consistency. For Pinterest, 2:3 is non-negotiable &mdash; 1:1 pins get buried.
+      Instagram'ın akışı eskiden tamamen kareydi; şimdi 4:5 dikey, daha fazla dikey ekran alanı kaplıyor ve genellikle daha yüksek etkileşim alıyor. Sosyal medya için çekim yapıyorsanız, içerik için dikey en-boy oranlarını, ızgara tutarlılığı için kareyi tercih edin. Pinterest için 2:3 tartışılmazdır &mdash; 1:1 pinler gömülür.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Cropping at joints.</strong> Cutting at the wrist, knee, or elbow makes
-      subjects look amputated. Crop mid-forearm or mid-thigh instead.
+      <strong>Eklemlerden kırpmak.</strong> Bilek, diz veya dirsekten kesmek, konuların ampüte edilmiş görünmesine neden olur. Bunun yerine ön kolun veya uyluğun ortasından kırpın.
     </p>
     <p>
-      <strong>Centering every subject.</strong> Dead-center composition is fine for
-      symmetric products but looks static for portraits and landscapes. Use the rule of
-      thirds as a default.
+      <strong>Her konuyu ortalamak.</strong> Tam merkez kompozisyonu simetrik ürünler için iyidir ancak portreler ve manzaralar için statik görünür. Varsayılan olarak üçte bir kuralını kullanın.
     </p>
     <p>
-      <strong>Ignoring headroom.</strong> Phone portraits have breathing room above
-      the head; social crops remove it. Leave 10% above the hair line.
+      <strong>Baş boşluğunu görmezden gelmek.</strong> Telefon portrelerinde başın üstünde nefes alma alanı vardır; sosyal medya kırpmaları bunu kaldırır. Saç çizgisinin üzerinde %10 boşluk bırakın.
     </p>
     <p>
-      <strong>Exporting at 1x for Retina screens.</strong> Images look soft on modern
-      phones and laptops. Export at 2x the display size.
+      <strong>Retina ekranlar için 1x dışa aktarmak.</strong> Görseller modern telefonlarda ve dizüstü bilgisayarlarda yumuşak görünür. Ekran boyutunun 2 katı olarak dışa aktarın.
     </p>
     <p>
-      <strong>Using one crop for all platforms.</strong> A 16:9 blog hero gets
-      center-cropped to 1.91:1 by Open Graph, losing the top and bottom. Export a
-      platform-specific variant or keep the subject in the safe zone.
+      <strong>Tüm platformlar için tek bir kırpma kullanmak.</strong> 16:9'luk bir blog kahraman görseli, Open Graph tarafından 1.91:1'e merkezden kırpılır ve üst ile alt kısmı kaybeder. Platforma özel bir varyant dışa aktarın veya konuyu güvenli bölgede tutun.
     </p>
     <p>
-      <strong>Cropping before resizing.</strong> If you&rsquo;re going to resize
-      anyway, crop generously and let the resize step handle the final dimensions. You
-      keep more flexibility.
+      <strong>Yeniden boyutlandırmadan önce kırpmak.</strong> Zaten yeniden boyutlandıracaksanız, cömertçe kırpın ve yeniden boyutlandırma adımının son boyutları halletmesine izin verin. Daha fazla esneklik elde edersiniz.
     </p>
     <p>
-      <strong>Forgetting text safe margins.</strong> Overlaid text at the edge of the
-      frame gets clipped on any aggressive crop. Margin 10&ndash;15% inside the frame.
+      <strong>Metin güvenli kenar boşluklarını unutmak.</strong> Çerçevenin kenarındaki üst üste bindirilmiş metin, agresif herhangi bir kırpmada kesilir. Çerçevenin içinde %10&ndash;15 kenar boşluğu bırakın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları hesaplayın</h2>
     <p>
-      Crop to any aspect ratio with the{" "}
-      <a href="/tools/image-cropper">image cropper</a>. Pair with the{" "}
-      <a href="/tools/image-resizer">image resizer</a> to hit platform-specific pixel
-      dimensions after the crop, and the{" "}
-      <a href="/tools/image-compressor">image compressor</a> to ship the final asset at
-      a file size that doesn&rsquo;t blow up page weight.
+      Herhangi bir en-boy oranına{" "}
+      <a href="/tools/image-cropper">görsel kırpma aracı</a> ile kırpın. Kırpmadan sonra platforma özel piksel boyutlarını tutturmak için{" "}
+      <a href="/tools/image-resizer">görsel yeniden boyutlandırma aracı</a> ile ve nihai varlığı sayfa ağırlığını şişirmeyen bir dosya boyutunda göndermek için{" "}
+      <a href="/tools/image-compressor">görsel sıkıştırma aracı</a> ile birlikte kullanın.
     </p>
   </>
 );

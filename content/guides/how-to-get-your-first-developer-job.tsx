@@ -1,110 +1,108 @@
 export const intro = (
   <>
     <p>
-      Getting your first dev job is harder than getting your second. You have no signal —
-      no GitHub history, no references, no production experience. You have to manufacture
-      signal. This guide walks through how to do that, what to build, and how to actually
-      land interviews.
+      İlk yazılım işini almak, ikincisini almaktan daha zordur. Hiçbir sinyalin yok — 
+      GitHub geçmişi yok, referans yok, üretim deneyimi yok. Kendi sinyalini kendin üretmek zorundasın. 
+      Bu rehber, bunu nasıl yapacağını, ne inşa edeceğini ve gerçekten mülakata nasıl davet edileceğini açıklıyor.
     </p>
     <p>
-      If you&rsquo;re self-taught, bootcamp, or CS student, the path is roughly the same:
-      skills + proof + outreach.
+      İster kendi kendine öğrenmiş, ister bootcamp mezunu, ister bilgisayar mühendisliği öğrencisi ol, yol kabaca 
+      aynı: beceriler + kanıt + iletişim.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Pick a stack and commit</h2>
+    <h2>1. Bir teknoloji yığını seç ve ona bağlı kal</h2>
     <p>
-      Don&rsquo;t learn five languages badly. Pick one stack (e.g., React + Node + Postgres)
-      and go deep. Employers hire for a specific stack. Breadth hurts until you have
-      production experience.
+      Beş dili kötü öğrenme. Bir yığın seç (örneğin, React + Node + Postgres) ve derinlemesine ilerle. 
+      İşverenler belirli bir yığın için işe alır. Geniş olmak, üretim deneyimin olana kadar sana zarar verir.
     </p>
 
-    <h2>2. Build 3 portfolio projects</h2>
+    <h2>2. 3 portföy projesi oluştur</h2>
     <p>
-      Not tutorials. Real projects that solve real problems. Deployed live. With a README
-      explaining trade-offs. 3 solid projects beats 10 tutorial clones. Think: a working SaaS
-      prototype, a real API backend, a data-viz dashboard with a dataset you care about.
+      Eğitimler değil. Gerçek sorunları çözen gerçek projeler. Canlı olarak yayına alınmış. 
+      Takasları açıklayan bir README ile. 3 sağlam proje, 10 eğitim klonunu yener. 
+      Düşün: çalışan bir SaaS prototipi, gerçek bir API arka ucu, önemsediğin bir veri setiyle bir veri görselleştirme panosu.
     </p>
 
-    <h2>3. Put everything on GitHub</h2>
+    <h2>3. Her şeyi GitHub'a koy</h2>
     <p>
-      Daily commits for 90 days show consistency. Clean READMEs. No &ldquo;learning&rdquo;
-      repos front and center — curate. GitHub is your visible work history. Recruiters check
-      it in the first 5 seconds.
+      90 gün boyunca günlük commit'ler tutarlılık gösterir. Temiz README'ler. Önde "öğrenme" repoları olmasın — düzenle. 
+      GitHub, görünür iş geçmişindir. İşe alımcılar ilk 5 saniyede kontrol eder.
     </p>
 
-    <h2>4. Deploy your projects</h2>
+    <h2>4. Projelerini yayına al</h2>
     <p>
-      A project on GitHub with &ldquo;coming soon&rdquo; deploys isn&rsquo;t a project. Vercel,
-      Netlify, Fly.io, Render — all free tiers. A live URL someone can click on is worth 10x a
-      screenshot. Deployment is a skill itself.
+      "Çok yakında" yazan ve yayına alınmamış bir GitHub projesi, proje değildir. 
+      Vercel, Netlify, Fly.io, Render — hepsinin ücretsiz katmanları var. Birinin tıklayabileceği canlı bir URL, 
+      bir ekran görüntüsünden 10 kat daha değerlidir. Yayına almak başlı başına bir beceridir.
     </p>
 
-    <h2>5. Write a technical blog</h2>
+    <h2>5. Teknik bir blog yaz</h2>
     <p>
-      One post per month. How you solved something, what tripped you up, what you built. 10
-      posts over a year = huge signal of communication skill and learning. Even if nobody
-      reads them, the writing makes you smarter.
+      Ayda bir yazı. Bir şeyi nasıl çözdüğün, nerede takıldığın, ne inşa ettiğin. 
+      Bir yılda 10 yazı = iletişim becerileri ve öğrenme için büyük bir sinyal. Kimse okumasa bile, 
+      yazmak seni daha zeki yapar.
     </p>
 
-    <h2>6. Learn to talk about trade-offs</h2>
+    <h2>6. Takaslar hakkında konuşmayı öğren</h2>
     <p>
-      Junior interviews test whether you understand why, not just how. Why SQL vs NoSQL? Why
-      REST vs GraphQL? Why monolith vs microservices? You don&rsquo;t need the right answer —
-      you need to articulate the trade-offs. See <a href="/guides/rest-vs-graphql">REST vs
+      Junior mülakatları, nasıl değil, neden olduğunu anlayıp anlamadığını test eder. 
+      Neden SQL vs NoSQL? Neden REST vs GraphQL? Neden monolit vs mikroservis? Doğru cevaba ihtiyacın yok — 
+      takasları ifade etmen gerekiyor. Bkz. <a href="/guides/rest-vs-graphql">REST vs 
       GraphQL</a>.
     </p>
 
-    <h2>7. Apply to 50 places, not 500</h2>
+    <h2>7. 500 değil, 50 yere başvur</h2>
     <p>
-      Quality over quantity. Customize each resume and cover letter (see{" "}
-      <a href="/guides/how-to-write-a-cover-letter">cover letter guide</a>). Mass-applying to
-      500 jobs via LinkedIn Easy Apply yields ~0 callbacks. Targeted applications work.
+      Nicelikten çok nitelik. Her özgeçmişi ve ön yazıyı kişiselleştir (bkz.{" "}
+      <a href="/guides/how-to-write-a-cover-letter">ön yazı rehberi</a>). 
+      LinkedIn Easy Apply ile 500 işe patlatma yapmak neredeyse sıfır getiri sağlar. 
+      Hedefli başvurular işe yarar.
     </p>
 
-    <h2>8. Reach out to engineers, not recruiters</h2>
+    <h2>8. İşe alımcılara değil, mühendislere ulaş</h2>
     <p>
-      Cold email engineers at companies you admire. &ldquo;I built X using your tech stack,
-      would love 15 minutes of your time.&rdquo; Conversion is way higher than applying cold.
-      A warm intro through an engineer beats 100 applications.
+      Hayran olduğun şirketlerdeki mühendislere soğuk e-posta gönder. "Senin yığınını kullanarak X'i inşa ettim, 15 dakikanızı ayırabilir misiniz?" 
+      Dönüşüm oranı, soğuk başvuru yapmaktan çok daha yüksektir. Bir mühendis aracılığıyla sıcak bir tanıtım, 
+      100 başvuruya bedeldir.
     </p>
 
-    <h2>9. Practice interview problems</h2>
+    <h2>9. Mülakat problemleri üzerinde pratik yap</h2>
     <p>
-      Leetcode easy and medium. Do 50-100 problems, not 500. Focus on patterns (two pointers,
-      BFS, hash maps) rather than memorizing solutions. Our{" "}
-      <a href="/guides/how-to-prepare-for-coding-interviews">interview prep guide</a> has more.
+      Leetcode kolay ve orta. 500 değil, 50-100 problem çöz. Çözümleri ezberlemek yerine desenlere 
+      (iki işaretçi, BFS, hash haritası) odaklan.{" "}
+      <a href="/guides/how-to-prepare-for-coding-interviews">Mülakat hazırlık rehberimiz</a> 
+      daha fazlasını içeriyor.
     </p>
 
-    <h2>10. Prepare behavioral stories</h2>
+    <h2>10. Davranışsal hikayeler hazırla</h2>
     <p>
-      &ldquo;Tell me about a challenging project.&rdquo; &ldquo;Tell me about a conflict.&rdquo;
-      Prep 5-7 STAR-format stories. Use bootcamp projects, school projects, open source — any
-      concrete experience. Generic answers kill interviews.
+      "Bana zorlu bir projeden bahset." "Bana bir çatışmadan bahset." STAR formatında 5-7 hikaye hazırla. 
+      Bootcamp projelerini, okul projelerini, açık kaynağı kullan — somut herhangi bir deneyim. 
+      Genel cevaplar mülakatları öldürür.
     </p>
 
-    <h2>11. Consider contract or paid internships</h2>
+    <h2>11. Sözleşmeli veya ücretli stajları düşün</h2>
     <p>
-      Sometimes the straight full-time route is closed. A 3-month contract or internship at any
-      tech-adjacent company puts &ldquo;professional experience&rdquo; on your resume. The
-      second job is vastly easier to get.
+      Bazen doğrudan tam zamanlı yol kapalıdır. Teknolojiyle ilgili herhangi bir şirkette 3 aylık bir sözleşme veya staj, 
+      özgeçmişine "profesyonel deneyim" ekler. İkinci işi almak çok daha kolaydır.
     </p>
 
-    <h2>12. Expect 3-12 months</h2>
+    <h2>12. 3-12 ay bekle</h2>
     <p>
-      Self-taught devs typically search 6-12 months for a first role. Don&rsquo;t panic at 8
-      weeks. Track applications, refine the approach weekly, and keep building. Persistence is
-      most of the job.
+      Kendi kendine öğrenen geliştiriciler genellikle ilk rollerini bulmak için 6-12 ay arar. 
+      8 haftada panik yapma. Başvuruları takip et, yaklaşımını haftalık olarak iyileştir ve inşa etmeye devam et. 
+      Azim, işin çoğunluğudur.
     </p>
 
-    <h2>Your first 90 days</h2>
+    <h2>İlk 90 günün</h2>
     <p>
-      Build 3 real projects. Deploy them. Write 3 blog posts. Do 50 Leetcode problems. Apply
-      to 50 companies with customized resumes. Cold-email 30 engineers. This is a full-time
-      job. Treat it like one.
+      3 gerçek proje inşa et. Onları yayına al. 3 blog yazısı yaz. 50 Leetcode problemi çöz. 
+      Kişiselleştirilmiş özgeçmişlerle 50 şirkete başvur. 30 mühendise soğuk e-posta gönder. 
+      Bu tam zamanlı bir iş. Öyle davran.
     </p>
   </>
 );

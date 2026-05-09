@@ -3,99 +3,99 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Every PDF you create carries a silent passenger: metadata. Your name, the software
-      you used, the exact time you saved it, sometimes the full file path on your
-      machine including your username. Open a PDF you sent last month and check its
-      properties — you&rsquo;ll probably be surprised what&rsquo;s in there. This guide
-      covers what metadata is actually stored, when stripping it matters, what to strip,
-      and how to verify you got it all.
+      Oluşturduğunuz her PDF, sessiz bir yolcu taşır: meta veriler. Adınız, kullandığınız
+      yazılım, kaydettiğiniz tam zaman, bazen kullanıcı adınızı da içeren bilgisayarınızdaki
+      tam dosya yolu. Geçen ay gönderdiğiniz bir PDF&rsquo;yi açın ve özelliklerini kontrol edin
+      — içinde ne olduğuna muhtemelen şaşıracaksınız. Bu kılavuz, hangi meta verilerin
+      gerçekten depolandığını, bunları ne zaman temizlemeniz gerektiğini, neyi temizlemeniz
+      gerektiğini ve hepsini temizlediğinizi nasıl doğrulayacağınızı kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What&rsquo;s actually hidden in a PDF</h2>
+    <h2>Bir PDF&rsquo;de gerçekte ne gizlidir</h2>
     <p>
-      The standard metadata fields in every PDF are Title, Author, Subject, Keywords,
-      Creator (the application that made the source document — e.g. &ldquo;Microsoft
-      Word&rdquo;), Producer (the library that produced the PDF — e.g. &ldquo;Acrobat
-      Distiller 15.0&rdquo;), Creation Date, and Modification Date.
+      Her PDF&rsquo;deki standart meta veri alanları Başlık, Yazar, Konu, Anahtar Kelimeler,
+      Oluşturan (kaynak belgeyi yapan uygulama — örn. &ldquo;Microsoft
+      Word&rdquo;), Üretici (PDF&rsquo;yi üreten kütüphane — örn. &ldquo;Acrobat
+      Distiller 15.0&rdquo;), Oluşturma Tarihi ve Değiştirme Tarihi&rsquo;dir.
     </p>
     <p>
-      On top of that, PDFs can contain XMP metadata (a more extensible block), embedded
-      file attachments, form field defaults with your name still in them, and
-      occasionally — this is the one that catches people — the full file path of the
-      source document. Export a Word doc from <code>C:\Users\jsmith\Desktop\confidential.docx</code>
-      and that path can end up in the PDF&rsquo;s XMP block.
-    </p>
-
-    <h2>When it matters: journalism and source protection</h2>
-    <p>
-      If you&rsquo;re a journalist and a source sends you a leaked document as a PDF,
-      the metadata may identify them before you&rsquo;ve even read the contents. The
-      Reality Winner case is the textbook example — printer tracking dots and metadata
-      helped narrow the leak to one person. Always strip and re-export before
-      publication, and ideally before opening the file on a networked machine.
+      Bunun yanı sıra, PDF&rsquo;ler XMP meta verileri (daha genişletilebilir bir blok), gömülü
+      dosya ekleri, içinde hâlâ adınızın bulunduğu form alanı varsayılanları ve bazen
+      — insanların en çok gözden kaçırdığı şey — kaynak belgenin tam dosya yolunu
+      içerebilir. <code>C:\Kullanıcılar\ahmet\Masasüstü\gizli.docx</code> dosyasından bir Word
+      belgesi dışa aktarın ve bu yol, PDF&rsquo;nin XMP bloğuna kadar gidebilir.
     </p>
 
-    <h2>When it matters: job searches and anonymization</h2>
+    <h2>Ne zaman önemlidir: gazetecilik ve kaynak koruma</h2>
     <p>
-      You export your resume from Word. The Author field reads &ldquo;Jane Doe&rdquo;
-      and the Creator reads &ldquo;Microsoft Word 2019 for Mac.&rdquo; Fine. But if
-      you&rsquo;re submitting anonymous writing samples, pseudonymous portfolios, or
-      applying to a company where you already work and want a quiet parallel search,
-      that metadata breaks the anonymization you thought your filename provided.
+      Bir gazeteciyseniz ve bir kaynak size sızdırılmış bir belgeyi PDF olarak gönderiyorsa,
+      meta veriler, içeriği daha okumadan onları tanımlayabilir. Reality Winner davası
+      bunun en bilinen örneğidir — yazıcı takip noktaları ve meta veriler, sızıntıyı tek bir
+      kişiye indirgemeye yardımcı oldu. Yayınlamadan önce ve ideal olarak dosyayı ağa bağlı
+      bir makinede açmadan önce her zaman meta verileri temizleyin ve yeniden dışa aktarın.
     </p>
 
-    <h2>When it matters: litigation and discovery</h2>
+    <h2>Ne zaman önemlidir: iş arama ve anonimleştirme</h2>
     <p>
-      In legal discovery, metadata is evidence. Modification dates can contradict
-      claims about when a document was authored. Author fields can suggest who actually
-      wrote something despite the byline. If you&rsquo;re producing documents under a
-      protective order, check whether metadata is in scope — sometimes you must
-      preserve it, sometimes you must strip it. Get this wrong and you&rsquo;re
-      in trouble either way.
+      Özgeçmişinizi Word&rsquo;den dışa aktarıyorsunuz. Yazar alanı &ldquo;Ayşe Yılmaz&rdquo;
+      ve Oluşturan alanı &ldquo;Mac için Microsoft Word 2019&rdquo; olarak okunuyor.
+      Sorun yok. Ancak anonim yazı örnekleri, takma adlı portföyler gönderiyorsanız veya
+      hâlihazırda çalıştığınız bir şirkete başvuruyor ve sessiz, paralel bir arama yapmak
+      istiyorsanız, bu meta veriler, dosya adınızın sağladığını düşündüğünüz anonimleştirmeyi
+      bozar.
     </p>
 
-    <h2>The field list to strip</h2>
+    <h2>Ne zaman önemlidir: dava ve keşif</h2>
     <p>
-      At minimum, clear these: <code>Title</code>, <code>Author</code>, <code>Subject</code>,
-      <code>Keywords</code>, <code>Creator</code>, <code>Producer</code>, <code>CreationDate</code>,
-      <code>ModDate</code>. Also strip the XMP packet entirely if your tool offers it,
-      and check for embedded files and form field defaults. A quick pass in{" "}
-      <a href="/tools/pdf-metadata-remover">our PDF metadata remover</a> handles the
-      standard fields; verify with a separate viewer afterward.
+      Hukuki keşifte meta veriler kanıttır. Değiştirme tarihleri, bir belgenin ne zaman
+      yazıldığına dair iddialarla çelişebilir. Yazar alanları, imzaya rağmen bir şeyi
+      gerçekte kimin yazdığını gösterebilir. Koruyucu bir karar kapsamında belge üretiyorsanız,
+      meta verilerin kapsam dahilinde olup olmadığını kontrol edin — bazen onları korumalı,
+      bazen temizlemelisiniz. Bunu yanlış yaparsanız her iki durumda da başınız belaya girer.
     </p>
 
-    <h2>What stripping metadata does NOT do</h2>
+    <h2>Temizlenecek alan listesi</h2>
     <p>
-      Stripping metadata does not redact visible content. If your name is typed in the
-      document body, on a signature line, in a header, or embedded in an image, it&rsquo;s
-      still there. Metadata removal is about hidden fields only. For visible content,
-      you need actual redaction — blacking out text at the pixel level, not just drawing
-      a black box on top of it (which anyone can remove).
-    </p>
-    <p>
-      Similarly, metadata removal doesn&rsquo;t touch tracked changes, comments,
-      embedded fonts (which can carry identifying info), or form field values. Many
-      &ldquo;stripped&rdquo; PDFs still leak identity through one of these channels.
+      En azından şunları temizleyin: <code>Başlık</code>, <code>Yazar</code>, <code>Konu</code>,
+      <code>Anahtar Kelimeler</code>, <code>Oluşturan</code>, <code>Üretici</code>, <code>OluşturmaTarihi</code>,
+      <code>DeğiştirmeTarihi</code>. Ayrıca, aracınız izin veriyorsa XMP paketini tamamen
+      kaldırın ve gömülü dosyalar ile form alanı varsayılanlarını kontrol edin.{" "}
+      <a href="/tools/pdf-metadata-remover">PDF meta veri temizleyicimizde</a> hızlı bir geçiş,
+      standart alanları halleder; ardından ayrı bir görüntüleyici ile doğrulayın.
     </p>
 
-    <h2>How to verify you scrubbed it</h2>
+    <h2>Meta veri temizlemenin yapmadığı şeyler</h2>
     <p>
-      Don&rsquo;t trust a single tool&rsquo;s &ldquo;cleaned&rdquo; confirmation.
-      Re-open the output in <a href="/tools/pdf-metadata-viewer">our PDF metadata
-      viewer</a> or any other inspector and look at all fields. The XMP block is the
-      one most tools forget. On Linux or Mac, <code>exiftool</code> dumps everything
-      including custom fields. On Windows, right-click properties shows the standard
-      fields but not XMP.
+      Meta veri temizleme, görünür içeriği karartmaz. Adınız belge gövdesinde, bir imza
+      satırında, bir başlıkta yazılıysa veya bir görsele gömülüyse, hâlâ oradadır. Meta veri
+      kaldırma yalnızca gizli alanlarla ilgilidir. Görünür içerik için gerçek karartmaya
+      ihtiyacınız vardır — metni piksel seviyesinde karartmak, üzerine siyah bir kutu çizmek
+      değil (herkes kaldırabilir).
     </p>
     <p>
-      A belt-and-braces approach for sensitive releases: strip metadata, then print the
-      PDF to a new PDF (which re-generates the file and drops most remaining fields),
-      then verify again. It&rsquo;s the closest thing to a clean slate without
-      re-creating the source document from scratch.
+      Benzer şekilde, meta veri kaldırma, izlenen değişikliklere, yorumlara, gömülü yazı
+      tiplerine (kimlik bilgisi taşıyabilir) veya form alanı değerlerine dokunmaz. Birçok
+      &ldquo;temizlenmiş&rdquo; PDF, bu kanallardan biri aracılığıyla hâlâ kimlik sızdırır.
+    </p>
+
+    <h2>Temizlediğinizi nasıl doğrulayabilirsiniz</h2>
+    <p>
+      Tek bir aracın &ldquo;temizlendi&rdquo; onayına güvenmeyin. Çıktıyı{" "}
+      <a href="/tools/pdf-metadata-viewer">PDF meta veri görüntüleyicimizde</a> veya başka
+      bir denetleyicide yeniden açın ve tüm alanlara bakın. Çoğu aracın unuttuğu şey XMP
+      bloğudur. Linux veya Mac&rsquo;te <code>exiftool</code>, özel alanlar dahil her şeyi
+      döker. Windows&rsquo;ta, sağ tıklama özellikleri standart alanları gösterir ancak
+      XMP&rsquo;yi göstermez.
+    </p>
+    <p>
+      Hassas yayınlar için çift katmanlı bir yaklaşım: meta verileri temizleyin, ardından
+      PDF&rsquo;yi yeni bir PDF&rsquo;ye yazdırın (bu, dosyayı yeniden oluşturur ve kalan
+      alanların çoğunu bırakır), ardından tekrar doğrulayın. Kaynak belgeyi sıfırdan yeniden
+      oluşturmadan temiz bir sayfaya en yakın şey budur.
     </p>
   </>
 );

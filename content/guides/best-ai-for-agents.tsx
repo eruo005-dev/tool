@@ -2,62 +2,46 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Picking the right AI for agents in 2026 is mostly about reliability over long horizons. Claude
-    Opus 4.7 and Sonnet 4.6 lead the agentic harness category; GPT-5 is competitive but drifts
-    sooner; DeepSeek V3.2 wins on cost. Pick by horizon length and budget.
+    2026'da ajanlar için doğru yapay zekayı seçmek, çoğunlukla uzun vadelerde güvenilirlikle ilgilidir. Claude Opus 4.7 ve Sonnet 4.6, ajan koşum takımı kategorisinde liderdir; GPT-5 rekabetçidir ancak daha erken sürüklenir; DeepSeek V3.2 maliyet konusunda kazanır. Vade uzunluğuna ve bütçeye göre seçim yapın.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What &ldquo;best for agents&rdquo; means</h2>
+    <h2>"Ajanlar için en iyisi" ne anlama geliyor</h2>
     <p>
-      An agent is a model in a loop: think &rarr; act (tool call) &rarr; observe &rarr; think
-      again. The hard part isn&rsquo;t the first step &mdash; it&rsquo;s step 50 when the context
-      is 80k tokens of prior tool outputs and the model needs to make a smart next move. Reliability
-      compounds; small differences become huge over long horizons.
+      Bir ajan, bir döngü içindeki bir modeldir: düşün &rarr; hareket et (araç çağrısı) &rarr; gözlemle &rarr; tekrar düşün. Zor kısım ilk adım değildir &mdash; bağlamın önceki araç çıktılarının 80k token'ı olduğu ve modelin akıllı bir sonraki hamleyi yapması gerektiği 50. adımdır. Güvenilirlik birikir; küçük farklılıklar uzun vadelerde büyük hale gelir.
     </p>
 
-    <h2>The 2026 agent stack ranking</h2>
+    <h2>2026 ajan sıralaması</h2>
     <ul>
-      <li><strong>Claude Opus 4.7:</strong> top reliability over 50+ steps. Highest cost. Right for
-        production agents that can&rsquo;t fail.</li>
-      <li><strong>Claude Sonnet 4.6:</strong> 95% of Opus reliability at 1/5 cost. Default agent
-        model for most teams.</li>
-      <li><strong>GPT-5:</strong> excellent reasoning, ecosystem. Drifts sooner than Claude on
-        very long horizons.</li>
-      <li><strong>Gemini 2.5/3 Pro:</strong> strong on multimodal-input agents (vision + text
-        steps). Behind Claude on pure-text reasoning loops.</li>
-      <li><strong>DeepSeek V3.2:</strong> cheapest viable agent model. Use for cost-sensitive loops
-        where the marginal reliability gap is acceptable.</li>
+      <li><strong>Claude Opus 4.7:</strong> 50+ adımda en yüksek güvenilirlik. En yüksek maliyet. Başarısız olamayacak üretim ajanları için doğru.</li>
+      <li><strong>Claude Sonnet 4.6:</strong> Opus güvenilirliğinin %95'i 1/5 maliyetle. Çoğu ekip için varsayılan ajan modeli.</li>
+      <li><strong>GPT-5:</strong> mükemmel muhakeme, ekosistem. Çok uzun vadelerde Claude'dan daha erken sürüklenir.</li>
+      <li><strong>Gemini 2.5/3 Pro:</strong> çok modlu girdi ajanlarında (görüntü + metin adımları) güçlü. Saf metin muhakeme döngülerinde Claude'un gerisinde.</li>
+      <li><strong>DeepSeek V3.2:</strong> en ucuz uygulanabilir ajan modeli. Marjinal güvenilirlik farkının kabul edilebilir olduğu maliyete duyarlı döngüler için kullanın.</li>
     </ul>
 
-    <h2>Frameworks worth knowing</h2>
+    <h2>Bilmeye değer çerçeveler</h2>
     <ul>
-      <li><strong>Claude Agent SDK</strong> &mdash; Anthropic&rsquo;s purpose-built harness. Hooks,
-        skills, slash commands, <a href="/learn/mcp">MCP</a>. Best agent surface in 2026.</li>
-      <li><strong>OpenAI Agents SDK</strong> &mdash; tight Python/TS API for GPT-5 agents.</li>
-      <li><strong>LangGraph</strong> &mdash; framework-agnostic graph-based agent orchestrator.</li>
-      <li><strong>AutoGen</strong> &mdash; Microsoft&rsquo;s multi-agent framework.</li>
-      <li><strong>Crew AI</strong> &mdash; opinionated multi-agent role assignment.</li>
+      <li><strong>Claude Agent SDK</strong> &mdash; Anthropic'in amaca yönelik koşum takımı. Kancalar, skill'ler, eğik çizgi komutları, <a href="/learn/mcp">MCP</a>. 2026'daki en iyi ajan yüzeyi.</li>
+      <li><strong>OpenAI Agents SDK</strong> &mdash; GPT-5 ajanları için sıkı Python/TS API'si.</li>
+      <li><strong>LangGraph</strong> &mdash; çerçeveden bağımsız grafik tabanlı ajan orkestratörü.</li>
+      <li><strong>AutoGen</strong> &mdash; Microsoft'un çoklu ajan çerçevesi.</li>
+      <li><strong>Crew AI</strong> &mdash; görüşlü çoklu ajan rol ataması.</li>
     </ul>
 
-    <h2>Cost reality</h2>
+    <h2>Maliyet gerçeği</h2>
     <p>
-      Agent costs explode with horizon length because the context grows every step. Use prompt
-      caching always; use Sonnet not Opus by default; mix DeepSeek for cheap steps and Claude
-      for hard ones. Use the <a href="/tools/ai-agent-loop-cost-estimator">AI agent loop cost
-      estimator</a> to budget before you build.
+      Ajan maliyetleri, vade uzunluğuyla birlikte patlar çünkü bağlam her adımda büyür. Her zaman prompt önbelleğe almayı kullanın; varsayılan olarak Opus yerine Sonnet kullanın; ucuz adımlar için DeepSeek ve zor adımlar için Claude'u karıştırın. İnşa etmeden önce bütçe yapmak için <a href="/tools/ai-agent-loop-cost-estimator">AI ajan döngüsü maliyet tahmin aracını</a> kullanın.
     </p>
 
-    <h2>The hidden tip</h2>
+    <h2>Gizli ipucu</h2>
     <p>
-      Don&rsquo;t skip <a href="/learn/prompt-caching">prompt caching</a>. With Anthropic&rsquo;s 90%-off cached input, an agent that
-      reuses the same <a href="/learn/system-prompt">system prompt</a> across 50 steps costs ~10x less than a naive version. The
-      single biggest cost lever in agentic work is caching, not model choice.
+      <a href="/learn/prompt-caching">Prompt önbelleğe almayı</a> atlamayın. Anthropic'in %90 indirimli önbelleğe alınmış girdisiyle, aynı <a href="/learn/system-prompt">sistem komutunu</a> 50 adım boyunca yeniden kullanan bir ajan, saf bir versiyondan ~10 kat daha ucuza mal olur. Ajan çalışmalarındaki en büyük maliyet kaldıracı, model seçimi değil, önbelleğe almadır.
     </p>
     <p>
-      Compare: <a href="/compare/claude-vs-chatgpt">Claude vs ChatGPT</a>,{" "}
+      Karşılaştırın: <a href="/compare/claude-vs-chatgpt">Claude vs ChatGPT</a>,{" "}
       <a href="/compare/claude-opus-vs-sonnet">Claude Opus vs Sonnet</a>.
     </p>
   </>

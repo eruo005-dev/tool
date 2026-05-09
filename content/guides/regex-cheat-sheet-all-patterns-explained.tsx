@@ -1,142 +1,142 @@
 export const intro = (
   <>
     <p>
-      A complete regex reference: every operator, the difference between flavors
-      (ECMAScript, PCRE, Python, Go RE2), and 30 patterns that cover ~95% of real-world
-      matching tasks. Each pattern is shown with input, output, and a flavor compatibility
-      note. Use this as a working reference &mdash; bookmark it, search-in-page for what
-      you need, copy and adapt.
+      Kapsamlı bir regex referansı: her operatör, lehçeler arasındaki farklar
+      (ECMAScript, PCRE, Python, Go RE2) ve gerçek dünyadaki eşleştirme görevlerinin
+      ~%95'ini kapsayan 30 desen. Her desen, girdi, çıktı ve bir lehçe uyumluluk
+      notu ile gösterilmiştir. Bunu çalışan bir referans olarak kullanın &mdash; yer imi ekleyin,
+      ihtiyacınız olanı sayfa içinde arayın, kopyalayın ve uyarlayın.
     </p>
     <p>
-      Most regex tutorials over-explain syntax and under-explain the engine differences
-      that bite you in production. This guide goes the other way: short syntax recap,
-      long pattern library, and explicit flavor warnings.
+      Çoğu regex eğitimi sözdizimini gereğinden fazla açıklar ve sizi üretimde zorlayan
+      motor farklılıklarını yetersiz açıklar. Bu kılavuz tam tersini yapar: kısa sözdizimi
+      özeti, uzun desen kütüphanesi ve açık lehçe uyarıları.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "core-syntax", label: "Core syntax recap" },
-  { id: "anchors", label: "Anchors and boundaries" },
-  { id: "quantifiers", label: "Quantifiers (greedy, lazy, possessive)" },
-  { id: "character-classes", label: "Character classes and shortcuts" },
-  { id: "groups", label: "Groups, captures, backreferences" },
-  { id: "lookaround", label: "Lookahead and lookbehind" },
-  { id: "flavors", label: "Engine differences (ECMAScript, PCRE, Python, Go)" },
-  { id: "patterns-validation", label: "Common patterns: validation" },
-  { id: "patterns-extraction", label: "Common patterns: extraction" },
-  { id: "patterns-replacement", label: "Common patterns: replacement" },
-  { id: "redos", label: "Catastrophic backtracking and ReDoS" },
-  { id: "performance", label: "Performance tips" },
-  { id: "antipatterns", label: "Don't do these" },
+  { id: "core-syntax", label: "Temel sözdizimi özeti" },
+  { id: "anchors", label: "Çıpalar ve sınırlar" },
+  { id: "quantifiers", label: "Niceleyiciler (açgözlü, tembel, sahiplenici)" },
+  { id: "character-classes", label: "Karakter sınıfları ve kısayollar" },
+  { id: "groups", label: "Gruplar, yakalamalar, geri başvurular" },
+  { id: "lookaround", label: "İleriye ve geriye bakma" },
+  { id: "flavors", label: "Motor farklılıkları (ECMAScript, PCRE, Python, Go)" },
+  { id: "patterns-validation", label: "Yaygın desenler: doğrulama" },
+  { id: "patterns-extraction", label: "Yaygın desenler: çıkarma" },
+  { id: "patterns-replacement", label: "Yaygın desenler: değiştirme" },
+  { id: "redos", label: "Felaket geri izleme ve ReDoS" },
+  { id: "performance", label: "Performans ipuçları" },
+  { id: "antipatterns", label: "Bunları yapmayın" },
 ];
 
 export const body = (
   <>
-    <h2 id="core-syntax">Core syntax recap (in 90 seconds)</h2>
+    <h2 id="core-syntax">Temel sözdizimi özeti (90 saniyede)</h2>
     <ul>
-      <li><code>.</code> &mdash; any character except newline (use <code>s</code> flag for &ldquo;dotall&rdquo; mode where dot matches newlines too).</li>
-      <li><code>\d</code> &mdash; digit. Equivalent to <code>[0-9]</code> in most flavors. Unicode-aware in Python, ECMAScript with <code>u</code> flag.</li>
-      <li><code>\w</code> &mdash; word character. <code>[a-zA-Z0-9_]</code> in most flavors.</li>
-      <li><code>\s</code> &mdash; whitespace (space, tab, newline, etc.).</li>
-      <li><code>\D \W \S</code> &mdash; uppercase = negated.</li>
-      <li><code>[abc]</code> &mdash; character class: a, b, or c. <code>[a-z]</code> &mdash; range. <code>[^abc]</code> &mdash; negation.</li>
-      <li><code>|</code> &mdash; alternation: <code>cat|dog</code> matches cat OR dog.</li>
-      <li><code>?</code> &mdash; 0 or 1 occurrences. <code>*</code> &mdash; 0 or more. <code>+</code> &mdash; 1 or more.</li>
-      <li><code>{`{n}`}</code> &mdash; exactly n. <code>{`{n,}`}</code> &mdash; n or more. <code>{`{n,m}`}</code> &mdash; between n and m.</li>
+      <li><code>.</code> &mdash; yeni satır hariç herhangi bir karakter (noktanın yeni satırları da eşleştirdiği &ldquo;dotall&rdquo; modu için <code>s</code> bayrağını kullanın).</li>
+      <li><code>\d</code> &mdash; rakam. Çoğu lehçede <code>[0-9]</code> ile eşdeğerdir. Python'da Unicode duyarlı, ECMAScript'te <code>u</code> bayrağı ile.</li>
+      <li><code>\w</code> &mdash; kelime karakteri. Çoğu lehçede <code>[a-zA-Z0-9_]</code>.</li>
+      <li><code>\s</code> &mdash; boşluk (boşluk, sekme, yeni satır vb.).</li>
+      <li><code>\D \W \S</code> &mdash; büyük harf = olumsuzlanmış.</li>
+      <li><code>[abc]</code> &mdash; karakter sınıfı: a, b veya c. <code>[a-z]</code> &mdash; aralık. <code>[^abc]</code> &mdash; olumsuzlama.</li>
+      <li><code>|</code> &mdash; seçenek: <code>cat|dog</code> kedi VEYA köpeği eşleştirir.</li>
+      <li><code>?</code> &mdash; 0 veya 1 tekrar. <code>*</code> &mdash; 0 veya daha fazla. <code>+</code> &mdash; 1 veya daha fazla.</li>
+      <li><code>{`{n}`}</code> &mdash; tam olarak n. <code>{`{n,}`}</code> &mdash; n veya daha fazla. <code>{`{n,m}`}</code> &mdash; n ile m arasında.</li>
     </ul>
 
-    <h2 id="anchors">Anchors and boundaries</h2>
+    <h2 id="anchors">Çıpalar ve sınırlar</h2>
     <ul>
-      <li><code>^</code> &mdash; start of string. With <code>m</code> flag, start of line.</li>
-      <li><code>$</code> &mdash; end of string. With <code>m</code> flag, end of line.</li>
-      <li><code>\b</code> &mdash; word boundary (between <code>\w</code> and <code>\W</code>). <code>\bcat\b</code> matches &ldquo;cat&rdquo; but not &ldquo;catalog&rdquo;.</li>
-      <li><code>\B</code> &mdash; non-word boundary. <code>\Bcat\B</code> matches &ldquo;concatenate&rdquo; but not &ldquo;cat box&rdquo;.</li>
-      <li><code>\A</code> &mdash; absolute start of string (Python, PCRE). Not in ECMAScript.</li>
-      <li><code>\Z</code> / <code>\z</code> &mdash; absolute end of string (Python, PCRE). Not in ECMAScript.</li>
+      <li><code>^</code> &mdash; dize başlangıcı. <code>m</code> bayrağı ile satır başlangıcı.</li>
+      <li><code>$</code> &mdash; dize sonu. <code>m</code> bayrağı ile satır sonu.</li>
+      <li><code>\b</code> &mdash; kelime sınırı (<code>\w</code> ve <code>\W</code> arasında). <code>\bcat\b</code> &ldquo;cat&rdquo; ile eşleşir ancak &ldquo;catalog&rdquo; ile eşleşmez.</li>
+      <li><code>\B</code> &mdash; kelime olmayan sınır. <code>\Bcat\B</code> &ldquo;concatenate&rdquo; ile eşleşir ancak &ldquo;cat box&rdquo; ile eşleşmez.</li>
+      <li><code>\A</code> &mdash; dizenin mutlak başlangıcı (Python, PCRE). ECMAScript'te yoktur.</li>
+      <li><code>\Z</code> / <code>\z</code> &mdash; dizenin mutlak sonu (Python, PCRE). ECMAScript'te yoktur.</li>
     </ul>
     <p>
-      <strong>Most common gotcha</strong>: <code>^</code> and <code>$</code> default to
-      string start/end, not line start/end. To match line by line, add the multiline
-      <code> m</code> flag: <code>/^foo$/m</code>.
+      <strong>En yaygın tuzak</strong>: <code>^</code> ve <code>$</code> varsayılan olarak
+      dize başlangıcı/sonudur, satır başlangıcı/sonu değil. Satır satır eşleştirmek için çok satırlı
+      <code> m</code> bayrağını ekleyin: <code>/^foo$/m</code>.
     </p>
 
-    <h2 id="quantifiers">Quantifiers: greedy vs lazy vs possessive</h2>
+    <h2 id="quantifiers">Niceleyiciler: açgözlü vs tembel vs sahiplenici</h2>
     <p>
-      Three quantifier strategies in modern regex engines (not all flavors support all
-      three):
+      Modern regex motorlarında üç niceleyici stratejisi (tüm lehçeler üçünü de
+      desteklemez):
     </p>
     <ul>
       <li>
-        <strong>Greedy (default)</strong>: match as much as possible, then back off.
-        <code>.*</code> on &ldquo;abc&rdquo; matches &ldquo;abc&rdquo;.
+        <strong>Açgözlü (varsayılan)</strong>: mümkün olduğunca fazla eşleştir, sonra geri adım at.
+        <code>.*</code> &ldquo;abc&rdquo; üzerinde &ldquo;abc&rdquo; ile eşleşir.
       </li>
       <li>
-        <strong>Lazy / reluctant</strong>: <code>.*?</code>, <code>.+?</code>. Match as
-        little as possible. Useful for &ldquo;match between delimiters&rdquo; patterns.
+        <strong>Tembel / isteksiz</strong>: <code>.*?</code>, <code>.+?</code>. Mümkün olduğunca az
+        eşleştir. &ldquo;Sınırlayıcılar arasında eşleştir&rdquo; desenleri için kullanışlıdır.
       </li>
       <li>
-        <strong>Possessive</strong>: <code>.*+</code>, <code>.++</code>. Like greedy but
-        never give back. Fail-fast on no-match. Available in PCRE, Java, Ruby; NOT in
-        ECMAScript or Python.
+        <strong>Sahiplenici</strong>: <code>.*+</code>, <code>.++</code>. Açgözlü gibi ancak
+        asla geri vermez. Eşleşme yoksa hızlı başarısız olur. PCRE, Java, Ruby'de mevcuttur;
+        ECMAScript veya Python'da YOKTUR.
       </li>
     </ul>
     <p>
-      Worked example on <code>&lt;b&gt;hello&lt;/b&gt; &lt;b&gt;world&lt;/b&gt;</code>:
+      <code>&lt;b&gt;hello&lt;/b&gt; &lt;b&gt;world&lt;/b&gt;</code> üzerinde çalışılmış örnek:
     </p>
     <ul>
-      <li>Greedy <code>&lt;b&gt;.*&lt;/b&gt;</code> &rarr; matches the entire string (one big match).</li>
-      <li>Lazy <code>&lt;b&gt;.*?&lt;/b&gt;</code> &rarr; matches each <code>&lt;b&gt;...&lt;/b&gt;</code> separately.</li>
+      <li>Açgözlü <code>&lt;b&gt;.*&lt;/b&gt;</code> &rarr; tüm dizeyi eşleştirir (tek bir büyük eşleşme).</li>
+      <li>Tembel <code>&lt;b&gt;.*?&lt;/b&gt;</code> &rarr; her <code>&lt;b&gt;...&lt;/b&gt;</code> öğesini ayrı ayrı eşleştirir.</li>
     </ul>
 
-    <h2 id="character-classes">Character classes and shortcuts</h2>
+    <h2 id="character-classes">Karakter sınıfları ve kısayollar</h2>
     <ul>
-      <li><code>[abc]</code> &mdash; one of a, b, or c.</li>
-      <li><code>[a-zA-Z0-9]</code> &mdash; alphanumeric ASCII.</li>
-      <li><code>[^abc]</code> &mdash; NOT a, b, or c (one char).</li>
-      <li><code>[\d.-]</code> &mdash; digit, dot, or hyphen. Inside <code>[]</code>, most metacharacters lose special meaning. <code>-</code> goes at start/end to be literal.</li>
-      <li><code>\p{`{Letter}`}</code> &mdash; Unicode property class: any letter (Greek, Cyrillic, etc.). Requires <code>u</code> flag in ECMAScript.</li>
-      <li><code>\p{`{Number}`}</code> &mdash; any Unicode digit (Arabic, Devanagari, etc.).</li>
+      <li><code>[abc]</code> &mdash; a, b veya c'den biri.</li>
+      <li><code>[a-zA-Z0-9]</code> &mdash; alfanümerik ASCII.</li>
+      <li><code>[^abc]</code> &mdash; a, b veya c DEĞİL (bir karakter).</li>
+      <li><code>[\d.-]</code> &mdash; rakam, nokta veya tire. <code>[]</code> içinde çoğu meta karakter özel anlamını kaybeder. <code>-</code> gerçek anlamı için başta/sonda olur.</li>
+      <li><code>\p{`{Letter}`}</code> &mdash; Unicode özellik sınıfı: herhangi bir harf (Yunanca, Kiril vb.). ECMAScript'te <code>u</code> bayrağı gerektirir.</li>
+      <li><code>\p{`{Number}`}</code> &mdash; herhangi bir Unicode rakamı (Arapça, Devanagari vb.).</li>
     </ul>
 
-    <h2 id="groups">Groups, captures, backreferences</h2>
+    <h2 id="groups">Gruplar, yakalamalar, geri başvurular</h2>
     <ul>
-      <li><code>(abc)</code> &mdash; capturing group. Accessible as <code>$1</code> in replace, <code>match[1]</code> in code.</li>
-      <li><code>(?:abc)</code> &mdash; non-capturing group. Same grouping behavior, no capture overhead.</li>
-      <li><code>(?&lt;name&gt;abc)</code> &mdash; named capture. Accessible as <code>match.groups.name</code>.</li>
-      <li><code>\1 \2 ...</code> &mdash; backreference to captured group. <code>(a)\1</code> matches &ldquo;aa&rdquo;.</li>
-      <li><code>\k&lt;name&gt;</code> &mdash; backreference by name.</li>
+      <li><code>(abc)</code> &mdash; yakalayan grup. Değiştirmede <code>$1</code>, kodda <code>match[1]</code> olarak erişilebilir.</li>
+      <li><code>(?:abc)</code> &mdash; yakalamayan grup. Aynı gruplama davranışı, yakalama yükü yok.</li>
+      <li><code>(?&lt;name&gt;abc)</code> &mdash; adlandırılmış yakalama. <code>match.groups.name</code> olarak erişilebilir.</li>
+      <li><code>\1 \2 ...</code> &mdash; yakalanan gruba geri başvuru. <code>(a)\1</code> &ldquo;aa&rdquo; ile eşleşir.</li>
+      <li><code>\k&lt;name&gt;</code> &mdash; ada göre geri başvuru.</li>
     </ul>
     <p>
-      Worked example: extract user and domain from email. Pattern:{" "}
-      <code>(?&lt;user&gt;\w+)@(?&lt;domain&gt;[\w.-]+)</code>. On
-      &ldquo;hello@example.com&rdquo;:
+      Çalışılmış örnek: e-postadan kullanıcı ve alan adı çıkarma. Desen:{" "}
+      <code>(?&lt;user&gt;\w+)@(?&lt;domain&gt;[\w.-]+)</code>. &ldquo;hello@example.com&rdquo;
+      üzerinde:
       <code>match.groups.user === &quot;hello&quot;</code>,{" "}
       <code>match.groups.domain === &quot;example.com&quot;</code>.
     </p>
 
-    <h2 id="lookaround">Lookahead and lookbehind</h2>
+    <h2 id="lookaround">İleriye ve geriye bakma</h2>
     <p>
-      Zero-width assertions: they check whether a position has certain context, but
-      don&rsquo;t consume characters.
+      Sıfır genişlikli iddialar: bir konumun belirli bir bağlama sahip olup olmadığını kontrol ederler, ancak
+      karakter tüketmezler.
     </p>
     <ul>
-      <li><code>(?=...)</code> &mdash; positive lookahead. <code>foo(?=bar)</code> matches &ldquo;foo&rdquo; only if followed by &ldquo;bar&rdquo;.</li>
-      <li><code>(?!...)</code> &mdash; negative lookahead. <code>foo(?!bar)</code> matches &ldquo;foo&rdquo; not followed by &ldquo;bar&rdquo;.</li>
-      <li><code>(?&lt;=...)</code> &mdash; positive lookbehind. <code>(?&lt;=foo)bar</code> matches &ldquo;bar&rdquo; preceded by &ldquo;foo&rdquo;.</li>
-      <li><code>(?&lt;!...)</code> &mdash; negative lookbehind. <code>(?&lt;!foo)bar</code> matches &ldquo;bar&rdquo; NOT preceded by &ldquo;foo&rdquo;.</li>
+      <li><code>(?=...)</code> &mdash; olumlu ileriye bakma. <code>foo(?=bar)</code> &ldquo;foo&rdquo; yalnızca ardından &ldquo;bar&rdquo; geliyorsa eşleşir.</li>
+      <li><code>(?!...)</code> &mdash; olumsuz ileriye bakma. <code>foo(?!bar)</code> &ldquo;foo&rdquo; ardından &ldquo;bar&rdquo; gelmiyorsa eşleşir.</li>
+      <li><code>(?&lt;=...)</code> &mdash; olumlu geriye bakma. <code>(?&lt;=foo)bar</code> &ldquo;bar&rdquo; öncesinde &ldquo;foo&rdquo; varsa eşleşir.</li>
+      <li><code>(?&lt;!...)</code> &mdash; olumsuz geriye bakma. <code>(?&lt;!foo)bar</code> &ldquo;bar&rdquo; öncesinde &ldquo;foo&rdquo; YOKSA eşleşir.</li>
     </ul>
     <p>
-      <strong>Flavor support</strong>: Python <code>re</code> requires fixed-width
-      lookbehind; <code>regex</code> module supports variable-width. ECMAScript supports
-      both as of ES2018. Go RE2 has no lookaround at all (linear-time guarantee).
+      <strong>Lehçe desteği</strong>: Python <code>re</code> sabit genişlikli
+      geriye bakma gerektirir; <code>regex</code> modülü değişken genişliği destekler. ECMAScript
+      ES2018 itibarıyla her ikisini de destekler. Go RE2'de hiçbir ileriye/geriye bakma yoktur (doğrusal zaman garantisi).
     </p>
 
-    <h2 id="flavors">Engine differences (ECMAScript, PCRE, Python, Go)</h2>
+    <h2 id="flavors">Motor farklılıkları (ECMAScript, PCRE, Python, Go)</h2>
     <table>
       <thead>
         <tr>
-          <th>Feature</th>
+          <th>Özellik</th>
           <th>ECMAScript</th>
           <th>PCRE / Perl</th>
           <th>Python re</th>
@@ -144,224 +144,218 @@ export const body = (
         </tr>
       </thead>
       <tbody>
-        <tr><td>Lookbehind</td><td>ES2018+ (any width)</td><td>Yes (any)</td><td>Fixed-width only</td><td>NO</td></tr>
-        <tr><td>Possessive quantifiers</td><td>NO</td><td>Yes</td><td>NO</td><td>NO</td></tr>
-        <tr><td>Recursion / subroutines</td><td>NO</td><td>Yes</td><td>NO</td><td>NO</td></tr>
-        <tr><td>Named groups</td><td><code>(?&lt;name&gt;)</code></td><td><code>(?P&lt;name&gt;)</code> or <code>(?&lt;name&gt;)</code></td><td><code>(?P&lt;name&gt;)</code></td><td><code>(?P&lt;name&gt;)</code></td></tr>
-        <tr><td>Backtracking</td><td>Yes</td><td>Yes</td><td>Yes</td><td>NO (linear time)</td></tr>
-        <tr><td>Unicode property classes</td><td>With <code>u</code> flag</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Geriye bakma</td><td>ES2018+ (herhangi bir genişlik)</td><td>Evet (herhangi)</td><td>Yalnızca sabit genişlik</td><td>HAYIR</td></tr>
+        <tr><td>Sahiplenici niceleyiciler</td><td>HAYIR</td><td>Evet</td><td>HAYIR</td><td>HAYIR</td></tr>
+        <tr><td>Özyineleme / alt yordamlar</td><td>HAYIR</td><td>Evet</td><td>HAYIR</td><td>HAYIR</td></tr>
+        <tr><td>Adlandırılmış gruplar</td><td><code>(?&lt;name&gt;)</code></td><td><code>(?P&lt;name&gt;)</code> veya <code>(?&lt;name&gt;)</code></td><td><code>(?P&lt;name&gt;)</code></td><td><code>(?P&lt;name&gt;)</code></td></tr>
+        <tr><td>Geri izleme</td><td>Evet</td><td>Evet</td><td>Evet</td><td>HAYIR (doğrusal zaman)</td></tr>
+        <tr><td>Unicode özellik sınıfları</td><td><code>u</code> bayrağı ile</td><td>Evet</td><td>Evet</td><td>Evet</td></tr>
       </tbody>
     </table>
     <p>
-      <strong>Practical implication</strong>: a pattern that works in regex101.com&rsquo;s
-      PCRE mode may fail in your JavaScript code. Always test in the engine you&rsquo;ll
-      deploy to. The <a href="/tools/regex-tester">browser regex tester</a> uses
-      ECMAScript exactly as your production code will.
+      <strong>Pratik çıkarım</strong>: regex101.com'un PCRE modunda çalışan bir desen,
+      JavaScript kodunuzda başarısız olabilir. Her zaman dağıtacağınız motorda test edin.
+      <a href="/tools/regex-tester">Tarayıcı regex test aracı</a>, üretim kodunuzla tam olarak aynı
+      ECMAScript'i kullanır.
     </p>
 
-    <h2 id="patterns-validation">Common patterns: validation</h2>
-    <p>Each pattern is in ECMAScript flavor unless noted. Translate as needed.</p>
+    <h2 id="patterns-validation">Yaygın desenler: doğrulama</h2>
+    <p>Aksi belirtilmedikçe her desen ECMAScript lehçesindedir. Gerektiği gibi çevirin.</p>
 
-    <h3>Email (pragmatic)</h3>
+    <h3>E-posta (pragmatik)</h3>
     <pre>{`/^[\\w.+-]+@[\\w-]+\\.[\\w.-]+$/`}</pre>
     <p>
-      Don&rsquo;t try to match RFC 5321 &mdash; the full spec regex is 6,425 characters.
-      The above accepts ~99.9% of real emails and rejects most invalid input. For
-      bullet-proof validation, send a confirmation email instead.
+      RFC 5321'i eşleştirmeye çalışmayın &mdash; tam spesifikasyon regex'i 6.425 karakterdir.
+      Yukarıdaki, gerçek e-postaların ~%99,9'unu kabul eder ve çoğu geçersiz girdiyi reddeder.
+      Kurşun geçirmez doğrulama için bunun yerine bir onay e-postası gönderin.
     </p>
 
     <h3>URL (HTTP/HTTPS)</h3>
     <pre>{`/^https?:\\/\\/[\\w.-]+(?::\\d+)?(?:\\/[^\\s]*)?$/`}</pre>
 
-    <h3>US phone number</h3>
+    <h3>ABD telefon numarası</h3>
     <pre>{`/^\\(?\\d{3}\\)?[-.\\s]?\\d{3}[-.\\s]?\\d{4}$/`}</pre>
-    <p>Matches: (415) 555-1234, 415-555-1234, 415.555.1234, 4155551234.</p>
+    <p>Eşleşir: (415) 555-1234, 415-555-1234, 415.555.1234, 4155551234.</p>
 
-    <h3>IPv4 address</h3>
+    <h3>IPv4 adresi</h3>
     <pre>{`/^(?:(?:25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d\\d?)$/`}</pre>
 
-    <h3>Strong password (8+ chars, mixed case, digit, special)</h3>
+    <h3>Güçlü parola (8+ karakter, büyük-küçük harf, rakam, özel)</h3>
     <pre>{`/^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*]).{8,}$/`}</pre>
     <p>
-      Better approach: skip composition rules entirely, require length 12+, and check
-      against breach databases (HIBP). Modern security guidance has moved away from
-      composition requirements.
+      Daha iyi yaklaşım: kompozisyon kurallarını tamamen atlayın, uzunluk 12+ gerektirin ve
+      ihlal veritabanlarına (HIBP) karşı kontrol edin. Modern güvenlik yönergeleri
+      kompozisyon gereksinimlerinden uzaklaşmıştır.
     </p>
 
-    <h3>ISO 8601 date (YYYY-MM-DD)</h3>
+    <h3>ISO 8601 tarihi (YYYY-AA-GG)</h3>
     <pre>{`/^\\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\\d|3[01])$/`}</pre>
 
-    <h3>Hex color</h3>
+    <h3>Hex rengi</h3>
     <pre>{`/^#?(?:[0-9a-f]{3}|[0-9a-f]{6})$/i`}</pre>
 
-    <h3>Slug (URL-safe identifier)</h3>
+    <h3>Slug (URL güvenli tanımlayıcı)</h3>
     <pre>{`/^[a-z0-9]+(?:-[a-z0-9]+)*$/`}</pre>
 
-    <h2 id="patterns-extraction">Common patterns: extraction</h2>
+    <h2 id="patterns-extraction">Yaygın desenler: çıkarma</h2>
 
-    <h3>Match between delimiters (lazy)</h3>
+    <h3>Sınırlayıcılar arasında eşleştir (tembel)</h3>
     <pre>{`/<title>(.*?)<\\/title>/`}</pre>
     <p>
-      Caveat: don&rsquo;t parse HTML with regex for anything beyond the simplest cases.
-      Use <code>DOMParser</code> instead.
+      Uyarı: en basit durumların ötesinde HTML'yi regex ile ayrıştırmayın.
+      Bunun yerine <code>DOMParser</code> kullanın.
     </p>
 
-    <h3>All numbers in a string</h3>
+    <h3>Bir dizedeki tüm sayılar</h3>
     <pre>{`/-?\\d+(?:\\.\\d+)?/g`}</pre>
 
-    <h3>Quoted strings (handles escaped quotes)</h3>
+    <h3>Tırnak içindeki dizeler (kaçışlı tırnakları işler)</h3>
     <pre>{`/"((?:[^"\\\\]|\\\\.)*)"/g`}</pre>
 
-    <h3>Hashtags from a tweet</h3>
+    <h3>Bir tweet'teki hashtag'ler</h3>
     <pre>{`/#[\\w_]+/g`}</pre>
 
-    <h3>Markdown link</h3>
+    <h3>Markdown bağlantısı</h3>
     <pre>{`/\\[([^\\]]+)\\]\\(([^)]+)\\)/g`}</pre>
-    <p>Captures: $1 = link text, $2 = URL.</p>
+    <p>Yakalar: $1 = bağlantı metni, $2 = URL.</p>
 
-    <h3>CSV row (simple, no embedded commas)</h3>
+    <h3>CSV satırı (basit, gömülü virgül yok)</h3>
     <pre>{`/[^,\\n]+/g`}</pre>
-    <p>For real CSV with quoted fields and embedded commas, use a CSV parser library.</p>
+    <p>Gerçek CSV için tırnak içindeki alanlar ve gömülü virgüllerle bir CSV ayrıştırıcı kütüphanesi kullanın.</p>
 
-    <h2 id="patterns-replacement">Common patterns: replacement</h2>
+    <h2 id="patterns-replacement">Yaygın desenler: değiştirme</h2>
 
-    <h3>Strip HTML tags</h3>
+    <h3>HTML etiketlerini kaldır</h3>
     <pre>{`text.replace(/<[^>]+>/g, '')`}</pre>
 
-    <h3>Collapse multiple spaces</h3>
+    <h3>Birden çok boşluğu daralt</h3>
     <pre>{`text.replace(/\\s+/g, ' ').trim()`}</pre>
 
-    <h3>Convert camelCase to snake_case</h3>
+    <h3>camelCase'i snake_case'e dönüştür</h3>
     <pre>{`text.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase()`}</pre>
 
-    <h3>Mask email middle</h3>
+    <h3>E-posta ortasını maskele</h3>
     <pre>{`email.replace(/^(.{2}).*?(@.*)$/, '$1***$2')`}</pre>
-    <p>Output: <code>he***@example.com</code></p>
+    <p>Çıktı: <code>he***@example.com</code></p>
 
-    <h3>Convert phone to E.164</h3>
+    <h3>Telefonu E.164'e dönüştür</h3>
     <pre>{`text.replace(/[^\\d]/g, '').replace(/^/, '+1')`}</pre>
 
-    <h2 id="redos">Catastrophic backtracking and ReDoS</h2>
+    <h2 id="redos">Felaket geri izleme ve ReDoS</h2>
     <p>
-      Regular Expression Denial of Service (ReDoS) is a real attack class. Vulnerable
-      patterns have nested quantifiers that produce exponential paths on adversarial
-      input. The classic example:
+      Düzenli İfade Hizmet Reddi (ReDoS) gerçek bir saldırı sınıfıdır. Güvenlik açığı olan
+      desenler, düşmanca girdilerde üstel yollar üreten iç içe niceleyicilere sahiptir. Klasik örnek:
     </p>
     <pre>{`/^(a+)+$/`}</pre>
     <p>
-      On input &ldquo;aaaaaaaaaaaaaaaaaaa!&rdquo; (no matching <code>$</code>), the regex
-      engine tries every possible split of <code>a</code> characters between the inner
-      and outer quantifier. Time grows as 2^n. 30 a&rsquo;s = 1 billion paths = 30+ second
-      hang.
+      &ldquo;aaaaaaaaaaaaaaaaaaa!&rdquo; (eşleşen <code>$</code> yok) girdisinde, regex
+      motoru iç ve dış niceleyici arasındaki <code>a</code> karakterlerinin olası her
+      bölünmesini dener. Süre 2^n olarak büyür. 30 a = 1 milyar yol = 30+ saniyelik
+      donma.
     </p>
     <p>
-      Common ReDoS patterns to audit:
+      Denetlenecek yaygın ReDoS desenleri:
     </p>
     <ul>
-      <li><code>(a+)+</code>, <code>(a*)*</code> &mdash; nested quantifiers on overlapping classes.</li>
-      <li><code>(a|aa)+</code> &mdash; alternation with overlap.</li>
+      <li><code>(a+)+</code>, <code>(a*)*</code> &mdash; örtüşen sınıflarda iç içe niceleyiciler.</li>
+      <li><code>(a|aa)+</code> &mdash; örtüşmeli seçenek.</li>
       <li>
-        Email regex <code>^([a-zA-Z0-9._-]+)+@</code> &mdash; nested group with permissive
-        inner quantifier.
+        E-posta regex'i <code>^([a-zA-Z0-9._-]+)+@</code> &mdash; izin verici iç
+        niceleyici ile iç içe grup.
       </li>
     </ul>
     <p>
-      <strong>Defenses</strong>: (1) Use Go RE2 or RE2-compatible engines (Cloudflare,
-      Google&rsquo;s open-source RE2 library) for untrusted input &mdash; linear time
-      guarantee. (2) Add timeouts when running user-supplied patterns. (3) Use static
-      analysis tools (rxxr2, safe-regex) to flag risky patterns. (4) Avoid nested
-      quantifiers; prefer atomic groups <code>(?&gt;...)</code> or possessive quantifiers
-      where supported.
+      <strong>Savunmalar</strong>: (1) Güvenilmeyen girdiler için Go RE2 veya RE2 uyumlu motorlar (Cloudflare,
+      Google'ın açık kaynak RE2 kütüphanesi) kullanın &mdash; doğrusal zaman
+      garantisi. (2) Kullanıcı tarafından sağlanan desenleri çalıştırırken zaman aşımları ekleyin. (3) Riskli desenleri işaretlemek için statik analiz araçları (rxxr2, safe-regex) kullanın. (4) İç içe
+      niceleyicilerden kaçının; desteklenen yerlerde atomik grupları <code>(?&gt;...)</code> veya sahiplenici
+      niceleyicileri tercih edin.
     </p>
 
-    <h2 id="performance">Performance tips</h2>
+    <h2 id="performance">Performans ipuçları</h2>
     <ul>
       <li>
-        <strong>Anchor your patterns</strong>: <code>^abc</code> is dramatically faster
-        than <code>abc</code> on long input where matches start at position 0.
+        <strong>Desenlerinizi çıpalayın</strong>: <code>^abc</code>, eşleşmelerin 0. konumda başladığı
+        uzun girdilerde <code>abc</code>'den önemli ölçüde daha hızlıdır.
       </li>
       <li>
-        <strong>Prefer character classes to alternation</strong>: <code>[abc]</code> is
-        faster than <code>a|b|c</code>.
+        <strong>Seçenek yerine karakter sınıflarını tercih edin</strong>: <code>[abc]</code>,
+        <code>a|b|c</code>'den daha hızlıdır.
       </li>
       <li>
-        <strong>Compile once, reuse many times</strong>: in Python <code>re.compile()</code>{" "}
-        and Java <code>Pattern.compile()</code>, save the compiled pattern for hot loops.
-        ECMAScript engines cache regex literals automatically.
+        <strong>Bir kez derleyin, birçok kez yeniden kullanın</strong>: Python'da <code>re.compile()</code>{" "}
+        ve Java'da <code>Pattern.compile()</code> ile derlenmiş deseni sıcak döngüler için kaydedin.
+        ECMAScript motorları regex değişmezlerini otomatik olarak önbelleğe alır.
       </li>
       <li>
-        <strong>Use non-capturing groups</strong> <code>(?:...)</code>{" "}
-        when you don&rsquo;t need the capture &mdash; saves memory.
+        <strong>Yakalamayan gruplar kullanın</strong> <code>(?:...)</code>{" "}
+        yakalamaya ihtiyacınız olmadığında &mdash; bellekten tasarruf sağlar.
       </li>
       <li>
-        <strong>Profile before optimizing</strong>: most regex performance issues are
-        catastrophic backtracking, not micro-optimization. Use a regex profiler.
+        <strong>Optimize etmeden önce profil oluşturun</strong>: çoğu regex performans sorunu
+        felaket geri izlemedir, mikro optimizasyon değil. Bir regex profil oluşturucu kullanın.
       </li>
     </ul>
 
-    <h2 id="antipatterns">Don&rsquo;t do these</h2>
+    <h2 id="antipatterns">Bunları yapmayın</h2>
     <ul>
       <li>
-        <strong>Parse HTML with regex.</strong> HTML is recursive; regex isn&rsquo;t.
-        Use <code>DOMParser</code>, BeautifulSoup, jsoup, or html.parser.
+        <strong>HTML'yi regex ile ayrıştırmayın.</strong> HTML özyinelemelidir; regex değildir.
+        <code>DOMParser</code>, BeautifulSoup, jsoup veya html.parser kullanın.
       </li>
       <li>
-        <strong>Parse JSON with regex.</strong> Use <code>JSON.parse</code> or your
-        language&rsquo;s equivalent.
+        <strong>JSON'u regex ile ayrıştırmayın.</strong> <code>JSON.parse</code> veya
+        dilinizin eşdeğerini kullanın.
       </li>
       <li>
-        <strong>Match RFC 5321 emails with one regex.</strong> The proper regex is 6,425
-        chars; nobody actually uses it. Validate format with a pragmatic pattern, then
-        send a confirmation email.
+        <strong>RFC 5321 e-postalarını tek bir regex ile eşleştirmeyin.</strong> Uygun regex 6.425
+        karakterdir; kimse gerçekten kullanmaz. Pragmatik bir desenle biçimi doğrulayın, ardından
+        bir onay e-postası gönderin.
       </li>
       <li>
-        <strong>Validate SQL identifiers with permissive regex.</strong> Use parameterized
-        queries; don&rsquo;t hand-roll SQL injection prevention.
+        <strong>SQL tanımlayıcılarını izin verici regex ile doğrulamayın.</strong> Parametreli
+        sorgular kullanın; SQL enjeksiyon önlemini kendiniz yapmayın.
       </li>
       <li>
-        <strong>Match balanced delimiters with regex.</strong> Recursion is required;
-        most regex engines don&rsquo;t support it. Use a stack-based parser.
+        <strong>Dengeli sınırlayıcıları regex ile eşleştirmeyin.</strong> Özyineleme gereklidir;
+        çoğu regex motoru bunu desteklemez. Yığın tabanlı bir ayrıştırıcı kullanın.
       </li>
       <li>
-        <strong>Trust user-supplied regex without timeouts.</strong> ReDoS will hang your
-        process.
+        <strong>Kullanıcı tarafından sağlanan regex'e zaman aşımı olmadan güvenmeyin.</strong> ReDoS işleminizi
+        donduracaktır.
       </li>
     </ul>
 
-    <h2>The 80/20 takeaway</h2>
+    <h2>80/20 çıkarımı</h2>
     <p>
-      Master 6 things and you can handle ~95% of real-world regex tasks: character
-      classes, quantifiers (greedy and lazy), anchors, capture groups, alternation,
-      backreferences. The rest (lookaround, possessive quantifiers, atomic groups) is
-      situational. Test in the exact engine you&rsquo;ll deploy to (the{" "}
-      <a href="/tools/regex-tester">regex tester</a> uses ECMAScript). Audit any pattern
-      that handles untrusted input for ReDoS. And always have a non-regex fallback ready
-      &mdash; HTML parsers, JSON parsers, real CSV libraries &mdash; for cases regex
-      can&rsquo;t handle correctly.
+      6 şeyde ustalaşın ve gerçek dünyadaki regex görevlerinin ~%95'ini halledebilirsiniz: karakter
+      sınıfları, niceleyiciler (açgözlü ve tembel), çıpalar, yakalama grupları, seçenek,
+      geri başvurular. Geri kalanı (ileriye/geriye bakma, sahiplenici niceleyiciler, atomik gruplar) durumsaldır.
+      Dağıtacağınız tam motorda test edin ({" "}
+      <a href="/tools/regex-tester">regex test aracı</a> ECMAScript kullanır). Güvenilmeyen girdiyi işleyen herhangi bir
+      deseni ReDoS için denetleyin. Ve her zaman regex'in doğru şekilde işleyemediği durumlar için
+      hazır bir regex dışı yedek planınız olsun &mdash; HTML ayrıştırıcıları, JSON ayrıştırıcıları, gerçek CSV
+      kütüphaneleri &mdash;.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Test regex patterns instantly in the browser-based regex tester",
+  label: "Regex desenlerini tarayıcı tabanlı regex test aracında anında test edin",
   targetSlug: "regex-tester",
 };
 
 export const faq = [
   {
-    q: "What's the difference between regex flavors?",
-    a: "Major engines: ECMAScript (browsers, Node.js), PCRE (PHP, Perl), Python re, Go RE2, Java's java.util.regex, Ruby. Differences include lookbehind support (Go RE2 has none), recursion (only PCRE/Perl), Unicode handling, possessive quantifiers (PCRE/Java/Ruby only). Same pattern can match in one flavor and fail in another. Always test in the exact engine you'll deploy to.",
+    q: "Regex lehçeleri arasındaki fark nedir?",
+    a: "Başlıca motorlar: ECMAScript (tarayıcılar, Node.js), PCRE (PHP, Perl), Python re, Go RE2, Java'nın java.util.regex, Ruby. Farklılıklar arasında geriye bakma desteği (Go RE2'de yok), özyineleme (yalnızca PCRE/Perl), Unicode işleme, sahiplenici niceleyiciler (yalnızca PCRE/Java/Ruby) bulunur. Aynı desen bir lehçede eşleşebilir ve diğerinde başarısız olabilir. Her zaman dağıtacağınız tam motorda test edin.",
   },
   {
-    q: "Why is my regex pattern hanging or timing out?",
-    a: "Likely catastrophic backtracking — a ReDoS pattern. Common culprits: nested quantifiers like (a+)+, alternation with overlap like (a|aa)+, permissive nested groups like ([a-z]+)+. Time grows exponentially with input length. Defenses: (1) rewrite the pattern to remove nested quantifiers, (2) use Go RE2 or RE2-compatible engines for untrusted input (linear-time guaranteed), (3) add execution timeouts, (4) run static analyzers like safe-regex to flag risky patterns.",
+    q: "Regex desenim neden takılıyor veya zaman aşımına uğruyor?",
+    a: "Büyük olasılıkla felaket geri izleme — bir ReDoS deseni. Yaygın suçlular: (a+)+ gibi iç içe niceleyiciler, (a|aa)+ gibi örtüşmeli seçenek, ([a-z]+)+ gibi izin verici iç içe gruplar. Süre, girdi uzunluğuyla üstel olarak artar. Savunmalar: (1) iç içe niceleyicileri kaldırmak için deseni yeniden yazın, (2) güvenilmeyen girdiler için Go RE2 veya RE2 uyumlu motorlar kullanın (doğrusal zaman garantili), (3) yürütme zaman aşımları ekleyin, (4) riskli desenleri işaretlemek için safe-regex gibi statik analizörler çalıştırın.",
   },
   {
-    q: "How do I write a regex for emails properly?",
-    a: "Don't try for RFC 5321 perfection — the canonical regex is 6,425 characters. Use a pragmatic pattern like /^[\\w.+-]+@[\\w-]+\\.[\\w.-]+$/ that catches ~99.9% of real emails and rejects most invalid input. For high-stakes validation (signup forms): pragmatic regex first to filter typos, then send a confirmation email — only the inbox owner can click the link, which proves both syntactic AND deliverable validity. Don't combine validation regex with deliverability checks; separate concerns.",
-  },
-  {
-    q: "What's the fastest regex engine?",
-    a: "Go RE2 is the fastest for guaranteed worst-case performance (linear time, no catastrophic backtracking). It's used by Cloudflare, Google, and many search engines. Trade-off: no lookbehind, no recursion. For features-rich speed: PCRE2 with JIT compilation is fastest. ECMAScript engines (V8 in Node/Chrome) are fast for most patterns due to heavy optimization but vulnerable to ReDoS on adversarial input. Python re is consistently the slowest of major engines; the third-party 'regex' module is meaningfully faster.",
+    q: "E-postalar için regex'i nasıl doğru yazabilirim?",
+    a: "RFC 5321 mükemmelliği için uğraşmayın — kanonik regex 6.425 karakterdir. Gerçek e-postaların ~%99,9'unu yakalayan ve çoğu geçersiz girdiyi reddeden /^[\\w.+-]+@[\\w-]+\\.[\\w.-]+$/ gibi pragmatik bir desen kullanın. Yüksek riskli doğrulama (kayıt formları) için: önce yazım hatalarını filtrelemek için pragmatik regex, ardından bir onay e-postası gönderin — yalnızca gelen kutusu sahibi bağlantıya tıklayabilir, bu da hem sözdizimsel hem de teslim edilebilir geçerliliği kanıtlar. Doğrulama regex'ini teslim edilebilirlik kontrolleriyle birleştirmeyin; endişeleri ayırın.",
   },
 ];

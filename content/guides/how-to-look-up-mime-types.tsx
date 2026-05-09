@@ -3,37 +3,38 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      MIME types &mdash; Multipurpose Internet Mail Extensions, now
-      officially called &ldquo;media types&rdquo; &mdash; label a
-      byte stream so the receiver knows what it is. Served in the
-      <code> Content-Type</code> HTTP response header, stamped on
-      every file upload, and handed around by the operating system
-      for file-open dialogs, they decide whether your browser
-      renders, downloads, or rejects the bytes. The format is
-      simple: <code>type/subtype</code>, optionally with parameters.
-      The registry behind it is maintained by IANA and holds
-      thousands of entries. Getting the type wrong causes quiet
-      bugs &mdash; images fail to render, JSON downloads instead
-      of parsing, fonts fail silently in Firefox. This guide covers
-      the structure of a MIME type, the common types you will
-      actually meet, how IANA assignment works, file-extension
-      mapping, the security implications of
-      <code> X-Content-Type-Options: nosniff</code>, and why
-      browsers sniff when you let them.
+      MIME türleri &mdash; Çok Amaçlı İnternet Posta Uzantıları, şimdi
+      resmi olarak &ldquo;medya türleri&rdquo; olarak adlandırılır &mdash; bir
+      bayt akışını etiketleyerek alıcının ne olduğunu bilmesini sağlar.
+      <code> Content-Type</code> HTTP yanıt başlığında sunulur, her
+      dosya yüklemesinde damgalanır ve işletim sistemi tarafından
+      dosya açma diyaloglarında kullanılır; tarayıcınızın baytları
+      işlemesine, indirmesine veya reddetmesine karar verirler. Biçim
+      basittir: <code>type/subtype</code>, isteğe bağlı parametrelerle.
+      Arkasındaki kayıt defteri IANA tarafından tutulur ve
+      binlerce giriş içerir. Türü yanlış almak sessiz hatalara
+      neden olur &mdash; resimler işlenmez, JSON ayrıştırılmak yerine
+      indirilir, yazı tipleri Firefox'ta sessizce başarısız olur. Bu kılavuz
+      bir MIME türünün yapısını, gerçekten karşılaşacağınız yaygın türleri,
+      IANA atamasının nasıl çalıştığını, dosya uzantısı
+      eşlemesini,
+      <code> X-Content-Type-Options: nosniff</code>'in güvenlik
+      etkilerini ve tarayıcıların izin verdiğinizde neden
+      koklama yaptığını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Structure of a media type</h2>
+    <h2>Bir medya türünün yapısı</h2>
     <p>
-      The general form is
-      <code> type/subtype;parameter=value</code>. Example:
+      Genel biçim
+      <code> type/subtype;parameter=value</code> şeklindedir. Örnek:
       <code> text/html; charset=utf-8</code>.
     </p>
     <p>
-      <strong>Top-level type</strong> is one of a fixed set:
+      <strong>Üst düzey tür</strong> sabit bir kümeden biridir:
       <code> application</code>, <code>audio</code>,
       <code> example</code>, <code>font</code>,
       <code> image</code>, <code>message</code>,
@@ -41,68 +42,68 @@ export const body: ReactElement = (
       <code> text</code>, <code>video</code>.
     </p>
     <p>
-      <strong>Subtype</strong> identifies the specific format:
+      <strong>Alt tür</strong> belirli biçimi tanımlar:
       <code> html</code>, <code>json</code>, <code>png</code>.
     </p>
     <p>
-      <strong>Parameters</strong> add context &mdash; charset for
-      text, boundary for multipart, profile for linked-data JSON.
+      <strong>Parametreler</strong> bağlam ekler &mdash; metin için karakter kümesi,
+      çok parçalı için sınır, bağlantılı veri JSON için profil.
     </p>
     <p>
-      <strong>Prefixes</strong> on subtypes signal status:
-      <code> x-</code> was the pre-2012 convention for
-      unregistered types (<code>application/x-custom</code>), now
-      deprecated in favor of <code>vnd.</code> for
-      vendor-specific, and <code>prs.</code> for personal use.
+      <strong>Alt türlerdeki ön ekler</strong> durumu belirtir:
+      <code> x-</code> 2012 öncesi kayıtlı olmayan türler için kullanılan
+      kuraldı (<code>application/x-custom</code>), şimdi
+      satıcıya özel için <code>vnd.</code> ve kişisel kullanım için
+      <code> prs.</code> lehine kullanımdan kaldırılmıştır.
     </p>
 
-    <h2>Structured syntax suffixes</h2>
+    <h2>Yapılandırılmış sözdizimi son ekleri</h2>
     <p>
-      A <code>+</code> in the subtype indicates a format built on a
-      common syntax. Examples:
+      Alt türdeki bir <code>+</code>, ortak bir sözdizimi üzerine
+      inşa edilmiş bir biçimi belirtir. Örnekler:
     </p>
     <p>
-      <code>application/ld+json</code> &mdash; <a href="/learn/json-ld">JSON-LD</a>, JSON with
-      linked-data semantics.
+      <code>application/ld+json</code> &mdash; <a href="/learn/json-ld">JSON-LD</a>, bağlantılı
+      veri anlam bilimi ile JSON.
     </p>
     <p>
-      <code>image/svg+xml</code> &mdash; SVG, which is XML.
+      <code>image/svg+xml</code> &mdash; XML olan SVG.
     </p>
     <p>
-      <code>application/atom+xml</code> &mdash; Atom feed, also
+      <code>application/atom+xml</code> &mdash; Atom beslemesi, ayrıca
       XML.
     </p>
     <p>
-      Parsers that recognize the base syntax
+      Temel sözdizimini tanıyan ayrıştırıcılar
       (<code>+json</code>, <code>+xml</code>,
-      <code> +cbor</code>, <code>+zip</code>) can fall back to
-      generic handling if they do not know the specific type.
+      <code> +cbor</code>, <code>+zip</code>), belirli türü
+      bilmiyorlarsa genel işlemeye geri dönebilir.
     </p>
 
-    <h2>Common types you meet weekly</h2>
+    <h2>Haftalık karşılaştığınız yaygın türler</h2>
     <p>
-      <strong>text/html</strong> &mdash; HTML documents.
+      <strong>text/html</strong> &mdash; HTML belgeleri.
     </p>
     <p>
       <strong>text/css</strong>, <strong>text/javascript</strong>
-      &mdash; stylesheets and scripts. (Historically
-      <code> application/javascript</code>; IANA now recommends
-      <code> text/javascript</code>.)
+      &mdash; stil sayfaları ve betikler. (Tarihsel olarak
+      <code> application/javascript</code>; IANA şimdi
+      <code> text/javascript</code>'i önerir.)
     </p>
     <p>
-      <strong>application/json</strong> &mdash; JSON. Note:
-      <code> application</code>, not
-      <code> text</code>, and no charset parameter by spec (JSON is
-      defined as UTF-8).
+      <strong>application/json</strong> &mdash; JSON. Not:
+      <code> application</code>, <code> text</code> değil,
+      ve spesifikasyona göre karakter kümesi parametresi yok (JSON
+      UTF-8 olarak tanımlanmıştır).
     </p>
     <p>
       <strong>application/xml</strong>,
-      <strong> text/xml</strong> &mdash; XML. Either works but
-      <code> application/xml</code> is the RFC 7303 recommendation
-      for machine-consumed XML.
+      <strong> text/xml</strong> &mdash; XML. İkisi de çalışır ancak
+      <code> application/xml</code>, makine tarafından tüketilen XML
+      için RFC 7303 önerisidir.
     </p>
     <p>
-      <strong>image/jpeg</strong> (not <code>jpg</code>),
+      <strong>image/jpeg</strong> (<code>jpg</code> değil),
       <strong> image/png</strong>,
       <strong> image/gif</strong>,
       <strong> image/webp</strong>,
@@ -112,195 +113,196 @@ export const body: ReactElement = (
     <p>
       <strong>application/pdf</strong>,
       <strong> application/zip</strong>,
-      <strong> application/octet-stream</strong> (unknown binary).
+      <strong> application/octet-stream</strong> (bilinmeyen ikili).
     </p>
     <p>
-      <strong>font/woff2</strong> (since 2017; previously
+      <strong>font/woff2</strong> (2017'den beri; önceden
       <code> application/font-woff2</code>),
       <strong> font/woff</strong>,
       <strong> font/ttf</strong>.
     </p>
     <p>
-      <strong>multipart/form-data</strong> &mdash; HTML file uploads.
-      Includes a <code>boundary=</code> parameter the server needs
-      to split the parts.
+      <strong>multipart/form-data</strong> &mdash; HTML dosya yüklemeleri.
+      Sunucunun parçaları ayırması gereken bir <code>boundary=</code>
+      parametresi içerir.
     </p>
     <p>
       <strong>application/x-www-form-urlencoded</strong> &mdash;
-      standard HTML form submissions without files.
+      dosyalar olmadan standart HTML form gönderimleri.
     </p>
 
-    <h2>The IANA registry</h2>
+    <h2>IANA kayıt defteri</h2>
     <p>
-      Every officially recognized media type is registered with IANA
-      at <code>iana.org/assignments/media-types</code>. The registry
-      has four assignment trees:
+      Resmi olarak tanınan her medya türü IANA'ya
+      <code>iana.org/assignments/media-types</code> adresinde kayıtlıdır. Kayıt
+      defterinde dört atama ağacı vardır:
     </p>
     <p>
-      <strong>Standards tree</strong>: common, no prefix
+      <strong>Standartlar ağacı</strong>: yaygın, ön ek yok
       (<code>application/json</code>).
     </p>
     <p>
-      <strong>Vendor tree</strong>: <code>vnd.</code> prefix
+      <strong>Satıcı ağacı</strong>: <code>vnd.</code> ön eki
       (<code>application/vnd.ms-excel</code>,
       <code> application/vnd.google-earth.kml+xml</code>).
     </p>
     <p>
-      <strong>Personal tree</strong>: <code>prs.</code> prefix, for
-      personal or experimental types.
+      <strong>Kişisel ağaç</strong>: <code>prs.</code> ön eki, kişisel
+      veya deneysel türler için.
     </p>
     <p>
-      <strong>Unregistered tree</strong>: <code>x.</code> prefix for
-      private use. Legacy types used <code>x-</code> without the dot
-      (<code>application/x-shockwave-flash</code>) and most are
-      grandfathered in.
+      <strong>Kayıtlı olmayan ağaç</strong>: <code>x.</code> ön eki özel
+      kullanım için. Eski türler noktasız <code>x-</code> kullanırdı
+      (<code>application/x-shockwave-flash</code>) ve çoğu
+      eski kullanım olarak korunur.
     </p>
     <p>
-      Registering a new type is a short form plus a public review.
-      For API authors: do not invent
-      <code> application/my-custom-thing</code>; use
-      <code> application/vnd.acme.thing+json</code> so it inherits
-      JSON&rsquo;s handling in generic clients.
+      Yeni bir tür kaydetmek kısa bir form ve halka açık bir incelemedir.
+      API yazarları için: <code> application/my-custom-thing</code>
+      icat etmeyin; genel istemcilerde JSON işlemesini
+      devralması için <code> application/vnd.acme.thing+json</code>
+      kullanın.
     </p>
 
-    <h2>File extension mapping</h2>
+    <h2>Dosya uzantısı eşlemesi</h2>
     <p>
-      MIME type and file extension are two ways of saying the same
-      thing, and the mapping is almost always in a shared system
-      table. On Linux <code>/etc/mime.types</code>; on Apache
-      <code> mime.types</code>; Node.js has the <code>mime</code>
-      {" "}package; every language ecosystem ships one.
+      MIME türü ve dosya uzantısı aynı şeyi söylemenin iki yoludur
+      ve eşleme neredeyse her zaman paylaşılan bir sistem
+      tablosundadır. Linux'ta <code>/etc/mime.types</code>; Apache'de
+      <code> mime.types</code>; Node.js'de <code>mime</code>
+      {" "}paketi vardır; her dil ekosistemi bir tane sağlar.
     </p>
     <p>
-      Some types have multiple valid extensions:
+      Bazı türlerin birden çok geçerli uzantısı vardır:
       <code> image/jpeg</code> &rarr; <code>.jpg</code>,
-      <code> .jpeg</code>, <code>.jpe</code>. One extension can
-      have multiple valid types depending on content:
-      <code> .ogg</code> might be audio or video. Never deduce type
-      from extension alone for user uploads &mdash; check the actual
-      bytes.
+      <code> .jpeg</code>, <code>.jpe</code>. Bir uzantı, içeriğe bağlı
+      olarak birden çok geçerli türe sahip olabilir:
+      <code> .ogg</code> ses veya video olabilir. Kullanıcı yüklemeleri
+      için türü asla yalnızca uzantıdan çıkarmayın &mdash; gerçek
+      baytları kontrol edin.
     </p>
 
-    <h2>Content-Type and charset</h2>
+    <h2>Content-Type ve karakter kümesi</h2>
     <p>
-      For text-based types, always include the charset:
-      <code> Content-Type: text/html; charset=utf-8</code>. Without
-      it, browsers guess, which can cause
-      <code> mojibake</code> &mdash; &ldquo;&eacute;&rdquo; showing
-      up as &ldquo;&Atilde;&copy;&rdquo; &mdash; when bytes are
-      interpreted in the wrong encoding.
+      Metin tabanlı türler için her zaman karakter kümesini ekleyin:
+      <code> Content-Type: text/html; charset=utf-8</code>. Onsuz,
+      tarayıcılar tahmin eder, bu da baytlar yanlış kodlamada
+      yorumlandığında <code> mojibake</code>'e &mdash;
+      &ldquo;&eacute;&rdquo;nin &ldquo;&Atilde;&copy;&rdquo; olarak
+      görünmesi &mdash; neden olabilir.
     </p>
     <p>
-      For binary types, no charset is meaningful. Including one
-      (<code>image/png; charset=utf-8</code>) is harmless but
-      nonsensical and worth cleaning up.
-    </p>
-
-    <h2>MIME sniffing and nosniff</h2>
-    <p>
-      Browsers historically sniff the first few hundred bytes of a
-      response and override the declared <code>Content-Type</code>
-      if they disagree. This helped with mislabeled servers but
-      opened a security hole: an attacker uploads a file labeled
-      <code> text/plain</code> that browsers sniff as HTML and
-      execute scripts from.
-    </p>
-    <p>
-      The defense is the header
-      <code> X-Content-Type-Options: nosniff</code>, which tells the
-      browser &ldquo;trust my Content-Type, do not sniff.&rdquo;
-      Send it on every response. Combined with correct types, it
-      neutralizes a whole class of cross-site scripting attacks.
-    </p>
-    <p>
-      <strong>Always send nosniff on user uploads and
-      attachments.</strong> Combine with
-      <code> Content-Disposition: attachment</code> to force
-      download for types that browsers would otherwise render.
+      İkili türler için karakter kümesi anlamlı değildir. Bir tane
+      eklemek (<code>image/png; charset=utf-8</code>) zararsızdır ancak
+      anlamsızdır ve temizlemeye değer.
     </p>
 
-    <h2>Wildcards in Accept</h2>
+    <h2>MIME koklama ve nosniff</h2>
     <p>
-      The <code>Accept</code> request header uses media types with
-      wildcards and quality values (q-factors):
+      Tarayıcılar tarihsel olarak bir yanıtın ilk birkaç yüz baytını
+      koklar ve aynı fikirde değillerse bildirilen <code>Content-Type</code>'ı
+      geçersiz kılar. Bu, yanlış etiketlenmiş sunuculara yardımcı oldu ancak
+      bir güvenlik açığı yarattı: bir saldırgan, tarayıcıların HTML olarak
+      koklayıp betikleri çalıştırdığı <code> text/plain</code> etiketli
+      bir dosya yükler.
+    </p>
+    <p>
+      Savunma, tarayıcıya &ldquo;Content-Type'ıma güven, koklama.&rdquo; diyen
+      <code> X-Content-Type-Options: nosniff</code> başlığıdır.
+      Her yanıtta gönderin. Doğru türlerle birleştirildiğinde,
+      bir sınıf siteler arası betik saldırısını etkisiz hale getirir.
+    </p>
+    <p>
+      <strong>Kullanıcı yüklemelerinde ve eklerinde her zaman nosniff
+      gönderin.</strong> Tarayıcıların aksi halde işleyeceği türler için
+      indirmeyi zorlamak üzere <code> Content-Disposition: attachment</code>
+      ile birleştirin.
+    </p>
+
+    <h2>Accept'te joker karakterler</h2>
+    <p>
+      <code>Accept</code> istek başlığı, joker karakterler ve kalite
+      değerleri (q-faktörleri) ile medya türlerini kullanır:
     </p>
     <pre>{`Accept: text/html,application/xhtml+xml,
         application/xml;q=0.9,
         image/webp,image/avif,*/*;q=0.8`}</pre>
     <p>
-      <code>*/*</code> matches anything; <code>image/*</code>
-      {" "}matches any image. <code>q</code> is a preference weight
-      from 0 to 1, default 1. The server picks the most preferred
-      type it can produce.
+      <code>*/*</code> her şeyle eşleşir; <code>image/*</code>
+      {" "}herhangi bir resimle eşleşir. <code>q</code>, varsayılan 1
+      olmak üzere 0 ile 1 arasında bir tercih ağırlığıdır. Sunucu,
+      üretebileceği en çok tercih edilen türü seçer.
     </p>
 
-    <h2>MIME for <a href="/learn/stream">streaming</a> and chunked content</h2>
+    <h2><a href="/learn/stream">Akış</a> ve parçalı içerik için MIME</h2>
     <p>
-      Live-streaming formats have their own types:
+      Canlı akış biçimlerinin kendi türleri vardır:
     </p>
     <p>
-      <strong>application/vnd.apple.mpegurl</strong> (HLS playlist).
+      <strong>application/vnd.apple.mpegurl</strong> (HLS oynatma listesi).
     </p>
     <p>
-      <strong>application/dash+xml</strong> (DASH manifest).
+      <strong>application/dash+xml</strong> (DASH manifestosu).
     </p>
     <p>
-      <strong>text/event-stream</strong> (Server-Sent Events).
+      <strong>text/event-stream</strong> (Sunucu Tarafından Gönderilen Olaylar).
     </p>
     <p>
-      For WebSocket, the initial upgrade is HTTP with
-      <code> application/octet-stream</code>-ish payloads, but
-      WebSocket itself does not use Content-Type per message.
+      WebSocket için ilk yükseltme,
+      <code> application/octet-stream</code> benzeri yüklerle HTTP'dir, ancak
+      WebSocket'in kendisi mesaj başına Content-Type kullanmaz.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Serving JSON as <code>text/plain</code>.</strong>
-      {" "}Many clients (fetch, XHR) will still parse it on
-      <code> response.json()</code>, but CORS preflights and content
-      filters key off the declared type. Always declare
-      <code> application/json</code>.
+      <strong>JSON'u <code>text/plain</code> olarak sunmak.</strong>
+      {" "}Birçok istemci (fetch, XHR) yine de
+      <code> response.json()</code> ile ayrıştıracaktır, ancak CORS ön kontrolleri
+      ve içerik filtreleri bildirilen türe göre çalışır. Her zaman
+      <code> application/json</code> bildirin.
     </p>
     <p>
-      <strong>Serving JS as <code>text/html</code>.</strong> Older
-      CDN misconfigurations. Modern browsers with
-      <code> nosniff</code> will refuse to execute, breaking your
-      app. Check the <code>Content-Type</code> in dev tools.
+      <strong>JS'yi <code>text/html</code> olarak sunmak.</strong> Eski
+      CDN yanlış yapılandırmaları. <code> nosniff</code> ile modern
+      tarayıcılar çalıştırmayı reddederek uygulamanızı bozar. Geliştirici
+      araçlarında <code>Content-Type</code>'ı kontrol edin.
     </p>
     <p>
-      <strong>Trusting user-declared type on upload.</strong> A user
-      renaming <code>malware.exe</code> to <code>image.png</code>
-      {" "}and claiming <code>image/png</code> is trivial. Read the
-      first bytes (&ldquo;magic numbers&rdquo;) to verify.
+      <strong>Yüklemede kullanıcı tarafından bildirilen türe güvenmek.</strong>
+      Bir kullanıcının <code>malware.exe</code> dosyasını <code>image.png</code>
+      {" "}olarak yeniden adlandırması ve <code>image/png</code> olduğunu iddia
+      etmesi önemsizdir. Doğrulamak için ilk baytları (&ldquo;sihirli sayılar&rdquo;)
+      okuyun.
     </p>
     <p>
-      <strong>Omitting charset on HTML.</strong> Leads to encoding
-      guesses that vary by browser. Always declare
-      <code> charset=utf-8</code>.
+      <strong>HTML'de karakter kümesini atlamak.</strong> Tarayıcıya göre
+      değişen kodlama tahminlerine yol açar. Her zaman
+      <code> charset=utf-8</code> bildirin.
     </p>
     <p>
-      <strong>Using <code>application/octet-stream</code> as a
-      lazy default.</strong> Forces browsers to download rather
-      than render. Acceptable for true binary blobs; annoying for
-      actual text or images.
+      <strong>Tembel bir varsayılan olarak <code>application/octet-stream</code>
+      kullanmak.</strong> Tarayıcıları işlemek yerine indirmeye zorlar.
+      Gerçek ikili yığınlar için kabul edilebilir; gerçek metin veya
+      resimler için can sıkıcıdır.
     </p>
     <p>
-      <strong>Invented types.</strong>
-      <code> application/x-my-widget-v2</code>. Use the vendor tree
-      with a structured-syntax suffix:
+      <strong>İcat edilmiş türler.</strong>
+      <code> application/x-my-widget-v2</code>. Yapılandırılmış sözdizimi
+      son eki ile satıcı ağacını kullanın:
       <code> application/vnd.mycompany.widget-v2+json</code>.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Look up any type or extension instantly with the{" "}
-      <a href="/tools/mime-type-lookup">MIME type lookup</a>. Pair
-      with the{" "}
-      <a href="/tools/http-status-code-lookup">HTTP status code lookup</a>
-      {" "}when Content-Type and response code both need diagnosing,
-      and the{" "}
-      <a href="/tools/user-agent-parser">user agent parser</a> for
-      content-negotiation debugging where UA and Accept interact.
+      Herhangi bir türü veya uzantıyı anında{" "}
+      <a href="/tools/mime-type-lookup">MIME türü arama</a> ile
+      bulun. Content-Type ve yanıt kodunun her ikisinin de teşhis
+      edilmesi gerektiğinde{" "}
+      <a href="/tools/http-status-code-lookup">HTTP durum kodu arama</a>
+      {" "}ile ve UA ile Accept'in etkileşime girdiği içerik
+      anlaşması hata ayıklaması için{" "}
+      <a href="/tools/user-agent-parser">kullanıcı aracısı ayrıştırıcı</a>
+      ile eşleştirin.
     </p>
   </>
 );

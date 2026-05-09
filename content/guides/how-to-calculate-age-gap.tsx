@@ -3,94 +3,52 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Calculating an age gap looks like subtraction and isn&rsquo;t. If one
-      person was born on March 1 and the other on February 28 of the previous
-      year, they&rsquo;re not exactly one year apart — they&rsquo;re one year
-      and one day, and for sports eligibility, adoption paperwork, or a
-      pedantic family argument, that day matters. Here&rsquo;s the correct
-      method, the edge cases people miss, and when to just let a calculator do
-      it.
+      Yaş farkı hesaplamak çıkarma işlemi gibi görünür ama öyle değildir. Bir kişi 1 Mart'ta, diğeri bir önceki yılın 28 Şubat'ında doğmuşsa, tam olarak bir yıl değil, bir yıl bir gün arayla doğmuşlardır — ve spor müsabakalarına katılım, evlat edinme evrakları veya titiz bir aile tartışması için bu bir gün önemlidir. İşte doğru yöntem, insanların gözden kaçırdığı uç durumlar ve ne zaman bir hesap makinesinin işi yapmasına izin vermeniz gerektiği.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The right way: years, then months, then days</h2>
+    <h2>Doğru yol: önce yıllar, sonra aylar, sonra günler</h2>
     <p>
-      The clean method works top-down. Take the two birth dates. Subtract the
-      years first. Then subtract the months. Then subtract the days. If the
-      day difference comes out negative, you borrow from the months — just
-      like long subtraction in grade school. If the month difference then goes
-      negative, you borrow from the years.
+      Temiz yöntem yukarıdan aşağıya çalışır. İki doğum tarihini alın. Önce yılları çıkarın. Sonra ayları çıkarın. Sonra günleri çıkarın. Gün farkı negatif çıkarsa, aylardan ödünç alırsınız — tıpkı ilkokuldaki uzun çıkarma işlemi gibi. Ay farkı da negatif olursa, yıllardan ödünç alırsınız.
     </p>
     <p>
-      Example: person A born 2010-05-20, person B born 2007-08-03. Years:
-      2010 - 2007 = 3. Months: 5 - 8 = -3. Days: 20 - 3 = 17. The months went
-      negative, so borrow one year: 3 - 1 = 2 years, and -3 + 12 = 9 months.
-      Final answer: 2 years, 9 months, 17 days.
+      Örnek: A kişisi 2010-05-20 doğumlu, B kişisi 2007-08-03 doğumlu. Yıllar: 2010 - 2007 = 3. Aylar: 5 - 8 = -3. Günler: 20 - 3 = 17. Aylar negatif çıktı, bu yüzden bir yıl ödünç alın: 3 - 1 = 2 yıl ve -3 + 12 = 9 ay. Sonuç: 2 yıl, 9 ay, 17 gün.
     </p>
 
-    <h2>Why &ldquo;just subtract the years&rdquo; is wrong</h2>
+    <h2>Neden "sadece yılları çıkarmak" yanlıştır</h2>
     <p>
-      A common shortcut: birth year minus birth year. This is fine for rough
-      conversation and wrong for anything that matters. Two people born in
-      2015 and 2017 could be anywhere from just over a year apart (Dec 2015
-      and Jan 2017) to almost three years apart (Jan 2015 and Dec 2017). The
-      year alone hides up to 23 months of real gap.
+      Yaygın bir kestirme yol: doğum yılı eksi doğum yılı. Bu, günlük konuşmalar için iyidir ancak önemli olan herhangi bir şey için yanlıştır. 2015 ve 2017'de doğan iki kişi, sadece bir yıldan biraz fazla (Aralık 2015 ve Ocak 2017) ile neredeyse üç yıl (Ocak 2015 ve Aralık 2017) arasında bir farka sahip olabilir. Yıl tek başına, gerçek farkın 23 aya kadarını gizler.
     </p>
     <p>
-      The Feb 28 / Mar 1 problem is the classic case. Born Feb 28, 2020 vs Mar
-      1, 2021 is one year and one day, not one year — and if a rule says
-      &ldquo;at least one year,&rdquo; both pass; if a rule says &ldquo;exactly
-      one year,&rdquo; only one does.
+      28 Şubat / 1 Mart sorunu klasik bir durumdur. 28 Şubat 2020'ye karşı 1 Mart 2021'de doğum, bir yıl bir gündür, bir yıl değil — ve bir kural "en az bir yıl" diyorsa, her ikisi de geçer; bir kural "tam olarak bir yıl" diyorsa, sadece biri geçer.
     </p>
 
-    <h2>Leap-year edge case</h2>
+    <h2>Artık yıl uç durumu</h2>
     <p>
-      Feb 29 birthdays are a fun puzzle. Someone born Feb 29, 2000 technically
-      only has a &ldquo;real&rdquo; birthday every four years. For age
-      calculations, the common conventions are: in non-leap years, treat their
-      birthday as Feb 28 (legal default in most places) or Mar 1 (some
-      jurisdictions, some sports bodies). Pick one convention and be
-      consistent. For casual use, Feb 28 is the safer default.
+      29 Şubat doğum günleri eğlenceli bir bilmecedir. 29 Şubat 2000'de doğan birinin teknik olarak her dört yılda bir "gerçek" bir doğum günü vardır. Yaş hesaplamaları için yaygın kurallar şunlardır: artık olmayan yıllarda, doğum günlerini 28 Şubat (çoğu yerde yasal varsayılan) veya 1 Mart (bazı yargı bölgeleri, bazı spor kuruluşları) olarak kabul edin. Bir kural seçin ve tutarlı olun. Günlük kullanım için 28 Şubat daha güvenli varsayılandır.
     </p>
     <p>
-      Leap years also mean that the exact number of days in a &ldquo;year&rdquo;
-      varies. If you need total days between two dates, count them — don&rsquo;t
-      multiply years by 365.
+      Artık yıllar ayrıca bir "yıl" içindeki tam gün sayısının değiştiği anlamına gelir. İki tarih arasındaki toplam gün sayısına ihtiyacınız varsa, onları sayın — yılları 365 ile çarpmayın.
     </p>
 
-    <h2>What people actually use age gap for</h2>
+    <h2>İnsanlar yaş farkını gerçekte ne için kullanır</h2>
     <p>
-      Four common contexts. <strong>Couples</strong>: the classic &ldquo;how
-      many years apart are we&rdquo; — people almost always want the
-      year-and-month format, not raw days. <strong>Siblings</strong>: same
-      format, same reason. <strong>Sports eligibility</strong>: youth leagues
-      often set cutoffs like &ldquo;must be under 12 on September 1.&rdquo;
-      You need the day-precise answer on the cutoff date. <strong>Adoption,
-      immigration, family law</strong>: any paperwork that says &ldquo;at
-      least X years younger&rdquo; wants a precise calculation.
+      Dört yaygın bağlam. <strong>Çiftler</strong>: klasik "kaç yıl arayla" — insanlar neredeyse her zaman yıl ve ay biçimini ister, ham günleri değil. <strong>Kardeşler</strong>: aynı biçim, aynı neden. <strong>Spor müsabakalarına katılım</strong>: gençlik ligleri genellikle "1 Eylül itibarıyla 12 yaşından küçük olmalı" gibi kesme noktaları belirler. Kesme noktası tarihinde gün kesinliğinde bir cevaba ihtiyacınız vardır. <strong>Evlat edinme, göçmenlik, aile hukuku</strong>: "en az X yıl daha genç" diyen herhangi bir evrak, kesin bir hesaplama ister.
     </p>
 
-    <h2>When to reach for a calculator</h2>
+    <h2>Hesap makinesine ne zaman başvurmalı</h2>
     <p>
-      Doing the borrowing math once is educational. Doing it ten times is a
-      recipe for an arithmetic error in exactly the spot that matters. Our{" "}
-      <a href="/tools/age-gap-calculator">age gap calculator</a> handles the
-      borrowing, leap years, and edge cases — enter two dates and read off the
-      result. If you just need one person&rsquo;s current age, the{" "}
-      <a href="/tools/age-calculator">age calculator</a> is the simpler
-      version.
+      Ödünç alma işlemini bir kez yapmak eğiticidir. On kez yapmak, tam da önemli olan yerde bir aritmetik hatası için reçetedir. Bizim{" "}
+      <a href="/tools/age-gap-calculator">yaş farkı hesaplayıcımız</a> ödünç alma, artık yıllar ve uç durumları halleder — iki tarih girin ve sonucu okuyun. Sadece bir kişinin mevcut yaşına ihtiyacınız varsa,{" "}
+      <a href="/tools/age-calculator">yaş hesaplayıcı</a> daha basit versiyondur.
     </p>
 
-    <h2>A sanity check that usually catches errors</h2>
+    <h2>Genellikle hataları yakalayan bir sağlama</h2>
     <p>
-      After you calculate, do a rough cross-check: does the elder&rsquo;s
-      birthday this year, plus the gap, land on roughly the younger&rsquo;s
-      birthday this year? If the two don&rsquo;t line up to within a day,
-      you&rsquo;ve made an arithmetic error. This ten-second check has saved
-      more family debates than any formula.
+      Hesaplamayı yaptıktan sonra, kabaca bir çapraz kontrol yapın: büyük olanın bu yılki doğum günü, artı fark, kabaca küçük olanın bu yılki doğum gününe denk geliyor mu? İkisi bir gün içinde uyuşmuyorsa, bir aritmetik hatası yapmışsınızdır. Bu on saniyelik kontrol, herhangi bir formülden daha fazla aile tartışmasını kurtarmıştır.
     </p>
   </>
 );

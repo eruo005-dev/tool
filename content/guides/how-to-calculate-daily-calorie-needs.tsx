@@ -3,220 +3,158 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Your daily calorie target is the single most useful number in fitness,
-      and also the one most commonly miscomputed. Apps spit out a figure
-      without showing their work; online calculators disagree by hundreds of
-      calories; and the number itself is only an estimate of a body that
-      doesn&rsquo;t behave like a spreadsheet. The math is actually simple:
-      estimate your BMR, multiply by an activity factor, add or subtract a
-      deficit. This guide walks through the Mifflin-St Jeor equation, the
-      activity multipliers that actually match real life, how to set a deficit
-      or surplus for weight goals, and why calorie math should be treated as
-      a starting point, not a contract.
+      Günlük kalori hedefiniz, fitness alanındaki en kullanışlı sayıdır ve aynı zamanda en sık yanlış hesaplananıdır. Uygulamalar size bir sayı verir ancak bunu nasıl bulduklarını göstermez, çevrimiçi hesaplayıcılar yüzlerce kalori farkla çelişir ve sayının kendisi, bir elektronik tablo gibi davranmayan bir vücut için yalnızca bir tahmindir. Matematik aslında basittir: BMR'nizi tahmin edin, bir aktivite faktörüyle çarpın, bir açık ekleyin veya çıkarın. Bu kılavuz, Mifflin-St Jeor denklemini, gerçek hayata uyan aktivite çarpanlarını, kilo hedefleri için nasıl açık veya fazla belirleneceğini ve kalori matematiğine neden bir başlangıç noktası olarak yaklaşılması gerektiğini, bir sözleşme olarak değil, adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>TDEE = BMR &times; activity factor</h2>
+    <h2>TDEE = BMR × aktivite faktörü</h2>
     <p>
-      <strong>TDEE</strong> (total daily energy expenditure) is how many
-      calories your body burns in a full day. It&rsquo;s the number you want to
-      match, beat, or undercut depending on your goal.
+      <strong>TDEE</strong> (toplam günlük enerji harcaması), vücudunuzun tam bir günde yaktığı kalori miktarıdır. Hedefinize bağlı olarak eşleştirmek, altında kalmak veya aşmak istediğiniz sayıdır.
     </p>
     <p>
-      <strong>BMR</strong> (basal metabolic rate) is what your body burns at
-      complete rest &mdash; just keeping the lights on. It accounts for
-      roughly 60&ndash;70% of TDEE for a sedentary person, less for an active
-      one.
+      <strong>BMR</strong> (bazal metabolizma hızı), vücudunuzun tam dinlenme halinde yaktığıdır — sadece temel işlevleri sürdürmek için. Hareketsiz bir kişide TDEE'nin kabaca %60-70'ini oluşturur, aktif bir kişide daha azdır.
     </p>
-    <pre>{`TDEE = BMR x activity factor`}</pre>
+    <pre>{`TDEE = BMR x aktivite faktörü`}</pre>
 
-    <h2>Mifflin-St Jeor equation</h2>
+    <h2>Mifflin-St Jeor denklemi</h2>
     <p>
-      The current standard for BMR estimation. More accurate than the older
-      Harris-Benedict for modern populations.
+      BMR tahmini için mevcut standart. Eski Harris-Benedict'ten daha modern popülasyonlar için daha doğrudur.
     </p>
-    <pre>{`Men:    BMR = 10*weight(kg) + 6.25*height(cm) - 5*age + 5
-Women:  BMR = 10*weight(kg) + 6.25*height(cm) - 5*age - 161
+    <pre>{`Erkek:    BMR = 10*kilo(kg) + 6.25*boy(cm) - 5*yaş + 5
+Kadın:    BMR = 10*kilo(kg) + 6.25*boy(cm) - 5*yaş - 161
 
-Example: 35-year-old man, 80kg, 180cm
+Örnek: 35 yaşında erkek, 80kg, 180cm
 BMR = 800 + 1125 - 175 + 5 = 1,755 kcal`}</pre>
     <p>
-      In pounds and inches:{" "}
-      <code>weight(lb) * 4.536</code>, <code>height(in) * 2.54</code>.
+      Pound ve inç cinsinden:{" "}
+      <code>kilo(lb) * 4.536</code>, <code>boy(in) * 2.54</code>.
     </p>
 
-    <h2>Activity multipliers</h2>
+    <h2>Aktivite çarpanları</h2>
     <p>
-      Pick the number that matches how you actually live, not how you want to
-      live.
+      Nasıl yaşamak istediğinizi değil, gerçekte nasıl yaşadığınızı yansıtan sayıyı seçin.
     </p>
-    <pre>{`1.2    Sedentary        Desk job, little exercise
-1.375  Light            1-3 days/week of light exercise
-1.55   Moderate         3-5 days/week of moderate exercise
-1.725  Very active      6-7 days/week of hard exercise
-1.9    Extra active     Physical job + daily training`}</pre>
+    <pre>{`1.2    Hareketsiz         Masa başı iş, az egzersiz
+1.375  Hafif              Hafif egzersiz haftada 1-3 gün
+1.55   Orta               Orta egzersiz haftada 3-5 gün
+1.725  Çok aktif          Zorlu egzersiz haftada 6-7 gün
+1.9    Ekstra aktif       Fiziksel iş + günlük antrenman`}</pre>
     <p>
-      Most people overestimate. A white-collar worker who goes to the gym
-      three times a week is almost always <em>light</em> (1.375), not
-      <em> moderate</em>. Two hours of training doesn&rsquo;t make up for
-      sitting sixteen. Err on the low side; you can always eat more if
-      progress stalls.
+      Çoğu insan abartır. Haftada üç kez spor salonuna giden bir beyaz yakalı çalışanı neredeyse her zaman <em>hafif</em> (1.375) aktivitedir, <em>orta</em> değil. İki saatlik antrenman, on altı saatlik oturmayı telafi etmez. Düşük tarafta hata yapın; ilerleme durursa her zaman daha fazla yiyebilirsiniz.
     </p>
 
-    <h2>Putting it together</h2>
-    <pre>{`Same 35/80kg/180cm man, moderately active:
-TDEE = 1,755 x 1.55 = 2,720 kcal/day`}</pre>
+    <h2>Bir araya getirmek</h2>
+    <pre>{`Aynı 35/80kg/180cm erkek, orta derecede aktif:
+TDEE = 1,755 x 1.55 = 2,720 kcal/gün`}</pre>
     <p>
-      That&rsquo;s your maintenance. Eat 2,720 and weight stays steady over
-      weeks, within a margin of error.
+      Bu sizin koruma seviyenizdir. 2,720 kalori yiyin ve kilonuz haftalar boyunca bir hata payı dahilinde kabaca sabit kalır.
     </p>
 
-    <h2>Setting a deficit for weight loss</h2>
+    <h2>Kilo kaybı için açık belirleme</h2>
     <p>
-      A pound of body fat is ~3,500 kcal. A 500-calorie daily deficit =
-      ~1 lb/week, 1,000-calorie deficit = ~2 lb/week.
+      Bir kilogram vücut yağı ~7,700 kcal. Günlük 500 kalorilik açık = ~0.5 kg/hafta, 1,000 kalorilik açık = ~1 kg/hafta.
     </p>
-    <pre>{`To lose 1 lb/week:   TDEE - 500
-To lose 2 lb/week:   TDEE - 1000 (aggressive)
-Floor:                1,200 kcal women / 1,500 kcal men`}</pre>
+    <pre>{`0.5 kg/hafta kaybetmek için:   TDEE - 500
+1 kg/hafta kaybetmek için:     TDEE - 1,000 (agresif)
+Alt sınırlar:                  1,200 kcal kadın / 1,500 kcal erkek`}</pre>
     <p>
-      Don&rsquo;t drop below those floors without medical supervision. Rapid
-      loss on very low intake means losing disproportionate muscle,
-      tanking metabolism, and higher rebound risk. Slow and steady beats
-      crash diets on every outcome that matters past twelve weeks.
+      Tıbbi gözetim olmadan bu alt sınırların altına inmeyin. Çok düşük alımdan kaynaklanan hızlı kayıp, orantısız kas kaybı, metabolik yavaşlama ve daha yüksek geri tepme riski anlamına gelir. On iki hafta sonra önemli olan her sonuç için yavaş ve istikrarlı, şok diyetleri yener.
     </p>
 
-    <h2>Setting a surplus for gains</h2>
+    <h2>Kazanç için fazla belirleme</h2>
     <p>
-      For muscle gain, aim for a modest surplus &mdash; 250&ndash;500 kcal
-      above TDEE. Bigger surpluses don&rsquo;t build muscle faster; they just
-      add fat.
+      Kas kazanımı için mütevazı bir fazla hedefleyin — TDEE'nin 250-500 kcal üstü. Daha büyük fazlalar kas yapımını hızlandırmaz; sadece yağ ekler.
     </p>
-    <pre>{`Lean bulk:   TDEE + 200-300
-Standard:    TDEE + 300-500
-Dirty bulk:  TDEE + 500+   (not recommended)`}</pre>
+    <pre>{`Yağsız toplu:   TDEE + 200-300
+Standart:       TDEE + 300-500
+Kirli toplu:    TDEE + 500+   (önerilmez)`}</pre>
     <p>
-      Muscle growth is capped by protein synthesis rate, not by total calories.
-      You can&rsquo;t force extra growth by eating more. The extra just stores.
+      Kas büyümesi, toplam kaloriyle değil, protein sentez hızıyla sınırlıdır. Daha fazla yiyerek ekstra büyümeyi zorlayamazsınız. Fazla depolanır.
     </p>
 
-    <h2>Protein, fat, carbs</h2>
+    <h2>Protein, yağ, karbonhidrat</h2>
     <p>
-      Once the calorie number is set, split into <a href="/learn/macros">macros</a>:
+      Kalori sayısı belirlendikten sonra, bunu <a href="/learn/macros">makrolara</a> bölün:
     </p>
-    <pre>{`Protein: 0.7-1.0 g per lb bodyweight (1.6-2.2 g/kg)
-Fat:     20-30% of calories (minimum ~0.3 g/lb for hormones)
-Carbs:   remainder`}</pre>
+    <pre>{`Protein: Vücut ağırlığının kg'ı başına 1.6-2.2 g (lb başına 0.7-1.0 g)
+Yağ:     Kalorilerin %20-30'u (hormonlar için minimum ~0.3 g/lb)
+Karbonhidrat: Geri kalanı`}</pre>
     <p>
-      Protein matters most in a deficit &mdash; it&rsquo;s what protects
-      muscle when the body is short on energy. In a surplus, protein plus
-      resistance training is what converts calories into muscle rather than
-      fat.
+      Protein, bir açık sırasında en önemlisidir — vücut enerjiden yoksun olduğunda kası koruyan şeydir. Bir fazla sırasında, protein ve direnç antrenmanı, kalorileri yağ yerine kasa dönüştüren şeydir.
     </p>
 
-    <h2>Why calorie math is approximate</h2>
+    <h2>Kalori matematiği neden yaklaşıktır</h2>
     <p>
-      Your actual expenditure can differ from the estimate by 200&ndash;400
-      kcal:
+      Gerçek harcamanız tahminden 200-400 kcal farklı olabilir:
     </p>
     <ul>
-      <li>BMR variation between individuals of the same stats: +/- 10%</li>
-      <li>NEAT (non-exercise activity thermogenesis) swings by hundreds</li>
-      <li>Thermic effect of food varies with macro split (+5-30%)</li>
-      <li>Food labels are legally allowed +/- 20% accuracy</li>
-      <li>Home cooking portion estimates: wildly variable</li>
+      <li>Aynı istatistiklere sahip bireyler arasında BMR farkı: +/- %10</li>
+      <li>NEAT (egzersiz dışı aktivite termojenezi) yüzlerce kalori oynar</li>
+      <li>Besinlerin termik etkisi makro dağılımına göre değişir (+%5-30)</li>
+      <li>Gıda etiketlerinde yasal olarak +/- %20 doğruluk payı vardır</li>
+      <li>Ev yemeklerinde porsiyon tahminleri: son derece değişken</li>
     </ul>
     <p>
-      So the prescription is: compute the number, eat to it for 2&ndash;3
-      weeks, measure the trend, and adjust by 100&ndash;200 kcal rather than
-      recalculating from scratch.
+      Dolayısıyla reçete: sayıyı hesaplayın, 2-3 hafta boyunca ona göre yiyin, eğilimi ölçün ve sıfırdan yeniden hesaplamak yerine 100-200 kcal ayarlayın.
     </p>
 
-    <h2>Tracking accuracy</h2>
+    <h2>Takip doğruluğu</h2>
     <p>
-      A food scale beats cups. Cups beat eyeballs. Eyeballs beat nothing.
-      Logging for the first two weeks &mdash; even loosely &mdash; calibrates
-      your sense of portion sizes; after that you can usually coast with just
-      scale-based protein tracking.
+      Mutfak terazisi, bardak ölçülerinden daha iyidir. Bardak ölçüleri, göz kararından daha iyidir. Göz kararı, hiç yoktan iyidir. İlk iki hafta kayıt tutmak — gevşek bile olsa — porsiyon boyutlarına dair algınızı kalibre eder; bundan sonra genellikle sadece teraziye dayalı protein takibiyle idare edebilirsiniz.
     </p>
     <p>
-      The biggest blind spots: cooking oil, condiments, drinks, bites off a
-      partner&rsquo;s plate. Two tablespoons of olive oil is 240 kcal.
+      En büyük kör noktalar: yemeklik yağ, soslar, içecekler, eşinizin tabağından aldığınız lokmalar. İki yemek kaşığı zeytinyağı 240 kcal'dir.
     </p>
 
-    <h2>Metabolic adaptation</h2>
+    <h2>Metabolik adaptasyon</h2>
     <p>
-      Running a deficit for weeks triggers adaptive thermogenesis &mdash; your
-      body reduces BMR and NEAT. A plateau at week 8 doesn&rsquo;t mean the
-      math is wrong; it means the TDEE has drifted down. Options:
+      Haftalarca açıkta olmak, adaptif termojenezi tetikler — vücudunuz BMR ve NEAT'ı düşürür. 8. haftada bir plato, matematiğin yanlış olduğu anlamına gelmez; TDEE'nizin düştüğü anlamına gelir. Seçenekler:
     </p>
     <ul>
-      <li>Eat at maintenance for 1&ndash;2 weeks (diet break)</li>
-      <li>Cut another 100&ndash;200 kcal</li>
-      <li>Add training volume (cardio or steps)</li>
+      <li>1-2 hafta korumada yiyin (diyet molası)</li>
+      <li>100-200 kcal daha kesin</li>
+      <li>Antrenman hacmini artırın (kardiyo veya adımlar)</li>
     </ul>
     <p>
-      Never try to out-deficit adaptation. The path out of a plateau is a diet
-      break or more activity, not fewer calories.
+      Bir platodan çıkış yolu, daha az kalori değil, bir diyet molası veya daha fazla aktivitedir.
     </p>
 
-    <h2>When the calculator is wrong for you</h2>
+    <h2>Hesaplayıcı sizin için ne zaman yanlıştır</h2>
     <p>
-      The Mifflin-St Jeor formula assumes average body composition. If
-      you&rsquo;re very lean (sub-10% body fat for men, sub-18% for women), it
-      underestimates BMR. If you&rsquo;re carrying a lot of body fat, it
-      slightly overestimates. For high body-fat cases, calculate with
-      Katch-McArdle using lean body mass instead:
+      Mifflin-St Jeor formülü ortalama vücut kompozisyonunu varsayar. Çok yağsızsanız (erkekler için %10'un altında vücut yağı, kadınlar için %18), BMR'yi olduğundan düşük tahmin eder. Çok fazla vücut yağınız varsa, biraz fazla tahmin eder. Yüksek vücut yağı vakaları için, yağsız vücut kütlesini kullanarak Katch-McArdle ile hesaplayın:
     </p>
-    <pre>{`Katch-McArdle:  BMR = 370 + 21.6 * LBM(kg)
-LBM = weight * (1 - body_fat_fraction)`}</pre>
+    <pre>{`Katch-McArdle:  BMR = 370 + 21.6 * YVK(kg)
+YVK = kilo * (1 - vücut_yağ_yüzdesi)`}</pre>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Overestimating activity level.</strong> The single most common
-      error. Drop one tier from what you first picked.
+      <strong>Aktivite seviyesini abartmak.</strong> En yaygın hata. İlk seçiminizden bir kademe düşürün.
     </p>
     <p>
-      <strong>Chasing the exact number.</strong> Your daily TDEE fluctuates by
-      hundreds of calories naturally. Target a weekly average, not a daily
-      bullseye.
+      <strong>Tam sayının peşinden koşmak.</strong> Günlük TDEE'niz doğal olarak yüzlerce kalori oynar. Günlük bir hedef değil, haftalık bir ortalama hedefleyin.
     </p>
     <p>
-      <strong>Ignoring liquid calories.</strong> A 16oz latte is 250&ndash;350
-      kcal, beer is 150, wine is 120. They don&rsquo;t register as food so
-      they get forgotten.
+      <strong>Sıvı kalorileri görmezden gelmek.</strong> 16 oz latte 250-350 kcal, bira 150, şarap 120'dir. Yiyecek olarak algılanmadıkları için unutulurlar.
     </p>
     <p>
-      <strong>Under-eating protein during a cut.</strong> You lose more muscle
-      than necessary. Keep protein high even when slashing everything else.
+      <strong>Kesme döneminde proteini yetersiz almak.</strong> Gerekenden fazla kas kaybedersiniz. Diğer her şeyi kısarken bile proteini yüksek tutun.
     </p>
     <p>
-      <strong>Recalculating every week.</strong> Your stats don&rsquo;t change
-      that fast. Recompute after a 5&ndash;10 lb weight change, not weekly.
+      <strong>Her hafta yeniden hesaplamak.</strong> İstatistikleriniz o kadar hızlı değişmez. Haftalık değil, 2-5 kg kilo değişiminden sonra yeniden hesaplayın.
     </p>
     <p>
-      <strong>Skipping the measurement phase.</strong> The number is a guess
-      until you eat to it for two weeks and see what the scale does. Trust
-      the data, not the formula.
+      <strong>Ölçüm aşamasını atlamak.</strong> Sayı, iki hafta boyunca ona göre yiyip terazinin ne yaptığını görene kadar bir tahmindir. Formüle değil, verilere güvenin.
     </p>
     <p>
-      <strong>Extreme deficits for fast results.</strong> You&rsquo;ll lose
-      muscle, feel awful, and rebound. Slow losses stick.
+      <strong>Hızlı sonuçlar için aşırı açıklar.</strong> Kas kaybedersiniz, kendinizi berbat hissedersiniz ve geri teper. Yavaş kayıplar kalıcıdır.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Plug your stats into the{" "}
-      <a href="/tools/calorie-calculator">calorie calculator</a> for a
-      TDEE with deficit and surplus options. For just the baseline number, the{" "}
-      <a href="/tools/bmr-calculator">BMR calculator</a> skips the activity
-      multiplier, and the{" "}
-      <a href="/tools/macro-calculator">macro calculator</a> splits your
-      target calories into protein, fat, and carbs so you know what to
-      actually put on the plate.
+      İstatistiklerinizi, açık ve fazla seçenekleriyle bir TDEE için <a href="/tools/calorie-calculator">kalori hesaplayıcıya</a> girin. Sadece temel sayı için <a href="/tools/bmr-calculator">BMR hesaplayıcı</a> aktivite çarpanını atlar ve <a href="/tools/macro-calculator">makro hesaplayıcı</a> hedef kalorilerinizi protein, yağ ve karbonhidrata bölerek tabakta gerçekte ne olduğunu bilmenizi sağlar.
     </p>
   </>
 );

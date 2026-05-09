@@ -1,161 +1,162 @@
 export const intro = (
   <>
     <p>
-      The pomodoro technique has survived thirty years of productivity fads for one reason: it
-      works, it&rsquo;s simple enough to remember, and it fits in any job. You don&rsquo;t need an
-      app, a course, or a framework — you need 25 minutes and the willingness to focus on one
-      thing at a time.
+      Pomodoro tekniği, otuz yıllık üretkenlik akımlarına şu nedenle ayakta kaldı: işe yarıyor,
+      hatırlaması yeterince basit ve her işe uyuyor. Bir uygulamaya, kursa veya çerçeveye ihtiyacınız yok
+      — 25 dakikaya ve aynı anda tek bir şeye odaklanma isteğine ihtiyacınız var.
     </p>
     <p>
-      This guide covers the full technique: the rules, the common mistakes that break it, the
-      variations that work better for coding or writing, and exactly how to start your first
-      pomodoro in the next ten minutes.
+      Bu kılavuz, tekniğin tamamını kapsar: kurallar, onu bozan yaygın hatalar,
+      kodlama veya yazma için daha iyi çalışan varyasyonlar ve ilk pomodoronuza
+      önümüzdeki on dakika içinde tam olarak nasıl başlayacağınız.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>The rules, briefly</h2>
+    <h2>Kurallar, kısaca</h2>
     <p>
-      A pomodoro is 25 minutes of focused work on one task, followed by a 5-minute break. After
-      four pomodoros, take a longer break of 15–30 minutes. That&rsquo;s the whole technique.
-      Anyone explaining something more complicated is selling you something.
+      Bir pomodoro, tek bir görev üzerinde 25 dakikalık odaklanmış çalışma ve ardından 5 dakikalık
+      bir moladır. Dört pomodorodan sonra 15-30 dakikalık daha uzun bir mola verin. Tekniğin tamamı
+      bu. Bundan daha karmaşık bir şey açıklayan biri size bir şey satıyordur.
     </p>
 
-    <h2>Why 25/5 in particular</h2>
+    <h2>Neden özellikle 25/5</h2>
     <p>
-      The numbers aren&rsquo;t magic. They work because 25 minutes is long enough to reach a
-      useful depth of focus and short enough that you won&rsquo;t quit halfway through, and
-      5 minutes is long enough to recover but short enough that you won&rsquo;t drift off to
-      something else. You can absolutely adjust the ratio (more on that below) — the default is
-      just a sensible starting point.
+      Rakamlar sihirli değil. İşe yarıyorlar çünkü 25 dakika, yararlı bir odaklanma derinliğine
+      ulaşmak için yeterince uzun ve yarı yolda bırakmayacağınız kadar kısa; 5 dakika ise
+      toparlanmak için yeterince uzun ama başka bir şeye kaymayacağınız kadar kısa.
+      Oranı kesinlikle ayarlayabilirsiniz (bununla ilgili daha fazlası aşağıda) — varsayılan
+      sadece mantıklı bir başlangıç noktasıdır.
     </p>
 
-    <h2>What happens during a pomodoro</h2>
+    <h2>Bir pomodoro sırasında ne olur</h2>
     <p>
-      One task. No tab switching, no email, no &ldquo;quick Slack check.&rdquo; If a thought
-      arrives (&ldquo;I should email so-and-so&rdquo;), write it on a sticky note and keep going
-      — you&rsquo;ll handle it in the break. The whole point is protecting a 25-minute window from
-      your own wandering.
+      Tek bir görev. Sekme değiştirme yok, e-posta yok, &ldquo;hızlı Slack kontrolü&rdquo; yok. Bir düşünce
+      gelirse (&ldquo;falana e-posta atmalıyım&rdquo;), bir yapışkan nota yazın ve devam edin
+      — bununla molada ilgileneceksiniz. Bütün mesele, kendi dağınık zihninizden 25 dakikalık bir
+      pencereyi korumaktır.
     </p>
 
-    <h2>What happens during the break</h2>
+    <h2>Mola sırasında ne olur</h2>
     <p>
-      Stand up. Look away from the screen (20 feet for 20 seconds is the rule of thumb for eye
-      strain). Walk, stretch, get water, stare out the window. Do <em>not</em> spend it on
-      social media or news — the dopamine hit makes the next focus round measurably harder. A
-      dull break gives the brain actual recovery.
+      Ayağa kalkın. Ekrandan uzağa bakın (göz yorgunluğu için 20 saniye boyunca 20 fit kuralı
+      geçerlidir). Yürüyün, esneyin, su alın, pencereden dışarı bakın. Bunu sosyal medyada veya
+      haberlerde <em>geçirmeyin</em> — dopamin etkisi bir sonraki odaklanma turunu ölçülebilir
+      şekilde zorlaştırır. Sıkıcı bir mola, beyne gerçek bir toparlanma sağlar.
     </p>
 
-    <h2>Set up your first pomodoro in 3 steps</h2>
+    <h2>İlk pomodoronuzu 3 adımda kurun</h2>
     <p>
-      Step 1: pick one task — not a list, one task. Step 2: open our{" "}
-      <a href="/tools/pomodoro-timer">free pomodoro timer</a>. Step 3: silence your phone and
-      close every tab that isn&rsquo;t directly needed. Start the timer. You&rsquo;re done setting
-      up.
+      Adım 1: tek bir görev seçin — bir liste değil, tek bir görev. Adım 2:{" "}
+      <a href="/tools/pomodoro-timer">ücretsiz pomodoro zamanlayıcımızı</a> açın. Adım 3: telefonunuzu
+      sessize alın ve doğrudan ihtiyaç duyulmayan her sekmeyi kapatın. Zamanlayıcıyı başlatın. Kurulumu
+      tamamladınız.
     </p>
 
-    <h2>The seven most common mistakes</h2>
+    <h2>En yaygın yedi hata</h2>
     <p>
-      Most people who try the pomodoro technique and quit made at least one of these. Fix these
-      and the technique works the way it&rsquo;s supposed to.
+      Pomodoro tekniğini deneyip bırakan çoğu kişi bunlardan en az birini yapmıştır. Bunları düzeltin
+      ve teknik olması gerektiği gibi çalışacaktır.
     </p>
 
-    <h3>1. Multitasking inside the pomodoro</h3>
+    <h3>1. Pomodoro içinde çoklu görev yapmak</h3>
     <p>
-      If you&rsquo;re answering email during your focus round, it&rsquo;s not a focus round.
-      Switching tasks — even briefly — resets the depth of focus and carries a 20–40% productivity
-      cost. One task per pomodoro. If the task finishes with time left, use the remaining
-      minutes to review, polish, or plan the next step — don&rsquo;t switch.
+      Odaklanma turunuz sırasında e-postalara cevap veriyorsanız, bu bir odaklanma turu değildir.
+      Görevler arasında geçiş yapmak — kısa süreli bile olsa — odaklanma derinliğini sıfırlar ve %20-40
+      arası bir üretkenlik maliyeti taşır. Pomodoro başına tek bir görev. Görev kalan sürede biterse,
+      kalan dakikaları bir sonraki adımı gözden geçirmek, cilalamak veya planlamak için kullanın —
+      geçiş yapmayın.
     </p>
 
-    <h3>2. Skipping breaks</h3>
+    <h3>2. Molaları atlamak</h3>
     <p>
-      Skipping breaks feels virtuous but degrades every subsequent round. The break isn&rsquo;t
-      optional — it&rsquo;s what makes the next pomodoro as good as the last one. If you can&rsquo;t
-      stop working at the bell, you&rsquo;re probably already past the point where focus helps.
+      Molaları atlamak erdemli hissettirir ancak sonraki her turu bozar. Mola isteğe bağlı değildir
+      — bir sonraki pomodoroyu bir önceki kadar iyi yapan şeydir. Zil çaldığında çalışmayı
+      bırakamıyorsanız, muhtemelen odaklanmanın fayda sağladığı noktayı çoktan geçmişsinizdir.
     </p>
 
-    <h3>3. Treating the break as &ldquo;screen break&rdquo;</h3>
+    <h3>3. Molayı &ldquo;ekran molası&rdquo; olarak görmek</h3>
     <p>
-      Switching from work to Twitter is not a break. Your brain wants to rest, not take on more
-      inputs. Physical movement, eyes off screens, water — that&rsquo;s recovery.
+      İşten Twitter'a geçmek bir mola değildir. Beyniniz dinlenmek ister, daha fazla girdi almak
+      değil. Fiziksel hareket, gözlerin ekrandan uzaklaşması, su — iyileşme budur.
     </p>
 
-    <h3>4. Not turning off notifications</h3>
+    <h3>4. Bildirimleri kapatmamak</h3>
     <p>
-      A single notification can pull your attention for 60+ seconds even if you don&rsquo;t act
-      on it. Put your phone in another room, set your computer to do-not-disturb, close Slack. The
-      two minutes of setup saves the whole round.
+      Tek bir bildirim, üzerinde işlem yapmasanız bile dikkatinizi 60+ saniye boyunca çekebilir.
+      Telefonunuzu başka bir odaya koyun, bilgisayarınızı rahatsız etmeyin moduna alın, Slack'i kapatın.
+      İki dakikalık kurulum, tüm turu kurtarır.
     </p>
 
-    <h3>5. Picking a task that&rsquo;s too big</h3>
+    <h3>5. Çok büyük bir görev seçmek</h3>
     <p>
-      &ldquo;Write the report&rdquo; is not a pomodoro task. &ldquo;Draft the intro and outline
-      for the report&rdquo; is. Task has to be scoped to the window. Pair this with our{" "}
-      <a href="/guides/how-to-stop-procrastinating">guide on procrastination</a> for how to
-      shrink big tasks into pomodoro-sized pieces.
+      &ldquo;Raporu yazmak&rdquo; bir pomodoro görevi değildir. &ldquo;Rapor için giriş ve taslağı
+      hazırlamak&rdquo; öyledir. Görev, pencereye göre ölçeklendirilmelidir. Bunu, büyük görevleri
+      pomodoro büyüklüğünde parçalara nasıl küçülteceğinizle ilgili{" "}
+      <a href="/guides/how-to-stop-procrastinating">erteleme kılavuzumuzla</a> birleştirin.
     </p>
 
-    <h3>6. Letting interruptions hijack the round</h3>
+    <h3>6. Kesintilerin turu ele geçirmesine izin vermek</h3>
     <p>
-      A colleague walks up. A call comes in. Classic pomodoro advice: &ldquo;inform, negotiate,
-      schedule, call back.&rdquo; Tell them you&rsquo;re in focus mode, agree on when you&rsquo;ll
-      circle back, and finish the round. If the interruption is genuinely urgent, end the round
-      (don&rsquo;t pause it) — a broken pomodoro doesn&rsquo;t count.
+      Bir iş arkadaşı gelir. Bir telefon gelir. Klasik pomodoro tavsiyesi: &ldquo;bilgilendir, müzakere et,
+      planla, geri ara.&rdquo; Onlara odaklanma modunda olduğunuzu söyleyin, ne zaman geri döneceğiniz
+      konusunda anlaşın ve turu bitirin. Kesinti gerçekten acilse, turu sonlandırın (duraklatmayın)
+      — bozulmuş bir pomodoro sayılmaz.
     </p>
 
-    <h3>7. Tracking hours instead of rounds</h3>
+    <h3>7. Turlar yerine saatleri takip etmek</h3>
     <p>
-      &ldquo;I worked 8 hours today&rdquo; is the wrong metric. &ldquo;I completed 6 focused
-      pomodoros&rdquo; is real. Four to six rounds in a day is a productive day for most people.
-      Eight is exceptional. More than that is usually not real focus.
+      &ldquo;Bugün 8 saat çalıştım&rdquo; yanlış bir ölçüttür. &ldquo;6 odaklanmış pomodoro
+      tamamladım&rdquo; gerçektir. Çoğu insan için günde dört ila altı tur üretken bir gündür.
+      Sekiz olağanüstüdür. Daha fazlası genellikle gerçek odaklanma değildir.
     </p>
 
-    <h2>Variations worth trying</h2>
+    <h2>Denemeye değer varyasyonlar</h2>
     <p>
-      Once you&rsquo;ve run the default 25/5 for a couple of weeks, experiment. Some work better
-      for specific tasks.
+      Varsayılan 25/5'i birkaç hafta çalıştırdıktan sonra deneyin. Bazıları belirli görevler için
+      daha iyi çalışır.
     </p>
 
-    <h3>50/10 for deep creative work</h3>
+    <h3>Derin yaratıcı çalışma için 50/10</h3>
     <p>
-      Writing, coding, or design often benefits from longer runs. 50 minutes of work plus 10
-      minutes of rest gives more time to reach depth, at the cost of being a bit harder to
-      start. Try it for things that take 15+ minutes just to get into.
+      Yazma, kodlama veya tasarım genellikle daha uzun sürelerden faydalanır. 50 dakika çalışma artı 10
+      dakika dinlenme, derinliğe ulaşmak için daha fazla zaman verir, ancak başlaması biraz daha
+      zordur. Girmenin 15+ dakika sürdüğü şeyler için deneyin.
     </p>
 
-    <h3>90/20 for deep work blocks</h3>
+    <h3>Derin çalışma blokları için 90/20</h3>
     <p>
-      Close to natural ultradian rhythms. If you have a serious block of uninterrupted time, 90
-      focus / 20 rest is about as long as you can sustain attention without real fatigue. Only
-      use this for genuinely difficult creative tasks — it&rsquo;s overkill for email or admin.
+      Doğal ultradiyen ritimlere yakın. Kesintisiz ciddi bir zaman bloğunuz varsa, 90
+      odaklanma / 20 dinlenme, gerçek yorgunluk olmadan dikkati sürdürebileceğiniz en uzun süredir.
+      Bunu yalnızca gerçekten zor yaratıcı görevler için kullanın — e-posta veya idari işler için
+      aşırıya kaçmaktır.
     </p>
 
-    <h3>25/5 for coding or studying</h3>
+    <h3>Kodlama veya çalışma için 25/5</h3>
     <p>
-      The classic 25/5 still wins for most coding and studying. Short enough that you&rsquo;ll
-      actually start, long enough to debug one problem or cover one concept. See our{" "}
-      <a href="/guides/how-to-focus-better">focus guide</a> for the supporting habits that make
-      25-minute rounds productive.
+      Klasik 25/5, çoğu kodlama ve çalışma için hala kazanır. Gerçekten başlayacağınız kadar kısa,
+      bir sorunu hata ayıklamak veya bir kavramı kapsamak için yeterince uzun. 25 dakikalık turları
+      üretken kılan destekleyici alışkanlıklar için{" "}
+      <a href="/guides/how-to-focus-better">odaklanma kılavuzumuza</a> bakın.
     </p>
 
-    <h2>How many pomodoros is a realistic day?</h2>
+    <h2>Gerçekçi bir günde kaç pomodoro?</h2>
     <p>
-      Four to six is excellent for most knowledge work. Eight is rare and usually indicates the
-      rounds weren&rsquo;t really focused. Don&rsquo;t chase numbers — a day with four deep
-      rounds beats a day with eight distracted ones, every time. If you&rsquo;re struggling to
-      hit four, the problem is usually environment and setup, not effort.
+      Çoğu bilgi çalışması için dört ila altı mükemmeldir. Sekiz nadirdir ve genellikle turların
+      gerçekten odaklanılmadığını gösterir. Sayıların peşinden koşmayın — dört derin turun olduğu
+      bir gün, sekiz dikkati dağılmış turun olduğu bir günü her zaman yener. Dörde ulaşmakta
+      zorlanıyorsanız, sorun genellikle çaba değil, ortam ve kurulumdur.
     </p>
 
-    <h2>Your first pomodoro, right now</h2>
+    <h2>İlk pomodoronuz, hemen şimdi</h2>
     <p>
-      Pick one task you&rsquo;ve been avoiding. Put your phone in another room. Open the{" "}
-      <a href="/tools/pomodoro-timer">pomodoro timer</a> and hit start. When the bell rings,
-      walk away from the screen for 5 minutes. Repeat four times and you&rsquo;ll have done two
-      hours of real work with recovery built in. That&rsquo;s most people&rsquo;s whole productive
-      day — and you&rsquo;ll be done by lunch.
+      Kaçındığınız bir görev seçin. Telefonunuzu başka bir odaya koyun.{" "}
+      <a href="/tools/pomodoro-timer">Pomodoro zamanlayıcısını</a> açın ve başlat'a basın. Zil
+      çaldığında, 5 dakika boyunca ekrandan uzaklaşın. Dört kez tekrarlayın ve içinde iyileşme
+      olan iki saatlik gerçek iş yapmış olacaksınız. Bu, çoğu insanın tüm üretken günüdür
+      — ve öğlene kadar bitirmiş olacaksınız.
     </p>
   </>
 );

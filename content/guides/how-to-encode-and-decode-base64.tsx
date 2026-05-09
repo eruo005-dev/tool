@@ -3,112 +3,79 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Base64 is the Swiss Army knife of &ldquo;I need to stuff
-      arbitrary bytes into a text-only channel.&rdquo; Email
-      attachments, JWT tokens, data URIs in CSS, API auth headers —
-      all lean on it. This guide walks through what Base64 actually
-      does (spoiler: not encryption), when to use it, the variants
-      you&rsquo;ll run into (standard, URL-safe, MIME), the 33%
-      size overhead, and the common mistakes — using it for security,
-      forgetting to handle padding, and confusing encoding
-      directions.
+      Base64, "keyfi baytları yalnızca metin içeren bir kanala sıkıştırmam gerekiyor" durumunun İsviçre çakısıdır. E-posta ekleri, JWT token'ları, CSS'deki veri URI'leri, API kimlik doğrulama başlıkları — hepsi buna dayanır. Bu rehber, Base64'ün gerçekte ne yaptığını (spoiler: şifreleme değil), ne zaman kullanılacağını, karşılaşacağınız varyantları (standart, URL güvenli, MIME), %33'lük boyut artışını ve yaygın hataları — güvenlik için kullanmak, dolguyu unutmak ve kodlama yönlerini karıştırmak — açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What Base64 is — and isn&rsquo;t</h2>
+    <h2>Base64 nedir — ve ne değildir</h2>
     <p>
-      Base64 is a binary-to-text encoding. It represents binary data
-      using 64 ASCII characters (A-Z, a-z, 0-9, +, /) plus = for
-      padding. Every 3 bytes of input become 4 characters of output.
+      Base64, ikiliden metne bir kodlamadır. İkili veriyi 64 ASCII karakteri (A-Z, a-z, 0-9, +, /) ve dolgu için = kullanarak temsil eder. Girdideki her 3 bayt, çıktıda 4 karakter olur.
     </p>
     <p>
-      <strong>It is NOT encryption.</strong> Anyone can decode
-      Base64 instantly with any decoder. Treating
-      &ldquo;base64-encoded&rdquo; as &ldquo;obfuscated&rdquo; or
-      &ldquo;secure&rdquo; is a classic mistake in audits and
-      security reviews.
+      <strong>Şifreleme DEĞİLDİR.</strong> Herkes Base64'ü herhangi bir kod çözücüyle anında çözebilir. "Base64 kodlu" ifadesini "gizlenmiş" veya "güvenli" olarak ele almak, denetimlerde ve güvenlik incelemelerinde klasik bir hatadır.
     </p>
     <p>
-      <strong>It is NOT compression.</strong> Base64 <em>expands</em>
-      data by ~33%. Encoding compressed data (like a zip file) in
-      Base64 makes it larger, not smaller.
+      <strong>Sıkıştırma DEĞİLDİR.</strong> Base64, veriyi ~%33 oranında <em>genişletir</em>. Sıkıştırılmış veriyi (bir zip dosyası gibi) Base64'te kodlamak, onu küçültmez, büyütür.
     </p>
     <p>
-      The entire purpose of Base64 is to let binary data travel
-      through systems that assume text — HTTP headers, JSON values,
-      email bodies, URL parameters, XML.
+      Base64'ün tüm amacı, ikili verinin metin varsayan sistemlerde (HTTP başlıkları, JSON değerleri, e-posta gövdeleri, URL parametreleri, XML) dolaşmasını sağlamaktır.
     </p>
 
-    <h2>The encoding mechanics — how 3 → 4</h2>
+    <h2>Kodlama mekaniği — 3 nasıl 4 olur</h2>
     <p>
-      Input: 3 bytes (24 bits).
+      Girdi: 3 bayt (24 bit).
     </p>
     <p>
-      Split those 24 bits into 4 groups of 6 bits each.
+      Bu 24 biti, her biri 6 bitlik 4 gruba ayırın.
     </p>
     <p>
-      Each 6-bit group maps to one of 64 characters (hence
-      &ldquo;Base 64&rdquo;).
+      Her 6 bitlik grup, 64 karakterden birine karşılık gelir (bu nedenle "Base 64").
     </p>
     <p>
-      Output: 4 characters, all printable ASCII, safe to transmit
-      anywhere.
+      Çıktı: 4 karakter, tümü yazdırılabilir ASCII, her yere iletilebilir.
     </p>
     <p>
-      If input isn&rsquo;t a multiple of 3 bytes, pad with zero bits
-      and indicate with =:
+      Girdi 3 baytın katı değilse, sıfır bitlerle doldurun ve = ile belirtin:
     </p>
     <p>
-      <strong>1 byte of input:</strong> 2 chars of output + &ldquo;==&rdquo;.
+      <strong>1 bayt girdi:</strong> 2 karakter çıktı + "==".
     </p>
     <p>
-      <strong>2 bytes of input:</strong> 3 chars of output + &ldquo;=&rdquo;.
+      <strong>2 bayt girdi:</strong> 3 karakter çıktı + "=".
     </p>
     <p>
-      <strong>3 bytes of input:</strong> 4 chars, no padding.
+      <strong>3 bayt girdi:</strong> 4 karakter, dolgu yok.
     </p>
     <p>
-      This is why Base64 strings always end with 0, 1, or 2 equals
-      signs. Length is always a multiple of 4.
+      Bu nedenle Base64 dizeleri her zaman 0, 1 veya 2 eşittir işaretiyle biter. Uzunluk her zaman 4'ün katıdır.
     </p>
 
-    <h2>Base64 variants</h2>
+    <h2>Base64 varyantları</h2>
     <p>
-      <strong>Standard Base64 (RFC 4648):</strong> uses + and / as
-      the 63rd and 64th characters. Padding with =. Works for most
-      contexts.
+      <strong>Standart Base64 (RFC 4648):</strong> 63. ve 64. karakter olarak + ve / kullanır. = ile dolgu. Çoğu bağlam için çalışır.
     </p>
     <p>
-      <strong>URL-safe Base64 (RFC 4648 §5):</strong> uses - (minus)
-      instead of + and _ (underscore) instead of /. Padding optional.
-      Used in JWT tokens, URL path parameters, anywhere + and / would
-      be URL-encoded or confused with query separators.
+      <strong>URL güvenli Base64 (RFC 4648 §5):</strong> + yerine - (eksi) ve / yerine _ (alt çizgi) kullanır. Dolgu isteğe bağlıdır. JWT token'larında, URL yol parametrelerinde, + ve /'nin URL kodlanacağı veya sorgu ayırıcılarla karıştırılacağı her yerde kullanılır.
     </p>
     <p>
-      <strong>MIME Base64 (RFC 2045):</strong> standard Base64 with
-      line breaks every 76 characters. Used in email attachments.
+      <strong>MIME Base64 (RFC 2045):</strong> her 76 karakterde bir satır sonu olan standart Base64. E-posta eklerinde kullanılır.
     </p>
     <p>
-      <strong>Base64 without padding:</strong> some formats (JWT)
-      strip trailing = for compactness. Decoders must handle both
-      padded and unpadded input.
+      <strong>Dolgusuz Base64:</strong> bazı formatlar (JWT) kompaktlık için sondaki = işaretlerini kaldırır. Kod çözücüler hem dolgulu hem de dolgusuz girdiyi işleyebilmelidir.
     </p>
     <p>
-      Mixing variants is a common bug source: a decoder expecting
-      standard Base64 chokes on URL-safe input containing - or _.
-      Know which variant you&rsquo;re in.
+      Varyantları karıştırmak yaygın bir hata kaynağıdır: standart Base64 bekleyen bir kod çözücü, - veya _ içeren URL güvenli girdide takılır. Hangi varyantta olduğunuzu bilin.
     </p>
 
-    <h2>The 33% size overhead</h2>
+    <h2>%33 boyut artışı</h2>
     <p>
-      Output size = ⌈input_bytes / 3⌉ × 4.
+      Çıktı boyutu = ⌈girdi_baytı / 3⌉ × 4.
     </p>
     <p>
-      100 bytes of input → 136 bytes of output (36% larger when
-      padding counts).
+      100 bayt girdi → 136 bayt çıktı (dolgu sayıldığında %36 daha büyük).
     </p>
     <p>
       1 KB → ~1.33 KB.
@@ -117,141 +84,90 @@ export const body: ReactElement = (
       1 MB → ~1.33 MB.
     </p>
     <p>
-      Implication: inlining images as data URIs (&ldquo;data:image/
-      png;base64,...&rdquo;) adds 33%. For a 1 MB hero image,
-      that&rsquo;s 333 KB extra payload the browser has to parse
-      before it can display anything. Small icons: fine. Large
-      images: bad tradeoff.
+      Anlamı: görselleri veri URI'si olarak satır içine almak ("data:image/png;base64,...") %33 ekler. 1 MB'lık bir kahraman görseli için, tarayıcının herhangi bir şey göstermeden önce ayrıştırması gereken 333 KB ek yük demektir. Küçük simgeler: sorun yok. Büyük görseller: kötü takas.
     </p>
 
-    <h2>When to use Base64</h2>
+    <h2>Base64 ne zaman kullanılır</h2>
     <p>
-      <strong>Email attachments.</strong> SMTP historically
-      supported only 7-bit ASCII. MIME Base64 remains the standard.
+      <strong>E-posta ekleri.</strong> SMTP tarihsel olarak yalnızca 7 bitlik ASCII'yi destekliyordu. MIME Base64 hala standarttır.
     </p>
     <p>
-      <strong>HTTP Basic Auth headers.</strong>
-      &ldquo;Authorization: Basic &lt;base64(user:password)&gt;&rdquo;.
-      Remember — this is encoding, not security. Basic Auth without
-      TLS is plaintext.
+      <strong>HTTP Temel Kimlik Doğrulama başlıkları.</strong>
+      "Authorization: Basic &lt;base64(kullanıcı:şifre)&gt;". Unutmayın — bu kodlamadır, güvenlik değil. TLS olmadan Temel Kimlik Doğrulama düz metindir.
     </p>
     <p>
-      <strong>JWT tokens.</strong> JSON Web Tokens are three
-      URL-safe-Base64 segments separated by dots: header.payload.signature.
+      <strong>JWT token'ları.</strong> JSON Web Token'ları, noktalarla ayrılmış üç URL güvenli Base64 bölümüdür: başlık.veri.imza.
     </p>
     <p>
-      <strong>Data URIs.</strong> &ldquo;data:image/png;base64,...&rdquo;
-      embeds binary assets inline in HTML/CSS. Use for small icons,
-      SVG fallbacks.
+      <strong>Veri URI'leri.</strong> "data:image/png;base64,..." ikili varlıkları HTML/CSS içinde satır içine alır. Küçük simgeler, SVG yedekleri için kullanın.
     </p>
     <p>
-      <strong>API responses with binary data.</strong> When JSON
-      needs to contain an image, file, or cryptographic key, Base64
-      it.
+      <strong>İkili veri içeren API yanıtları.</strong> JSON bir görsel, dosya veya şifreleme anahtarı içermesi gerektiğinde, onu Base64 yapın.
     </p>
     <p>
-      <strong>Storing binary in databases with text-only columns.</strong>
-      Better practice is to use a binary column (BLOB, BYTEA), but
-      Base64 in a VARCHAR works when you can&rsquo;t.
+      <strong>Yalnızca metin sütunları olan veritabanlarında ikili veri depolama.</strong> Daha iyi uygulama ikili bir sütun (BLOB, BYTEA) kullanmaktır, ancak yapamadığınızda VARCHAR içinde Base64 işe yarar.
     </p>
 
-    <h2>When NOT to use Base64</h2>
+    <h2>Base64 ne zaman KULLANILMAMALI</h2>
     <p>
-      <strong>Hiding sensitive data.</strong> It&rsquo;s trivially
-      reversible. Use real encryption (AES, RSA, etc.), not Base64.
+      <strong>Hassas verileri gizleme.</strong> Önemsiz bir şekilde tersine çevrilebilir. Base64 değil, gerçek şifreleme (AES, RSA vb.) kullanın.
     </p>
     <p>
-      <strong>Large file transfer.</strong> The 33% overhead and
-      text-parsing cost make it wasteful compared to binary
-      protocols. Stream the binary directly.
+      <strong>Büyük dosya aktarımı.</strong> %33 ek yük ve metin ayrıştırma maliyeti, onu ikili protokollere kıyasla israf yapar. İkili veriyi doğrudan akışla aktarın.
     </p>
     <p>
-      <strong>Database primary keys.</strong> Sort order is funky,
-      prefix indexing is weird. Use binary columns or hex encoding
-      instead.
+      <strong>Veritabanı birincil anahtarları.</strong> Sıralama düzeni tuhaftır, önek indeksleme gariptir. Bunun yerine ikili sütunlar veya onaltılık kodlama kullanın.
     </p>
     <p>
-      <strong>Large inline images.</strong> As above — 33% size
-      penalty is real. Use a regular image file or a CDN.
+      <strong>Büyük satır içi görseller.</strong> Yukarıdaki gibi — %33 boyut cezası gerçektir. Normal bir görsel dosyası veya bir CDN kullanın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>1. Treating Base64 as security.</strong> &ldquo;We
-      obfuscated the API key with Base64&rdquo; is a red flag. It
-      takes 1 second to decode.
+      <strong>1. Base64'ü güvenlik olarak ele almak.</strong> "API anahtarını Base64 ile gizledik" bir kırmızı bayraktır. Çözülmesi 1 saniye sürer.
     </p>
     <p>
-      <strong>2. URL-breaking with + and /.</strong> Passing
-      standard Base64 in a URL query parameter: + becomes space,
-      / can confuse path parsers. Use URL-safe Base64 or URL-encode
-      the whole string.
+      <strong>2. + ve / ile URL'yi bozmak.</strong> Standart Base64'ü bir URL sorgu parametresinde iletmek: + boşluk olur, / yol ayrıştırıcılarını karıştırabilir. URL güvenli Base64 kullanın veya tüm dizeyi URL kodlayın.
     </p>
     <p>
-      <strong>3. Assuming Base64 is the input.</strong> Double-
-      encoding happens when a pipeline encodes already-encoded
-      data. The result decodes to a Base64 string, not the original.
+      <strong>3. Base64'ün girdi olduğunu varsaymak.</strong> Bir işlem hattı zaten kodlanmış veriyi kodladığında çift kodlama oluşur. Sonuç, orijinali değil, bir Base64 dizesine çözülür.
     </p>
     <p>
-      <strong>4. Stripping padding then feeding to strict
-      decoder.</strong> A decoder without tolerant mode needs the
-      = back. Add padding: string + &ldquo;=&rdquo; × ((4 − length
-      mod 4) mod 4).
+      <strong>4. Dolguyu kaldırıp ardından katı bir kod çözücüye beslemek.</strong> Toleranslı modu olmayan bir kod çözücünün = işaretine ihtiyacı vardır. Dolgu ekleyin: dize + "=" × ((4 − uzunluk mod 4) mod 4).
     </p>
     <p>
-      <strong>5. Encoding text with the wrong charset.</strong>
-      Base64 encodes bytes, not characters. If the string is UTF-8,
-      encode the UTF-8 byte representation, not the code points.
-      Different languages handle this differently; test with
-      non-ASCII data.
+      <strong>5. Metni yanlış karakter setiyle kodlamak.</strong> Base64, karakterleri değil, baytları kodlar. Dize UTF-8 ise, kod noktalarını değil, UTF-8 bayt temsilini kodlayın. Farklı diller bunu farklı şekilde ele alır; ASCII olmayan verilerle test edin.
     </p>
 
-    <h2>Encoding and decoding in different languages</h2>
+    <h2>Farklı dillerde kodlama ve kod çözme</h2>
     <p>
-      <strong>JavaScript (browser):</strong> btoa() for encode,
-      atob() for decode. Gotcha: these only work for Latin-1 strings
-      — for UTF-8, wrap with encodeURIComponent/decodeURIComponent
-      dance, or use TextEncoder + Uint8Array.
+      <strong>JavaScript (tarayıcı):</strong> kodlama için btoa(), kod çözme için atob(). Dikkat: bunlar yalnızca Latin-1 dizeleri için çalışır — UTF-8 için, encodeURIComponent/decodeURIComponent dansıyla sarın veya TextEncoder + Uint8Array kullanın.
     </p>
     <p>
-      <strong>Node.js:</strong> Buffer.from(s, &lsquo;utf8&rsquo;).toString(&lsquo;base64&rsquo;)
-      to encode; Buffer.from(s, &lsquo;base64&rsquo;).toString(&lsquo;utf8&rsquo;)
-      to decode.
+      <strong>Node.js:</strong> Kodlamak için Buffer.from(s, 'utf8').toString('base64'); kod çözmek için Buffer.from(s, 'base64').toString('utf8').
     </p>
     <p>
-      <strong>Python:</strong> base64.b64encode(bytes) and
-      base64.b64decode(string). Use base64.urlsafe_b64encode for
-      URL-safe variant.
+      <strong>Python:</strong> base64.b64encode(bytes) ve base64.b64decode(string). URL güvenli varyant için base64.urlsafe_b64encode kullanın.
     </p>
     <p>
-      <strong>CLI (Linux / macOS):</strong> echo &ldquo;hello&rdquo;
-      | base64 to encode; echo &ldquo;aGVsbG8K&rdquo; | base64 -d to
-      decode.
+      <strong>CLI (Linux / macOS):</strong> Kodlamak için echo "merhaba" | base64; kod çözmek için echo "aGVsbG8K" | base64 -d.
     </p>
 
-    <h2>JWT — the example everyone sees</h2>
+    <h2>JWT — herkesin gördüğü örnek</h2>
     <p>
-      A JWT looks like xxxxx.yyyyy.zzzzz. Each segment is URL-safe
-      Base64 without padding.
+      Bir JWT, xxxxx.yyyyy.zzzzz gibi görünür. Her bölüm, dolgusuz URL güvenli Base64'tür.
     </p>
     <p>
-      Decode any segment with a Base64 decoder and you&rsquo;ll see
-      the JSON. The payload is readable by anyone — never put
-      secrets in a JWT payload. The signature (third segment)
-      authenticates the token; anyone can read the contents, but
-      only the holder of the signing key can forge one.
+      Herhangi bir bölümü bir Base64 kod çözücüyle çözün ve JSON'u göreceksiniz. Veri herkes tarafından okunabilir — bir JWT verisine asla sır koymayın. İmza (üçüncü bölüm) token'ın kimliğini doğrular; içeriği herkes okuyabilir, ancak yalnızca imzalama anahtarının sahibi bir tane sahtesini yapabilir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Encode or decode Base64 with the{" "}
-      <a href="/tools/base64-encoder-decoder">Base64 encoder/decoder</a>.
-      Pair with the{" "}
-      <a href="/tools/jwt-decoder">JWT decoder</a> when inspecting
-      tokens (which are URL-safe Base64 under the hood), and the{" "}
-      <a href="/tools/url-encoder-decoder">URL encoder/decoder</a> for
-      the next-layer URL-percent-encoding you often need alongside
-      Base64.
+      Base64'ü{" "}
+      <a href="/tools/base64-encoder-decoder">Base64 kodlayıcı/kod çözücü</a> ile kodlayın veya çözün.
+      Token'ları incelerken (bunlar perde arkasında URL güvenli Base64'tür){" "}
+      <a href="/tools/jwt-decoder">JWT kod çözücü</a> ile ve Base64'ün yanında sıklıkla ihtiyaç duyduğunuz bir sonraki katman URL yüzde kodlaması için{" "}
+      <a href="/tools/url-encoder-decoder">URL kodlayıcı/kod çözücü</a> ile eşleştirin.
     </p>
   </>
 );

@@ -2,55 +2,55 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Codex CLI is OpenAI&rsquo;s open-source terminal agent: a `codex` command that edits files, runs shell commands, and reasons about code inside a sandbox.
+    Codex CLI, OpenAI&rsquo;nin açık kaynaklı terminal ajanıdır: dosyaları düzenleyen, shell komutları çalıştıran ve bir sandbox içinde kod hakkında akıl yürüten bir `codex` komutu.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      Codex CLI gives you an agentic loop at the command line, backed by OpenAI&rsquo;s coding-tuned models. You launch `codex` in any directory, describe a task, and it reads files, proposes edits, runs commands, and iterates until the task is done or it needs your input. Unlike a chat window, it keeps execution inside a sandbox and surfaces diffs for approval before touching disk, which makes it safer to hand real work.
+      Codex CLI, OpenAI&rsquo;nin kodlama için optimize edilmiş modelleri tarafından desteklenen, komut satırında bir ajan döngüsü sunar. Herhangi bir dizinde `codex` başlatır, bir görev tanımlarsınız ve dosyaları okur, düzenlemeler önerir, komutlar çalıştırır ve görev tamamlanana veya girdinize ihtiyaç duyana kadar yineler. Bir sohbet penceresinin aksine, yürütmeyi bir sandbox içinde tutar ve diske dokunmadan önce onay için farkları (diff) gösterir, bu da gerçek işleri emanet etmeyi daha güvenli hale getirir.
     </p>
 
-    <h2>What it is</h2>
+    <h2>Ne olduğu</h2>
     <p>
-      Codex CLI is an Apache-2.0 project from OpenAI on GitHub. It ships as an npm package and authenticates with either a ChatGPT login (tied to your plan&rsquo;s usage) or an OpenAI API key. The agent is multimodal &mdash; it can read images pasted into the terminal &mdash; and uses the Responses API under the hood. It supports <a href="/learn/mcp">MCP</a> servers for extending tools.
+      Codex CLI, GitHub'da OpenAI'den Apache-2.0 lisanslı bir projedir. Bir npm paketi olarak gelir ve bir ChatGPT girişi (planınızın kullanımına bağlı) veya bir OpenAI API anahtarı ile kimlik doğrulaması yapar. Ajan çok modludur &mdash; terminale yapıştırılan görselleri okuyabilir &mdash; ve arka planda Responses API'yi kullanır. Araçları genişletmek için <a href="/learn/mcp">MCP</a> sunucularını destekler.
     </p>
 
-    <h2>Install</h2>
+    <h2>Kurulum</h2>
     <pre>{`# Node 20+
 npm install -g @openai/codex
 
-# first run prompts for login or API key
+# ilk çalıştırmada giriş veya API anahtarı istenir
 codex
 `}</pre>
 
-    <h2>First session</h2>
+    <h2>İlk oturum</h2>
     <p>
-      Run `codex` in a project directory. Pick an approval mode (suggest, auto-edit, or full-auto) and describe a task.
+      Bir proje dizininde `codex` çalıştırın. Bir onay modu seçin (öner, otomatik düzenle veya tam otomatik) ve bir görev tanımlayın.
     </p>
     <pre>{`$ codex
-&gt; Fix the failing test in tests/users.spec.ts
-&rarr; reads test &rarr; greps source &rarr; proposes patch &rarr; runs npm test`}</pre>
+> tests/users.spec.ts dosyasındaki başarısız testi düzelt
+&rarr; testi okur &rarr; kaynağı tarar &rarr; yama önerir &rarr; npm test çalıştırır`}</pre>
 
-    <h2>Everyday workflows</h2>
+    <h2>Günlük iş akışları</h2>
     <ul>
-      <li>Bug triage &mdash; paste a failing CI log and let Codex reproduce and patch locally.</li>
-      <li>Small features &mdash; scope a single endpoint or component and let it run in auto-edit mode.</li>
-      <li>Refactors &mdash; ask for a rename or extraction, review the diff, commit.</li>
+      <li>Hata triyajı &mdash; başarısız bir CI günlüğünü yapıştırın ve Codex'in yerel olarak yeniden oluşturmasına ve yama yapmasına izin verin.</li>
+      <li>Küçük özellikler &mdash; tek bir uç nokta veya bileşen kapsamı belirleyin ve otomatik düzenleme modunda çalışmasına izin verin.</li>
+      <li>Yeniden düzenlemeler &mdash; bir yeniden adlandırma veya çıkarma isteyin, farkı inceleyin, commit yapın.</li>
     </ul>
 
-    <h2>Gotchas and tips</h2>
+    <h2>Püf noktaları ve ipuçları</h2>
     <p>
-      Full-auto mode is tempting but will happily rewrite large swaths of code if the task is vague. Use suggest mode for anything near production, and keep dirty working trees out &mdash; Codex occasionally stages changes it then undoes. Commit or stash before starting.
+      Tam otomatik mod caziptir ancak görev belirsizse büyük kod parçalarını mutlu bir şekilde yeniden yazar. Üretime yakın her şey için öner modunu kullanın ve kirli çalışma ağaçlarını uzak tutun &mdash; Codex bazen değişiklikleri aşamalandırır ve sonra geri alır. Başlamadan önce commit veya stash yapın.
     </p>
     <p>
-      The sandbox blocks network by default on some platforms; if your task needs npm install or a curl, enable network access explicitly for that session. A codex.md or AGENTS.md file at the repo root lets you pin conventions that apply every run.
+      Sandbox, bazı platformlarda varsayılan olarak ağı engeller; göreviniz npm install veya curl gerektiriyorsa, bu oturum için ağ erişimini açıkça etkinleştirin. Depo kökündeki bir codex.md veya AGENTS.md dosyası, her çalıştırmada geçerli olan kuralları sabitlemenizi sağlar.
     </p>
 
-    <h2>Who it&rsquo;s for</h2>
+    <h2>Kimler için</h2>
     <p>
-      Developers already in the OpenAI ecosystem who want a terminal-native alternative to ChatGPT&rsquo;s code interpreter, with real access to their local filesystem. Start with a test-fix task &mdash; narrow, verifiable, and a great sanity check of the tool&rsquo;s behavior.
+      OpenAI ekosisteminde olan ve ChatGPT'nin kod yorumlayıcısına terminal tabanlı bir alternatif isteyen, yerel dosya sistemlerine gerçek erişime sahip geliştiriciler. Bir test-düzeltme göreviyle başlayın &mdash; dar, doğrulanabilir ve aracın davranışı için harika bir sağlık kontrolü.
     </p>
   </>
 );

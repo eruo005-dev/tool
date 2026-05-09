@@ -3,106 +3,110 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Extra whitespace is the silent ugliness of text pipelines. Trailing
-      spaces break diffs, runs of spaces ruin alignment, tabs mixed with
-      spaces break code, and non-breaking spaces pasted from Word look
-      identical to regular spaces but compare unequal and cause string
-      matches to fail mysteriously. &ldquo;Remove extra whitespace&rdquo;
-      is a dozen different operations depending on what you mean: trim,
-      collapse runs, convert tabs, strip invisible variants, or normalize
-      the lot. This guide covers each operation, the regex patterns that
-      actually work, and the cases where you deliberately <em>don&rsquo;t</em>
-      want to strip &mdash; like code indentation.
+      Fazladan boşluk, metin işleme hatlarının sessiz çirkinliğidir. Sondaki
+      boşluklar farkları bozar, boşluk dizileri hizalamayı mahveder, boşluklarla
+      karışan sekmeler kodu bozar ve Word'den yapıştırılan bölünmez boşluklar
+      normal boşluklarla aynı görünür ancak eşit olmayan karşılaştırmalara ve
+      dize eşleştirmelerinin gizemli bir şekilde başarısız olmasına neden olur.
+      &ldquo;Fazladan boşluğu kaldır&rdquo; işlemi, ne demek istediğinize bağlı
+      olarak bir düzine farklı işlemdir: kırpma, dizileri daraltma, sekmeleri
+      dönüştürme, görünmez varyantları temizleme veya hepsini normalleştirme.
+      Bu kılavuz, her işlemi, gerçekten çalışan regex kalıplarını ve kod
+      girintisi gibi, temizlemek istemediğiniz durumları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What counts as whitespace</h2>
+    <h2>Boşluk olarak kabul edilenler</h2>
     <p>
-      More than just the space character. The Unicode whitespace class
-      includes:
+      Sadece boşluk karakterinden daha fazlası. Unicode boşluk sınıfı
+      şunları içerir:
     </p>
     <ul>
-      <li>Regular space (U+0020)</li>
-      <li>Tab (U+0009)</li>
-      <li>Line feed, carriage return, form feed, vertical tab</li>
-      <li>Non-breaking space (U+00A0) &mdash; looks like space, isn&rsquo;t</li>
-      <li>En space, em space, thin space, hair space (U+2000 to U+200A)</li>
-      <li>Zero-width space (U+200B) &mdash; technically not whitespace in Unicode, but often treated as one</li>
-      <li>Ideographic space (U+3000) &mdash; full-width space from CJK</li>
+      <li>Normal boşluk (U+0020)</li>
+      <li>Sekme (U+0009)</li>
+      <li>Satır besleme, satır başı, form besleme, dikey sekme</li>
+      <li>Bölünmez boşluk (U+00A0) &mdash; boşluk gibi görünür, öyle değildir</li>
+      <li>En boşluk, em boşluk, ince boşluk, kıl boşluk (U+2000 ila U+200A)</li>
+      <li>Sıfır genişlikli boşluk (U+200B) &mdash; teknik olarak Unicode'da boşluk değildir, ancak genellikle öyle işlem görür</li>
+      <li>İdeografik boşluk (U+3000) &mdash; CJK'den tam genişlikli boşluk</li>
     </ul>
 
-    <h2>Trim</h2>
+    <h2>Kırpma</h2>
     <p>
-      Remove leading and trailing whitespace, leave the middle alone.
-      Every language has a built-in. In regex:
+      Baştaki ve sondaki boşlukları kaldırın, ortadakini bırakın.
+      Her dilde yerleşik bir işlev vardır. Regex ile:
     </p>
     <pre>{`str.replace(/^\\s+|\\s+$/g, "")
 
-// Or JS built-in
-str.trim();        // both ends
-str.trimStart();   // leading only
-str.trimEnd();     // trailing only`}</pre>
+// Veya JS yerleşik işlevi
+str.trim();        // her iki uç
+str.trimStart();   // sadece baş
+str.trimEnd();     // sadece son`}</pre>
     <p>
-      JavaScript&rsquo;s <code>trim</code> uses the Unicode whitespace
-      class, so it handles non-breaking space and the exotic Unicode
-      spaces too.
+      JavaScript'in <code>trim</code> işlevi Unicode boşluk sınıfını
+      kullanır, bu nedenle bölünmez boşluk ve egzotik Unicode
+      boşluklarını da işler.
     </p>
 
-    <h2>Collapse runs of whitespace</h2>
+    <h2>Boşluk dizilerini daraltma</h2>
     <p>
-      Replace any run of whitespace with a single space:
+      Herhangi bir boşluk dizisini tek bir boşlukla değiştirin:
     </p>
     <pre>{`str.replace(/\\s+/g, " ")`}</pre>
     <p>
-      This flattens tabs, multiple spaces, and any line breaks inside.
-      Combine with trim for the classic &ldquo;clean up this mess&rdquo;
-      pass:
+      Bu, sekmeleri, birden çok boşluğu ve içindeki satır sonlarını
+      düzleştirir. Klasik &ldquo;bu karışıklığı temizle&rdquo; işlemi
+      için kırpma ile birleştirin:
     </p>
     <pre>{`str.replace(/\\s+/g, " ").trim()`}</pre>
 
-    <h2>Preserve line structure while collapsing intra-line runs</h2>
+    <h2>Satır içi dizileri daraltırken satır yapısını koruma</h2>
     <p>
-      When you want clean lines but still want <em>lines</em>:
+      Temiz satırlar istediğinizde ancak yine de <em>satırlar</em>
+      istediğinizde:
     </p>
     <pre>{`str
   .split(/\\r\\n|\\r|\\n/)
   .map(l =&gt; l.replace(/[^\\S\\n]+/g, " ").trim())
   .join("\\n")`}</pre>
     <p>
-      <code>[^\\S\\n]</code> is &ldquo;whitespace that isn&rsquo;t a
-      newline,&rdquo; a classic trick.
+      <code>[^\\S\\n]</code>, &ldquo;yeni satır olmayan boşluk&rdquo;
+      anlamına gelir, klasik bir numara.
     </p>
 
-    <h2>Non-breaking spaces</h2>
+    <h2>Bölünmez boşluklar</h2>
     <p>
-      NBSP (U+00A0) is the villain of copy-paste workflows. It looks
-      identical to a space in most fonts but:
+      NBSP (U+00A0), kopyala-yapıştır iş akışlarının kötü karakteridir.
+      Çoğu yazı tipinde bir boşlukla aynı görünür ancak:
     </p>
     <ul>
-      <li>Doesn&rsquo;t match <code>/ /</code> regex (which matches literal space only)</li>
-      <li>Doesn&rsquo;t break lines in HTML rendering</li>
-      <li>Breaks naive <code>split(&rdquo; &rdquo;)</code> tokenization</li>
+      <li><code>/ /</code> regex'iyle eşleşmez (yalnızca gerçek boşluğu eşleştirir)</li>
+      <li>HTML işlemede satırları bölmez</li>
+      <li>Basit <code>split(&rdquo; &rdquo;)</code> tokenizasyonunu bozar</li>
     </ul>
     <p>
-      It <em>does</em> match <code>/\\s/</code>, which is why collapse-runs
-      regex handles it transparently. If you want to preserve NBSP (for
-      typographic reasons) and only collapse regular spaces, be explicit:
+      <code>/\\s/</code> ile <em>eşleşir</em>, bu nedenle daraltma
+      regex'i onu şeffaf bir şekilde işler. NBSP'yi (tipografik nedenlerle)
+      korumak ve yalnızca normal boşlukları daraltmak istiyorsanız, açık
+      olun:
     </p>
-    <pre>{`str.replace(/ +/g, " ")   // only ASCII space
-str.replace(/\\s+/g, " ")  // all whitespace`}</pre>
+    <pre>{`str.replace(/ +/g, " ")   // yalnızca ASCII boşluk
+str.replace(/\\s+/g, " ")  // tüm boşluklar`}</pre>
 
-    <h2>Tab-to-space conversion</h2>
+    <h2>Sekmeden boşluğa dönüşüm</h2>
     <p>
-      Tabs render differently across editors and cause alignment chaos in
-      mixed-indent code. Convert to N spaces:
+      Sekmeler, düzenleyiciler arasında farklı görünür ve karışık
+      girintili kodlarda hizalama kaosuna neden olur. N boşluğa
+      dönüştürün:
     </p>
-    <pre>{`str.replace(/\\t/g, "  ")   // 2 spaces
-str.replace(/\\t/g, "    ") // 4 spaces`}</pre>
+    <pre>{`str.replace(/\\t/g, "  ")   // 2 boşluk
+str.replace(/\\t/g, "    ") // 4 boşluk`}</pre>
     <p>
-      For column alignment (tab-expand), you need tab stops:
+      Sütun hizalaması (sekme genişletme) için sekme duraklarına
+      ihtiyacınız vardır:
     </p>
     <pre>{`function expandTabs(str, tabSize = 4) {
   return str.split("\\n").map(line =&gt; {
@@ -119,13 +123,13 @@ str.replace(/\\t/g, "    ") // 4 spaces`}</pre>
   }).join("\\n");
 }`}</pre>
 
-    <h2>Preserving code indentation</h2>
+    <h2>Kod girintisini koruma</h2>
     <p>
-      The one case where you <strong>must</strong> not collapse leading
-      whitespace. Code has meaning in indent levels (Python especially,
-      but also YAML, Makefile, and anything following line structure).
-      Trim trailing whitespace, collapse runs <em>inside</em> non-indent
-      regions only:
+      Baştaki boşluğu <strong>kesinlikle</strong> daraltmamanız gereken
+      durum. Kod, girinti seviyelerinde anlam taşır (özellikle Python,
+      ayrıca YAML, Makefile ve satır yapısını takip eden her şey).
+      Sondaki boşluğu kırpın, dizileri yalnızca girinti olmayan
+      <em>iç</em> bölgelerde daraltın:
     </p>
     <pre>{`str.split("\\n").map(line =&gt; {
   const indent = line.match(/^[ \\t]*/)[0];
@@ -133,33 +137,34 @@ str.replace(/\\t/g, "    ") // 4 spaces`}</pre>
   return indent + rest;
 }).join("\\n");`}</pre>
 
-    <h2>Trailing whitespace per line</h2>
+    <h2>Satır başına sondaki boşluk</h2>
     <p>
-      The most universally safe cleanup: strip trailing whitespace on
-      every line. Never breaks meaning, cleans up editor artifacts.
+      En evrensel olarak güvenli temizlik: her satırdaki sondaki boşluğu
+      temizleyin. Anlamı asla bozmaz, düzenleyici kalıntılarını temizler.
     </p>
     <pre>{`str.replace(/[ \\t]+$/gm, "")`}</pre>
     <p>
-      The <code>m</code> flag makes <code>$</code> match at line breaks,
-      not just end-of-string.
+      <code>m</code> bayrağı, <code>$</code> işaretinin yalnızca dize
+      sonunda değil, satır sonlarında da eşleşmesini sağlar.
     </p>
 
-    <h2>Blank-line collapse</h2>
+    <h2>Boş satır daraltma</h2>
     <p>
-      Two or more blank lines becomes one:
+      İki veya daha fazla boş satır bir olur:
     </p>
     <pre>{`str.replace(/\\n{3,}/g, "\\n\\n")`}</pre>
     <p>
-      Three or more newlines means two or more blank lines (because one
-      newline is the end of a line, not a blank line).
+      Üç veya daha fazla yeni satır, iki veya daha fazla boş satır
+      anlamına gelir (çünkü bir yeni satır bir satırın sonudur, boş
+      satır değildir).
     </p>
 
-    <h2>Full normalization pipeline</h2>
+    <h2>Tam normalleştirme hattı</h2>
     <pre>{`function cleanWhitespace(s) {
   return s
-    .replace(/\\r\\n?/g, "\\n")         // normalize line endings
-    .replace(/[ \\t]+$/gm, "")         // trim trailing per line
-    .replace(/\\n{3,}/g, "\\n\\n")      // collapse blank lines
+    .replace(/\\r\\n?/g, "\\n")         // satır sonlarını normalleştir
+    .replace(/[ \\t]+$/gm, "")         // satır başına sondakini kırp
+    .replace(/\\n{3,}/g, "\\n\\n")      // boş satırları daralt
     .split("\\n")
     .map(l =&gt; l.replace(/[ \\t]+/g, " ").trimStart() === ""
                 ? ""
@@ -168,22 +173,22 @@ str.replace(/\\t/g, "    ") // 4 spaces`}</pre>
     .trim();
 }`}</pre>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Using <code>/ /</code> to match spaces and missing NBSP. Collapsing
-      leading whitespace in code. Stripping all whitespace from CSV
-      fields and losing significant spaces in names. Forgetting to
-      normalize line endings before regex, then missing matches on CRLF
-      files. And stripping trailing whitespace on a file with
-      significant-whitespace languages like Markdown, where two trailing
-      spaces = <code>&lt;br&gt;</code>.
+      Boşlukları eşleştirmek için <code>/ /</code> kullanmak ve NBSP'yi
+      kaçırmak. Kodda baştaki boşluğu daraltmak. CSV alanlarından tüm
+      boşlukları temizlemek ve isimlerdeki önemli boşlukları kaybetmek.
+      Regex'ten önce satır sonlarını normalleştirmeyi unutmak ve CRLF
+      dosyalarında eşleşmeleri kaçırmak. Ve Markdown gibi anlamlı boşluk
+      dillerinde sondaki boşluğu temizlemek, burada iki sondaki boşluk
+      = <code>&lt;br&gt;</code> anlamına gelir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştır</h2>
     <p>
-      <a href="/tools/whitespace-remover">Whitespace remover</a>
-      <a href="/tools/line-break-remover">Line break remover</a>
-      <a href="/tools/special-character-remover">Special character remover</a>
+      <a href="/tools/whitespace-remover">Boşluk temizleyici</a>
+      <a href="/tools/line-break-remover">Satır sonu temizleyici</a>
+      <a href="/tools/special-character-remover">Özel karakter temizleyici</a>
     </p>
   </>
 );

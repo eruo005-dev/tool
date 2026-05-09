@@ -3,194 +3,194 @@
 export const intro = (
   <>
     <p>
-      Converting one file is easy. Converting 500 files is where most online
-      converters bail out — free tiers cap at 1–5 files per session and the
-      paid options charge per file or per minute. The right answer depends on
-      whether you&rsquo;re a one-time batcher or a recurring batcher, and
-      whether your files are sensitive or not.
+      Bir dosyayı dönüştürmek kolaydır. 500 dosyayı dönüştürmek, çoğu çevrimiçi
+      dönüştürücünün pes ettiği yerdir — ücretsiz kademeler oturum başına 1-5 dosyayla sınırlıdır ve
+      ücretli seçenekler dosya başına veya dakika başına ücret alır. Doğru cevap,
+      tek seferlik mi yoksa tekrarlayan mı toplu işlem yaptığınıza ve
+      dosyalarınızın hassas olup olmadığına bağlıdır.
     </p>
     <p>
-      This guide is the practical batch-conversion playbook: when to use
-      which approach, how to handle different file types in one go, and the
-      free-tool combos that beat paid services for most workflows.
+      Bu kılavuz, pratik toplu dönüştürme oyun kitabıdır: hangi yaklaşımın ne zaman
+      kullanılacağı, farklı dosya türlerinin tek seferde nasıl işleneceği ve
+      çoğu iş akışı için ücretli hizmetleri geride bırakan ücretsiz araç
+      kombinasyonları.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "approaches", label: "Three approaches to batch conversion" },
-  { id: "automation", label: "Automation for repetitive tasks" },
-  { id: "mixed-types", label: "Converting multiple file types at once" },
-  { id: "speed", label: "Why batch conversion is sometimes slow" },
-  { id: "tools", label: "Tools by scale" },
+  { id: "approaches", label: "Toplu dönüştürmeye üç yaklaşım" },
+  { id: "automation", label: "Tekrarlayan görevler için otomasyon" },
+  { id: "mixed-types", label: "Birden çok dosya türünü aynı anda dönüştürme" },
+  { id: "speed", label: "Toplu dönüştürme neden bazen yavaştır" },
+  { id: "tools", label: "Ölçeğe göre araçlar" },
 ];
 
 export const body = (
   <>
-    <h2 id="approaches">Three approaches to batch conversion</h2>
+    <h2 id="approaches">Toplu dönüştürmeye üç yaklaşım</h2>
     <p>
-      Pick based on volume + sensitivity:
+      Hacim + hassasiyete göre seçim yapın:
     </p>
     <ol>
       <li>
-        <strong>One-time, &lt; 50 files, non-sensitive:</strong> upload to a
-        free online batch service like CloudConvert (10 minutes/day free) or
-        FreeConvert (50MB cap). Sensitive content doesn&rsquo;t belong here —
-        files go through their servers.
+        <strong>Tek seferlik, &lt; 50 dosya, hassas değil:</strong> CloudConvert (günde 10 dakika ücretsiz) veya
+        FreeConvert (50MB sınırı) gibi ücretsiz bir çevrimiçi toplu hizmete yükleyin. Hassas içerik buraya ait değildir —
+        dosyalar sunucularından geçer.
       </li>
       <li>
-        <strong>One-time, any size, sensitive:</strong> install the appropriate
-        free desktop tool (Pandoc for documents, FFmpeg for video, ImageMagick
-        for images, Calibre for ebooks) and run a one-line batch command. 5
-        minutes of setup, infinite files, fully local.
+        <strong>Tek seferlik, herhangi bir boyut, hassas:</strong> uygun
+        ücretsiz masaüstü aracını (belgeler için Pandoc, video için FFmpeg, görseller
+        için ImageMagick, e-kitaplar için Calibre) kurun ve tek satırlık bir toplu komut çalıştırın. 5
+        dakikalık kurulum, sınırsız dosya, tamamen yerel.
       </li>
       <li>
-        <strong>Recurring batch (every week / every release):</strong> automate
-        with a script. macOS Automator / Shortcuts, Windows Power Automate, or
-        a bash/PowerShell script wrapping the free CLI tools. Set up once,
-        runs forever.
+        <strong>Tekrarlayan toplu işlem (her hafta / her sürümde):</strong> bir
+        komut dosyasıyla otomatikleştirin. macOS Automator / Shortcuts, Windows Power Automate veya
+        ücretsiz CLI araçlarını saran bir bash/PowerShell betiği. Bir kez kurun,
+        sonsuza kadar çalışır.
       </li>
     </ol>
 
-    <h2 id="automation">Batch conversion automation for repetitive tasks</h2>
+    <h2 id="automation">Tekrarlayan görevler için toplu dönüştürme otomasyonu</h2>
     <p>
-      The 5-minute automations that save 50 hours/year:
+      Yılda 50 saat kazandıran 5 dakikalık otomasyonlar:
     </p>
 
-    <h3>macOS — Automator workflow</h3>
-    <pre><code>{`1. Open Automator → New → Quick Action
-2. Drag "Get Specified Finder Items" or "Folder Action"
-3. Drag the conversion action (e.g. "Change Type of Images")
-4. Save as a Quick Action — appears in right-click menu
+    <h3>macOS — Automator iş akışı</h3>
+    <pre><code>{`1. Automator'ı açın → Yeni → Hızlı Eylem
+2. "Belirtilen Bulucu Öğelerini Al" veya "Klasör Eylemi"ni sürükleyin
+3. Dönüştürme eylemini sürükleyin (ör. "Görüntü Türünü Değiştir")
+4. Hızlı Eylem olarak kaydedin — sağ tık menüsünde görünür
 
-Or use a Shell Script step with one of:
+Veya aşağıdakilerden biriyle bir Kabuk Betiği adımı kullanın:
   - sips -s format png input.jpg --out output.png
   - magick mogrify -format png *.jpg
   - pandoc -o output.docx input.md`}</code></pre>
 
-    <h3>Windows — PowerShell loop</h3>
-    <pre><code>{`# Convert all .docx in folder to .pdf using LibreOffice headless
+    <h3>Windows — PowerShell döngüsü</h3>
+    <pre><code>{`# Klasördeki tüm .docx dosyalarını LibreOffice başsız mod ile .pdf'ye dönüştürün
 Get-ChildItem -Filter "*.docx" | ForEach-Object {
   & "C:\\Program Files\\LibreOffice\\program\\soffice.exe" \\
     --headless --convert-to pdf $_.FullName
 }
 
-# Convert all images to webp using ImageMagick
+# ImageMagick kullanarak tüm görselleri webp'ye dönüştürün
 Get-ChildItem -Filter "*.jpg" | ForEach-Object {
   magick $_.FullName "$($_.BaseName).webp"
 }`}</code></pre>
 
-    <h3>Cross-platform — Pandoc + bash</h3>
-    <pre><code>{`# Convert all markdown in folder to HTML
+    <h3>Platformlar arası — Pandoc + bash</h3>
+    <pre><code>{`# Klasördeki tüm markdown dosyalarını HTML'ye dönüştürün
 for f in *.md; do
   pandoc "$f" -o "\${f%.md}.html"
 done
 
-# Convert all CSV to JSON (using jq)
+# Tüm CSV dosyalarını JSON'a dönüştürün (jq kullanarak)
 for f in *.csv; do
-  ... (csvjson tools or our online converter for one-offs)
+  ... (csvjson araçları veya tek seferlikler için çevrimiçi dönüştürücümüz)
 done`}</code></pre>
 
-    <h2 id="mixed-types">Converting multiple file types at once</h2>
+    <h2 id="mixed-types">Birden çok dosya türünü aynı anda dönüştürme</h2>
     <p>
-      The honest answer: most batch tools handle one file type at a time. A
-      folder full of mixed PDFs, DOCXs, and images doesn&rsquo;t get
-      converted by a single command. The two practical workarounds:
+      Dürüst cevap: çoğu toplu araç aynı anda bir dosya türünü işler. Karışık
+      PDF'ler, DOCX'ler ve görsellerle dolu bir klasör tek bir komutla
+      dönüştürülmez. İki pratik geçici çözüm:
     </p>
     <ol>
       <li>
-        <strong>Group then process.</strong> Move files into per-type folders
-        (PDFs in one, images in another), run the right batch command on each.
-        2 minutes of file management beats trying to write a single mega-script.
+        <strong>Gruplandırın, ardından işleyin.</strong> Dosyaları türe göre klasörlere taşıyın
+        (PDF'ler birinde, görseller diğerinde), her birinde doğru toplu komutu çalıştırın.
+        2 dakikalık dosya yönetimi, tek bir mega betik yazmaya çalışmaktan daha iyidir.
       </li>
       <li>
-        <strong>Universal converters.</strong> Pandoc handles 30+ document
-        formats; LibreOffice headless handles all Office formats and
-        round-trips with reasonable fidelity. ImageMagick covers ~200 image
-        formats. None of these is truly universal but together they cover
-        ~99% of conversion needs.
+        <strong>Evrensel dönüştürücüler.</strong> Pandoc 30'dan fazla belge
+        biçimini işler; LibreOffice başsız mod tüm Office biçimlerini işler ve
+        makul doğrulukla gidiş-dönüş yapar. ImageMagick ~200 görsel
+        biçimini kapsar. Bunların hiçbiri gerçekten evrensel değildir ancak birlikte
+        dönüştürme ihtiyaçlarının ~%99'unu karşılarlar.
       </li>
     </ol>
     <p>
-      For SaaS solutions: CloudConvert handles mixed batches but charges per
-      conversion or per minute on free tier. FreeConvert similar. Both upload
-      files to their servers — not for sensitive content.
+      SaaS çözümleri için: CloudConvert karışık toplu işlemleri işler ancak
+      dönüştürme başına veya ücretsiz kademede dakika başına ücret alır. FreeConvert benzerdir. Her ikisi de
+      dosyaları kendi sunucularına yükler — hassas içerik için uygun değildir.
     </p>
 
-    <h2 id="speed">Why batch conversion is sometimes slow</h2>
+    <h2 id="speed">Toplu dönüştürme neden bazen yavaştır</h2>
     <p>
-      Conversion speed depends on:
+      Dönüştürme hızı şunlara bağlıdır:
     </p>
     <ul>
       <li>
-        <strong>File size.</strong> Doubles the file, doubles the time —
-        roughly linear for most formats. Video is the exception (compression
-        algorithms are super-linear with quality settings).
+        <strong>Dosya boyutu.</strong> Dosyayı iki katına çıkarmak, süreyi iki katına çıkarır —
+        çoğu biçim için kabaca doğrusaldır. Video bir istisnadır (sıkıştırma
+        algoritmaları kalite ayarlarıyla birlikte süper doğrusaldır).
       </li>
       <li>
-        <strong>Source format complexity.</strong> Plain text → HTML: instant.
-        Multi-column PDF with tables → DOCX: orders of magnitude slower because
-        layout reflow is hard.
+        <strong>Kaynak biçim karmaşıklığı.</strong> Düz metin → HTML: anında.
+        Tablolu çok sütunlu PDF → DOCX: düzen yeniden akışı zor olduğu için
+        kat kat daha yavaştır.
       </li>
       <li>
-        <strong>Quality settings.</strong> Higher output quality = more
-        compute. The default options are usually a middle ground; customizing
-        for &ldquo;maximum quality&rdquo; in a batch can 10× the runtime.
+        <strong>Kalite ayarları.</strong> Daha yüksek çıktı kalitesi = daha fazla
+        hesaplama. Varsayılan seçenekler genellikle orta yoldur; bir toplu işlemde
+        &ldquo;maksimum kalite&rdquo; için özelleştirme, çalışma süresini 10 katına çıkarabilir.
       </li>
       <li>
-        <strong>Disk vs memory.</strong> Reading 500 small files from disk is
-        slow on spinning drives, fast on SSDs. Batch tools often process
-        in-memory which is much faster.
+        <strong>Disk vs bellek.</strong> Diskten 500 küçük dosya okumak, dönen
+        sürücülerde yavaş, SSD'lerde hızlıdır. Toplu araçlar genellikle
+        bellek içinde işlem yapar ki bu çok daha hızlıdır.
       </li>
       <li>
-        <strong>OCR specifically:</strong> the slowest. 5–15 seconds per PDF
-        page for browser-side OCR; cloud GPUs do it in 1–2 seconds. Plan
-        accordingly.
+        <strong>Özellikle OCR:</strong> en yavaşı. Tarayıcı tarafı OCR için PDF sayfası başına 5-15
+        saniye; bulut GPU'ları bunu 1-2 saniyede yapar. Buna göre
+        plan yapın.
       </li>
     </ul>
 
-    <h2 id="tools">Tools by batch scale</h2>
+    <h2 id="tools">Toplu işlem ölçeğine göre araçlar</h2>
     <table>
       <thead>
         <tr>
-          <th>Scale</th>
-          <th>Type</th>
-          <th>Recommended tool</th>
+          <th>Ölçek</th>
+          <th>Tür</th>
+          <th>Önerilen araç</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>1–5 files</td><td>Any</td><td>Browser-only converters on this site (one at a time)</td></tr>
-        <tr><td>5–50 files, non-sensitive</td><td>Mixed</td><td>CloudConvert / FreeConvert (free tiers)</td></tr>
-        <tr><td>50+ files, documents</td><td>Documents</td><td>Pandoc CLI or LibreOffice headless</td></tr>
-        <tr><td>50+ files, images</td><td>Images</td><td>ImageMagick CLI or macOS Quick Actions</td></tr>
-        <tr><td>50+ files, video</td><td>Video</td><td>FFmpeg CLI</td></tr>
-        <tr><td>Recurring weekly+</td><td>Any</td><td>Automator (Mac) / PowerShell (Win) / cron + bash</td></tr>
-        <tr><td>Enterprise scale</td><td>Mixed</td><td>CloudConvert API or self-hosted on Lambda</td></tr>
+        <tr><td>1-5 dosya</td><td>Herhangi</td><td>Bu sitedeki tarayıcı tabanlı dönüştürücüler (birer birer)</td></tr>
+        <tr><td>5-50 dosya, hassas değil</td><td>Karışık</td><td>CloudConvert / FreeConvert (ücretsiz kademeler)</td></tr>
+        <tr><td>50+ dosya, belgeler</td><td>Belgeler</td><td>Pandoc CLI veya LibreOffice başsız mod</td></tr>
+        <tr><td>50+ dosya, görseller</td><td>Görseller</td><td>ImageMagick CLI veya macOS Hızlı Eylemler</td></tr>
+        <tr><td>50+ dosya, video</td><td>Video</td><td>FFmpeg CLI</td></tr>
+        <tr><td>Haftalık+ tekrarlayan</td><td>Herhangi</td><td>Automator (Mac) / PowerShell (Win) / cron + bash</td></tr>
+        <tr><td>Kurumsal ölçek</td><td>Karışık</td><td>CloudConvert API veya Lambda'da kendi barındırılan</td></tr>
       </tbody>
     </table>
   </>
 );
 
 export const cta = {
-  label: "Try our XML to CSV converter (browser-only)",
+  label: "XML'den CSV'ye dönüştürücümüzü deneyin (yalnızca tarayıcı)",
   targetSlug: "xml-to-csv",
 };
 
 export const faq = [
   {
-    q: "How do I convert hundreds of files at once?",
-    a: "For non-sensitive content: CloudConvert / FreeConvert free tiers handle 5-50 files. For sensitive content or 50+ files: install Pandoc (documents), ImageMagick (images), or FFmpeg (video) and run a one-line batch command in terminal. Recurring weekly: automate with macOS Automator, PowerShell, or bash + cron.",
+    q: "Yüzlerce dosyayı aynı anda nasıl dönüştürebilirim?",
+    a: "Hassas olmayan içerik için: CloudConvert / FreeConvert ücretsiz kademeleri 5-50 dosyayı işler. Hassas içerik veya 50+ dosya için: Pandoc (belgeler), ImageMagick (görseller) veya FFmpeg (video) kurun ve terminalde tek satırlık bir toplu komut çalıştırın. Haftalık tekrarlayan: macOS Automator, PowerShell veya bash + cron ile otomatikleştirin.",
   },
   {
-    q: "Can I convert multiple file types at once?",
-    a: "Most batch tools handle one type at a time. Workaround: group files by type into folders, run the appropriate batch command per folder. CloudConvert handles mixed batches but uploads files to their servers — not for sensitive content. Pandoc + LibreOffice + ImageMagick together cover ~99% of needs.",
+    q: "Birden çok dosya türünü aynı anda dönüştürebilir miyim?",
+    a: "Çoğu toplu araç aynı anda bir türü işler. Geçici çözüm: dosyaları türe göre klasörlere gruplayın, klasör başına uygun toplu komutu çalıştırın. CloudConvert karışık toplu işlemleri işler ancak dosyaları kendi sunucularına yükler — hassas içerik için uygun değildir. Pandoc + LibreOffice + ImageMagick birlikte ihtiyaçların ~%99'unu karşılar.",
   },
   {
-    q: "Why is batch conversion sometimes slow?",
-    a: "Five factors: file size (linear), source format complexity (multi-column PDFs are slow), quality settings (max quality 10×s runtime), disk speed (SSDs vs HDDs), and operation type — OCR is the slowest at 5-15 seconds per PDF page browser-side.",
+    q: "Toplu dönüştürme neden bazen yavaştır?",
+    a: "Beş faktör: dosya boyutu (doğrusal), kaynak biçim karmaşıklığı (çok sütunlu PDF'ler yavaştır), kalite ayarları (maksimum kalite çalışma süresini 10 katına çıkarır), disk hızı (SSD'ler vs HDD'ler) ve işlem türü — OCR, tarayıcı tarafında PDF sayfası başına 5-15 saniye ile en yavaş olanıdır.",
   },
   {
-    q: "How do I automate batch conversion for recurring tasks?",
-    a: "macOS Automator / Shortcuts builds drag-and-drop workflows. Windows PowerShell loops handle scripting. Cross-platform bash + Pandoc / FFmpeg / ImageMagick CLIs for power users. 5-minute setup, runs forever — saves significant time over recurring manual conversion.",
+    q: "Tekrarlayan görevler için toplu dönüştürmeyi nasıl otomatikleştiririm?",
+    a: "macOS Automator / Shortcuts sürükle-bırak iş akışları oluşturur. Windows PowerShell döngüleri betiklemeyi işler. Güç kullanıcıları için platformlar arası bash + Pandoc / FFmpeg / ImageMagick CLI'ları. 5 dakikalık kurulum, sonsuza kadar çalışır — tekrarlayan manuel dönüştürmeye göre önemli ölçüde zaman kazandırır.",
   },
 ];

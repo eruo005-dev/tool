@@ -3,166 +3,168 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Line breaks are the most environment-dependent characters in plain
-      text. Windows uses CRLF, Unix uses LF, classic Mac used bare CR, and
-      PDFs, emails, and scraped web pages mix all three with abandon.
-      Removing line breaks sounds like a one-liner but actually requires
-      you to decide what you&rsquo;re preserving: paragraphs? Sentences?
-      Bulleted structure? A blanket strip destroys structure; a naive
-      regex misses one of the three line-ending variants. This guide
-      covers the three line-ending types, the patterns that work across
-      all of them, paragraph-preserving strategies, and the pitfalls that
-      show up when you re-import the cleaned text into another tool.
+      Satır sonları, düz metindeki en ortama bağımlı karakterlerdir.
+      Windows CRLF, Unix LF kullanır, klasik Mac ise yalnızca CR kullanırdı;
+      PDF'ler, e-postalar ve kazınmış web sayfaları ise üçünü de gelişigüzel karıştırır.
+      Satır sonlarını kaldırmak kulağa tek satırlık bir işlem gibi gelir ancak aslında
+      neyi koruduğunuza karar vermenizi gerektirir: Paragraflar mı? Cümleler mi?
+      Madde işaretli yapı mı? Toplu bir kaldırma işlemi yapıyı bozar; saf bir
+      regex, üç satır sonu türünden birini kaçırır. Bu kılavuz,
+      üç satır sonu türünü, hepsinde çalışan kalıpları, paragraf koruma
+      stratejilerini ve temizlenmiş metni başka bir araca yeniden aktardığınızda
+      ortaya çıkan tuzakları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The three line endings</h2>
+    <h2>Üç satır sonu türü</h2>
     <p>
-      Only three characters matter, and their combinations are the source
-      of most pain:
+      Yalnızca üç karakter önemlidir ve bunların kombinasyonları çoğu
+      sorunun kaynağıdır:
     </p>
     <ul>
       <li><strong>LF</strong> (<code>\n</code>, U+000A) &mdash; Unix, macOS, Linux</li>
-      <li><strong>CRLF</strong> (<code>\r\n</code>, U+000D U+000A) &mdash; Windows, most email, HTTP</li>
-      <li><strong>CR</strong> (<code>\r</code>, U+000D) &mdash; classic Mac, rare now but still in some exports</li>
+      <li><strong>CRLF</strong> (<code>\r\n</code>, U+000D U+000A) &mdash; Windows, çoğu e-posta, HTTP</li>
+      <li><strong>CR</strong> (<code>\r</code>, U+000D) &mdash; klasik Mac, artık nadir ancak bazı dışa aktarımlarda hala var</li>
     </ul>
     <p>
-      A file scraped from a Windows-origin email and saved through a
-      Mac text editor can contain all three.
+      Windows kaynaklı bir e-postadan kazınıp bir Mac metin düzenleyicisinden
+      kaydedilen bir dosya her üçünü de içerebilir.
     </p>
 
-    <h2>Why the naive approach fails</h2>
+    <h2>Saf yaklaşım neden başarısız olur</h2>
     <p>
-      <code>text.replace(/\n/g, &rdquo; &rdquo;)</code> only hits LF. On a
-      CRLF file this leaves an orphan CR behind every line, which displays
-      as a strange box or causes cursor-carriage behavior in some editors.
+      <code>text.replace(/\n/g, &rdquo; &rdquo;)</code> yalnızca LF'yi hedefler. Bir
+      CRLF dosyasında bu, her satırın arkasında başıboş bir CR bırakır; bu da
+      bazı düzenleyicilerde garip bir kutu olarak görünür veya imleç taşıma
+      davranışına neden olur.
     </p>
-    <pre>{`input (CRLF):  "line 1\\r\\nline 2\\r\\n"
-after /\\n/g:    "line 1\\r line 2\\r "
-                        ^        ^ orphan CRs`}</pre>
+    <pre>{`girdi (CRLF):  "satır 1\\r\\nsatır 2\\r\\n"
+/\\n/g sonrası:    "satır 1\\r satır 2\\r "
+                        ^        ^ başıboş CR'ler`}</pre>
 
-    <h2>The universal line-break regex</h2>
+    <h2>Evrensel satır sonu regex'i</h2>
     <p>
-      Match all three variants in any order:
+      Her üç türü de herhangi bir sırayla eşleştirin:
     </p>
     <pre>{`/\\r\\n|\\r|\\n/g`}</pre>
     <p>
-      This matches CRLF as a unit (so you don&rsquo;t double-replace),
-      then bare CR, then bare LF. Order matters &mdash; put CRLF first.
+      Bu, CRLF'yi bir birim olarak eşleştirir (böylece çift değiştirme yapmazsınız),
+      ardından yalın CR'yi ve ardından yalın LF'yi eşleştirir. Sıra önemlidir
+      &mdash; CRLF'yi ilk sıraya koyun.
     </p>
 
-    <h2>Flatten to single line</h2>
+    <h2>Tek satıra düzleştirme</h2>
     <p>
-      Replace every break with a space, then collapse runs of spaces:
+      Her satır sonunu bir boşlukla değiştirin, ardından boşluk dizilerini
+      daraltın:
     </p>
-    <pre>{`text
+    <pre>{`metin
   .replace(/\\r\\n|\\r|\\n/g, " ")
   .replace(/\\s+/g, " ")
   .trim()`}</pre>
     <p>
-      Use this for copy-pasting text from a PDF into a word processor
-      when each visual line is a soft line-break and you want running
-      prose.
+      Bunu, bir PDF'den bir kelime işlemciye metin kopyalarken, her görsel
+      satırın yumuşak bir satır sonu olduğu ve akıcı bir düzyazı istediğinizde
+      kullanın.
     </p>
 
-    <h2>Preserve paragraphs, flatten within</h2>
+    <h2>Paragrafları koru, içlerini düzleştir</h2>
     <p>
-      Most copy-from-PDF cases want paragraphs preserved but single
-      wraps flattened. Detect paragraph breaks (two or more line breaks
-      in a row), replace single breaks with a space, then restore
-      paragraphs.
+      PDF'den kopyalama durumlarının çoğu, paragrafların korunmasını ancak tek
+      sarmaların düzleştirilmesini ister. Paragraf sonlarını (arka arkaya iki
+      veya daha fazla satır sonu) algılayın, tek satır sonlarını bir boşlukla
+      değiştirin, ardından paragrafları geri yükleyin.
     </p>
-    <pre>{`text
-  .replace(/\\r\\n?/g, "\\n")          // normalize to LF
-  .replace(/\\n{2,}/g, "\\u0000")     // temp marker for paragraphs
-  .replace(/\\n/g, " ")              // flatten single breaks
-  .replace(/\\u0000/g, "\\n\\n")      // restore paragraphs`}</pre>
+    <pre>{`metin
+  .replace(/\\r\\n?/g, "\\n")          // LF'ye normalleştir
+  .replace(/\\n{2,}/g, "\\u0000")     // paragraflar için geçici işaretçi
+  .replace(/\\n/g, " ")              // tek satır sonlarını düzleştir
+  .replace(/\\u0000/g, "\\n\\n")      // paragrafları geri yükle`}</pre>
 
-    <h2>Normalize first, then operate</h2>
+    <h2>Önce normalleştir, sonra işlem yap</h2>
     <p>
-      The cleanest strategy: <strong>always</strong> normalize to LF
-      first. Makes every downstream rule simpler.
+      En temiz strateji: <strong>her zaman</strong> önce LF'ye normalleştirin.
+      Bu, sonraki her kuralı basitleştirir.
     </p>
-    <pre>{`const lf = text.replace(/\\r\\n?/g, "\\n");`}</pre>
+    <pre>{`const lf = metin.replace(/\\r\\n?/g, "\\n");`}</pre>
     <p>
-      After normalization, <code>\n</code> is the only line break you
-      ever have to match.
-    </p>
-
-    <h2>Preserving bulleted and numbered lists</h2>
-    <p>
-      Bulleted list items look like &ldquo;- item&rdquo; or &ldquo;1.
-      item&rdquo; at the start of a line. Flattening them destroys the
-      list. Detect them before flattening:
-    </p>
-    <pre>{`// Don't flatten breaks that precede bullet patterns
-text.replace(/\\n(?!\\s*(?:[-*&bull;]|\\d+\\.))/g, " ")`}</pre>
-    <p>
-      This keeps breaks before bullet lines and flattens everywhere
-      else. Adjust the character class for your bullet style.
+      Normalleştirmeden sonra, eşleştirmeniz gereken tek satır sonu
+      <code>\n</code> olur.
     </p>
 
-    <h2>Handling soft-wrap from PDFs</h2>
+    <h2>Madde işaretli ve numaralı listeleri koruma</h2>
     <p>
-      PDFs frequently break mid-word with a hyphen. Remove the hyphen and
-      the break to re-flow:
+      Madde işaretli liste öğeleri, bir satırın başında &ldquo;- öğe&rdquo; veya &ldquo;1.
+      öğe&rdquo; gibi görünür. Bunları düzleştirmek listeyi bozar. Düzleştirmeden
+      önce bunları algılayın:
     </p>
-    <pre>{`text.replace(/-\\n/g, "")   // de-hyphenate
+    <pre>{`// Madde işareti kalıplarından önce gelen satır sonlarını düzleştirme
+metin.replace(/\\n(?!\\s*(?:[-*&bull;]|\\d+\\.))/g, " ")`}</pre>
+    <p>
+      Bu, madde işareti satırlarından önceki satır sonlarını korur ve diğer her
+      yerde düzleştirir. Karakter sınıfını madde işareti stilinize göre ayarlayın.
+    </p>
+
+    <h2>PDF'lerden yumuşak sarma işleme</h2>
+    <p>
+      PDF'ler sık sık bir kısa çizgi ile kelimenin ortasında bölünür. Yeniden
+      akış için kısa çizgiyi ve satır sonunu kaldırın:
+    </p>
+    <pre>{`metin.replace(/-\\n/g, "")   // kısa çizgiyi kaldır
     .replace(/\\n/g, " ")`}</pre>
     <p>
-      Watch out for genuine hyphenated compounds (&ldquo;re-\nfactor&rdquo;
-      becomes &ldquo;refactor&rdquo; when you wanted &ldquo;re-factor&rdquo;).
-      Hard to fix without a dictionary; usually acceptable.
+      Gerçek kısa çizgili bileşiklere dikkat edin (&ldquo;yeniden-\nfaktör&rdquo;
+      &ldquo;yenidenfaktör&rdquo; olur, oysa siz &ldquo;yeniden-faktör&rdquo;
+      istemiştiniz). Bir sözlük olmadan düzeltmesi zordur; genellikle kabul edilebilir.
     </p>
 
-    <h2>Round-tripping: be reversible</h2>
+    <h2>Geri dönüş: tersine çevrilebilir olun</h2>
     <p>
-      If you need to undo the cleanup, keep a copy of the original. Line
-      break removal is not reliably reversible &mdash; once you collapse
-      &ldquo;end of sentence.\nNext sentence&rdquo; to &ldquo;end of
-      sentence. Next sentence,&rdquo; you can&rsquo;t recover the original
-      break. Version your text at each step.
+      Temizliği geri almanız gerekirse, orijinalin bir kopyasını saklayın. Satır
+      sonu kaldırma işlemi güvenilir bir şekilde tersine çevrilebilir değildir
+      &mdash; &ldquo;cümle sonu.\nSonraki cümle&rdquo;yi &ldquo;cümle sonu.
+      Sonraki cümle&rdquo;ye daralttığınızda, orijinal satır sonunu kurtaramazsınız.
+      Metninizi her adımda sürümleyin.
     </p>
 
-    <h2>Bulk flatten across many files</h2>
+    <h2>Birçok dosyada toplu düzleştirme</h2>
     <p>
-      For batch jobs, normalize and strip in a loop:
+      Toplu işler için bir döngüde normalleştirin ve temizleyin:
     </p>
-    <pre>{`# bash one-liner
+    <pre>{`# bash tek satırlık
 for f in *.txt; do
   tr -d '\\r' &lt; "$f" | tr '\\n' ' ' &gt; "\${f%.txt}.flat"
 done`}</pre>
     <p>
-      Or in Python with pathlib + io. Always write to new filenames
-      first, diff, then replace.
+      Veya Python'da pathlib + io ile. Her zaman önce yeni dosya adlarına
+      yazın, farkı alın, ardından değiştirin.
     </p>
 
-    <h2>When to keep line breaks</h2>
+    <h2>Satır sonlarını ne zaman korumalı</h2>
     <p>
-      Some content genuinely needs breaks preserved: code, poetry,
-      addresses, CSV-style data, chat transcripts. If the text has any
-      structural meaning encoded in line layout, think twice before
-      stripping. A flatten pass is destructive.
+      Bazı içerikler gerçekten satır sonlarının korunmasını gerektirir: kod,
+      şiir, adresler, CSV tarzı veriler, sohbet dökümleri. Metin, satır
+      düzeninde kodlanmış herhangi bir yapısal anlam taşıyorsa, kaldırmadan
+      önce iki kez düşünün. Bir düzleştirme işlemi yıkıcıdır.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Replacing only <code>\n</code> and leaving orphan <code>\r</code>
-      characters behind. Flattening paragraphs and losing all structure.
-      Removing soft-wrap hyphens without also handling real compound
-      words. Forgetting to normalize first, then writing three separate
-      regexes for each line-ending variant. And operating on the
-      original file with no backup.
+      Yalnızca <code>\n</code>'yi değiştirip arkada başıboş <code>\r</code>
+      karakterleri bırakmak. Paragrafları düzleştirip tüm yapıyı kaybetmek.
+      Yumuşak sarma kısa çizgilerini, gerçek bileşik kelimeleri de ele almadan
+      kaldırmak. Önce normalleştirmeyi unutup her satır sonu türü için üç ayrı
+      regex yazmak. Ve yedekleme yapmadan orijinal dosya üzerinde işlem yapmak.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştır</h2>
     <p>
-      <a href="/tools/line-break-remover">Line break remover</a>
-      <a href="/tools/whitespace-remover">Whitespace remover</a>
-      <a href="/tools/remove-duplicate-lines">Remove duplicate lines</a>
+      <a href="/tools/line-break-remover">Satır sonu kaldırıcı</a>
+      <a href="/tools/whitespace-remover">Boşluk kaldırıcı</a>
+      <a href="/tools/remove-duplicate-lines">Yinelenen satırları kaldır</a>
     </p>
   </>
 );

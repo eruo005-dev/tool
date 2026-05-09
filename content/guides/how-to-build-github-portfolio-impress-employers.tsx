@@ -3,222 +3,181 @@
 export const intro = (
   <>
     <p>
-      Your GitHub profile is part of your resume in 2026. For developers without a
-      traditional CS degree, it&rsquo;s often the most important part. This guide
-      walks the practical playbook for building a portfolio hiring managers actually
-      want to interview.
+      GitHub profiliniz 2026'da özgeçmişinizin bir parçasıdır. Geleneksel bir bilgisayar bilimi diploması olmayan geliştiriciler için genellikle en önemli kısımdır. Bu rehber, işe alım yöneticilerinin gerçekten mülakata almak isteyeceği bir portföy oluşturmak için pratik bir oyun planı sunar.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "what-employers-want", label: "What hiring managers look at" },
-  { id: "no-degree", label: "Getting hired without a degree" },
-  { id: "monetize", label: "Making money from code on GitHub" },
-  { id: "freelance", label: "Finding freelance work via GitHub" },
-  { id: "job-opportunities", label: "Finding job opportunities through GitHub" },
+  { id: "what-employers-want", label: "İşe alım yöneticileri neye bakar" },
+  { id: "no-degree", label: "Diplomasız işe alınmak" },
+  { id: "monetize", label: "GitHub'daki koddan para kazanmak" },
+  { id: "freelance", label: "GitHub üzerinden freelance iş bulmak" },
+  { id: "job-opportunities", label: "GitHub aracılığıyla iş fırsatları bulmak" },
 ];
 
 export const body = (
   <>
-    <h2 id="what-employers-want">What hiring managers actually look at</h2>
+    <h2 id="what-employers-want">İşe alım yöneticileri gerçekte neye bakar</h2>
     <p>
-      Score yourself with our{" "}
-      <a href="/tools/github-profile-scorecard">profile scorecard</a> for the
-      structured 90-second review experience. The 8 criteria that matter most:
+      Yapılandırılmış 90 saniyelik inceleme deneyimi için{" "}
+      <a href="/tools/github-profile-scorecard">profil puan kartımızla</a> kendinizi puanlayın. En önemli 8 kriter:
     </p>
     <ol>
       <li>
-        <strong>Pinned repos.</strong> 4-6 of them, all production-quality. The
-        first thing visitors see.
+        <strong>Sabitlenmiş depolar.</strong> 4-6 tane, hepsi üretim kalitesinde. Ziyaretçilerin ilk gördüğü şey.
       </li>
       <li>
-        <strong>READMEs.</strong> Each pinned repo with a clear README — what, why,
-        how to run, screenshots if visual.
+        <strong>README'ler.</strong> Sabitlenmiş her depo için net bir README — ne, neden, nasıl çalıştırılır, görselse ekran görüntüleri.
       </li>
       <li>
-        <strong>Project quality signals.</strong> Tests, CI, docs, demo links. Looks
-        production-ready vs course-project.
+        <strong>Proje kalite sinyalleri.</strong> Testler, CI, dokümantasyon, demo bağlantıları. Kurs projesi değil, üretime hazır görünür.
       </li>
       <li>
-        <strong>Recent commit activity.</strong> Last 12 months matters most.
-        Consistent &gt; burst.
+        <strong>Son commit etkinliği.</strong> Son 12 ay en önemlisidir. Tutarlılık &gt; patlama.
       </li>
       <li>
-        <strong>Language depth.</strong> Going deep on 1-2 beats surface across 10.
+        <strong>Dil derinliği.</strong> 10 dilde yüzeysel bilgi yerine 1-2 dilde derinleşmek.
       </li>
       <li>
-        <strong>OSS contributions.</strong> PRs to projects other than your own.
+        <strong>Açık kaynak katkıları.</strong> Kendi projeleriniz dışındaki projelere yapılan PR'lar.
       </li>
       <li>
-        <strong>Bio + name + photo + contact info.</strong> Real, professional.
+        <strong>Biyografi + isim + fotoğraf + iletişim bilgileri.</strong> Gerçek, profesyonel.
       </li>
       <li>
-        <strong>Stars + followers.</strong> Vanity but real signal at high counts.
+        <strong>Yıldızlar + takipçiler.</strong> Gösteriş ama yüksek sayılarda gerçek sinyal.
       </li>
     </ol>
 
-    <h2 id="no-degree">Can I really get hired through GitHub without a degree?</h2>
+    <h2 id="no-degree">Diplomasız GitHub üzerinden gerçekten işe alınabilir miyim?</h2>
     <p>
-      Yes, increasingly common. The hiring market in 2026 routinely interviews
-      candidates with strong GitHub portfolios but no traditional CS degree. The
-      portfolio bar is what hiring managers can see in 90 seconds.
+      Evet, giderek yaygınlaşıyor. 2026 işe alım piyasası, güçlü GitHub portföyü olan ancak geleneksel bir bilgisayar bilimi diploması bulunmayan adayları düzenli olarak mülakata alıyor. Portföy çıtası, işe alım yöneticilerinin 90 saniyede görebildikleridir.
     </p>
     <p>
-      The sequence:
+      Sıralama:
     </p>
     <ol>
       <li>
-        <strong>Build 4-6 production-quality pinned repos.</strong> Real projects,
-        not tutorials. Test coverage, README, deploy demo if applicable.
+        <strong>4-6 üretim kalitesinde sabitlenmiş depo oluşturun.</strong> Gerçek projeler, eğitimler değil. Test kapsamı, README, varsa demo dağıtımı.
       </li>
       <li>
-        <strong>Make 2-3 substantive OSS contributions.</strong> PRs to projects
-        you actually use. Demonstrates you can navigate someone else&rsquo;s code.
+        <strong>2-3 önemli açık kaynak katkısı yapın.</strong> Gerçekten kullandığınız projelere PR'lar. Başkasının kodunda gezinebildiğinizi gösterir.
       </li>
       <li>
-        <strong>Write 6 technical posts</strong> (your blog, dev.to, Medium). Topics
-        from your build experience. Demonstrates ability to communicate.
+        <strong>6 teknik yazı yazın</strong> (kendi blogunuz, dev.to, Medium). Yapım deneyiminizden konular. İletişim kurabilme yeteneğini gösterir.
       </li>
       <li>
-        <strong>Apply with the GitHub link prominent.</strong> Not buried at the
-        bottom of the resume.
+        <strong>GitHub bağlantısını belirgin şekilde kullanarak başvurun.</strong> Özgeçmişin en altında gizli değil.
       </li>
       <li>
-        <strong>Network in OSS communities.</strong> Discord, Slack, communities
-        around the libraries you use. Most non-traditional hires come from there,
-        not cold applications.
+        <strong>Açık kaynak topluluklarında ağ kurun.</strong> Kullandığınız kütüphanelerin etrafındaki Discord, Slack, topluluklar. Geleneksel olmayan işe alımların çoğu soğuk başvurulardan değil, buradan gelir.
       </li>
     </ol>
     <p>
-      Bias to be aware of: some big-tech FAANG-tier companies still pattern-match
-      hard on degree. Most companies in 2026 don&rsquo;t. You&rsquo;ll have plenty
-      of options without a degree as long as the portfolio is strong.
+      Dikkat edilmesi gereken önyargı: bazı büyük teknoloji FAANG seviyesi şirketler hala diplomaya çok takılır. 2026'da çoğu şirket takılmaz. Portföy güçlü olduğu sürece diplomasız birçok seçeneğiniz olacak.
     </p>
 
-    <h2 id="monetize">How do I make money from code I put on GitHub?</h2>
+    <h2 id="monetize">GitHub'a koyduğum koddan nasıl para kazanırım?</h2>
     <p>
-      Five paths that work for indie devs in 2026:
+      2026'da bağımsız geliştiriciler için işe yarayan beş yol:
     </p>
     <ol>
       <li>
-        <strong>GitHub Sponsors.</strong> If you maintain a popular OSS project,
-        users + companies sponsor monthly. Most maintainers get $0-2K/month;
-        a few popular projects clear $10K+. Enable on your profile.
+        <strong>GitHub Sponsors.</strong> Popüler bir açık kaynak projesi sürdürüyorsanız, kullanıcılar + şirketler aylık sponsor olur. Çoğu bakıcı ayda $0-2K alır; birkaç popüler proje $10K+ temizler. Profilinizde etkinleştirin.
       </li>
       <li>
-        <strong>Open-core SaaS.</strong> Open-source the engine, charge for hosted/
-        enterprise tier. Posthog, Sentry, dbt, GitLab all started as OSS projects
-        on GitHub.
+        <strong>Açık çekirdek SaaS.</strong> Motoru açık kaynak yapın, barındırılan/kurumsal katman için ücret alın. Posthog, Sentry, dbt, GitLab'in tümü GitHub'da açık kaynak projeler olarak başladı.
       </li>
       <li>
-        <strong>Pro features for individuals.</strong> Plugin marketplaces (VS Code
-        extensions, Figma plugins, Stripe Apps), template libraries, paid Notion
-        templates.
+        <strong>Bireyler için profesyonel özellikler.</strong> Eklenti pazarları (VS Code uzantıları, Figma eklentileri, Stripe Uygulamaları), şablon kütüphaneleri, ücretli Notion şablonları.
       </li>
       <li>
-        <strong>Productize the knowledge.</strong> Blog → newsletter → course → book.
-        Your GitHub establishes you have actually built things; the products
-        monetize the audience.
+        <strong>Bilgiyi ürünleştirin.</strong> Blog → bülten → kurs → kitap. GitHub'ınız gerçekten bir şeyler inşa ettiğinizi kanıtlar; ürünler kitlenizi paraya çevirir.
       </li>
       <li>
-        <strong>Consulting.</strong> Open-source visibility leads to consulting
-        opportunities. Common path: maintain a popular library, get hired for
-        contract work in that domain.
+        <strong>Danışmanlık.</strong> Açık kaynak görünürlüğü danışmanlık fırsatlarına yol açar. Yaygın yol: popüler bir kütüphaneyi sürdürün, o alanda sözleşmeli iş için işe alının.
       </li>
     </ol>
 
-    <h2 id="freelance">How do I find freelance work using my GitHub profile?</h2>
+    <h2 id="freelance">GitHub profilimi kullanarak nasıl freelance iş bulurum?</h2>
     <p>
-      Make your profile recruiter-discoverable:
+      Profilinizi işe alımcılar tarafından bulunabilir yapın:
     </p>
     <ul>
-      <li>Real name + photo.</li>
-      <li>Location + timezone in bio.</li>
-      <li>&ldquo;Available for freelance&rdquo; or &ldquo;Open to work&rdquo; note.</li>
-      <li>Link to your portfolio site (or the GitHub Pages site of your portfolio repo).</li>
-      <li>Pin client-relevant work — if you do React contracts, pin React projects.</li>
+      <li>Gerçek ad + fotoğraf.</li>
+      <li>Biyografide konum + saat dilimi.</li>
+      <li>&ldquo;Freelance için müsait&rdquo; veya &ldquo;Çalışmaya açık&rdquo; notu.</li>
+      <li>Portföy sitenize (veya portföy deponuzun GitHub Pages sitesine) bağlantı.</li>
+      <li>Müşteriyle ilgili işleri sabitleyin — React sözleşmeleri yapıyorsanız, React projelerini sabitleyin.</li>
     </ul>
     <p>
-      Distribution paths:
+      Dağıtım yolları:
     </p>
     <ul>
       <li>
-        <strong>Freelance platforms (Upwork, Toptal, Contra, Codementor):</strong>{" "}
-        list GitHub on your profile. Recruiters check it during screening.
+        <strong>Freelance platformları (Upwork, Toptal, Contra, Codementor):</strong>{" "}
+        profilinizde GitHub'ı listeleyin. İşe alımcılar eleme sırasında kontrol eder.
       </li>
       <li>
-        <strong>OSS-adjacent referrals.</strong> Maintainers of popular libraries
-        often get hired for contract work. Sustained contributions to a popular
-        project compound visibility.
+        <strong>Açık kaynakla ilgili yönlendirmeler.</strong> Popüler kütüphanelerin bakıcıları genellikle sözleşmeli işler için işe alınır. Popüler bir projeye sürekli katkılar görünürlüğü birleştirir.
       </li>
       <li>
-        <strong>Direct cold outreach.</strong> Email companies whose stack you know
-        well; mention GitHub work that&rsquo;s relevant. ~5-10% reply rate at
-        smaller companies.
+        <strong>Doğrudan soğuk erişim.</strong> Stack'ini iyi bildiğiniz şirketlere e-posta gönderin; ilgili GitHub çalışmasından bahsedin. Küçük şirketlerde ~%5-10 yanıt oranı.
       </li>
       <li>
-        <strong>Niche Discord / Slack communities.</strong> Some have #hiring or
-        #freelance channels.
+        <strong>Niş Discord / Slack toplulukları.</strong> Bazılarında #hiring veya #freelance kanalları vardır.
       </li>
     </ul>
 
-    <h2 id="job-opportunities">How do I find job opportunities through GitHub directly?</h2>
+    <h2 id="job-opportunities">GitHub üzerinden doğrudan nasıl iş fırsatları bulurum?</h2>
     <p>
-      GitHub itself doesn&rsquo;t host a major job board. The opportunities flow
-      indirectly:
+      GitHub'ın kendisi büyük bir iş panosuna ev sahipliği yapmaz. Fırsatlar dolaylı olarak akar:
     </p>
     <ul>
       <li>
-        <strong>Recruiters search GitHub.</strong> If your profile is searchable
-        (real name, location, public bio), you&rsquo;ll get InMail / DM. Quality
-        varies; some companies do this well, some spam.
+        <strong>İşe alımcılar GitHub'da arama yapar.</strong> Profiliniz aranabilir ise (gerçek ad, konum, herkese açık biyografi), InMail / DM alırsınız. Kalite değişir; bazı şirketler bunu iyi yapar, bazıları spam yapar.
       </li>
       <li>
-        <strong>OSS maintainer paths.</strong> Companies hire maintainers of
-        projects they depend on (Stripe, Cloudflare, Anthropic, GitHub itself
-        all do this).
+        <strong>Açık kaynak bakıcı yolları.</strong> Şirketler, bağımlı oldukları projelerin bakıcılarını işe alır (Stripe, Cloudflare, Anthropic, GitHub'ın kendisi bunu yapar).
       </li>
       <li>
-        <strong>Talent sourcing platforms.</strong> Hired, Wellfound, Triplebyte
-        link to your GitHub during the matching process.
+        <strong>Yetenek kaynağı platformları.</strong> Hired, Wellfound, Triplebyte, eşleştirme sürecinde GitHub'ınıza bağlantı verir.
       </li>
       <li>
-        <strong>Networking through PR conversations.</strong> Long-running OSS
-        relationships sometimes turn into hiring conversations 1-2 years later.
+        <strong>PR konuşmaları yoluyla ağ kurma.</strong> Uzun süreli açık kaynak ilişkileri bazen 1-2 yıl sonra işe alım konuşmalarına dönüşür.
       </li>
     </ul>
     <p>
-      The general principle: be findable, build in public, sustain over months
-      not weeks. The compounding pays off slowly and reliably.
+      Genel prensip: bulunabilir olun, herkese açık inşa edin, haftalarca değil aylarca sürdürün. Birikim yavaş ve güvenilir bir şekilde karşılığını verir.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Score your profile with the scorecard",
+  label: "Puan kartıyla profilinizi puanlayın",
   targetSlug: "github-profile-scorecard",
 };
 
 export const faq = [
   {
-    q: "How do I build a GitHub portfolio that impresses employers?",
-    a: "Six things matter most: 4-6 production-quality pinned repos (not course projects), each with clear README + live demo if visual, depth on 1-2 languages (not surface across 10), 1-2 substantive OSS PRs, real bio + photo + contact, consistent commit cadence over last 12 months. Use our scorecard for the 90-second hiring-manager view.",
+    q: "İşverenleri etkileyecek bir GitHub portföyünü nasıl oluştururum?",
+    a: "En önemli altı şey: 4-6 üretim kalitesinde sabitlenmiş depo (kurs projeleri değil), her biri net README + görselse canlı demo ile, 1-2 dilde derinlik (10 dilde yüzeysel değil), 1-2 önemli açık kaynak PR'ı, gerçek biyografi + fotoğraf + iletişim, son 12 ayda tutarlı commit temposu. 90 saniyelik işe alım yöneticisi görünümü için puan kartımızı kullanın.",
   },
   {
-    q: "Can I really get hired through GitHub without a degree?",
-    a: "Yes — increasingly common in 2026. Build 4-6 production-quality pinned repos, make 2-3 substantive OSS contributions, write technical posts, apply with GitHub link prominent, network in OSS communities. Some big-tech FAANG-tier still pattern-matches hard on degree; most other companies don't.",
+    q: "Diplomasız GitHub üzerinden gerçekten işe alınabilir miyim?",
+    a: "Evet — 2026'da giderek yaygınlaşıyor. 4-6 üretim kalitesinde sabitlenmiş depo oluşturun, 2-3 önemli açık kaynak katkısı yapın, teknik yazılar yazın, GitHub bağlantısını belirgin şekilde kullanarak başvurun, açık kaynak topluluklarında ağ kurun. Bazı büyük teknoloji FAANG seviyesi hala diplomaya çok takılır; diğer çoğu şirket takılmaz.",
   },
   {
-    q: "How do I make money from code I put on GitHub?",
-    a: "Five paths: GitHub Sponsors (most $0-2K/mo, popular ones $10K+), open-core SaaS (Posthog/Sentry/dbt model), pro features for individuals (plugin marketplaces, paid templates), productize knowledge (blog → newsletter → course → book), consulting (OSS visibility → contract work).",
+    q: "GitHub'a koyduğum koddan nasıl para kazanırım?",
+    a: "Beş yol: GitHub Sponsors (çoğu $0-2K/ay, popüler olanlar $10K+), açık çekirdek SaaS (Posthog/Sentry/dbt modeli), bireyler için profesyonel özellikler (eklenti pazarları, ücretli şablonlar), bilgiyi ürünleştirme (blog → bülten → kurs → kitap), danışmanlık (açık kaynak görünürlüğü → sözleşmeli iş).",
   },
   {
-    q: "How do I find freelance work using my GitHub profile?",
-    a: "Make profile recruiter-discoverable: real name + photo + location + 'available for freelance' note + portfolio site + pinned client-relevant work. Distribution paths: freelance platforms (Upwork, Toptal, Contra), OSS-adjacent referrals, cold outreach to relevant-stack companies, niche Discord/Slack #hiring channels.",
+    q: "GitHub profilimi kullanarak nasıl freelance iş bulurum?",
+    a: "Profili işe alımcılar tarafından bulunabilir yapın: gerçek ad + fotoğraf + konum + 'freelance için müsait' notu + portföy sitesi + sabitlenmiş müşteriyle ilgili iş. Dağıtım yolları: freelance platformları (Upwork, Toptal, Contra), açık kaynakla ilgili yönlendirmeler, ilgili stack şirketlerine soğuk erişim, niş Discord/Slack #hiring kanalları.",
   },
   {
-    q: "How do I find job opportunities through GitHub directly?",
-    a: "GitHub doesn't host a major job board; opportunities flow indirectly. Recruiters search GitHub for talent (be findable). Companies hire maintainers of projects they depend on. Talent platforms (Hired, Wellfound, Triplebyte) link your GitHub. Networking through PR conversations sometimes turns into hiring 1-2 years later.",
+    q: "GitHub üzerinden doğrudan nasıl iş fırsatları bulurum?",
+    a: "GitHub büyük bir iş panosuna ev sahipliği yapmaz; fırsatlar dolaylı olarak akar. İşe alımcılar yetenek için GitHub'da arama yapar (bulunabilir olun). Şirketler, bağımlı oldukları projelerin bakıcılarını işe alır. Yetenek platformları (Hired, Wellfound, Triplebyte) GitHub'ınıza bağlantı verir. PR konuşmaları yoluyla ağ kurma bazen 1-2 yıl sonra işe alıma dönüşür.",
   },
 ];

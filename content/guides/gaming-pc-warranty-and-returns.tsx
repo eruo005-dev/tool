@@ -3,165 +3,132 @@
 export const intro = (
   <>
     <p>
-      Warranty terms separate good gaming PC purchases from expensive learning
-      experiences. The fine print on labor vs parts coverage, transit damage, and
-      return policies is where pre-built and custom-built PCs differ most. This
-      guide walks the practical map.
+      Garanti koşulları, iyi bir oyun bilgisayarı satın alımını pahalı öğrenme deneyimlerinden ayırır. İşçilik ve parça kapsamı, nakliye hasarı ve iade politikalarındaki ince ayrıntılar, hazır ve özel yapım bilgisayarların en çok farklılaştığı noktalardır. Bu rehber, pratik haritayı adım adım gösterir.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "warranty-types", label: "Types of warranty coverage" },
-  { id: "professional", label: "Professional builder warranties" },
-  { id: "returns", label: "Return policies" },
-  { id: "rma", label: "RMA process" },
+  { id: "warranty-types", label: "Garanti kapsamı türleri" },
+  { id: "professional", label: "Profesyonel montajcı garantileri" },
+  { id: "returns", label: "İade politikaları" },
+  { id: "rma", label: "RMA süreci" },
 ];
 
 export const body = (
   <>
-    <h2 id="warranty-types">Types of warranty coverage</h2>
+    <h2 id="warranty-types">Garanti kapsamı türleri</h2>
     <ul>
       <li>
-        <strong>Labor warranty:</strong> covers the assembly itself. If the builder
-        miswired something or installed a part incorrectly, they fix it free. Length:
-        30 days to 24 months depending on builder.
+        <strong>İşçilik garantisi:</strong> montajın kendisini kapsar. Montajcı bir şeyi yanlış bağladıysa veya bir parçayı hatalı taktıysa, ücretsiz olarak düzeltir. Süre: montajcıya bağlı olarak 30 gün ile 24 ay arası.
       </li>
       <li>
-        <strong>Parts warranty:</strong> manufacturer warranty on each component,
-        typically 1-3 years (motherboard 3, CPU 3, GPU 2-3, RAM lifetime, PSU 5-10
-        depending on tier).
+        <strong>Parça garantisi:</strong> her bir bileşenin üretici garantisi, tipik olarak 1-3 yıl (anakart 3, işlemci 3, GPU 2-3, RAM ömür boyu, PSU seviyesine bağlı olarak 5-10 yıl).
       </li>
       <li>
-        <strong>System warranty:</strong> some pre-built integrators (Origin PC,
-        Maingear) offer a unified warranty covering the whole system. Higher cost,
-        cleaner experience for the customer.
+        <strong>Sistem garantisi:</strong> bazı hazır sistem entegratörleri (Origin PC, Maingear) tüm sistemi kapsayan birleşik garanti sunar. Daha yüksek maliyet, müşteri için daha temiz bir deneyim.
       </li>
       <li>
-        <strong>Transit damage:</strong> if shipped, who covers damage in
-        transit? Some builders insure shipping; others don&rsquo;t. Critical question
-        for online builders.
+        <strong>Nakliye hasarı:</strong> kargoyla gönderilirse, nakliye sırasındaki hasarı kim karşılar? Bazı montajcılar kargoyu sigortalar; bazıları sigortalamaz. Çevrimiçi montajcılar için kritik bir soru.
       </li>
     </ul>
 
-    <h2 id="professional">Professional builder warranties</h2>
+    <h2 id="professional">Profesyonel montajcı garantileri</h2>
     <ul>
       <li>
-        <strong>Micro Center PC Build Service:</strong> 12-month labor warranty on
-        the build. Parts pass through to manufacturer warranties.
+        <strong>Micro Center PC Build Service:</strong> Montaj için 12 aylık işçilik garantisi. Parçalar üretici garantilerine tabidir.
       </li>
       <li>
-        <strong>NZXT BLD:</strong> 2-year labor warranty + system-level support.
+        <strong>NZXT BLD:</strong> 2 yıllık işçilik garantisi + sistem düzeyinde destek.
       </li>
       <li>
-        <strong>Origin PC + Maingear + Falcon Northwest:</strong> 1-3 year
-        comprehensive warranties on labor + extended on parts. Most premium-tier
-        coverage.
+        <strong>Origin PC + Maingear + Falcon Northwest:</strong> İşçilik için 1-3 yıl kapsamlı garanti + parçalarda uzatılmış süre. En üst düzey kapsam.
       </li>
       <li>
-        <strong>Local PC shops:</strong> 30-day to 12-month labor warranty typical.
-        Verify in writing — some shops verbally offer warranties they don&rsquo;t
-        document.
+        <strong>Yerel PC mağazaları:</strong> Tipik olarak 30 gün ile 12 ay arası işçilik garantisi. Yazılı olarak teyit edin — bazı mağazalar sözlü olarak garanti verir ancak belgelemez.
       </li>
       <li>
-        <strong>iBuyPower / CyberPower / Skytech:</strong> 1-year limited warranty.
-        RMA process can be slow. Budget pre-builts skew toward shorter warranty + slower
-        repair.
+        <strong>iBuyPower / CyberPower / Skytech:</strong> 1 yıllık sınırlı garanti. RMA süreci yavaş olabilir. Bütçe hazır sistemler daha kısa garanti + daha yavaş onarıma yönelir.
       </li>
     </ul>
 
-    <h2 id="returns">Return policies</h2>
+    <h2 id="returns">İade politikaları</h2>
     <p>
-      What&rsquo;s typical:
+      Tipik olan nedir:
     </p>
     <ul>
       <li>
-        <strong>Online retailers (Amazon, Best Buy):</strong> 30-day return window
-        on most pre-built gaming PCs. Confirm before purchase.
+        <strong>Çevrimiçi perakendeciler (Amazon, Best Buy):</strong> Çoğu hazır oyun bilgisayarında 30 günlük iade süresi. Satın almadan önce teyit edin.
       </li>
       <li>
-        <strong>Custom-built (Origin PC, NZXT BLD):</strong> 14-30 day return.
-        Restocking fee sometimes applies (10-20%).
+        <strong>Özel yapım (Origin PC, NZXT BLD):</strong> 14-30 gün iade. Bazen stok yenileme ücreti uygulanır (%10-20).
       </li>
       <li>
-        <strong>Local PC shops:</strong> often no return for custom builds. Once
-        assembled with your parts, they can&rsquo;t resell. Verify before booking.
+        <strong>Yerel PC mağazaları:</strong> Özel yapımlar için genellikle iade yoktur. Parçalarınızla monte edildikten sonra tekrar satılamaz. Rezervasyon yapmadan önce teyit edin.
       </li>
       <li>
-        <strong>iBuyPower / CyberPower:</strong> 30-day return policies but
-        restocking fees of 15-20% common.
+        <strong>iBuyPower / CyberPower:</strong> 30 günlük iade politikaları ancak %15-20 stok yenileme ücreti yaygındır.
       </li>
     </ul>
     <p>
-      Edge cases that affect return rights:
+      İade haklarını etkileyen uç durumlar:
     </p>
     <ul>
       <li>
-        <strong>OS activated:</strong> some retailers refuse returns once Windows
-        has been activated. Confirm before powering on.
+        <strong>İşletim sistemi etkinleştirildi:</strong> Bazı perakendeciler Windows etkinleştirildikten sonra iadeyi reddeder. Güç vermeden önce teyit edin.
       </li>
       <li>
-        <strong>Custom configuration:</strong> made-to-order builds typically have
-        stricter return terms than off-the-shelf.
+        <strong>Özel yapılandırma:</strong> Sipariş üzerine üretilen sistemler, hazır sistemlere göre genellikle daha katı iade koşullarına sahiptir.
       </li>
       <li>
-        <strong>Damage / use:</strong> obvious — non-returnable if damaged or showing
-        heavy use.
+        <strong>Hasar / kullanım:</strong> Açık — hasarlı veya yoğun kullanım belirtileri gösteriyorsa iade edilemez.
       </li>
     </ul>
 
-    <h2 id="rma">RMA process for failed parts</h2>
+    <h2 id="rma">Arızalı parçalar için RMA süreci</h2>
     <p>
-      When a part fails under warranty, the steps:
+      Bir parça garanti kapsamında arızalandığında izlenecek adımlar:
     </p>
     <ol>
       <li>
-        <strong>Diagnose first.</strong> Confirm which part failed. Reddit r/buildapc
-        + manufacturer forums help with diagnostics.
+        <strong>Önce teşhis edin.</strong> Hangi parçanın arızalandığını belirleyin. Reddit r/buildapc ve üretici forumları teşhis konusunda yardımcı olur.
       </li>
       <li>
-        <strong>Contact the integrator (if you bought a built system).</strong>{" "}
-        Some handle the RMA for you; some say &ldquo;contact the manufacturer.&rdquo;
-        Reputable builders handle it.
+        <strong>Entegratörle iletişime geçin (hazır sistem satın aldıysanız).</strong>{" "}
+        Bazıları RMA'yı sizin için halleder; bazıları "üreticiyle iletişime geçin" der. Saygın montajcılar bunu halleder.
       </li>
       <li>
-        <strong>Contact the manufacturer (DIY builds).</strong> Open an RMA ticket
-        on their website. Need proof of purchase + serial number.
+        <strong>Üreticiyle iletişime geçin (kendi montajınızı yaptıysanız).</strong> Web sitelerinde bir RMA talebi açın. Satın alma belgesi + seri numarası gerekir.
       </li>
       <li>
-        <strong>Ship the part.</strong> Most manufacturers cover return shipping
-        on warranty claims; some don&rsquo;t.
+        <strong>Parçayı gönderin.</strong> Çoğu üretici garanti taleplerinde geri gönderim kargosunu karşılar; bazıları karşılamaz.
       </li>
       <li>
-        <strong>Repair / replace turnaround:</strong> 1-4 weeks typical. Some
-        manufacturers offer cross-ship (they send replacement before you ship the
-        bad one) for premium tiers.
+        <strong>Onarım / değişim süresi:</strong> Tipik olarak 1-4 hafta. Bazı üreticiler üst düzey seviyeler için çapraz gönderim sunar (arızalı parçayı göndermeden önce yenisini yollarlar).
       </li>
       <li>
-        <strong>Reinstall.</strong> If you had the integrator do the original build
-        and the system warranty is still valid, they may handle reinstall too.
-        Otherwise it&rsquo;s on you.
+        <strong>Yeniden takın.</strong> İlk montajı entegratör yaptıysa ve sistem garantisi hala geçerliyse, yeniden takmayı da onlar halledebilir. Aksi takdirde bu size kalmıştır.
       </li>
     </ol>
   </>
 );
 
 export const cta = {
-  label: "Compare DIY vs hire calculator",
+  label: "DIY ve kiralama karşılaştırma hesaplayıcısı",
   targetSlug: "pc-build-vs-hire-calculator",
 };
 
 export const faq = [
   {
-    q: "What warranty do you get with professionally built PCs?",
-    a: "Labor warranty (covers assembly): 30 days to 24 months depending on builder. Parts warranty (manufacturer): 1-3 years typical. System warranty (Origin PC, Maingear, Falcon NW): 1-3 years comprehensive. Micro Center: 12-month labor. NZXT BLD: 2-year labor.",
+    q: "Profesyonelce monte edilmiş PC'lerde hangi garantiyi alırsınız?",
+    a: "İşçilik garantisi (montajı kapsar): montajcıya bağlı olarak 30 gün ile 24 ay arası. Parça garantisi (üretici): tipik olarak 1-3 yıl. Sistem garantisi (Origin PC, Maingear, Falcon NW): 1-3 yıl kapsamlı. Micro Center: 12 ay işçilik. NZXT BLD: 2 yıl işçilik.",
   },
   {
-    q: "Can you return a professionally built gaming PC?",
-    a: "Sometimes. Online retailers + custom builders typically 14-30 day return windows; restocking fees of 10-20% common for made-to-order. Local PC shops often no return for custom builds. OS activation, custom configuration, and any use can void return rights — confirm before powering on.",
+    q: "Profesyonelce monte edilmiş bir oyun bilgisayarını iade edebilir misiniz?",
+    a: "Bazen. Çevrimiçi perakendeciler + özel montajcılar tipik olarak 14-30 gün iade süresi sunar; sipariş üzerine üretimlerde %10-20 stok yenileme ücreti yaygındır. Yerel PC mağazaları genellikle özel yapımlar için iade kabul etmez. İşletim sistemi etkinleştirmesi, özel yapılandırma ve herhangi bir kullanım iade hakkını geçersiz kılabilir — güç vermeden önce teyit edin.",
   },
   {
-    q: "How does the RMA process work for gaming PCs?",
-    a: "Diagnose the failed part, contact integrator (if pre-built) or manufacturer directly. Open RMA with proof of purchase + serial. Ship the part (return shipping often covered for warranty claims). 1-4 week turnaround typical; some premium tiers offer cross-ship. Reinstall is usually on you unless system warranty covers it.",
+    q: "Oyun bilgisayarları için RMA süreci nasıl işler?",
+    a: "Arızalı parçayı teşhis edin, entegratörle (hazır sistemse) veya doğrudan üreticiyle iletişime geçin. Satın alma belgesi + seri numarası ile RMA açın. Parçayı gönderin (garanti taleplerinde geri gönderim kargosu genellikle karşılanır). Tipik olarak 1-4 hafta süre; bazı üst düzey seviyeler çapraz gönderim sunar. Yeniden takma genellikle size kalmıştır, sistem garantisi kapsamıyorsa.",
   },
 ];

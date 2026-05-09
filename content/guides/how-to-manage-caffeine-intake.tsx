@@ -3,257 +3,190 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Caffeine is the most-used psychoactive drug on the planet, and
-      also the one most users manage by vibes. The actual rules for
-      getting the benefits without the crash, the jitter, and the
-      wrecked sleep are boring but concrete: stay under 400 mg/day,
-      respect the 5&ndash;6 hour half-life when choosing a cutoff,
-      recognize when tolerance has turned the morning dose into a
-      withdrawal patch, and adjust for the populations and
-      medications that change the math. This guide covers the
-      current safe-intake ceilings, the half-life math that predicts
-      sleep disruption, how tolerance builds and resets, the tapering
-      plan that avoids the withdrawal week, and the groups that need
-      a lower ceiling than everyone else.
+      Kafein, gezegende en çok kullanılan psikoaktif maddedir ve aynı zamanda çoğu kullanıcının hislerine göre yönettiği maddedir. Faydalarını çöküş, titreme ve bozulmuş uyku olmadan elde etmenin gerçek kuralları sıkıcı ama somuttur: günde 400 mg'ın altında kalın, kesme zamanı seçerken 5-6 saatlik yarı ömre saygı gösterin, toleransın sabah dozunu bir yoksunluk bandına dönüştürdüğünü fark edin ve hesaplamayı değiştiren popülasyonlar ile ilaçlara göre ayarlama yapın. Bu rehber, mevcut güvenli alım tavanlarını, uyku bozulmasını tahmin eden yarı ömür matematiğini, toleransın nasıl oluştuğunu ve sıfırlandığını, yoksunluk haftasından kaçınan azaltma planını ve herkesten daha düşük bir tavana ihtiyaç duyan grupları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Daily ceilings</h2>
+    <h2>Günlük tavanlar</h2>
     <p>
-      The consensus upper limits for healthy adults:
+      Sağlıklı yetişkinler için fikir birliği olan üst sınırlar:
     </p>
-    <pre>{`FDA / EFSA adults:         400 mg/day (~4 cups of brewed coffee)
-Single dose:               200 mg       (EFSA &quot;safe single dose&quot;)
-Pregnancy:                 200 mg/day   (halved)
-Adolescents (12-18):       100 mg/day
-Children (under 12):       not recommended, if anything &lt;2.5 mg/kg`}</pre>
+    <pre>{`FDA / EFSA yetişkinler:         400 mg/gün (~4 fincan demlenmiş kahve)
+Tek doz:                       200 mg       (EFSA "güvenli tek doz")
+Hamilelik:                     200 mg/gün   (yarıya indirilmiş)
+Ergenler (12-18):              100 mg/gün
+Çocuklar (12 yaş altı):        önerilmez, eğer verilecekse <2.5 mg/kg`}</pre>
     <p>
-      400 mg is a ceiling, not a target. Most people feel best in the
-      150&ndash;300 mg range. Pushing consistently toward 400 builds
-      tolerance fast and eats into the remaining margin when you
-      actually need the extra boost.
+      400 mg bir tavandır, hedef değil. Çoğu insan kendini en iyi 150-300 mg aralığında hisseder. Sürekli olarak 400'e yaklaşmak toleransı hızla artırır ve gerçekten ekstra desteğe ihtiyacınız olduğunda kalan marjı tüketir.
     </p>
 
-    <h2>Where the milligrams hide</h2>
-    <pre>{`Drip coffee, 8oz:              80-120 mg
-Espresso shot:                 60-75 mg
-Cold brew, 16oz:               200-300 mg (can be higher)
-Black tea, 8oz:                40-70 mg
-Green tea, 8oz:                30-50 mg
-Matcha, 1 tsp:                 60-80 mg
-Yerba mate, 8oz:               40-90 mg
-Energy drink, 16oz:            150-300 mg
-Pre-workout scoop:              150-300 mg
-Dark chocolate, 1oz:           12-25 mg
-Coca-Cola, 12oz:                35 mg
-Mountain Dew, 12oz:             55 mg
-Excedrin, 1 tablet:             65 mg
-Caffeine pill (No-Doz):        200 mg`}</pre>
+    <h2>Miligramlar nerede saklanıyor</h2>
+    <pre>{`Filtre kahve, 240 ml:              80-120 mg
+Espresso shot:                     60-75 mg
+Soğuk demleme, 480 ml:             200-300 mg (daha yüksek olabilir)
+Siyah çay, 240 ml:                 40-70 mg
+Yeşil çay, 240 ml:                 30-50 mg
+Matcha, 1 çay kaşığı:              60-80 mg
+Yerba mate, 240 ml:                40-90 mg
+Enerji içeceği, 480 ml:            150-300 mg
+Antrenman öncesi tozu, 1 ölçek:    150-300 mg
+Bitter çikolata, 28 gr:            12-25 mg
+Coca-Cola, 355 ml:                 35 mg
+Mountain Dew, 355 ml:              55 mg
+Excedrin, 1 tablet:                65 mg
+Kafein hapı (No-Doz):             200 mg`}</pre>
     <p>
-      Cold brew and energy drinks are the usual sneaky over-shooters.
-      A 20oz cold brew can be 400 mg by itself &mdash; your entire
-      day&rsquo;s budget in one cup.
+      Soğuk demleme ve enerji içecekleri genellikle sinsi bir şekilde aşım yaptıranlardır. 600 ml'lik bir soğuk demleme tek başına 400 mg olabilir &mdash; tüm günlük bütçeniz bir fincanda.
     </p>
 
-    <h2>The 5&ndash;6 hour half-life</h2>
+    <h2>5-6 saatlik yarı ömür</h2>
     <p>
-      Caffeine clears on a predictable decay. Half-life in healthy
-      adults averages about 5 hours (range 2&ndash;9 depending on
-      liver enzymes, smoking, pregnancy, medications).
+      Kafein öngörülebilir bir bozunma ile temizlenir. Sağlıklı yetişkinlerde yarı ömür ortalama 5 saattir (karaciğer enzimlerine, sigara içmeye, hamileliğe, ilaçlara bağlı olarak 2-9 saat aralığı).
     </p>
-    <pre>{`200 mg at noon, 5-hr half-life:
-2 PM   150 mg
-5 PM   100 mg
-10 PM   50 mg   <-- still meaningfully stimulated
-3 AM    25 mg   <-- fragments late-night sleep`}</pre>
+    <pre>{`200 mg öğlen 12'de, 5 saat yarı ömür:
+14:00   150 mg
+17:00   100 mg
+22:00    50 mg   <-- hala anlamlı şekilde uyarılmış
+03:00    25 mg   <-- gece uykusunu parçalar`}</pre>
     <p>
-      This is why afternoon coffee wrecks sleep even when you can
-      &ldquo;still fall asleep fine.&rdquo; You fall asleep; you just
-      get worse sleep.
+      Bu nedenle öğleden sonra kahvesi, "hâlâ rahatça uykuya dalabiliyorsanız" bile uykuyu mahveder. Uykuya dalarsınız; sadece daha kötü uyursunuz.
     </p>
 
-    <h2>Cutoff before bed</h2>
+    <h2>Yatmadan önce kesme zamanı</h2>
     <p>
-      Evidence-based cutoff: <strong>8&ndash;10 hours before intended
-      sleep time</strong>, more if you&rsquo;re a slow metabolizer.
+      Kanıta dayalı kesme zamanı: <strong>Hedeflenen uyku saatinden 8-10 saat önce</strong>, yavaş metabolize ediyorsanız daha da erken.
     </p>
-    <pre>{`10 PM bedtime:    last caffeine at 12-2 PM
-11 PM bedtime:    last caffeine at 1-3 PM
-12 AM bedtime:    last caffeine at 2-4 PM`}</pre>
+    <pre>{`22:00 yatış:    son kafein 12:00-14:00 arası
+23:00 yatış:    son kafein 13:00-15:00 arası
+00:00 yatış:    son kafein 14:00-16:00 arası`}</pre>
     <p>
-      &ldquo;I can drink an espresso at 10 PM and sleep.&rdquo; You
-      probably can fall asleep. Sleep studies show increased deep-sleep
-      fragmentation even in habituated drinkers with late caffeine.
-      The subjective feeling (&ldquo;I slept fine&rdquo;) lags the
-      objective measurement.
+      "Saat 22:00'de espresso içerim ve uyurum." Muhtemelen uykuya dalabilirsiniz. Uyku çalışmaları, geç kafein alan alışkın içicilerde bile derin uyku parçalanmasında artış olduğunu göstermektedir. Subjektif his ("iyi uyudum") objektif ölçümün gerisinde kalır.
     </p>
 
-    <h2>Tolerance</h2>
+    <h2>Tolerans</h2>
     <p>
-      Regular caffeine use downregulates adenosine receptors. Within
-      7&ndash;14 days your &ldquo;normal alert&rdquo; becomes your
-      &ldquo;caffeinated alert&rdquo; &mdash; the morning dose is now
-      holding off withdrawal, not boosting baseline.
+      Düzenli kafein kullanımı adenosin reseptörlerini aşağı regüle eder. 7-14 gün içinde "normal uyanıklığınız", "kafeinli uyanıklığınız" haline gelir &mdash; sabah dozu artık temel seviyeyi yükseltmez, yoksunluğu uzak tutar.
     </p>
     <p>
-      Signs you&rsquo;re in tolerance territory:
+      Tolerans bölgesinde olduğunuzun işaretleri:
     </p>
     <ul>
-      <li>First cup feels like nothing; second cup feels like &ldquo;okay, awake&rdquo;</li>
-      <li>Afternoon crash despite total intake of 300+ mg</li>
-      <li>Weekends with a headache by 11 AM if you sleep in</li>
-      <li>Doses keep creeping up</li>
+      <li>İlk fincan hiçbir şey hissettirmez; ikinci fincan "tamam, uyanık" gibi hissettirir</li>
+      <li>Toplam 300+ mg alıma rağmen öğleden sonra çöküşü</li>
+      <li>Geç uyursanız hafta sonları saat 11:00'de baş ağrısı</li>
+      <li>Dozlar sürekli artıyor</li>
     </ul>
 
-    <h2>Tolerance reset</h2>
+    <h2>Tolerans sıfırlama</h2>
     <p>
-      Full reset takes 7&ndash;14 days off. Shorter breaks (2&ndash;3
-      days) partially reset but not fully. Options:
+      Tam sıfırlama 7-14 gün ara vermeyi gerektirir. Daha kısa aralar (2-3 gün) kısmen sıfırlar ancak tam olarak değil. Seçenekler:
     </p>
     <p>
-      <strong>Cold turkey.</strong> Works. First 2&ndash;4 days are
-      rough (headache, fatigue, low mood). Day 5 onwards improves.
+      <strong>Aniden bırakma.</strong> İşe yarar. İlk 2-4 gün zordur (baş ağrısı, yorgunluk, düşük ruh hali). 5. günden itibaren düzelir.
     </p>
     <p>
-      <strong>Taper.</strong> Halve intake every 3 days until off.
-      Milder withdrawal, slower reset.
+      <strong>Azaltma.</strong> Her 3 günde bir alımı yarıya indirin, tamamen bırakana kadar. Daha hafif yoksunluk, daha yavaş sıfırlama.
     </p>
     <p>
-      <strong>Targeted cycling.</strong> Heavy use weeks, then light
-      use weeks. Some athletes use this to keep caffeine as an effective
-      ergogenic aid rather than a baseline.
+      <strong>Hedefli döngü.</strong> Yoğun kullanım haftaları, ardından hafif kullanım haftaları. Bazı sporcular, kafeini temel seviye yerine etkili bir ergojenik yardım olarak tutmak için bunu kullanır.
     </p>
 
-    <h2>Withdrawal</h2>
-    <pre>{`Onset:        12-24 hours after last dose
-Peak:         24-48 hours
-Duration:     2-9 days typical
-Symptoms:     headache, fatigue, brain fog, irritability,
-              low mood, reduced cognitive performance`}</pre>
+    <h2>Yoksunluk</h2>
+    <pre>{`Başlangıç:        Son dozdan 12-24 saat sonra
+Tepe noktası:     24-48 saat
+Süre:             Tipik olarak 2-9 gün
+Belirtiler:       baş ağrısı, yorgunluk, beyin sisi, sinirlilik,
+                  düşük ruh hali, azalmış bilişsel performans`}</pre>
     <p>
-      Withdrawal is a legitimate reason caffeine is classified as a
-      substance of dependence. It&rsquo;s real, predictable, and
-      temporary. If you&rsquo;ve had the &ldquo;what happened to
-      Monday&rdquo; experience after a coffee-free weekend,
-      you&rsquo;ve had withdrawal.
+      Yoksunluk, kafeinin bir bağımlılık maddesi olarak sınıflandırılmasının meşru bir nedenidir. Gerçektir, öngörülebilirdir ve geçicidir. Kahvesiz bir hafta sonundan sonra "Pazartesi'ye ne oldu" deneyimini yaşadıysanız, yoksunluk yaşamışsınızdır.
     </p>
 
-    <h2>Sensitive populations</h2>
+    <h2>Hassas popülasyonlar</h2>
     <p>
-      Some groups metabolize caffeine slower or have lower safe
-      ceilings:
+      Bazı gruplar kafeini daha yavaş metabolize eder veya daha düşük güvenli tavanlara sahiptir:
     </p>
     <ul>
       <li>
-        <strong>Pregnancy:</strong> half-life roughly doubles in the
-        3rd trimester. 200 mg/day ceiling.
+        <strong>Hamilelik:</strong> yarı ömür 3. trimesterde kabaca iki katına çıkar. 200 mg/gün tavanı.
       </li>
       <li>
-        <strong>Oral contraceptive users:</strong> half-life ~40%
-        longer. Often surprises people.
+        <strong>Doğum kontrol hapı kullananlar:</strong> yarı ömür ~%40 daha uzun. Genellikle insanları şaşırtır.
       </li>
       <li>
-        <strong>Liver disease:</strong> much slower clearance. Medical
-        advice only.
+        <strong>Karaciğer hastalığı:</strong> çok daha yavaş temizlenme. Sadece tıbbi tavsiye ile.
       </li>
       <li>
-        <strong>SSRIs / some antipsychotics / quinolone antibiotics:</strong>{" "}
-        slower clearance or amplified jitter.
+        <strong>SSRI'lar / bazı antipsikotikler / kinolon antibiyotikler:</strong>{" "}
+        daha yavaş temizlenme veya artan titreme.
       </li>
       <li>
-        <strong>Genetic slow metabolizers (CYP1A2 variants):</strong>{" "}
-        ~10% of people clear caffeine much more slowly; afternoon
-        coffee can genuinely keep them awake all night.
+        <strong>Genetik yavaş metabolize ediciler (CYP1A2 varyantları):</strong>{" "}
+        İnsanların ~%10'u kafeini çok daha yavaş temizler; öğleden sonra kahvesi onları gerçekten bütün gece uyanık tutabilir.
       </li>
       <li>
-        <strong>Cardiac arrhythmias:</strong> consult clinician;
-        caffeine can trigger episodes.
+        <strong>Kardiyak aritmiler:</strong> kliniğe danışın; kafein atakları tetikleyebilir.
       </li>
     </ul>
 
-    <h2>Caffeine before workouts</h2>
+    <h2>Antrenman öncesi kafein</h2>
     <p>
-      Evidence-based performance boost: 3&ndash;6 mg/kg body weight,
-      30&ndash;60 minutes before exercise. For an 80kg person,
-      that&rsquo;s 240&ndash;480 mg. Pre-workout scoops usually sit in
-      this range intentionally.
+      Kanıta dayalı performans artışı: Vücut ağırlığının kg'ı başına 3-6 mg, egzersizden 30-60 dakika önce. 80 kg'lık bir kişi için bu 240-480 mg'dır. Antrenman öncesi tozları genellikle kasıtlı olarak bu aralıktadır.
     </p>
     <p>
-      Effect: ~2&ndash;5% increase in endurance performance, improved
-      power output, subjective reduction in perceived effort. Tolerance
-      blunts the effect &mdash; athletes often cycle off for a week
-      before competition to &ldquo;re-sensitize.&rdquo;
+      Etkisi: Dayanıklılık performansında ~%2-5 artış, iyileştirilmiş güç çıkışı, algılanan eforda subjektif azalma. Tolerans etkiyi köreltir &mdash; sporcular genellikle yarışmadan önce "yeniden hassaslaştırmak" için bir hafta ara verir.
     </p>
 
-    <h2>Interactions with hydration and sleep</h2>
+    <h2>Hidrasyon ve uyku ile etkileşimler</h2>
     <p>
-      Caffeine has a mild diuretic effect but is not net
-      dehydrating for habitual drinkers. Don&rsquo;t worry about
-      subtracting coffee from daily water intake at normal doses.
-      Do worry about the second half of the day: even 100 mg after 3
-      PM can fragment sleep for some people.
+      Kafeinin hafif bir idrar söktürücü etkisi vardır ancak alışkın içiciler için net dehidrasyona neden olmaz. Normal dozlarda günlük su alımından kahveyi çıkarmak konusunda endişelenmeyin. Günün ikinci yarısı hakkında endişelenin: öğleden sonra 3'ten sonra 100 mg bile bazı insanlarda uykuyu parçalayabilir.
     </p>
 
-    <h2>A sample schedule</h2>
-    <pre>{`7:00 AM    wake
-7:30 AM    first coffee (120 mg)
-10:00 AM   second coffee or tea (80 mg)     -- daily total ~200 mg
-12:00 PM   tea if wanted (50 mg)
-2:00 PM    last caffeine, no more
-10:00 PM   bedtime (8 hrs after cutoff)
+    <h2>Örnek bir program</h2>
+    <pre>{`07:00    uyanış
+07:30    ilk kahve (120 mg)
+10:00    ikinci kahve veya çay (80 mg)     -- günlük toplam ~200 mg
+12:00    istenirse çay (50 mg)
+14:00    son kafein, daha fazla yok
+22:00    yatış (kesmeden 8 saat sonra)
 
-Weekly total: ~1,400 mg  (well under ceiling, under-tolerance)`}</pre>
+Haftalık toplam: ~1,400 mg  (tavanın altında, tolerans altı)`}</pre>
 
-    <h2>Common mistakes</h2>
+    <h2>Sık yapılan hatalar</h2>
     <p>
-      <strong>Counting only coffee.</strong> Tea, chocolate, pre-
-      workout, energy drinks, medications all add up. A clean 200 mg
-      from coffee plus a 300 mg pre-workout is 500, not 200.
+      <strong>Sadece kahveyi saymak.</strong> Çay, çikolata, antrenman öncesi, enerji içecekleri, ilaçların hepsi eklenir. Kahveden temiz 200 mg artı 300 mg antrenman öncesi tozu 200 değil 500 eder.
     </p>
     <p>
-      <strong>Assuming late caffeine is fine if you fall asleep.</strong>{" "}
-      Sleep quality drops even without trouble falling asleep. Deep
-      sleep specifically suffers.
+      <strong>Uykuya dalıyorsanız geç kafeinin sorun olmadığını varsanmak.</strong>{" "}
+      Uyku kalitesi, uykuya dalmada sorun olmasa bile düşer. Özellikle derin uyku zarar görür.
     </p>
     <p>
-      <strong>Trying to out-drink tolerance.</strong> Doubling dose
-      rebuilds tolerance proportionally. The reset is the only route
-      back to effectiveness.
+      <strong>Toleransı daha fazla içerek yenmeye çalışmak.</strong> Dozu iki katına çıkarmak toleransı orantılı olarak yeniden inşa eder. Etkinliğe dönüşün tek yolu sıfırlamadır.
     </p>
     <p>
-      <strong>Cold turkey during a hard week.</strong> Three
-      productive days gone. Taper, or time the quit for a low-stakes
-      week.
+      <strong>Zor bir haftada aniden bırakmak.</strong> Üç verimli gün kaybolur. Azaltın veya bırakmayı düşük riskli bir haftaya denk getirin.
     </p>
     <p>
-      <strong>Ignoring cold brew concentration.</strong> Cold brew is
-      often 2&ndash;3x the caffeine of regular drip. A 16oz cold brew
-      is not a 16oz drip coffee.
+      <strong>Soğuk demleme konsantrasyonunu görmezden gelmek.</strong> Soğuk demleme genellikle normal filtre kahvenin 2-3 katı kafein içerir. 480 ml soğuk demleme, 480 ml filtre kahve değildir.
     </p>
     <p>
-      <strong>Energy drinks as hydration.</strong> They&rsquo;re a
-      caffeine delivery system, not water. Drink water alongside.
+      <strong>Enerji içeceklerini hidrasyon sanmak.</strong> Bunlar bir kafein dağıtım sistemidir, su değil. Yanında su için.
     </p>
     <p>
-      <strong>No cutoff time.</strong> Without a fixed
-      &ldquo;last dose by&rdquo; rule, afternoon slumps pull you into
-      caffeinating late, which ruins the next night&rsquo;s sleep,
-      which causes the next afternoon slump.
+      <strong>Kesme zamanının olmaması.</strong> Sabit bir "son doz" kuralı olmadan, öğleden sonraki düşüşler sizi geç saatlerde kafein almaya iter, bu da ertesi gece uykusunu mahveder ve bu da ertesi öğleden sonra düşüşüne neden olur.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları hesaplayın</h2>
     <p>
-      Log the day&rsquo;s intake in the{" "}
-      <a href="/tools/caffeine-intake-calculator">caffeine intake calculator</a>{" "}
-      and it maps remaining blood levels against your bedtime. Watch
-      total hydration in the{" "}
-      <a href="/tools/water-intake-calculator">water intake calculator</a>{" "}
-      alongside, and let the{" "}
-      <a href="/tools/sleep-cycle-calculator">sleep cycle calculator</a>{" "}
-      set the bedtime that your caffeine cutoff needs to respect.
+      Günlük alımınızı{" "}
+      <a href="/tools/caffeine-intake-calculator">kafein alım hesaplayıcısına</a>{" "}
+      kaydedin, kalan kan seviyelerini yatış saatinize göre haritalandırsın. Toplam hidrasyonu{" "}
+      <a href="/tools/water-intake-calculator">su alım hesaplayıcısında</a>{" "}
+      takip edin ve{" "}
+      <a href="/tools/sleep-cycle-calculator">uyku döngüsü hesaplayıcısının</a>{" "}
+      kafein kesme zamanınızın saygı duyması gereken yatış saatini belirlemesine izin verin.
     </p>
   </>
 );

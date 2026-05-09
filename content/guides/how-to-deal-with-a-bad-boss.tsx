@@ -1,92 +1,66 @@
 export const intro = (
   <>
     <p>
-      A bad boss is the #1 reason people leave jobs. Before you nuke the
-      relationship or quit in frustration, there are strategies that work
-      surprisingly often. But some bosses are unfixable, and knowing the
-      difference is the real skill.
+      Kötü bir patron, insanların işten ayrılmasının 1 numaralı nedenidir. Kapıyı çarpıp gitmeden veya istifa etmeden önce, şaşırtıcı derecede sık işe yarayan stratejiler vardır. Ancak bazı patronlar düzeltilemez — ve asıl beceri aradaki farkı bilmektir.
     </p>
     <p>
-      Here&rsquo;s how to handle it professionally.
+      İşte profesyonelce başa çıkmanın yolu.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Diagnose the type first</h2>
+    <h2>1. Önce türü teşhis edin</h2>
     <p>
-      Micromanagers, absentees, credit-takers, bullies, and incompetents each
-      need different strategies. &ldquo;Bad boss&rdquo; isn&rsquo;t one
-      thing. Write down specific behaviors you see, then pattern-match. Many
-      bad behaviors actually come from insecurity.
+      Mikro yöneticiler, işe gelmeyenler, başkalarının başarısını sahiplenenler, zorbalar ve beceriksizlerin her biri farklı stratejiler gerektirir. "Kötü patron" tek bir şey değildir. Gördüğünüz belirli davranışları yazın, ardından örüntü eşlemesi yapın. Birçok kötü davranış aslında gizlenmiş güvensizliktir.
     </p>
 
-    <h2>2. Adapt your communication to theirs</h2>
+    <h2>2. İletişiminizi onlarınkine uyarlayın</h2>
     <p>
-      Does your boss prefer email, Slack, or in-person? Long reports or
-      bullet summaries? Data or narrative? Match their style. Most tension
-      comes from mismatch, not malice.
+      Patronunuz e-postayı mı, Slack'i mi yoksa yüz yüze görüşmeyi mi tercih ediyor? Uzun raporlar mı yoksa madde işaretleri mi? Veri mi yoksa hikaye anlatımı mı? Onların tarzına uyun. Çoğu sürtüşme kötü niyetten değil, uyumsuzluktan kaynaklanır.
     </p>
 
-    <h2>3. Manage up — proactively</h2>
+    <h2>3. Proaktif bir şekilde yukarıyı yönetin</h2>
     <p>
-      Weekly status summaries. Flag risks early. Ask for feedback before it
-      becomes a problem. Most bad bosses get less bad when they feel informed
-      and in control. You can&rsquo;t fix them, but you can reduce their
-      anxiety.
+      Haftalık durum özetleri. Riskleri erken işaretleyin. Sorun haline gelmeden önce geri bildirim isteyin. Çoğu kötü patron, bilgilendirildiklerini ve kontrolün kendilerinde olduğunu hissettiklerinde daha az kötü olurlar. Onları düzeltemezsiniz, ancak kaygılarını azaltabilirsiniz.
     </p>
 
-    <h2>4. Document everything</h2>
+    <h2>4. Her şeyi belgeleyin</h2>
     <p>
-      Written records of assignments, deadlines, feedback, decisions. Email
-      confirmations of verbal commitments. If things escalate, you&rsquo;ll
-      need a paper trail. Start before you need it.
+      Görevlerin, teslim tarihlerinin, geri bildirimlerin, kararların yazılı kayıtları. Sözlü taahhütlerin e-posta onayları. İşler tırmanırsa, bir kağıt izine ihtiyacınız olacak. İhtiyacınız olmadan başlayın.
     </p>
 
-    <h2>5. Have a direct 1:1 conversation</h2>
+    <h2>5. Doğrudan bir bire bir görüşme yapın</h2>
     <p>
-      Ask for a private meeting. Frame as &ldquo;I want to be more effective
-      in my role.&rdquo; Ask specific feedback questions. Many bosses
-      don&rsquo;t realize their behavior affects you and will adjust if
-      politely surfaced.
+      Özel bir toplantı talep edin. Bunu "Rolümde daha etkili olmak istiyorum" şeklinde çerçeveleyin. Spesifik geri bildirim soruları sorun. Birçok patron, davranışlarının sizi etkilediğinin farkında değildir ve kibarca söylenirse ayarlama yapacaktır.
     </p>
 
-    <h2>6. Don&rsquo;t vent to coworkers</h2>
+    <h2>6. İş arkadaşlarınıza şikayet etmeyin</h2>
     <p>
-      Gossip comes back to bosses inevitably. You lose credibility and create
-      an enemy who now has reason to be a worse boss. Vent to friends outside
-      work, not colleagues.
+      Dedikodu kaçınılmaz olarak patronlara ulaşır. Güvenilirliğinizi kaybeder ve şimdi daha da kötü olmak için bir nedeni olan bir düşman yaratırsınız. İş arkadaşlarınıza değil, iş dışındaki arkadaşlarınıza içinizi dökün.
     </p>
 
-    <h2>7. Build relationships with their peers</h2>
+    <h2>7. Onların emsalleriyle ilişkiler kurun</h2>
     <p>
-      Your boss&rsquo;s coworkers see their behavior too. Cross-functional
-      relationships protect you and create alternate references. Doesn&rsquo;t
-      mean going around them — it means not being isolated under them.
+      Patronunuzun meslektaşları da onların davranışlarını görür. Fonksiyonlar arası ilişkiler sizi korur ve alternatif referanslar yaratır. Bu, onların etrafından dolaşmak anlamına gelmez — onların altında izole olmamak anlamına gelir.
     </p>
 
-    <h2>8. Know when to escalate — carefully</h2>
+    <h2>8. Ne zaman tırmandıracağınızı bilin — dikkatlice</h2>
     <p>
-      HR is not your friend. Skip-level is risky but sometimes necessary for
-      real abuse, harassment, or illegality. Only escalate with documentation,
-      and only when it&rsquo;s a pattern, not an incident.
+      İK sizin arkadaşınız değildir. Üstlere gitmek risklidir ancak gerçek taciz, istismar veya yasa dışılık durumlarında bazen gereklidir. Yalnızca belgelerle ve yalnızca bir olay değil, bir örüntü olduğunda tırmandırın.
     </p>
 
-    <h2>9. Know when to leave</h2>
+    <h2>9. Ne zaman ayrılacağınızı bilin</h2>
     <p>
-      Some bosses don&rsquo;t get better. If you&rsquo;ve tried adapting,
-      communicating, documenting — and your health or career is still being
-      damaged — leave. The job market is big. Your mental health is small.
+      Bazı patronlar düzelmez. Uyum sağlamayı, iletişim kurmayı, belgelemeyi denediyseniz — ve sağlığınız veya kariyeriniz hala zarar görüyorsa — ayrılın. İş piyasası büyüktür. Ruh sağlığınız küçüktür.
     </p>
 
-    <h2>10. Learn from it</h2>
+    <h2>10. Ondan ders alın</h2>
     <p>
-      Even bad bosses teach you something — often, what not to do. Keep
-      notes. You&rsquo;ll be a manager someday, and the bad examples will
-      guide your good decisions. See{" "}
-      <a href="/guides/how-to-quit-your-job-professionally">quitting guide</a>{" "}
-      and <a href="/guides/how-to-switch-careers">career switch guide</a>.
+      Kötü patronlar bile size bir şey öğretir — genellikle ne yapılmaması gerektiğini. Not alın. Bir gün siz de yönetici olacaksınız ve kötü örnekler iyi kararlarınıza rehberlik edecek.{" "}
+      <a href="/guides/how-to-quit-your-job-professionally">Profesyonelce nasıl istifa edilir rehberine göz atın</a>{" "}
+      ve <a href="/guides/how-to-switch-careers">kariyer değiştirme rehberine</a>.
     </p>
   </>
 );

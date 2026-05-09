@@ -3,156 +3,157 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      The question &ldquo;how much will I have at retirement?&rdquo; has one
-      formula behind it and three variables that matter: how much you start
-      with, how much you add each month, and how long the money compounds.
-      This guide walks through the projection math, the realistic return
-      assumptions to use (and which inflate the number unfairly), and how
-      to translate the scary-big future number into a realistic monthly
-      income.
+      "Emeklilikte ne kadar param olacak?" sorusunun arkasında tek bir formül
+      ve üç önemli değişken vardır: ne kadar birikimle başladığınız, her ay ne
+      kadar eklediğiniz ve paranın ne kadar süre bileşik getiri sağladığı. Bu
+      rehber, projeksiyon matematiğini, kullanılması gereken gerçekçi getiri
+      varsayımlarını (ve hangilerinin rakamı haksız yere şişirdiğini) ve
+      korkutucu derecede büyük gelecek rakamını gerçekçi bir aylık gelire nasıl
+      dönüştüreceğinizi adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The future-value formula</h2>
+    <h2>Gelecek değer formülü</h2>
     <p>
-      <code>FV = P × (1 + r)<sup>n</sup> + PMT × [((1 + r)<sup>n</sup> − 1) / r]</code>
+      <code>GD = B × (1 + r)<sup>n</sup> + A × [((1 + r)<sup>n</sup> − 1) / r]</code>
     </p>
     <p>
-      Where <strong>P</strong> = starting balance, <strong>PMT</strong> =
-      per-period contribution, <strong>r</strong> = per-period return,{" "}
-      <strong>n</strong> = number of periods. For monthly compounding with
-      an annual return rate, use <code>r = annual / 12</code> and{" "}
-      <code>n = years × 12</code>.
-    </p>
-
-    <h2>A realistic scenario</h2>
-    <p>
-      Age 30, $20,000 already saved in a 401(k). Contributing $800/month
-      (employee + match). Target retirement at 65. Assumed 7% real
-      (inflation-adjusted) return.
-    </p>
-    <p>
-      <code>FV = $20,000 × 1.07<sup>35</sup> + $800 × [(1.07<sup>35</sup> − 1) / 0.07]</code>
-    </p>
-    <p>
-      = $213,000 + $1,326,000 = <strong>$1.54 million in today&rsquo;s
-      dollars</strong> at age 65. Not bad on a $20k start and $800/month.
+      Burada <strong>B</strong> = başlangıç bakiyesi, <strong>A</strong> =
+      dönem başına katkı, <strong>r</strong> = dönem başına getiri,{" "}
+      <strong>n</strong> = dönem sayısı. Yıllık getiri oranı ile aylık
+      bileşik faiz için <code>r = yıllık / 12</code> ve{" "}
+      <code>n = yıl × 12</code> kullanın.
     </p>
 
-    <h2>What return assumption should you use?</h2>
+    <h2>Gerçekçi bir senaryo</h2>
     <p>
-      <strong>10% nominal</strong> — the raw long-term US stock market
-      average since 1926, not adjusted for inflation. Using this makes
-      your projection look great but the dollars are future dollars that
-      buy less than today&rsquo;s dollars.
+      30 yaşında, 401(k)'de halihazırda birikmiş $20,000. Ayda $800 katkı
+      (çalışan + işveren eşleşmesi). 65 yaşında emeklilik hedefi. Varsayılan
+      %7 reel (enflasyona göre düzeltilmiş) getiri.
     </p>
     <p>
-      <strong>7% real</strong> — the same return net of ~3% historical
-      inflation. The output is in today&rsquo;s purchasing power. Use this
-      for any projection you&rsquo;ll use to plan your actual life.
+      <code>GD = $20.000 × 1,07<sup>35</sup> + $800 × [(1,07<sup>35</sup> − 1) / 0,07]</code>
     </p>
     <p>
-      <strong>5–6% real</strong> — a conservative assumption for portfolios
-      with meaningful bond allocation. Useful as a stress test.
-    </p>
-    <p>
-      <strong>4%</strong> — what some strategists call the new-normal
-      expected real return after 2020s-era high valuations. Ultra-conservative
-      floor.
-    </p>
-    <p>
-      Never compare calculators that use nominal returns to ones that use
-      real — the difference over 35 years is roughly 2–3× the ending
-      balance.
+      = $213.000 + $1.326.000 = <strong>65 yaşında bugünün dolarıyla
+      $1,54 milyon</strong>. $20 bin başlangıç ve ayda $800 için fena değil.
     </p>
 
-    <h2>The 4% rule — from nest egg to monthly income</h2>
+    <h2>Hangi getiri varsayımını kullanmalısınız?</h2>
     <p>
-      The Trinity study suggests you can withdraw{" "}
-      <strong>4% of your retirement nest egg</strong> in year one, adjust
-      for inflation each subsequent year, and have a 95% chance of
-      your portfolio lasting 30 years. $1.54M × 4% = $61,600/year =
-      $5,133/month pre-tax.
+      <strong>%10 nominal</strong> — 1926'dan bu yana ABD hisse senedi
+      piyasasının enflasyona göre düzeltilmemiş ham uzun vadeli ortalaması.
+      Bunu kullanmak projeksiyonunuzu harika gösterir ancak dolarlar,
+      bugünkünden daha az satın alma gücüne sahip gelecek dolarıdır.
     </p>
     <p>
-      For a more conservative target (longer retirement, lower-return
-      environment), some advisors now recommend 3.5% or even 3%. $1.54M ×
-      3.5% = $53,900/year.
+      <strong>%7 reel</strong> — yaklaşık %3 tarihsel enflasyon düşülmüş
+      aynı getiri. Çıktı, bugünün satın alma gücü cinsindendir. Gerçek
+      hayatınızı planlamak için kullanacağınız herhangi bir projeksiyonda
+      bunu kullanın.
     </p>
-
-    <h2>The &ldquo;25× rule&rdquo; for FI target</h2>
     <p>
-      The inverse of 4%: multiply your target annual spending by 25 to get
-      the nest egg you need. Want $60k/year in retirement? Target $1.5M.
-      Want $100k/year? Target $2.5M.
+      <strong>%5–6 reel</strong> — önemli miktarda tahvil içeren portföyler
+      için muhafazakar bir varsayım. Stres testi olarak kullanışlıdır.
     </p>
-
-    <h2>The starting-early superpower</h2>
     <p>
-      Two investors, same $400/month contribution, 7% return. Anna invests
-      ages 25–35 (10 years, $48k contributed), stops, lets it ride to 65.
-      Ends with ~$470k. Ben starts at 35, invests $400/mo for 30 years
-      ($144k contributed), ends with ~$484k. Ben contributed 3× what Anna
-      did and barely beat her. Time dominates amount; front-loading
-      contributions early is worth disproportionately more than catch-up
-      later.
+      <strong>%4</strong> — bazı stratejistlerin 2020'lerdeki yüksek
+      değerlemeler sonrası yeni normal beklenen reel getiri olarak
+      adlandırdığı oran. Aşırı muhafazakar alt sınır.
+    </p>
+    <p>
+      Nominal getiri kullanan hesaplayıcıları reel getiri kullananlarla asla
+      karşılaştırmayın — 35 yıl boyunca aradaki fark, nihai bakiyede
+      kabaca 2–3 katıdır.
     </p>
 
-    <h2>Stress-test the assumptions</h2>
+    <h2>%4 kuralı — birikimden aylık gelire</h2>
     <p>
-      Before anchoring on a projection, run it at 3 return rates (5%, 7%,
-      9%) and 2 contribution rates (current, current + 20%). Your real
-      outcome will land somewhere in the range. The honest way to present a
-      projection to yourself is a range, not a single point.
+      Trinity çalışması, emeklilik birikiminizin <strong>%4'ünü</strong> ilk
+      yıl çekebileceğinizi, sonraki her yıl enflasyona göre ayarlayabileceğinizi
+      ve portföyünüzün 30 yıl dayanma olasılığının %95 olduğunu öne sürer.
+      $1,54M × %4 = $61.600/yıl = vergi öncesi ayda $5.133.
     </p>
     <p>
-      One example to be humble about: a 30-year horizon with a bad
-      sequence-of-returns (2000–2010 type decade at the start) produces
-      materially lower ending balances than a smooth 7% assumption, even
-      if the <em>average</em> return ends up the same. Real-world paths
-      are bumpy.
+      Daha muhafazakar bir hedef için (daha uzun emeklilik, düşük getiri
+      ortamı), bazı danışmanlar artık %3,5 hatta %3 önermektedir. $1,54M ×
+      %3,5 = $53.900/yıl.
     </p>
 
-    <h2>Taxes and account types</h2>
+    <h2>Finansal bağımsızlık hedefi için "25× kuralı"</h2>
     <p>
-      401(k) and traditional IRA contributions are pre-tax — you&rsquo;ll
-      owe ordinary income tax on withdrawals. A $1.54M traditional 401(k)
-      becomes ~$1.15M net after a 25% effective rate at retirement.
-    </p>
-    <p>
-      Roth 401(k)/IRA contributions are post-tax — withdrawals are
-      tax-free. $1.54M stays $1.54M.
-    </p>
-    <p>
-      Most calculators (including ours) ignore this — the number
-      projected is pre-tax for traditional accounts, tax-free for Roth.
-      Adjust mentally when comparing to your desired spending.
+      %4'ün tersi: hedeflediğiniz yıllık harcamayı 25 ile çarparak ihtiyacınız
+      olan birikimi bulun. Yılda $60k mı istiyorsunuz? $1,5M hedefleyin.
+      Yılda $100k mı istiyorsunuz? $2,5M hedefleyin.
     </p>
 
-    <h2>Employer match — the biggest return-on-contribution available</h2>
+    <h2>Erken başlamanın süper gücü</h2>
     <p>
-      If your employer offers 50% match on the first 6% of salary, that
-      6% contribution becomes 9% against your balance — a 50% instant
-      return, which compounds on top of market returns. Always contribute
-      at least enough to get the full match; anything less is leaving
-      pure cash on the table.
+      İki yatırımcı, aynı aylık $400 katkı, %7 getiri. Anna 25–35 yaşları
+      arasında yatırım yapıyor (10 yıl, $48k katkı), duruyor ve 65 yaşına
+      kadar birikimini bırakıyor. ~$470k ile bitiriyor. Ben 35 yaşında
+      başlıyor, 30 yıl boyunca ayda $400 yatırıyor ($144k katkı), ~$484k ile
+      bitiriyor. Ben, Anna'nın 3 katı katkı yaptı ve onu zar zor geçti.
+      Zaman, miktardan daha baskındır; katkıları erken yapmak, daha sonra
+      telafi etmekten orantısız şekilde daha değerlidir.
     </p>
 
-    <h2>Project yours</h2>
+    <h2>Varsayımları stres testine tabi tutun</h2>
     <p>
-      Enter your starting balance, monthly contribution, expected return
-      (use 7% real for base case), and years-to-retirement into the{" "}
-      <a href="/tools/compound-interest-calculator">compound interest
-      calculator</a>. Run it at 5%, 7%, and 9% to see a realistic range.
-      Cross-check the target against the{" "}
-      <a href="/tools/savings-goal-calculator">savings goal calculator</a>{" "}
-      to back-solve the monthly contribution needed to hit a specific
-      number, and pair with the{" "}
-      <a href="/tools/net-worth-calculator">net worth calculator</a> to
-      track actual progress each year.
+      Bir projeksiyona bağlanmadan önce, 3 getiri oranında (%5, %7,
+      %9) ve 2 katkı oranında (mevcut, mevcut + %20) hesaplama yapın.
+      Gerçek sonucunuz bu aralıkta bir yere düşecektir. Kendinize bir
+      projeksiyonu sunmanın dürüst yolu, tek bir nokta değil, bir aralıktır.
+    </p>
+    <p>
+      Mütevazı olunması gereken bir örnek: 30 yıllık bir ufukta kötü bir
+      getiri sıralaması (başlangıçta 2000–2010 türü bir on yıl), <em>ortalama</em>
+      getiri aynı olsa bile, düzgün bir %7 varsayımına göre önemli ölçüde
+      daha düşük nihai bakiyeler üretir. Gerçek dünya yolları inişli
+      çıkışlıdır.
+    </p>
+
+    <h2>Vergiler ve hesap türleri</h2>
+    <p>
+      401(k) ve geleneksel IRA katkıları vergi öncesidir — para çekme
+      işlemlerinde normal gelir vergisi ödersiniz. $1,54M'lik geleneksel bir
+      401(k), emeklilikte %25 efektif oran sonrası net ~$1,15M olur.
+    </p>
+    <p>
+      Roth 401(k)/IRA katkıları vergi sonrasıdır — para çekme işlemleri
+      vergisizdir. $1,54M, $1,54M olarak kalır.
+    </p>
+    <p>
+      Çoğu hesaplayıcı (bizimki dahil) bunu görmezden gelir — yansıtılan
+      rakam geleneksel hesaplar için vergi öncesi, Roth için vergisizdir.
+      İstediğiniz harcamayla karşılaştırırken zihinsel olarak ayarlama yapın.
+    </p>
+
+    <h2>İşveren eşleşmesi — katkıda bulunabileceğiniz en büyük getiri</h2>
+    <p>
+      İşvereniniz maaşınızın ilk %6'sına %50 eşleşme sunuyorsa, bu %6'lık
+      katkı bakiyenize karşı %9 olur — %50 anlık getiri ve bu getiri piyasa
+      getirilerinin üzerine bileşik olarak eklenir. Tam eşleşmeyi almak için
+      her zaman en azından yeterli katkıyı yapın; daha azı masada saf nakit
+      bırakmaktır.
+    </p>
+
+    <h2>Kendi projeksiyonunuzu yapın</h2>
+    <p>
+      Başlangıç bakiyenizi, aylık katkınızı, beklenen getirinizi (temel
+      senaryo için %7 reel kullanın) ve emekliliğe kalan yıl sayısını{" "}
+      <a href="/tools/compound-interest-calculator">bileşik faiz
+      hesaplayıcısına</a> girin. Gerçekçi bir aralık görmek için %5, %7 ve
+      %9'da hesaplatın. Hedefi, belirli bir rakama ulaşmak için gereken aylık
+      katkıyı geriye dönük hesaplamak üzere{" "}
+      <a href="/tools/savings-goal-calculator">tasarruf hedefi
+      hesaplayıcısı</a> ile çapraz kontrol edin ve her yıl gerçek ilerlemeyi
+      takip etmek için{" "}
+      <a href="/tools/net-worth-calculator">net değer hesaplayıcısı</a> ile
+      birlikte kullanın.
     </p>
   </>
 );

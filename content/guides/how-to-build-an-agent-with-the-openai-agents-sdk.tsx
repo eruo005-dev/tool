@@ -1,40 +1,35 @@
 export const intro = (
   <>
     <p>
-      The OpenAI Agents SDK is the production successor to the old Swarm
-      experiments — a small, sharp Python and TypeScript library for building
-      agents that use tools, hand off to other agents, and run inside a sandbox.
-      It&rsquo;s what you reach for when ChatGPT agent mode stops being enough
-      and you want <em>your code</em> orchestrating the model.
+      OpenAI Agents SDK, eski Swarm deneylerinin üretime yönelik halefidir —
+      araçları kullanan, diğer ajanlara devreden ve bir kum havuzu içinde çalışan ajanlar oluşturmak için küçük, keskin bir Python ve TypeScript kütüphanesidir.
+      ChatGPT ajan modunun yeterli olmadığı ve modeli <em>kendi kodunuzun</em> yönetmesini istediğinizde başvuracağınız araçtır.
     </p>
     <p>
-      This guide walks from <code>pip install</code> to a working agent that
-      does something real, with the four primitives you actually need in April
-      2026: Agents, Tools, Handoffs, Guardrails.
+      Bu kılavuz, <code>pip install</code> komutundan, Nisan 2026'da gerçekten ihtiyacınız olan dört temel yapı taşıyla (Ajanlar, Araçlar, Devir Teslimler, Korkuluklar) gerçek bir şey yapan çalışan bir ajana kadar sizi adım adım götürür.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>Prerequisites</h2>
+    <h2>Ön Koşullar</h2>
     <ul>
-      <li>Python 3.10 or newer.</li>
-      <li>An OpenAI API key (<code>OPENAI_API_KEY</code>) with billing set up.</li>
-      <li>A spend cap on the key. Set it before you write a line of code.</li>
+      <li>Python 3.10 veya daha yenisi.</li>
+      <li>Faturalandırması ayarlanmış bir OpenAI API anahtarı (<code>OPENAI_API_KEY</code>).</li>
+      <li>Anahtar üzerinde bir harcama limiti. Tek satır kod yazmadan önce bunu ayarlayın.</li>
     </ul>
 
-    <h2>Step 1 — Install the SDK</h2>
+    <h2>Adım 1 — SDK'yı Kurun</h2>
     <pre><code>{`python -m venv .venv
 source .venv/bin/activate   # Windows: .venv\\Scripts\\activate
 pip install openai-agents`}</code></pre>
     <p>
-      The package name is <code>openai-agents</code>. Don&rsquo;t confuse it
-      with the older <code>openai</code> core library — you&rsquo;ll use both.
+      Paket adı <code>openai-agents</code>'tir. Bunu eski <code>openai</code> temel kütüphanesiyle karıştırmayın — ikisini de kullanacaksınız.
     </p>
 
-    <h2>Step 2 — The smallest working agent</h2>
-    <p>Paste this into <code>agent.py</code>:</p>
+    <h2>Adım 2 — Çalışan en küçük ajan</h2>
+    <p>Bunu <code>agent.py</code> dosyasına yapıştırın:</p>
     <pre><code>{`from agents import Agent, Runner
 
 agent = Agent(
@@ -46,16 +41,13 @@ if __name__ == "__main__":
     result = Runner.run_sync(agent, "Explain eigenvectors like I'm 12.")
     print(result.final_output)`}</code></pre>
     <p>
-      Run with <code>python agent.py</code>. If it prints an explanation,
-      you&rsquo;re done with step 2 — the SDK, the key, and the model are all
-      wired up.
+      <code>python agent.py</code> ile çalıştırın. Bir açıklama yazdırırsa, 2. adımı tamamlamışsınız demektir — SDK, anahtar ve modelin tümü bağlanmıştır.
     </p>
 
-    <h2>Step 3 — Add a tool</h2>
+    <h2>Adım 3 — Bir araç ekleyin</h2>
     <p>
-      Tools are functions the agent can call. Decorate them with{" "}
-      <code>@function_tool</code> and they show up in the model&rsquo;s function
-      list automatically.
+      Araçlar, ajanın çağırabileceği fonksiyonlardır. Bunları{" "}
+      <code>@function_tool</code> ile dekore edin ve otomatik olarak modelin fonksiyon listesinde görünürler.
     </p>
     <pre><code>{`from agents import Agent, Runner, function_tool
 
@@ -70,15 +62,13 @@ agent = Agent(
     tools=[word_count],
 )`}</code></pre>
     <p>
-      Run it on <em>&ldquo;How long is &lsquo;the quick brown fox&rsquo;?&rdquo;</em>.
-      The model decides to call <code>word_count</code>, the SDK runs the
-      Python, the result flows back into the conversation.
+      <em>&ldquo;How long is &lsquo;the quick brown fox&rsquo;?&rdquo;</em> sorusuyla çalıştırın.
+      Model <code>word_count</code>'u çağırmaya karar verir, SDK Python'u çalıştırır, sonuç konuşmaya geri akar.
     </p>
 
-    <h2>Step 4 — Add a handoff</h2>
+    <h2>Adım 4 — Bir devir teslim ekleyin</h2>
     <p>
-      Handoffs let an agent delegate to a specialist. Instead of one giant
-      prompt, you compose small agents.
+      Devir teslimler, bir ajanın bir uzmana yetki devretmesini sağlar. Dev bir komut istemi yerine, küçük ajanlar oluşturursunuz.
     </p>
     <pre><code>{`from agents import Agent
 
@@ -91,15 +81,12 @@ triage = Agent(
     handoffs=[math_agent, writing_agent],
 )`}</code></pre>
     <p>
-      The triage agent reads the user&rsquo;s message, decides which specialist
-      to invoke, and the SDK transfers the conversation. You debug each
-      specialist in isolation — this is the biggest reason to use the SDK over
-      a single mega-prompt.
+      Triyaj ajanı kullanıcının mesajını okur, hangi uzmanı çağıracağına karar verir ve SDK konuşmayı aktarır. Her uzmanı ayrı ayrı hata ayıklarsınız — SDK'yı tek bir dev komut istemi yerine kullanmanın en büyük nedeni budur.
     </p>
 
-    <h2>Step 5 — Add a guardrail</h2>
+    <h2>Adım 5 — Bir korkuluk ekleyin</h2>
     <p>
-      Guardrails are validators the SDK runs on inputs and outputs.
+      Korkuluklar, SDK'nın girdiler ve çıktılar üzerinde çalıştırdığı doğrulayıcılardır.
     </p>
     <pre><code>{`from agents import input_guardrail, GuardrailFunctionOutput
 
@@ -112,55 +99,42 @@ def no_secrets(ctx, agent, input_str):
         tripwire_triggered=tripped,
     )`}</code></pre>
     <p>
-      Attach it to your agent with{" "}
-      <code>Agent(&hellip;, input_guardrails=[no_secrets])</code>. If the
-      guardrail trips, the SDK raises before the model ever sees the prompt —
-      cheap, fast, and logged.
+      Bunu ajanınıza{" "}
+      <code>Agent(&hellip;, input_guardrails=[no_secrets])</code> ile ekleyin. Korkuluk tetiklenirse, SDK model komut istemini görmeden önce bir hata yükseltir — ucuz, hızlı ve günlüğe kaydedilir.
     </p>
 
-    <h2>Step 6 — Sandbox code and file work</h2>
+    <h2>Adım 6 — Kod ve dosya işlerini kum havuzunda yapın</h2>
     <p>
-      The April 2026 Agents SDK ships with a <strong>model-native harness</strong>
-      — the agent can inspect files, edit them, run shell commands, and iterate
-      on long-horizon tasks inside a sandbox your process controls. This is the
-      feature to use when you&rsquo;re tempted to give an agent raw shell
-      access: don&rsquo;t, use the harness instead.
+      Nisan 2026 Agents SDK, <strong>modele özgü bir koşum takımı</strong> ile birlikte gelir — ajan, dosyaları inceleyebilir, düzenleyebilir, kabuk komutları çalıştırabilir ve sürecinizin kontrol ettiği bir kum havuzu içinde uzun vadeli görevler üzerinde yineleme yapabilir. Bu, bir ajana ham kabuk erişimi vermek istediğinizde kullanmanız gereken özelliktir: vermeyin, bunun yerine koşum takımını kullanın.
     </p>
 
-    <h2>Step 7 — Deploy</h2>
+    <h2>Adım 7 — Dağıtın</h2>
     <p>
-      The same Python file runs on your laptop, on Fly.io, on a VPS, in Lambda.
-      Wrap it in a FastAPI handler for a webhook, a scheduled job for a cron,
-      or a CLI for humans. The SDK stays the same — that&rsquo;s the point of
-      it being lightweight.
+      Aynı Python dosyası dizüstü bilgisayarınızda, Fly.io'da, bir VPS'te, Lambda'da çalışır. Bir webhook için FastAPI işleyicisine, bir cron için zamanlanmış bir işe veya insanlar için bir CLI'ya sarın. SDK aynı kalır — hafif olmasının amacı da budur.
     </p>
 
-    <h2>Pitfalls I&rsquo;ve seen</h2>
+    <h2>Gördüğüm tuzaklar</h2>
     <ul>
       <li>
-        <strong>Giant single agents.</strong> Break them up with handoffs early.
-        Debugging a 600-line <a href="/learn/system-prompt">system prompt</a> is misery.
+        <strong>Devasa tek ajanlar.</strong> Erken aşamada devir teslimlerle onları bölün.
+        600 satırlık bir <a href="/learn/system-prompt">sistem komut isteminde</a> hata ayıklamak eziyettir.
       </li>
       <li>
-        <strong>Tools that do five things.</strong> Keep each tool to one
-        responsibility — the model picks them better.
+        <strong>Beş iş yapan araçlar.</strong> Her aracı tek bir sorumlulukta tutun — model onları daha iyi seçer.
       </li>
       <li>
-        <strong>No token cap.</strong> Set{" "}
-        <code>max_turns</code> on the runner. An infinite-loop agent at 3am is
-        an expensive learning experience.
+        <strong>Token sınırı yok.</strong> Çalıştırıcıda{" "}
+        <code>max_turns</code> ayarlayın. Saat 3'te sonsuz döngüye giren bir ajan, pahalı bir öğrenme deneyimidir.
       </li>
     </ul>
 
     <p>
-      Once you&rsquo;re comfortable, compare the flow to{" "}
+      Alıştıktan sonra, akışı{" "}
       <a href="/guides/how-to-build-an-agent-with-the-claude-agent-sdk">
-        the Claude Agent SDK
+        Claude Agent SDK
       </a>{" "}
-      — same primitives, different model strengths, and <a href="/learn/mcp">MCP</a> as the tool standard.
-      Also run your prompts through our{" "}
-      <a href="/tools/ai-token-counter">token counter</a> so you know what
-      each turn costs before you put the thing on a cron.
+      ile karşılaştırın — aynı temel yapı taşları, farklı model güçleri ve araç standardı olarak <a href="/learn/mcp">MCP</a>.
+      Ayrıca, komut istemlerinizi <a href="/tools/ai-token-counter">token sayacımızdan</a> geçirin, böylece bir cron'a koymadan önce her dönüşün ne kadara mal olduğunu bilirsiniz.
     </p>
   </>
 );

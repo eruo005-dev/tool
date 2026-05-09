@@ -3,282 +3,190 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Text diffs are how developers, writers, legal teams, and
-      reviewers see what actually changed. &ldquo;I updated the
-      doc&rdquo; tells you nothing. A diff tells you exactly which
-      words moved, which clauses were added, which numbers were
-      tweaked. The difference between diff-illiterate and
-      diff-fluent is hours a week in code review, contract review,
-      and document review. This guide covers how diff algorithms
-      work (line-based, word-based, character-based), the diff
-      formats you&rsquo;ll encounter (unified, context, side-by-side),
-      practical diffing for code versus prose versus contracts,
-      and the tools that go beyond naive line-level comparison.
+      Metin farkları, geliştiricilerin, yazarların, hukuk ekiplerinin ve incelemecilerin gerçekte neyin değiştiğini görmesini sağlar. &ldquo;Belgeyi güncelledim&rdquo; demek hiçbir şey ifade etmez. Bir fark size hangi kelimelerin taşındığını, hangi maddelerin eklendiğini, hangi sayıların değiştiğini tam olarak söyler. Fark okuyabilen biriyle okuyamayan biri arasındaki fark, kod incelemesi, sözleşme incelemesi ve belge incelemesinde haftada saatlerce tasarruf edilmesidir. Bu kılavuz, fark algoritmalarının nasıl çalıştığını (satır tabanlı, kelime tabanlı, karakter tabanlı), karşılaşacağınız fark formatlarını (birleşik, bağlam, yan yana), kod, düz metin ve sözleşmeler için pratik fark oluşturma yöntemlerini ve basit satır düzeyi karşılaştırmanın ötesine geçen araçları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What a diff actually computes</h2>
+    <h2>Bir farkın gerçekte hesapladığı şey</h2>
     <p>
-      A diff algorithm finds the minimum set of edits that transforms
-      one string into another. &ldquo;Minimum&rdquo; is the key word —
-      there are always many valid edit sequences, but the readable
-      one is the shortest.
+      Bir fark algoritması, bir metni diğerine dönüştüren en küçük düzenleme kümesini bulur. &ldquo;En küçük&rdquo; anahtar kelimedir — her zaman birçok geçerli düzenleme dizisi vardır, ancak en kısa olanı en okunabilir olanıdır.
     </p>
     <p>
-      <strong>Myers diff algorithm:</strong> the standard since
-      1986. Used by git, most IDEs, and most online tools. Computes
-      the longest common subsequence (LCS), then marks additions
-      and deletions around it.
+      <strong>Myers fark algoritması:</strong> 1986'dan beri standarttır. Git, çoğu IDE ve çoğu çevrimiçi araç tarafından kullanılır. En uzun ortak alt diziyi (LCS) hesaplar, ardından etrafına ekleme ve silme işlemlerini işaretler.
     </p>
     <p>
-      <strong>Patience diff:</strong> alternative used by Bazaar and
-      git (with <code>--patience</code>). Better on structured text
-      like code — aligns function signatures and braces more
-      intuitively.
+      <strong>Patience farkı:</strong> Bazaar ve git tarafından kullanılan bir alternatiftir (<code>--patience</code> ile). Kod gibi yapılandırılmış metinler için daha iyidir — fonksiyon imzalarını ve parantezleri daha sezgisel bir şekilde hizalar.
     </p>
     <p>
-      <strong>Histogram diff:</strong> git&rsquo;s default since
-      2.12. Variant of patience, often the clearest for real code.
-      Enable globally: <code>git config --global diff.algorithm histogram</code>.
+      <strong>Histogram farkı:</strong> Git'in 2.12'den beri varsayılanıdır. Genellikle gerçek kod için en net sonucu veren bir patience varyantıdır. Global olarak etkinleştirin: <code>git config --global diff.algorithm histogram</code>.
     </p>
 
-    <h2>Granularity — line, word, or character</h2>
+    <h2>Granülerlik — satır, kelime veya karakter</h2>
     <p>
-      <strong>Line-based:</strong> the default in git and most
-      tools. Fast, readable, but noisy when you&rsquo;ve reformatted.
-      A single wrapping change makes the whole paragraph look
-      changed.
+      <strong>Satır tabanlı:</strong> Git ve çoğu araçta varsayılandır. Hızlı, okunabilir, ancak yeniden biçimlendirdiğinizde gürültülüdür. Tek bir sarma değişikliği, tüm bir paragrafın değişmiş görünmesine neden olur.
     </p>
     <p>
-      <strong>Word-based:</strong> highlights which words changed
-      within a line. git&rsquo;s <code>--word-diff</code> enables
-      this. Much clearer for prose and contracts.
+      <strong>Kelime tabanlı:</strong> Bir satır içinde hangi kelimelerin değiştiğini vurgular. Git'in <code>--word-diff</code> seçeneği bunu etkinleştirir. Düz metin ve sözleşmeler için çok daha nettir.
     </p>
     <p>
-      <strong>Character-based:</strong> highlights exactly which
-      characters flipped. Overkill for most reading; useful for
-      spotting typos or non-printing character changes (smart
-      quotes, non-breaking spaces).
+      <strong>Karakter tabanlı:</strong> Tam olarak hangi karakterlerin değiştiğini vurgular. Çoğu okuma için aşırıya kaçar; yazım hatalarını veya yazdırılamayan karakter değişikliklerini (akıllı tırnaklar, bölünemez boşluklar) yakalamak için kullanışlıdır.
     </p>
 
-    <h2>Common diff formats</h2>
+    <h2>Yaygın fark formatları</h2>
     <p>
-      <strong>Unified diff</strong> (<code>git diff</code> default):
+      <strong>Birleşik fark</strong> (<code>git diff</code> varsayılanı):
     </p>
     <pre>
 {`@@ -10,5 +10,7 @@
- unchanged line
--deleted line
-+added line 1
-+added line 2
- unchanged line`}
+ değişmeyen satır
+-silinecek satır
++eklenecek satır 1
++eklenecek satır 2
+ değişmeyen satır`}
     </pre>
     <p>
-      <code>@@ -10,5 +10,7 @@</code> means &ldquo;5 lines at line 10
-      in the old file correspond to 7 lines at line 10 in the new.&rdquo;
+      <code>@@ -10,5 +10,7 @@</code> şu anlama gelir: &ldquo;Eski dosyada 10. satırdan başlayan 5 satır, yeni dosyada 10. satırdan başlayan 7 satıra karşılık gelir.&rdquo;
     </p>
     <p>
-      <strong>Context diff</strong> (older, less common): shows 3
-      lines of context with <code>!</code> markers for changes.
+      <strong>Bağlam farkı</strong> (daha eski, daha az yaygın): Değişiklikler için <code>!</code> işaretçileriyle 3 satır bağlam gösterir.
     </p>
     <p>
-      <strong>Side-by-side diff:</strong> tools render unified diffs
-      visually with old on left, new on right. Better for long
-      blocks; worse for many small changes.
+      <strong>Yan yana fark:</strong> Araçlar, birleşik farkları görsel olarak solda eski, sağda yeni olacak şekilde işler. Uzun bloklar için daha iyidir; çok sayıda küçük değişiklik için daha kötüdür.
     </p>
     <p>
-      <strong>Three-way merge diff:</strong> shows base, local, and
-      remote versions when resolving conflicts. git&rsquo;s
-      <code>conflictstyle=diff3</code> enables this — huge quality
-      improvement over the default.
+      <strong>Üç yönlü birleştirme farkı:</strong> Çakışmaları çözerken temel, yerel ve uzak sürümleri gösterir. Git'in <code>conflictstyle=diff3</code> seçeneği bunu etkinleştirir — varsayılana göre büyük bir kalite iyileştirmesidir.
     </p>
 
-    <h2>Diffing code — the standard workflow</h2>
+    <h2>Kod farkı oluşturma — standart iş akışı</h2>
     <p>
-      <strong>git diff:</strong> unstaged changes vs. the index.
+      <strong>git diff:</strong> Hazırlanmamış değişiklikler vs. indeks.
       <br />
-      <strong>git diff --staged:</strong> staged vs. last commit.
+      <strong>git diff --staged:</strong> Hazırlanmış vs. son commit.
       <br />
-      <strong>git diff main..feature:</strong> branch comparison.
+      <strong>git diff main..feature:</strong> Dal karşılaştırması.
       <br />
-      <strong>git diff commit1 commit2:</strong> between arbitrary
-      commits.
+      <strong>git diff commit1 commit2:</strong> Rastgele commit'ler arasında.
     </p>
     <p>
-      <strong>Ignore whitespace:</strong>{" "}
-      <code>git diff -w</code> strips whitespace-only changes —
-      essential when reviewing after a formatter ran.
+      <strong>Boşlukları yoksay:</strong>{" "}
+      <code>git diff -w</code> yalnızca boşluk olan değişiklikleri kaldırır — bir biçimlendirici çalıştırdıktan sonra inceleme yaparken kritiktir.
     </p>
     <p>
-      <strong>Word-level for prose:</strong>{" "}
+      <strong>Düz metin için kelime düzeyi:</strong>{" "}
       <code>git diff --word-diff</code>.
     </p>
     <p>
-      <strong>Stat summary:</strong>{" "}
-      <code>git diff --stat</code> shows files with line counts.
+      <strong>İstatistik özeti:</strong>{" "}
+      <code>git diff --stat</code> satır sayılarıyla dosyaları gösterir.
     </p>
     <p>
       <strong>Pickaxe:</strong>{" "}
-      <code>git log -S&quot;searchterm&quot;</code> finds commits
-      where that string was added or removed.
+      <code>git log -S&ldquo;arama terimi&rdquo;</code> bu dizenin eklendiği veya kaldırıldığı commit'leri bulur.
     </p>
 
-    <h2>Diffing prose and documents</h2>
+    <h2>Düz metin ve belgelerde fark oluşturma</h2>
     <p>
-      Code diff tools handle code well; prose diffs need different
-      care.
+      Kod fark araçları kodu iyi işler; düz metin farkları farklı bir özen gerektirir.
     </p>
     <p>
-      <strong>Reformatting noise:</strong> hard line-wrapping at 80
-      chars makes diffs unreadable when one word changes. Prose
-      should be soft-wrapped (one sentence per line or unwrapped
-      entirely) to keep diffs clean.
+      <strong>Yeniden biçimlendirme gürültüsü:</strong> 80 karakterde sert satır sarma, tek bir kelime değiştiğinde farkları okunamaz hale getirir. Düz metin, farkları temiz tutmak için yumuşak sarma (satır başına bir cümle veya hiç sarma) kullanmalıdır.
     </p>
     <p>
-      <strong>Tracked changes</strong> (Word, Google Docs): native
-      diff UX for non-technical users. Good for collaborative
-      editing but not round-trippable with git.
+      <strong>İzlenen değişiklikler</strong> (Word, Google Dokümanlar): Teknik olmayan kullanıcılar için yerel fark kullanıcı deneyimi. İşbirlikçi düzenleme için iyidir ancak git ile geri alınamaz.
     </p>
     <p>
-      <strong>Markdown diffs:</strong> treat markdown as prose for
-      formatting, but validate structure changes (headings, lists)
-      visually — diff tools don&rsquo;t understand markdown
-      semantically.
+      <strong>Markdown farkları:</strong> Biçimlendirme için markdown'ı düz metin olarak ele alın, ancak yapısal değişiklikleri (başlıklar, listeler) görsel olarak doğrulayın — fark araçları markdown'ı anlamsal olarak anlamaz.
     </p>
 
-    <h2>Diffing contracts and legal documents</h2>
+    <h2>Sözleşmeler ve yasal belgelerde fark oluşturma</h2>
     <p>
-      <strong>Redlining tools</strong> (Microsoft Word&rsquo;s
-      &ldquo;Compare,&rdquo; Litera, iManage) produce a legal-style
-      redline showing deletions struck through and additions
-      underlined. Standard for legal review.
+      <strong>Redline araçları</strong> (Microsoft Word'ün &ldquo;Karşılaştır&rdquo;, Litera, iManage) silmeler için üstü çizili ve eklemeler için altı çizili yasal tarzda bir redline üretir. Yasal inceleme için standarttır.
     </p>
     <p>
-      <strong>Word-level is essential</strong> for contracts. A
-      single changed word can shift liability.
+      <strong>Sözleşmeler için kelime düzeyi kritiktir.</strong> Tek bir değişen kelime sorumluluğu kaydırabilir.
     </p>
     <p>
-      <strong>Formatting diffs matter less;</strong> content diffs
-      matter more. Use tools that let you ignore style-only changes.
+      <strong>Biçimlendirme farkları daha az önemlidir;</strong> içerik farkları daha önemlidir. Yalnızca stil değişikliklerini yok saymanıza izin veren araçları kullanın.
     </p>
     <p>
-      <strong>Sign every redline.</strong> Best practice: circulate
-      both clean and redlined versions for review. Never sign
-      without the redline.
+      <strong>Her redline'ı imzalayın.</strong> En iyi uygulama: inceleme için hem temiz hem de redline'lı sürümleri dağıtın. Asla redline olmadan imzalamayın.
     </p>
 
-    <h2>Common diff tools</h2>
+    <h2>Yaygın fark araçları</h2>
     <p>
-      <strong>git diff / git difftool:</strong> default for code.
-      Configure difftool with Beyond Compare, Meld, or Delta.
+      <strong>git diff / git difftool:</strong> Kod için varsayılandır. Difftool'u Beyond Compare, Meld veya Delta ile yapılandırın.
     </p>
     <p>
-      <strong>Delta:</strong> syntax-highlighted, readable git diff
-      replacement. Install and configure{" "}
-      <code>git config pager.diff delta</code>.
+      <strong>Delta:</strong> Sözdizimi vurgulamalı okunabilir git diff alternatifi. <code>git config pager.diff delta</code> ile kurun ve yapılandırın.
     </p>
     <p>
-      <strong>VS Code diff viewer:</strong> side-by-side with syntax
-      highlighting. Opens on branch compare or from Git tab.
+      <strong>VS Code fark görüntüleyicisi:</strong> Sözdizimi vurgulamalı yan yana görünüm. Dal karşılaştırmasından veya Git sekmesinden açılır.
     </p>
     <p>
-      <strong>Beyond Compare, Meld, Kaleidoscope:</strong> dedicated
-      diff apps. Heavy for casual use; powerful for complex merges.
+      <strong>Beyond Compare, Meld, Kaleidoscope:</strong> Özel fark uygulamaları. Gündelik kullanım için ağır; karmaşık birleştirmeler için güçlüdür.
     </p>
     <p>
-      <strong>Online diff checkers:</strong> for quick ad-hoc text
-      compare — don&rsquo;t upload sensitive content. Use local
-      tools for anything private.
+      <strong>Çevrimiçi fark denetleyicileri:</strong> Hızlı, tek kullanımlık metin karşılaştırması için — hassas içerik yüklemeyin. Özel olan her şey için yerel araçları kullanın.
     </p>
     <p>
-      <strong>diff command (Unix):</strong>{" "}
-      <code>diff file1 file2</code>. Venerable, minimal.{" "}
-      <code>-u</code> for unified, <code>-r</code> for recursive
-      directory diff.
+      <strong>diff komutu (Unix):</strong>{" "}
+      <code>diff dosya1 dosya2</code>. Eski, minimal. Birleşik için <code>-u</code>, özyinelemeli dizin farkı için <code>-r</code> kullanın.
     </p>
 
-    <h2>Patch files</h2>
+    <h2>Yama dosyaları</h2>
     <p>
-      A diff saved to a file is a patch. Apply with{" "}
-      <code>git apply patch.diff</code> or{" "}
-      <code>patch &lt; patch.diff</code>.
+      Bir dosyaya kaydedilen fark bir yamadır. <code>git apply yama.diff</code> veya <code>patch &lt; yama.diff</code> ile uygulayın.
     </p>
     <p>
-      <strong>Use cases:</strong> sharing changes without
-      pushing/pulling, reviewing contributions to read-only repos,
-      applying upstream fixes to forked code.
+      <strong>Kullanım durumları:</strong> Push/pull olmadan değişiklik paylaşma, salt okunur depolara katkıları inceleme, çatallanmış koda yukarı akış düzeltmeleri uygulama.
     </p>
     <p>
-      <strong>Patch hygiene:</strong> patches fail when the target
-      file has drifted. Small, single-purpose patches apply
-      cleanly; large patches break.
+      <strong>Yama hijyeni:</strong> Hedef dosya kaydığında yamalar başarısız olur. Küçük, tek amaçlı yamalar temiz uygulanır; büyük yamalar bozulur.
     </p>
 
-    <h2>Reading diffs efficiently</h2>
+    <h2>Farkları verimli okuma</h2>
     <p>
-      <strong>Deletions first:</strong> read what was removed.
-      Understanding what&rsquo;s gone gives context for what&rsquo;s
-      new.
+      <strong>Önce silmeleri okuyun:</strong> Ne kaldırıldığını okuyun. Ne gittiğini anlamak, yeni olan için bağlam sağlar.
     </p>
     <p>
-      <strong>Context lines:</strong> expand context (<code>-U10</code>
-      ) when the default 3 lines isn&rsquo;t enough. Too much
-      context hides the change; too little hides the reason.
+      <strong>Bağlam satırları:</strong> Varsayılan 3 satır yetersiz olduğunda bağlamı genişletin (<code>-U10</code>). Çok fazla bağlam değişiklikleri gizler; çok az bağlam nedenleri gizler.
     </p>
     <p>
-      <strong>Split noisy diffs:</strong> reformatting + content
-      changes in one commit are unreadable. Reformat in one commit,
-      change content in the next. This is not optional.
+      <strong>Gürültülü farkları bölün:</strong> Tek bir commit'te yeniden biçimlendirme + içerik değişiklikleri okunamaz. Bir commit'te yeniden biçimlendirin, sonrakinde içeriği değiştirin. Bu isteğe bağlı değildir.
     </p>
     <p>
-      <strong>Check whitespace characters:</strong> git marks
-      trailing whitespace with red background. Non-breaking spaces,
-      tabs-vs-spaces, Windows/Unix line endings all show up in
-      diffs as mysterious changes.
+      <strong>Boşluk karakterlerini kontrol edin:</strong> Git, sondaki boşlukları kırmızı arka planla işaretler. Bölünemez boşluklar, sekme-boşluk farkları, Windows/Unix satır sonları farklarda gizemli değişiklikler olarak görünür.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Reviewing reformatted code line-by-line.</strong>
-      Impossible. Pre-format, re-commit, re-review.
+      <strong>Yeniden biçimlendirilmiş kodu satır satır incelemek.</strong>
+      İmkansız. Önce biçimlendirin, yeniden commit yapın, tekrar inceleyin.
     </p>
     <p>
-      <strong>Ignoring whitespace noise.</strong> CRLF vs LF,
-      trailing whitespace, tab sizes — all hide real changes.
-      Normalize line endings with{" "}
-      <code>.gitattributes</code>.
+      <strong>Boşluk gürültüsünü yok saymak.</strong> CRLF vs LF, sondaki boşluklar, sekme boyutları — hepsi gerçek değişiklikleri gizler. <code>.gitattributes</code> ile satır sonlarını normalleştirin.
     </p>
     <p>
-      <strong>Pasting binary files.</strong> Diff tools can&rsquo;t
-      show meaningful diffs of binary formats (images, PDFs, Word
-      docs). Use format-specific tools.
+      <strong>İkili dosyaları yapıştırmak.</strong> Fark araçları, ikili formatların (resimler, PDF'ler, Word belgeleri) anlamlı farklarını gösteremez. Format belirli araçları kullanın.
     </p>
     <p>
-      <strong>Using character-level diff for code review.</strong>
-      Too noisy. Line-level with word-level expansion is the
-      sweet spot.
+      <strong>Kod incelemesi için karakter düzeyi farkları kullanmak.</strong>
+      Çok gürültülü. Satır düzeyi ve kelime düzeyi genişletme ideal noktadır.
     </p>
     <p>
-      <strong>Skipping the word diff for prose.</strong> Line-level
-      makes paragraph changes unreadable.
+      <strong>Düz metin için kelime farklarını atlamak.</strong> Satır düzeyi, paragraf değişikliklerini okunamaz hale getirir.
     </p>
     <p>
-      <strong>Comparing files in different encodings.</strong>{" "}
-      UTF-8 vs CP1252 makes everything look changed. Normalize
-      encoding first.
+      <strong>Farklı kodlamalardaki dosyaları karşılaştırmak.</strong>{" "}
+      UTF-8 vs CP1252 her şeyin değişmiş görünmesine neden olur. Önce kodlamayı normalleştirin.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Compare two blocks of text instantly with the{" "}
-      <a href="/tools/diff-checker">diff checker</a>. Pair with the{" "}
-      <a href="/tools/word-counter">word counter</a> to see how much
-      was added or removed, and the{" "}
-      <a href="/tools/text-reverser">text reverser</a> for quick
-      text transformations before comparing.
+      İki metin bloğunu anında <a href="/tools/diff-checker">fark denetleyicisi</a> ile karşılaştırın. Ne kadar eklendiğini veya kaldırıldığını görmek için <a href="/tools/word-counter">kelime sayacı</a> ile eşleştirin ve karşılaştırmadan önce hızlı metin dönüşümleri için <a href="/tools/text-reverser">metin ters çevirici</a> kullanın.
     </p>
   </>
 );

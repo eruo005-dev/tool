@@ -1,39 +1,39 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>The hardest part of drone photography isn&rsquo;t the flying &mdash; it&rsquo;s knowing where, when, and whether you&rsquo;re legally allowed to take off.</p>);
+export const intro: ReactElement = (<p>Drone fotoğrafçılığının en zor kısmı uçmak değil &mdash; nerede, ne zaman ve yasal olarak kalkış yapmanıza izin verilip verilmediğini bilmektir.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>Drones have become astonishingly capable and relatively cheap, but the gap between &ldquo;bought a drone&rdquo; and &ldquo;taking photos worth sharing&rdquo; is wider than most beginners expect. The rules are real, the weather is always worse than you think, and the battery always dies ten minutes before the perfect light. Get the legal piece sorted first, pick a drone that matches your actual use case, and learn the fundamentals before chasing cinematic 4K reels.</p>
+    <p>Dronlar inanılmaz derecede yetenekli ve nispeten ucuz hale geldi, ancak &ldquo;drone satın almak&rdquo; ile &ldquo;paylaşmaya değer fotoğraflar çekmek&rdquo; arasındaki fark çoğu yeni başlayanın beklediğinden daha büyüktür. Kurallar gerçektir, hava her zaman düşündüğünüzden daha kötüdür ve pil her zaman mükemmel ışıktan on dakika önce biter. Önce yasal kısmı halledin, gerçek kullanım senaryonuza uygun bir drone seçin ve sinematik 4K videoların peşinden koşmadan önce temel bilgileri öğrenin.</p>
 
-    <h2>FAA rules come first</h2>
-    <p>In the US, every drone between 250 g and 55 lb must be registered with the FAA ($5, good for three years). Recreational flyers must pass the free TRUST test online and follow the community-based rules. If you&rsquo;re flying for any commercial purpose &mdash; including monetized YouTube, client photography, or real-estate listings &mdash; you need a Part 107 certificate, which is a written knowledge test at an FAA testing center. Remote ID broadcasting is required on nearly all registered drones. Other countries have their own regimes; check before you travel.</p>
+    <h2>Önce FAA kuralları gelir</h2>
+    <p>ABD'de, 250 g ile 55 lb arasındaki her drone FAA'ya kaydedilmelidir (5$, üç yıl geçerlidir). Eğlence amaçlı pilotlar ücretsiz TRUST testini çevrimiçi olarak geçmeli ve topluluk temelli kurallara uymalıdır. Para kazandıran YouTube, müşteri fotoğrafçılığı veya emlak ilanları dahil olmak üzere herhangi bir ticari amaçla uçuyorsanız, bir FAA test merkezinde yazılı bilgi sınavı olan Part 107 sertifikasına ihtiyacınız vardır. Neredeyse tüm kayıtlı dronlarda Uzaktan Kimlik yayını zorunludur. Diğer ülkelerin kendi kuralları vardır; seyahat etmeden önce kontrol edin.</p>
 
-    <h2>Pick the drone for the job</h2>
+    <h2>İşe uygun drone'u seçin</h2>
     <ul>
-      <li>DJI Mini 4 Pro &mdash; under 250 g, travel-friendly, capable sensor. Best first drone for most people.</li>
-      <li>DJI Air 3 &mdash; dual-camera, longer range, the sweet spot for mid-level creators.</li>
-      <li>DJI Mavic 3 Pro &mdash; Hasselblad sensor, professional color, the pick for paid work.</li>
-      <li>Autel EVO Lite+ &mdash; strong non-DJI alternative with good low-light performance.</li>
-      <li>Skydio X series &mdash; best-in-class obstacle avoidance and autonomy, US-made.</li>
+      <li>DJI Mini 4 Pro &mdash; 250 g altı, seyahat dostu, yetenekli sensör. Çoğu kişi için en iyi ilk drone.</li>
+      <li>DJI Air 3 &mdash; çift kamera, daha uzun menzil, orta seviye içerik üreticileri için ideal nokta.</li>
+      <li>DJI Mavic 3 Pro &mdash; Hasselblad sensörü, profesyonel renkler, ücretli işler için tercih.</li>
+      <li>Autel EVO Lite+ &mdash; iyi düşük ışık performansına sahip güçlü DJI dışı alternatif.</li>
+      <li>Skydio X serisi &mdash; sınıfının en iyisi engel önleme ve otonomi, ABD yapımı.</li>
     </ul>
 
-    <h2>Knowing where you can&rsquo;t fly</h2>
-    <p>No-fly zones are broader than most beginners realize: controlled airspace around airports, most national parks, stadiums during events, military bases, and temporary flight restrictions (TFRs) over wildfires, VIP movements, and major events. Use the FAA&rsquo;s B4UFLY app or Aloft before every flight &mdash; airspace classifications change, and a sectional chart from last month isn&rsquo;t enough. LAANC authorization can unlock controlled airspace near many airports in seconds, but you still need to request it.</p>
+    <h2>Nerede uçamayacağınızı bilmek</h2>
+    <p>Yasak bölgeler çoğu yeni başlayanın fark ettiğinden daha geniştir: havalimanları çevresindeki kontrollü hava sahası, çoğu milli park, etkinlikler sırasında stadyumlar, askeri üsler ve orman yangınları, VIP hareketleri ve büyük etkinlikler üzerindeki geçici uçuş kısıtlamaları (TFR'ler). Her uçuştan önce FAA'nın B4UFLY uygulamasını veya Aloft'u kullanın &mdash; hava sahası sınıflandırmaları değişir ve geçen aydan kalma bir kesit harita yeterli değildir. LAANC yetkilendirmesi, birçok havalimanının yakınındaki kontrollü hava sahasını saniyeler içinde açabilir, ancak yine de talep etmeniz gerekir.</p>
 
-    <h2>Accessories that earn their spot</h2>
-    <p>ND filters are the single biggest image-quality upgrade for video &mdash; they let you keep a cinematic 1/50s shutter at 25 fps in bright light instead of a choppy 1/2000s. A polarizer (CPL) cuts glare off water and windows. Extra batteries are non-negotiable; figure on three total so you can rotate through a shoot. A landing pad keeps dust and grass out of your motors on takeoff. A good case or backpack protects the gimbal &mdash; the most fragile part of any drone.</p>
+    <h2>Yerini hak eden aksesuarlar</h2>
+    <p>ND filtreler, video için en büyük görüntü kalitesi yükseltmesidir &mdash; 25 fps'de sinematik 1/50s enstantane hızını, sarsıntılı 1/2000s yerine parlak ışıkta korumanızı sağlarlar. Bir polarizör (CPL) su ve camlardaki parlamayı keser. Ekstra piller tartışılmaz; toplamda üç tane düşünün, böylece bir çekim sırasında dönüşümlü kullanabilirsiniz. Bir iniş pisti, kalkışta motorlarınızdaki tozu ve otu uzak tutar. İyi bir kılıf veya sırt çantası, herhangi bir drone'un en hassas parçası olan gimbalı korur.</p>
 
-    <h2>Flying fundamentals</h2>
-    <p>Wait for GPS lock before takeoff; without it, the drone won&rsquo;t hold position. Check the wind &mdash; your drone&rsquo;s max wind resistance is a spec, not a suggestion, and sustained winds over 20 mph are hard on sub-250 g drones. Keep return-to-home altitude set above the tallest obstacle on your route. Land at 20&ndash;25% battery, not at the low-battery warning; wind and cold both eat reserve faster than the meter suggests. Calibrate the compass when the app asks, especially near rebar, metal roofs, or after a long flight.</p>
+    <h2>Temel uçuş bilgileri</h2>
+    <p>Kalkıştan önce GPS kilidini bekleyin; onsuz drone konumunu koruyamaz. Rüzgarı kontrol edin &mdash; drone'unuzun maksimum rüzgar direnci bir özelliktir, öneri değildir ve 20 mph üzerindeki sürekli rüzgarlar 250 g altı dronlar için zordur. Eve dönüş irtifasını rotanızdaki en yüksek engelin üzerine ayarlayın. Pili %20-25'te indirin, düşük pil uyarısında değil; rüzgar ve soğuk, yedek gücü göstergenin önerdiğinden daha hızlı tüketir. Uygulama istediğinde, özellikle inşaat demiri, metal çatılar yakınında veya uzun bir uçuştan sonra pusulayı kalibre edin.</p>
 
-    <h2>Shooting, not just flying</h2>
-    <p>The composition rules that work on the ground still apply: leading lines, rule of thirds, foreground interest. Top-down shots of patterns (roads, fields, coastlines) are overused but still effective. Shoot in RAW for photos and in D-Log or similar flat profiles for video if you plan to color-grade. Golden hour and blue hour are flattering; midday sun is usually brutal.</p>
+    <h2>Sadece uçmak değil, çekim yapmak</h2>
+    <p>Yerde işe yarayan kompozisyon kuralları hala geçerlidir: yönlendirici çizgiler, üçte bir kuralı, ön plan ilgisi. Desenlerin (yollar, tarlalar, kıyı şeritleri) tepeden çekimleri aşırı kullanılsa da hala etkilidir. Renk düzeltme yapmayı planlıyorsanız, fotoğraflar için RAW ve videolar için D-Log veya benzeri düz profillerde çekim yapın. Altın saat ve mavi saat hoştur; öğle güneşi genellikle acımasızdır.</p>
 
-    <h2>Common mistakes</h2>
-    <p>Flying over people or moving vehicles (both prohibited under most rules), launching in winds you can&rsquo;t handle, ignoring &ldquo;low battery&rdquo; warnings, losing visual line of sight, filming in 4K when you&rsquo;ll post at 1080p anyway, and forgetting to update firmware &mdash; which can ground the drone or disable features mid-trip.</p>
+    <h2>Yaygın hatalar</h2>
+    <p>İnsanların veya hareketli araçların üzerinde uçmak (çoğu kuralda yasaktır), başa çıkamayacağınız rüzgarlarda kalkış yapmak, &ldquo;düşük pil&rdquo; uyarılarını görmezden gelmek, görsel teması kaybetmek, yine de 1080p'de yayınlayacağınız halde 4K'da çekim yapmak ve donanım yazılımını güncellemeyi unutmak &mdash; bu, drone'u yere indirebilir veya seyahat sırasında özellikleri devre dışı bırakabilir.</p>
 
-    <h2>Bottom line</h2>
-    <p>Register, test, check the airspace, buy the smallest drone that fits your work, and put in reps in empty fields before you chase the shot.</p>
+    <h2>Sonuç</h2>
+    <p>Kaydolun, test edin, hava sahasını kontrol edin, işinize uyan en küçük drone'u satın alın ve çekimin peşinden koşmadan önce boş alanlarda pratik yapın.</p>
   </>
 );

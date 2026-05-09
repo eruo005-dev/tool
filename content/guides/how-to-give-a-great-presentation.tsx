@@ -1,102 +1,108 @@
 export const intro = (
   <>
     <p>
-      A great presentation is not about being eloquent — it&rsquo;s about making your
-      audience understand and believe one simple thing by the end. Most bad
-      presentations fail because the speaker never figured out what that one thing was.
+      Harika bir sunum, etkileyici konuşmakla ilgili değildir; dinleyicilerinizin
+      sonunda tek bir basit şeyi anlamasını ve buna inanmasını sağlamakla ilgilidir.
+      Kötü sunumların çoğu, konuşmacının o tek şeyin ne olduğunu asla belirleyememesi
+      nedeniyle başarısız olur.
     </p>
     <p>
-      This guide walks through how to design and deliver presentations that land,
-      whether you&rsquo;re pitching a board, teaching a team, or doing a conference
-      talk.
+      Bu rehber, ister bir yönetim kuruluna sunum yapıyor, ister bir ekibe eğitim
+      veriyor ya da bir konferansta konuşma yapıyor olun, etkili sunumlar tasarlamak
+      ve sunmak için adımları anlatır.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Start with the one thing</h2>
+    <h2>1. Tek bir şeyle başlayın</h2>
     <p>
-      What single sentence do you want the audience to remember 24 hours later? Write
-      it down. Every slide either supports this sentence or it gets cut. No exceptions.
-      Most unfocused talks have no core sentence.
+      Dinleyicilerin 24 saat sonra hatırlamasını istediğiniz tek cümle nedir? Bunu
+      yazın. Her slayt ya bu cümleyi destekler ya da çıkarılır. İstisna yok.
+      Odaksız konuşmaların çoğunun temel bir cümlesi yoktur.
     </p>
 
-    <h2>2. Know your audience</h2>
+    <h2>2. Kitlenizi tanıyın</h2>
     <p>
-      Technical engineers, non-technical execs, and a mixed room all need different
-      talks. Find out before writing. Ask the organizer. Ask one attendee. What do they
-      already know? What do they care about?
+      Teknik mühendisler, teknik olmayan yöneticiler ve karma bir oda farklı
+      konuşmalara ihtiyaç duyar. Yazmadan önce öğrenin. Organizatöre sorun. Bir
+      katılımcıya sorun. Ne biliyorlar? Neyi önemsiyorlar?
     </p>
 
-    <h2>3. Open with a hook</h2>
+    <h2>3. Bir kancayla açılış yapın</h2>
     <p>
-      A surprising stat, a provocative question, a short story. You have 60 seconds
-      before the audience decides whether to stay mentally engaged. Don&rsquo;t waste
-      them on pleasantries.
+      Şaşırtıcı bir istatistik, kışkırtıcı bir soru, kısa bir hikaye. Dinleyicinin
+      zihinsel olarak bağlı kalıp kalmamaya karar vermesi için 60 saniyeniz var.
+      Bunları nezaket sözleriyle harcamayın.
     </p>
 
-    <h2>4. Structure: problem, solution, evidence</h2>
+    <h2>4. Yapı: sorun, çözüm, kanıt</h2>
     <p>
-      Frame the problem. Present your solution. Back it with evidence. Wrap with next
-      steps. This skeleton works for pitches, updates, sales, and talks. Don&rsquo;t
-      overengineer the structure — simple is memorable.
+      Sorunu çerçeveleyin. Çözümünüzü sunun. Kanıtlarla destekleyin. Sonraki
+      adımlarla bitirin. Bu iskelet, sunumlar, güncellemeler, satışlar ve
+      konuşmalar için işe yarar. Yapıyı aşırı karmaşık hale getirmeyin — basit
+      olan akılda kalıcıdır.
     </p>
 
-    <h2>5. Fewer slides, more substance</h2>
+    <h2>5. Daha az slayt, daha fazla içerik</h2>
     <p>
-      You don&rsquo;t need a slide per minute. You need a slide per idea. 10 idea-slides
-      at 3 minutes each beats 30 slides flickering by. The audience remembers ideas, not
-      decks.
+      Dakikada bir slayta ihtiyacınız yok. Fikir başına bir slayta ihtiyacınız var.
+      Her biri 3 dakikalık 10 fikir slaydı, hızla geçen 30 slayttan daha iyidir.
+      Dinleyiciler fikirleri hatırlar, slayt destelerini değil.
     </p>
 
-    <h2>6. One idea per slide</h2>
+    <h2>6. Slayt başına bir fikir</h2>
     <p>
-      If a slide has 3 charts and 5 bullet points, the audience reads instead of listens.
-      One idea, one visual, minimal text. Your slides support you; they don&rsquo;t
-      replace you.
+      Bir slaytta 3 grafik ve 5 madde işareti varsa, dinleyici dinlemek yerine
+      okur. Bir fikir, bir görsel, minimum metin. Slaytlarınız sizi destekler;
+      sizin yerinizi almaz.
     </p>
 
-    <h2>7. Kill the bullet-point vomit</h2>
+    <h2>7. Madde işareti kusmuklarını öldürün</h2>
     <p>
-      No 7-point bullet lists with 30 words each. If you need that much text, it&rsquo;s
-      a memo, not a slide. Aim for images, charts, or 1-sentence statements.
+      Her biri 30 kelimelik 7 maddelik listeler yok. Bu kadar metne ihtiyacınız
+      varsa, bu bir slayt değil, bir nottur. Görseller, grafikler veya 1 cümlelik
+      ifadeler hedefleyin.
     </p>
 
-    <h2>8. Practice out loud</h2>
+    <h2>8. Sesli prova yapın</h2>
     <p>
-      Twice, minimum. Not mental rehearsal — actually out loud, with a timer. Your real
-      delivery time is usually 30% longer than you think. Cut ruthlessly until it fits.
+      En az iki kez. Zihinsel prova değil — gerçekten sesli, bir zamanlayıcıyla.
+      Gerçek sunum süreniz genellikle düşündüğünüzden %30 daha uzundur. Sığana
+      kadar acımasızca kesin.
     </p>
 
-    <h2>9. Anticipate the pushback</h2>
+    <h2>9. Geri itişi öngörün</h2>
     <p>
-      What are the 3 hardest questions someone will ask? Prep answers. If you don&rsquo;t
-      know the answer, it&rsquo;s &ldquo;great question — I&rsquo;ll follow up.&rdquo;
-      Never bluff. Audiences catch it.
+      Birinin soracağı en zor 3 soru nedir? Cevapları hazırlayın. Cevabı
+      bilmiyorsanız, "harika bir soru — takip edeceğim" deyin. Asla blöf yapmayın.
+      Dinleyiciler bunu fark eder.
     </p>
 
-    <h2>10. Slow down</h2>
+    <h2>10. Yavaşlayın</h2>
     <p>
-      Nerves make you speak 50% faster than normal. Deliberately slow yourself. Pause
-      after big points. Silence for 2 seconds feels like forever to you and is powerful
-      for the audience. They&rsquo;re processing.
+      Heyecan, normalden %50 daha hızlı konuşmanıza neden olur. Kendinizi
+      bilinçli olarak yavaşlatın. Önemli noktalardan sonra duraklayın. 2 saniyelik
+      sessizlik size sonsuz gibi gelir ve dinleyici için güçlüdür. Onlar
+      işliyorlar.
     </p>
 
-    <h2>11. End with the ask</h2>
+    <h2>11. İstekle bitirin</h2>
     <p>
-      What do you want the audience to do next? Approve the budget? Sign up? Switch
-      teams? Tell them explicitly. A great presentation without a clear ask is a wasted
-      presentation.
+      Dinleyicilerin bundan sonra ne yapmasını istiyorsunuz? Bütçeyi onaylamak mı?
+      Kaydolmak mı? Ekip değiştirmek mi? Açıkça söyleyin. Net bir istek olmadan
+      harika bir sunum, boşa harcanmış bir sunumdur.
     </p>
 
-    <h2>12. Review after</h2>
+    <h2>12. Sonrasında gözden geçirin</h2>
     <p>
-      Record yourself (phone audio is fine). Listen back. Note filler words (&ldquo;um,&rdquo;
-      &ldquo;like,&rdquo; &ldquo;basically&rdquo;), pacing issues, weak transitions.
-      This feedback loop alone will make you better than 90% of presenters. See{" "}
-      <a href="/guides/how-to-write-professional-emails">professional email guide</a>
-      {" "}for written communication.
+      Kendinizi kaydedin (telefon sesi yeterlidir). Geri dinleyin. Dolgu
+      kelimelerini ("ııı", "şey", "yani"), tempo sorunlarını, zayıf geçişleri
+      not edin. Bu geri bildirim döngüsü tek başına sizi sunum yapanların %90'ından
+      daha iyi yapacaktır. Yazılı iletişim için{" "}
+      <a href="/guides/how-to-write-professional-emails">profesyonel e-posta rehberine</a>
+      {" "}bakın.
     </p>
   </>
 );

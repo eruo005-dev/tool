@@ -1,124 +1,117 @@
 export const intro = (
   <>
     <p>
-      Groceries are usually the second-largest variable expense after housing, and unlike
-      housing, they&rsquo;re one you can meaningfully control in a week. The difference between
-      an unplanned shop and a planned one is typically 25–35% — often more than $200/month for
-      a family of two.
+      Market alışverişi genellikle konuttan sonra en büyük ikinci değişken giderdir ve
+      konuttan farklı olarak, bir hafta içinde anlamlı bir şekilde kontrol edebileceğiniz bir giderdir.
+      Plansız bir alışveriş ile planlı bir alışveriş arasındaki fark tipik olarak %25-35'tir — iki kişilik bir aile için genellikle ayda 200$'dan fazladır.
     </p>
     <p>
-      Here are fourteen tactics that actually cut the bill without turning grocery shopping into
-      a second job.
+      İşte market alışverişini ikinci bir işe dönüştürmeden faturaları gerçekten düşüren on dört taktik.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Shop with a list, every time</h2>
+    <h2>1. Her zaman bir listeyle alışveriş yapın</h2>
     <p>
-      The single highest-impact rule. Walking into a grocery store with no list means 20–30% more
-      spend — every time. A rough list takes five minutes. Build it against what you&rsquo;re
-      actually going to cook that week.
+      En yüksek etkiye sahip kural. Market alışverişine liste olmadan girmek, her seferinde %20-30 daha fazla
+      harcama anlamına gelir. Kabaca bir liste beş dakika sürer. O hafta gerçekten pişireceğiniz şeylere göre oluşturun.
     </p>
 
-    <h2>2. Plan 4–5 dinners, not 7</h2>
+    <h2>2. 7 değil, 4-5 akşam yemeği planlayın</h2>
     <p>
-      Trying to plan every meal fails. Plan 4–5 dinners, factor in leftovers, and leave 2–3 nights
-      flex. This is realistic and avoids waste from aspirational meal plans that collapse by
-      Wednesday.
+      Her öğünü planlamaya çalışmak başarısız olur. 4-5 akşam yemeği planlayın, artanları hesaba katın ve 2-3 geceyi
+      esnek bırakın. Bu gerçekçidir ve Çarşamba gününe kadar çöken hayalperest yemek planlarından kaynaklanan israfı önler.
     </p>
 
-    <h2>3. Shop your pantry first</h2>
+    <h2>3. Önce kilerinizi kontrol edin</h2>
     <p>
-      Before the list, spend 3 minutes scanning the pantry and freezer. Half-used bags of rice,
-      frozen vegetables, canned beans. Plan at least one meal around what&rsquo;s already there —
-      that meal is effectively free.
+      Listeyi yapmadan önce, kileri ve dondurucuyu taramak için 3 dakika ayırın. Yarım kullanılmış pirinç poşetleri,
+      donmuş sebzeler, konserve fasulyeler. Halihazırda orada olanla en az bir öğün planlayın —
+      o öğün aslında ücretsizdir.
     </p>
 
-    <h2>4. Buy whole ingredients, not pre-prepped</h2>
+    <h2>4. Önceden hazırlanmış değil, bütün malzemeler satın alın</h2>
     <p>
-      Pre-shredded cheese, pre-washed lettuce, pre-cut vegetables all carry a 30–100% markup. If
-      you cook even occasionally, whole versions pay back in the same week. Exception: if
-      pre-prepped is the only way you&rsquo;ll actually cook at home, the markup is fine — ready
-      meals cost more.
+      Önceden rendelenmiş peynir, önceden yıkanmış marul, önceden doğranmış sebzelerin hepsi %30-100 fiyat farkı taşır. Eğer
+      ara sıra bile olsa yemek yapıyorsanız, bütün versiyonlar aynı hafta içinde kendini amorti eder. İstisna: eğer
+      önceden hazırlanmış olanlar evde yemek yapmanın tek yoluysa, fiyat farkı sorun değildir — hazır yemekler daha pahalıdır.
     </p>
 
-    <h2>5. Use the unit price, not the sticker</h2>
+    <h2>5. Etiket fiyatına değil, birim fiyata bakın</h2>
     <p>
-      The small print below the price shows cost per oz/kg/each. Bigger packaging isn&rsquo;t
-      always cheaper per unit — especially for produce and meat. Train yourself to glance at it;
-      after a week it&rsquo;s instinct.
+      Fiyatın altındaki küçük yazı, ons/kg/adet başına maliyeti gösterir. Daha büyük ambalaj her zaman birim başına
+      daha ucuz değildir — özellikle meyve-sebze ve et için. Kendinizi ona bakmaya alıştırın;
+      bir hafta sonra içgüdüsel hale gelir.
     </p>
 
-    <h2>6. Buy protein on sale, freeze it</h2>
+    <h2>6. İndirimdeyken protein alın, dondurun</h2>
     <p>
-      Meat and fish routinely go on 30–50% sale. Stock up when they do, freeze in portion-sized
-      bags, pull out for the week. A freezer-friendly protein strategy alone cuts protein spend
-      roughly in half.
+      Et ve balık düzenli olarak %30-50 indirime girer. İndirimdeyken stok yapın, porsiyonluk poşetlerde dondurun,
+      hafta için çıkarın. Dondurucu dostu bir protein stratejisi tek başına protein harcamasını
+      kabaca yarıya indirir.
     </p>
 
-    <h2>7. Eat more beans, lentils, and eggs</h2>
+    <h2>7. Daha fazla fasulye, mercimek ve yumurta tüketin</h2>
     <p>
-      Cheapest per gram of protein by a large margin, shelf-stable (except eggs), and versatile.
-      Replacing meat with legumes in 2 meals a week cuts the bill meaningfully. Our{" "}
-      <a href="/tools/budget-calculator">budget calculator</a> makes it easy to see the monthly
-      impact.
+      Gram protein başına en ucuzu, büyük farkla, raf ömrü uzun (yumurta hariç) ve çok yönlü.
+      Haftada 2 öğünde eti baklagillerle değiştirmek faturaları anlamlı şekilde düşürür.{" "}
+      <a href="/tools/budget-calculator">Bütçe hesaplayıcımız</a> aylık etkiyi görmeyi kolaylaştırır.
     </p>
 
-    <h2>8. Stick to the perimeter</h2>
+    <h2>8. Çevre koridorlarda kalın</h2>
     <p>
-      Produce, meat, dairy. The center aisles — where the snacks, cereals, and ready meals live —
-      are where the margins (and your spend) balloon. You can buy everything you need from the
-      perimeter with fewer impulse purchases.
+      Meyve-sebze, et, süt ürünleri. Atıştırmalıkların, tahılların ve hazır yemeklerin bulunduğu orta koridorlar —
+      kâr marjlarının (ve harcamanızın) şiştiği yerlerdir. İhtiyacınız olan her şeyi çevre koridorlardan
+      daha az dürtüsel satın almayla satın alabilirsiniz.
     </p>
 
-    <h2>9. Don&rsquo;t shop hungry</h2>
+    <h2>9. Açken alışveriş yapmayın</h2>
     <p>
-      Eat before you go. A hungry shopper spends more on snacks, sweets, and ready meals. This
-      is not a cliché; it&rsquo;s measurable in your receipts over a few weeks.
+      Gitmeden önce bir şeyler yiyin. Aç bir alışverişçi atıştırmalıklara, tatlılara ve hazır yemeklere daha çok para harcar.
+      Bu bir klişe değil; birkaç hafta içinde fişlerinizde ölçülebilir.
     </p>
 
-    <h2>10. Skip the organic premium where it doesn&rsquo;t matter</h2>
+    <h2>10. Önemli olmadığı yerde organik fiyat farkını atlayın</h2>
     <p>
-      Check &ldquo;dirty dozen&rdquo; and &ldquo;clean fifteen&rdquo; lists — organic matters
-      more for some produce than others. For things with thick peels (bananas, avocados,
-      onions), regular is fine. Saves 30–50% on that half of the produce budget.
+      &ldquo;Kirli düzine&rdquo; ve &ldquo;temiz on beş&rdquo; listelerini kontrol edin — organik, bazı meyve-sebzeler için
+      diğerlerinden daha önemlidir. Kalın kabuklu şeyler için (muz, avokado,
+      soğan), normal olan iyidir. Meyve-sebze bütçesinin o yarısında %30-50 tasarruf sağlar.
     </p>
 
-    <h2>11. Use one store, not three</h2>
+    <h2>11. Üç değil, tek bir market kullanın</h2>
     <p>
-      Running across town to hit three stores for &ldquo;deals&rdquo; usually costs more in time
-      and fuel than it saves. Pick the store with the best overall prices for what you actually
-      buy, and commit to it. Bonus: you learn the layout and shop faster.
+      &ldquo;Fırsatlar&rdquo; için üç marketi gezmek genellikle zamandan ve yakıttan tasarruf ettiğinden daha pahalıya mal olur.
+      Gerçekten satın aldığınız şeyler için en iyi genel fiyatlara sahip marketi seçin
+      ve ona bağlı kalın. Bonus: düzeni öğrenir ve daha hızlı alışveriş yaparsınız.
     </p>
 
-    <h2>12. Freeze bread, produce, and herbs</h2>
+    <h2>12. Ekmeği, meyve-sebzeleri ve otları dondurun</h2>
     <p>
-      Most people throw away 20–40% of their produce. Bread freezes perfectly. Herbs can go in
-      ice cubes with oil. Berries and overripe bananas freeze for smoothies. Half of grocery
-      waste is a storage problem, not a buying problem.
+      Çoğu insan meyve-sebzelerinin %20-40'ını çöpe atar. Ekmek mükemmel şekilde donar. Otlar yağla birlikte
+      buz küplerine konabilir. Meyveler ve olgunlaşmış muzlar smoothie'ler için dondurulur. Market israfının yarısı
+      bir satın alma sorunu değil, bir depolama sorunudur.
     </p>
 
-    <h2>13. Batch cook one meal per week</h2>
+    <h2>13. Haftada bir öğünü toplu pişirin</h2>
     <p>
-      One big pot (chili, curry, soup, roasted chicken) on Sunday covers 3–5 weekday lunches or
-      dinners. Lower grocery bill <em>and</em> fewer takeout nights. Pair with our{" "}
-      <a href="/guides/how-to-save-money-fast">save money fast</a> guide for compounding moves.
+      Pazar günü büyük bir tencere (biberli yemek, köri, çorba, fırında tavuk) hafta içi 3-5 öğle veya
+      akşam yemeğini karşılar. Daha düşük market faturası <em>ve</em> daha az paket servis gecesi. Bileşik etkili hamleler için{" "}
+      <a href="/guides/how-to-save-money-fast">hızlı para biriktirme</a> rehberimizle birlikte kullanın.
     </p>
 
-    <h2>14. Track one number: weekly total</h2>
+    <h2>14. Tek bir rakamı takip edin: haftalık toplam</h2>
     <p>
-      Not per-category, not per-item. Just the weekly grocery total. Watch it over four weeks.
-      You&rsquo;ll naturally adjust behavior when you see the number. Our{" "}
-      <a href="/guides/how-to-track-expenses">expense tracking guide</a> has more on keeping this
-      light.
+      Kategori bazında değil, ürün bazında değil. Sadece haftalık market toplamı. Dört hafta boyunca izleyin.
+      Rakamı gördüğünüzde doğal olarak davranışınızı ayarlarsınız. Bunu hafif tutmakla ilgili daha fazlası için{" "}
+      <a href="/guides/how-to-track-expenses">gider takip rehberimizde</a>.
     </p>
 
-    <h2>Start with three</h2>
+    <h2>Üç taneyle başlayın</h2>
     <p>
-      Pick three tactics this week: make a list, eat before shopping, and stick to one store.
-      That combo alone usually cuts 15–25% in the first month. Add more once these feel automatic.
+      Bu hafta üç taktik seçin: bir liste yapın, alışverişten önce yemek yiyin ve tek bir markete bağlı kalın.
+      Bu kombinasyon tek başına genellikle ilk ayda %15-25 kesinti yapar. Bunlar otomatik hale geldiğinde daha fazlasını ekleyin.
     </p>
   </>
 );

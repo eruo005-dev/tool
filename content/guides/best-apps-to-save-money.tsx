@@ -1,83 +1,66 @@
 export const intro = (
   <>
     <p>
-      Most money apps promise to change your life. In reality, a few are actually
-      useful and the rest are either rebranded budget spreadsheets or quiet data
-      harvesters. This is the short list that actually moves the needle.
+      Çoğu para uygulaması hayatınızı değiştireceğine söz verir. Gerçekte, çok azı işe yarar ve geri kalanı ya yeniden markalanmış elektronik tablolar ya da sessiz veri toplayıcılardır. İşte gerçekten fark yaratanların kısa listesi.
     </p>
     <p>
-      You don&rsquo;t need all of them. Pick 2-3, use them for 90 days, keep what
-      sticks.
+      Hepsine ihtiyacınız yok. 2-3 tane seçin, 90 gün kullanın, işe yaramayanı bırakın.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Monarch or YNAB for budgeting</h2>
+    <h2>1. Bütçeleme için Monarch veya YNAB</h2>
     <p>
-      Monarch ($100/year) and YNAB ($15/month) are the two serious budgeting apps.
-      Monarch is better for couples and net-worth tracking. YNAB is better for
-      zero-based budgeting and debt paydown. Both require commitment. Both work.
+      Monarch (yıllık $100) ve YNAB (aylık $15) iki ciddi bütçeleme uygulamasıdır. Monarch çiftler ve net değer takibi için daha iyidir. YNAB sıfır tabanlı bütçeleme ve borç ödeme için daha iyidir. İkisi de bağlılık gerektirir. İkisi de işe yarar.
     </p>
 
-    <h2>2. Rocket Money or Trim for subscription hunting</h2>
+    <h2>2. Abonelik Avı için Rocket Money veya Trim</h2>
     <p>
-      Connects to your bank, finds recurring charges, cancels the ones you forgot
-      about. Average user saves $200-500 in the first month. Low effort, high payoff.
+      Bankanıza bağlanır, yinelenen ödemeleri bulur, unuttuklarınızı iptal eder. Ortalama kullanıcı ilk ayda $200-500 tasarruf eder. Düşük çaba, yüksek getiri.
     </p>
 
-    <h2>3. A high-yield savings account app</h2>
+    <h2>3. Yüksek Getirili Bir Tasarruf Hesabı Uygulaması</h2>
     <p>
-      Ally, Marcus, SoFi, Wealthfront. 4-5% <a href="/learn/apy">APY</a> vs. 0.01% at traditional banks. Just
-      the APY difference on $10k is $400-500/year. Free money for 10 minutes of
-      setup.
+      Ally, Marcus, SoFi, Wealthfront. Geleneksel bankalardaki %0,01'e karşı %4-5 <a href="/learn/apy">APY</a>. Sadece 10 bin $'daki APY farkı yılda $400-500'dür. 10 dakikalık kurulum için bedava para.
     </p>
 
-    <h2>4. Honey or Rakuten for online shopping</h2>
+    <h2>4. Online Alışveriş için Honey veya Rakuten</h2>
     <p>
-      Honey auto-applies coupon codes at checkout. Rakuten gives cashback at thousands
-      of retailers. Combined, they save 5-15% on most online purchases. Install once,
-      forget about it.
+      Honey ödeme sırasında otomatik olarak kupon kodları uygular. Rakuten binlerce perakendecide para iadesi sağlar. Birlikte, çoğu online alışverişte %5-15 tasarruf sağlarlar. Bir kez kurun, unutun.
     </p>
 
-    <h2>5. GasBuddy for fuel</h2>
+    <h2>5. Yakıt için GasBuddy</h2>
     <p>
-      Finds cheapest gas nearby. Saves $0.20-0.50/gallon regularly. Not life-changing
-      but free money during every fill-up.
+      Size en yakın en ucuz benzin istasyonunu bulur. Düzenli olarak galon başına $0,20-0,50 tasarruf sağlar. Hayat değiştirmez ama her depoda bedava para.
     </p>
 
-    <h2>6. Mint or Copilot as free alternatives</h2>
+    <h2>6. Ücretsiz Alternatifler olarak Mint veya Copilot</h2>
     <p>
-      Mint (free, ad-heavy) and Copilot ($13/month, premium UI) if you want Monarch-
-      like aggregation without the price or the ads respectively. Both work.
+      Monarch benzeri toplama işlemini fiyatı veya reklamları olmadan isteyenler için: Mint (ücretsiz, reklam yoğun) ve Copilot (aylık $13, premium arayüz). İkisi de işe yarar.
     </p>
 
-    <h2>7. Fidelity or Schwab for investing</h2>
+    <h2>7. Yatırım için Fidelity veya Schwab</h2>
     <p>
-      Zero-commission trading. Free index funds. Research tools. Robinhood is easier;
-      Fidelity and Schwab are safer for serious money. For brokerage accounts, pick
-      stability over gimmicks.
+      Sıfır komisyonlu işlemler. Ücretsiz endeks fonları. Araştırma araçları. Robinhood daha kolaydır; Fidelity ve Schwab ciddi paralar için daha güvenlidir. Aracılık hesapları için gösteriş yerine istikrarı seçin.
     </p>
 
-    <h2>8. Truebill/Rocket Money for bill negotiation</h2>
+    <h2>8. Fatura Pazarlığı için Truebill/Rocket Money</h2>
     <p>
-      They call your cable/internet/phone provider and negotiate lower rates. Take
-      30-40% of savings. Still net positive for most users. Worth trying once.
+      Kablo/internet/telefon sağlayıcınızı arar ve daha düşük oranlar için pazarlık yaparlar. Tasarrufun %30-40'ını alırlar. Yine de çoğu kullanıcı için net pozitiftir. Bir kez denemeye değer.
     </p>
 
-    <h2>9. A receipt app like Fetch or Ibotta</h2>
+    <h2>9. Fetch veya Ibotta gibi Bir Fiş Uygulaması</h2>
     <p>
-      Scan receipts for points. Marginal rewards, but if you&rsquo;re grocery
-      shopping anyway, it&rsquo;s free. Don&rsquo;t buy things to earn points.
+      Puan kazanmak için fişleri tarayın. Marjinal ödüller, ancak zaten market alışverişi yapıyorsanız, bedavadır. Sırf puan kazanmak için bir şeyler satın almayın.
     </p>
 
-    <h2>10. Stop chasing apps eventually</h2>
+    <h2>10. Son Olarak, Uygulama Kovalamayı Bırakın</h2>
     <p>
-      Tools help; discipline saves money. After setting up 2-3 apps, stop app-
-      shopping and focus on fundamentals: earn more, spend less. See{" "}
-      <a href="/guides/how-to-track-expenses">expense tracking guide</a> and{" "}
-      <a href="/guides/how-to-save-money-fast">savings guide</a>.
+      Araçlar yardımcı olur; disiplin para kazandırır. 2-3 uygulama yükledikten sonra, uygulama avını bırakın ve temellere odaklanın: daha fazla kazanın, daha az harcayın.{" "}
+      <a href="/guides/how-to-track-expenses">Gider takip rehberine</a> ve{" "}
+      <a href="/guides/how-to-save-money-fast">tasarruf rehberine</a> göz atın.
     </p>
   </>
 );

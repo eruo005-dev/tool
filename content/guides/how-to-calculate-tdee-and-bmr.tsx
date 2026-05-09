@@ -3,138 +3,85 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      BMR is the calories you&rsquo;d burn in a coma. TDEE is the calories
-      you burn actually living your life. Both numbers matter, but if
-      you&rsquo;re trying to lose, gain, or maintain weight, TDEE is the one
-      you eat toward. This guide explains how to calculate both with the
-      Mifflin-St Jeor equation — the current clinical standard — and how to
-      translate TDEE into a calorie target for your actual goal.
+      BMR, komadayken yakacağınız kaloridir. TDEE ise gerçek hayatınızı yaşarken yaktığınız kaloridir. Her iki sayı da önemlidir, ancak kilo vermeye, almaya veya korumaya çalışıyorsanız, hedefinize göre yemeniz gereken TDEE'dir. Bu kılavuz, mevcut klinik standart olan Mifflin-St Jeor denklemi ile her ikisinin de nasıl hesaplanacağını ve TDEE'nin gerçek hedefiniz için bir kalori hedefine nasıl dönüştürüleceğini açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>BMR vs TDEE — what&rsquo;s the difference?</h2>
+    <h2>BMR ve TDEE — fark nedir?</h2>
     <p>
-      <strong>BMR (Basal Metabolic Rate)</strong> is the energy your body
-      burns just to stay alive: heart beating, lungs breathing, brain
-      running, cells dividing. Lying perfectly still in a dark room at
-      neutral <a href="/learn/temperature-ai">temperature</a>, 24 hours a day. For most adults BMR is between
-      1,400 and 1,800 kcal/day.
+      <strong>BMR (Bazal Metabolizma Hızı)</strong>, vücudunuzun sadece hayatta kalmak için yaktığı enerjidir: kalp atışı, akciğer solunumu, beyin çalışması, hücre bölünmesi. Nötr <a href="/learn/temperature-ai">sıcaklıkta</a>, karanlık bir odada, 24 saat boyunca tamamen hareketsiz yatmak. Çoğu yetişkin için BMR 1.400 ile 1.800 kcal/gün arasındadır.
     </p>
     <p>
-      <strong>TDEE (Total Daily Energy Expenditure)</strong> is BMR plus
-      everything else: walking to the kitchen, typing, digesting food,
-      thermoregulating, and any deliberate exercise. TDEE is typically
-      1.2–1.9× BMR depending on how active you are.
+      <strong>TDEE (Toplam Günlük Enerji Harcaması)</strong>, BMR artı diğer her şeydir: mutfağa yürümek, yazı yazmak, yiyecekleri sindirmek, vücut ısısını düzenlemek ve herhangi bir bilinçli egzersiz. TDEE, ne kadar aktif olduğunuza bağlı olarak tipik olarak BMR'nin 1,2–1,9 katıdır.
     </p>
     <p>
-      You don&rsquo;t eat to BMR. You eat to TDEE, then add or subtract to
-      shift weight.
+      BMR'ye göre yemek yemezsiniz. TDEE'ye göre yersiniz, ardından kilo değişimi için ekleme veya çıkarma yaparsınız.
     </p>
 
-    <h2>The Mifflin-St Jeor equation</h2>
+    <h2>Mifflin-St Jeor denklemi</h2>
     <p>
-      Adopted as the standard by the Academy of Nutrition and Dietetics in
-      the 1990s after studies showed it beat Harris-Benedict (1919) on
-      accuracy for modern body compositions.
+      1990'larda yapılan çalışmalar, modern vücut kompozisyonları için Harris-Benedict'ten (1919) daha doğru olduğunu gösterdikten sonra Beslenme ve Diyetetik Akademisi tarafından standart olarak kabul edilmiştir.
     </p>
     <p>
-      For men:{" "}
-      <code>BMR = (10 × kg) + (6.25 × cm) − (5 × age) + 5</code>. For women:{" "}
-      <code>BMR = (10 × kg) + (6.25 × cm) − (5 × age) − 161</code>. Weight in
-      kilograms, height in centimeters, age in years.
+      Erkekler için:{" "}
+      <code>BMR = (10 × kg) + (6.25 × cm) − (5 × yaş) + 5</code>. Kadınlar için:{" "}
+      <code>BMR = (10 × kg) + (6.25 × cm) − (5 × yaş) − 161</code>. Ağırlık kilogram, boy santimetre, yaş yıl cinsinden.
     </p>
     <p>
-      A 32-year-old man at 82 kg (180 lbs) and 178 cm (5&apos;10&quot;) has a
-      BMR of <code>(10 × 82) + (6.25 × 178) − (5 × 32) + 5 = 820 + 1113 −
-      160 + 5 = 1,778 kcal</code>. The{" "}
-      <a href="/tools/bmr-calculator">BMR calculator</a> handles the
-      imperial-to-metric conversion and activity multiplier in one step.
+      82 kg (180 lbs) ve 178 cm (5'10") boyunda 32 yaşındaki bir erkeğin BMR'si <code>(10 × 82) + (6.25 × 178) − (5 × 32) + 5 = 820 + 1113 − 160 + 5 = 1.778 kcal</code>'dir. <a href="/tools/bmr-calculator">BMR hesaplayıcı</a>, emperyal-metrik dönüşümü ve aktivite çarpanını tek adımda halleder.
     </p>
 
-    <h2>The activity multiplier — and why most people get it wrong</h2>
+    <h2>Aktivite çarpanı — ve çoğu insanın neden yanlış yaptığı</h2>
     <p>
-      Multiply BMR by the factor that matches your week honestly:
+      BMR'yi haftanıza dürüstçe uyan faktörle çarpın:
     </p>
     <p>
-      <strong>1.2 — sedentary.</strong> Desk job, almost no deliberate
-      exercise, walking less than 5,000 steps a day. If you work from home
-      and don&rsquo;t train, this is you.
+      <strong>1,2 — hareketsiz.</strong> Masa başı iş, neredeyse hiç bilinçli egzersiz yok, günde 5.000 adımdan az yürüyüş. Evden çalışıyor ve antrenman yapmıyorsanız, bu sizsiniz.
     </p>
     <p>
-      <strong>1.375 — lightly active.</strong> Desk job but walking 5,000–
-      10,000 steps daily or exercising 1–3 days a week at moderate intensity.
+      <strong>1,375 — hafif aktif.</strong> Masa başı iş ancak günde 5.000–10.000 adım yürüyüş veya haftada 1–3 gün orta yoğunlukta egzersiz.
     </p>
     <p>
-      <strong>1.55 — moderately active.</strong> Exercise 4–5 days a week.
-      Most recreational lifters and runners land here.
+      <strong>1,55 — orta derecede aktif.</strong> Haftada 4–5 gün egzersiz. Çoğu rekreasyonel ağırlık kaldırıcı ve koşucu burada yer alır.
     </p>
     <p>
-      <strong>1.725 — very active.</strong> Daily training, often multiple
-      sessions, or physically demanding job. Construction workers, touring
-      musicians moving gear, military in field training.
+      <strong>1,725 — çok aktif.</strong> Günlük antrenman, genellikle birden fazla seans veya fiziksel olarak zorlu bir iş. İnşaat işçileri, ekipman taşıyan turne müzisyenleri, saha eğitimindeki askeri personel.
     </p>
     <p>
-      <strong>1.9 — extra active.</strong> Elite endurance athletes in heavy
-      training blocks. Almost nobody reading this qualifies.
+      <strong>1,9 — ekstra aktif.</strong> Ağır antrenman bloklarındaki elit dayanıklılık sporcuları. Bunu okuyan neredeyse hiç kimse bu kategoriye girmez.
     </p>
     <p>
-      The universal mistake is picking a factor one level above reality.
-      Three weekly gym sessions is 1.375, not 1.55. If you pick too high,
-      your calculated TDEE exceeds your real burn, and your &ldquo;deficit&rdquo;
-      becomes maintenance. That&rsquo;s the usual explanation for &ldquo;I
-      stopped losing weight.&rdquo;
+      Evrensel hata, gerçeklikten bir seviye yukarıda bir faktör seçmektir. Haftada üç spor salonu seansı 1,375'tir, 1,55 değil. Çok yüksek seçerseniz, hesaplanan TDEE'niz gerçek yakımınızı aşar ve "açığınız" koruma seviyesine dönüşür. "Kilo vermeyi bıraktım" ifadesinin olağan açıklaması budur.
     </p>
 
-    <h2>Turning TDEE into a goal target</h2>
+    <h2>TDEE'yi bir hedefe dönüştürmek</h2>
     <p>
-      A pound of body fat is roughly 3,500 kcal. Split across 7 days, a daily
-      deficit of 500 kcal produces about 1 lb/week of loss. The same math
-      works in reverse for gains.
+      Bir kilo vücut yağı kabaca 3.500 kcal'dir. 7 güne bölündüğünde, günlük 500 kcal'lik bir açık, haftada yaklaşık 0,5 kg kayıp sağlar. Aynı matematik, kazançlar için tersine işler.
     </p>
     <p>
-      <strong>Cut (fat loss):</strong> TDEE − 300 to 500 kcal/day. Aggressive
-      cuts work short-term but hurt training recovery and hormones. 500/day
-      is a sensible ceiling; 300/day is what competitive physique coaches
-      use for preserving muscle.
+      <strong>Kesim (yağ kaybı):</strong> TDEE − 300 ila 500 kcal/gün. Agresif kesimler kısa vadede işe yarar ancak antrenman iyileşmesine ve hormonlara zarar verir. 500/gün makul bir tavan; 300/gün, rekabetçi fizik antrenörlerinin kas korumak için kullandığı miktardır.
     </p>
     <p>
-      <strong>Maintenance:</strong> TDEE ± 100 kcal. This is where body
-      recomposition happens — slow lean-mass gain while fat holds or drops,
-      driven by training and protein, not calorie manipulation.
+      <strong>Koruma:</strong> TDEE ± 100 kcal. Vücut yeniden kompozisyonunun gerçekleştiği yer burasıdır — antrenman ve protein tarafından yönlendirilen, kalori manipülasyonuyla değil, yağ sabit kalırken veya düşerken yavaş yağsız kütle kazanımı.
     </p>
     <p>
-      <strong>Lean gain:</strong> TDEE + 200 to 300 kcal/day. &ldquo;Dirty
-      bulks&rdquo; at +700 kcal/day produce about as much muscle as +250 and
-      three times as much fat. Slow is better.
+      <strong>Yalın kazanç:</strong> TDEE + 200 ila 300 kcal/gün. +700 kcal/gün ile "kirli toplu alımlar", +250 ile neredeyse aynı miktarda kas ve üç kat daha fazla yağ üretir. Yavaş daha iyidir.
     </p>
 
-    <h2>Protein first, calories second</h2>
+    <h2>Önce protein, sonra kaloriler</h2>
     <p>
-      Hit 0.8–1.0 grams of protein per pound of target body weight before
-      worrying about carb/fat ratios. Protein preserves lean mass in a
-      deficit, is the most satiating macro, and costs more calories to
-      digest than carbs or fat. A 180-lb target means 145–180 g/day —
-      roughly a palm-sized serving of chicken, fish, or Greek yogurt at each
-      meal.
+      Karbonhidrat/yağ oranları hakkında endişelenmeden önce, hedef vücut ağırlığının kilosu başına 0,8–1,0 gram proteine ulaşın. Protein, açıkta yağsız kütleyi korur, en doyurucu makro besindir ve sindirimi karbonhidrat veya yağdan daha fazla kalori harcar. 180 lbs'lik bir hedef, günde 145–180 g anlamına gelir — her öğünde yaklaşık bir avuç büyüklüğünde tavuk, balık veya Yunan yoğurdu porsiyonu.
     </p>
 
-    <h2>When to recalculate</h2>
+    <h2>Ne zaman yeniden hesaplama yapılmalı</h2>
     <p>
-      Every 10 lbs of weight change or every 3 months, whichever hits first.
-      BMR scales with body mass, so dropping 20 lbs means your maintenance
-      calories are ~200 kcal/day lower than when you started. Failing to
-      recalculate is the second most common reason for stalled fat loss
-      (after lying about the activity multiplier).
+      Her 5 kg'lık kilo değişiminde veya her 3 ayda bir, hangisi önce gelirse. BMR vücut kütlesiyle ölçeklenir, bu nedenle 10 kg vermek, koruma kalorilerinizin başladığınızdan ~200 kcal/gün daha düşük olduğu anlamına gelir. Yeniden hesaplama yapmamak, durmuş yağ kaybının en yaygın ikinci nedenidir (aktivite çarpanı hakkında yalan söylemekten sonra).
     </p>
     <p>
-      Use the <a href="/tools/bmr-calculator">BMR calculator</a> for the
-      number, the <a href="/tools/calorie-calculator">calorie calculator</a>{" "}
-      for goal-based targets, and the{" "}
-      <a href="/tools/macro-calculator">macro calculator</a> to split TDEE
-      into protein, carbs, and fat once you have a calorie floor.
+      Sayı için <a href="/tools/bmr-calculator">BMR hesaplayıcıyı</a>, hedef bazlı hedefler için <a href="/tools/calorie-calculator">kalori hesaplayıcıyı</a> ve bir kalori tabanınız olduğunda TDEE'yi protein, karbonhidrat ve yağa bölmek için <a href="/tools/macro-calculator">makro hesaplayıcıyı</a> kullanın.
     </p>
   </>
 );

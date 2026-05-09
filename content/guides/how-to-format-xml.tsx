@@ -3,79 +3,40 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      XML looks like HTML&rsquo;s stricter cousin, but the stricter part matters. Unlike HTML,
-      where browsers forgive mismatched tags and missing quotes, XML parsers reject anything
-      malformed&mdash;a single unescaped ampersand halts processing. That strictness is the point:
-      XML is used where data integrity across systems is more important than author convenience,
-      which is why it still powers SOAP, SAML, RSS, SVG, OOXML, and a long tail of industry
-      formats. Formatting XML for humans means balancing readability against parser-significant
-      whitespace, attribute order stability for diffs, CDATA preservation, and namespace clarity.
-      This guide covers the XML declaration, DOCTYPE, namespaces, attribute ordering, whitespace
-      handling inside and outside content, CDATA blocks, and the difference between pretty-print
-      and canonical XML.
+      XML, HTML&rsquo;nin daha katı kuzeni gibi görünür, ancak önemli olan katı kısımdır. Tarayıcıların uyumsuz etiketleri ve eksik tırnakları affettiği HTML&rsquo;nin aksine, XML ayrıştırıcıları hatalı biçimlendirilmiş her şeyi reddeder&mdash;tek bir kaçışsız ve işareti işlemi durdurur. Bu katılık asıl noktadır: XML, sistemler arasında veri bütünlüğünün yazar rahatlığından daha önemli olduğu yerlerde kullanılır, bu yüzden hala SOAP, SAML, RSS, SVG, OOXML ve uzun bir endüstri formatları kuyruğuna güç verir. XML&rsquo;i insanlar için biçimlendirmek, okunabilirliği ayrıştırıcı için önemli boşluklar, farklar için kararlı öznitelik sırası, CDATA koruması ve ad alanı netliği arasında denge kurmak anlamına gelir. Bu kılavuz, XML bildirimi, DOCTYPE, ad alanları, öznitelik sıralaması, içerik içinde ve dışında boşluk yönetimi, CDATA blokları ve güzel yazdırma ile kanonik XML arasındaki farkı kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The XML declaration</h2>
+    <h2>XML bildirimi</h2>
     <p>
-      The declaration <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code>
-      must be the first line of the document if present, with no leading whitespace or
-      byte-order-mark visible ahead of it. It tells the parser which XML version (1.0 is
-      universal; 1.1 adds support for more Unicode characters in names but is rarely used) and
-      which character encoding applies. The declaration is optional for UTF-8 and UTF-16 content,
-      but including it explicitly avoids ambiguity when files are transferred across systems that
-      might re-encode silently.
+      <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code> bildirimi, varsa belgenin ilk satırı olmalıdır ve önünde görünür bir baştaki boşluk veya bayt sırası işareti olmamalıdır. Ayrıştırıcıya hangi XML sürümünün (1.0 evrenseldir; 1.1, adlarda daha fazla Unicode karakter desteği ekler ancak nadiren kullanılır) ve hangi karakter kodlamasının geçerli olduğunu söyler. Bildirim, UTF-8 ve UTF-16 içerik için isteğe bağlıdır, ancak açıkça dahil edilmesi, dosyalar sessizce yeniden kodlayabilecek sistemler arasında aktarıldığında belirsizliği önler.
     </p>
     <pre>{`<?xml version="1.0" encoding="UTF-8"?>
 <root>
   <child>content</child>
 </root>`}</pre>
 
-    <h2>DOCTYPE and schema references</h2>
+    <h2>DOCTYPE ve şema referansları</h2>
     <p>
-      DOCTYPE declarations are used in XML to reference a DTD (Document Type Definition). They
-      appear after the XML declaration and before the root element. Modern XML usage mostly
-      replaces DTDs with XSD schemas, referenced via <code>xsi:schemaLocation</code> or
-      <code>xsi:noNamespaceSchemaLocation</code> attributes on the root element. Formatters
-      should leave DOCTYPE and schema references alone&mdash;moving them or altering whitespace
-      inside them can invalidate the document.
+      DOCTYPE bildirimleri, XML&rsquo;de bir DTD (Belge Türü Tanımı) referans vermek için kullanılır. XML bildiriminden sonra ve kök öğeden önce görünürler. Modern XML kullanımı çoğunlukla DTD&rsquo;leri, kök öğede <code>xsi:schemaLocation</code> veya <code>xsi:noNamespaceSchemaLocation</code> öznitelikleri aracılığıyla referans verilen XSD şemalarıyla değiştirir. Biçimlendiriciler DOCTYPE ve şema referanslarını olduğu gibi bırakmalıdır&mdash;onları taşımak veya içlerindeki boşluğu değiştirmek belgeyi geçersiz kılabilir.
     </p>
 
-    <h2>Namespaces</h2>
+    <h2>Ad alanları</h2>
     <p>
-      XML namespaces prevent element-name collisions when documents combine vocabularies from
-      multiple sources. A namespace is declared with <code>xmlns=&quot;URI&quot;</code> for the
-      default namespace or <code>xmlns:prefix=&quot;URI&quot;</code> for a prefixed one. The URI
-      is an identifier, not a URL the parser fetches. Consistent prefix choices make documents
-      easier to read: <code>xs</code> or <code>xsd</code> for XML Schema, <code>xsi</code> for
-      XML Schema Instance, <code>soap</code> for SOAP Envelope, <code>atom</code> for Atom feeds.
-      Formatters preserve the exact prefix and URI because changing them changes the semantics of
-      every child element.
+      XML ad alanları, belgeler birden çok kaynaktan gelen sözcük dağarcıklarını birleştirdiğinde öğe adı çakışmalarını önler. Bir ad alanı, varsayılan ad alanı için <code>xmlns=&quot;URI&quot;</code> veya önekli bir ad alanı için <code>xmlns:prefix=&quot;URI&quot;</code> ile bildirilir. URI, ayrıştırıcının getirdiği bir URL değil, bir tanımlayıcıdır. Tutarlı önek seçimleri belgeleri okumayı kolaylaştırır: XML Şeması için <code>xs</code> veya <code>xsd</code>, XML Şeması Örneği için <code>xsi</code>, SOAP Zarfı için <code>soap</code>, Atom beslemeleri için <code>atom</code>. Biçimlendiriciler tam öneki ve URI&rsquo;yi korur çünkü bunları değiştirmek her alt öğenin anlamını değiştirir.
     </p>
 
-    <h2>Attribute order and equality</h2>
+    <h2>Öznitelik sırası ve eşitlik</h2>
     <p>
-      XML has no required attribute order&mdash;two elements with the same name and attributes in
-      different orders are semantically equal. However, <em>textual</em> diffs care about order,
-      so consistent attribute ordering reduces noise in version control. Alphabetical order is the
-      simplest rule and is what XML Canonicalization (C14N) uses. A more readable convention
-      places <code>xmlns</code> declarations first, followed by <code>id</code> and
-      <code>name</code>, then domain-specific attributes. Pick one and let the formatter enforce
-      it.
+      XML&rsquo;de zorunlu bir öznitelik sırası yoktur&mdash;aynı ada ve farklı sıralarda özniteliklere sahip iki öğe anlamsal olarak eşittir. Ancak, <em>metinsel</em> farklar sırayı önemser, bu nedenle tutarlı öznitelik sıralaması sürüm kontrolündeki gürültüyü azaltır. Alfabetik sıra en basit kuraldır ve XML Kanonikleştirmesinin (C14N) kullandığı şeydir. Daha okunabilir bir kural, önce <code>xmlns</code> bildirimlerini, ardından <code>id</code> ve <code>name</code>&rsquo;i, sonra alana özgü öznitelikleri yerleştirir. Birini seçin ve biçimlendiricinin bunu uygulamasına izin verin.
     </p>
 
-    <h2>Significant versus insignificant whitespace</h2>
+    <h2>Önemli ve önemsiz boşluk</h2>
     <p>
-      Whitespace between tags outside text content is usually insignificant, and formatters add
-      newlines and indentation freely there. Whitespace <em>inside</em> text content is
-      significant by default&mdash;an XML parser reports the whitespace to the consuming
-      application. The <code>xml:space=&quot;preserve&quot;</code> attribute flags an element
-      whose whitespace must not be altered, and <code>xml:space=&quot;default&quot;</code> allows
-      the formatter to treat whitespace normally. When pretty-printing, respect these attributes
-      or you risk corrupting content that downstream systems interpret literally.
+      Metin içeriğinin dışındaki etiketler arasındaki boşluk genellikle önemsizdir ve biçimlendiriciler oraya serbestçe yeni satırlar ve girintiler ekler. Metin içeriğinin <em>içindeki</em> boşluk varsayılan olarak önemlidir&mdash;bir XML ayrıştırıcısı boşluğu tüketen uygulamaya bildirir. <code>xml:space=&quot;preserve&quot;</code> özniteliği, boşluğu değiştirilmemesi gereken bir öğeyi işaretler ve <code>xml:space=&quot;default&quot;</code>, biçimlendiricinin boşluğu normal şekilde ele almasına izin verir. Güzel yazdırma yaparken, bu özniteliklere saygı gösterin, aksi takdirde aşağı akış sistemlerinin tam anlamıyla yorumladığı içeriği bozma riskiniz vardır.
     </p>
     <pre>{`<root>
   <code xml:space="preserve">
@@ -85,93 +46,55 @@ export const body: ReactElement = (
   <description>Allow reformatting here.</description>
 </root>`}</pre>
 
-    <h2>CDATA sections</h2>
+    <h2>CDATA bölümleri</h2>
     <p>
-      CDATA sections <code>&lt;![CDATA[ ... ]]&gt;</code> are used to include literal text that
-      would otherwise need extensive escaping&mdash;code, HTML, or anything full of angle
-      brackets and ampersands. Inside CDATA, all characters are taken literally except the
-      closing <code>]]&gt;</code> sequence, which you have to split across two CDATA sections if
-      your content contains it. Formatters must never reformat CDATA contents. The only valid
-      transformation is converting CDATA to escaped text or vice versa, and that is a semantic
-      change the formatter should not make automatically.
+      CDATA bölümleri <code>&lt;![CDATA[ ... ]]&gt;</code>, aksi takdirde kapsamlı kaçış gerektirecek gerçek metni&mdash;kod, HTML veya açılı ayraçlar ve ve işaretleriyle dolu herhangi bir şey&mdash;dahil etmek için kullanılır. CDATA içinde, kapanış <code>]]&gt;</code> dizisi dışındaki tüm karakterler tam anlamıyla alınır; eğer içeriğiniz bunu içeriyorsa, iki CDATA bölümüne ayırmanız gerekir. Biçimlendiriciler CDATA içeriğini asla yeniden biçimlendirmemelidir. Geçerli tek dönüşüm, CDATA&rsquo;yı kaçışlı metne veya tam tersine dönüştürmektir ve bu, biçimlendiricinin otomatik olarak yapmaması gereken anlamsal bir değişikliktir.
     </p>
 
-    <h2>Character escaping</h2>
+    <h2>Karakter kaçışı</h2>
     <p>
-      Five characters have special meaning in XML text content and attribute values: <code>&amp;</code>,
-      <code>&lt;</code>, <code>&gt;</code>, <code>&apos;</code> (apostrophe), and <code>&quot;</code>.
-      They must be escaped as <code>&amp;amp;</code>, <code>&amp;lt;</code>, <code>&amp;gt;</code>,
-      <code>&amp;apos;</code>, and <code>&amp;quot;</code> respectively. Numeric character references
-      like <code>&amp;#x2014;</code> (em dash) are legal anywhere. A formatter should not silently
-      switch between named and numeric entities because the choice may be meaningful to consumers.
+      XML metin içeriğinde ve öznitelik değerlerinde beş karakter özel anlama sahiptir: <code>&amp;</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&apos;</code> (kesme işareti) ve <code>&quot;</code>. Bunlar sırasıyla <code>&amp;amp;</code>, <code>&amp;lt;</code>, <code>&amp;gt;</code>, <code>&amp;apos;</code> ve <code>&amp;quot;</code> olarak kaçış yapılmalıdır. <code>&amp;#x2014;</code> (em tire) gibi sayısal karakter referansları her yerde yasaldır. Bir biçimlendirici, adlandırılmış ve sayısal varlıklar arasında sessizce geçiş yapmamalıdır çünkü seçim tüketiciler için anlamlı olabilir.
     </p>
 
-    <h2>Pretty-print versus canonical XML</h2>
+    <h2>Güzel yazdırma ve kanonik XML</h2>
     <p>
-      Pretty-printing rewrites an XML document to be human-readable: consistent indentation,
-      newlines between elements, and wrapped attributes. Canonical XML (C14N) rewrites a document
-      into a byte-identical normalized form used for digital signatures and hash comparisons.
-      C14N rules include: no XML declaration, sorted attribute order, normalized whitespace in
-      attribute values, resolved namespace declarations, and replacement of empty-element tags
-      with start-and-end-tag pairs. C14N output is not especially readable but is reproducible,
-      which is what matters for cryptographic operations on SAML assertions or XML-DSig documents.
+      Güzel yazdırma, bir XML belgesini insan tarafından okunabilir hale getirmek için yeniden yazar: tutarlı girinti, öğeler arasında yeni satırlar ve sarılmış öznitelikler. Kanonik XML (C14N), bir belgeyi dijital imzalar ve karma karşılaştırmaları için kullanılan bayt-özdeş normalleştirilmiş bir forma yeniden yazar. C14N kuralları şunları içerir: XML bildirimi yok, sıralanmış öznitelik sırası, öznitelik değerlerinde normalleştirilmiş boşluk, çözümlenmiş ad alanı bildirimleri ve boş öğe etiketlerinin başlangıç-ve-bitiş-etiketi çiftleriyle değiştirilmesi. C14N çıktısı özellikle okunabilir değildir ancak tekrarlanabilirdir, bu da SAML iddiaları veya XML-DSig belgeleri üzerindeki kriptografik işlemler için önemli olan şeydir.
     </p>
 
-    <h2>Handling large XML files</h2>
+    <h2>Büyük XML dosyalarını işleme</h2>
     <p>
-      Pretty-printing a 500 MB XML file in memory will exhaust most environments. <a href="/learn/stream">Streaming</a>
-      formatters that use a pull parser (StAX in Java, <code>xml.etree.iterparse</code> in
-      Python) can pretty-print arbitrarily large documents. For occasional cleanup, splitting the
-      file on a known boundary element, formatting chunks, and reassembling works well enough.
-      For production pipelines, prefer tools that emit formatted output during serialization
-      rather than reformatting after the fact.
+      500 MB&rsquo;lık bir XML dosyasını bellekte güzel yazdırmak çoğu ortamı tüketecektir. Bir çekme ayrıştırıcısı (Java&rsquo;da StAX, Python&rsquo;da <code>xml.etree.iterparse</code>) kullanan <a href="/learn/stream">Akış</a> biçimlendiricileri, keyfi olarak büyük belgeleri güzel yazdırabilir. Ara sıra temizlik için, dosyayı bilinen bir sınır öğesinde bölmek, parçaları biçimlendirmek ve yeniden birleştirmek yeterince iyi çalışır. Üretim hatları için, sonradan yeniden biçimlendirmek yerine serileştirme sırasında biçimlendirilmiş çıktı yayan araçları tercih edin.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Reformatting <code>xml:space=&quot;preserve&quot;</code> content.</strong> Strip
-      whitespace there and you corrupt the semantics of the document. A good formatter honors the
-      attribute automatically.
+      <strong><code>xml:space=&quot;preserve&quot;</code> içeriğini yeniden biçimlendirme.</strong> Oradaki boşluğu kaldırın ve belgenin anlamını bozarsınız. İyi bir biçimlendirici özniteliğe otomatik olarak saygı gösterir.
     </p>
     <p>
-      <strong>Breaking CDATA with indentation.</strong> Formatters that indent inside CDATA add
-      leading whitespace to the literal content, which changes what consumers see. CDATA content
-      must be untouched.
+      <strong>CDATA&rsquo;yı girintiyle bozma.</strong> CDATA içinde girinti yapan biçimlendiriciler, gerçek içeriğe baştaki boşluk ekler ve bu, tüketicilerin gördüklerini değiştirir. CDATA içeriğine dokunulmamalıdır.
     </p>
     <p>
-      <strong>Changing attribute order in signed documents.</strong> SAML and XML-DSig rely on
-      canonical form for signature verification. Reformatting a signed document breaks the
-      signature unless you reapply canonicalization identically.
+      <strong>İmzalı belgelerde öznitelik sırasını değiştirme.</strong> SAML ve XML-DSig, imza doğrulaması için kanonik forma güvenir. İmzalı bir belgeyi yeniden biçimlendirmek, kanonikleştirmeyi aynı şekilde yeniden uygulamadığınız sürece imzayı bozar.
     </p>
     <p>
-      <strong>Forgetting to escape ampersands.</strong> A raw <code>&amp;</code> in text or an
-      attribute value produces a parser error. Always escape as <code>&amp;amp;</code>.
+      <strong>Ve işaretlerini kaçış yapmayı unutma.</strong> Metin veya öznitelik değerinde ham bir <code>&amp;</code>, ayrıştırıcı hatası üretir. Her zaman <code>&amp;amp;</code> olarak kaçış yapın.
     </p>
     <p>
-      <strong>Mixing attribute quote styles.</strong> XML allows either single or double quotes
-      around attribute values, but mixed quoting makes diffs noisy. Pick double quotes and let
-      the formatter enforce it.
+      <strong>Öznitelik tırnak stillerini karıştırma.</strong> XML, öznitelik değerleri etrafında tek veya çift tırnaklara izin verir, ancak karışık tırnak kullanımı farkları gürültülü hale getirir. Çift tırnak seçin ve biçimlendiricinin bunu uygulamasına izin verin.
     </p>
     <p>
-      <strong>Assuming empty-element collapse is free.</strong> <code>&lt;tag&gt;&lt;/tag&gt;</code>
-      and <code>&lt;tag/&gt;</code> parse to identical infosets, but a formatter that collapses
-      them can change the byte signature of a document. For most uses this is harmless; for
-      canonical documents it matters.
+      <strong>Boş öğe daraltmasının ücretsiz olduğunu varsayma.</strong> <code>&lt;tag&gt;&lt;/tag&gt;</code> ve <code>&lt;tag/&gt;</code> aynı bilgi kümelerine ayrıştırılır, ancak onları daraltan bir biçimlendirici bir belgenin bayt imzasını değiştirebilir. Çoğu kullanım için bu zararsızdır; kanonik belgeler için önemlidir.
     </p>
     <p>
-      <strong>Editing BOM-containing files without care.</strong> A byte-order-mark before the
-      XML declaration is legal in some encodings and illegal in others. Formatters that silently
-      add or remove a BOM can break downstream parsers.
+      <strong>BOM içeren dosyaları özen göstermeden düzenleme.</strong> XML bildiriminden önceki bir bayt sırası işareti bazı kodlamalarda yasal ve diğerlerinde yasa dışıdır. Sessizce BOM ekleyen veya kaldıran biçimlendiriciler, aşağı akış ayrıştırıcılarını bozabilir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Pretty-print, collapse, or canonicalize XML in the browser with the{" "}
-      <a href="/tools/xml-formatter">XML formatter</a>. Pair with the{" "}
-      <a href="/tools/html-formatter">HTML formatter</a> for XHTML and SVG documents where both
-      specs overlap, and the{" "}
-      <a href="/tools/json-formatter">JSON formatter</a> when you are translating legacy SOAP/XML
-      payloads into JSON REST equivalents.
+      XML&rsquo;i tarayıcıda güzel yazdırın, daraltın veya kanonikleştirin{" "}
+      <a href="/tools/xml-formatter">XML biçimlendirici</a> ile. Her iki spesifikasyonun örtüştüğü XHTML ve SVG belgeleri için{" "}
+      <a href="/tools/html-formatter">HTML biçimlendirici</a> ile ve eski SOAP/XML yüklerini JSON REST eşdeğerlerine çevirirken{" "}
+      <a href="/tools/json-formatter">JSON biçimlendirici</a> ile eşleştirin.
     </p>
   </>
 );

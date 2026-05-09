@@ -2,56 +2,56 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    AI for email in 2026 splits into in-inbox tools (Superhuman AI, Shortwave, Gemini in Gmail)
-    and on-the-side tools (ChatGPT, Claude). The right pick depends on how much you want the AI
-    inside your inbox vs out of it.
+    2026'da e-posta için yapay zeka, gelen kutusu içi araçlar (Superhuman AI, Shortwave, Gmail'de Gemini)
+    ve gelen kutusu dışı araçlar (ChatGPT, Claude) olarak ikiye ayrılır. Doğru seçim, yapay zekanın
+    gelen kutunuzun içinde mi yoksa dışında mı olmasını istediğinize bağlıdır.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>By workflow</h2>
+    <h2>İş akışına göre</h2>
     <ul>
-      <li><strong>Gmail users:</strong> Gemini in Gmail (free with Gemini Advanced or Workspace).
-        Native, fast, learns your voice.</li>
-      <li><strong>Power-user inbox:</strong> Superhuman AI ($30-40/mo). Drafts replies, summarizes
-        threads, snoozes intelligently.</li>
-      <li><strong>Apple Mail / Outlook:</strong> Shortwave ($35/mo) or Apple Intelligence (free
-        with M-series Macs). Both add summarize + reply assist.</li>
-      <li><strong>Long emails / careful drafting:</strong> Claude Pro on the side. Best at tone
-        calibration when the stakes matter.</li>
-      <li><strong>Bulk outreach (sales / cold):</strong> Lavender, Smartlead AI, or Instantly.
-        Personalization at scale.</li>
+      <li><strong>Gmail kullanıcıları:</strong> Gmail'de Gemini (Gemini Advanced veya Workspace ile ücretsiz).
+        Yerel, hızlı, sesinizi öğrenir.</li>
+      <li><strong>Güç kullanıcı gelen kutusu:</strong> Superhuman AI (30-40$/ay). Yanıtlar tasarlar, konuları
+        özetler, akıllıca erteler.</li>
+      <li><strong>Apple Mail / Outlook:</strong> Shortwave (35$/ay) veya Apple Intelligence (M serisi Mac'lerle
+        ücretsiz). İkisi de özetleme ve yanıt yardımı ekler.</li>
+      <li><strong>Uzun e-postalar / dikkatli yazma:</strong> Yan tarafta Claude Pro. Riskli durumlarda ton
+        ayarlamada en iyisi.</li>
+      <li><strong>Toplu erişim (satış / soğuk):</strong> Lavender, Smartlead AI veya Instantly.
+        Ölçekte kişiselleştirme.</li>
     </ul>
 
-    <h2>What works in practice</h2>
+    <h2>Pratikte işe yarayanlar</h2>
     <ul>
-      <li><strong>Summarize a long thread:</strong> &ldquo;TL;DR + action items&rdquo; prompt to
-        any flagship works perfectly.</li>
-      <li><strong>Match a colleague&rsquo;s tone:</strong> paste 3 of their prior emails as
-        examples, then ask for a reply. Claude wins on this consistently.</li>
-      <li><strong>Difficult email (firing, conflict, hard ask):</strong> draft with Claude or
-        ChatGPT, then sit on it for an hour and re-edit. Don&rsquo;t send AI&rsquo;s first draft.</li>
-      <li><strong>Newsletter triage:</strong> Shortwave or Superhuman bundle them into one digest.</li>
+      <li><strong>Uzun bir konuyu özetleme:</strong> &ldquo;ÖZET + yapılacaklar&rdquo; komutu herhangi bir
+        amiral gemisiyle mükemmel çalışır.</li>
+      <li><strong>Bir iş arkadaşının tonunu yakalama:</strong> önceki 3 e-postalarını örnek olarak yapıştırın,
+        ardından bir yanıt isteyin. Claude bu konuda tutarlı bir şekilde kazanır.</li>
+      <li><strong>Zor e-posta (işten çıkarma, çatışma, zor talep):</strong> Claude veya ChatGPT ile taslak
+        oluşturun, sonra bir saat bekleyip yeniden düzenleyin. Yapay zekanın ilk taslağını göndermeyin.</li>
+      <li><strong>Bülten triyajı:</strong> Shortwave veya Superhuman bunları tek bir özette birleştirir.</li>
     </ul>
 
-    <h2>What doesn&rsquo;t work</h2>
+    <h2>İşe yaramayanlar</h2>
     <ul>
-      <li>Auto-replying to every email. AI can&rsquo;t reliably tell when a casual line was actually
-        important.</li>
-      <li>Letting the AI send without your review. Embarrassing mistakes are cheap to prevent.</li>
-      <li>Asking for an &ldquo;email&rdquo; without context. AI emails read generic without
-        examples and constraints.</li>
+      <li>Her e-postaya otomatik yanıt verme. Yapay zeka, sıradan bir satırın aslında önemli olup olmadığını
+        güvenilir bir şekilde ayırt edemez.</li>
+      <li>Yapay zekanın sizin incelemeniz olmadan göndermesine izin vermek. Utanç verici hataları önlemek ucuzdur.</li>
+      <li>Bağlam olmadan &ldquo;e-posta&rdquo; istemek. Yapay zeka e-postaları, örnekler ve kısıtlamalar olmadan
+        genel okunur.</li>
     </ul>
 
-    <h2>Pricing</h2>
+    <h2>Fiyatlandırma</h2>
     <ul>
-      <li>$0: Gemini in Gmail with free Gmail account; ChatGPT free; Claude free.</li>
-      <li>$20: ChatGPT Plus, Claude Pro, or Gemini Advanced.</li>
-      <li>$30-40: Superhuman or Shortwave for inbox-native.</li>
+      <li>0$: Ücretsiz Gmail hesabıyla Gmail'de Gemini; ücretsiz ChatGPT; ücretsiz Claude.</li>
+      <li>20$: ChatGPT Plus, Claude Pro veya Gemini Advanced.</li>
+      <li>30-40$: Gelen kutusu yerel için Superhuman veya Shortwave.</li>
     </ul>
     <p>
-      Related: <a href="/guides/how-to-write-professional-emails">how to write professional emails</a>.
+      İlgili: <a href="/guides/how-to-write-professional-emails">profesyonel e-postalar nasıl yazılır</a>.
     </p>
   </>
 );

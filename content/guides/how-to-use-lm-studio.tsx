@@ -2,53 +2,53 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    LM Studio is a desktop GUI for running local LLMs &mdash; download weights from a built-in Hugging Face browser,
-    chat with them in a clean UI, and expose an OpenAI-compatible server on localhost. This guide covers a working
-    setup on a typical developer laptop.
+    LM Studio, yerel LLM'leri çalıştırmak için bir masaüstü GUI'sidir &mdash; yerleşik bir Hugging Face tarayıcısından ağırlıkları indirin,
+    temiz bir arayüzde onlarla sohbet edin ve localhost üzerinde OpenAI uyumlu bir sunucu açın. Bu kılavuz, tipik bir geliştirici
+    dizüstü bilgisayarında çalışan bir kurulumu kapsar.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What LM Studio is</h2>
+    <h2>LM Studio Nedir</h2>
     <p>
-      LM Studio is an Electron app that wraps <code>llama.cpp</code> (and optionally MLX on Apple Silicon) with a
-      polished UI. It handles model discovery, downloads, GPU offload config, chat templates, and serving through a
-      single window. If Ollama is the CLI/server experience, LM Studio is the desktop-client experience &mdash; and
-      the two coexist fine on the same machine.
+      LM Studio, <code>llama.cpp</code>'yi (ve isteğe bağlı olarak Apple Silicon'da MLX'i) şık bir arayüzle saran bir Electron
+      uygulamasıdır. Model keşfi, indirmeler, GPU yük boşaltma yapılandırması, sohbet şablonları ve sunucu hizmetini tek bir
+      pencere üzerinden yönetir. Ollama CLI/sunucu deneyimiyse, LM Studio masaüstü-istemci deneyimidir &mdash; ve
+      ikisi aynı makinede sorunsuzca bir arada çalışabilir.
     </p>
     <p>
-      It is free for personal use. Commercial use requires filling out a form on their site; read the latest terms
-      before shipping it to coworkers.
-    </p>
-
-    <h2>Install and first launch</h2>
-    <p>
-      Download the installer for macOS, Windows, or Linux from lmstudio.ai. On first launch it will ask which
-      runtime to use &mdash; pick the CUDA build on NVIDIA, Metal on Apple Silicon, or the Vulkan/ROCm build on AMD.
-      The app self-updates the runtime from within Settings.
-    </p>
-    <p>
-      Check the Hardware tab under Settings. It should detect your GPU and show available <a href="/learn/vrm-vram">VRAM</a>. If it does not, your
-      drivers are likely out of date &mdash; fix that before loading a model.
+      Kişisel kullanım için ücretsizdir. Ticari kullanım, sitelerindeki bir formu doldurmayı gerektirir; iş arkadaşlarınıza
+      göndermeden önce en son şartları okuyun.
     </p>
 
-    <h2>Downloading and loading a model</h2>
+    <h2>Kurulum ve ilk çalıştırma</h2>
     <p>
-      Hit the magnifying-glass icon to open the model search. Type something like <code>llama-3.1-8b-instruct</code>
-      and LM Studio surfaces GGUF quantizations from Hugging Face. Each result shows download size and a green/yellow
-      /red badge for whether it will fit in your RAM + VRAM.
+      lmstudio.ai adresinden macOS, Windows veya Linux için yükleyiciyi indirin. İlk çalıştırmada hangi çalışma zamanını
+      kullanmak istediğinizi soracaktır &mdash; NVIDIA'da CUDA derlemesini, Apple Silicon'da Metal'i veya AMD'de Vulkan/ROCm
+      derlemesini seçin. Uygulama, çalışma zamanını Ayarlar içinden kendi kendine günceller.
     </p>
     <p>
-      For a 16GB MacBook, <code>Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf</code> is a good first pick. Download it,
-      then click the Chat tab and select it from the top dropdown. The first load takes a few seconds while weights
-      stream into GPU memory.
+      Ayarlar altındaki Donanım sekmesini kontrol edin. GPU'nuzu algılamalı ve mevcut <a href="/learn/vrm-vram">VRAM</a>'i göstermelidir.
+      Algılamazsa, sürücüleriniz büyük olasılıkla güncel değildir &mdash; bir model yüklemeden önce bunu düzeltin.
     </p>
 
-    <h2>Using the local server</h2>
+    <h2>Model indirme ve yükleme</h2>
     <p>
-      Click the green Developer tab on the left sidebar and toggle <code>Status: Running</code>. LM Studio now
-      exposes an OpenAI-compatible API at <code>http://localhost:1234/v1</code>:
+      Model aramasını açmak için büyüteç simgesine tıklayın. <code>llama-3.1-8b-instruct</code> gibi bir şey yazın
+      ve LM Studio, Hugging Face'den GGUF nicelemelerini listeler. Her sonuç, indirme boyutunu ve RAM + VRAM'inize sığıp
+      sığmayacağını gösteren yeşil/sarı/kırmızı bir rozet gösterir.
+    </p>
+    <p>
+      16GB MacBook için <code>Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf</code> iyi bir ilk seçimdir. İndirin,
+      ardından Sohbet sekmesine tıklayın ve üst açılır menüden onu seçin. İlk yükleme, ağırlıklar GPU belleğine akarken
+      birkaç saniye sürer.
+    </p>
+
+    <h2>Yerel sunucuyu kullanma</h2>
+    <p>
+      Sol kenar çubuğundaki yeşil Geliştirici sekmesine tıklayın ve <code>Durum: Çalışıyor</code> seçeneğini açın. LM Studio
+      şimdi <code>http://localhost:1234/v1</code> adresinde OpenAI uyumlu bir API sunar:
     </p>
     <pre>{`curl http://localhost:1234/v1/chat/completions \\
   -H "Content-Type: application/json" \\
@@ -57,28 +57,29 @@ export const body: ReactElement = (
     "messages": [{"role": "user", "content": "ping"}]
   }'`}</pre>
     <p>
-      From Python, use the OpenAI SDK with <code>base_url=&quot;http://localhost:1234/v1&quot;</code> and any
-      non-empty API key. Structured outputs and tool-calling work for models that were fine-tuned for them.
+      Python'dan, <code>base_url=&quot;http://localhost:1234/v1&quot;</code> ve boş olmayan herhangi bir API anahtarı ile
+      OpenAI SDK'sını kullanın. Yapılandırılmış çıktılar ve araç çağırma, bunlar için ince ayar yapılmış modellerde çalışır.
     </p>
 
-    <h2>GPU offload and context length</h2>
+    <h2>GPU yük boşaltma ve bağlam uzunluğu</h2>
     <p>
-      In the right-side configuration panel, the <code>GPU Offload</code> slider controls how many <a href="/learn/transformer">transformer</a>
-      layers run on the GPU. Push it to max if VRAM allows; if you OOM at load time, back off a few layers. The
-      <code>Context Length</code> field sets the KV-cache window &mdash; larger contexts eat memory quadratically
-      in some kernels, so start at 4096 and raise only if you actually need it.
+      Sağ taraftaki yapılandırma panelinde, <code>GPU Yük Boşaltma</code> kaydırıcısı, kaç <a href="/learn/transformer">transformer</a>
+      katmanının GPU'da çalışacağını kontrol eder. VRAM izin veriyorsa maksimuma itin; yükleme sırasında bellek hatası alırsanız,
+      birkaç katman geri alın. <code>Bağlam Uzunluğu</code> alanı KV-önbellek penceresini ayarlar &mdash; daha büyük bağlamlar
+      bazı çekirdeklerde belleği katlanarak tüketir, bu nedenle 4096 ile başlayın ve yalnızca gerçekten ihtiyacınız varsa artırın.
     </p>
     <p>
-      Enable <code>Flash Attention</code> when available &mdash; it cuts memory and speeds up long contexts. On
-      Apple Silicon, try the MLX runtime variants of models for measurably faster token throughput than GGUF.
+      Mümkün olduğunda <code>Flash Attention</code>'ı etkinleştirin &mdash; belleği azaltır ve uzun bağlamları hızlandırır.
+      Apple Silicon'da, GGUF'den ölçülebilir şekilde daha hızlı token çıktısı için modellerin MLX çalışma zamanı
+      varyantlarını deneyin.
     </p>
 
-    <h2>When LM Studio is the wrong choice</h2>
+    <h2>LM Studio'nun yanlış seçim olduğu durumlar</h2>
     <p>
-      LM Studio is great on a workstation but a bad fit for headless servers (it is a GUI app) and for automation
-      pipelines where you want models defined in code. It is also closed-source, which matters if you need to audit
-      the stack. For servers, use Ollama or llama.cpp directly. For desktop use and quickly A/B-testing models, LM
-      Studio is the fastest path from zero to a running local <a href="/learn/llm">LLM</a>.
+      LM Studio bir iş istasyonunda harikadır ancak başsız sunucular (bir GUI uygulamasıdır) ve modellerin kodda tanımlanmasını
+      istediğiniz otomasyon boru hatları için uygun değildir. Ayrıca kapalı kaynaktır, bu da yığını denetlemeniz gerekiyorsa
+      önemlidir. Sunucular için doğrudan Ollama veya llama.cpp kullanın. Masaüstü kullanımı ve modelleri hızlıca A/B test etmek
+      için LM Studio, sıfırdan çalışan bir yerel <a href="/learn/llm">LLM</a>'ye giden en hızlı yoldur.
     </p>
   </>
 );

@@ -2,58 +2,58 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    You don&rsquo;t need a farm to grow food. A balcony, a sunny window, or a 4x4 patch of dirt can put real produce on your table &mdash; if you start with the right crops.
+    Bir çiftliğe ihtiyacınız yok. Bir balkon, güneş alan bir pencere ya da 4x4'lük bir toprak parçası, doğru ürünlerle başlarsanız masanıza gerçek sebzeler koyabilir.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      Urban farming isn&rsquo;t self-sufficiency &mdash; it&rsquo;s supplementation. Your goal isn&rsquo;t to replace the grocery store, it&rsquo;s to grow the things that taste dramatically better fresh and cost the most to buy in good quality. Start narrow, win fast, then expand.
+      Kentsel tarım kendi kendine yeterlilik değil, tamamlayıcılıktır. Amacınız marketin yerini almak değil, taze tadı çok daha iyi olan ve kaliteli olanı satın alması pahalı olan şeyleri yetiştirmektir. Dar başlayın, hızlı kazanın, sonra genişletin.
     </p>
 
-    <h2>Grow what&rsquo;s hard to buy well</h2>
+    <h2>İyi satın alması zor olanı yetiştirin</h2>
     <p>
-      Supermarket tomatoes are mealy, fresh herbs cost $3 for a pinch, good lettuce wilts in a day, and peppers are picked green and shipped unripe. That&rsquo;s your starter list: tomatoes, basil, parsley, cilantro, dill, lettuce, peppers. They&rsquo;re forgiving for beginners and the quality jump from homegrown is massive. Save the corn, potatoes, and onions for the farmer&rsquo;s market &mdash; they&rsquo;re cheap and boring to grow.
+      Market domatesleri un gibidir, taze otlar bir tutam için 3 dolar, iyi marul bir günde solar ve biberler yeşil toplanıp olgunlaşmamış gönderilir. İşte başlangıç listeniz: domates, fesleğen, maydanoz, kişniş, dereotu, marul, biber. Yeni başlayanlar için affedicidirler ve evde yetiştirilenin kalite farkı çok büyüktür. Mısır, patates ve soğanı çiftçi pazarına bırakın &mdash; ucuzdurlar ve yetiştirmesi sıkıcıdır.
     </p>
 
-    <h2>Know your frost dates</h2>
+    <h2>Don tarihlerinizi bilin</h2>
     <p>
-      Look up your USDA hardiness zone and your local average last-frost and first-frost dates. Everything else &mdash; when to start seeds, when to transplant, when to harvest &mdash; keys off those two numbers. Planting a tomato outside two weeks before last frost is the #1 reason beginners lose their first crop.
+      USDA sertlik bölgenizi ve bölgenizdeki ortalama son don ve ilk don tarihlerini araştırın. Diğer her şey &mdash; tohum ne zaman ekilir, ne zaman şaşırtılır, ne zaman hasat edilir &mdash; bu iki sayıya bağlıdır. Son dondan iki hafta önce domatesi dışarı dikmek, yeni başlayanların ilk mahsulünü kaybetmesinin 1 numaralı nedenidir.
     </p>
 
-    <h2>Containers: what works</h2>
+    <h2>Saksılar: işe yarayanlar</h2>
     <ul>
-      <li>Anything with root depth under 30 inches grows in pots.</li>
-      <li>Herbs and leafy greens: 1&ndash;3 gallon pots.</li>
-      <li>Peppers and bush beans: 3&ndash;5 gallon.</li>
-      <li>Tomatoes: 5-gallon minimum, 10-gallon ideal. Determinate varieties stay compact.</li>
-      <li>Vertical options for small balconies: wall planters, A-frame racks, railing planters, stackable strawberry towers.</li>
+      <li>Kök derinliği 30 inçin altında olan her şey saksıda yetişir.</li>
+      <li>Otlar ve yapraklı yeşillikler: 1&ndash;3 galonluk saksılar.</li>
+      <li>Biberler ve çalı fasulyesi: 3&ndash;5 galon.</li>
+      <li>Domatesler: minimum 5 galon, ideal 10 galon. Belirli çeşitler kompakt kalır.</li>
+      <li>Küçük balkonlar için dikey seçenekler: duvar saksıları, A-çerçeve raflar, korkuluk saksıları, istiflenebilir çilek kuleleri.</li>
     </ul>
 
-    <h2>The 4x4 raised bed benchmark</h2>
+    <h2>4x4 yükseltilmiş yatak referansı</h2>
     <p>
-      A single 4x4 foot raised bed in full sun, planted well, realistically produces around 40 pounds of food in a single season. A workable layout: 3 tomato plants along the back, 2 pepper plants in the middle, 6 lettuce heads tucked in around them, and a border of basil and parsley. Add a trellis and you can run cucumbers or pole beans up the back wall for another 10&ndash;15 pounds.
+      Tam güneş alan, iyi ekilmiş tek bir 4x4 fit yükseltilmiş yatak, tek bir sezonda gerçekçi bir şekilde yaklaşık 40 pound yiyecek üretir. İşe yarar bir düzen: arkada 3 domates bitkisi, ortada 2 biber bitkisi, etraflarına yerleştirilmiş 6 marul başı ve bir kenar fesleğen ve maydanoz. Bir kafes ekleyin ve arka duvarda salatalık veya sırık fasulyesi yetiştirerek 10&ndash;15 pound daha alabilirsiniz.
     </p>
 
-    <h2>Indoor hydroponic systems</h2>
+    <h2>İç mekan hidroponik sistemleri</h2>
     <p>
-      If outdoor space is zero, countertop hydroponic units grow herbs and lettuce year-round. AeroGarden starts around $100&ndash;200, Lettuce Grow Farmstand is $400&ndash;900 and grows 20+ plants, Gardyn runs $900+ with AI-assisted monitoring. The running cost is water, electricity, and nutrient pods &mdash; roughly $10&ndash;20/month for a midsize system.
+      Dış mekan alanı sıfırsa, tezgah üstü hidroponik üniteler yıl boyunca ot ve marul yetiştirir. AeroGarden yaklaşık 100&ndash;200 dolardan başlar, Lettuce Grow Farmstand 400&ndash;900 dolar ve 20'den fazla bitki yetiştirir, Gardyn yapay zeka destekli izleme ile 900 doların üzerindedir. İşletme maliyeti su, elektrik ve besin kapsülleridir &mdash; orta boy bir sistem için kabaca ayda 10&ndash;20 dolar.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Overwatering containers &mdash; most plants die from drowning, not drought. Pots without drainage holes (non-negotiable). Planting before your last frost because a warm week fooled you. Crowding a bed because the seedlings looked small &mdash; they won&rsquo;t stay small. Ignoring sun requirements and putting tomatoes on a north-facing balcony. Buying expensive soil amendments before you&rsquo;ve even tested if plain compost-based potting mix works.
+      Saksıları aşırı sulamak &mdash; çoğu bitki kuraklıktan değil boğulmaktan ölür. Drenaj deliği olmayan saksılar (tartışılmaz). Sizi kandıran sıcak bir hafta yüzünden son dondan önce dikmek. Fideler küçük göründüğü için bir yatağı sıkıştırmak &mdash; küçük kalmazlar. Güneş ihtiyaçlarını görmezden gelip domatesleri kuzeye bakan bir balkona koymak. Düz kompost bazlı saksı toprağının işe yarayıp yaramadığını test etmeden önce pahalı toprak iyileştiricileri satın almak.
     </p>
 
-    <h2>Community gardens as a shortcut</h2>
+    <h2>Topluluk bahçeleri bir kestirme yol olarak</h2>
     <p>
-      Most cities have community garden plots for $20&ndash;100/year. You get a pre-built bed, water access, neighbors who answer questions, and none of the rental-property landlord drama. Search your city&rsquo;s parks department or ACGA (American Community Gardening Association) listings.
+      Çoğu şehirde yılda 20&ndash;100 dolara topluluk bahçesi arazileri vardır. Önceden yapılmış bir yatak, su erişimi, sorularınızı yanıtlayan komşular ve kiralık mülk sahibi dramı olmaz. Şehrinizin parklar departmanına veya ACGA (Amerikan Topluluk Bahçeciliği Derneği) listelerine bakın.
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Alt satır</h2>
     <p>
-      Start with 3&ndash;5 herbs, one tomato plant, and some lettuce. Get a full season under your belt before you expand. Urban farming rewards steady, small wins &mdash; not ambitious plans that burn out in July.
+      3&ndash;5 ot, bir domates bitkisi ve biraz marulla başlayın. Genişlemeden önce tam bir sezon geçirin. Kentsel tarım, Temmuz ayında tükenen iddialı planları değil, istikrarlı, küçük kazançları ödüllendirir.
     </p>
   </>
 );

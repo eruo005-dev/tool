@@ -3,53 +3,53 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      The CSS <code>box-shadow</code> property is how modern interfaces communicate elevation: cards lift off the page, modals float above a dim backdrop, buttons press down on click, and hover states hint at interactivity. The syntax is more capable than most people realize &mdash; four numeric values, a color, an optional <code>inset</code> keyword, and the ability to stack multiple shadows on one element. Designing a shadow system for an interface pays compound interest: once you&rsquo;ve defined an elevation scale, everything feels coordinated. This guide covers the syntax, common patterns, dark-mode pitfalls, and how to build a reusable shadow scale.
+      CSS <code>box-shadow</code> özelliği, modern arayüzlerin katmanlı yapıyı nasıl ilettiğini belirler: kartlar sayfadan yükselir, modal'lar loş bir arka planın üzerinde süzülür, butonlar tıklandığında aşağı iner ve hover durumları etkileşime işaret eder. Sözdizimi çoğu kişinin fark ettiğinden daha yeteneklidir &mdash; dört sayısal değer, bir renk, isteğe bağlı <code>inset</code> anahtar kelimesi ve tek bir öğede birden çok gölgeyi üst üste bindirme imkanı. Bir arayüz için gölge sistemi tasarlamak bileşik faiz gibi işler: bir yükseklik ölçeği tanımladığınızda her şey uyumlu hissettirir. Bu kılavuz, sözdizimini, yaygın kalıpları, koyu mod tuzaklarını ve yeniden kullanılabilir bir gölge ölçeğinin nasıl oluşturulacağını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The five (or six) values</h2>
+    <h2>Beş (veya altı) değer</h2>
     <p>
-      A box shadow is defined by up to six components:
+      Bir kutu gölgesi en fazla altı bileşenden oluşur:
     </p>
     <pre>{`box-shadow: <offset-x> <offset-y> <blur> <spread> <color> [inset];
 
 box-shadow: 0 2px 8px 0 rgba(0,0,0,0.12);`}</pre>
     <ul>
-      <li><strong>offset-x</strong>: horizontal offset. Positive moves shadow right.</li>
-      <li><strong>offset-y</strong>: vertical offset. Positive moves shadow down.</li>
-      <li><strong>blur</strong>: how soft the shadow is. 0 is hard-edged, larger values blur more.</li>
-      <li><strong>spread</strong> (optional): grows or shrinks the shadow before blurring.</li>
-      <li><strong>color</strong>: shadow color, almost always semi-transparent.</li>
-      <li><strong>inset</strong> (optional): draws the shadow inside the element instead of outside.</li>
+      <li><strong>offset-x</strong>: yatay kaydırma. Pozitif değer gölgeyi sağa taşır.</li>
+      <li><strong>offset-y</strong>: dikey kaydırma. Pozitif değer gölgeyi aşağı taşır.</li>
+      <li><strong>blur</strong>: gölgenin yumuşaklığı. 0 keskin kenarlıdır, büyük değerler daha fazla bulanıklaştırır.</li>
+      <li><strong>spread</strong> (isteğe bağlı): gölgeyi bulanıklaştırmadan önce büyütür veya küçültür.</li>
+      <li><strong>color</strong>: gölge rengi, neredeyse her zaman yarı saydam.</li>
+      <li><strong>inset</strong> (isteğe bağlı): gölgeyi öğenin dışı yerine içine çizer.</li>
     </ul>
 
-    <h2>Light comes from above</h2>
+    <h2>Işık yukarıdan gelir</h2>
     <p>
-      Real-world shadows come from light, and in most UI conventions, light shines from above (or slightly above-left). So shadows cast downward and slightly right. Positive Y offset, zero or slightly positive X offset:
+      Gerçek dünyadaki gölgeler ışıktan gelir ve çoğu UI kuralında ışık yukarıdan (veya hafifçe yukarı-soldan) gelir. Bu nedenle gölgeler aşağıya ve hafifçe sağa düşer. Pozitif Y kaydırması, sıfır veya hafif pozitif X kaydırması:
     </p>
-    <pre>{`/* Natural card shadow */
+    <pre>{`/* Doğal kart gölgesi */
 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.10);`}</pre>
     <p>
-      Break this convention only for specific effects (inverted elevation, moody product photography). For general UI, stick with it or your interface feels off.
+      Bu kuralı yalnızca belirli efektler için (ters yükseklik, kasvetli ürün fotoğrafçılığı) bozun. Genel UI için buna bağlı kalın, aksi takdirde arayüzünüz yanlış hissettirir.
     </p>
 
-    <h2>Subtle beats bold</h2>
+    <h2>İncelik cesareti yener</h2>
     <p>
-      Good UI shadows are surprisingly gentle. A 1&ndash;2&nbsp;px offset, 4&ndash;12&nbsp;px blur, and 5&ndash;15% black opacity cover most elevation needs. Heavier shadows (20+ px blur, 30%+ opacity) look dated and heavy; they were fashionable in the early 2010s and have since gone out of style.
+      İyi UI gölgeleri şaşırtıcı derecede yumuşaktır. 1&ndash;2&nbsp;px kaydırma, 4&ndash;12&nbsp;px bulanıklık ve %5&ndash;15 siyah opaklık çoğu yükseklik ihtiyacını karşılar. Daha ağır gölgeler (20+ px bulanıklık, %30+ opaklık) eski ve ağır görünür; 2010'ların başında modaydı ve o zamandan beri modası geçti.
     </p>
-    <pre>{`/* Too heavy - 2010s style */
+    <pre>{`/* Çok ağır - 2010'lar stili */
 box-shadow: 0 10px 30px rgba(0,0,0,0.4);
 
-/* Modern subtle */
+/* Modern ince */
 box-shadow: 0 1px 3px rgba(0,0,0,0.08),
             0 4px 12px rgba(0,0,0,0.06);`}</pre>
 
-    <h2>Stacking shadows for depth</h2>
+    <h2>Derinlik için gölgeleri istifleme</h2>
     <p>
-      Real shadows have a near-contact shadow (tight, dark) and an ambient shadow (wide, soft). Combining both with a comma-separated list feels more natural than a single shadow:
+      Gerçek gölgelerin bir yakın temas gölgesi (sıkı, koyu) ve bir ortam gölgesi (geniş, yumuşak) vardır. Her ikisini virgülle ayrılmış bir listeyle birleştirmek, tek bir gölgeden daha doğal hissettirir:
     </p>
     <pre>{`.card {
   box-shadow:
@@ -57,30 +57,30 @@ box-shadow: 0 1px 3px rgba(0,0,0,0.08),
     0 8px 24px rgba(0, 0, 0, 0.08);
 }`}</pre>
     <p>
-      The first value produces the contact shadow right under the card; the second adds the ambient glow. Tools like Material Design and shadcn build whole systems around this two-shadow pattern.
+      İlk değer, kartın hemen altındaki temas gölgesini üretir; ikincisi ortam parıltısını ekler. Material Design ve shadcn gibi araçlar, tüm sistemlerini bu iki gölge deseni etrafında kurar.
     </p>
 
-    <h2>Spread: the secret fourth number</h2>
+    <h2>Spread: gizli dördüncü sayı</h2>
     <p>
-      Spread adds to or subtracts from the shadow&rsquo;s rendered size before the blur is applied. Positive spread is useful for thick, buttery shadows on big elements; negative spread tightens the shadow so only the edges show.
+      Spread, bulanıklık uygulanmadan önce gölgenin işlenmiş boyutuna ekleme veya çıkarma yapar. Pozitif spread, büyük öğelerde kalın, yumuşak gölgeler için kullanışlıdır; negatif spread, gölgeyi sıkılaştırır, böylece yalnızca kenarlar görünür.
     </p>
-    <pre>{`/* Tight inner halo */
+    <pre>{`/* Sıkı iç hale */
 box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
 
-/* Lifted card */
+/* Yükseltilmiş kart */
 box-shadow: 0 10px 20px -5px rgba(0,0,0,0.15);`}</pre>
     <p>
-      The first pattern is the classic &ldquo;focus ring&rdquo; replacement for outline; the second lifts the shadow so it reads as more &ldquo;off the page&rdquo; than its vertical offset alone.
+      İlk desen, outline için klasik &ldquo;odak halkası&rdquo; yerine geçer; ikincisi gölgeyi kaldırır, böylece yalnızca dikey kaydırmasından daha &ldquo;sayfadan uzak&rdquo; olarak okunur.
     </p>
 
-    <h2>Inset shadows</h2>
+    <h2>İçe gölgeler</h2>
     <p>
-      The <code>inset</code> keyword draws the shadow inside the element. Uses:
+      <code>inset</code> anahtar kelimesi gölgeyi öğenin içine çizer. Kullanım alanları:
     </p>
     <ul>
-      <li><strong>Pressed button state:</strong> subtle inset shadow makes the button look depressed when clicked.</li>
-      <li><strong>Input fields:</strong> inset shadow gives a sunken appearance.</li>
-      <li><strong>Panels in dashboards:</strong> inset creates the illusion of a recessed area.</li>
+      <li><strong>Basılı buton durumu:</strong> ince iç gölge, tıklandığında butonun basık görünmesini sağlar.</li>
+      <li><strong>Giriş alanları:</strong> iç gölge, çökük bir görünüm verir.</li>
+      <li><strong>Paneller (dashboard):</strong> iç gölge, girintili bir alan yanılsaması yaratır.</li>
     </ul>
     <pre>{`.input {
   box-shadow: inset 0 1px 2px rgba(0,0,0,0.08);
@@ -90,9 +90,9 @@ box-shadow: 0 10px 20px -5px rgba(0,0,0,0.15);`}</pre>
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
 }`}</pre>
 
-    <h2>Building an elevation scale</h2>
+    <h2>Bir yükseklik ölçeği oluşturma</h2>
     <p>
-      Rather than inventing shadows per element, define a scale and reference it. Material Design uses 24 levels (overkill); most systems do fine with 4&ndash;6. A pragmatic scale:
+      Her öğe için gölge icat etmek yerine bir ölçek tanımlayın ve ona başvurun. Material Design 24 seviye kullanır (aşırı); çoğu sistem 4&ndash;6 ile gayet iyi çalışır. Pratik bir ölçek:
     </p>
     <pre>{`:root {
   --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
@@ -105,19 +105,19 @@ box-shadow: 0 10px 20px -5px rgba(0,0,0,0.15);`}</pre>
   --shadow-xl: 0 20px 40px rgba(0,0,0,0.18);
 }`}</pre>
     <p>
-      Map UI concepts to levels:
+      UI kavramlarını seviyelere eşleyin:
     </p>
     <ul>
-      <li><strong>sm</strong>: input borders, subtle cards.</li>
-      <li><strong>base</strong>: default cards.</li>
-      <li><strong>md</strong>: hover states for cards, dropdown menus.</li>
-      <li><strong>lg</strong>: dialogs, popovers.</li>
-      <li><strong>xl</strong>: modals with full-screen backdrops.</li>
+      <li><strong>sm</strong>: giriş kenarlıkları, ince kartlar.</li>
+      <li><strong>base</strong>: varsayılan kartlar.</li>
+      <li><strong>md</strong>: kartlar için hover durumları, açılır menüler.</li>
+      <li><strong>lg</strong>: diyaloglar, popover'lar.</li>
+      <li><strong>xl</strong>: tam ekran arka planlı modal'lar.</li>
     </ul>
 
-    <h2>Hover transitions</h2>
+    <h2>Hover geçişleri</h2>
     <p>
-      A card that lifts on hover is a classic interactive cue. Combine shadow with a tiny upward translate and a transition:
+      Üzerine gelindiğinde yükselen bir kart, klasik bir etkileşim ipucudur. Gölgeyi küçük bir yukarı öteleme ve bir geçişle birleştirin:
     </p>
     <pre>{`.card {
   box-shadow: var(--shadow);
@@ -129,58 +129,58 @@ box-shadow: 0 10px 20px -5px rgba(0,0,0,0.15);`}</pre>
   transform: translateY(-2px);
 }`}</pre>
     <p>
-      The translate sells the physical lift; the shadow upgrade reinforces it. 150ms is the sweet spot &mdash; faster feels twitchy, slower feels laggy.
+      Öteleme fiziksel yükselmeyi satar; gölge yükseltmesi bunu pekiştirir. 150ms ideal noktadır &mdash; daha hızlı seğirmeli, daha yavaş gecikmeli hissettirir.
     </p>
 
-    <h2>Dark mode considerations</h2>
+    <h2>Koyu mod dikkat edilmesi gerekenler</h2>
     <p>
-      Black shadows on black backgrounds are invisible. In dark mode, either increase opacity dramatically, use a slightly lighter-than-background shadow color, or rely on a subtle inner border instead of a shadow.
+      Siyah arka planlar üzerindeki siyah gölgeler görünmez. Koyu modda, opaklığı önemli ölçüde artırın, arka plandan biraz daha açık bir gölge rengi kullanın veya gölge yerine ince bir iç kenarlık kullanın.
     </p>
-    <pre>{`/* Light mode */
+    <pre>{`/* Açık mod */
 .card { box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 
-/* Dark mode */
+/* Koyu mod */
 @media (prefers-color-scheme: dark) {
   .card {
     box-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    /* Or: a subtle glow */
+    /* Veya: ince bir parıltı */
     /* box-shadow: 0 0 0 1px rgba(255,255,255,0.06); */
   }
 }`}</pre>
     <p>
-      Many dark themes skip shadows entirely and use borders or background-color steps for elevation instead.
+      Birçok koyu tema, gölgeleri tamamen atlar ve bunun yerine yükseklik için kenarlıklar veya arka plan rengi adımları kullanır.
     </p>
 
-    <h2>Colored shadows</h2>
+    <h2>Renkli gölgeler</h2>
     <p>
-      Shadows don&rsquo;t have to be gray. A subtle tint of the element&rsquo;s color can add vibrancy:
+      Gölgeler gri olmak zorunda değildir. Öğenin renginin ince bir tonu canlılık katabilir:
     </p>
     <pre>{`.primary-button {
   background: #3b82f6;
   box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
 }`}</pre>
     <p>
-      The shadow matches the button color at low opacity, making the button glow slightly. Use sparingly &mdash; coloring every shadow reads as try-hard. Save for hero CTAs and accent elements.
+      Gölge, düşük opaklıkta buton rengiyle eşleşir ve butonun hafifçe parlamasını sağlar. Dikkatli kullanın &mdash; her gölgeyi renklendirmek zorlama görünür. Hero CTA'lar ve vurgu öğeleri için saklayın.
     </p>
 
-    <h2>Performance</h2>
+    <h2>Performans</h2>
     <p>
-      Large-blur shadows on many elements can hurt scroll performance, especially on low-end devices. Shadows are rasterized and re-composited on every paint. For heavy UIs (long feeds with shadowed cards), consider:
+      Birçok öğede büyük bulanıklıklı gölgeler, özellikle düşük kaliteli cihazlarda kaydırma performansını olumsuz etkileyebilir. Gölgeler rasterleştirilir ve her boyamada yeniden birleştirilir. Ağır UI'lar (gölgeli kartlarla dolu uzun akışlar) için şunları göz önünde bulundurun:
     </p>
     <ul>
-      <li>Using <code>will-change: box-shadow</code> on elements that transition shadows, so the browser pre-promotes them to their own layer.</li>
-      <li>Replacing expensive shadows with cheaper borders or background gradients.</li>
-      <li>Testing scrolling performance in DevTools&rsquo; Performance panel.</li>
+      <li>Gölgeleri geçiş yapan öğelerde <code>will-change: box-shadow</code> kullanmak, böylece tarayıcı bunları kendi katmanlarına önceden yükseltir.</li>
+      <li>Pahalı gölgeleri daha ucuz kenarlıklar veya arka plan gradyanlarıyla değiştirmek.</li>
+      <li>DevTools'un Performans panelinde kaydırma performansını test etmek.</li>
     </ul>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Using offset-Y with zero blur and getting a hard-edged black line instead of a shadow &mdash; always include some blur. Picking shadow opacities in the 30&ndash;50% range that scream &ldquo;2012.&rdquo; Forgetting dark mode and leaving black shadows invisible. Stacking shadows on every nested element so the UI looks like a physical pile of business cards. Using <code>box-shadow</code> for focus rings and forgetting to preserve accessibility focus indicators when you remove <code>outline</code> &mdash; keyboard users rely on them. And the subtle one: letting shadows grow on hover but not animating them, so they pop instead of easing &mdash; always transition.
+      Sıfır bulanıklıkla offset-Y kullanmak ve gölge yerine keskin kenarlı siyah bir çizgi elde etmek &mdash; her zaman biraz bulanıklık ekleyin. %30&ndash;50 aralığında &ldquo;2012&rdquo; diye bağıran gölge opaklıkları seçmek. Koyu modu unutmak ve siyah gölgeleri görünmez bırakmak. Her iç içe öğede gölgeleri istifleyerek UI'ın fiziksel bir kartvizit yığını gibi görünmesine neden olmak. Odak halkaları için <code>box-shadow</code> kullanmak ve <code>outline</code>'ı kaldırdığınızda erişilebilirlik odak göstergelerini korumayı unutmak &mdash; klavye kullanıcıları bunlara güvenir. Ve ince olanı: gölgelerin hover'da büyümesine izin vermek ancak onları canlandırmamak, böylece yumuşakça geçiş yapmak yerine aniden belirmeleri &mdash; her zaman geçiş ekleyin.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Our <a href="/tools/box-shadow-generator">box shadow generator</a> lets you compose multi-layer shadows with live preview and copy-ready CSS. Pair with the <a href="/tools/border-radius-generator">border-radius generator</a> for card styling and the <a href="/tools/gradient-generator">gradient generator</a> for backgrounds that complement the elevation.
+      <a href="/tools/box-shadow-generator">Kutu gölgesi oluşturucumuz</a>, canlı önizleme ve kopyalanmaya hazır CSS ile çok katmanlı gölgeler oluşturmanızı sağlar. Kart stillendirme için <a href="/tools/border-radius-generator">border-radius oluşturucu</a> ve yüksekliği tamamlayan arka planlar için <a href="/tools/gradient-generator">gradyan oluşturucu</a> ile birlikte kullanın.
     </p>
   </>
 );

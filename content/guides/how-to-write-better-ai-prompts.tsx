@@ -1,37 +1,37 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>The difference between a useless AI output and a genuinely useful one is almost never the model &mdash; it&rsquo;s the prompt.</p>);
+export const intro: ReactElement = (<p>İşe yaramaz bir AI çıktısı ile gerçekten kullanışlı bir çıktı arasındaki fark neredeyse hiçbir zaman model değildir &mdash; komut istemidir.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>Prompt engineering sounds intimidating, but for small-business owners and solo founders it boils down to a few repeatable habits. If you&rsquo;re pasting one-line questions into ChatGPT or Claude and getting mushy, generic answers, you&rsquo;re leaving 70% of the model on the table. This guide walks through the formula that consistently produces publishable, usable output &mdash; no PhD required.</p>
+    <p>Prompt mühendisliği kulağa korkutucu gelebilir, ancak küçük işletme sahipleri ve solo kurucular için birkaç tekrarlanabilir alışkanlığa indirgenir. ChatGPT veya Claude'a tek satırlık sorular yapıştırıp yumuşak, genel cevaplar alıyorsanız, modelin %70'ini masada bırakıyorsunuz demektir. Bu kılavuz, sürekli olarak yayınlanabilir, kullanılabilir çıktılar üreten formülü adım adım anlatıyor &mdash; doktora gerek yok.</p>
 
-    <h2>The 4-part formula: role + task + context + format</h2>
-    <p>Every strong prompt names a <em>role</em> (who the AI should act as), a <em>task</em> (what it should do), <em>context</em> (the specifics of your situation), and a <em>format</em> (how the answer should be shaped). Miss any one of the four and quality drops. Think of it as briefing a freelancer: you wouldn&rsquo;t just say &ldquo;write me something.&rdquo;</p>
+    <h2>4 parçalı formül: rol + görev + bağlam + format</h2>
+    <p>Her güçlü prompt bir <em>rol</em> (AI'nın kim gibi davranması gerektiği), bir <em>görev</em> (ne yapması gerektiği), <em>bağlam</em> (durumunuzun ayrıntıları) ve bir <em>format</em> (cevabın nasıl şekillendirilmesi gerektiği) belirtir. Dört unsurdan herhangi birini kaçırırsanız kalite düşer. Bunu bir serbest çalışana brifing vermek gibi düşünün: sadece "bana bir şey yaz" demezdiniz.</p>
 
-    <h2>Weak vs strong prompts, side by side</h2>
+    <h2>Zayıf ve güçlü promptlar yan yana</h2>
     <ul>
-      <li>Weak: &ldquo;Write a cold email.&rdquo; Strong: &ldquo;You&rsquo;re a B2B SaaS sales rep. Write a 90-word cold email to a head of marketing at a 50-person agency. Hook: our tool cuts reporting time 60%. Format: subject line + 3 short paragraphs + single CTA.&rdquo;</li>
-      <li>Weak: &ldquo;Summarize this.&rdquo; Strong: &ldquo;Summarize this customer call transcript for a busy CEO. Return: 3 bullets of wins, 3 bullets of concerns, one recommended next step.&rdquo;</li>
-      <li>Weak: &ldquo;Help me name my product.&rdquo; Strong: &ldquo;You&rsquo;re a brand strategist. Suggest 10 names for a dog-walking app targeting urban millennials. Tone: warm and playful. Avoid anything with &lsquo;paw&rsquo; or &lsquo;pup.&rsquo; Include the .com availability guess for each.&rdquo;</li>
+      <li>Zayıf: "Bir soğuk e-posta yaz." Güçlü: "Sen bir B2B SaaS satış temsilcisisin. 50 kişilik bir ajansın pazarlama müdürüne 90 kelimelik bir soğuk e-posta yaz. Açılış: aracımız raporlama süresini %60 azaltıyor. Format: konu satırı + 3 kısa paragraf + tek harekete geçirici mesaj."</li>
+      <li>Zayıf: "Bunu özetle." Güçlü: "Bu müşteri görüşmesi kaydını meşgul bir CEO için özetle. Döndür: 3 madde kazanım, 3 madde endişe, bir önerilen sonraki adım."</li>
+      <li>Zayıf: "Ürünümü adlandırmama yardım et." Güçlü: "Sen bir marka stratejistisin. Kentsel y kuşağını hedefleyen bir köpek gezdirme uygulaması için 10 isim öner. Ton: sıcak ve eğlenceli. 'Pat' veya 'köpek yavrusu' içeren her şeyden kaçının. Her biri için .com kullanılabilirliği tahminini ekle."</li>
     </ul>
 
-    <h2><a href="/learn/system-prompt">System prompt</a> vs user prompt</h2>
-    <p>The system prompt sets the persona and the unchanging rules &mdash; who the AI is, what it never does, the tone it holds across a whole session. The user prompt is the specific request you send each turn. If you&rsquo;re building a custom GPT or a Claude Project, front-load the durable stuff (style guide, brand voice, banned words) into the system prompt so you don&rsquo;t repeat yourself in every message.</p>
+    <h2><a href="/learn/system-prompt">Sistem promptu</a> ve kullanıcı promptu</h2>
+    <p>Sistem promptu, kişiliği ve değişmeyen kuralları belirler &mdash; AI'nın kim olduğu, asla ne yapmadığı, tüm oturum boyunca koruduğu ton. Kullanıcı promptu ise her seferinde gönderdiğiniz belirli istektir. Özel bir GPT veya Claude Projesi oluşturuyorsanız, dayanıklı şeyleri (stil kılavuzu, marka sesi, yasaklı kelimeler) sistem promptuna önceden yükleyin, böylece her mesajda kendinizi tekrarlamazsınız.</p>
 
-    <h2>Chain-of-thought and few-shot examples</h2>
-    <p>Chain-of-thought simply means asking the model to &ldquo;think step by step&rdquo; or &ldquo;work through this out loud before giving the final answer.&rdquo; It noticeably improves accuracy on anything involving math, logic, or multi-step reasoning. Few-shot means showing the model 2&ndash;3 examples of input &rarr; desired output before the real task. For anything repetitive like tagging, classifying, or formatting, few-shot beats any amount of instructions.</p>
+    <h2>Düşünce zinciri ve az örnekli öğrenme</h2>
+    <p>Düşünce zinciri, modelden "adım adım düşünmesini" veya "son cevabı vermeden önce bunu yüksek sesle çalışmasını" istemek anlamına gelir. Matematik, mantık veya çok adımlı akıl yürütme içeren her şeyde doğruluğu gözle görülür şekilde artırır. Az örnekli öğrenme, gerçek görevden önce modele 2-3 girdi &rarr; istenen çıktı örneği göstermek anlamına gelir. Etiketleme, sınıflandırma veya biçimlendirme gibi tekrarlayan her şey için az örnekli öğrenme, herhangi bir miktardaki talimattan daha iyidir.</p>
 
-    <h2><a href="/learn/temperature-ai">Temperature</a>: 0 vs 0.7</h2>
-    <p>Temperature controls randomness. Set it to 0 (or close to it) when you want deterministic, factual, repeatable output &mdash; data extraction, code, summaries, anything where wrong is worse than boring. Crank it up to 0.7&ndash;1.0 when you want creativity &mdash; brainstorms, taglines, fiction, variant generation. Most chat UIs hide temperature, but the API and most playgrounds expose it.</p>
+    <h2><a href="/learn/temperature-ai">Sıcaklık</a>: 0 vs 0.7</h2>
+    <p>Sıcaklık rastgeleliği kontrol eder. Belirleyici, gerçekçi, tekrarlanabilir çıktı istediğinizde &mdash; veri çıkarma, kod, özetler, yanlışın sıkıcıdan daha kötü olduğu her şey &mdash; 0'a (veya yakınına) ayarlayın. Yaratıcılık istediğinizde &mdash; beyin fırtınaları, sloganlar, kurgu, varyant oluşturma &mdash; 0.7-1.0'a çıkarın. Çoğu sohbet arayüzü sıcaklığı gizler, ancak API ve çoğu oyun alanı onu gösterir.</p>
 
-    <h2>Iterate, save wins, build a library</h2>
-    <p>Treat prompts like code. When one works, save it to a Notion page, a Google Doc, or a dedicated prompt library tool. Name it, tag it, note what model and what date. Next month when you need the same thing, you won&rsquo;t reinvent it. Solo founders who do this compound a personal moat over time.</p>
+    <h2>Yineleyin, kazanımları kaydedin, bir kütüphane oluşturun</h2>
+    <p>Promptlara kod gibi davranın. Biri işe yaradığında, onu bir Notion sayfasına, Google Dokümanına veya özel bir prompt kütüphanesi aracına kaydedin. Adlandırın, etiketleyin, hangi model ve hangi tarih olduğunu not edin. Gelecek ay aynı şeye ihtiyacınız olduğunda, onu yeniden icat etmeyeceksiniz. Bunu yapan solo kurucular zamanla kişisel bir hendek oluştururlar.</p>
 
-    <h2>Common mistakes</h2>
-    <p>Vague instructions (&ldquo;make it better&rdquo;), stuffing 10 tasks into one prompt, and telling instead of showing. The fix for all three is the same: show the model an example of what &ldquo;good&rdquo; looks like rather than describing it in adjectives. This is the show-don&rsquo;t-tell rule and it&rsquo;s the single biggest upgrade most people can make today.</p>
+    <h2>Yaygın hatalar</h2>
+    <p>Belirsiz talimatlar ("daha iyi yap"), tek bir prompta 10 görev doldurmak ve göstermek yerine anlatmak. Her üçünün de çözümü aynıdır: modele "iyi"nin neye benzediğine dair bir örnek göstermek, onu sıfatlarla tanımlamak yerine. Bu, gösterme-anlatma kuralıdır ve çoğu insanın bugün yapabileceği en büyük tek yükseltmedir.</p>
 
-    <h2>Bottom line</h2>
-    <p>Use role + task + context + format, show examples, pick temperature deliberately, and save what works. Do that for a month and you&rsquo;ll out-prompt 95% of users on any model you touch.</p>
+    <h2>Alt satır</h2>
+    <p>Rol + görev + bağlam + format kullanın, örnekler gösterin, sıcaklığı bilinçli seçin ve işe yarayanı kaydedin. Bunu bir ay yapın ve dokunduğunuz herhangi bir modelde kullanıcıların %95'ini geçeceksiniz.</p>
   </>
 );

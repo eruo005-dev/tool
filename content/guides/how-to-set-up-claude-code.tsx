@@ -1,161 +1,107 @@
 export const intro = (
   <>
     <p>
-      Claude Code is Anthropic&rsquo;s terminal-native coding agent. It reads
-      your entire repo, edits files, runs commands, and drives git — all from
-      natural language. Powered by Claude Opus 4.7 (released April 16, 2026),
-      it&rsquo;s the most capable autonomous coding agent you can actually use
-      today, and in developer satisfaction surveys it sits at the top of the
-      pack.
+      Claude Code, Anthropic'in terminal tabanlı kodlama ajanıdır. Tüm reponuzu okur, dosyaları düzenler, komutları çalıştırır ve git'i yönetir — tüm bunları doğal dil ile yapar. 16 Nisan 2026'da yayınlanan Claude Opus 4.7 tarafından desteklenir ve bugün kullanabileceğiniz en yetenekli otonom kodlama ajanıdır; geliştirici memnuniyeti anketlerinde zirvede yer alır.
     </p>
     <p>
-      This guide covers installation, your first real session, sub-agents,
-      skills, and the permission model — in that order. Assumes you&rsquo;ve
-      used a terminal before and have an Anthropic API key.
+      Bu kılavuz, sırasıyla kurulum, ilk gerçek oturumunuz, alt-ajanlar, beceriler ve izin modelini kapsar. Daha önce terminal kullandığınızı ve bir Anthropic API anahtarınız olduğunu varsayar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>Step 1 — Install</h2>
+    <h2>Adım 1 — Kurulum</h2>
     <p>
-      Claude Code ships as an npm package. You need Node.js 18+.
+      Claude Code bir npm paketi olarak gelir. Node.js 18+ gereklidir.
     </p>
     <pre><code>{`npm install -g @anthropic-ai/claude-code`}</code></pre>
     <p>
-      Then, from any project directory:
+      Ardından, herhangi bir proje dizininden:
     </p>
     <pre><code>{`cd ~/code/my-project
 claude`}</code></pre>
     <p>
-      On first run it will ask you to log in (or paste an API key). A few
-      IDE extensions wrap it — VS Code, JetBrains — but the terminal is the
-      canonical surface; the wrappers just render the same session inline.
+      İlk çalıştırmada sizden giriş yapmanızı (veya bir API anahtarı yapıştırmanızı) isteyecektir. Bazı IDE eklentileri onu sarar — VS Code, JetBrains — ancak terminal ana yüzeydir; sarmalayıcılar aynı oturumu satır içinde işler.
     </p>
 
-    <h2>Step 2 — Your first session</h2>
-    <p>Pick something real but bounded. Good first-session prompts:</p>
+    <h2>Adım 2 — İlk oturumunuz</h2>
+    <p>Gerçek ama sınırlı bir şey seçin. İyi ilk oturum yönergeleri:</p>
     <ul>
-      <li>&ldquo;Summarise the architecture of this repo in 6 bullet points.&rdquo;</li>
-      <li>&ldquo;Find dead code in /src and list it with line numbers.&rdquo;</li>
-      <li>&ldquo;Add a unit test for the function in utils/date.ts.&rdquo;</li>
+      <li>&ldquo;Bu reponun mimarisini 6 madde ile özetle.&rdquo;</li>
+      <li>&ldquo;/src içindeki ölü kodu bul ve satır numaralarıyla listele.&rdquo;</li>
+      <li>&ldquo;utils/date.ts dosyasındaki fonksiyon için bir birim testi ekle.&rdquo;</li>
     </ul>
     <p>
-      Don&rsquo;t start with &ldquo;refactor the whole app.&rdquo; Claude Code
-      is most reliable when the scope fits in a single PR&rsquo;s worth of
-      change. Large scopes should be decomposed — often into sub-agents, which
-      we&rsquo;ll cover in step 5.
+      &ldquo;Tüm uygulamayı yeniden düzenle&rdquo; ile başlamayın. Claude Code, kapsam tek bir PR'ın değişiklik miktarına sığdığında en güvenilirdir. Büyük kapsamlar parçalanmalıdır — genellikle adım 5'te ele alacağımız alt-ajanlara.
     </p>
 
-    <h2>Step 3 — Understand the permission model</h2>
+    <h2>Adım 3 — İzin modelini anlayın</h2>
     <p>
-      Claude Code never runs a write command without your permission. You&rsquo;ll
-      see three prompts frequently:
+      Claude Code, izniniz olmadan asla bir yazma komutu çalıştırmaz. Sık sık üç istem göreceksiniz:
     </p>
     <ul>
       <li>
-        <strong>File write</strong> — approve, reject, or &ldquo;don&rsquo;t
-        ask for this file again&rdquo; within the session.
+        <strong>Dosya yazma</strong> — onayla, reddet veya oturum içinde &ldquo;bu dosya için bir daha sorma.&rdquo;
       </li>
       <li>
-        <strong>Shell command</strong> — same, but with a preview of the exact
-        command.
+        <strong>Shell komutu</strong> — aynı, ancak komutun tam önizlemesiyle.
       </li>
       <li>
-        <strong>Tool use</strong> (web fetch, <a href="/learn/mcp">MCP</a> tools) — approve or reject.
+        <strong>Araç kullanımı</strong> (web getirme, <a href="/learn/mcp">MCP</a> araçları) — onayla veya reddet.
       </li>
     </ul>
     <p>
-      Resist the urge to &ldquo;auto-approve everything.&rdquo; Review mode
-      slows you down for about three sessions, then becomes fast muscle memory.
-      It&rsquo;s also how you notice an agent about to delete the wrong
-      directory, which is worth an hour of friction.
+      &ldquo;Her şeyi otomatik onayla&rdquo; dürtüsüne direnin. İnceleme modu sizi yaklaşık üç oturum boyunca yavaşlatır, ardından hızlı bir kas hafızası haline gelir. Ayrıca, bir ajanın yanlış dizini silmek üzere olduğunu fark etme şeklinizdir ki bu bir saatlik sürtüşmeye değer.
     </p>
 
-    <h2>Step 4 — CLAUDE.md</h2>
+    <h2>Adım 4 — CLAUDE.md</h2>
     <p>
-      In the root of your repo, create a <code>CLAUDE.md</code> file. This is
-      a plain-text instruction set Claude Code reads at the start of every
-      session. Put things in it that <em>you</em> wish every new dev on the
-      team knew:
+      Reponuzun kökünde bir <code>CLAUDE.md</code> dosyası oluşturun. Bu, Claude Code'un her oturumun başında okuduğu düz metin bir talimat setidir. İçine, takımdaki her yeni geliştiricinin bilmesini <em>istediğiniz</em> şeyleri koyun:
     </p>
-    <pre><code>{`# Conventions
-- TypeScript strict mode everywhere.
-- Tests live next to the file: foo.ts -> foo.test.ts.
-- Never commit .env files.
-- Lint with 'npm run lint' before PR.
+    <pre><code>{`# Kurallar
+- TypeScript strict modu her yerde.
+- Testler dosyanın yanında: foo.ts -> foo.test.ts.
+- .env dosyalarını asla commit etme.
+- PR'dan önce 'npm run lint' ile lint yap.
 
-# This repo
-- /app is Next.js app-router pages.
-- /lib/pages.ts is the single manifest of every page.
-- Changing that file triggers the full static build.`}</code></pre>
+# Bu repo
+- /app Next.js uygulama yönlendirici sayfalarıdır.
+- /lib/pages.ts her sayfanın tek manifestosudur.
+- Bu dosyayı değiştirmek tam statik derlemeyi tetikler.`}</code></pre>
     <p>
-      CLAUDE.md is how you get consistent behaviour across sessions without
-      retyping the same context. It&rsquo;s also the top lever for output
-      quality — vague CLAUDE.md, vague agent.
+      CLAUDE.md, aynı bağlamı yeniden yazmadan oturumlar arasında tutarlı davranış elde etme şeklinizdir. Aynı zamanda çıktı kalitesi için en önemli kaldıraçtır — belirsiz CLAUDE.md, belirsiz ajan.
     </p>
 
-    <h2>Step 5 — Sub-agents</h2>
+    <h2>Adım 5 — Alt-ajanlar</h2>
     <p>
-      For tasks with multiple stages (e.g. &ldquo;find this bug, fix it, write
-      a test, write a changelog entry&rdquo;), Claude Code can spawn{" "}
-      <strong>sub-agents</strong>. Each sub-agent runs in its own context,
-      does one thing, and returns a summary to the main agent. This is the
-      single biggest quality-of-life feature for long tasks — it stops the
-      main session&rsquo;s context from getting cluttered with &ldquo;what was
-      in that file I read twenty minutes ago.&rdquo;
+      Birden çok aşamalı görevler için (ör. &ldquo;bu hatayı bul, düzelt, bir test yaz, bir değişiklik günlüğü girişi yaz&rdquo;), Claude Code <strong>alt-ajanlar</strong> oluşturabilir. Her alt-ajan kendi bağlamında çalışır, tek bir şey yapar ve ana ajana bir özet döndürür. Bu, uzun görevler için en büyük yaşam kalitesi özelliğidir — ana oturumun bağlamının &ldquo;yirmi dakika önce okuduğum dosyada ne vardı&rdquo; ile karmaşıklaşmasını önler.
     </p>
     <p>
-      Create sub-agent definitions in <code>.claude/agents/</code> as Markdown
-      files with a short <a href="/learn/system-prompt">system prompt</a> and an allow-list. Claude Code picks
-      them up automatically.
+      Alt-ajan tanımlarını <code>.claude/agents/</code> içinde, kısa bir <a href="/learn/system-prompt">sistem yönergesi</a> ve bir izin listesi ile Markdown dosyaları olarak oluşturun. Claude Code bunları otomatik olarak alır.
     </p>
 
-    <h2>Step 6 — Skills</h2>
+    <h2>Adım 6 — Beceriler</h2>
     <p>
-      Skills are reusable &ldquo;recipes&rdquo; — folders under{" "}
-      <code>.claude/skills/</code> with a <code>SKILL.md</code> that tells the
-      agent when and how to use the skill. Use them for repeatable artefacts:
-      &ldquo;when making a PR description, use this format,&rdquo; &ldquo;when
-      writing release notes, do this.&rdquo; Skills beat copy-pasting a prompt
-      into a new session every time.
+      Beceriler, yeniden kullanılabilir &ldquo;tariflerdir&rdquo; — <code>.claude/skills/</code> altında, ajana beceriyi ne zaman ve nasıl kullanacağını söyleyen bir <code>SKILL.md</code> içeren klasörlerdir. Bunları tekrarlanabilir yapılar için kullanın: &ldquo;bir PR açıklaması yaparken bu formatı kullan,&rdquo; &ldquo;sürüm notları yazarken bunu yap.&rdquo; Beceriler, her seferinde yeni bir oturuma bir yönerge kopyalayıp yapıştırmaktan daha iyidir.
     </p>
 
-    <h2>Step 7 — MCP servers</h2>
+    <h2>Adım 7 — MCP sunucuları</h2>
     <p>
-      Claude Code supports MCP — the same Model Context Protocol covered in{" "}
-      <a href="/guides/how-to-connect-an-agent-to-mcp-tools">our MCP guide</a>.
-      Hook up a GitHub MCP to open PRs, a Linear MCP to read issues, a Postgres
-      MCP to query your dev DB. Configure them in <code>.claude/mcp.json</code>{" "}
-      and allow-list the tools you want.
+      Claude Code, MCP'yi destekler — <a href="/guides/how-to-connect-an-agent-to-mcp-tools">MCP kılavuzumuzda</a> ele alınan aynı Model Context Protocol. PR'ları açmak için bir GitHub MCP'si, sorunları okumak için bir Linear MCP'si, geliştirme veritabanınızı sorgulamak için bir Postgres MCP'si bağlayın. Bunları <code>.claude/mcp.json</code> içinde yapılandırın ve istediğiniz araçları izin listesine ekleyin.
     </p>
 
-    <h2>Step 8 — Budget</h2>
+    <h2>Adım 8 — Bütçe</h2>
     <p>
-      Claude Opus 4.7 is the premium model; a long agentic session can run
-      $5–$15 of spend. Set a monthly cap in the Anthropic console. If you
-      want cheaper iteration, configure Claude Code to fall back to Sonnet for
-      routine tasks and reserve Opus for the hard ones. Also run the stuff you
-      paste into it through our{" "}
-      <a href="/tools/ai-token-counter">token counter</a> first so you have a
-      baseline.
+      Claude Opus 4.7 premium modeldir; uzun bir ajan oturumu 5–15 dolar arasında harcama yapabilir. Anthropic konsolunda aylık bir sınır belirleyin. Daha ucuz yineleme istiyorsanız, Claude Code'u rutin görevler için Sonnet'e düşecek şekilde yapılandırın ve Opus'u zor olanlar için ayırın. Ayrıca, içine yapıştırdığınız şeyleri önce <a href="/tools/ai-token-counter">token sayacımızdan</a> geçirin, böylece bir temeliniz olur.
     </p>
 
-    <h2>How to tell it&rsquo;s working</h2>
+    <h2>Çalıştığını nasıl anlarsınız</h2>
     <p>
-      Good signs: you approve most changes on first pass, tests still green
-      after edits, PR sizes are boring and focused. Bad signs: lots of
-      &ldquo;let me try again,&rdquo; files touched that shouldn&rsquo;t have
-      been, huge diffs. The fix is almost always a tighter CLAUDE.md and
-      narrower scope, not a smarter model.
+      İyi işaretler: değişikliklerin çoğunu ilk geçişte onaylarsınız, düzenlemelerden sonra testler hala yeşildir, PR boyutları sıkıcı ve odaklıdır. Kötü işaretler: çok sayıda &ldquo;tekrar deneyeyim,&rdquo; dokunulmaması gereken dosyalara dokunulması, büyük farklar. Çözüm neredeyse her zaman daha sıkı bir CLAUDE.md ve daha dar kapsamdır, daha akıllı bir model değil.
     </p>
     <p>
-      Pair Claude Code with an editor-based agent like{" "}
-      <a href="/guides/how-to-set-up-cursor-ai-ide">Cursor</a> for tight
-      in-editor loops, and keep Claude Code for the heavy, multi-file,
-      plan-and-execute work. The two complement each other — that&rsquo;s the
-      workflow most developers have settled on in 2026.
+      Claude Code'u, sıkı düzenleyici içi döngüler için <a href="/guides/how-to-set-up-cursor-ai-ide">Cursor</a> gibi düzenleyici tabanlı bir ajanla eşleştirin ve Claude Code'u ağır, çok dosyalı, planla-ve-uygula işleri için saklayın. İkisi birbirini tamamlar — 2026'da çoğu geliştiricinin üzerinde anlaştığı iş akışı budur.
     </p>
   </>
 );

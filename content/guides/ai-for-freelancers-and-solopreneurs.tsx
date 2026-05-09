@@ -3,226 +3,226 @@
 export const intro = (
   <>
     <p>
-      AI for freelancers in 2026 is genuinely a force multiplier — but only for
-      specific operational layers, not for the work clients pay you to do. The honest
-      promise: an AI-augmented solo freelancer can run 30–40% more client capacity than
-      a non-AI-augmented one, primarily by compressing admin and pre-deliverable work.
+      2026'da freelancer'lar için yapay zeka gerçekten bir güç çarpanıdır — ancak yalnızca
+      belirli operasyonel katmanlar için, müşterilerin size ödeme yaptığı iş için değil. Dürüst
+      vaat: yapay zeka destekli bir solo freelancer, yapay zeka destekli olmayana kıyasla
+      %30-40 daha fazla müşteri kapasitesi çalıştırabilir, öncelikle idari ve teslim öncesi işleri
+      sıkıştırarak.
     </p>
     <p>
-      This guide is the practical AI playbook for solopreneurs and freelancers — what to
-      automate, what to validate before scaling, and how to grow without compromising
-      quality or burning out.
+      Bu rehber, solopreneur'lar ve freelancer'lar için pratik yapay zeka oyun kitabıdır — neyi
+      otomatikleştirmeli, ölçeklendirmeden önce neyi doğrulamalı ve kaliteden ödün vermeden veya
+      tükenmeden nasıl büyümeli.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "force-multiplier", label: "Where AI is genuinely a multiplier" },
-  { id: "validate", label: "Validating business ideas with AI" },
-  { id: "scale", label: "Scaling to multiple clients" },
-  { id: "stack", label: "The solo freelance AI stack" },
-  { id: "limits", label: "Where AI doesn&rsquo;t help" },
+  { id: "force-multiplier", label: "Yapay zekanın gerçekten çarpan olduğu yerler" },
+  { id: "validate", label: "İş fikirlerini yapay zeka ile doğrulama" },
+  { id: "scale", label: "Birden çok müşteriye ölçeklenme" },
+  { id: "stack", label: "Solo freelance yapay zeka yığını" },
+  { id: "limits", label: "Yapay zekanın yardımcı olmadığı yerler" },
 ];
 
 export const body = (
   <>
-    <h2 id="force-multiplier">Where AI is genuinely a multiplier for solo work</h2>
+    <h2 id="force-multiplier">Yapay zekanın solo çalışma için gerçekten çarpan olduğu yerler</h2>
     <p>
-      Five areas where AI compresses solo workload:
+      Yapay zekanın solo iş yükünü sıkıştırdığı beş alan:
     </p>
     <ol>
       <li>
-        <strong>Pre-call discovery.</strong> Paste a prospective client&rsquo;s
-        website, LinkedIn, recent press into ChatGPT/Claude. Ask: &ldquo;Brief me on
-        this company in 200 words: what do they do, who&rsquo;s their target market,
-        what 3 challenges might be relevant to my service.&rdquo; 5 minutes of prep
-        instead of 30.
+        <strong>Görüşme öncesi keşif.</strong> Potansiyel bir müşterinin
+        web sitesini, LinkedIn'ini, son basın haberlerini ChatGPT/Claude'a yapıştırın.
+        Şunu sorun: &ldquo;Bana bu şirketi 200 kelimede özetle: ne yapıyorlar, hedef
+        kitleleri kim, hizmetimle ilgili olabilecek 3 zorluk nedir.&rdquo; 30 dakika yerine 5 dakikalık
+        hazırlık.
       </li>
       <li>
-        <strong>Proposal drafts.</strong> &ldquo;Draft a 1-page proposal for [service]
-        addressing [client&rsquo;s context]. Include scope, timeline, pricing range,
-        next-step CTA.&rdquo; Edit for voice. Cuts proposal time 60–80%.
+        <strong>Teklif taslakları.</strong> &ldquo;[Müşterinin bağlamına] hitap eden [hizmet] için
+        1 sayfalık bir teklif taslağı hazırla. Kapsam, zaman çizelgesi, fiyat aralığı,
+        sonraki adım CTA'sını dahil et.&rdquo; Ses tonu için düzenleyin. Teklif süresini %60-80 oranında kısaltır.
       </li>
       <li>
-        <strong>Email triage.</strong> AI summarizes long inbound threads, drafts
-        replies, flags actions. Save 30–60 min/day for solo freelancers managing
-        client comms.
+        <strong>E-posta triyajı.</strong> Yapay zeka uzun gelen zincirleri özetler, yanıtlar
+        tasarlar, eylemleri işaretler. Müşteri iletişimlerini yöneten solo freelancer'lar için
+        günde 30-60 dakika tasarruf edin.
       </li>
       <li>
-        <strong>Project planning.</strong> Paste a brief; ask for a project plan with
-        milestones, risk assessment, and questions for the kickoff. The structured
-        thinking is faster than starting from scratch.
+        <strong>Proje planlaması.</strong> Bir brif yapıştırın; kilometre taşları,
+        risk değerlendirmesi ve başlangıç toplantısı için sorular içeren bir proje planı isteyin. Yapılandırılmış
+        düşünme, sıfırdan başlamaktan daha hızlıdır.
       </li>
       <li>
-        <strong>Marketing content.</strong> Case study drafts, LinkedIn posts, monthly
-        newsletter outlines. Edit heavily for voice; never publish raw output.
+        <strong>Pazarlama içeriği.</strong> Vaka çalışması taslakları, LinkedIn gönderileri, aylık
+        bülten taslakları. Ses tonu için yoğun şekilde düzenleyin; ham çıktıyı asla yayınlamayın.
       </li>
     </ol>
 
-    <h2 id="validate">Validating business ideas with AI</h2>
+    <h2 id="validate">İş fikirlerini yapay zeka ile doğrulama</h2>
     <p>
-      Before launching a new service or productized offering, the standard validation
-      methods (customer interviews, smoke tests, pre-orders) still matter — but AI
-      compresses the early-stage research:
+      Yeni bir hizmet veya ürünleştirilmiş teklif başlatmadan önce, standart doğrulama
+      yöntemleri (müşteri görüşmeleri, duman testleri, ön siparişler) hala önemlidir — ancak yapay zeka
+      erken aşama araştırmasını sıkıştırır:
     </p>
     <ul>
       <li>
-        <strong>Market size sanity check.</strong> &ldquo;What&rsquo;s a rough estimate
-        of the addressable market for [service] targeting [audience]? What&rsquo;s the
-        existing competition? What&rsquo;s the typical price range?&rdquo; Triangulate
-        with primary sources.
+        <strong>Pazar büyüklüğü mantık kontrolü.</strong> &ldquo;[Hedef kitleyi] hedefleyen [hizmet] için
+        adreslenebilir pazarın kabaca bir tahmini nedir? Mevcut
+        rekabet nedir? Tipik fiyat aralığı nedir?&rdquo; Birincil kaynaklarla
+        çapraz doğrulama yapın.
       </li>
       <li>
-        <strong>Customer-pain interviews.</strong> Generate a list of 30 candidate
-        questions for customer discovery interviews based on your hypothesis. Saves the
-        first half-day of interview prep.
+        <strong>Müşteri sorunu görüşmeleri.</strong> Hipotezinize dayanarak müşteri keşif
+        görüşmeleri için 30 aday sorudan oluşan bir liste oluşturun. Görüşme hazırlığının ilk
+        yarım gününü kurtarır.
       </li>
       <li>
-        <strong>Landing page copy iteration.</strong> Draft 3 variants of headline +
-        subhead + CTA. Run A/B if you have traffic; otherwise use them in cold
-        outreach.
+        <strong>Açılış sayfası kopya yinelemesi.</strong> Başlık + alt başlık
+        + CTA'nın 3 varyantını tasla. Trafiğiniz varsa A/B testi yapın; aksi takdirde soğuk
+        erişimde kullanın.
       </li>
       <li>
-        <strong>Competitive analysis.</strong> Paste 5 competitor websites; ask for the
-        positioning matrix, pricing patterns, and gaps you could fill.
+        <strong>Rekabet analizi.</strong> 5 rakip web sitesini yapıştırın; konumlandırma
+        matrisini, fiyatlandırma modellerini ve doldurabileceğiniz boşlukları isteyin.
       </li>
       <li>
-        <strong>Pricing structure exploration.</strong> &ldquo;Compare 3 pricing models
-        for [service] at this scale: hourly, project-based, retainer. Tradeoffs?&rdquo;
-        Useful for early offering design.
+        <strong>Fiyatlandırma yapısı keşfi.</strong> &ldquo;Bu ölçekte [hizmet] için 3 fiyatlandırma modelini
+        karşılaştır: saatlik, proje bazlı, retainer. Ödünleşimler?&rdquo; Erken
+        teklif tasarımı için kullanışlıdır.
       </li>
     </ul>
     <p>
-      What AI can&rsquo;t do for validation: actually talk to your customers. Skip the
-      interviews because &ldquo;AI told me there&rsquo;s a market&rdquo; and you&rsquo;ll
-      build something nobody buys.
+      Yapay zekanın doğrulama için yapamadığı şey: müşterilerinizle gerçekten konuşmak. &ldquo;Yapay zeka bana bir
+      pazar olduğunu söyledi&rdquo; diye görüşmeleri atlayın ve kimsenin satın almadığı
+      bir şey inşa edersiniz.
     </p>
 
-    <h2 id="scale">Scaling a freelance practice to multiple clients with AI</h2>
+    <h2 id="scale">Bir freelance pratiğini yapay zeka ile birden çok müşteriye ölçekleme</h2>
     <p>
-      The mechanics of going from 2–3 clients to 6–10 clients is mostly about reducing
-      per-client overhead. AI is well-suited to most of this:
+      2-3 müşteriden 6-10 müşteriye geçmenin mekaniği, çoğunlukla müşteri başına
+      genel gideri azaltmakla ilgilidir. Yapay zeka bunun çoğu için çok uygundur:
     </p>
     <ol>
       <li>
-        <strong>Client onboarding.</strong> Automate the first-call summary, project
-        kickoff doc, expectations alignment. Template-driven with AI fill-ins beats
-        starting blank for each client.
+        <strong>Müşteri katılımı.</strong> İlk görüşme özetini, proje
+        başlangıç belgesini, beklenti uyumunu otomatikleştirin. Yapay zeka dolgulu şablon tabanlı yaklaşım, her müşteri için
+        boş başlamaktan daha iyidir.
       </li>
       <li>
-        <strong>Recurring deliverables.</strong> If you do similar work for multiple
-        clients (monthly reports, content, audits), build prompts that take in
-        client-specific context and output the customized deliverable. Saves 30-60% per
-        deliverable.
+        <strong>Tekrarlayan teslimatlar.</strong> Birden çok müşteri için benzer işler yapıyorsanız
+        (aylık raporlar, içerik, denetimler), müşteriye özel
+        bağlamı alan ve özelleştirilmiş teslimatı çıktı olarak veren istemler oluşturun. Teslimat başına %30-60
+        tasarruf sağlar.
       </li>
       <li>
-        <strong>Status updates.</strong> Weekly client emails are a tax. Build a prompt
-        that ingests your project notes + ticket updates and outputs the email draft.
-        Edit, send.
+        <strong>Durum güncellemeleri.</strong> Haftalık müşteri e-postaları bir vergidir. Proje notlarınızı + bilet
+        güncellemelerinizi alan ve e-posta taslağını çıktı olarak veren bir istem oluşturun.
+        Düzenleyin, gönderin.
       </li>
       <li>
-        <strong>Time tracking and invoicing.</strong> Existing tools (Harvest,
-        FreshBooks) handle this; AI helps with categorizing time entries from a
-        bullet-point dump.
+        <strong>Zaman takibi ve faturalama.</strong> Mevcut araçlar (Harvest,
+        FreshBooks) bunu halleder; yapay zeka, madde işaretli bir dökümden zaman girişlerini
+        kategorize etmeye yardımcı olur.
       </li>
       <li>
-        <strong>Retainer renewal proposals.</strong> &ldquo;Based on these
-        deliverables this quarter, draft a renewal proposal showing impact and
-        proposing scope for next quarter.&rdquo; Useful 4× a year, saves a half-day
-        each time.
+        <strong>Retainer yenileme teklifleri.</strong> &ldquo;Bu çeyrekteki bu teslimatlara
+        dayanarak, etkiyi gösteren ve gelecek çeyrek için kapsam öneren bir yenileme teklifi taslağı hazırla.&rdquo; Yılda 4×
+        kullanışlıdır, her seferinde yarım gün kurtarır.
       </li>
     </ol>
     <p>
-      The realistic capacity gain: a solo freelancer at $150K/year going to $200K/year
-      using AI to reclaim 30-40% of admin time. Not 10×. Anyone selling you a 10× AI-
-      freelance promise is selling vibes.
+      Gerçekçi kapasite kazancı: yılda 150.000$'dan yılda 200.000$'a çıkan, yapay zekayı
+      idari zamanın %30-40'ını geri kazanmak için kullanan solo bir freelancer. 10× değil. Size 10× yapay zeka-
+      freelance vaadi satan biri, vibe satıyordur.
     </p>
 
-    <h2 id="stack">The solo freelance AI stack</h2>
+    <h2 id="stack">Solo freelance yapay zeka yığını</h2>
     <p>
-      Tested across multiple solo practitioners in 2026:
+      2026'da birden çok solo uygulayıcı arasında test edilmiştir:
     </p>
     <ul>
       <li>
-        <strong>Primary <a href="/learn/llm">LLM</a>:</strong> Claude or ChatGPT, paid tier ($20/month). The
-        free tiers cap usage exactly when you need them most.
+        <strong>Birincil <a href="/learn/llm">LLM</a>:</strong> Claude veya ChatGPT, ücretli katman (ayda 20$). Ücretsiz
+        katmanlar, en çok ihtiyacınız olduğu anda kullanımı sınırlar.
       </li>
       <li>
-        <strong>Email triage:</strong> Superhuman ($30/month) with built-in AI features,
-        or Gmail + a manual prompt workflow.
+        <strong>E-posta triyajı:</strong> Yerleşik yapay zeka özelliklerine sahip Superhuman (ayda 30$),
+        veya Gmail + manuel bir istem iş akışı.
       </li>
       <li>
-        <strong>Calendar / scheduling:</strong> Calendly free, or Cal.com self-hosted
-        if you want round-robin and aren&rsquo;t allergic to a 2-hour setup.
+        <strong>Takvim / planlama:</strong> Calendly ücretsiz veya round-robin istiyorsanız ve
+        2 saatlik bir kuruluma alerjiniz yoksa Cal.com kendi kendine barındırılan.
       </li>
       <li>
-        <strong>CRM lite:</strong> Notion + a database template, or Airtable free.
-        AI-fill the next-action field weekly.
+        <strong>CRM hafif:</strong> Notion + bir veritabanı şablonu veya Airtable ücretsiz.
+        Haftalık olarak sonraki eylem alanını yapay zeka ile doldurun.
       </li>
       <li>
-        <strong>Time tracking:</strong> Harvest ($14/month) or Toggl free.
+        <strong>Zaman takibi:</strong> Harvest (ayda 14$) veya Toggl ücretsiz.
       </li>
       <li>
-        <strong>Invoicing:</strong> FreshBooks ($21/month) or Stripe Invoicing
-        (transaction fees only).
+        <strong>Faturalama:</strong> FreshBooks (ayda 21$) veya Stripe Invoicing
+        (yalnızca işlem ücretleri).
       </li>
       <li>
-        <strong>Document drafting:</strong> Google Docs + ChatGPT side-by-side.
+        <strong>Belge taslağı:</strong> Google Dokümanlar + ChatGPT yan yana.
       </li>
       <li>
-        <strong>Avoid:</strong> AI-everything productivity suites that promise to do
-        all of the above. They under-perform best-of-breed tools on every category.
+        <strong>Kaçının:</strong> Yukarıdakilerin hepsini yapmayı vaat eden yapay zeka-her şey üretkenlik
+        paketleri. Her kategoride en iyi araçlardan daha düşük performans gösterirler.
       </li>
     </ul>
     <p>
-      Total stack cost: $80–$120/month. Capacity unlock: depends on your discipline,
-      but 25–40% in our experience.
+      Toplam yığın maliyeti: ayda 80–120$. Kapasite açılımı: disiplininize bağlıdır,
+      ancak deneyimimize göre %25–40.
     </p>
 
-    <h2 id="limits">Where AI doesn&rsquo;t help (and where humans still win)</h2>
+    <h2 id="limits">Yapay zekanın yardımcı olmadığı yerler (ve insanların hala kazandığı yerler)</h2>
     <ul>
       <li>
-        <strong>The actual creative work clients pay for.</strong> If your value is
-        original strategy, deep technical judgment, or relationship-driven, AI accelerates
-        the supporting layers but doesn&rsquo;t do your job.
+        <strong>Müşterilerin ödeme yaptığı gerçek yaratıcı iş.</strong> Değeriniz
+        özgün strateji, derin teknik yargı veya ilişki odaklıysa, yapay zeka
+        destekleyici katmanları hızlandırır ancak işinizi yapmaz.
       </li>
       <li>
-        <strong>Sensitive client data.</strong> Free LLMs may train on inputs. Use paid
-        tiers with no-train guarantees, or run sensitive work locally.
+        <strong>Hassas müşteri verileri.</strong> Ücretsiz LLM'ler girdiler üzerinde eğitim alabilir. Eğitim yok
+        garantili ücretli katmanları kullanın veya hassas işleri yerel olarak çalıştırın.
       </li>
       <li>
-        <strong>High-stakes decision-making.</strong> AI as advisor, not decision-maker.
-        Especially in legal, regulatory, or human-resource contexts.
+        <strong>Yüksek riskli karar verme.</strong> Yapay zeka danışman olarak, karar verici olarak değil.
+        Özellikle yasal, düzenleyici veya insan kaynakları bağlamlarında.
       </li>
       <li>
-        <strong>Building genuine client relationships.</strong> AI can draft the
-        check-in email; only you can know whether to send it now vs in two weeks. The
-        timing and judgment is the relationship.
+        <strong>Gerçek müşteri ilişkileri kurma.</strong> Yapay zeka kontrol e-postasını
+        taslaklayabilir; şimdi mi yoksa iki hafta sonra mı göndereceğinizi yalnızca siz bilirsiniz.
+        Zamanlama ve yargı, ilişkinin ta kendisidir.
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Try the free hourly rate calculator",
+  label: "Ücretsiz saatlik ücret hesaplayıcıyı deneyin",
   targetSlug: "hourly-rate-calculator",
 };
 
 export const faq = [
   {
-    q: "Can AI really help me grow my freelance business faster?",
-    a: "Yes — typical capacity gain is 25-40% of admin time recaptured for senior solo freelancers. Pre-call research, proposal drafts, email triage, project planning, marketing content. Not 10× (anyone selling that is selling vibes). The actual client work — your judgment and creative output — AI doesn't replace.",
+    q: "Yapay zeka gerçekten freelance işimi daha hızlı büyütmeme yardımcı olabilir mi?",
+    a: "Evet — kıdemli solo freelancer'lar için tipik kapasite kazancı, idari zamanın %25-40'ının geri kazanılmasıdır. Görüşme öncesi araştırma, teklif taslakları, e-posta triyajı, proje planlaması, pazarlama içeriği. 10× değil (bunu satan vibe satıyordur). Gerçek müşteri işi — yargınız ve yaratıcı çıktınız — yapay zeka yerini almaz.",
   },
   {
-    q: "What AI tools can help me validate my business idea?",
-    a: "Use AI for: market-size sanity checks, customer-pain interview question generation, landing page copy iteration, competitive analysis, pricing structure exploration. Don't use AI to skip customer interviews — talking to actual humans is still the validation that matters.",
+    q: "İş fikrimi doğrulamama hangi yapay zeka araçları yardımcı olabilir?",
+    a: "Yapay zekayı şunlar için kullanın: pazar büyüklüğü mantık kontrolleri, müşteri sorunu görüşme soruları oluşturma, açılış sayfası kopya yinelemesi, rekabet analizi, fiyatlandırma yapısı keşfi. Müşteri görüşmelerini atlamak için yapay zekayı kullanmayın — gerçek insanlarla konuşmak hala önemli olan doğrulamadır.",
   },
   {
-    q: "How can I use AI to scale my freelance business to multiple clients?",
-    a: "Automate the per-client overhead: onboarding docs, recurring deliverables (build prompts that take client-specific context and output customized work), weekly status emails, time-tracking categorization, retainer renewal proposals. The capacity gain is from reducing admin overhead, not from AI doing client work.",
+    q: "Freelance işimi birden çok müşteriye ölçeklemek için yapay zekayı nasıl kullanabilirim?",
+    a: "Müşteri başına genel gideri otomatikleştirin: katılım belgeleri, tekrarlayan teslimatlar (müşteriye özel bağlamı alan ve özelleştirilmiş işi çıktı olarak veren istemler oluşturun), haftalık durum e-postaları, zaman takibi kategorizasyonu, retainer yenileme teklifleri. Kapasite kazancı, idari genel gideri azaltmaktan gelir, yapay zekanın müşteri işini yapmasından değil.",
   },
   {
-    q: "What's the AI stack for a solo freelancer in 2026?",
-    a: "Paid LLM ($20/mo), email tool ($0-30/mo), Calendly free, CRM in Notion/Airtable, time tracking ($14/mo), invoicing ($21/mo or transaction fees). Total $80-120/month. Avoid 'AI does everything' productivity suites — they underperform best-of-breed tools on every dimension.",
+    q: "2026'da solo bir freelancer için yapay zeka yığını nedir?",
+    a: "Ücretli LLM (ayda 20$), e-posta aracı (ayda 0-30$), Calendly ücretsiz, Notion/Airtable'da CRM, zaman takibi (ayda 14$), faturalama (ayda 21$ veya işlem ücretleri). Toplam ayda 80-120$. 'Yapay zeka her şeyi yapar' üretkenlik paketlerinden kaçının — her boyutta en iyi araçlardan daha düşük performans gösterirler.",
   },
 ];

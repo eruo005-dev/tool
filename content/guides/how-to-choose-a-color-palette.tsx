@@ -3,277 +3,284 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Color palette selection is where taste meets math. Pick well and
-      your product, slide, or branding reads as intentional. Pick badly
-      and every downstream choice feels off — buttons too loud,
-      backgrounds muddy, accessibility broken. This guide covers the
-      color-theory foundation (HSL beats RGB for reasoning), the four
-      palette schemes that cover 95% of use cases, how to hit WCAG
-      contrast without losing aesthetic, tools that actually produce
-      palettes worth using, and the mistakes that signal
-      &ldquo;amateur&rdquo; at a glance.
+      Renk paleti seçimi, zevkin matematikle buluştuğu yerdir. İyi seçin,
+      ürününüz, slaydınız veya markanız kasıtlı olarak okunur. Kötü seçin
+      ve aşağı yönlü her karar yanlış gelir — butonlar çok gürültülü,
+      arka planlar bulanık, erişilebilirlik bozuk. Bu rehber, renk teorisi
+      temelini (HSL, RGB'den daha iyidir), %95 kullanım durumunu kapsayan
+      dört palet şemasını, estetik kaybetmeden WCAG kontrastını nasıl
+      yakalayacağınızı, gerçekten kullanılmaya değer paletler üreten
+      araçları ve bir bakışta "amatör" sinyali veren hataları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>HSL — the color model to think in</h2>
+    <h2>HSL — düşünmek için renk modeli</h2>
     <p>
-      RGB (red-green-blue) tells you what the screen does. HSL (hue-
-      saturation-lightness) tells you what humans perceive. Reason
-      about palettes in HSL, convert to hex/RGB at implementation time.
+      RGB (kırmızı-yeşil-mavi) size ekranın ne yaptığını söyler. HSL (renk
+      tonu-doygunluk-parlaklık) size insanların ne algıladığını söyler.
+      Paletleri HSL cinsinden düşünün, uygulama zamanında hex/RGB'ye
+      dönüştürün.
     </p>
     <p>
-      <strong>Hue (0-360°):</strong> the color family — red (0), orange
-      (30), yellow (60), green (120), cyan (180), blue (240), purple
-      (270), magenta (300).
+      <strong>Renk tonu (0-360°):</strong> renk ailesi — kırmızı (0), turuncu
+      (30), sarı (60), yeşil (120), camgöbeği (180), mavi (240), mor
+      (270), eflatun (300).
     </p>
     <p>
-      <strong>Saturation (0-100%):</strong> how vivid. 0% = grayscale.
-      100% = neon.
+      <strong>Doygunluk (%0-100):</strong> ne kadar canlı. %0 = gri tonlama.
+      %100 = neon.
     </p>
     <p>
-      <strong>Lightness (0-100%):</strong> 0% = black. 50% = pure color.
-      100% = white.
+      <strong>Parlaklık (%0-100):</strong> %0 = siyah. %50 = saf renk.
+      %100 = beyaz.
     </p>
     <p>
-      Once you&rsquo;re fluent in HSL, you can generate variants
-      systematically: hold hue, vary lightness for shades and tints;
-      hold lightness, rotate hue for color harmonies; drop saturation
-      for backgrounds and borders.
-    </p>
-
-    <h2>The four palette schemes — pick one and stick with it</h2>
-    <p>
-      <strong>1. Monochromatic.</strong> One hue, multiple lightness/
-      saturation variants. Hardest to screw up, easiest to look
-      cohesive. Great for utilitarian UIs, minimalist brands. Drawback:
-      can feel flat. Fix: strong accent color (white, black, or a
-      single complementary pop).
-    </p>
-    <p>
-      <strong>2. Analogous.</strong> 2-3 hues adjacent on the wheel
-      (e.g., teal + blue + indigo). Harmonious, calm, natural. Good
-      for landscape-feeling brands, editorial design. Drawback: lacks
-      contrast for CTAs. Fix: use complementary accent for action items.
-    </p>
-    <p>
-      <strong>3. Complementary.</strong> Two hues opposite on the wheel
-      (blue + orange, red + green). High contrast, vibrant, good for
-      call-to-action heavy designs. Drawback: overuse feels loud. Fix:
-      60-30-10 rule — one color dominates, the complement is the accent,
-      neutrals carry the rest.
-    </p>
-    <p>
-      <strong>4. Triadic.</strong> Three hues evenly spaced (120° apart).
-      Playful, energetic. Good for kids&rsquo; brands, entertainment.
-      Drawback: very hard to balance without one dominating. Use only
-      if you have a strong design instinct or a designer reviewing.
+      HSL'de akıcı olduğunuzda, varyantları sistematik olarak
+      oluşturabilirsiniz: renk tonunu sabit tutun, gölgeler ve tonlar için
+      parlaklığı değiştirin; parlaklığı sabit tutun, renk uyumları için
+      renk tonunu döndürün; arka planlar ve kenarlıklar için doygunluğu
+      azaltın.
     </p>
 
-    <h2>The 60-30-10 rule</h2>
+    <h2>Dört palet şeması — birini seçin ve ona bağlı kalın</h2>
     <p>
-      Professional palettes rarely use more than 3-4 colors in any
-      meaningful amount. A reliable distribution:
+      <strong>1. Tek renkli.</strong> Bir renk tonu, birden çok parlaklık/
+      doygunluk varyantı. Bozmak en zor, uyumlu görünmesi en kolay.
+      Faydacı arayüzler, minimalist markalar için harika. Dezavantaj:
+      düz hissedilebilir. Çözüm: güçlü bir vurgu rengi (beyaz, siyah veya
+      tek bir tamamlayıcı patlama).
     </p>
     <p>
-      <strong>60%</strong> — dominant (usually a neutral: white, light
-      gray, dark background).
+      <strong>2. Benzer.</strong> Çarkta bitişik 2-3 renk tonu
+      (ör. teal + mavi + çivit). Uyumlu, sakin, doğal. Manzara
+      hissi veren markalar, editoryal tasarım için iyi. Dezavantaj: harekete
+      geçirici mesajlar için kontrast eksikliği. Çözüm: eylem öğeleri için
+      tamamlayıcı vurgu kullanın.
     </p>
     <p>
-      <strong>30%</strong> — secondary (brand color, used for sections
-      and larger UI).
+      <strong>3. Tamamlayıcı.</strong> Çarkta zıt iki renk tonu
+      (mavi + turuncu, kırmızı + yeşil). Yüksek kontrast, canlı, harekete
+      geçirici mesaj ağırlıklı tasarımlar için iyi. Dezavantaj: aşırı
+      kullanım gürültülü hissettirir. Çözüm: 60-30-10 kuralı — bir renk
+      baskındır, tamamlayıcı vurgudur, nötrler gerisini taşır.
     </p>
     <p>
-      <strong>10%</strong> — accent (CTAs, highlights, interactive
-      elements that need to pop).
-    </p>
-    <p>
-      If you find yourself using 6 equal colors, you&rsquo;ve made a
-      rainbow, not a palette. Strip back.
-    </p>
-
-    <h2>Neutrals — where amateurs cut corners</h2>
-    <p>
-      &ldquo;Neutral&rdquo; doesn&rsquo;t mean pure gray. Warm-tinted
-      neutrals (slight yellow/brown) feel inviting; cool neutrals
-      (slight blue) feel clinical. Match neutral <a href="/learn/temperature-ai">temperature</a> to your
-      brand color for coherence.
-    </p>
-    <p>
-      Instead of #888888 gray, try HSL(220, 10%, 53%) — a very slightly
-      blue-tinted neutral. Notice the difference on large surfaces.
-    </p>
-    <p>
-      Build a <strong>tonal ramp</strong>: 9-10 values of each neutral
-      from near-white to near-black. Tailwind&rsquo;s gray-50 through
-      gray-900 is the canonical example. Having named steps lets you
-      pick consistently (&ldquo;borders are gray-200, muted text is
-      gray-500&rdquo;) rather than picking new hex codes each time.
+      <strong>4. Üçlü.</strong> Eşit aralıklı üç renk tonu (120° aralıklı).
+      Eğlenceli, enerjik. Çocuk markaları, eğlence için iyi.
+      Dezavantaj: birinin baskın olmaması için dengelemek çok zordur.
+      Yalnızca güçlü bir tasarım içgüdünüz varsa veya bir tasarımcı
+      inceliyorsa kullanın.
     </p>
 
-    <h2>Accessibility — WCAG contrast is non-negotiable</h2>
+    <h2>60-30-10 kuralı</h2>
     <p>
-      <strong>Contrast ratio</strong> is the perceived brightness
-      difference between two colors. WCAG defines minimums:
+      Profesyonel paletler, anlamlı miktarda nadiren 3-4'ten fazla renk
+      kullanır. Güvenilir bir dağılım:
     </p>
     <p>
-      <strong>4.5:1</strong> for normal text on background (AA).
+      <strong>%60</strong> — baskın (genellikle nötr: beyaz, açık
+      gri, koyu arka plan).
     </p>
     <p>
-      <strong>3:1</strong> for large text (18pt+), UI components,
-      graphical elements (AA).
+      <strong>%30</strong> — ikincil (marka rengi, bölümler
+      ve daha büyük arayüz için kullanılır).
     </p>
     <p>
-      <strong>7:1</strong> for AAA — higher accessibility.
+      <strong>%10</strong> — vurgu (harekete geçirici mesajlar, vurgular,
+      öne çıkması gereken etkileşimli öğeler).
     </p>
     <p>
-      Check every text/background pair with a contrast checker before
-      shipping. Light gray text on white looks elegant in Figma but
-      fails accessibility and is unreadable for users with low vision
-      or on dim screens.
-    </p>
-    <p>
-      <strong>The common failure:</strong> &ldquo;muted&rdquo; gray text
-      around #aaaaaa on white. 2.3:1 — fails even the relaxed standard.
-      Bump to #6b7280 (Tailwind gray-500) minimum for body copy.
+      6 eşit renk kullanırken bulursanız, bir palet değil, bir
+      gökkuşağı yapmışsınızdır. Geri çekilin.
     </p>
 
-    <h2>Semantic colors — not just aesthetic</h2>
+    <h2>Nötrler — amatörlerin köşe kestiği yer</h2>
     <p>
-      Beyond brand, you need roles. Common semantic pairs:
+      "Nötr" saf gri anlamına gelmez. Sıcak tonlu
+      nötrler (hafif sarı/kahverengi) davetkar hissettirir; soğuk nötrler
+      (hafif mavi) klinik hissettirir. Nötr <a href="/learn/temperature-ai">sıcaklığı</a>nı
+      uyum için marka renginizle eşleştirin.
     </p>
     <p>
-      <strong>Success:</strong> green (hue 120-140).
+      #888888 gri yerine, HSL(220, %10, %53) deneyin — çok hafif
+      mavi tonlu bir nötr. Büyük yüzeylerdeki farkı fark edin.
     </p>
     <p>
-      <strong>Warning:</strong> amber/yellow (hue 40-50). Use sparingly
-      — contrast on white is poor; pair with stronger background.
-    </p>
-    <p>
-      <strong>Danger/error:</strong> red (hue 0-15).
-    </p>
-    <p>
-      <strong>Info:</strong> blue (hue 200-220).
-    </p>
-    <p>
-      These should live outside your brand palette so a &ldquo;delete&rdquo;
-      button looks dangerous even if your brand is blue.
+      Bir <strong>tonal rampa</strong> oluşturun: her nötrün neredeyse
+      beyazdan neredeyse siyaha 9-10 değeri. Tailwind'in gray-50'den
+      gray-900'e kadar olanı kanonik örnektir. Adlandırılmış adımlara
+      sahip olmak, her seferinde yeni hex kodları seçmek yerine tutarlı
+      bir şekilde seçmenizi sağlar ("kenarlıklar gray-200, soluk metin
+      gray-500").
     </p>
 
-    <h2>Dark mode — not just inverting</h2>
+    <h2>Erişilebilirlik — WCAG kontrastı pazarlık konusu değil</h2>
     <p>
-      A proper dark-mode palette is its own design, not an inverse.
+      <strong>Kontrast oranı</strong>, iki renk arasındaki algılanan
+      parlaklık farkıdır. WCAG minimumları tanımlar:
     </p>
     <p>
-      <strong>Backgrounds:</strong> not pure black (#000). Very dark
-      gray (#0a0a0a, #111) reduces eye strain and makes shadows work.
+      <strong>4.5:1</strong> normal metin için arka planda (AA).
     </p>
     <p>
-      <strong>Text:</strong> not pure white (#fff) on dark. Slightly
-      off-white (#e5e5e5, #f5f5f5) reduces glare on OLED screens.
+      <strong>3:1</strong> büyük metin (18pt+), arayüz bileşenleri,
+      grafik öğeler için (AA).
     </p>
     <p>
-      <strong>Saturation:</strong> de-saturate brand colors by 20-30%
-      for dark-mode UIs. Full-saturation brand colors feel violent on
-      dark backgrounds.
+      <strong>7:1</strong> AAA için — daha yüksek erişilebilirlik.
     </p>
     <p>
-      <strong>Elevation:</strong> use slightly lighter backgrounds (not
-      shadows) to indicate elevation — Material Design&rsquo;s surface
-      system is the canonical reference.
-    </p>
-
-    <h2>Tools that generate real palettes</h2>
-    <p>
-      <strong>Coolors</strong> (coolors.co) — press space to generate,
-      lock favorites, iterate. The fastest way to explore palette
-      directions.
+      Göndermeden önce her metin/arka plan çiftini bir kontrast denetleyicisiyle
+      kontrol edin. Figma'da beyaz üzerinde açık gri metin şık görünür ancak
+      erişilebilirlikte başarısız olur ve düşük görüşlü kullanıcılar veya
+      loş ekranlar için okunamaz.
     </p>
     <p>
-      <strong>Adobe Color</strong> (color.adobe.com) — color-wheel
-      driven, with harmony rules built in. Shows live WCAG contrast on
-      generated palettes.
-    </p>
-    <p>
-      <strong>Tailwind&rsquo;s palette</strong> (tailwindcss.com/docs/
-      customizing-colors) — pre-built 11-step ramps for 22 color
-      families. Use as-is for ~80% of web projects.
-    </p>
-    <p>
-      <strong>Radix Colors</strong> (radix-ui.com/colors) — 12-step
-      ramps designed with accessibility built in. Matched light and
-      dark variants. Aimed at design systems.
-    </p>
-    <p>
-      <strong>Huemint</strong> (huemint.com) — AI-based palette
-      generation that considers brand applications.
-    </p>
-    <p>
-      <strong>Site inspiration:</strong> Awwwards, Dribbble, Mobbin.
-      Don&rsquo;t copy — observe how combinations work.
+      <strong>Yaygın hata:</strong> beyaz üzerinde #aaaaaa civarında "soluk" gri
+      metin. 2.3:1 — rahat standartta bile başarısız. Gövde metni için
+      minimum #6b7280 (Tailwind gray-500)'e yükseltin.
     </p>
 
-    <h2>Industry conventions — when to follow, when to break</h2>
+    <h2>Anlamsal renkler — sadece estetik değil</h2>
     <p>
-      <strong>Banking/finance:</strong> blues and greens (trust,
-      stability). Navy is dominant.
+      Markanın ötesinde, rollere ihtiyacınız var. Yaygın anlamsal çiftler:
     </p>
     <p>
-      <strong>Healthcare:</strong> teal, green, white. Avoid red
-      (clinical red = emergency).
+      <strong>Başarı:</strong> yeşil (renk tonu 120-140).
     </p>
     <p>
-      <strong>Food delivery:</strong> oranges, reds (appetite).
+      <strong>Uyarı:</strong> kehribar/sarı (renk tonu 40-50). Az kullanın
+      — beyaz üzerinde kontrast zayıftır; daha güçlü bir arka planla eşleştirin.
     </p>
     <p>
-      <strong>Tech/SaaS:</strong> blues, purples. Notion-esque pastels
-      are the current trend.
+      <strong>Tehlike/hata:</strong> kırmızı (renk tonu 0-15).
     </p>
     <p>
-      <strong>Luxury:</strong> black, gold, deep navy, white.
+      <strong>Bilgi:</strong> mavi (renk tonu 200-220).
     </p>
     <p>
-      These are defaults, not rules. Differentiation often means
-      deliberately choosing against the category (Mailchimp&rsquo;s
-      yellow in a SaaS world, Liquid Death&rsquo;s punk black).
-      Intentional deviation is brand strategy; accidental deviation is
-      noise.
+      Bunlar marka paletinizin dışında olmalıdır, böylece bir "sil"
+      butonu, markanız mavi olsa bile tehlikeli görünür.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Karanlık mod — sadece ters çevirme değil</h2>
     <p>
-      <strong>Too many colors.</strong> A 7-color palette with no
-      dominance reads as chaos. Strip to 3-4 with the 60-30-10 rule.
+      Uygun bir karanlık mod paleti, tersi değil, kendi tasarımıdır.
     </p>
     <p>
-      <strong>Pure black everywhere.</strong> #000000 is harsh. Soften
-      to #1a1a1a or #0f172a (slate-900) for better perceived warmth.
+      <strong>Arka planlar:</strong> saf siyah (#000) değil. Çok koyu
+      gri (#0a0a0a, #111) göz yorgunluğunu azaltır ve gölgelerin çalışmasını
+      sağlar.
     </p>
     <p>
-      <strong>Vibrating combinations.</strong> Red text on blue
-      background, etc. Full-saturation colors adjacent create visual
-      buzz. De-saturate one or shift lightness.
+      <strong>Metin:</strong> koyuda saf beyaz (#fff) değil. Hafif
+      kirli beyaz (#e5e5e5, #f5f5f5) OLED ekranlarda parlamayı azaltır.
     </p>
     <p>
-      <strong>Untested on real content.</strong> Palette looks great
-      as 9 swatches; looks broken once you apply to a page with real
-      copy, buttons, forms. Build a test page, not just swatches.
+      <strong>Doygunluk:</strong> karanlık mod arayüzleri için marka
+      renklerini %20-30 oranında doygunluğunu azaltın. Tam doygunlukta marka
+      renkleri koyu arka planlarda şiddetli hissettirir.
     </p>
     <p>
-      <strong>No dark-mode plan.</strong> Users expect it. Decide
-      early or be stuck retrofitting.
+      <strong>Yükseklik:</strong> yüksekliği belirtmek için gölgeler değil,
+      biraz daha açık arka planlar kullanın — Material Design'ın yüzey
+      sistemi kanonik referanstır.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Gerçek paletler üreten araçlar</h2>
     <p>
-      Pick exact colors and explore variants with the{" "}
-      <a href="/tools/color-picker">color picker</a>. Pair with the{" "}
-      <a href="/tools/color-converter">color converter</a> for
-      HSL/RGB/HEX conversion, and the{" "}
-      <a href="/tools/gradient-generator">gradient generator</a> to
-      build multi-stop transitions for heroes and backgrounds.
+      <strong>Coolors</strong> (coolors.co) — oluşturmak için boşluğa basın,
+      favorileri kilitleyin, yineleyin. Palet yönlerini keşfetmenin en hızlı
+      yolu.
+    </p>
+    <p>
+      <strong>Adobe Color</strong> (color.adobe.com) — renk çarkı
+      odaklı, yerleşik uyum kurallarıyla. Oluşturulan paletlerde canlı WCAG
+      kontrastını gösterir.
+    </p>
+    <p>
+      <strong>Tailwind'in paleti</strong> (tailwindcss.com/docs/
+      customizing-colors) — 22 renk ailesi için önceden oluşturulmuş 11
+      adımlı rampalar. Web projelerinin ~%80'i için olduğu gibi kullanın.
+    </p>
+    <p>
+      <strong>Radix Colors</strong> (radix-ui.com/colors) — erişilebilirlik
+      yerleşik olarak tasarlanmış 12 adımlı rampalar. Eşleşen açık ve
+      koyu varyantlar. Tasarım sistemlerini hedefler.
+    </p>
+    <p>
+      <strong>Huemint</strong> (huemint.com) — marka uygulamalarını
+      dikkate alan yapay zeka tabanlı palet oluşturma.
+    </p>
+    <p>
+      <strong>Site ilhamı:</strong> Awwwards, Dribbble, Mobbin.
+      Kopyalamayın — kombinasyonların nasıl çalıştığını gözlemleyin.
+    </p>
+
+    <h2>Sektör gelenekleri — ne zaman uymalı, ne zaman kırmalı</h2>
+    <p>
+      <strong>Bankacılık/finans:</strong> maviler ve yeşiller (güven,
+      istikrar). Lacivert baskındır.
+    </p>
+    <p>
+      <strong>Sağlık:</strong> teal, yeşil, beyaz. Kırmızıdan kaçının
+      (klinik kırmızı = acil durum).
+    </p>
+    <p>
+      <strong>Yemek teslimatı:</strong> turuncular, kırmızılar (iştah).
+    </p>
+    <p>
+      <strong>Teknoloji/SaaS:</strong> maviler, morlar. Notion benzeri pasteller
+      mevcut trend.
+    </p>
+    <p>
+      <strong>Lüks:</strong> siyah, altın, koyu lacivert, beyaz.
+    </p>
+    <p>
+      Bunlar varsayılanlardır, kurallar değil. Farklılaşma genellikle
+      kategoriye karşı bilinçli seçim yapmak anlamına gelir (Mailchimp'in
+      SaaS dünyasında sarısı, Liquid Death'in punk siyahı).
+      Kasıtlı sapma marka stratejisidir; kazara sapma gürültüdür.
+    </p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>
+      <strong>Çok fazla renk.</strong> Baskınlığı olmayan 7 renkli bir palet
+      kaos olarak okunur. 60-30-10 kuralıyla 3-4'e indirin.
+    </p>
+    <p>
+      <strong>Her yerde saf siyah.</strong> #000000 serttir. Daha iyi
+      algılanan sıcaklık için #1a1a1a veya #0f172a (slate-900) ile
+      yumuşatın.
+    </p>
+    <p>
+      <strong>Titreşen kombinasyonlar.</strong> Mavi arka planda kırmızı
+      metin vb. Tam doygunlukta bitişik renkler görsel uğultu yaratır.
+      Birinin doygunluğunu azaltın veya parlaklığı değiştirin.
+    </p>
+    <p>
+      <strong>Gerçek içerikte test edilmemiş.</strong> Palet 9 renk örneği
+      olarak harika görünür; gerçek kopya, butonlar, formlar içeren bir
+      sayfaya uygulandığında bozuk görünür. Sadece renk örnekleri değil,
+      bir test sayfası oluşturun.
+    </p>
+    <p>
+      <strong>Karanlık mod planı yok.</strong> Kullanıcılar bunu bekler.
+      Erken karar verin veya sonradan uyarlamaya takılıp kalın.
+    </p>
+
+    <h2>Rakamları çalıştırın</h2>
+    <p>
+      Kesin renkleri seçin ve{" "}
+      <a href="/tools/color-picker">renk seçici</a> ile varyantları keşfedin.
+      HSL/RGB/HEX dönüşümü için{" "}
+      <a href="/tools/color-converter">renk dönüştürücü</a> ile ve kahramanlar
+      ve arka planlar için çok duraklı geçişler oluşturmak üzere{" "}
+      <a href="/tools/gradient-generator">gradyan oluşturucu</a> ile
+      eşleştirin.
     </p>
   </>
 );

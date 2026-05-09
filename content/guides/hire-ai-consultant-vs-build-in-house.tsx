@@ -1,227 +1,167 @@
-/* eslint-disable react/no-unescaped-entities */
-
 export const intro = (
   <>
     <p>
-      The hire-vs-build decision for AI is the same question every business has faced
-      with every new technology — but the math has changed because the tooling moves so
-      fast. Three years ago you needed an ML PhD. Today you need someone who can read
-      docs and ship API integrations.
+      Yapay zeka için "kiralama mı, yoksa kendi ekibini kurma mı" kararı, her işletmenin her yeni teknolojiyle karşılaştığı klasik sorudur. Ancak araçlar o kadar hızlı gelişiyor ki denklem değişti. Üç yıl önce bir ML doktorasına ihtiyacınız vardı. Bugün ise dokümanları okuyup API entegrasyonları yapabilen birine ihtiyacınız var.
     </p>
     <p>
-      This guide is the decision framework: when consulting wins, when in-house wins, and
-      the hybrid path that&rsquo;s become the most common pattern in 2026.
+      Bu rehber bir karar çerçevesi sunuyor: Danışmanlık ne zaman kazanır, şirket içi ekip ne zaman kazanır ve 2026'da en yaygın model haline gelen hibrit yol hangisidir.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "framework", label: "The decision framework" },
-  { id: "consulting-wins", label: "When consulting wins" },
-  { id: "in-house-wins", label: "When in-house wins" },
-  { id: "hybrid", label: "The hybrid pattern" },
-  { id: "training", label: "Investing in team AI training" },
-  { id: "non-technical", label: "Getting started if you&rsquo;re non-technical" },
+  { id: "framework", label: "Karar çerçevesi" },
+  { id: "consulting-wins", label: "Danışmanlık ne zaman kazanır" },
+  { id: "in-house-wins", label: "Şirket içi ekip ne zaman kazanır" },
+  { id: "hybrid", label: "Hibrit model" },
+  { id: "training", label: "Ekibinize yapay zeka eğitimi yatırımı" },
+  { id: "non-technical", label: "Teknik bilginiz yoksa başlangıç" },
 ];
 
 export const body = (
   <>
-    <h2 id="framework">The decision framework</h2>
+    <h2 id="framework">Karar çerçevesi</h2>
     <p>
-      Three variables determine the answer:
+      Cevabı belirleyen üç değişken vardır:
     </p>
     <ol>
       <li>
-        <strong>How specific is the use case to your business?</strong> Common use cases
-        (customer support AI, doc summarization, email drafting) have off-the-shelf
-        solutions and consultants who&rsquo;ve done it 50 times. Specific use cases (your
-        proprietary data, your unique workflow, your industry&rsquo;s regulations) need
-        in-house judgment.
+        <strong>Kullanım senaryosu işinize ne kadar özgü?</strong> Yaygın kullanım senaryoları (müşteri hizmetleri yapay zekası, belge özetleme, e-posta taslağı oluşturma) için hazır çözümler ve bunu 50 kez yapmış danışmanlar vardır. Özgün senaryolar (size ait veriler, benzersiz iş akışınız, sektörünüzün düzenlemeleri) ise şirket içi uzmanlık gerektirir.
       </li>
       <li>
-        <strong>What&rsquo;s your engineering bench?</strong> If you have 5 senior
-        engineers with API-integration experience, your in-house cost is much lower than
-        a team of 2 who&rsquo;d be doing this on top of feature work.
+        <strong>Mühendislik ekibinizin kapasitesi nedir?</strong> API entegrasyonu deneyimine sahip 5 kıdemli mühendisiniz varsa, şirket içi maliyetiniz, bu işi mevcut özellik geliştirmelerinin üzerine yapacak 2 kişilik bir ekibe göre çok daha düşüktür.
       </li>
       <li>
-        <strong>How much will this scale?</strong> A one-time deployment? Consulting wins.
-        A capability you&rsquo;ll keep iterating on for 3 years? In-house pays off.
+        <strong>Bu ne kadar ölçeklenecek?</strong> Tek seferlik bir dağıtım mı? Danışmanlık kazanır. 3 yıl boyunca üzerinde sürekli iyileştirme yapacağınız bir yetenek mi? Şirket içi ekip kendini amorti eder.
       </li>
     </ol>
 
-    <h2 id="consulting-wins">When consulting wins</h2>
+    <h2 id="consulting-wins">Danışmanlık ne zaman kazanır</h2>
     <ul>
       <li>
-        <strong>Standard use case + tight timeline.</strong> Customer support AI for a
-        SaaS company is a worn path; a consultant ships in 6 weeks what would take your
-        team 6 months while learning.
+        <strong>Standart kullanım senaryosu + sıkı zaman çizelgesi.</strong> Bir SaaS şirketi için müşteri hizmetleri yapay zekası, iyi bilinen bir yoldur; bir danışman, ekibinizin öğrenirken 6 ayda yapacağını 6 haftada teslim eder.
       </li>
       <li>
-        <strong>Regulated industries with compliance burden.</strong> Healthcare, finance,
-        legal — consultants who&rsquo;ve shipped in those domains know the gotchas
-        (HIPAA, SOC 2 Type II, model audit trails) that&rsquo;d eat your team&rsquo;s
-        first 3 months.
+        <strong>Uyumluluk yükü olan düzenlemeye tabi sektörler.</strong> Sağlık, finans, hukuk — bu alanlarda teslimat yapmış danışmanlar, ekibinizin ilk 3 ayını tüketecek tuzakları (HIPAA, SOC 2 Tip II, model denetim izleri) bilir.
       </li>
       <li>
-        <strong>Strategy / prioritization work.</strong> A 3-month engagement to figure out
-        which 5 of 50 ideas are worth pursuing is high-leverage even if you build it all
-        in-house afterwards.
+        <strong>Strateji / önceliklendirme çalışmaları.</strong> 50 fikirden hangi 5'inin takip etmeye değer olduğunu belirlemek için 3 aylık bir danışmanlık, daha sonra her şeyi şirket içinde inşa etseniz bile yüksek kaldıraçlı bir yatırımdır.
       </li>
       <li>
-        <strong>One-shot deployments.</strong> Building a custom internal tool for a
-        specific narrow workflow you&rsquo;ll use for years but never iterate on.
+        <strong>Tek seferlik dağıtımlar.</strong> Yıllarca kullanacağınız ancak üzerinde hiç iyileştirme yapmayacağınız, belirli bir dar iş akışı için özel bir dahili araç oluşturmak.
       </li>
       <li>
-        <strong>You don&rsquo;t have engineering capacity.</strong> If your two engineers
-        are already underwater, adding AI work without external help just delays both.
+        <strong>Mühendislik kapasiteniz yok.</strong> İki mühendisiniz zaten iş yükü altında eziliyorsa, dışarıdan yardım almadan yapay zeka işi eklemek her ikisini de geciktirir.
       </li>
     </ul>
 
-    <h2 id="in-house-wins">When in-house wins</h2>
+    <h2 id="in-house-wins">Şirket içi ekip ne zaman kazanır</h2>
     <ul>
       <li>
-        <strong>Core-product features.</strong> Anything that ships to your users as part
-        of your product. The iteration loop matters too much to outsource. You&rsquo;ll
-        learn what works only by being in it daily.
+        <strong>Ana ürün özellikleri.</strong> Ürününüzün bir parçası olarak kullanıcılarınıza gönderdiğiniz her şey. İyileştirme döngüsü dışarıya devredilemeyecek kadar önemlidir. Ne işe yaradığını ancak her gün içinde olarak öğrenirsiniz.
       </li>
       <li>
-        <strong>Recurring iteration.</strong> If you&rsquo;ll be tweaking prompts, fine-
-        tuning models, or adjusting RAG pipelines weekly for the next 2 years, every dollar
-        spent on a consultant is a dollar that doesn&rsquo;t build internal expertise.
+        <strong>Sürekli iyileştirme.</strong> Önümüzdeki 2 yıl boyunca her hafta prompt'ları ince ayar yapacak, modelleri fine-tune edecek veya RAG boru hatlarını ayarlayacaksanız, danışmana harcanan her dolar, şirket içi uzmanlık oluşturmayan bir dolardır.
       </li>
       <li>
-        <strong>Strong existing engineering bench.</strong> If you have engineers who can
-        ramp on AI in 3-4 months, that&rsquo;s often cheaper than a 6-month consulting
-        engagement and you keep the knowledge.
+        <strong>Güçlü mevcut mühendislik ekibi.</strong> 3-4 ay içinde yapay zekaya geçiş yapabilecek mühendisleriniz varsa, bu genellikle 6 aylık bir danışmanlık anlaşmasından daha ucuzdur ve bilgi sizde kalır.
       </li>
       <li>
-        <strong>High-stakes data privacy.</strong> When you can&rsquo;t share data with a
-        third party at all (even under DPA), in-house is the only path. Build it on
-        self-hosted models or carefully-vetted enterprise plans.
+        <strong>Yüksek riskli veri gizliliği.</strong> Verileri üçüncü bir tarafla (DPA altında bile) hiçbir şekilde paylaşamadığınızda, tek yol şirket içi ekiptir. Kendi kendine barındırılan modeller veya dikkatle incelenmiş kurumsal planlar üzerine inşa edin.
       </li>
       <li>
-        <strong>Strategic moat ambitions.</strong> If the AI capability is supposed to be
-        a competitive differentiator, you can&rsquo;t outsource the differentiator.
+        <strong>Stratejik farklılaşma hedefleri.</strong> Yapay zeka yeteneğinin rekabetçi bir farklılaştırıcı olması gerekiyorsa, farklılaştırıcıyı dışarıya devredemezsiniz.
       </li>
     </ul>
 
-    <h2 id="hybrid">The hybrid pattern (what most teams actually do in 2026)</h2>
+    <h2 id="hybrid">Hibrit model (2026'da çoğu ekibin aslında yaptığı)</h2>
     <p>
-      The most common shape of a successful AI rollout:
+      Başarılı bir yapay zeka kullanıma sunumunun en yaygın şekli:
     </p>
     <ol>
       <li>
-        <strong>Months 1-3: hire a consultant for strategy.</strong> Fractional AI advisor
-        at $5K-$15K/month. Output: prioritized use cases, build-vs-buy recommendations,
-        vendor shortlist, training plan for your team.
+        <strong>1-3. aylar: Strateji için bir danışman kiralayın.</strong> Aylık 5.000-15.000 dolar arası yarı zamanlı yapay zeka danışmanı. Çıktı: önceliklendirilmiş kullanım senaryoları, satın alma veya geliştirme önerileri, satıcı kısa listesi, ekibiniz için eğitim planı.
       </li>
       <li>
-        <strong>Months 3-6: consultant + your engineers ship the first use case.</strong>{" "}
-        Senior consultant pairs with your engineers on the first production deployment.
-        Knowledge transfer baked in. Total: $50K-$150K.
+        <strong>3-6. aylar: Danışman ve mühendisleriniz ilk kullanım senaryosunu teslim eder.</strong> Kıdemli danışman, ilk üretim dağıtımında mühendislerinizle birlikte çalışır. Bilgi aktarımı sürecin bir parçasıdır. Toplam: 50.000-150.000 dolar.
       </li>
       <li>
-        <strong>Months 6-12: your team owns it.</strong> Consultant transitions to
-        check-in advisor at $2K-$5K/month or zero. Your engineers iterate on the deployed
-        system + start the next use case independently.
+        <strong>6-12. aylar: Ekibiniz devralır.</strong> Danışman, aylık 2.000-5.000 dolar veya sıfır ücretle kontrol danışmanına dönüşür. Mühendisleriniz dağıtılan sistem üzerinde iyileştirmeler yapar ve bir sonraki kullanım senaryosuna bağımsız olarak başlar.
       </li>
       <li>
-        <strong>Year 2+: in-house with occasional consulting for new domains.</strong>{" "}
-        When you tackle a new use case in an unfamiliar domain (say, AI for legal review
-        when your team has only done AI for support), bring in a specialist for 4-6 weeks.
+        <strong>2. yıl ve sonrası: Yeni alanlar için ara sıra danışmanlıkla birlikte şirket içi ekip.</strong> Ekibinizin daha önce yalnızca destek için yapay zeka yaptığı bir durumda, yasal inceleme için yapay zeka gibi yeni ve yabancı bir alanda bir kullanım senaryosuna giriştiğinizde, 4-6 haftalığına bir uzman getirin.
       </li>
     </ol>
     <p>
-      This pattern keeps total cost moderate ($75K-$200K in year 1), builds your team&rsquo;s
-      capability, and avoids both extremes (over-reliance on consultants, or underwater
-      engineers learning AI from scratch on critical infrastructure).
+      Bu model, toplam maliyeti makul seviyede tutar (1. yılda 75.000-200.000 dolar), ekibinizin yeteneğini geliştirir ve her iki uç noktadan da (danışmanlara aşırı bağımlılık veya kritik altyapı üzerinde sıfırdan yapay zeka öğrenen, iş yükü altında ezilen mühendisler) kaçınır.
     </p>
 
-    <h2 id="training">How to invest in AI training for your team</h2>
+    <h2 id="training">Ekibinize yapay zeka eğitimi yatırımı nasıl yapılır</h2>
     <p>
-      Whether you go consulting-heavy, in-house, or hybrid, your team needs AI fluency.
-      The cheapest effective options:
+      İster danışmanlık ağırlıklı, ister şirket içi, ister hibrit bir yol izleyin, ekibinizin yapay zeka okuryazarlığına ihtiyacı vardır. En uygun maliyetli seçenekler:
     </p>
     <ul>
       <li>
-        <strong>Self-paced courses ($0-$500/seat):</strong> Anthropic&rsquo;s Prompt
-        Engineering Course (free), DeepLearning.AI specializations (~$50/month), Hugging
-        Face NLP course (free), Andrew Ng / Andrej Karpathy YouTube series (free).
+        <strong>Kendi hızınızda ilerleyen kurslar (kişi başı 0-500 dolar):</strong> Anthropic'in Prompt Mühendisliği Kursu (ücretsiz), DeepLearning.AI uzmanlıkları (~aylık 50 dolar), Hugging Face NLP kursu (ücretsiz), Andrew Ng / Andrej Karpathy YouTube serileri (ücretsiz).
       </li>
       <li>
-        <strong>Conference attendance ($1K-$3K/seat):</strong> AI Engineer Summit, applied
-        tracks at QCon, NeurIPS workshops. Best for senior engineers who need to see
-        production patterns.
+        <strong>Konferans katılımı (kişi başı 1.000-3.000 dolar):</strong> AI Engineer Summit, QCon'da uygulamalı oturumlar, NeurIPS atölyeleri. En çok, üretim modellerini görmesi gereken kıdemli mühendisler için uygundur.
       </li>
       <li>
-        <strong>Internal practice projects ($0):</strong> dedicate Friday afternoons to
-        AI experiments. Not directly billable; long-term <a href="/learn/roi">ROI</a> on capability is enormous.
+        <strong>Dahili uygulama projeleri (ücretsiz):</strong> Cuma öğleden sonralarını yapay zeka deneylerine ayırın. Doğrudan faturalandırılamaz; uzun vadede yetenek üzerindeki <a href="/learn/roi">yatırım getirisi</a> çok büyüktür.
       </li>
       <li>
-        <strong>Vendor-specific certifications ($200-$500/seat):</strong> AWS Certified
-        Machine Learning, Google Cloud Generative AI, etc. Most useful if you&rsquo;re
-        committed to that vendor stack.
+        <strong>Satıcıya özel sertifikalar (kişi başı 200-500 dolar):</strong> AWS Certified Machine Learning, Google Cloud Generative AI vb. En çok, o satıcının teknoloji yığınına bağlıysanız kullanışlıdır.
       </li>
       <li>
-        <strong>Pair with a senior consultant for 4-6 weeks ($20K-$50K):</strong> the
-        knowledge-transfer-as-engagement pattern. Your team ships real work alongside
-        someone senior; they learn 6 months of patterns in 6 weeks.
+        <strong>4-6 hafta boyunca kıdemli bir danışmanla çalışmak (20.000-50.000 dolar):</strong> bilgi aktarımı odaklı danışmanlık modeli. Ekibiniz, kıdemli biriyle birlikte gerçek iş çıkarır; 6 aylık kalıpları 6 haftada öğrenirler.
       </li>
     </ul>
 
-    <h2 id="non-technical">Getting started if you&rsquo;re non-technical</h2>
+    <h2 id="non-technical">Teknik bilginiz yoksa başlangıç</h2>
     <p>
-      If you&rsquo;re a non-technical founder or operator, the path is different. You
-      can&rsquo;t (and shouldn&rsquo;t) try to build AI from scratch. The ladder:
+      Teknik bilgiye sahip olmayan bir kurucu veya yöneticiyseniz, yol farklıdır. Yapay zekayı sıfırdan inşa etmeye çalışmamalı (ve çalışmamalısınız). İzlenecek adımlar:
     </p>
     <ol>
       <li>
-        <strong>Use ChatGPT / Claude / Gemini daily for 30 days.</strong> Learn what AI
-        can and can&rsquo;t do by using it. Most non-technical founders form opinions
-        about AI before trying it for two weeks. Don&rsquo;t.
+        <strong>30 gün boyunca her gün ChatGPT / Claude / Gemini kullanın.</strong> Yapay zekanın neler yapıp neler yapamayacağını kullanarak öğrenin. Teknik bilgiye sahip olmayan kurucuların çoğu, iki hafta denemeden yapay zeka hakkında fikir sahibi olur. Yapmayın.
       </li>
       <li>
-        <strong>Join one AI-for-business community.</strong> Slack, LinkedIn group, or
-        forum focused on practical applications in your industry. You&rsquo;ll learn what
-        others have shipped, where they hit walls, and which vendors are credible.
+        <strong>Bir iş için yapay zeka topluluğuna katılın.</strong> Sektörünüzdeki pratik uygulamalara odaklanmış bir Slack, LinkedIn grubu veya forum. Başkalarının neler teslim ettiğini, nerelerde duvara çarptıklarını ve hangi satıcıların güvenilir olduğunu öğrenirsiniz.
       </li>
       <li>
-        <strong>Hire a 4-week strategy engagement</strong> from a consultant who&rsquo;s
-        worked in your industry. $15K-$30K. They&rsquo;ll write a prioritized roadmap and
-        you&rsquo;ll know what to build first.
+        <strong>Sektörünüzde çalışmış bir danışmandan 4 haftalık bir strateji danışmanlığı alın.</strong> 15.000-30.000 dolar. Önceliklendirilmiş bir yol haritası yazarlar ve önce neyi inşa edeceğinizi bilirsiniz.
       </li>
       <li>
-        <strong>Pilot one use case</strong> with off-the-shelf tools (no custom builds
-        early). $5K-$15K. Track results.
+        <strong>Hazır araçlarla bir kullanım senaryosunu pilot olarak uygulayın</strong> (erken aşamada özel geliştirme yok). 5.000-15.000 dolar. Sonuçları takip edin.
       </li>
       <li>
-        <strong>Then decide:</strong> hire a permanent AI engineer (~$180K-$280K loaded
-        cost), keep using consultants, or stay on off-the-shelf tools.
+        <strong>Sonra karar verin:</strong> kalıcı bir yapay zeka mühendisi işe alın (~180.000-280.000 dolar toplam maliyet), danışman kullanmaya devam edin veya hazır araçlarla kalın.
       </li>
     </ol>
   </>
 );
 
 export const cta = {
-  label: "Calculate the ROI of an AI engagement",
+  label: "Yapay zeka danışmanlığının yatırım getirisini hesaplayın",
   targetSlug: "ai-consulting-roi-calculator",
 };
 
 export const faq = [
   {
-    q: "Should I hire an AI consultant or build AI in-house?",
-    a: "Consulting wins for: standard use cases with tight timelines, regulated industries, strategy/prioritization work, one-shot deployments, when you lack engineering capacity. In-house wins for: core product features, recurring iteration, when you have a strong engineering bench, high-stakes data privacy, strategic moat ambitions. Most teams pick a hybrid path.",
+    q: "Yapay zeka danışmanı mı kiralamalıyım yoksa şirket içinde mi geliştirmeliyim?",
+    a: "Danışmanlık şu durumlarda kazanır: sıkı zaman çizelgeli standart kullanım senaryoları, düzenlemeye tabi sektörler, strateji/önceliklendirme çalışmaları, tek seferlik dağıtımlar, mühendislik kapasitenizin olmadığı durumlar. Şirket içi ekip şu durumlarda kazanır: ana ürün özellikleri, sürekli iyileştirme, güçlü bir mühendislik ekibiniz olduğunda, yüksek riskli veri gizliliği, stratejik farklılaşma hedefleri. Çoğu ekip hibrit bir yol seçer.",
   },
   {
-    q: "What's the typical hybrid AI rollout pattern?",
-    a: "Months 1-3: consultant for strategy ($5-15K/mo). Months 3-6: consultant + your engineers pair on first deployment ($50-150K). Months 6-12: your team owns it, consultant becomes check-in advisor. Year 2+: in-house with occasional specialist consulting for new domains. Total year-1: $75K-$200K.",
+    q: "Tipik hibrit yapay zeka kullanıma sunum modeli nedir?",
+    a: "1-3. aylar: Strateji için danışman (aylık 5-15 bin dolar). 3-6. aylar: Danışman ve mühendisleriniz ilk dağıtımda birlikte çalışır (50-150 bin dolar). 6-12. aylar: Ekibiniz devralır, danışman kontrol danışmanı olur. 2. yıl ve sonrası: Yeni alanlar için ara sıra uzman danışmanlığıyla birlikte şirket içi ekip. 1. yıl toplamı: 75-200 bin dolar.",
   },
   {
-    q: "How do I invest in AI training for my team?",
-    a: "Layered approach: free self-paced courses (Anthropic, DeepLearning.AI, Hugging Face) for everyone, conference attendance for senior engineers ($1-3K/seat), internal practice projects (Friday afternoons), vendor certs for stack alignment, and a 4-6 week pair-with-consultant engagement for accelerated knowledge transfer.",
+    q: "Ekibime yapay zeka eğitimi yatırımını nasıl yapabilirim?",
+    a: "Katmanlı yaklaşım: Herkes için ücretsiz kendi hızında kurslar (Anthropic, DeepLearning.AI, Hugging Face), kıdemli mühendisler için konferans katılımı (kişi başı 1-3 bin dolar), dahili uygulama projeleri (Cuma öğleden sonraları), teknoloji yığını uyumu için satıcı sertifikaları ve hızlandırılmış bilgi aktarımı için 4-6 haftalık danışmanla çalışma anlaşması.",
   },
   {
-    q: "How do I get started with AI if I'm not technical?",
-    a: "Use ChatGPT/Claude/Gemini daily for 30 days, join an AI-for-business community in your industry, hire a 4-week strategy engagement ($15-30K), pilot one use case with off-the-shelf tools ($5-15K). Then decide whether to hire a permanent AI engineer, keep using consultants, or stay on off-the-shelf.",
+    q: "Teknik bilgim yoksa yapay zekaya nasıl başlayabilirim?",
+    a: "30 gün boyunca her gün ChatGPT/Claude/Gemini kullanın, sektörünüzdeki bir iş için yapay zeka topluluğuna katılın, 4 haftalık bir strateji danışmanlığı alın (15-30 bin dolar), hazır araçlarla bir kullanım senaryosunu pilot olarak uygulayın (5-15 bin dolar). Ardından kalıcı bir yapay zeka mühendisi işe alıp almamaya, danışman kullanmaya devam etmeye veya hazır araçlarla kalmaya karar verin.",
   },
 ];

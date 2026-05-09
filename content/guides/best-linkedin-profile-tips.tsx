@@ -1,102 +1,74 @@
 export const intro = (
   <>
     <p>
-      Your LinkedIn profile is doing work for you even when you&rsquo;re not looking for
-      a job. Recruiters find you, peers check you out before meetings, and clients make
-      snap judgments. A mediocre profile costs opportunities silently.
+      LinkedIn profiliniz, iş aramıyor olsanız bile sizin için çalışır. İşe alımcılar sizi bulur, meslektaşlarınız toplantılardan önce sizi kontrol eder ve müşteriler anlık yargılarda bulunur. Vasat bir profil, sessizce fırsatları kaybettirir.
     </p>
     <p>
-      These are the changes that actually move the needle — not generic &ldquo;update
-      your photo&rdquo; tips.
+      Bunlar, gerçekten fark yaratan değişiklikler — sıradan "fotoğrafınızı güncelleyin" tavsiyeleri değil.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Photo that looks like you</h2>
+    <h2>1. Size benzeyen bir fotoğraf</h2>
     <p>
-      A clean headshot, neutral background, smiling, looking at the camera. Not a
-      cropped wedding photo. Not a corporate avatar from 2012. You don&rsquo;t need a
-      professional photographer — a phone and a blank wall are fine.
+      Temiz bir portre, nötr bir arka plan, gülümseyen, kameraya bakan. Kırpılmış bir düğün fotoğrafı değil. 2012'den kalma kurumsal bir avatar değil. Profesyonel bir fotoğrafçıya ihtiyacınız yok — bir telefon ve boş bir duvar yeterli.
     </p>
 
-    <h2>2. Banner with intent</h2>
+    <h2>2. Amaçlı bir kapak görseli</h2>
     <p>
-      Don&rsquo;t leave the default blue. A simple banner that reflects your work
-      (product screenshot, clean abstract, company color) signals you care. Canva has
-      free templates.
+      Varsayılan maviyi bırakmayın. Çalışmalarınızı yansıtan basit bir kapak görseli (ürün ekran görüntüsü, temiz bir soyut, şirket rengi) önemsediğinizi gösterir. Canva'da ücretsiz şablonlar var.
     </p>
 
-    <h2>3. Headline does more than job title</h2>
+    <h2>3. Başlık, unvandan daha fazlasını anlatır</h2>
     <p>
-      &ldquo;Software Engineer at Acme&rdquo; is wasted space. &ldquo;Backend engineer
-      shipping infra at Acme | ex-Stripe&rdquo; tells more in the same line. Use all
-      220 characters. Specifics + context.
+      "Acme'de Yazılım Mühendisi" boşa harcanmış bir alandır. "Acme'de altyapı gönderen backend mühendisi | eski-Stripe" aynı satırda daha fazlasını anlatır. 220 karakterin tamamını kullanın. Spesifikler + bağlam.
     </p>
 
-    <h2>4. Write the About like a human</h2>
+    <h2>4. Hakkında bölümünü insan gibi yazın</h2>
     <p>
-      Short paragraphs. First person. What you do, what you care about, what kind of
-      opportunities you&rsquo;re open to. Not a recycled resume. Not buzzword soup.
-      Read yours out loud — if it sounds weird, it is weird.
+      Kısa paragraflar. Birinci şahıs. Ne yaptığınız, neyi önemsediğiniz, ne tür fırsatlara açık olduğunuz. Geri dönüştürülmüş bir özgeçmiş değil. Moda sözcük çorbası değil. Yüksek sesle okuyun — kulağa tuhaf geliyorsa, tuhaftır.
     </p>
 
-    <h2>5. Results, not responsibilities</h2>
+    <h2>5. Sorumluluklar değil, sonuçlar</h2>
     <p>
-      Every job entry should have 2-4 bullets of outcomes. &ldquo;Led team of 5&rdquo;
-      is weak. &ldquo;Led team of 5 that cut checkout drop-off 12% ($2M ARR)&rdquo; is
-      strong. If you can&rsquo;t attach a number, at least describe the impact.
+      Her iş girişinde 2-4 adet sonuç maddesi olmalı. "5 kişilik ekibe liderlik ettim" zayıftır. "Ödeme terk oranını %12 düşüren 5 kişilik ekibe liderlik ettim (2 milyon $ YGY)" güçlüdür. Bir sayı ekleyemiyorsanız, en azından etkiyi tanımlayın.
     </p>
 
-    <h2>6. Show your work</h2>
+    <h2>6. Çalışmalarınızı gösterin</h2>
     <p>
-      The Featured section accepts links, articles, and media. Pin your best work —
-      launched projects, published writing, open source. Most people leave this empty.
-      Filling it in is free credibility.
+      Öne Çıkanlar bölümü bağlantıları, makaleleri ve medyayı kabul eder. En iyi çalışmalarınızı sabitleyin — başlatılan projeler, yayınlanan yazılar, açık kaynak. Çoğu kişi bunu boş bırakır. Doldurmak ücretsiz bir güvenilirliktir.
     </p>
 
-    <h2>7. Skills: 10-15, endorsed</h2>
+    <h2>7. Beceriler: 10-15, onaylı</h2>
     <p>
-      Pick the 10-15 skills most relevant to your next role. Get 1-2 colleagues to
-      endorse each. This directly boosts how often you appear in recruiter searches.
-      The algorithm weighs endorsed skills heavily.
+      Bir sonraki rolünüzle en alakalı 10-15 beceriyi seçin. Her biri için 1-2 iş arkadaşınızdan onay alın. Bu, işe alımcı aramalarında görünme sıklığınızı doğrudan artırır. Algoritma, onaylı becerilere ağırlık verir.
     </p>
 
-    <h2>8. Recommendations &gt; endorsements</h2>
+    <h2>8. Tavsiyeler &gt; onaylar</h2>
     <p>
-      Specific written recommendations from former colleagues are gold. Ask one person
-      a quarter. &ldquo;Would you be open to writing a short rec? Happy to draft
-      something to save you time&rdquo; — this conversion rate is close to 100%.
+      Eski iş arkadaşlarından gelen spesifik, yazılı tavsiyeler altın değerindedir. Üç ayda bir kişiye sorun. "Kısa bir tavsiye yazmaya açık olur musun? Zaman kazandırmak için bir taslak hazırlamaktan mutluluk duyarım" — bu dönüşüm oranı %100'e yakındır.
     </p>
 
-    <h2>9. Post occasionally</h2>
+    <h2>9. Ara sıra paylaşım yapın</h2>
     <p>
-      One post a month on something you&rsquo;re working on, a lesson, or an opinion.
-      Doesn&rsquo;t need to go viral. Regular posts keep you on people&rsquo;s feeds and
-      signal you&rsquo;re active — huge in downstream searches.
+      Üzerinde çalıştığınız bir şey, bir ders veya bir görüş hakkında ayda bir gönderi. Viral olması gerekmez. Düzenli gönderiler sizi insanların akışında tutar ve aşağı yönlü aramalarda aktif olduğunuzu gösterir — bu çok önemlidir.
     </p>
 
-    <h2>10. Connect strategically</h2>
+    <h2>10. Stratejik bağlantı kurun</h2>
     <p>
-      Connect with peers, hiring managers, and people at companies you admire. Not
-      random recruiters. Add a short note on new connects — conversion doubles. Don&rsquo;t
-      spam, but don&rsquo;t be shy either.
+      Meslektaşlarınızla, işe alım yöneticileriyle ve hayran olduğunuz şirketlerdeki kişilerle bağlantı kurun. Rastgele işe alımcılarla değil. Yeni bağlantılara kısa bir not ekleyin — dönüşüm iki katına çıkar. Spam yapmayın, ama çekingen de olmayın.
     </p>
 
-    <h2>11. URL cleanup</h2>
+    <h2>11. URL temizliği</h2>
     <p>
-      Edit your public profile URL to linkedin.com/in/yourname (not
-      /in/john-doe-a72bfe8). Free, 2 minutes, makes you findable and looks cleaner on
-      resumes and email signatures.
+      Genel profil URL'nizi linkedin.com/in/adiniz olarak düzenleyin (/in/john-doe-a72bfe8 değil). Ücretsiz, 2 dakika, sizi bulunabilir kılar ve özgeçmişlerde ve e-posta imzalarında daha temiz görünür.
     </p>
 
-    <h2>12. Open to work — use sparingly</h2>
+    <h2>12. İşe açık — idareli kullanın</h2>
     <p>
-      The green &ldquo;Open to Work&rdquo; photo ring is a stronger signal than the
-      hidden recruiter setting, but some employers see it as desperate. If you&rsquo;re
-      laid off or urgently searching, turn it on. Otherwise use the recruiter-only
-      option. See <a href="/guides/how-to-get-your-first-developer-job">dev job guide</a>.
+      Yeşil "İşe Açık" fotoğraf halkası, gizli işe alımcı ayarından daha güçlü bir sinyaldir, ancak bazı işverenler bunu çaresizlik olarak görür. İşten çıkarıldıysanız veya acilen iş arıyorsanız, açın. Aksi takdirde, yalnızca işe alımcı seçeneğini kullanın. Bkz. <a href="/guides/how-to-get-your-first-developer-job">geliştirici iş rehberi</a>.
     </p>
   </>
 );

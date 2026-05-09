@@ -3,181 +3,191 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Diffing two files is one of those operations every developer does a hundred times a day
-      without thinking about what is actually happening. Under the hood, <code>diff</code>
-      computes the shortest edit script between two sequences: the smallest set of insertions
-      and deletions that turns one into the other. That is a harder problem than it sounds, and
-      the choice of algorithm, granularity (line, word, character), and output format
-      (unified, context, side-by-side) each have trade-offs. The right choice depends on whether
-      you are reading the diff yourself, feeding it to a patch tool, or comparing structured data
-      where line-level diffs miss the point. This guide covers unified and context formats,
-      line-word-character granularities, three-way merge, the Myers algorithm that most tools
-      use, and when to reach for <code>git diff</code> versus a standalone diff tool.
+      İki dosyayı karşılaştırmak, her geliştiricinin günde yüzlerce kez yaptığı, ancak
+      arka planda gerçekte ne olduğunu düşünmediği işlemlerden biridir. Perde arkasında, <code>diff</code>
+      iki dizi arasındaki en kısa düzenleme betiğini hesaplar: birini diğerine dönüştüren en küçük
+      ekleme ve silme kümesi. Bu, göründüğünden daha zor bir problemdir ve algoritma, ayrıntı düzeyi
+      (satır, kelime, karakter) ve çıktı biçimi (birleşik, bağlam, yan yana) seçimlerinin her birinin
+      ödünleşimleri vardır. Doğru seçim, diff'i kendiniz mi okuduğunuza, bir yama aracına mı
+      beslediğinize yoksa satır düzeyindeki diff'lerin amacı kaçırdığı yapılandırılmış verileri mi
+      karşılaştırdığınıza bağlıdır. Bu kılavuz, birleşik ve bağlam biçimlerini, satır-kelime-karakter
+      ayrıntı düzeylerini, üç yönlü birleştirmeyi, çoğu aracın kullandığı Myers algoritmasını ve
+      <code>git diff</code> ile bağımsız bir diff aracı arasında ne zaman seçim yapılacağını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The edit-script problem</h2>
+    <h2>Düzenleme betiği problemi</h2>
     <p>
-      A diff is the answer to: given sequence A and sequence B, what is the shortest sequence of
-      insertions and deletions that turns A into B? Ignoring reorders, the minimum-edit-distance
-      problem has a well-known dynamic-programming solution in O(mn) time and O(mn) space. For a
-      10,000-line file, that is 100 million cells of memory, which is too much. The Myers
-      algorithm (Eugene Myers, 1986) solves the same problem in O((m+n)D) time where D is the
-      size of the edit script, which is usually much smaller than m+n. Git, most GNU
-      <code>diff</code> implementations, and most online diff tools all use Myers or a patience
-      variant.
+      Diff, şu sorunun cevabıdır: A dizisi ve B dizisi verildiğinde, A'yı B'ye dönüştüren en kısa
+      ekleme ve silme dizisi nedir? Yeniden sıralamaları yok sayarsak, minimum düzenleme mesafesi
+      problemi, O(mn) zaman ve O(mn) alan ile iyi bilinen bir dinamik programlama çözümüne sahiptir.
+      10.000 satırlık bir dosya için bu, 100 milyon hücrelik bellek anlamına gelir ki bu çok fazladır.
+      Myers algoritması (Eugene Myers, 1986) aynı sorunu O((m+n)D) zamanında çözer; burada D,
+      genellikle m+n'den çok daha küçük olan düzenleme betiğinin boyutudur. Git, çoğu GNU
+      <code>diff</code> uygulaması ve çoğu çevrimiçi diff aracı, Myers veya bir sabır varyantını
+      kullanır.
     </p>
 
-    <h2>Unified diff format</h2>
+    <h2>Birleşik diff biçimi</h2>
     <p>
-      Unified diff is the format you see in pull requests and <code>git diff</code> output. Each
-      hunk starts with a range header like <code>@@ -10,7 +10,8 @@</code>: starting at line 10 of
-      the old file, 7 lines long, becoming starting at line 10 of the new file, 8 lines long.
-      Lines prefixed with <code>-</code> are removed, <code>+</code> are added, and unprefixed
-      lines are context. The default context is three lines before and after each change, which
-      is enough for a human to orient without drowning in unchanged content.
+      Birleşik diff, çekme isteklerinde ve <code>git diff</code> çıktısında gördüğünüz biçimdir. Her
+      yığın, <code>@@ -10,7 +10,8 @@</code> gibi bir aralık başlığıyla başlar: eski dosyanın 10.
+      satırından başlayarak, 7 satır uzunluğunda, yeni dosyanın 10. satırından başlayarak, 8 satır
+      uzunluğunda olur. <code>-</code> ile ön eklenmiş satırlar kaldırılır, <code>+</code> ile ön
+      eklenmiş satırlar eklenir ve ön eksiz satırlar bağlamdır. Varsayılan bağlam, her değişiklikten
+      önce ve sonra üç satırdır; bu, bir insanın değişmeyen içerikte boğulmadan yön bulması için
+      yeterlidir.
     </p>
     <pre>{`--- a/config.yml
 +++ b/config.yml
 @@ -10,7 +10,8 @@
- server:
-   host: localhost
+server:
+  host: localhost
 -  port: 8080
 +  port: 8443
 +  tls: true
-   timeout: 30
-   retries: 3`}</pre>
+  timeout: 30
+  retries: 3`}</pre>
 
-    <h2>Context diff format</h2>
+    <h2>Bağlam diff biçimi</h2>
     <p>
-      Context diff is the older format, still in use for some patch-based workflows. Each hunk
-      shows the old block fully (lines prefixed with <code>!</code> for changed, <code>-</code>
-      for removed) and the new block fully (with <code>!</code> for changed, <code>+</code> for
-      added). It is more verbose than unified but easier for some humans to read because old and
-      new are shown as intact blocks instead of interleaved. Most modern tools default to
-      unified.
-    </p>
-
-    <h2>Line granularity</h2>
-    <p>
-      Line-level diffs are the default because most code and text-based formats are line-oriented.
-      A diff that says &ldquo;line 42 was replaced&rdquo; is usually precise enough for code
-      review. Line-level diffs break down when a single long line changes: you see the whole
-      line as removed and the whole line as added, which obscures the actual edit. Long YAML
-      values, minified JavaScript, and single-line SVG documents all have this problem.
+      Bağlam diff, bazı yama tabanlı iş akışlarında hala kullanılan daha eski biçimdir. Her yığın,
+      eski bloğu tamamen (değişiklik için <code>!</code>, silme için <code>-</code> ile ön eklenmiş
+      satırlar) ve yeni bloğu tamamen (değişiklik için <code>!</code>, ekleme için <code>+</code> ile
+      ön eklenmiş satırlar) gösterir. Birleşik biçimden daha ayrıntılıdır ancak eski ve yeni,
+      iç içe geçmiş yerine bozulmamış bloklar olarak gösterildiği için bazı insanların okuması daha
+      kolaydır. Çoğu modern araç varsayılan olarak birleşik biçimi kullanır.
     </p>
 
-    <h2>Word and character granularity</h2>
+    <h2>Satır ayrıntı düzeyi</h2>
     <p>
-      Word-level diffs split the content on whitespace and run the diff algorithm over tokens.
-      Character-level goes one step further. Both produce diffs that highlight the exact
-      sub-line change, which is essential for prose and helpful for long-line structured data.
-      Most diff UIs default to line-level and offer a toggle to &ldquo;show intra-line
-      changes.&rdquo; Git&rsquo;s <code>--word-diff</code> flag produces word-level output.
-    </p>
-    <pre>{`# Line-level
-- The quick brown fox jumps over the lazy dog.
-+ The quick red fox leaps over the sleepy dog.
-
-# Word-level
-The quick [-brown-]{+red+} fox [-jumps-]{+leaps+} over the [-lazy-]{+sleepy+} dog.`}</pre>
-
-    <h2>Side-by-side view</h2>
-    <p>
-      Side-by-side diffs show the old content in one column and the new content in the other,
-      with aligned lines and highlighted changes. This is the view most IDE diff tools default
-      to because it matches how humans compare things visually. Unified is more compact and
-      better for narrow terminals or for reading a patch file; side-by-side is better for
-      full-file review. Some tools offer a three-column view that adds a common-ancestor column
-      for merge conflicts.
+      Satır düzeyindeki diff'ler varsayılandır çünkü çoğu kod ve metin tabanlı biçim satır odaklıdır.
+      &ldquo;42. satır değiştirildi&rdquo; diyen bir diff, kod incelemesi için genellikle yeterince
+      kesindir. Satır düzeyindeki diff'ler, tek bir uzun satır değiştiğinde sorun çıkarır: tüm satırı
+      silinmiş ve tüm satırı eklenmiş olarak görürsünüz, bu da gerçek düzenlemeyi gizler. Uzun YAML
+      değerleri, küçültülmüş JavaScript ve tek satırlı SVG belgelerinin tümü bu soruna sahiptir.
     </p>
 
-    <h2>Three-way merge</h2>
+    <h2>Kelime ve karakter ayrıntı düzeyi</h2>
     <p>
-      Two-way diff compares A and B. Three-way merge compares A and B against a common ancestor
-      C, which is what <code>git merge</code> does. If both A and B changed a line relative to
-      C but in different ways, that is a conflict&mdash;Git marks it with
-      <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>=======</code>, and
-      <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> markers and leaves it to the human to resolve.
-      If A and B changed different lines, the merge proceeds automatically. Three-way merge is
-      why version control works at all&mdash;without it, every concurrent edit would require
-      manual resolution.
+      Kelime düzeyindeki diff'ler, içeriği boşluklara göre böler ve diff algoritmasını belirteçler
+      üzerinde çalıştırır. Karakter düzeyi bir adım daha ileri gider. Her ikisi de, düzyazı için
+      gerekli ve uzun satırlı yapılandırılmış veriler için yararlı olan, tam satır içi değişikliği
+      vurgulayan diff'ler üretir. Çoğu diff arayüzü varsayılan olarak satır düzeyini kullanır ve
+      &ldquo;satır içi değişiklikleri göster&rdquo; seçeneği sunar. Git'in <code>--word-diff</code>
+      bayrağı kelime düzeyinde çıktı üretir.
+    </p>
+    <pre>{`# Satır düzeyi
+- Hızlı kahverengi tilki tembel köpeğin üzerinden atlar.
++ Hızlı kırmızı tilki uykulu köpeğin üzerinden atlar.
+
+# Kelime düzeyi
+Hızlı [-kahverengi-]{+kırmızı+} tilki [-atlar-]{+sıçrar+} [-tembel-]{+uykulu+} köpeğin üzerinden.`}</pre>
+
+    <h2>Yan yana görünüm</h2>
+    <p>
+      Yan yana diff'ler, eski içeriği bir sütunda ve yeni içeriği diğer sütunda, hizalanmış satırlar
+      ve vurgulanmış değişikliklerle gösterir. Bu, çoğu IDE diff aracının varsayılan olarak
+      kullandığı görünümdür çünkü insanların görsel olarak şeyleri karşılaştırma şekline uyar.
+      Birleşik biçim daha derli topludur ve dar terminaller veya bir yama dosyasını okumak için daha
+      iyidir; yan yana biçim, tam dosya incelemesi için daha iyidir. Bazı araçlar, birleştirme
+      çakışmaları için ortak bir ata sütunu ekleyen üç sütunlu bir görünüm sunar.
     </p>
 
-    <h2>Structured diffs</h2>
+    <h2>Üç yönlü birleştirme</h2>
     <p>
-      Line-level diffs are meaningless for some formats. A reordered JSON object, a
-      whitespace-only YAML change, or a reformatted SQL query can produce a huge textual diff
-      with zero semantic difference. Structured diff tools parse both documents into their
-      native data model and compare the models directly. <code>jq</code> and custom
-      <code>jsondiff</code> libraries handle JSON. SQL parsers produce AST diffs. The tradeoff is
-      complexity: textual diff works on anything, structural diff has to understand the format.
+      İki yönlü diff, A ve B'yi karşılaştırır. Üç yönlü birleştirme, A ve B'yi ortak bir ata C'ye
+      karşı karşılaştırır; <code>git merge</code> işlemi de bunu yapar. Hem A hem de B, C'ye göre
+      bir satırı değiştirdiyse ancak farklı şekillerdeyse, bu bir çakışmadır&mdash;Git bunu
+      <code>&lt;&lt;&lt;&lt;&lt;&lt;&lt;</code>, <code>
+=</code> ve
+      <code>&gt;&gt;&gt;&gt;&gt;&gt;&gt;</code> işaretçileriyle işaretler ve çözümü insana bırakır.
+      A ve B farklı satırları değiştirdiyse, birleştirme otomatik olarak ilerler. Üç yönlü
+      birleştirme, sürüm kontrolünün çalışmasının nedenidir&mdash;bu olmadan, her eşzamanlı
+      düzenleme manuel çözüm gerektirirdi.
     </p>
 
-    <h2>When to use git diff</h2>
+    <h2>Yapılandırılmış diff'ler</h2>
     <p>
-      <code>git diff</code> is the right tool for any file tracked by Git. It handles large
-      files efficiently, shows colorized output, supports word-level with <code>--word-diff</code>,
-      can compare arbitrary commits or branches, and produces patch files with
-      <code>git diff &gt; my.patch</code>. For files outside a Git repo or for comparing text
-      you just have in clipboards, a standalone diff tool is faster. For comparing two configs
-      from different environments, or two API response payloads, a browser-based diff tool beats
-      setting up a temporary repo.
+      Satır düzeyindeki diff'ler bazı biçimler için anlamsızdır. Yeniden sıralanmış bir JSON nesnesi,
+      yalnızca boşluk içeren bir YAML değişikliği veya yeniden biçimlendirilmiş bir SQL sorgusu, sıfır
+      anlamsal farkla büyük bir metinsel diff üretebilir. Yapılandırılmış diff araçları, her iki
+      belgeyi de yerel veri modellerine ayrıştırır ve modelleri doğrudan karşılaştırır.
+      <code>jq</code> ve özel <code>jsondiff</code> kütüphaneleri JSON'u işler. SQL ayrıştırıcıları
+      AST diff'leri üretir. Ödünleşim karmaşıklıktır: metinsel diff her şeyde çalışır, yapısal diff
+      biçimi anlamak zorundadır.
     </p>
 
-    <h2>Patience diff and histogram diff</h2>
+    <h2>Git diff ne zaman kullanılır</h2>
     <p>
-      Myers diff is fast but sometimes produces hunks that align changes poorly&mdash;for
-      example, showing a moved function as a big delete and a big insert far apart in the file.
-      Patience diff (Bram Cohen, 2008) and histogram diff (Git&rsquo;s variant) use common unique
-      lines as anchors to produce more human-readable diffs at the cost of some performance.
-      Git offers <code>--patience</code> and <code>--histogram</code> flags that switch to these
-      algorithms when the default Myers output is noisy.
+      <code>git diff</code>, Git tarafından izlenen herhangi bir dosya için doğru araçtır. Büyük
+      dosyaları verimli bir şekilde işler, renklendirilmiş çıktı gösterir, <code>--word-diff</code>
+      ile kelime düzeyini destekler, isteğe bağlı commit'leri veya dalları karşılaştırabilir ve
+      <code>git diff &gt; my.patch</code> ile yama dosyaları üretir. Bir Git deposunun dışındaki
+      dosyalar veya panonuzdaki metinleri karşılaştırmak için bağımsız bir diff aracı daha hızlıdır.
+      Farklı ortamlardan iki yapılandırmayı veya iki API yanıt yükünü karşılaştırmak için,
+      tarayıcı tabanlı bir diff aracı geçici bir depo kurmaktan daha iyidir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Sabır diff'i ve histogram diff'i</h2>
     <p>
-      <strong>Diffing binary files.</strong> Textual diff tools produce gibberish on binary
-      input. Use a binary diff tool like <code>bsdiff</code> or compare hash digests for
-      equality checks. Git detects binary files and shows
-      <code>Binary files differ</code> rather than attempting a text diff.
-    </p>
-    <p>
-      <strong>Ignoring line-ending differences.</strong> A file moved between Windows and Unix
-      often diffs completely because every line gained or lost a <code>\r</code>. Configure
-      your diff tool or Git to normalize line endings before comparing.
-    </p>
-    <p>
-      <strong>Trusting whitespace-only diffs in code review.</strong> A pull request that
-      touches 500 lines but is entirely whitespace changes can hide a single real change. Use
-      the <code>--ignore-all-space</code> flag to see the semantic changes only.
-    </p>
-    <p>
-      <strong>Relying on line-level diff for JSON or YAML.</strong> Reordered keys look like
-      huge diffs but change nothing. Use a structured diff tool for configuration data.
-    </p>
-    <p>
-      <strong>Applying a patch to the wrong base.</strong> A unified diff contains line numbers
-      and context. If the target file has drifted from the patch&rsquo;s expected base, the
-      patch will fail or apply to the wrong place. Always verify the patch applies cleanly
-      before relying on the result.
-    </p>
-    <p>
-      <strong>Diffing minified files.</strong> One-line minified bundles produce useless
-      line-level diffs. Beautify both sides first, then diff.
+      Myers diff'i hızlıdır ancak bazen değişiklikleri kötü hizalayan yığınlar üretebilir&mdash;örneğin,
+      taşınmış bir işlevi dosyada birbirinden uzakta büyük bir silme ve büyük bir ekleme olarak
+      gösterebilir. Sabır diff'i (Bram Cohen, 2008) ve histogram diff'i (Git'in varyantı), daha
+      insan tarafından okunabilir diff'ler üretmek için ortak benzersiz satırları çapa olarak
+      kullanır, ancak biraz performans pahasına. Git, varsayılan Myers çıktısı gürültülü olduğunda
+      bu algoritmalara geçen <code>--patience</code> ve <code>--histogram</code> bayraklarını sunar.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Compare two documents side-by-side or unified in the browser with the{" "}
-      <a href="/tools/diff-checker">diff checker</a>. Pair with the{" "}
-      <a href="/tools/json-diff-checker">JSON diff checker</a> when both sides are JSON and you
-      need a structural comparison that ignores reordered keys, and the{" "}
-      <a href="/tools/json-formatter">JSON formatter</a> to normalize both inputs before
-      diffing so whitespace and key ordering do not pollute the result.
+      <strong>İkili dosyaları karşılaştırmak.</strong> Metinsel diff araçları, ikili girdide anlamsız
+      çıktı üretir. Eşitlik kontrolleri için <code>bsdiff</code> gibi bir ikili diff aracı kullanın
+      veya hash özetlerini karşılaştırın. Git, ikili dosyaları algılar ve metin diff'i denemek
+      yerine <code>Binary files differ</code> gösterir.
+    </p>
+    <p>
+      <strong>Satır sonu farklılıklarını yok saymak.</strong> Windows ve Unix arasında taşınan bir
+      dosya, her satır bir <code>\r</code> kazandığı veya kaybettiği için genellikle tamamen
+      farklılaşır. Karşılaştırmadan önce satır sonlarını normalleştirmek için diff aracınızı veya
+      Git'inizi yapılandırın.
+    </p>
+    <p>
+      <strong>Kod incelemesinde yalnızca boşluk içeren diff'lere güvenmek.</strong> 500 satıra
+      dokunan ancak tamamen boşluk değişikliklerinden oluşan bir çekme isteği, tek bir gerçek
+      değişikliği gizleyebilir. Yalnızca anlamsal değişiklikleri görmek için
+      <code>--ignore-all-space</code> bayrağını kullanın.
+    </p>
+    <p>
+      <strong>JSON veya YAML için satır düzeyinde diff'e güvenmek.</strong> Yeniden sıralanmış
+      anahtarlar büyük diff'ler gibi görünür ancak hiçbir şeyi değiştirmez. Yapılandırma verileri
+      için yapılandırılmış bir diff aracı kullanın.
+    </p>
+    <p>
+      <strong>Bir yamayı yanlış tabana uygulamak.</strong> Birleşik bir diff, satır numaraları ve
+      bağlam içerir. Hedef dosya, yamanın beklenen tabanından sapmışsa, yama başarısız olur veya
+      yanlış yere uygulanır. Sonuca güvenmeden önce yamanın temiz bir şekilde uygulandığını her
+      zaman doğrulayın.
+    </p>
+    <p>
+      <strong>Küçültülmüş dosyaları karşılaştırmak.</strong> Tek satırlık küçültülmüş paketler,
+      işe yaramaz satır düzeyinde diff'ler üretir. Önce her iki tarafı da güzelleştirin, ardından
+      karşılaştırın.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      Tarayıcıda iki belgeyi yan yana veya birleşik olarak{" "}
+      <a href="/tools/diff-checker">diff denetleyicisi</a> ile karşılaştırın. Her iki taraf da JSON
+      olduğunda ve yeniden sıralanmış anahtarları yok sayan yapısal bir karşılaştırmaya ihtiyacınız
+      olduğunda{" "}
+      <a href="/tools/json-diff-checker">JSON diff denetleyicisi</a> ile ve diff'lemeden önce her iki
+      girdiyi de normalleştirmek için{" "}
+      <a href="/tools/json-formatter">JSON biçimlendirici</a> ile eşleştirin; böylece boşluk ve
+      anahtar sıralaması sonucu kirletmez.
     </p>
   </>
 );

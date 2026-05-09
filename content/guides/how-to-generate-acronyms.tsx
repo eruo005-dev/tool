@@ -3,273 +3,254 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Acronyms are how technical fields and product teams compress
-      meaning into something memorable. Done right, an acronym makes
-      a concept stick (LASER, SCUBA, NASA). Done wrong, it&rsquo;s a
-      meaningless soup of initials that forces the reader to look up
-      a glossary (MPVSXD, SAMPL). This guide covers how good acronyms
-      get made, the difference between acronyms and initialisms, the
-      rules for pronounceability, how product teams name features
-      without creating internal-only jargon, pattern techniques used
-      by naming consultants, and when an acronym is actually worse
-      than the phrase it replaces.
+      Kısaltmalar, teknik alanların ve ürün ekiplerinin anlamı akılda kalıcı bir şeye sıkıştırma yoludur.
+      Doğru yapıldığında, bir kısaltma zihne kazınır (LASER, SCUBA, NASA). Yanlış yapıldığında, okuyucuyu bir sözlüğe bakmaya zorlayan anlamsız bir baş harf yığınına dönüşür (MPVSXD, SAMPL). Bu kılavuz, iyi kısaltmaların nasıl oluşturulduğunu, kısaltmalar ve baş harf kısaltmaları arasındaki farkı, telaffuz edilebilirlik kurallarını, ürün ekiplerinin içeriden jargon yaratmadan özellikleri nasıl adlandırdığını, adlandırma danışmanları tarafından kullanılan desen tekniklerini ve bir kısaltmanın yerini aldığı ifadeden ne zaman daha kötü olduğunu kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Acronym vs initialism vs abbreviation</h2>
+    <h2>Kısaltma vs baş harf kısaltması vs kısaltma</h2>
     <p>
-      <strong>Acronym:</strong> pronounced as a word. NASA, NATO,
+      <strong>Kısaltma:</strong> bir kelime olarak telaffuz edilir. NASA, NATO,
       LASER, SCUBA, RADAR.
     </p>
     <p>
-      <strong>Initialism:</strong> pronounced letter by letter. FBI,
+      <strong>Baş harf kısaltması:</strong> harf harf telaffuz edilir. FBI,
       IBM, HTML, CSS, SQL.
     </p>
     <p>
-      <strong>Abbreviation:</strong> any shortened form. etc., Dr.,
-      approx. Includes acronyms and initialisms as subsets.
+      <strong>Kısaltma:</strong> herhangi bir kısaltılmış biçim. vb., Dr.,
+      yakl. Kısaltmaları ve baş harf kısaltmalarını alt kümeler olarak içerir.
     </p>
     <p>
-      Casual usage blurs the line, but the distinction matters when
-      you&rsquo;re designing one. Pronounceable acronyms stick in
-      memory far better than initialisms.
-    </p>
-
-    <h2>What makes a good acronym</h2>
-    <p>
-      <strong>Pronounceable.</strong> Alternating consonants and
-      vowels, avoiding awkward clusters. NASA vs NSDUH.
-    </p>
-    <p>
-      <strong>Memorable / meaningful word.</strong> If it spells an
-      existing English word that relates to the concept, it sticks.
-      SCUBA (Self-Contained Underwater Breathing Apparatus) is
-      brilliant because &ldquo;scuba&rdquo; already evokes the
-      context.
-    </p>
-    <p>
-      <strong>Short.</strong> 3-5 letters. Six is the upper limit.
-      Beyond that, people stop treating it as a word.
-    </p>
-    <p>
-      <strong>Derived, not forced.</strong> If you had to pick 2/5
-      letters from &ldquo;Artificial&rdquo; just to get the right
-      word, readers will squint. Best acronyms feel natural
-      unpacking.
-    </p>
-    <p>
-      <strong>No clash with existing acronyms.</strong> Your
-      &ldquo;SCRUM&rdquo; conflicts with Agile&rsquo;s Scrum; your
-      &ldquo;AAA&rdquo; conflicts with authentication, insurance,
-      batteries. Check first.
+      Günlük kullanımda çizgiler bulanıklaşır, ancak bir tane tasarlarken
+      ayrım önemlidir. Telaffuz edilebilir kısaltmalar, baş harf kısaltmalarından çok daha iyi akılda kalır.
     </p>
 
-    <h2>Pronounceability rules of thumb</h2>
+    <h2>İyi bir kısaltmayı ne oluşturur</h2>
     <p>
-      Consonant-vowel-consonant (CVC) pattern is easiest:{" "}
+      <strong>Telaffuz edilebilir.</strong> Dönüşümlü ünsüzler ve ünlüler,
+      garip kümelerden kaçınma. NASA vs NSDUH.
+    </p>
+    <p>
+      <strong>Akılda kalıcı / anlamlı kelime.</strong> Kavramla ilgili mevcut bir İngilizce
+      kelimeyi heceliyorsa, akılda kalır.
+      SCUBA (Kendinden İçerikli Sualtı Solunum Cihazı) harikadır
+      çünkü "scuba" zaten bağlamı çağrıştırır.
+    </p>
+    <p>
+      <strong>Kısa.</strong> 3–5 harf. Altı üst sınırdır.
+      Bunun ötesinde, insanlar onu bir kelime olarak görmeyi bırakır.
+    </p>
+    <p>
+      <strong>Türetilmiş, zorlanmamış.</strong> Doğru kelimeyi elde etmek için
+      "Yapay" kelimesinden 2/5 harf seçmek zorunda kaldıysanız, okuyucular gözlerini kısar.
+      En iyi kısaltmalar doğal olarak ortaya çıkar.
+    </p>
+    <p>
+      <strong>Mevcut kısaltmalarla çakışma yok.</strong> Sizin
+      "SCRUM"unuz Agile'ın scrum'ıyla çakışır; "AAA"nız
+      kimlik doğrulama, sigorta, pillerle çakışır. Önce kontrol edin.
+    </p>
+
+    <h2>Telaffuz edilebilirlik kuralları</h2>
+    <p>
+      Ünsüz-ünlü-ünsüz (CVC) deseni en kolayıdır:{" "}
       <strong>N</strong>A<strong>S</strong>A, <strong>L</strong>
-      ASE<strong>R</strong>. Your brain parses them as real words.
+      ASE<strong>R</strong>. Beyniniz onları gerçek kelimeler olarak ayrıştırır.
     </p>
     <p>
-      Avoid three consonants in a row. &ldquo;STLN&rdquo; doesn&rsquo;t
-      pronounce. &ldquo;FRSC&rdquo; forces an awkward vowel insertion.
+      Arka arkaya üç ünsüzden kaçının. "STLN" telaffuz edilemez.
+      "FRSC" garip bir ünlü eklemesini zorlar.
     </p>
     <p>
-      Vowels in the middle help. &ldquo;CIPHER&rdquo; works; &ldquo;CPHR&rdquo;
-      doesn&rsquo;t.
+      Ortadaki ünlüler yardımcı olur. "CIPHER" çalışır; "CPHR"
+      çalışmaz.
     </p>
     <p>
-      English preserves about 21 consonants and 5 vowels. Random
-      4-letter strings have maybe a 1-in-5 chance of being
-      pronounceable. Don&rsquo;t brute-force; start with your
-      expansion and see what vowels fall out.
-    </p>
-
-    <h2>Pattern techniques</h2>
-    <p>
-      <strong>Backronym:</strong> pick the target word first, then
-      reverse-engineer an expansion. USA PATRIOT Act
-      (&ldquo;Uniting and Strengthening America by Providing
-      Appropriate Tools Required to Intercept and Obstruct
-      Terrorism&rdquo;) is a backronym — tortured expansion, snappy
-      name.
-    </p>
-    <p>
-      <strong>Partial letters:</strong> AIDS (Acquired Immune
-      Deficiency Syndrome) takes A, I, D, S — the &ldquo;Syndrome&rdquo;
-      letter alone contributes the final consonant. You&rsquo;re not
-      forced to take the first letter of every word.
-    </p>
-    <p>
-      <strong>Phonetic substitution:</strong> drop articles and
-      connectors, use only the meaningful nouns and verbs. &ldquo;SCUBA&rdquo;
-      ignores the &ldquo;for&rdquo;.
-    </p>
-    <p>
-      <strong>Portmanteau + acronym:</strong> hybrid names like{" "}
-      <strong>GIF</strong> (Graphics Interchange Format) that lean on
-      the sound more than the strict letter rule.
+      İngilizce'de yaklaşık 21 ünsüz ve 5 ünlü vardır. Rastgele
+      4 harfli dizilerin telaffuz edilebilir olma şansı belki 5'te 1'dir.
+      Kaba kuvvet kullanmayın; genişletmenizle başlayın ve hangi ünlülerin
+      göründüğüne bakın.
     </p>
 
-    <h2>When naming features or products</h2>
+    <h2>Desen teknikleri</h2>
     <p>
-      Naming a feature with an acronym is usually a mistake. Users
-      don&rsquo;t know your internal terminology. &ldquo;Enable MFA&rdquo;
-      reads fine to engineers and gibberish to everyone else.
+      <strong>Geriye dönük kısaltma:</strong> önce hedef kelimeyi seçin, ardından
+      bir genişletmeyi tersine mühendislikle oluşturun. ABD VATANSEVER Yasası
+      ("Amerika'yı Terörizmi Engellemek ve Engellemek İçin Gerekli Uygun Araçları Sağlayarak Birleştirme ve Güçlendirme") bir geriye dönük kısaltmadır — zorlanmış genişletme, akılda kalıcı
+      isim.
     </p>
     <p>
-      <strong>Use the full phrase for UX copy, acronyms for
-      documentation and internal terms.</strong> Users see
-      &ldquo;Multi-factor authentication&rdquo;; docs can say
-      &ldquo;(MFA)&rdquo; on second reference.
+      <strong>Kısmi harfler:</strong> AIDS (Edinilmiş Bağışıklık
+      Yetmezliği Sendromu) A, I, D, S harflerini alır — "Sendrom"
+      yalnızca son ünsüzünü katkıda bulunur. Her kelimenin
+      ilk harfini almak zorunda değilsiniz.
     </p>
     <p>
-      Exception: well-established consumer acronyms (PIN, SMS, PDF,
-      GPS). These have crossed into common usage and don&rsquo;t
-      need expansion.
-    </p>
-
-    <h2>Acronyms in regulated industries</h2>
-    <p>
-      Medicine, law, and government love acronyms — and misuse
-      them. A PDF guide for patients with &ldquo;CBC, BMP, LFTs, A1C&rdquo;
-      is not helpful. Patient-facing content should expand every
-      acronym on first use.
+      <strong>Fonetik değiştirme:</strong> edatları ve bağlaçları atın,
+      yalnızca anlamlı isimleri ve fiilleri tutun. "SCUBA"
+      "için"i yok sayar.
     </p>
     <p>
-      Plain-language mandates (US Plain Writing Act 2010, EU
-      regulations) often require spelling out acronyms. When
-      writing for a broad audience, expand on first use and avoid
-      assuming familiarity.
+      <strong>Birleşik kelime + kısaltma:</strong>{" "}
+      <strong>GIF</strong> (Grafik Değişim Biçimi) katı harf kuralından çok sese dayanan hibrit
+      bir isimdir.
     </p>
 
-    <h2>Testing an acronym before adopting it</h2>
+    <h2>Özellikleri veya ürünleri adlandırırken</h2>
     <p>
-      <strong>Say it aloud.</strong> If it makes you hesitate or
-      sounds awkward, iterate.
+      Bir özelliği bir kısaltmadan sonra adlandırmak genellikle bir hatadır.
+      Kullanıcılar sizin dahili terminolojinizi bilmez. "MFA'yı Etkinleştir"
+      mühendislere iyi gelir, diğer herkese anlamsızdır.
     </p>
     <p>
-      <strong>Google it.</strong> Does it already mean something?
-      Does it have crude or offensive meanings in other languages?
-      Global teams have shipped embarrassing names by skipping this
-      step.
+      <strong>UX metni için tam ifadeyi, dokümantasyon ve
+      dahili terimler için kısaltmaları kullanın.</strong> Kullanıcılar "Çok faktörlü kimlik doğrulama"yı görür;
+      dokümanlar ikinci kullanımda "(MFA)" diyebilir.
     </p>
     <p>
-      <strong>Look at trademark databases.</strong> USPTO and EUIPO
-      are free to search. Short acronyms are often taken.
-    </p>
-    <p>
-      <strong>Test on fresh readers.</strong> If 3 out of 5 can&rsquo;t
-      recall what it stands for a day later, it&rsquo;s not
-      memorable enough.
+      İstisna: iyi bilinen tüketici kısaltmaları (PIN, SMS, PDF,
+      GPS). Bunlar yaygın kullanıma girmiştir ve açıklama gerektirmez.
     </p>
 
-    <h2>When not to use an acronym</h2>
+    <h2>Düzenlenmiş endüstrilerde kısaltmalar</h2>
     <p>
-      <strong>Expansion is only used once.</strong> If you&rsquo;re
-      writing a 400-word blog post and need to mention &ldquo;Customer
-      Acquisition Cost&rdquo; three times, just use the phrase.
-      Making it CAC for three uses saves almost nothing and risks
-      confusion.
+      Tıp, hukuk ve hükümet kısaltmaları sever — ve
+      onları yanlış kullanır. "CBC, BMP, LFTs, A1C" içeren hastalar için bir PDF kılavuzu
+      yararlı değildir. Hasta odaklı içerik, her
+      kısaltmayı ilk kullanımda açıklamalıdır.
     </p>
     <p>
-      <strong>Audience doesn&rsquo;t know the term.</strong> &ldquo;API&rdquo;
-      in a dev doc is fine; &ldquo;API&rdquo; in a marketing page for
-      non-technical SMBs is not.
-    </p>
-    <p>
-      <strong>The phrase is already short.</strong> &ldquo;Quick Response&rdquo;
-      → &ldquo;QR&rdquo; works because the expansion is rarely used.
-      But shortening &ldquo;email&rdquo; would be silly.
+      Sade dil zorunlulukları (ABD Sade Yazma Yasası 2010, AB
+      düzenlemeleri) genellikle kısaltmaların açıklanmasını gerektirir. Geniş bir
+      kitle için yazarken, ilk kullanımda açıklayın ve aşinalık varsaymaktan
+      kaçının.
     </p>
 
-    <h2>Capitalization and style</h2>
+    <h2>Bir kısaltmayı benimsemeden önce test etme</h2>
     <p>
-      <strong>Acronym case:</strong> conventionally all caps (NASA,
-      SCUBA), though extremely common ones are often lowercased over
-      time (laser, radar, scuba, pdf). Follow your style guide.
+      <strong>Yüksek sesle söyleyin.</strong> Sizi tereddüt ettiriyor veya
+      garip geliyorsa, yeniden çalışın.
     </p>
     <p>
-      <strong>Initialisms:</strong> all caps usually. Exception: id,
-      url, json in file paths (visual style choice).
+      <strong>Arayın.</strong> Zaten bir anlamı var mı?
+      Diğer dillerde saldırgan anlamları var mı?
+      Küresel ekipler bu adımı atlayarak utanç verici isimler yayınladı.
     </p>
     <p>
-      <strong>Plurals:</strong> add lowercase s, no apostrophe.
-      &ldquo;PDFs&rdquo; not &ldquo;PDF&rsquo;s&rdquo;.
+      <strong>Ticari marka veritabanlarını kontrol edin.</strong> USPTO ve EUIPO
+      ücretsiz olarak aranabilir. Kısa kısaltmalar genellikle alınmıştır.
     </p>
     <p>
-      <strong>Indefinite articles:</strong> &ldquo;a&rdquo; vs &ldquo;an&rdquo;
-      based on pronunciation, not letter. &ldquo;An HTML page&rdquo;
-      (pronounced aitch) vs &ldquo;a URL&rdquo; (pronounced you).
-    </p>
-
-    <h2>Generating candidates</h2>
-    <p>
-      To brainstorm acronyms for a concept:
-    </p>
-    <p>
-      1. List every meaningful word in the full phrase.
-    </p>
-    <p>
-      2. For each word, note first letters <em>and</em> strong
-      phonetic letters (the &ldquo;X&rdquo; in &ldquo;Extract&rdquo;).
-    </p>
-    <p>
-      3. Try combinations in different orders. Grammar isn&rsquo;t
-      mandatory in the expansion.
-    </p>
-    <p>
-      4. Cross-reference against real words. A good match makes
-      itself known.
-    </p>
-    <p>
-      5. Check for clashes and unintended meanings.
+      <strong>Yeni okuyucular üzerinde test edin.</strong> 5 kişiden 3'ü bir gün sonra ne anlama geldiğini hatırlayamıyorsa, yeterince akılda kalıcı
+      değildir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Kısaltma ne zaman kullanılmamalı</h2>
     <p>
-      <strong>Coining an acronym for every feature.</strong> Internal
-      team in-joke accumulates into impossible onboarding. Spell things
-      out.
+      <strong>Genişletme yalnızca bir kez kullanılır.</strong> 400 kelimelik bir
+      blog yazısı yazıyorsanız ve "Müşteri Edinme
+      Maliyeti"nden üç kez bahsetmeniz gerekiyorsa, sadece ifadeyi kullanın.
+      Üç kullanım için MEM yapmak neredeyse hiçbir şey kazandırmaz ve
+      karışıklık riski taşır.
     </p>
     <p>
-      <strong>Acronyms that collide with existing ones.</strong> ACL
-      = access control list, or Anterior Cruciate Ligament, or
-      American Cornhole League. Context matters, but pick a unique
-      one if you can.
+      <strong>Hedef kitle terimi bilmiyor.</strong> "API" bir geliştirici
+      dokümanında iyidir; "API", teknik olmayan
+      KOBİ'ler için bir pazarlama sayfasında iyi değildir.
     </p>
     <p>
-      <strong>Tortured backronyms.</strong> If reading the expansion
-      makes you wince, readers will too.
-    </p>
-    <p>
-      <strong>Skipping the global-meaning check.</strong> Your clever
-      acronym means something embarrassing in another language or
-      cultural context. Always search.
-    </p>
-    <p>
-      <strong>Using acronyms in customer-facing UI.</strong> Power
-      users love brevity; new users read them as gibberish. Default
-      to spelling it out.
-    </p>
-    <p>
-      <strong>Ignoring the memorability test.</strong> If people
-      forget what it stands for within a week, it&rsquo;s not doing
-      its job.
+      <strong>İfade zaten kısa.</strong> "Hızlı Yanıt"
+      → "QR" çalışır çünkü genişletme nadiren kullanılır.
+      Ancak "e-posta"yı kısaltmak saçma olurdu.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Büyük harf kullanımı ve stil</h2>
     <p>
-      Generate candidate acronyms from a phrase with the{" "}
-      <a href="/tools/acronym-generator">acronym generator</a>.
-      Pair with the{" "}
-      <a href="/tools/slug-generator">slug generator</a> for
-      URL-safe shortenings, and the{" "}
-      <a href="/tools/case-converter">case converter</a> to
-      normalize casing across usages.
+      <strong>Kısaltma büyük harf kullanımı:</strong> geleneksel olarak tümü büyük harf (NASA,
+      SCUBA), ancak son derece yaygın olanlar genellikle zamanla
+      küçük harfe geçer (lazer, radar, tüplü dalış, pdf). Stil kılavuzunuzu izleyin.
+    </p>
+    <p>
+      <strong>Baş harf kısaltmaları:</strong> genellikle tümü büyük harf. İstisna:
+      id, url, json dosya yollarında (görsel stil seçimi).
+    </p>
+    <p>
+      <strong>Çoğullar:</strong> kesme işareti olmadan küçük harf s ekleyin.
+      "PDF'ler" değil "PDFs".
+    </p>
+    <p>
+      <strong>Belirsiz artikeller:</strong> "a" vs "an"
+      telaffuza bağlıdır, harfe değil. "Bir HTML sayfası"
+      (eytch olarak telaffuz edilir) vs "bir URL" (yoo olarak telaffuz edilir).
+    </p>
+
+    <h2>Beyin fırtınası adayları</h2>
+    <p>
+      Bir kavram için bir kısaltma üzerinde beyin fırtınası yapmak için:
+    </p>
+    <p>
+      1. Tam ifadedeki her anlamlı kelimeyi listeleyin.
+    </p>
+    <p>
+      2. Her kelime için, ilk harfi <em>ve</em> güçlü
+      fonetik harfleri not edin ("Çıkart"taki "X").
+    </p>
+    <p>
+      3. Farklı sıralarda kombinasyonları deneyin. Genişletmede dilbilgisi
+      zorunlu değildir.
+    </p>
+    <p>
+      4. Gerçek kelimelere karşı çapraz referans yapın. İyi bir eşleşme
+      kendini belli eder.
+    </p>
+    <p>
+      5. Çakışmaları ve istenmeyen anlamları kontrol edin.
+    </p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>
+      <strong>Her özellik için bir kısaltma türetmek.</strong> Dahili
+      ekip şakası, imkansız bir işe alım süreci haline gelir. Her şeyi
+      açıkça yazın.
+    </p>
+    <p>
+      <strong>Mevcut olanlarla çakışan kısaltmalar.</strong> ACL
+      = erişim kontrol listesi veya Ön Çapraz Bağ veya
+      Amerikan Mısır Deliği Ligi. Bağlam önemlidir, ancak mümkünse benzersiz bir
+      tane seçin.
+    </p>
+    <p>
+      <strong>Zorlanmış geriye dönük kısaltmalar.</strong> Genişletmeyi okumak
+      sizi rahatsız ediyorsa, okuyuculara da aynısını yapacaktır.
+    </p>
+    <p>
+      <strong>Küresel anlam kontrolünü atlamak.</strong> Zekice
+      kısaltmanız başka bir dilde veya kültürel
+      bağlamda utanç verici bir anlama gelir. Her zaman arayın.
+    </p>
+    <p>
+      <strong>Müşteriye yönelik arayüzlerde kısaltmalar kullanmak.</strong> Güç
+      kullanıcıları kısalığı sever; yeni kullanıcılar onları gürültü olarak okur.
+      Varsayılan olarak her şeyi yazın.
+    </p>
+    <p>
+      <strong>Akılda kalıcılık testini görmezden gelmek.</strong> İnsanlar
+      bir hafta içinde ne anlama geldiğini unutursa, işini yapmıyordur.
+    </p>
+
+    <h2>Rakamları çalıştırın</h2>
+    <p>
+      Bir ifadeden aday kısaltmalar oluşturmak için{" "}
+      <a href="/tools/acronym-generator">kısaltma oluşturucuyu</a> kullanın.
+      URL güvenli
+      kısaltmalar için{" "}
+      <a href="/tools/slug-generator">kısa bağlantı oluşturucuyla</a> ve
+      kullanımlar arasında büyük/küçük harf kullanımını normalleştirmek için{" "}
+      <a href="/tools/case-converter">büyük/küçük harf dönüştürücüyle</a> eşleştirin.
     </p>
   </>
 );

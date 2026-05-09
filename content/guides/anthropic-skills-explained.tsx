@@ -2,49 +2,44 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Anthropic Skills launched late 2025 as the answer to ChatGPT&rsquo;s Custom GPTs &mdash; reusable, packaged
-    behaviors for Claude. By 2026 they ship with Claude.ai, Claude Desktop, and Claude Code. Here&rsquo;s the model.
+    Anthropic Skills, 2025'in sonlarında ChatGPT'nin Custom GPT'lerine cevap olarak piyasaya sürüldü &mdash; Claude için yeniden kullanılabilir, paketlenmiş davranışlar. 2026 itibarıyla Claude.ai, Claude Desktop ve Claude Code ile birlikte geliyorlar. İşte model.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What a Skill is</h2>
+    <h2>Skill Nedir</h2>
     <p>
-      A directory with a <code>SKILL.md</code> file that defines a specific behavior + trigger keywords + optional
-      tool access. When Claude detects the trigger condition, it loads the skill instructions and follows them.
+      Belirli bir davranış + tetikleyici anahtar kelimeler + isteğe bağlı araç erişimi tanımlayan bir <code>SKILL.md</code> dosyası içeren bir dizin. Claude tetikleyici koşulu algıladığında, skill talimatlarını yükler ve bunları takip eder.
     </p>
-    <h2>Where Skills run</h2>
+    <h2>Skill'ler nerede çalışır</h2>
     <ul>
-      <li><strong>Claude.ai web</strong> &mdash; user-loadable Skills.</li>
-      <li><strong>Claude Desktop</strong> &mdash; local Skills with filesystem access.</li>
-      <li><strong>Claude Code</strong> &mdash; project Skills in <code>.claude/skills/</code>.</li>
-      <li><strong>Anthropic API (Managed Agents)</strong> &mdash; embedded in agent flows.</li>
+      <li><strong>Claude.ai web</strong> &mdash; kullanıcı tarafından yüklenebilir Skill'ler.</li>
+      <li><strong>Claude Desktop</strong> &mdash; dosya sistemi erişimine sahip yerel Skill'ler.</li>
+      <li><strong>Claude Code</strong> &mdash; <code>.claude/skills/</code> içindeki proje Skill'leri.</li>
+      <li><strong>Anthropic API (Yönetilen Ajanlar)</strong> &mdash; ajan akışlarına gömülü.</li>
     </ul>
-    <h2>Anatomy of a Skill</h2>
+    <h2>Bir Skill'in Anatomisi</h2>
     <pre className="rounded bg-slate-900 p-3 text-xs text-slate-100"><code>{`---
 name: review-pr
-description: Review a pull request for safety, performance, style. Use when asked to "review PR" or "code review".
+description: Bir pull request'i güvenlik, performans, stil açısından inceleyin. "PR incele" veya "kod incelemesi" istendiğinde kullanın.
 ---
-# Instructions
-1. Read the PR diff and surrounding context.
-2. Flag: bugs, security issues, perf regressions, style violations.
-3. Output a structured review with severity ratings.
+# Talimatlar
+1. PR diff'ini ve çevresindeki bağlamı okuyun.
+2. Şunları işaretleyin: hatalar, güvenlik sorunları, performans düşüşleri, stil ihlalleri.
+3. Ciddiyet derecelendirmeleriyle yapılandırılmış bir inceleme çıktısı verin.
 
-# Examples
-[1-2 ideal example reviews]`}</code></pre>
-    <h2>Skills vs Custom GPTs</h2>
+# Örnekler
+[1-2 ideal örnek inceleme]`}</code></pre>
+    <h2>Skill'ler ve Custom GPT'ler</h2>
     <ul>
-      <li><strong>Skills:</strong> markdown-defined, version-controlled in git, work in terminal.</li>
-      <li><strong>Custom GPTs:</strong> public marketplace, custom Actions for third-party APIs, no terminal version.</li>
-      <li><strong>Pick Skills</strong> for code-heavy or terminal-driven workflows; <strong>Custom GPTs</strong> for
-        public-facing AI tools.</li>
+      <li><strong>Skill'ler:</strong> markdown ile tanımlanmış, git'te sürüm kontrollü, terminalde çalışır.</li>
+      <li><strong>Custom GPT'ler:</strong> halka açık pazar yeri, üçüncü taraf API'ler için özel Eylemler, terminal sürümü yok.</li>
+      <li><strong>Skill'leri seçin</strong> kod ağırlıklı veya terminal odaklı iş akışları için; <strong>Custom GPT'leri</strong> halka açık yapay zeka araçları için.</li>
     </ul>
-    <h2>The 2026 Skill ecosystem</h2>
+    <h2>2026 Skill ekosistemi</h2>
     <p>
-      Anthropic ships ~30 official Skills (slack-gif-creator, theme-factory, doc-coauthoring, mcp-builder, etc.).
-      Hundreds more in plugin marketplaces. The Skill+plugin combination is rapidly becoming the default Claude
-      Desktop / Claude Code workflow.
+      Anthropic ~30 resmi Skill gönderiyor (slack-gif-creator, theme-factory, doc-coauthoring, mcp-builder, vb.). Eklenti pazarlarında yüzlercesi daha var. Skill+eklenti kombinasyonu hızla varsayılan Claude Desktop / Claude Code iş akışı haline geliyor.
     </p>
   </>
 );

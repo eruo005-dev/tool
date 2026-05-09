@@ -3,163 +3,160 @@
 export const intro = (
   <>
     <p>
-      Developer Productivity Engineering (DPE) — sometimes called Developer Experience
-      (DevX), Platform Engineering, or just DevTools — is one of the fastest-growing
-      specialized career paths in 2026. The skepticism (&ldquo;is this just a renamed
-      DevOps role?&rdquo;) is fair but outdated.
+      Developer Productivity Engineering (DPE) — bazen Developer Experience
+      (DevX), Platform Engineering veya sadece DevTools olarak da adlandırılır — 2026'da en hızlı büyüyen
+      uzmanlaşmış kariyer yollarından biridir. Şüphecilik (&ldquo;bu sadece yeniden adlandırılmış bir
+      DevOps rolü mü?&rdquo;) haklı ama güncelliğini yitirmiş bir bakış açısıdır.
     </p>
     <p>
-      This guide is the honest market view: how DPE differs from DevOps, why it&rsquo;s
-      growing, what the career arc looks like, and whether the &ldquo;dead-end&rdquo;
-      criticism has merit.
+      Bu rehber dürüst pazar görüşünü sunar: DPE'nin DevOps'tan farkı, neden
+      büyüdüğü, kariyer yolunun nasıl göründüğü ve &ldquo;çıkmaz sokak&rdquo;
+      eleştirisinin haklı olup olmadığı.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "what-is-dpe", label: "What DPE actually is" },
-  { id: "growth", label: "Is DPE growing?" },
-  { id: "career-arc", label: "Career arc + ceiling" },
-  { id: "dead-end", label: "Is it a dead-end?" },
+  { id: "what-is-dpe", label: "DPE aslında nedir" },
+  { id: "growth", label: "DPE büyüyor mu?" },
+  { id: "career-arc", label: "Kariyer yolu + tavan" },
+  { id: "dead-end", label: "Çıkmaz sokak mı?" },
 ];
 
 export const body = (
   <>
-    <h2 id="what-is-dpe">What developer productivity engineering actually is</h2>
+    <h2 id="what-is-dpe">Developer productivity engineering aslında nedir</h2>
     <p>
-      DPE is the discipline of measuring and improving the productivity of your
-      organization&rsquo;s developers. Concretely: faster local builds, more reliable CI,
-      better dev environments, faster code review, faster deploy, fewer outages from
-      dev-environment drift, better internal tooling, better docs.
+      DPE, kuruluşunuzdaki geliştiricilerin üretkenliğini ölçme ve iyileştirme disiplinidir. Somut olarak: daha hızlı yerel derlemeler, daha güvenilir CI,
+      daha iyi geliştirme ortamları, daha hızlı kod incelemesi, daha hızlı dağıtım, geliştirme ortamı
+      kaymasından kaynaklanan daha az kesinti, daha iyi dahili araçlar, daha iyi dokümantasyon.
     </p>
     <p>
-      The framing came from Gradle Inc. and got formalized in the State of DevOps Report
-      (DORA metrics: deploy frequency, lead time, MTTR, change failure rate). Big tech
-      adopted the title around 2019–2021; mid-market companies in 2022–2024; almost
-      everyone with &gt; 50 engineers in 2025–2026.
+      Bu çerçeve Gradle Inc.'den geldi ve DevOps Raporu'nun Durumu'nda resmileştirildi
+      (DORA metrikleri: dağıtım sıklığı, teslim süresi, MTTR, değişiklik başarısızlık oranı). Büyük
+      teknoloji şirketleri bu unvanı 2019-2021 civarında benimsedi; orta ölçekli şirketler 2022-2024'te;
+      2025-2026'da 50'den fazla mühendisi olan neredeyse herkes.
     </p>
     <p>
-      Closely-related titles you might see:
+      Görebileceğiniz yakından ilişkili unvanlar:
     </p>
     <ul>
-      <li><strong>Developer Experience Engineer (DevX):</strong> mostly the same job, more frontend-flavored.</li>
-      <li><strong>Platform Engineer:</strong> overlapping; more focused on the infrastructure substrate.</li>
-      <li><strong>Build Engineer / Build Systems Engineer:</strong> the deep-end specialist (Bazel, Buck2, monorepo work).</li>
-      <li><strong>Internal Tools Engineer:</strong> usually the older, less-prestigious version of the same role.</li>
+      <li><strong>Developer Experience Engineer (DevX):</strong> çoğunlukla aynı iş, daha çok ön uç odaklı.</li>
+      <li><strong>Platform Engineer:</strong> örtüşen; daha çok altyapı temeline odaklı.</li>
+      <li><strong>Build Engineer / Build Systems Engineer:</strong> derin uç uzmanı (Bazel, Buck2, monorepo çalışması).</li>
+      <li><strong>Internal Tools Engineer:</strong> genellikle aynı rolün daha eski, daha az prestijli versiyonu.</li>
     </ul>
 
-    <h2 id="growth">Is developer productivity engineering growing?</h2>
+    <h2 id="growth">Developer productivity engineering büyüyor mu?</h2>
     <p>
-      Yes, on multiple measurable dimensions:
+      Evet, birden çok ölçülebilir boyutta:
     </p>
     <ul>
       <li>
-        Job listings with &ldquo;Developer Productivity&rdquo; in the title roughly 4×
-        from 2022 to 2025 on LinkedIn (anecdotal, but tracks with multiple recruiter
-        observations).
+        LinkedIn'de başlığında &ldquo;Developer Productivity&rdquo; geçen iş ilanları 2022'den 2025'e kabaca 4
+        kat arttı (anekdot niteliğinde, ancak birden çok işe alım uzmanı gözlemiyle örtüşüyor).
       </li>
       <li>
-        DPE conferences (DPE Summit, Lead Dev) launched and grew through 2023–2025.
+        DPE konferansları (DPE Summit, Lead Dev) 2023-2025 boyunca başlatıldı ve büyüdü.
       </li>
       <li>
-        Pay-transparency disclosures in NY/CA show DPE roles 5–15% above generic SWE
-        baselines at the same level.
+        NY/CA'daki maaş şeffaflığı açıklamaları, DPE rollerinin aynı seviyedeki genel SWE
+        taban çizgilerinin %5-15 üzerinde olduğunu gösteriyor.
       </li>
       <li>
-        Most enterprises now have a named &ldquo;Developer Productivity&rdquo; team
-        (formerly subsumed under platform/infra).
+        Çoğu kuruluşun artık adlandırılmış bir &ldquo;Developer Productivity&rdquo; ekibi var
+        (eskiden platform/alt yapı altında yer alırdı).
       </li>
     </ul>
     <p>
-      The structural reason: companies grew their engineering orgs faster than their
-      dev-experience invested in keeping those teams productive. Now the catch-up
-      investment is happening, and DPE is where it lands.
+      Yapısal neden: Şirketler mühendislik ekiplerini, bu ekiplerin üretkenliğini korumak için
+      geliştirici deneyimine yapılan yatırımdan daha hızlı büyüttü. Şimdi telafi
+      yatırımı yapılıyor ve DPE bu yatırımın yapıldığı alan.
     </p>
 
-    <h2 id="career-arc">Career arc + ceiling</h2>
+    <h2 id="career-arc">Kariyer yolu + tavan</h2>
     <p>
-      Typical progression:
+      Tipik ilerleme:
     </p>
     <ol>
       <li>
-        <strong>L4 / mid (3–5 yrs):</strong> own a corner of the developer experience —
-        build system, dev env, observability. Ship measurable improvements.
+        <strong>L4 / orta (3-5 yıl):</strong> geliştirici deneyiminin bir köşesine sahip olun —
+        derleme sistemi, geliştirme ortamı, gözlemlenebilirlik. Ölçülebilir iyileştirmeler gönderin.
       </li>
       <li>
-        <strong>L5 / senior (5–8 yrs):</strong> own a substantial slice + lead small
-        projects. Ship cross-team initiatives.
+        <strong>L5 / kıdemli (5-8 yıl):</strong> önemli bir parçaya sahip olun + küçük
+        projelere liderlik edin. Ekipler arası girişimler gönderin.
       </li>
       <li>
-        <strong>L6 / staff (8–12 yrs):</strong> set technical direction for a portion of
-        DPE for the org. Drive multi-quarter projects.
+        <strong>L6 / personel (8-12 yıl):</strong> kuruluş için DPE'nin bir bölümünün teknik
+        yönünü belirleyin. Çeyrekler arası projeleri yönetin.
       </li>
       <li>
-        <strong>L7 / principal (12+ yrs):</strong> own DPE strategy for the company at the
-        100s-of-engineers level. Few of these roles, high comp, high impact.
+        <strong>L7 / müdür (12+ yıl):</strong> yüzlerce mühendis seviyesinde şirket için DPE
+        stratejisine sahip olun. Bu rollerden az sayıda var, yüksek ücret, yüksek etki.
       </li>
     </ol>
     <p>
-      Comp is competitive with SWE at every level — slightly above mid, comparable at
-      senior+. See our{" "}
-      <a href="/tools/dev-tool-salary-estimator">salary estimator</a> for ranges.
+      Ücret her seviyede SWE ile rekabetçidir — ortada biraz üstünde, kıdemli+ ile karşılaştırılabilir. Aralıklar için{" "}
+      <a href="/tools/dev-tool-salary-estimator">maaş tahmin aracımıza</a> bakın.
     </p>
 
-    <h2 id="dead-end">Is dev tools / DPE a dead-end career?</h2>
+    <h2 id="dead-end">Dev tools / DPE çıkmaz bir kariyer mi?</h2>
     <p>
-      The criticism has narrow merit. The argument:
+      Eleştirinin dar bir haklılık payı var. Argüman:
     </p>
     <ul>
-      <li>DPE is rarely the &ldquo;hot&rdquo; team that gets the biggest performance reviews.</li>
-      <li>It&rsquo;s a cost center, not a revenue center; budget gets cut first in downturns.</li>
-      <li>The skills are organization-specific — your Bazel-magic knowledge doesn&rsquo;t directly translate when you switch employers.</li>
+      <li>DPE nadiren en büyük performans değerlendirmelerini alan &ldquo;sıcak&rdquo; ekiptir.</li>
+      <li>Bir maliyet merkezidir, gelir merkezi değildir; durgunluklarda bütçe ilk kesilen yerdir.</li>
+      <li>Beceriler kuruluşa özgüdür — Bazel büyünüz işveren değiştirdiğinizde doğrudan aktarılmaz.</li>
     </ul>
     <p>
-      Counter-arguments:
+      Karşı argümanlar:
     </p>
     <ul>
       <li>
-        Senior DPE engineers are repeatedly cited as some of the most-recruited talent in
-        tech because they accelerate everyone around them.
+        Kıdemli DPE mühendisleri, etraflarındaki herkesi hızlandırdıkları için teknolojide en çok
+        işe alınan yetenekler arasında defalarca gösterilmiştir.
       </li>
       <li>
-        The cost-center critique applies to QA, IT, security too — and those are still
-        full careers.
+        Maliyet merkezi eleştirisi QA, IT, güvenlik için de geçerlidir — ve bunlar hala
+        tam teşekküllü kariyerlerdir.
       </li>
       <li>
-        The skills DO translate: build-system design, CI/CD, observability, internal
-        tooling are all portable. The vendor-specific knowledge is a smaller fraction
-        than people think.
+        Beceriler GERÇEKTEN aktarılır: derleme sistemi tasarımı, CI/CD, gözlemlenebilirlik, dahili
+        araçların tümü taşınabilirdir. Satıcıya özgü bilgi, insanların düşündüğünden daha küçük bir
+        kısımdır.
       </li>
     </ul>
     <p>
-      The honest take: DPE isn&rsquo;t a dead-end, but you should pick employers whose
-      leadership <em>visibly values</em> developer productivity. At companies where the
-      CTO talks about deploy frequency or DORA metrics, DPE thrives. At companies where
-      the CTO never mentions them, you&rsquo;ll be undervalued.
+      Dürüst değerlendirme: DPE çıkmaz bir sokak değil, ancak liderliği geliştirici üretkenliğine
+      <em>gözle görülür şekilde değer veren</em> işverenleri seçmelisiniz. CTO'nun
+      dağıtım sıklığı veya DORA metrikleri hakkında konuştuğu şirketlerde DPE gelişir. CTO'nun
+      bunlardan hiç bahsetmediği şirketlerde, değeriniz bilinmez.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Estimate DPE salary by level + region",
+  label: "DPE maaşını seviye + bölgeye göre tahmin edin",
   targetSlug: "dev-tool-salary-estimator",
 };
 
 export const faq = [
   {
-    q: "Is developer productivity engineering a real career?",
-    a: "Yes — and one of the fastest-growing specialized career paths in 2026. Big tech adopted the title around 2019-2021; mid-market 2022-2024; almost everyone with 50+ engineers now. Job listings ~4× since 2022. Comp is competitive with SWE at every level.",
+    q: "Developer productivity engineering gerçek bir kariyer mi?",
+    a: "Evet — ve 2026'da en hızlı büyüyen uzmanlaşmış kariyer yollarından biri. Büyük teknoloji şirketleri bu unvanı 2019-2021 civarında benimsedi; orta ölçekli şirketler 2022-2024'te; 50'den fazla mühendisi olan neredeyse herkes şimdi. İş ilanları 2022'den bu yana ~4 kat arttı. Ücret her seviyede SWE ile rekabetçi.",
   },
   {
-    q: "Is DPE / developer tools growing?",
-    a: "Yes on multiple measures: job listings 4× from 2022 to 2025, DPE Summit + Lead Dev conferences, pay-transparency disclosures showing 5-15% premium over generic SWE, named DPE teams now standard at enterprises. The catch-up investment in dev experience is the structural driver.",
+    q: "DPE / developer tools büyüyor mu?",
+    a: "Evet, birden çok ölçüde: iş ilanları 2022'den 2025'e 4 kat arttı, DPE Summit + Lead Dev konferansları, genel SWE'ye göre %5-15 prim gösteren maaş şeffaflığı açıklamaları, adlandırılmış DPE ekipleri artık kuruluşlarda standart. Geliştirici deneyimine yönelik telafi yatırımı yapısal itici güçtür.",
   },
   {
-    q: "Is building developer tools a dead-end career?",
-    a: "No, with caveats. The cost-center criticism applies but isn't unique to DPE (true of QA, IT, security too — and those are full careers). Skills do translate: build systems, CI/CD, observability are portable. Pick employers whose leadership visibly values developer productivity — DORA-metric-aware CTOs.",
+    q: "Developer tools oluşturmak çıkmaz bir kariyer mi?",
+    a: "Hayır, ancak uyarılarla. Maliyet merkezi eleştirisi geçerlidir ancak DPE'ye özgü değildir (QA, IT, güvenlik için de geçerlidir — ve bunlar tam teşekküllü kariyerlerdir). Beceriler aktarılır: derleme sistemleri, CI/CD, gözlemlenebilirlik taşınabilirdir. Liderliği geliştirici üretkenliğine gözle görülür şekilde değer veren işverenleri seçin — DORA metriği bilincine sahip CTO'lar.",
   },
   {
-    q: "What's the difference between DPE and DevOps?",
-    a: "DevOps focuses on the deploy and runtime side (infrastructure, on-call, CI/CD pipelines). DPE focuses on the developer-facing side (local environments, build performance, internal tooling, dev metrics). Significant overlap, especially at smaller companies where one team does both. At scale they specialize.",
+    q: "DPE ve DevOps arasındaki fark nedir?",
+    a: "DevOps, dağıtım ve çalışma zamanı tarafına (altyapı, nöbet, CI/CD boru hatları) odaklanır. DPE, geliştiriciye yönelik tarafa (yerel ortamlar, derleme performansı, dahili araçlar, geliştirici metrikleri) odaklanır. Özellikle her iki işi de tek bir ekibin yaptığı küçük şirketlerde önemli örtüşme vardır. Ölçekte uzmanlaşırlar.",
   },
 ];

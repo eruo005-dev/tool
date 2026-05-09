@@ -3,179 +3,179 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Cron expressions look like five or six inscrutable tokens separated by spaces, and most
-      engineers learn them by copy-pasting examples until something breaks. That&rsquo;s fine
-      until the schedule fires at the wrong hour, skips a daylight-saving transition, or runs
-      twice on the last day of the month because day-of-month and day-of-week were both set.
-      Understanding what each field means, what the special characters do, and how classic
-      cron differs from the Quartz and Kubernetes variants turns cron from a guessing game
-      into a precise scheduling language. This guide covers the five-field and six-field
-      formats, the meaning of <code>*</code>, <code>/</code>, <code>,</code>, and <code>-</code>,
-      the shortcuts like <code>@daily</code>, the day-of-month vs. day-of-week trap, time zone
-      handling, and how to read an expression out loud in English.
+      Cron ifadeleri, boşluklarla ayrılmış beş veya altı anlaşılmaz belirteç gibi görünür ve çoğu
+      mühendis, bir şey bozulana kadar örnekleri kopyalayıp yapıştırarak bunları öğrenir. Bu, zamanlama
+      yanlış saatte çalışana, yaz saati uygulaması geçişini atlayana veya ayın son gününde hem gün hem de haftanın günü
+      ayarlandığı için iki kez çalışana kadar sorun değildir. Her alanın ne anlama geldiğini, özel karakterlerin ne işe yaradığını ve klasik
+      cron'un Quartz ve Kubernetes varyantlarından nasıl farklılaştığını anlamak, cron'u bir tahmin oyunundan
+      hassas bir zamanlama diline dönüştürür. Bu kılavuz, beş alanlı ve altı alanlı
+      formatları, <code>*</code>, <code>/</code>, <code>,</code> ve <code>-</code> anlamlarını,
+      <code>@daily</code> gibi kısayolları, gün vs. haftanın günü tuzağını, saat dilimi
+      yönetimini ve bir ifadenin İngilizce olarak nasıl yüksek sesle okunacağını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The five fields</h2>
+    <h2>Beş alan</h2>
     <p>
-      Classic Unix cron has five fields, left to right: minute, hour, day of month, month,
-      day of week. Each field has a fixed value range.
+      Klasik Unix cron'u soldan sağa beş alana sahiptir: dakika, saat, ayın günü, ay,
+      haftanın günü. Her alanın sabit bir değer aralığı vardır.
     </p>
-    <pre>{`┌───────────── minute        (0 - 59)
-│ ┌─────────── hour          (0 - 23)
-│ │ ┌───────── day of month  (1 - 31)
-│ │ │ ┌─────── month         (1 - 12) or JAN-DEC
-│ │ │ │ ┌───── day of week   (0 - 6)  or SUN-SAT
+    <pre>{`┌───────────── dakika        (0 - 59)
+│ ┌─────────── saat          (0 - 23)
+│ │ ┌───────── ayın günü     (1 - 31)
+│ │ │ ┌─────── ay            (1 - 12) veya OCA-ARA
+│ │ │ │ ┌───── haftanın günü (0 - 6)  veya PAZ-CMT
 │ │ │ │ │
-* * * * *   command to execute`}</pre>
+* * * * *   çalıştırılacak komut`}</pre>
     <p>
-      Each field defaults to &ldquo;every&rdquo; (<code>*</code>). An expression like{" "}
-      <code>* * * * *</code> runs every minute forever. <code>0 * * * *</code> runs at minute
-      zero of every hour. <code>0 0 * * *</code> runs at midnight every day.
+      Her alan varsayılan olarak &ldquo;her&rdquo; (<code>*</code>) anlamına gelir.{" "}
+      <code>* * * * *</code> gibi bir ifade her dakika sonsuza kadar çalışır. <code>0 * * * *</code> her saatin
+      sıfırıncı dakikasında çalışır. <code>0 0 * * *</code> her gün gece yarısı çalışır.
     </p>
 
-    <h2>The six-field variant (Quartz)</h2>
+    <h2>Altı alanlı varyant (Quartz)</h2>
     <p>
-      Java&rsquo;s Quartz scheduler and some cloud schedulers add a seconds field at the front
-      and sometimes a year field at the end. So <code>0 0 0 * * *</code> in Quartz runs daily
-      at midnight, not every minute. Kubernetes CronJobs use classic five-field. Know which
-      variant your system speaks before pasting examples.
+      Java'nın Quartz zamanlayıcısı ve bazı bulut zamanlayıcıları, başa bir saniye alanı
+      ve bazen sona bir yıl alanı ekler. Yani Quartz'da <code>0 0 0 * * *</code> her gün
+      gece yarısı çalışır, her dakika değil. Kubernetes CronJobs klasik beş alanı kullanır. Örnekleri
+      yapıştırmadan önce sisteminizin hangi varyantı konuştuğunu bilin.
     </p>
-    <pre>{`5-field (Unix):   minute hour dom month dow
-6-field (Quartz): second minute hour dom month dow
-7-field (Quartz): second minute hour dom month dow year`}</pre>
+    <pre>{`5 alan (Unix):   dakika saat ayın_günü ay haftanın_günü
+6 alan (Quartz): saniye dakika saat ayın_günü ay haftanın_günü
+7 alan (Quartz): saniye dakika saat ayın_günü ay haftanın_günü yıl`}</pre>
 
-    <h2>Special characters</h2>
+    <h2>Özel karakterler</h2>
     <p>
-      <code>*</code> means &ldquo;every value in this field.&rdquo; <code>,</code> separates a
-      list of specific values. <code>-</code> denotes an inclusive range. <code>/</code> means
-      step, with <code>a/b</code> being &ldquo;starting at <em>a</em>, every <em>b</em>.&rdquo;
-      These compose: <code>*/15</code> in the minute field means every 15 minutes (0, 15, 30,
-      45). <code>0,30</code> means at 0 and 30 only. <code>9-17</code> means every value from
-      9 through 17 inclusive.
+      <code>*</code> &ldquo;bu alandaki her değer&rdquo; anlamına gelir. <code>,</code> belirli
+      değerlerin bir listesini ayırır. <code>-</code> kapsayıcı bir aralığı belirtir. <code>/</code>
+      adım anlamına gelir, <code>a/b</code> &ldquo;<em>a</em>'dan başlayarak, her <em>b</em>'de bir&rdquo; şeklindedir.
+      Bunlar birleşir: dakika alanında <code>*/15</code> her 15 dakikada bir (0, 15, 30,
+      45) anlamına gelir. <code>0,30</code> yalnızca 0 ve 30'da anlamına gelir. <code>9-17</code> 9'dan
+      17'ye kadar olan her değer dahil anlamına gelir.
     </p>
-    <pre>{`*/15 * * * *      every 15 minutes
-0 9-17 * * 1-5    on the hour, 9 AM to 5 PM, Mon-Fri
-0 0 1,15 * *      at midnight on the 1st and 15th
-30 6-22/2 * * *   at :30, every 2 hours from 6 AM to 10 PM`}</pre>
+    <pre>{`*/15 * * * *      her 15 dakikada bir
+0 9-17 * * 1-5    saat başı, 9:00 - 17:00 arası, Pzt-Cum
+0 0 1,15 * *      ayın 1'inde ve 15'inde gece yarısı
+30 6-22/2 * * *   :30'da, 6:00'dan 22:00'a kadar her 2 saatte bir`}</pre>
 
-    <h2>Shortcut strings</h2>
+    <h2>Kısayol dizeleri</h2>
     <p>
-      Most cron implementations accept named shortcuts. <code>@yearly</code> (or
-      <code>@annually</code>) = <code>0 0 1 1 *</code>, midnight January 1.{" "}
+      Çoğu cron uygulaması adlandırılmış kısayolları kabul eder. <code>@yearly</code> (veya
+      <code>@annually</code>) = <code>0 0 1 1 *</code>, 1 Ocak gece yarısı.{" "}
       <code>@monthly</code> = <code>0 0 1 * *</code>. <code>@weekly</code> = <code>0 0 * * 0</code>,
-      Sunday midnight. <code>@daily</code> (or <code>@midnight</code>) = <code>0 0 * * *</code>.
-      <code>@hourly</code> = <code>0 * * * *</code>. <code>@reboot</code> runs once at
-      system start (not supported everywhere).
+      Pazar gece yarısı. <code>@daily</code> (veya <code>@midnight</code>) = <code>0 0 * * *</code>.
+      <code>@hourly</code> = <code>0 * * * *</code>. <code>@reboot</code> sistem başlangıcında bir kez
+      çalışır (her yerde desteklenmez).
     </p>
 
-    <h2>Day of month vs. day of week</h2>
+    <h2>Ayın günü vs. haftanın günü</h2>
     <p>
-      Classic Unix cron treats these two fields with an OR relationship. If both are restricted,
-      the job runs whenever <em>either</em> matches. This trips people up constantly.
+      Klasik Unix cron'u bu iki alanı VEYA ilişkisiyle ele alır. Her ikisi de kısıtlanmışsa,
+      iş <em>herhangi biri</em> eşleştiğinde çalışır. Bu, insanları sürekli olarak yanıltır.
     </p>
-    <pre>{`0 0 15 * 1   runs at midnight on the 15th OR every Monday
-             NOT "midnight on the 15th only if it's Monday"
+    <pre>{`0 0 15 * 1   ayın 15'inde VEYA her Pazartesi gece yarısı çalışır
+             DEĞİL "yalnızca Pazartesi ise ayın 15'inde gece yarısı"
 
-If you want AND (only on the 15th when it's Monday), you must
-check the day of week inside your script.`}</pre>
+VE (yalnızca Pazartesi olduğunda ayın 15'inde) istiyorsanız, haftanın gününü
+betiğinizin içinde kontrol etmelisiniz.`}</pre>
     <p>
-      Quartz reverses this: one of the two fields must be <code>?</code> (meaning &ldquo;no
-      specific value&rdquo;) and the other is the one used. Know your dialect.
-    </p>
-
-    <h2>Day of week numbering</h2>
-    <p>
-      Classic cron uses 0 = Sunday, 6 = Saturday, with 7 sometimes accepted as Sunday too.
-      Quartz uses 1 = Sunday, 7 = Saturday. Some systems use 0 = Monday. Always verify
-      against your scheduler&rsquo;s documentation before writing <code>* * * * 1</code> and
-      discovering it ran on a Tuesday.
+      Quartz bunu tersine çevirir: iki alandan biri <code>?</code> olmalıdır (&ldquo;belirli bir
+      değer yok&rdquo; anlamına gelir) ve diğeri kullanılan alandır. Lehçenizi bilin.
     </p>
 
-    <h2>Time zones</h2>
+    <h2>Haftanın günü numaralandırması</h2>
     <p>
-      Classic cron runs in the system time zone. If your server is UTC but you want the job to
-      fire at 9 AM Eastern, you have to convert and deal with daylight saving time. Modern
-      schedulers (Kubernetes CronJob <code>spec.timeZone</code>, AWS EventBridge,
-      GitHub Actions, Vercel Cron) let you specify a time zone explicitly, which handles DST
-      automatically. For critical schedules, either use UTC and accept a shifting local time,
-      or use a scheduler that supports named zones.
+      Klasik cron'da 0 = Pazar, 6 = Cumartesi, bazen 7 de Pazar olarak kabul edilir.
+      Quartz'da 1 = Pazar, 7 = Cumartesi. Bazı sistemlerde 0 = Pazartesi. <code>* * * * 1</code>
+      yazıp Salı günü çalıştığını keşfetmeden önce zamanlayıcınızın belgelerini her zaman
+      doğrulayın.
     </p>
 
-    <h2>Reading an expression aloud</h2>
+    <h2>Saat dilimleri</h2>
     <p>
-      Walk left to right and describe each field. <code>*/5 9-17 * * 1-5</code> reads as
-      &ldquo;every 5 minutes, from 9 AM through 5 PM, every day of the month, every month,
-      Monday through Friday.&rdquo; Collapse &ldquo;every&rdquo; clauses that don&rsquo;t add
-      information: &ldquo;every 5 minutes between 9 AM and 5 PM, Monday through Friday.&rdquo;
+      Klasik cron, sistem saat diliminde çalışır. Sunucunuz UTC ise ancak işin
+      Doğu Saati ile 9:00'da çalışmasını istiyorsanız, dönüştürme yapmanız ve yaz saati uygulamasıyla başa çıkmanız gerekir. Modern
+      zamanlayıcılar (Kubernetes CronJob <code>spec.timeZone</code>, AWS EventBridge,
+      GitHub Actions, Vercel Cron) bir saat dilimini açıkça belirtmenize izin verir ve bu da DST'yi
+      otomatik olarak yönetir. Kritik zamanlamalar için, UTC kullanın ve değişen bir yerel saati kabul edin
+      veya adlandırılmış bölgeleri destekleyen bir zamanlayıcı kullanın.
     </p>
 
-    <h2>Common real-world patterns</h2>
-    <pre>{`0 0 * * *          daily at midnight
-0 */6 * * *        every 6 hours
-*/5 * * * *        every 5 minutes
-0 9 * * 1-5        weekdays at 9 AM
-0 0 1 * *          first of every month at midnight
-0 0 1 1 *          New Year's at midnight
-15 14 1 * *        2:15 PM on the 1st of every month
-0 22 * * 5         Fridays at 10 PM
-0 0 * * 0          Sunday midnight (weekly cleanup)`}</pre>
-
-    <h2>Special extensions</h2>
+    <h2>Bir ifadeyi yüksek sesle okumak</h2>
     <p>
-      Some cron implementations extend the syntax. <code>L</code> means &ldquo;last&rdquo;
-      (last day of month, last Friday). <code>W</code> means &ldquo;weekday nearest to.&rdquo;
-      <code>#</code> picks a specific occurrence in a month (<code>5#3</code> = third Friday).
-      These are Quartz extensions and may not work in your scheduler.
+      Soldan sağa gidin ve her alanı tanımlayın. <code>*/5 9-17 * * 1-5</code> şu şekilde okunur:
+      &ldquo;her 5 dakikada bir, 9:00'dan 17:00'a kadar, ayın her günü, her ay,
+      Pazartesi'den Cuma'ya.&rdquo; Bilgi eklemeyen &ldquo;her&rdquo; ifadelerini kısaltın: &ldquo;Pazartesi'den Cuma'ya,
+      9:00 ile 17:00 arasında her 5 dakikada bir.&rdquo;
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın gerçek dünya desenleri</h2>
+    <pre>{`0 0 * * *          her gün gece yarısı
+0 */6 * * *        her 6 saatte bir
+*/5 * * * *        her 5 dakikada bir
+0 9 * * 1-5        hafta içi 9:00'da
+0 0 1 * *          her ayın ilk günü gece yarısı
+0 0 1 1 *          Yılbaşı gece yarısı
+15 14 1 * *        her ayın 1'inde 14:15'te
+0 22 * * 5         Cumaları 22:00'de
+0 0 * * 0          Pazar gece yarısı (haftalık temizlik)`}</pre>
+
+    <h2>Özel uzantılar</h2>
     <p>
-      <strong>Treating day-of-month and day-of-week as AND.</strong> In classic cron, setting
-      both means OR. <code>0 0 15 * 1</code> runs on the 15th <em>and</em> every Monday, not
-      &ldquo;Monday the 15th only.&rdquo;
-    </p>
-    <p>
-      <strong>Using the wrong scheduler dialect.</strong> Quartz has six fields by default,
-      classic cron has five. <code>0 0 0 * * *</code> means different things in each.
-    </p>
-    <p>
-      <strong>Ignoring time zones.</strong> If your production server is UTC and your Monday
-      9 AM report fires at 4 AM local time, you forgot to adjust. DST transitions will also
-      shift schedules unless your runtime handles zones.
-    </p>
-    <p>
-      <strong>Assuming <code>*/7</code> fires every 7 minutes.</strong> <code>*/7</code> in the
-      minute field fires at 0, 7, 14, 21, 28, 35, 42, 49, 56, then jumps back to 0. The gap
-      between :56 and :00 is only 4 minutes. Step notation restarts each hour.
-    </p>
-    <p>
-      <strong>Running a long-lived job every minute and overlapping.</strong> Cron doesn&rsquo;t
-      skip overlapping runs. If your 2-minute job is scheduled every minute, you&rsquo;ll have
-      concurrent instances piling up. Add a lockfile or use a scheduler that enforces
-      non-overlap.
-    </p>
-    <p>
-      <strong>Forgetting <code>@reboot</code> isn&rsquo;t universal.</strong> Kubernetes
-      CronJobs, many cloud schedulers, and non-Unix systems don&rsquo;t support it. Use a
-      systemd unit or startup script instead.
-    </p>
-    <p>
-      <strong>Writing <code>0 0 31 2 *</code> expecting monthly.</strong> February never has 31
-      days, so this runs never. Cron doesn&rsquo;t warn you; the job just silently never fires.
+      Bazı cron uygulamaları sözdizimini genişletir. <code>L</code> &ldquo;son&rdquo; anlamına gelir
+      (ayın son günü, son Cuma). <code>W</code> &ldquo;en yakın hafta içi gün&rdquo; anlamına gelir.
+      <code>#</code> bir aydaki belirli bir oluşumu seçer (<code>5#3</code> = üçüncü Cuma).
+      Bunlar Quartz uzantılarıdır ve zamanlayıcınızda çalışmayabilir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Paste any cron expression into our{" "}
-      <a href="/tools/cron-expression-explainer">cron expression explainer</a> to see the next
-      run times and a plain-English description. Pair it with the{" "}
-      <a href="/tools/cron-expression-builder">cron builder</a> when you&rsquo;re writing a new
-      schedule, and the <a href="/tools/time-zone-converter">time zone converter</a> to sanity-
-      check what your UTC cron schedule means in local time.
+      <strong>Ayın günü ve haftanın gününü VE olarak ele almak.</strong> Klasik cron'da, her ikisini de
+      ayarlamak VEYA anlamına gelir. <code>0 0 15 * 1</code> ayın 15'inde <em>ve</em> her Pazartesi
+      çalışır, &ldquo;yalnızca Pazartesi olan 15. gün&rdquo; değil.
+    </p>
+    <p>
+      <strong>Yanlış zamanlayıcı lehçesini kullanmak.</strong> Quartz varsayılan olarak altı alana sahiptir,
+      klasik cron beş alana sahiptir. <code>0 0 0 * * *</code> her birinde farklı anlamlara gelir.
+    </p>
+    <p>
+      <strong>Saat dilimlerini görmezden gelmek.</strong> Üretim sunucunuz UTC ise ve Pazartesi
+      9:00 raporunuz yerel saatle 4:00'te çalışıyorsa, ayarlamayı unuttunuz demektir. Çalışma zamanınız
+      bölgeleri yönetmediği sürece DST geçişleri de zamanlamaları kaydıracaktır.
+    </p>
+    <p>
+      <strong><code>*/7</code>'nin her 7 dakikada bir çalıştığını varsaymak.</strong> Dakika
+      alanında <code>*/7</code>, 0, 7, 14, 21, 28, 35, 42, 49, 56'da çalışır, ardından 0'a geri döner.
+      :56 ile :00 arasındaki boşluk yalnızca 4 dakikadır. Adım gösterimi her saat yeniden başlar.
+    </p>
+    <p>
+      <strong>Her dakika uzun süreli bir iş çalıştırmak ve üst üste binmek.</strong> Cron
+      üst üste binen çalıştırmaları atlamaz. 2 dakikalık işiniz her dakika planlanmışsa,
+      eşzamanlı örnekler birikecektir. Bir kilit dosyası ekleyin veya üst üste binmeyi zorunlu kılan bir
+      zamanlayıcı kullanın.
+    </p>
+    <p>
+      <strong><code>@reboot</code>'un evrensel olmadığını unutmak.</strong> Kubernetes
+      CronJobs, birçok bulut zamanlayıcısı ve Unix olmayan sistemler bunu desteklemez. Bunun yerine bir
+      systemd birimi veya başlangıç betiği kullanın.
+    </p>
+    <p>
+      <strong>Aylık bekleyerek <code>0 0 31 2 *</code> yazmak.</strong> Şubat ayının 31
+      günü yoktur, bu nedenle bu asla çalışmaz. Cron sizi uyarmaz; iş sessizce asla ateşlenmez.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      Herhangi bir cron ifadesini{" "}
+      <a href="/tools/cron-expression-explainer">cron ifade açıklayıcımıza</a> yapıştırarak sonraki
+      çalışma zamanlarını ve düz İngilizce bir açıklamayı görün. Yeni bir
+      zamanlama yazarken{" "}
+      <a href="/tools/cron-expression-builder">cron oluşturucu</a> ile ve UTC cron zamanlamanızın yerel saatte ne anlama geldiğini
+      kontrol etmek için <a href="/tools/time-zone-converter">saat dilimi dönüştürücü</a> ile
+      eşleştirin.
     </p>
   </>
 );

@@ -3,224 +3,185 @@
 export const intro = (
   <>
     <p>
-      The job-search vertical we shipped in Wave 43 covers the strategic questions
-      (which tools to use, ATS reality, comparison of Jobscan/Teal/Huntr). This
-      bolt-on guide is the tactical AI-prompt playbook — the specific prompts that
-      get higher-quality output for cover letters, company research, application
-      tailoring, and the hybrid human-AI workflow that actually wins.
+      Wave 43'te yayınladığımız iş arama dikeyi stratejik soruları kapsar (hangi araçların kullanılacağı, ATS gerçeği, Jobscan/Teal/Huntr karşılaştırması). Bu ek rehber, taktiksel AI istem oyun kitabıdır — ön yazılar, şirket araştırması, başvuru kişiselleştirme ve gerçekten kazandıran hibrit insan-AI iş akışı için daha yüksek kaliteli çıktı sağlayan belirli istemler.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "cover-letter", label: "Cover letter prompts that work" },
-  { id: "company-research", label: "AI company research before interviews" },
-  { id: "boolean-search", label: "Boolean search prompts for job matching" },
-  { id: "hybrid", label: "Combining human touch with AI" },
-  { id: "time-savings", label: "Real time-savings from AI" },
-  { id: "disclosure", label: "Should you tell employers you used AI?" },
+  { id: "cover-letter", label: "İşe yarayan ön yazı istemleri" },
+  { id: "company-research", label: "Mülakat öncesi AI şirket araştırması" },
+  { id: "boolean-search", label: "İş eşleştirme için Boolean arama istemleri" },
+  { id: "hybrid", label: "İnsan dokunuşunu AI ile birleştirmek" },
+  { id: "time-savings", label: "AI'dan gerçek zaman tasarrufu" },
+  { id: "disclosure", label: "İşverenlere AI kullandığınızı söylemeli misiniz?" },
 ];
 
 export const body = (
   <>
-    <h2 id="cover-letter">Can AI write your cover letter? (Yes, with the right prompt.)</h2>
+    <h2 id="cover-letter">AI ön yazınızı yazabilir mi? (Evet, doğru istemle.)</h2>
     <p>
-      The wrong way: &ldquo;Write a cover letter for [job].&rdquo; You get
-      generic boilerplate.
+      Yanlış yol: &ldquo;[İş] için bir ön yazı yaz.&rdquo; Genel bir şablon alırsınız.
     </p>
     <p>
-      The right way:
+      Doğru yol:
     </p>
-    <pre><code>{`Write a 250-word cover letter for [role] at [company].
+    <pre><code>{`[Şirket]'teki [rol] için 250 kelimelik bir ön yazı yaz.
 
-About me: [one paragraph from your resume + LinkedIn].
-About them: [paste their About / careers page paragraph].
-About this role: [paste 3 specific JD bullets].
+Benim hakkımda: [özgeçmişinizden + LinkedIn'den bir paragraf].
+Onlar hakkında: [Hakkımızda / kariyer sayfaları paragraflarını yapıştırın].
+Bu rol hakkında: [3 belirli iş tanımı maddesini yapıştırın].
 
-Make ONE specific connection between my background and their
-mission, in the opening line. Use plain language — no
-"passionate about leveraging" filler. Include one concrete
-metric from my background. End with a clear next step.`}</code></pre>
+Açılış satırında, geçmişim ile misyonları arasında
+BELİRLİ bir bağlantı kur. Sade dil kullan — "tutkuyla
+kullanma" gibi dolgu yok. Geçmişimden somut bir metrik
+ekle. Net bir sonraki adımla bitir.`}</code></pre>
     <p>
-      Why this works: it forces specificity (real names, real metrics, real
-      mission), constrains length (cover letters &gt; 300 words don&rsquo;t get
-      read), and prohibits the AI tells (&ldquo;passionate,&rdquo;
-      &ldquo;leverage,&rdquo; &ldquo;synergistic&rdquo;).
+      Bu neden işe yarar: belirginlik (gerçek isimler, gerçek metrikler, gerçek misyon) zorlar, uzunluğu sınırlar (300 kelimeden uzun ön yazılar okunmaz) ve AI anlatımlarını (&ldquo;tutkulu,&rdquo; &ldquo;kullanma,&rdquo; &ldquo;sinerjik&rdquo;) yasaklar.
     </p>
     <p>
-      Always edit the output. AI cover letters read 80% right and 20% wrong. The
-      20% is what makes the difference — fix the awkward phrasing, replace
-      generic adjectives, add a specific anecdote.
+      Çıktıyı her zaman düzenleyin. AI ön yazıları %80 doğru ve %20 yanlış okunur. Farkı yaratan %20'dir — garip ifadeleri düzeltin, genel sıfatları değiştirin, belirli bir anekdot ekleyin.
     </p>
 
-    <h2 id="company-research">AI company research before interviews</h2>
+    <h2 id="company-research">Mülakat öncesi AI şirket araştırması</h2>
     <p>
-      The 200-word company brief that pays off:
+      Karşılığını veren 200 kelimelik şirket brifingi:
     </p>
-    <pre><code>{`Brief me on [company] in 200 words.
+    <pre><code>{`Beni [şirket] hakkında 200 kelimeyle bilgilendir.
 
-Cover:
-1. What they do + how they make money
-2. Recent funding or major milestones (last 12 months)
-3. Engineering culture signals from public posts /
-   Glassdoor / their blog
-4. 3 challenges that might be relevant to a [your role]
+Şunları kapsa:
+1. Ne yaptıkları + nasıl para kazandıkları
+2. Son finansman veya önemli kilometre taşları (son 12 ay)
+3. Kamuya açık gönderilerden / Glassdoor'dan / bloglarından
+   mühendislik kültürü sinyalleri
+4. [Sizin rolünüz] için geçerli olabilecek 3 zorluk
 
-Don't speculate beyond what's publicly visible. Cite specific
-sources.`}</code></pre>
+Kamuya açık olanın ötesinde spekülasyon yapma. Belirli
+kaynakları belirt.`}</code></pre>
     <p>
-      Run before interview prep. Saves 30 minutes of unstructured Googling.
+      Mülakat hazırlığından önce çalıştırın. Yapılandırılmamış Google aramasında 30 dakika kazandırır.
     </p>
     <p>
-      For deeper interview prep, the question variant:
+      Daha derin mülakat hazırlığı için soru varyantı:
     </p>
-    <pre><code>{`Given [company]'s situation [paste brief above], what 3
-likely interview questions would [role] candidates face?
-Suggest a 2-sentence answer framework for each.`}</code></pre>
+    <pre><code>{`[Şirket]'in durumu göz önüne alındığında [yukarıdaki brifingi
+yapıştırın], [rol] adaylarının karşılaşması muhtemel 3
+mülakat sorusu nedir? Her biri için 2 cümlelik bir cevap
+çerçevesi öner.`}</code></pre>
 
-    <h2 id="boolean-search">Boolean search prompts recruiters swear by</h2>
+    <h2 id="boolean-search">İşe alım uzmanlarının yemin ettiği Boolean arama istemleri</h2>
     <p>
-      For job seekers using Boolean searches to find companies hiring in your
-      stack:
+      Stack'inizde işe alım yapan şirketleri bulmak için Boolean aramaları kullanan iş arayanlar için:
     </p>
-    <pre><code>{`Generate Google Boolean searches to find companies hiring
-[your role] with [your specific skills], excluding obvious
-non-matches (consultancies, recruiters, internships if not
-seeking).
+    <pre><code>{`[Sizin rolünüz]'ü [belirli becerileriniz] ile işe alan
+şirketleri bulmak için Google Boolean aramaları oluşturun,
+bariz eşleşmeyenleri (danışmanlıklar, işe alım ajansları,
+stajyerlikler (aramıyorsanız)) hariç tutun.
 
-Return 5 search queries with explanations of what each
-prioritizes.`}</code></pre>
+Her birinin neye öncelik verdiğine dair açıklamalarla
+birlikte 5 arama sorgusu döndür.`}</code></pre>
     <p>
-      Example output the model might generate:
+      Modelin oluşturabileceği örnek çıktı:
     </p>
-    <pre><code>{`site:lever.co OR site:greenhouse.io "Senior React developer"
-  "remote" -intern -agency
+    <pre><code>{`site:lever.co OR site:greenhouse.io "Kıdemli React geliştirici"
+  "uzaktan" -staj -ajans
 
-site:linkedin.com/jobs "AI engineer" "Python" "PyTorch"
-  "$150,000.." -recruiter -staffing`}</code></pre>
+site:linkedin.com/jobs "AI mühendisi" "Python" "PyTorch"
+  "$150,000.." -işe_alım_uzmanı -personel`}</code></pre>
     <p>
-      Iterate the queries based on what they find. Most hiring-manager-blog
-      posts about Boolean searches recycle the same 5 patterns; AI generates
-      variants tuned to your specific situation.
+      Bulduklarına göre sorguları yineleyin. Boolean aramaları hakkındaki çoğu işe alım yöneticisi blog yazısı aynı 5 deseni geri dönüştürür; AI, belirli durumunuza göre uyarlanmış varyantlar üretir.
     </p>
 
-    <h2 id="hybrid">Combining human touch with AI in your job search</h2>
+    <h2 id="hybrid">İş aramanızda insan dokunuşunu AI ile birleştirmek</h2>
     <p>
-      The teams who win their job searches in 2026 aren&rsquo;t the ones who
-      auto-apply via AI. They&rsquo;re the ones who use AI to free up time for
-      the high-leverage human work:
+      2026'da iş aramalarını kazanan ekipler, AI aracılığıyla otomatik başvuru yapanlar değil. Yüksek kaldıraçlı insan işi için zaman kazanmak amacıyla AI kullananlardır:
     </p>
     <ul>
       <li>
-        <strong>AI does:</strong> first-draft cover letters, company research
-        briefs, resume keyword scanning, mock interview prep, salary research
-        prompts, follow-up templates.
+        <strong>AI şunları yapar:</strong> ilk taslak ön yazılar, şirket araştırma brifingleri, özgeçmiş anahtar kelime taraması, deneme mülakat hazırlığı, maaş araştırma istemleri, takip şablonları.
       </li>
       <li>
-        <strong>You do:</strong> network conversations, hand-personalize the
-        cover letter intro, ask for referrals, do thoughtful applications to
-        roles that genuinely fit, write the actual interview answers, build
-        relationships post-interview.
+        <strong>Siz şunları yaparsınız:</strong> ağ kurma konuşmaları, ön yazı girişini elle kişiselleştirme, referans isteme, gerçekten uyan rollere düşünceli başvurular yapma, gerçek mülakat cevaplarını yazma, mülakat sonrası ilişkiler kurma.
       </li>
     </ul>
     <p>
-      The trap to avoid: using AI to apply to more jobs less personally.
-      Auto-apply tools (LazyApply, Sonara, Massive) tank reply rates because
-      nothing is tailored. Use the AI hours to apply to fewer jobs more deeply.
+      Kaçınılması gereken tuzak: daha az kişisel olarak daha fazla işe başvurmak için AI kullanmak. Otomatik başvuru araçları (LazyApply, Sonara, Massive), hiçbir şey kişiselleştirilmediği için yanıt oranlarını düşürür. AI saatlerini daha az işe daha derinlemesine başvurmak için kullanın.
     </p>
 
-    <h2 id="time-savings">Real time savings from AI on job applications</h2>
+    <h2 id="time-savings">İş başvurularında AI'dan gerçek zaman tasarrufu</h2>
     <p>
-      Honest accounting:
+      Dürüst muhasebe:
     </p>
     <ul>
       <li>
-        <strong>Cover letter:</strong> traditional 30-45 min per app → with AI
-        + edit, 8-12 min. Savings: ~20 min/app.
+        <strong>Ön yazı:</strong> geleneksel başvuru başına 30-45 dk → AI + düzenleme ile 8-12 dk. Tasarruf: başvuru başına ~20 dk.
       </li>
       <li>
-        <strong>Company research:</strong> 30 min unstructured Googling → 10
-        min with AI brief. Savings: ~20 min/app.
+        <strong>Şirket araştırması:</strong> 30 dk yapılandırılmamış Google araması → AI brifingi ile 10 dk. Tasarruf: başvuru başına ~20 dk.
       </li>
       <li>
-        <strong>Resume tailoring:</strong> 15-30 min hand-tailoring → 8-12 min
-        with our <a href="/tools/resume-keyword-match-scorer">keyword scorer</a>{" "}
-        + AI bullet rewrite. Savings: ~10 min/app.
+        <strong>Özgeçmiş kişiselleştirme:</strong> 15-30 dk elle kişiselleştirme → <a href="/tools/resume-keyword-match-scorer">anahtar kelime puanlayıcımız</a> + AI madde yeniden yazımı ile 8-12 dk. Tasarruf: başvuru başına ~10 dk.
       </li>
       <li>
-        <strong>Total per application:</strong> ~50 min saved. Over a
-        12-application week: 10 hours saved.
+        <strong>Başvuru başına toplam:</strong> ~50 dk tasarruf. 12 başvuruluk bir haftada: 10 saat tasarruf.
       </li>
     </ul>
     <p>
-      Reinvest those 10 hours into networking + writing better post-interview
-      thank-yous + reaching out to people in your stack. Networking still
-      drives 60-70% of hires per multiple recruiter studies.
+      Bu 10 saati ağ kurma + daha iyi mülakat sonrası teşekkür yazıları yazma + stack'inizdeki kişilere ulaşma için yeniden yatırın. Birden çok işe alım uzmanı çalışmasına göre ağ kurma, işe alımların %60-70'ini hâlâ yönlendiriyor.
     </p>
 
-    <h2 id="disclosure">Should you tell employers you used AI to apply?</h2>
+    <h2 id="disclosure">İşverenlere başvurmak için AI kullandığınızı söylemeli misiniz?</h2>
     <p>
-      Practical guidance:
+      Pratik rehberlik:
     </p>
     <ul>
       <li>
-        <strong>Cover letters / resume / application copy.</strong> Don&rsquo;t
-        proactively disclose. Edited human output is what you&rsquo;re sending
-        — same as if you used a thesaurus or a writer friend. The standard is
-        that you own the words you submit.
+        <strong>Ön yazılar / özgeçmiş / başvuru metni.</strong> Proaktif olarak açıklamayın. Düzenlenmiş insan çıktısı gönderdiğiniz şeydir — bir eş anlamlılar sözlüğü veya yazar bir arkadaş kullanmanızla aynı. Standart, gönderdiğiniz kelimelerin size ait olmasıdır.
       </li>
       <li>
-        <strong>Coding tests.</strong> Disclose if asked. Some companies
-        explicitly forbid AI use during take-homes; others don&rsquo;t care.
-        Read instructions; ask if unclear.
+        <strong>Kodlama testleri.</strong> Sorulursa açıklayın. Bazı şirketler ev ödevlerinde AI kullanımını açıkça yasaklar; diğerleri umursamaz. Talimatları okuyun; net değilse sorun.
       </li>
       <li>
-        <strong>Interview answers.</strong> Don&rsquo;t use AI live. If asked
-        how you prep, &ldquo;I use AI for first-draft research and company
-        briefs&rdquo; is a fine answer in 2026.
+        <strong>Mülakat cevapları.</strong> Canlı AI kullanmayın. Nasıl hazırlandığınız sorulursa, &ldquo;İlk taslak araştırma ve şirket brifingleri için AI kullanıyorum&rdquo; 2026'da iyi bir cevaptır.
       </li>
       <li>
-        <strong>Take-home assessments.</strong> Same as coding tests — read
-        instructions. Default: don&rsquo;t use AI without disclosing if
-        you&rsquo;re unsure.
+        <strong>Ev ödevleri.</strong> Kodlama testleriyle aynı — talimatları okuyun. Varsayılan: emin değilseniz açıklamadan AI kullanmayın.
       </li>
     </ul>
     <p>
-      The general rule: AI as research assistant + first-draft generator + tool
-      for boring parts is broadly accepted. AI as substitute for your skills /
-      judgment / interview presence is broadly not.
+      Genel kural: AI'ın araştırma asistanı + ilk taslak oluşturucu + sıkıcı kısımlar için araç olarak kullanılması geniş çapta kabul görür. AI'ın becerilerinizin / muhakemenizin / mülakat varlığınızın yerine geçmesi geniş çapta kabul görmez.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Score your resume against any JD (free)",
+  label: "Özgeçmişinizi herhangi bir iş tanımına karşı puanlayın (ücretsiz)",
   targetSlug: "resume-keyword-match-scorer",
 };
 
 export const faq = [
   {
-    q: "Can AI really write your cover letter for you?",
-    a: "Yes with the right prompt — including specific company info, JD bullets, and constraints (250-word limit, no filler, one concrete metric). Always edit; AI output is 80% right and 20% wrong, and the 20% is where it shows. Generic prompts produce generic output that recruiters detect.",
+    q: "AI gerçekten sizin için ön yazınızı yazabilir mi?",
+    a: "Evet, doğru istemle — belirli şirket bilgisi, iş tanımı maddeleri ve kısıtlamalar (250 kelime sınırı, dolgu yok, somut bir metrik) dahil. Her zaman düzenleyin; AI çıktısı %80 doğru ve %20 yanlıştır ve %20'si kendini belli eder. Genel istemler, işe alım uzmanlarının tespit ettiği genel çıktı üretir.",
   },
   {
-    q: "How can I use AI to research companies before interviews?",
-    a: "Standard 200-word brief prompt: cover what they do + how they make money, recent funding/milestones, engineering culture signals, 3 challenges relevant to your role. Cite sources. Run before interview prep. Saves 20-30 min/interview vs unstructured Googling.",
+    q: "Mülakat öncesi şirketleri araştırmak için AI'ı nasıl kullanabilirim?",
+    a: "Standart 200 kelimelik brifing istemi: ne yaptıklarını + nasıl para kazandıklarını, son finansman/kilometre taşlarını, mühendislik kültürü sinyallerini, rolünüzle ilgili 3 zorluğu kapsayın. Kaynakları belirtin. Mülakat hazırlığından önce çalıştırın. Yapılandırılmamış Google aramasına kıyasla mülakat başına 20-30 dk tasarruf sağlar.",
   },
   {
-    q: "What's the best AI Boolean search prompt for job hunting?",
-    a: "Ask AI to generate 5 Google Boolean queries targeting specific job sites (Lever, Greenhouse, LinkedIn) with your role + skills, excluding obvious non-matches (consultancies, recruiters, etc.). Iterate based on results. Better than recycled blog patterns because tuned to your specific situation.",
+    q: "İş avı için en iyi AI Boolean arama istemi nedir?",
+    a: "AI'dan, rolünüz + becerilerinizle belirli iş sitelerini (Lever, Greenhouse, LinkedIn) hedefleyen, bariz eşleşmeyenleri (danışmanlıklar, işe alım ajansları vb.) hariç tutan 5 Google Boolean sorgusu oluşturmasını isteyin. Sonuçlara göre yineleyin. Belirli durumunuza göre uyarlandığı için geri dönüştürülmüş blog desenlerinden daha iyidir.",
   },
   {
-    q: "How do I combine human touch with AI in my job search?",
-    a: "AI: first-draft cover letters, company briefs, keyword scanning, mock interview prep, salary research, follow-up templates. You: network conversations, hand-personalize intros, ask for referrals, write actual interview answers, build relationships. Use AI to free time for human work, not replace it.",
+    q: "İş aramamda insan dokunuşunu AI ile nasıl birleştiririm?",
+    a: "AI: ilk taslak ön yazılar, şirket brifingleri, anahtar kelime taraması, deneme mülakat hazırlığı, maaş araştırması, takip şablonları. Siz: ağ kurma konuşmaları, girişleri elle kişiselleştirme, referans isteme, gerçek mülakat cevaplarını yazma, ilişkiler kurma. İnsan işinin yerini almak için değil, ona zaman kazandırmak için AI kullanın.",
   },
   {
-    q: "How much time can AI really save on job applications?",
-    a: "~50 minutes per application: 20 min on cover letters, 20 min on company research, 10 min on resume tailoring. Over 12 apps/week: 10 hours saved. Reinvest in networking — still drives 60-70% of hires per recruiter studies.",
+    q: "AI iş başvurularında gerçekten ne kadar zaman kazandırabilir?",
+    a: "Başvuru başına ~50 dakika: ön yazılarda 20 dk, şirket araştırmasında 20 dk, özgeçmiş kişiselleştirmede 10 dk. Haftada 12 başvuru üzerinden: 10 saat tasarruf. Ağ kurmaya yeniden yatırın — işe alım uzmanı çalışmalarına göre işe alımların %60-70'ini hâlâ yönlendiriyor.",
   },
   {
-    q: "Should I tell employers I used AI to apply?",
-    a: "Cover letters/resume: no, you own the words you submit. Coding tests: read instructions; some forbid AI use, ask if unclear. Interview answers: don't use live; mentioning 'I use AI for research and first drafts' is fine. Take-homes: read instructions; default to disclosure if unsure.",
+    q: "İşverenlere başvurmak için AI kullandığımı söylemeli miyim?",
+    a: "Ön yazılar/özgeçmiş: hayır, gönderdiğiniz kelimeler size aittir. Kodlama testleri: talimatları okuyun; bazıları AI kullanımını yasaklar, net değilse sorun. Mülakat cevapları: canlı kullanmayın; 'Araştırma ve ilk taslaklar için AI kullanıyorum' demek sorun değil. Ev ödevleri: talimatları okuyun; emin değilseniz varsayılan olarak açıklayın.",
   },
 ];

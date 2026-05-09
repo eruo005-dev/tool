@@ -1,75 +1,57 @@
 export const intro = (
   <>
     <p>
-      LangGraph is a library for building <strong>stateful, long-running
-      agents</strong> as explicit graphs — nodes are steps, edges are
-      transitions, and there&rsquo;s a state object that carries context
-      through the whole run. It&rsquo;s the framework you reach for when a
-      task has branches, loops, or needs to survive a restart.
+      LangGraph, <strong>durum bilgisi olan, uzun süre çalışan ajanlar</strong> oluşturmak için kullanılan bir kütüphanedir. Açık graflar halinde yapılandırılır — düğümler adımları, kenarlar geçişleri temsil eder ve tüm çalışma boyunca bağlamı taşıyan bir durum nesnesi bulunur. Bir görevde dallanmalar, döngüler varsa veya yeniden başlatmaya dayanması gerekiyorsa başvurulacak çerçevedir.
     </p>
     <p>
-      This guide is a from-scratch walkthrough: install, define a graph,
-      wire in tools, persist state, and run it. If you&rsquo;ve already
-      tried a sequential framework like{" "}
-      <a href="/guides/how-to-build-a-multi-agent-system-with-crewai">CrewAI</a>{" "}
-      and hit the wall where &ldquo;what if X happens&rdquo; becomes ugly,
-      LangGraph is the next step up.
+      Bu kılavuz, sıfırdan başlayan bir anlatımdır: kurulum, grafik tanımlama, araçları bağlama, durumu kalıcı hale getirme ve çalıştırma. Daha önce{" "}
+      <a href="/guides/how-to-build-a-multi-agent-system-with-crewai">CrewAI</a> gibi sıralı bir çerçeve denediyseniz ve "ya X olursa" sorusunun çirkinleştiği duvara çarptıysanız, LangGraph bir sonraki adımdır.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>Mental model</h2>
+    <h2>Zihinsel model</h2>
     <p>
-      Forget &ldquo;multi-agent conversation.&rdquo; Think <em>state
-      machine</em>. You define:
+      "Çoklu ajan konuşması"nı unutun. <em>Durum makinesi</em> olarak düşünün. Şunları tanımlarsınız:
     </p>
     <ul>
       <li>
-        <strong>A State</strong> — a typed dict that holds everything the
-        agent has learned so far.
+        <strong>Bir Durum</strong> — ajanın şimdiye kadar öğrendiği her şeyi tutan yazılı bir sözlük.
       </li>
       <li>
-        <strong>Nodes</strong> — Python functions that read the state and
-        return updates to it.
+        <strong>Düğümler</strong> — durumu okuyan ve ona güncellemeler döndüren Python fonksiyonları.
       </li>
       <li>
-        <strong>Edges</strong> — rules for which node runs next, possibly
-        conditional on the state.
+        <strong>Kenarlar</strong> — hangi düğümün bir sonraki çalışacağına dair kurallar, muhtemelen duruma bağlı olarak.
       </li>
     </ul>
     <p>
-      Because the state is explicit, LangGraph can checkpoint it, resume
-      after a crash, retry a node, and branch — things a sequential crew
-      can&rsquo;t express cleanly.
+      Durum açık olduğu için LangGraph onu kontrol noktasına alabilir, çökme sonrası devam ettirebilir, bir düğümü yeniden deneyebilir ve dallanma yapabilir — sıralı bir ekibin temiz bir şekilde ifade edemeyeceği şeyler.
     </p>
 
-    <h2>Step 1 — Install</h2>
+    <h2>Adım 1 — Kurulum</h2>
     <pre><code>{`python -m venv .venv && source .venv/bin/activate
 pip install langgraph langchain-openai`}</code></pre>
     <p>
-      LangGraph is model-agnostic. We&rsquo;ll use OpenAI here; swap to
-      Anthropic by replacing <code>langchain-openai</code> with{" "}
-      <code>langchain-anthropic</code>.
+      LangGraph modelden bağımsızdır. Burada OpenAI kullanacağız; <code>langchain-openai</code> yerine{" "}
+      <code>langchain-anthropic</code> koyarak Anthropic'e geçebilirsiniz.
     </p>
 
-    <h2>Step 2 — Define the state</h2>
+    <h2>Adım 2 — Durumu tanımlayın</h2>
     <pre><code>{`from typing import TypedDict, Annotated, List
 from operator import add
 
 class State(TypedDict):
     question: str
-    notes: Annotated[List[str], add]   # accumulates across nodes
+    notes: Annotated[List[str], add]   # düğümler arasında birikir
     answer: str`}</code></pre>
     <p>
-      The <code>Annotated[..., add]</code> means &ldquo;when a node returns
-      <code>notes</code>, append it to the list instead of replacing.&rdquo;
-      This is LangGraph&rsquo;s reducer pattern — you say <em>how</em> updates
-      merge, per field.
+      <code>Annotated[..., add]</code>, "bir düğüm <code>notes</code> döndürdüğünde, listeye ekle, değiştirme" anlamına gelir. Bu, LangGraph'ın indirgeyici desenidir — her alan için güncellemelerin <em>nasıl</em> birleşeceğini söylersiniz.
     </p>
 
-    <h2>Step 3 — Define two nodes</h2>
+    <h2>Adım 3 — İki düğüm tanımlayın</h2>
     <pre><code>{`from langchain_openai import ChatOpenAI
 
 llm = ChatOpenAI(model="gpt-5-mini")
@@ -85,7 +67,7 @@ def answer(state: State):
     out = llm.invoke(prompt).content
     return {"answer": out}`}</code></pre>
 
-    <h2>Step 4 — Wire the graph</h2>
+    <h2>Adım 4 — Grafiği bağlayın</h2>
     <pre><code>{`from langgraph.graph import StateGraph, START, END
 
 builder = StateGraph(State)
@@ -96,33 +78,28 @@ builder.add_edge("research", "answer")
 builder.add_edge("answer", END)
 graph = builder.compile()`}</code></pre>
 
-    <h2>Step 5 — Run it</h2>
+    <h2>Adım 5 — Çalıştırın</h2>
     <pre><code>{`result = graph.invoke({"question": "Why is MCP becoming the agent tool standard?"})
 print(result["answer"])`}</code></pre>
     <p>
-      That&rsquo;s a working LangGraph agent. Linear, but it&rsquo;s the
-      shape everything else builds on.
+      Bu, çalışan bir LangGraph ajanıdır. Doğrusal, ancak diğer her şeyin üzerine inşa edildiği temel şekildir.
     </p>
 
-    <h2>Step 6 — Add a conditional edge</h2>
+    <h2>Adım 6 — Koşullu bir kenar ekleyin</h2>
     <p>
-      The power of LangGraph is conditional routing. Say you only want to
-      call the answer node if you got at least one note.
+      LangGraph'ın gücü koşullu yönlendirmedir. Diyelim ki yalnızca en az bir not aldıysanız cevap düğümünü çağırmak istiyorsunuz.
     </p>
     <pre><code>{`def route(state: State):
-    return "answer" if state["notes"] else "research"   # loop until notes exist
+    return "answer" if state["notes"] else "research"   # notlar olana kadar döngü
 
 builder.add_conditional_edges("research", route, {"research": "research", "answer": "answer"})`}</code></pre>
     <p>
-      This is a loop — the graph will keep running <code>research</code> until
-      the condition flips. Put a hard iteration cap (see step 8) so it
-      can&rsquo;t run forever.
+      Bu bir döngüdür — grafik, koşul değişene kadar <code>research</code>'i çalıştırmaya devam eder. Sonsuza kadar çalışamaması için bir yineleme sınırı koyun (8. adıma bakın).
     </p>
 
-    <h2>Step 7 — Persist state (checkpointing)</h2>
+    <h2>Adım 7 — Durumu kalıcı hale getirin (kontrol noktası oluşturma)</h2>
     <p>
-      The killer feature. Add a checkpointer and the graph can pause, restart,
-      and be inspected at any node.
+      En önemli özellik. Bir kontrol noktası ekleyin ve grafik duraklayabilir, yeniden başlayabilir ve herhangi bir düğümde incelenebilir.
     </p>
     <pre><code>{`from langgraph.checkpoint.sqlite import SqliteSaver
 
@@ -132,46 +109,36 @@ graph = builder.compile(checkpointer=saver)
 config = {"configurable": {"thread_id": "task-42"}}
 graph.invoke({"question": "..."}, config=config)`}</code></pre>
     <p>
-      The graph&rsquo;s state after every node is saved to SQLite (or Postgres,
-      or Redis). If the process crashes, you can resume the same
-      <code>thread_id</code> and pick up where it stopped. This is why
-      LangGraph is the default choice for long-running workloads.
+      Grafiğin her düğümden sonraki durumu SQLite'a (veya Postgres'e veya Redis'e) kaydedilir. Süreç çökerse, aynı <code>thread_id</code> ile devam edebilir ve kaldığı yerden devam alabilirsiniz. Bu nedenle LangGraph, uzun süreli iş yükleri için varsayılan seçimdir.
     </p>
 
-    <h2>Step 8 — Safety rails</h2>
+    <h2>Adım 8 — Güvenlik önlemleri</h2>
     <ul>
       <li>
-        Cap total iterations: <code>graph.invoke(..., config={'{'}"recursion_limit": 25{'}'})</code>.
+        Toplam yinelemeyi sınırlayın: <code>graph.invoke(..., config={'{"recursion_limit": 25}'})</code>.
       </li>
       <li>
-        Log every node with a decorator; you&rsquo;ll debug graphs three times
-        more often than you expect.
+        Bir dekoratörle her düğümü günlüğe kaydedin; grafikleri beklediğinizden üç kat daha sık hata ayıklamanız gerekecek.
       </li>
       <li>
-        Budget tokens up front. Run a single end-to-end pass through our{" "}
-        <a href="/tools/ai-token-counter">token counter</a> before looping it.
+        Token bütçesini önceden belirleyin. Döngüye sokmadan önce{" "}
+        <a href="/tools/ai-token-counter">token sayacımız</a> ile uçtan uca bir geçiş yapın.
       </li>
       <li>
-        Use LangSmith or OpenTelemetry for traces. Looking at the graph in a
-        viewer is a different experience from reading logs.
+        İzlemeler için LangSmith veya OpenTelemetry kullanın. Grafiği bir görüntüleyicide görmek, günlükleri okumaktan farklı bir deneyimdir.
       </li>
     </ul>
 
-    <h2>When NOT to use LangGraph</h2>
+    <h2>LangGraph NE ZAMAN KULLANILMAMALI</h2>
     <ul>
       <li>
-        Your agent is one <a href="/learn/llm">LLM</a> call. Just call the LLM.
+        Ajanınız tek bir <a href="/learn/llm">LLM</a> çağrısıysa. Sadece LLM'i çağırın.
       </li>
       <li>
-        Your agent is a straight pipeline of 2–4 agents. Use{" "}
-        <a href="/guides/how-to-build-a-multi-agent-system-with-crewai">CrewAI</a> —
-        simpler mental model.
+        Ajanınız 2-4 ajandan oluşan düz bir boru hattıysa. <a href="/guides/how-to-build-a-multi-agent-system-with-crewai">CrewAI</a> kullanın — daha basit bir zihinsel model.
       </li>
       <li>
-        You need autocomplete-in-editor help. LangGraph is an ops framework,
-        not a coding assistant. Use{" "}
-        <a href="/guides/how-to-set-up-cursor-ai-ide">Cursor</a> or{" "}
-        <a href="/guides/how-to-set-up-claude-code">Claude Code</a>.
+        Editörde otomatik tamamlama yardımına ihtiyacınız varsa. LangGraph bir operasyon çerçevesidir, kodlama asistanı değil. <a href="/guides/how-to-set-up-cursor-ai-ide">Cursor</a> veya <a href="/guides/how-to-set-up-claude-code">Claude Code</a> kullanın.
       </li>
     </ul>
   </>

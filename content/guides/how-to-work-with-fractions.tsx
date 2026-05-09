@@ -3,174 +3,123 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Fractions feel harder than they are because the rules change depending on whether
-      you&rsquo;re adding, multiplying, or converting to a decimal. Adding 1/3 and 1/4 requires
-      a common denominator; multiplying them doesn&rsquo;t. Simplifying 24/36 requires finding
-      a GCD; converting 1/7 to a decimal gives you an infinitely repeating pattern that
-      confuses people into thinking they made an arithmetic error. Mixed numbers like 2 3/4 hide
-      an extra step where you either convert to an improper fraction or keep them separate.
-      This guide covers the vocabulary (proper, improper, mixed), the four operations with
-      worked examples, simplification using the greatest common divisor, decimal conversion
-      including repeating decimals, and the tricks that make fraction arithmetic feel
-      mechanical instead of mysterious.
+      Kesirler, toplama, çarpma veya ondalığa çevirme işlemlerinde kuralların değişmesi nedeniyle olduğundan daha zor görünür. 1/3 ile 1/4'ü toplamak ortak payda gerektirir; çarpmak gerektirmez. 24/36'yı sadeleştirmek OBEB bulmayı gerektirir; 1/7'yi ondalığa çevirmek sonsuz tekrar eden bir desen verir ve bu da insanları aritmetik hata yaptıklarını düşündürür. 2 3/4 gibi tam sayılı kesirler, ya bileşik kesre çevirme ya da ayrı tutma gibi ekstra bir adımı gizler. Bu rehber, terimleri (basit, bileşik, tam sayılı), dört işlemi çözümlü örneklerle, en büyük ortak bölen kullanarak sadeleştirmeyi, tekrar eden ondalıklar dahil ondalığa çevirmeyi ve kesir aritmetiğini gizemli değil mekanik hissettiren püf noktalarını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Vocabulary</h2>
+    <h2>Terimler</h2>
     <p>
-      A fraction has a <strong>numerator</strong> on top and a <strong>denominator</strong> on
-      bottom. <strong>Proper fractions</strong> have a numerator smaller than the denominator
-      (3/4, 2/7). <strong>Improper fractions</strong> have numerator larger or equal (7/4, 5/5).
-      <strong>Mixed numbers</strong> combine a whole number and a proper fraction (1 3/4). Every
-      improper fraction can be rewritten as a mixed number and vice versa.
+      Bir kesrin üstünde <strong>pay</strong>, altında <strong>payda</strong> bulunur. <strong>Basit kesirler</strong> payı paydadan küçük olanlardır (3/4, 2/7). <strong>Bileşik kesirler</strong> payı paydadan büyük veya eşit olanlardır (7/4, 5/5). <strong>Tam sayılı kesirler</strong> bir tam sayı ile bir basit kesri birleştirir (1 3/4). Her bileşik kesir tam sayılı kesre ve tersi şekilde yazılabilir.
     </p>
-    <pre>{`7/4 = 1 3/4         (improper → mixed: divide 7÷4 = 1 remainder 3)
-2 1/3 = 7/3         (mixed → improper: 2×3 + 1 = 7)
-5/5 = 1             (improper that equals a whole number)`}</pre>
+    <pre>{`7/4 = 1 3/4         (bileşik → tam sayılı: 7÷4 = 1 kalan 3)
+2 1/3 = 7/3         (tam sayılı → bileşik: 2×3 + 1 = 7)
+5/5 = 1             (bir tam sayıya eşit bileşik kesir)`}</pre>
 
-    <h2>Simplifying with GCD</h2>
+    <h2>OBEB ile Sadeleştirme</h2>
     <p>
-      Divide numerator and denominator by their <strong>greatest common divisor</strong>. For
-      24/36, GCD = 12, so 24/36 = 2/3. For 15/25, GCD = 5, so 15/25 = 3/5. The Euclidean
-      algorithm finds GCD quickly: repeatedly replace the larger number with the remainder of
-      the division. Always simplify at the end unless the problem asks for a specific form.
+      Pay ve paydayı <strong>en büyük ortak bölenlerine</strong> bölün. 24/36 için OBEB = 12, yani 24/36 = 2/3. 15/25 için OBEB = 5, yani 15/25 = 3/5. Öklid algoritması OBEB'i hızlıca bulur: büyük sayıyı bölümün kalanıyla tekrar tekrar değiştirin. Sorun özel bir form istemediği sürece her zaman sonunda sadeleştirin.
     </p>
-    <pre>{`24/36  → gcd 12 → 2/3
-15/25  → gcd 5  → 3/5
-100/75 → gcd 25 → 4/3 → 1 1/3
-42/56  → gcd 14 → 3/4`}</pre>
+    <pre>{`24/36  → obeb 12 → 2/3
+15/25  → obeb 5  → 3/5
+100/75 → obeb 25 → 4/3 → 1 1/3
+42/56  → obeb 14 → 3/4`}</pre>
 
-    <h2>Adding and subtracting: you need a common denominator</h2>
+    <h2>Toplama ve çıkarma: ortak payda gerekir</h2>
     <p>
-      You can&rsquo;t add 1/3 and 1/4 directly. Find the <strong>least common
-      denominator</strong> (LCD), rewrite both fractions over that denominator, then add
-      numerators. For 1/3 and 1/4, LCD = 12, so 1/3 = 4/12 and 1/4 = 3/12, giving 7/12.
+      1/3 ve 1/4'ü doğrudan toplayamazsınız. <strong>En küçük ortak paydayı</strong> (EKOP) bulun, her iki kesri bu payda üzerinden yeniden yazın, ardından payları toplayın. 1/3 ve 1/4 için EKOP = 12, yani 1/3 = 4/12 ve 1/4 = 3/12, sonuç 7/12.
     </p>
     <pre>{`1/3 + 1/4
-  LCD = 12
+  EKOP = 12
   = 4/12 + 3/12
   = 7/12
 
 5/6 − 1/4
-  LCD = 12
+  EKOP = 12
   = 10/12 − 3/12
   = 7/12`}</pre>
     <p>
-      When the denominators share no common factors, the LCD is their product. When they share
-      factors, find the LCD by multiplying each denominator&rsquo;s unique prime factors at
-      their highest power.
+      Paydalar ortak çarpan içermediğinde, EKOP çarpımlarıdır. Ortak çarpan içerdiklerinde, EKOP'u her paydanın benzersiz asal çarpanlarını en yüksek üsleriyle çarparak bulun.
     </p>
 
-    <h2>Multiplying: just multiply across</h2>
+    <h2>Çarpma: doğrudan çarpın</h2>
     <p>
-      Multiply numerators together and denominators together, then simplify:{" "}
-      <code>a/b &times; c/d = (ac)/(bd)</code>. No common denominator needed. For mixed
-      numbers, convert to improper first.
+      Payları kendi arasında, paydaları kendi arasında çarpın, ardından sadeleştirin:{" "}
+      <code>a/b &times; c/d = (ac)/(bd)</code>. Ortak payda gerekmez. Tam sayılı kesirler için önce bileşik kesre çevirin.
     </p>
     <pre>{`2/3 × 4/5 = 8/15
 1/2 × 3/4 = 3/8
 1 1/2 × 2/3 = 3/2 × 2/3 = 6/6 = 1
 
-Shortcut: cancel before multiplying
+Kısayol: çarpmadan önce sadeleştirin
   4/9 × 3/8 = (4/8) × (3/9) = 1/2 × 1/3 = 1/6`}</pre>
 
-    <h2>Dividing: multiply by the reciprocal</h2>
+    <h2>Bölme: ters çevirip çarpın</h2>
     <p>
-      Flip the second fraction and multiply: <code>a/b &divide; c/d = a/b &times; d/c = ad/bc</code>.
-      This is the rule that feels arbitrary but falls out of the definition of division as
-      multiplying by the inverse.
+      İkinci kesri ters çevirin ve çarpın: <code>a/b &divide; c/d = a/b &times; d/c = ad/bc</code>.
+      Bu kural keyfi görünse de, bölmenin tersiyle çarpma olarak tanımından kaynaklanır.
     </p>
     <pre>{`2/3 ÷ 4/5 = 2/3 × 5/4 = 10/12 = 5/6
 1/2 ÷ 1/4 = 1/2 × 4/1 = 4/2 = 2
 3/4 ÷ 6    = 3/4 × 1/6 = 3/24 = 1/8`}</pre>
 
-    <h2>Converting to decimals</h2>
+    <h2>Ondalığa çevirme</h2>
     <p>
-      Divide numerator by denominator. Some fractions terminate (3/4 = 0.75); others repeat
-      (1/3 = 0.3333..., 1/7 = 0.142857142857...). A fraction terminates if and only if its
-      simplified denominator&rsquo;s prime factors are only 2 and 5. Everything else repeats.
+      Payı paydaya bölün. Bazı kesirler sonlanır (3/4 = 0.75); bazıları tekrar eder (1/3 = 0.3333..., 1/7 = 0.142857142857...). Bir kesir, ancak ve ancak sadeleştirilmiş paydasının asal çarpanları yalnızca 2 ve 5 ise sonlanır. Diğer her şey tekrar eder.
     </p>
-    <pre>{`1/2  = 0.5          (terminates; denom = 2)
-3/8  = 0.375        (terminates; denom = 8 = 2³)
-1/3  = 0.333...     (repeats; denom = 3)
-1/7  = 0.142857...  (6-digit repeat block)
+    <pre>{`1/2  = 0.5          (sonlanır; payda = 2)
+3/8  = 0.375        (sonlanır; payda = 8 = 2³)
+1/3  = 0.333...     (tekrar eder; payda = 3)
+1/7  = 0.142857...  (6 basamaklı tekrar bloğu)
 1/11 = 0.090909...
 1/6  = 0.1666...`}</pre>
 
-    <h2>Converting a repeating decimal back to a fraction</h2>
+    <h2>Tekrar eden ondalığı kesre çevirme</h2>
     <p>
-      Let <code>x = 0.3333...</code>. Then <code>10x = 3.3333...</code>, and subtracting gives{" "}
-      <code>9x = 3</code>, so <code>x = 3/9 = 1/3</code>. For a longer repeat block, multiply
-      by <code>10^n</code> where <em>n</em> is the repeat length: for <code>0.142857142857...</code>,{" "}
-      multiply by <code>10^6</code> and subtract.
+      <code>x = 0.3333...</code> olsun. O zaman <code>10x = 3.3333...</code> ve çıkarma işlemi <code>9x = 3</code> verir, yani <code>x = 3/9 = 1/3</code>. Daha uzun bir tekrar bloğu için, <em>n</em> tekrar uzunluğu olmak üzere <code>10^n</code> ile çarpın: <code>0.142857142857...</code> için <code>10^6</code> ile çarpın ve çıkarın.
     </p>
 
-    <h2>Comparing fractions</h2>
+    <h2>Kesirleri karşılaştırma</h2>
     <p>
-      Three techniques. First, convert to a common denominator and compare numerators. Second,
-      cross-multiply: <code>a/b</code> versus <code>c/d</code>&mdash;whichever of <code>ad</code>
-      and <code>bc</code> is larger tells you the answer. Third, convert to decimals (fastest
-      for a pile of fractions, slower for exact comparison).
+      Üç teknik. Birincisi, ortak paydaya çevirip payları karşılaştırın. İkincisi, çapraz çarpma: <code>a/b</code> ile <code>c/d</code> karşılaştırmasında <code>ad</code> ve <code>bc</code>'den hangisi büyükse cevabı verir. Üçüncüsü, ondalığa çevirme (bir yığın kesir için en hızlısı, kesin karşılaştırma için daha yavaş).
     </p>
-    <pre>{`Is 5/8 > 3/5?
-  Cross-multiply: 5×5 = 25 vs 3×8 = 24
-  25 > 24, so 5/8 > 3/5  ✓`}</pre>
+    <pre>{`5/8 &gt; 3/5 mi?
+  Çapraz çarpma: 5×5 = 25 vs 3×8 = 24
+  25 &gt; 24, yani 5/8 &gt; 3/5  ✓`}</pre>
 
-    <h2>Mixed numbers: two approaches</h2>
+    <h2>Tam sayılı kesirler: iki yaklaşım</h2>
     <p>
-      For addition, you can keep the whole parts separate: <code>2 1/3 + 1 1/4 = 3 + (1/3 +
-      1/4) = 3 + 7/12 = 3 7/12</code>. For multiplication and division, always convert to
-      improper first&mdash;the &ldquo;FOIL&rdquo; approach (multiplying mixed numbers directly)
-      is a classic trap.
+      Toplama için tam kısımları ayrı tutabilirsiniz: <code>2 1/3 + 1 1/4 = 3 + (1/3 + 1/4) = 3 + 7/12 = 3 7/12</code>. Çarpma ve bölme için her zaman önce bileşik kesre çevirin&mdash;doğrudan çarpma yaklaşımı klasik bir tuzaktır.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Sık yapılan hatalar</h2>
     <p>
-      <strong>Adding numerators and denominators directly.</strong> 1/3 + 1/4 is NOT 2/7. You
-      must find a common denominator first. This is the single most common error.
+      <strong>Pay ve paydaları doğrudan toplamak.</strong> 1/3 + 1/4, 2/7 DEĞİLDİR. Önce ortak payda bulmalısınız. Bu en yaygın hatadır.
     </p>
     <p>
-      <strong>Forgetting to flip when dividing.</strong> <code>2/3 &divide; 4/5</code> is NOT{" "}
-      <code>8/15</code>; that&rsquo;s the product. Division requires you to flip the second
-      fraction, then multiply.
+      <strong>Bölerken ters çevirmeyi unutmak.</strong> <code>2/3 &divide; 4/5</code>, <code>8/15</code> DEĞİLDİR; bu çarpım sonucudur. Bölme, ikinci kesri ters çevirip çarpmayı gerektirir.
     </p>
     <p>
-      <strong>Multiplying mixed numbers without converting.</strong> <code>2 1/2 &times; 3
-      1/3</code> is NOT <code>6 1/6</code>. Convert each to an improper fraction first:{" "}
-      <code>5/2 &times; 10/3 = 50/6 = 25/3 = 8 1/3</code>.
+      <strong>Tam sayılı kesirleri çevirmeden çarpmak.</strong> <code>2 1/2 &times; 3 1/3</code>, <code>6 1/6</code> DEĞİLDİR. Önce her birini bileşik kesre çevirin: <code>5/2 &times; 10/3 = 50/6 = 25/3 = 8 1/3</code>.
     </p>
     <p>
-      <strong>Over-simplifying before multiplying.</strong> You can cancel a factor from any
-      numerator against any denominator across a multiplication, but not across addition or
-      subtraction. Don&rsquo;t cancel diagonally in <code>2/3 + 3/4</code>.
+      <strong>Çarpmadan önce aşırı sadeleştirme.</strong> Çarpma işleminde herhangi bir paydan herhangi bir paydaya karşı bir çarpanı sadeleştirebilirsiniz, ancak toplama veya çıkarmada yapamazsınız. <code>2/3 + 3/4</code> işleminde çapraz sadeleştirme yapmayın.
     </p>
     <p>
-      <strong>Confusing a repeating decimal with a rounding error.</strong> 1/3 really is
-      0.3333... with 3s forever, not 0.3333333 as a finite digit string. When a calculator
-      shows 0.33333333, it&rsquo;s truncating.
+      <strong>Tekrar eden ondalığı yuvarlama hatasıyla karıştırmak.</strong> 1/3 gerçekten sonsuza kadar 3'lerle 0.3333... şeklindedir, sonlu bir basamak dizisi olan 0.3333333 değil. Hesap makinesi 0.33333333 gösterdiğinde, kısaltma yapıyordur.
     </p>
     <p>
-      <strong>Writing 0 as a denominator.</strong> Division by zero is undefined. <code>3/0</code>
-      is not a number; any chain of operations that leads to <code>/0</code> means you took a
-      wrong turn.
+      <strong>Paydaya 0 yazmak.</strong> Sıfıra bölme tanımsızdır. <code>3/0</code> bir sayı değildir; <code>/0</code>'a giden herhangi bir işlem zinciri yanlış yolda olduğunuzu gösterir.
     </p>
     <p>
-      <strong>Leaving answers unsimplified.</strong> Most teachers and most real-world contexts
-      expect simplified form. 6/8 should be 3/4; 10/4 should be 5/2 or 2 1/2.
+      <strong>Cevabı sadeleştirmeden bırakmak.</strong> Çoğu öğretmen ve çoğu gerçek dünya bağlamı sadeleştirilmiş form bekler. 6/8, 3/4 olmalıdır; 10/4, 5/2 veya 2 1/2 olmalıdır.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Skip the common-denominator arithmetic and let our{" "}
-      <a href="/tools/fraction-calculator">fraction calculator</a> handle the steps with
-      show-your-work output. Pair it with the{" "}
-      <a href="/tools/ratio-calculator">ratio calculator</a> when the problem is really a
-      proportion in disguise, and the{" "}
-      <a href="/tools/percentage-calculator">percentage calculator</a> for the common case of
-      converting a fraction into a percent.
+      Ortak payda aritmetiğini atlayın ve adımları çözüm gösterimiyle ele alması için <a href="/tools/fraction-calculator">kesir hesaplayıcımızı</a> kullanın. Sorun aslında gizli bir orantı olduğunda <a href="/tools/ratio-calculator">oran hesaplayıcı</a> ile, bir kesri yüzdeye çevirmenin yaygın durumu için de <a href="/tools/percentage-calculator">yüzde hesaplayıcı</a> ile birlikte kullanın.
     </p>
   </>
 );

@@ -2,66 +2,64 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Legal-research AI in 2026 splits into three tiers: vertical legal AI (Harvey, Spellbook, Co-Counsel),
-    document-review specialists (Hebbia, Kira), and general-purpose models (Claude, GPT-5, Gemini)
-    used for legal work. Pick by stakes, jurisdiction, and how much <a href="/learn/hallucination">hallucination</a> risk your
-    workflow can tolerate.
+    2026 yılında hukuk araştırması yapay zekası üç kademeye ayrılıyor: dikey hukuk yapay zekaları (Harvey, Spellbook, Co-Counsel),
+    belge inceleme uzmanları (Hebbia, Kira) ve hukuk işleri için kullanılan genel amaçlı modeller (Claude, GPT-5, Gemini).
+    Seçiminizi, davanın önemine, yargı yetkisine ve iş akışınızın ne kadar <a href="/learn/hallucination">halüsinasyon</a> riskini
+    kaldırabileceğine göre yapın.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The verticals (production-grade legal)</h2>
+    <h2>Dikey çözümler (üretim kalitesinde hukuk)</h2>
     <ul>
-      <li><strong>Harvey</strong> &mdash; the leader for big-law litigation + transactional. RAG
-        over case law, contract analysis, drafting. Enterprise pricing.</li>
-      <li><strong>Co-Counsel (Thomson Reuters)</strong> &mdash; tight Westlaw integration, paralegal
-        tasks at scale.</li>
-      <li><strong>Spellbook</strong> &mdash; contract drafting + redlining in Word. Lower-stakes,
-        wider userbase.</li>
-      <li><strong>Hebbia</strong> &mdash; document-review-grade RAG over private legal
-        corpora.</li>
+      <li><strong>Harvey</strong> &mdash; büyük hukuk bürolarının dava + işlem işlerinde lider. İçtihat hukuku
+        üzerinde RAG, sözleşme analizi, taslak hazırlama. Kurumsal fiyatlandırma.</li>
+      <li><strong>Co-Counsel (Thomson Reuters)</strong> &mdash; sıkı Westlaw entegrasyonu, ölçekte
+        hukuk sekreteri görevleri.</li>
+      <li><strong>Spellbook</strong> &mdash; Word'de sözleşme taslağı + kırmızı çizgi. Daha düşük riskli,
+        daha geniş kullanıcı tabanı.</li>
+      <li><strong>Hebbia</strong> &mdash; özel hukuk külliyatı üzerinde belge inceleme kalitesinde RAG.</li>
     </ul>
 
-    <h2>General-purpose models for legal work</h2>
+    <h2>Hukuk işleri için genel amaçlı modeller</h2>
     <ul>
-      <li><strong>Claude Sonnet/Opus</strong> &mdash; best for long-document analysis (1M context
-        fits a 600-page contract). Cleanest output, careful with hedging.</li>
-      <li><strong>Gemini 2.5/3 Pro</strong> &mdash; 2M context for the longest docs. Useful
-        for due diligence on huge data rooms.</li>
-      <li><strong>Perplexity Pro</strong> &mdash; for finding case law and regulatory updates
-        with citations. Verify each citation independently &mdash; LLMs still hallucinate cases.</li>
+      <li><strong>Claude Sonnet/Opus</strong> &mdash; uzun belge analizi için en iyisi (1M bağlam
+        600 sayfalık bir sözleşmeyi kapsar). En temiz çıktı, ihtiyatlı ifadelerde dikkatli.</li>
+      <li><strong>Gemini 2.5/3 Pro</strong> &mdash; en uzun belgeler için 2M bağlam. Büyük veri odalarında
+        durum tespiti için kullanışlı.</li>
+      <li><strong>Perplexity Pro</strong> &mdash; atıflarla birlikte içtihat ve mevzuat güncellemelerini
+        bulmak için. Her atfı bağımsız olarak doğrulayın &mdash; LLM'ler hala davaları uyduruyor.</li>
     </ul>
 
-    <h2>What works in practice</h2>
+    <h2>Pratikte işe yarayanlar</h2>
     <ul>
-      <li><strong>Contract drafting (template-flavor):</strong> Spellbook in Word. Cuts drafting
-        time 40-60% on commodity contracts.</li>
-      <li><strong>Contract review / redlines:</strong> Spellbook for low-stakes; Harvey or human
-        attorney for high-stakes.</li>
-      <li><strong>Long-document summarization (deposition transcripts, regulatory filings):</strong>{" "}
-        Claude or Gemini. Confirm everything against the source.</li>
-      <li><strong>Statute / case research:</strong> Westlaw / Lexis with Co-Counsel layered on.
-        General LLMs are unreliable for citations.</li>
+      <li><strong>Sözleşme taslağı (şablon tarzı):</strong> Word'de Spellbook. Standart sözleşmelerde
+        taslak hazırlama süresini %40-60 oranında azaltır.</li>
+      <li><strong>Sözleşme incelemesi / kırmızı çizgiler:</strong> Düşük riskli işler için Spellbook; yüksek riskli işler için Harvey veya
+        insan avukat.</li>
+      <li><strong>Uzun belge özetleme (ifade tutanakları, düzenleyici dosyalar):</strong>{" "}
+        Claude veya Gemini. Her şeyi kaynağa karşı teyit edin.</li>
+      <li><strong>Kanun / içtihat araştırması:</strong> Üzerine Co-Counsel eklenmiş Westlaw / Lexis.
+        Genel LLM'ler atıflar için güvenilmezdir.</li>
     </ul>
 
-    <h2>The hallucination warning</h2>
+    <h2>Halüsinasyon uyarısı</h2>
     <p>
-      Every general-purpose <a href="/learn/llm">LLM</a> has been caught fabricating case citations in legal contexts. The
-      rule: <strong>verify every case citation against an authoritative database</strong> before
-      filing or citing in client work. Vertical legal AIs (Harvey, Co-Counsel) ground in
-      Westlaw/Lexis to mitigate this; general models do not.
+      Her genel amaçlı <a href="/learn/llm">LLM</a>, hukuki bağlamlarda uydurma dava atıfları yaparken yakalanmıştır.
+      Kural: <strong>Dosyalamadan veya müvekkil işinde alıntı yapmadan önce her dava atfını yetkili bir veritabanına karşı doğrulayın</strong>. Dikey hukuk yapay zekaları (Harvey, Co-Counsel) bunu azaltmak için
+      Westlaw/Lexis'e dayanır; genel modeller dayanmaz.
     </p>
 
-    <h2>Pricing</h2>
+    <h2>Fiyatlandırma</h2>
     <ul>
-      <li><strong>$20/mo:</strong> Claude Pro or ChatGPT Plus + Westlaw subscription &mdash; the
-        solo / small-firm baseline.</li>
-      <li><strong>$50-150/seat:</strong> Spellbook, ContractPodAi.</li>
-      <li><strong>Enterprise:</strong> Harvey, Co-Counsel &mdash; six-figure annual contracts.</li>
+      <li><strong>$20/ay:</strong> Claude Pro veya ChatGPT Plus + Westlaw aboneliği &mdash;
+        bireysel / küçük ofis temel seviyesi.</li>
+      <li><strong>$50-150/koltuk:</strong> Spellbook, ContractPodAi.</li>
+      <li><strong>Kurumsal:</strong> Harvey, Co-Counsel &mdash; altı haneli yıllık sözleşmeler.</li>
     </ul>
     <p>
-      <em>Not legal advice; for educational purposes.</em> Compare:{" "}
+      <em>Hukuki tavsiye değildir; eğitim amaçlıdır.</em> Karşılaştır:{" "}
       <a href="/compare/claude-vs-gemini">Claude vs Gemini</a>.
     </p>
   </>

@@ -2,44 +2,44 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    The EV/hybrid decision shifted in 2025-2026 as charging infrastructure matured and PHEV (plug-in hybrid)
-    options expanded. Here&rsquo;s the honest decision tree for buying in 2026.
+    EV/hybrid kararı 2025-2026'da şarj altyapısının olgunlaşması ve PHEV (plug-in hybrid)
+    seçeneklerinin genişlemesiyle değişti. İşte 2026'da araç satın almak için dürüst karar ağacı.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Pick a full EV if</h2>
+    <h2>Tam EV seçin eğer</h2>
     <ul>
-      <li>You can charge at home (garage / driveway with outlet).</li>
-      <li>Your daily commute is under 200 miles.</li>
-      <li>You take road trips less than 4&times;/year.</li>
-      <li>You live in a metro with strong public charging coverage.</li>
-      <li>Federal $7,500 + state credits apply to your purchase.</li>
+      <li>Evde şarj edebiliyorsanız (garaj / araba yolu priz ile).</li>
+      <li>Günlük işe gidiş gelişiniz 200 milin altındaysa.</li>
+      <li>Yılda 4&times;'ten az yolculuğa çıkıyorsanız.</li>
+      <li>Güçlü halka açık şarj ağına sahip bir metropolde yaşıyorsanız.</li>
+      <li>Federal $7.500 + eyalet teşvikleri satın alımınıza uygulanıyorsa.</li>
     </ul>
-    <h2>Pick a PHEV (plug-in hybrid) if</h2>
+    <h2>PHEV (plug-in hybrid) seçin eğer</h2>
     <ul>
-      <li>You can charge at home but take long drives 1+&times;/month.</li>
-      <li>Mostly city driving but cross-country needs.</li>
-      <li>Towing or hauling needs that pure EVs strain on.</li>
-      <li>Live in a region with cold winters (range anxiety still real on EVs at 0°F).</li>
+      <li>Evde şarj edebiliyor ancak ayda 1+&times; kez uzun yol yapıyorsanız.</li>
+      <li>Çoğunlukla şehir içi kullanım ama ülkeler arası ihtiyaçlarınız varsa.</li>
+      <li>Saf EV'lerin zorlandığı çekme veya taşıma ihtiyaçlarınız varsa.</li>
+      <li>Soğuk kışları olan bir bölgede yaşıyorsanız (0°F'de EV'lerde menzil kaygısı hala gerçek).</li>
     </ul>
-    <h2>Stick with a hybrid (no plug) if</h2>
+    <h2>Hybrid (fişsiz) ile devam edin eğer</h2>
     <ul>
-      <li>Apartment / no charging access at home.</li>
-      <li>Long road-trips frequently &mdash; charging interruptions add real time.</li>
-      <li>Very cold climate without garage parking.</li>
-      <li>You want simplicity and long-term reliability of Toyota Prius / Camry Hybrid class.</li>
+      <li>Apartman / evde şarj imkanınız yoksa.</li>
+      <li>Sık sık uzun yolculuklar yapıyorsanız &mdash; şarj kesintileri ciddi zaman ekler.</li>
+      <li>Garajsız çok soğuk iklimde yaşıyorsanız.</li>
+      <li>Toyota Prius / Camry Hybrid sınıfının basitliğini ve uzun vadeli güvenilirliğini istiyorsanız.</li>
     </ul>
-    <h2>Total cost of ownership in 2026</h2>
+    <h2>2026'da toplam sahip olma maliyeti</h2>
     <ul>
-      <li><strong>EV:</strong> lowest fuel + maintenance; higher up-front; battery replacement risk after 8-10 yr.</li>
-      <li><strong>PHEV:</strong> lower fuel if commute fits electric range; battery + ICE = double maintenance complexity.</li>
-      <li><strong>Hybrid:</strong> highest fuel cost of the three; lowest complexity; reliable 200k-mile lifespan.</li>
+      <li><strong>EV:</strong> en düşük yakıt + bakım; daha yüksek peşinat; 8-10 yıl sonra batarya değiştirme riski.</li>
+      <li><strong>PHEV:</strong> işe gidiş geliş elektrik menziline sığıyorsa daha düşük yakıt; batarya + ICE = çift bakım karmaşıklığı.</li>
+      <li><strong>Hybrid:</strong> üçü arasında en yüksek yakıt maliyeti; en düşük karmaşıklık; güvenilir 200 bin mil ömür.</li>
     </ul>
     <p>
-      Run range math at <a href="/tools/ev-range-estimator">EV range estimator</a>. For solar payback to power
-      home charging see <a href="/tools/solar-panel-payback-calculator">solar panel payback calculator</a>.
+      Menzil hesaplamalarını <a href="/tools/ev-range-estimator">EV menzil hesaplayıcı</a> ile yapın. Evde şarj için güneş enerjisi geri ödemesi için
+      <a href="/tools/solar-panel-payback-calculator">güneş paneli geri ödeme hesaplayıcı</a>'ya bakın.
     </p>
   </>
 );

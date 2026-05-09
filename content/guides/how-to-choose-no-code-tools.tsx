@@ -1,40 +1,40 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>The right no-code tool is the one matched to what you&rsquo;re actually building &mdash; not the one with the slickest demo on Twitter.</p>);
+export const intro: ReactElement = (<p>Doğru kodsuz araç, Twitter'daki en gösterişli demoya sahip olan değil &mdash; aslında inşa ettiğin şeyle eşleşen araçtır.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>No-code has genuinely gotten good. You can now ship a marketing site, a CRUD app, an internal dashboard, or a small marketplace without writing backend code &mdash; but only if you pick the tool that matches the shape of the problem. Most failed no-code projects aren&rsquo;t failures of the category; they&rsquo;re mismatches (building a database app on Webflow, or a marketing site on Bubble). Start with what you&rsquo;re building, then shortlist two tools, then kick the tires.</p>
+    <p>Kodsuz geliştirme gerçekten iyi bir noktaya geldi. Artık arka uç kodu yazmadan bir pazarlama sitesi, bir CRUD uygulaması, bir iç panel veya küçük bir pazar yeri yayına alabilirsin &mdash; ancak yalnızca sorununun şekline uygun aracı seçersen. Başarısız olan çoğu kodsuz proje, kategorinin başarısızlığı değildir; bunlar uyumsuzluklardır (Webflow'da bir veritabanı uygulaması veya Bubble'da bir pazarlama sitesi inşa etmek). Ne inşa ettiğinle başla, ardından iki araca daralt ve onları bir test sürüşüne çıkar.</p>
 
-    <h2>Step 1: define what you&rsquo;re actually building</h2>
-    <p>Before comparing tools, write one sentence describing the product. Is it a marketing site with a blog and forms? A database-backed web app with user logins and permissions? A marketplace connecting two sides? An internal tool your team uses to manage data? A workflow automation? These categories map cleanly to different platforms, and picking a tool before you&rsquo;ve answered this question is how people waste three months.</p>
+    <h2>Adım 1: Gerçekte ne inşa ettiğini tanımla</h2>
+    <p>Araçları karşılaştırmadan önce, ürünü tanımlayan bir cümle yaz. Blog ve formları olan bir pazarlama sitesi mi? Kullanıcı girişleri ve izinleri olan veritabanı destekli bir web uygulaması mı? İki tarafı birbirine bağlayan bir pazar yeri mi? Ekibinin verileri yönetmek için kullandığı bir iç araç mı? Bir iş akışı otomasyonu mu? Bu kategoriler farklı platformlara temiz bir şekilde eşlenir ve bu soruyu cevaplamadan önce bir araç seçmek, insanların üç ayını boşa harcamasına neden olur.</p>
 
-    <h2>Top tools by category</h2>
+    <h2>Kategoriye göre en iyi araçlar</h2>
     <ul>
-      <li>Marketing sites and landing pages &mdash; Webflow (visual power, mature CMS) or Framer (faster, better defaults, tighter animations).</li>
-      <li>Full web apps &mdash; Bubble (most flexible, real learning curve) or FlutterFlow for mobile-first.</li>
-      <li>Airtable/Sheets-backed apps &mdash; Softr and Glide turn a spreadsheet into a real app in a day.</li>
-      <li>Internal tools and dashboards &mdash; Retool, Appsmith, or Tooljet connect to your existing database and build operator UIs fast.</li>
-      <li>Databases and docs &mdash; Airtable for structured data, Notion for documents with light structure, Coda if you want both.</li>
-      <li>Workflow automation &mdash; Zapier, Make, or n8n (self-hostable).</li>
+      <li>Pazarlama siteleri ve açılış sayfaları &mdash; Webflow (görsel güç, olgun CMS) veya Framer (daha hızlı, daha iyi varsayılanlar, daha sıkı animasyonlar).</li>
+      <li>Tam web uygulamaları &mdash; Bubble (en esnek, gerçek öğrenme eğrisi) veya mobil öncelikli için FlutterFlow.</li>
+      <li>Airtable/Elektronik Tablo destekli uygulamalar &mdash; Softr ve Glide bir elektronik tabloyu bir günde gerçek bir uygulamaya dönüştürür.</li>
+      <li>İç araçlar ve panolar &mdash; Retool, Appsmith veya Tooljet mevcut veritabanına bağlanır ve operatör arayüzlerini hızlıca oluşturur.</li>
+      <li>Veritabanları ve dokümanlar &mdash; Yapılandırılmış veriler için Airtable, hafif dokümanlar için Notion, her ikisini de istiyorsan Coda.</li>
+      <li>İş akışı otomasyonu &mdash; Zapier, Make veya n8n (kendi kendine barındırılabilir).</li>
     </ul>
 
-    <h2>Pricing traps to watch for</h2>
-    <p>No-code pricing looks cheap on the landing page and gets expensive in production. Watch for per-editor seats (every teammate who logs in costs money), per-workspace charges that multiply across clients, per-record or per-row limits that force an upgrade the day you get traction, and &ldquo;tasks&rdquo; or &ldquo;operations&rdquo; metering in automation tools where a single user action triggers ten billed events. Model your year-one cost at 10x today&rsquo;s usage before committing.</p>
+    <h2>Dikkat edilmesi gereken fiyatlandırma tuzakları</h2>
+    <p>Kodsuz fiyatlandırma açılış sayfasında ucuz görünür ve üretimde pahalı hale gelir. Giriş yapan her ekip üyesiyle çoğalan kullanıcı başına ücretlere, müşteriler arasında çoğalan çalışma alanı başına ücretlere, trafik aldığın gün yükseltmeye zorlayan kayıt veya satır sınırlamalarına ve tek bir kullanıcı eyleminin on faturalandırılmış işlemi tetiklediği otomasyon araçlarındaki "görev" veya "işlem" ölçümüne dikkat et. Taahhüt vermeden önce ilk yıl maliyetini mevcut kullanımının 10 katı olarak modelle.</p>
 
-    <h2>Vendor lock-in and exportability</h2>
-    <p>Your data should always be exportable in a usable format &mdash; CSV at minimum, ideally a full schema dump. Your UI and logic usually are not portable between no-code platforms; a Bubble app cannot be ported to Webflow, and vice versa. Accept that the platform is the product, and plan accordingly: keep a backup of your data, document your logic outside the tool, and pick vendors with track records and realistic acquisition/shutdown risk.</p>
+    <h2>Satıcı bağımlılığı ve dışa aktarılabilirlik</h2>
+    <p>Verilerin her zaman kullanılabilir bir formatta dışa aktarılabilir olmalı &mdash; en azından CSV, ideal olarak tam bir şema dökümü. Kullanıcı arayüzün ve mantığın genellikle kodsuz platformlar arasında taşınabilir değildir; bir Bubble uygulaması Webflow'a taşınamaz ve bunun tersi de geçerlidir. Platformun ürün olduğunu kabul et ve buna göre plan yap: verilerinin bir yedeğini tut, mantığını aracın dışında belgele ve geçmişi olan ve gerçekçi satın alma/kapanma riski olan satıcıları seç.</p>
 
-    <h2>When no-code breaks down</h2>
-    <p>No-code is excellent for the 80% case and painful for the remaining 20%. Real-time collaboration (think Figma-level sync), heavy computation, complex permissions across tenants, regulated data (HIPAA, strict SOC 2), high-volume APIs, and deep enterprise integrations are where you&rsquo;ll hit walls. The usual escape hatch is a custom backend behind the no-code frontend, or rewriting in code once product-market fit is clear. Plan the escape hatch before you need it.</p>
+    <h2>Kodsuzun yetersiz kaldığı yerler</h2>
+    <p>Kodsuz, %80'lik durum için mükemmeldir ve kalan %20'lik kısım için zahmetlidir. Gerçek zamanlı işbirliği (Figma seviyesinde senkronizasyon), ağır hesaplama, kiracılar arasında karmaşık izinler, düzenlenmiş veriler (HIPAA, katı SOC 2), yüksek hacimli API'ler ve derin kurumsal entegrasyonlar, duvarlara çarpacağın yerlerdir. Olağan kaçış, kodsuz bir ön uç arkasında özel bir arka uç veya ürün-pazar uyumu netleştiğinde koda yeniden yazmaktır. Kaçış planını ihtiyacın olmadan önce yap.</p>
 
-    <h2>How to evaluate, fast</h2>
-    <p>Spend a weekend building the riskiest 20% of your app in the top two candidates. Not the login screen &mdash; the hard part. If the tool collapses under that load, it will collapse later too. Read the community forum and check how fast real questions get answered. Look at the changelog: an actively maintained platform ships every few weeks, a dying one goes quiet for months.</p>
+    <h2>Hızlı değerlendirme nasıl yapılır</h2>
+    <p>En riskli %20'lik kullanım durumunu ilk iki adayda bir hafta sonu boyunca inşa et. Giriş ekranını değil &mdash; zor kısmı. Araç bu yük altında kırılırsa, daha sonra kırılacaktır. Topluluk forumunu oku ve gerçek soruların ne kadar hızlı yanıtlandığını kontrol et. Değişiklik günlüğüne bak: aktif olarak bakımı yapılan bir platform her birkaç haftada bir güncelleme gönderir, ölmekte olan bir platform aylarca sessiz kalır.</p>
 
-    <h2>Common mistakes</h2>
-    <p>Picking based on marketing demos alone (demos hide the hard cases), ignoring the roadmap (a missing feature today may still be missing in a year), skipping the backup and export plan, underestimating the time to learn Bubble or Webflow seriously (it is not &ldquo;no learning&rdquo;), and choosing the trendy tool over the boring one with 10x the documentation.</p>
+    <h2>Yaygın hatalar</h2>
+    <p>Yalnızca pazarlama demolarına dayanarak seçim yapmak (demolar zor durumları gizler), yol haritasını görmezden gelmek (bugün eksik olan bir özellik bir yıl sonra hala eksik olabilir), yedekleme ve dışa aktarma planını atlamak, Bubble veya Webflow için öğrenme eğrisini hafife almak ("öğrenme yok" değildir) ve 10 kat daha fazla dokümantasyona sahip sıkıcı araç yerine trend olan aracı seçmek.</p>
 
-    <h2>Bottom line</h2>
-    <p>Define the product first, pick the right category, prototype the hard part in a weekend, and keep an exit plan. No-code is a serious choice, not a shortcut &mdash; treat it like one.</p>
+    <h2>Özet</h2>
+    <p>Önce ürünü tanımla, doğru kategoriyi seç, zor kısmı bir hafta sonunda prototiple ve bir çıkış planın olsun. Kodsuz ciddi bir seçimdir, bir kısayol değil &mdash; ona öyle davran.</p>
   </>
 );

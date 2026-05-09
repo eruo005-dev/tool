@@ -2,54 +2,53 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Five image-generation models matter in 2026: Midjourney v7, FLUX 1.1 Pro Ultra, DALL-E 4,
-    Imagen 4, and Stable Diffusion 3.5 Large. Each leads in a different niche &mdash; pick by what
-    you&rsquo;re generating, not by which is &ldquo;best.&rdquo;
+    2026'da önemli olan beş görüntü oluşturma modeli var: Midjourney v7, FLUX 1.1 Pro Ultra, DALL-E 4,
+    Imagen 4 ve Stable Diffusion 3.5 Large. Her biri farklı bir alanda lider &mdash; hangisinin &ldquo;en iyi&rdquo; olduğuna göre değil, ne oluşturduğunuza göre seçim yapın.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The leaders by use case</h2>
+    <h2>Kullanım alanına göre liderler</h2>
     <ul>
-      <li><strong>Marketing-grade hero images:</strong> Midjourney v7. Most consistent style, best
-        prompt understanding, gold standard for ad creative.</li>
-      <li><strong>Photorealism:</strong> FLUX 1.1 Pro Ultra (4MP). Beats DALL-E and Imagen on
-        skin texture, lighting realism.</li>
-      <li><strong>Text in images:</strong> Imagen 4 + DALL-E 4 both excellent. FLUX is competitive
-        but loses on multi-line layouts.</li>
-      <li><strong>Free / open-weight:</strong> Stable Diffusion 3.5 Large or FLUX dev. Run on
-        ComfyUI / Automatic1111 / DiffusionBee.</li>
-      <li><strong>Iterative editing:</strong> DALL-E 4 in ChatGPT. Inpaint by typing.</li>
-      <li><strong>Speed:</strong> FLUX Schnell or SDXL Turbo &mdash; sub-second on a decent GPU.</li>
+      <li><strong>Pazarlama kalitesinde kahraman görselleri:</strong> Midjourney v7. En tutarlı stil, en iyi
+        komut anlayışı, reklam yaratıcılığında altın standart.</li>
+      <li><strong>Fotogerçekçilik:</strong> FLUX 1.1 Pro Ultra (4MP). Cilt dokusu, ışık gerçekçiliği konusunda
+        DALL-E ve Imagen'ı geçiyor.</li>
+      <li><strong>Görsellerde metin:</strong> Imagen 4 + DALL-E 4 her ikisi de mükemmel. FLUX rekabetçi
+        ancak çok satırlı düzenlerde kaybediyor.</li>
+      <li><strong>Ücretsiz / açık ağırlık:</strong> Stable Diffusion 3.5 Large veya FLUX dev. ComfyUI /
+        Automatic1111 / DiffusionBee üzerinde çalıştırın.</li>
+      <li><strong>Yinelemeli düzenleme:</strong> ChatGPT'de DALL-E 4. Yazarak iç boyama.</li>
+      <li><strong>Hız:</strong> FLUX Schnell veya SDXL Turbo &mdash; iyi bir GPU'da saniyenin altında.</li>
     </ul>
 
-    <h2>Pricing</h2>
+    <h2>Fiyatlandırma</h2>
     <ul>
-      <li><strong>Midjourney:</strong> $10-120/mo. v7 in Pro+ tiers.</li>
-      <li><strong>ChatGPT Plus ($20/mo):</strong> includes DALL-E 4 + Sora.</li>
-      <li><strong>Gemini Advanced ($20/mo):</strong> includes Imagen 4 + Veo.</li>
-      <li><strong>Replicate / fal.ai (FLUX API):</strong> ~$0.05 per image.</li>
-      <li><strong>Self-host SD 3.5:</strong> $0 (electricity).</li>
+      <li><strong>Midjourney:</strong> $10-120/ay. v7 Pro+ katmanlarında.</li>
+      <li><strong>ChatGPT Plus ($20/ay):</strong> DALL-E 4 + Sora içerir.</li>
+      <li><strong>Gemini Advanced ($20/ay):</strong> Imagen 4 + Veo içerir.</li>
+      <li><strong>Replicate / fal.ai (FLUX API):</strong> Görsel başına ~$0.05.</li>
+      <li><strong>Kendi barındırman SD 3.5:</strong> $0 (elektrik).</li>
     </ul>
 
-    <h2>The honest 2026 stack</h2>
+    <h2>Dürüst 2026 yılı yığını</h2>
     <ul>
-      <li>Marketing / brand work: <strong>Midjourney</strong> ($10-30/mo).</li>
-      <li>Daily knowledge work + occasional image: <strong>ChatGPT Plus or Gemini Advanced</strong>
-        ($20/mo) &mdash; you&rsquo;re paying for chat anyway.</li>
-      <li>Heavy generation / iteration: add Replicate or self-host FLUX.</li>
+      <li>Pazarlama / marka çalışmaları: <strong>Midjourney</strong> ($10-30/ay).</li>
+      <li>Günlük bilgi çalışması + ara sıra görsel: <strong>ChatGPT Plus veya Gemini Advanced</strong>
+        ($20/ay) &mdash; zaten sohbet için ödüyorsunuz.</li>
+      <li>Yoğun oluşturma / yineleme: Replicate ekleyin veya FLUX'u kendi barındırın.</li>
     </ul>
 
-    <h2>What to avoid</h2>
+    <h2>Nelerden kaçınılmalı</h2>
     <ul>
-      <li>Real human faces of people who didn&rsquo;t consent. Easy to do, ethically and often
-        legally wrong.</li>
-      <li>Generating brand logos for trademarked companies for client work without checking IP.</li>
-      <li>Skipping the prompt-engineering phase &mdash; one good prompt outproduces 30 lazy ones.</li>
+      <li>İzin vermemiş kişilerin gerçek insan yüzleri. Yapması kolay, etik ve genellikle
+        yasal olarak yanlış.</li>
+      <li>Müşteri çalışmaları için tescilli şirketlerin marka logolarını IP'yi kontrol etmeden oluşturmak.</li>
+      <li>Komut mühendisliği aşamasını atlamak &mdash; iyi bir komut, 30 tembel komuttan daha fazla üretir.</li>
     </ul>
     <p>
-      Compare: <a href="/compare/chatgpt-vs-gemini">ChatGPT vs Gemini</a>.
+      Karşılaştır: <a href="/compare/chatgpt-vs-gemini">ChatGPT vs Gemini</a>.
     </p>
   </>
 );

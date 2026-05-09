@@ -1,113 +1,111 @@
 export const intro = (
   <>
     <p>
-      Networking has a terrible reputation, usually because people picture the wrong thing:
-      forced small talk at conferences, awkward LinkedIn messages, handing out business cards.
-      Real networking looks different. It&rsquo;s slowly building genuine relationships with
-      people you find interesting, over years.
+      Ağ kurmanın kötü bir ünü vardır, genellikle insanlar yanlış şeyi hayal ettiği için:
+      konferanslarda zoraki küçük konuşmalar, garip LinkedIn mesajları, kartvizit dağıtmak.
+      Gerçek ağ kurma farklıdır. İlginç bulduğunuz insanlarla yıllar içinde yavaşça gerçek
+      ilişkiler kurmaktır.
     </p>
     <p>
-      This guide covers how to network without feeling slimy, how to make it actually produce
-      results, and why the people who are best at it don&rsquo;t even call it
-      &ldquo;networking.&rdquo;
+      Bu rehber, kendinizi sömürülmüş hissetmeden nasıl ağ kurabileceğinizi, bunun nasıl
+      gerçekten sonuç üreteceğini ve bu işte en iyi olan insanların neden buna "ağ kurma"
+      demediğini anlatıyor.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Reframe networking as friendship, slowly</h2>
+    <h2>1. Ağ kurmayı yavaş arkadaşlık olarak yeniden çerçeveleyin</h2>
     <p>
-      The best networkers aren&rsquo;t transactional. They&rsquo;re generous, curious, and
-      patient. They help people without expecting immediate returns and build a web of real
-      relationships over decades. The opportunities that emerge come from trust, not from
-      having &ldquo;worked the room.&rdquo;
+      En iyi ağ kuranlar işlemsel değildir. Cömert, meraklı ve sabırlıdırlar. Hemen karşılık
+      beklemeden insanlara yardım ederler ve on yıllar boyunca gerçek ilişkilerden oluşan bir ağ
+      kurarlar. Ortaya çıkan fırsatlar, "odayı çalıştırmaktan" değil, güvenden gelir.
     </p>
 
-    <h2>2. Give before you ask</h2>
+    <h2>2. İstemeden önce verin</h2>
     <p>
-      Intros. Shares. Article recommendations. A job lead. If your first outreach to someone is
-      asking for something, you&rsquo;re going to get ignored. Spend the first year of any
-      relationship giving value. Asks, when they come, will be answered.
+      Tanıştırmalar. Paylaşımlar. Makale önerileri. Bir iş fırsatı. Birine ilk ulaşmanız bir şey
+      istemekse, görmezden gelinirsiniz. Herhangi bir ilişkinin ilk yılını değer katarak geçirin.
+      İstekler, geldiklerinde yanıtlanacaktır.
     </p>
 
-    <h2>3. Follow up like a pro</h2>
+    <h2>3. Bir profesyonel gibi takip edin</h2>
     <p>
-      Met someone interesting? Send a short note within 48 hours. Not a sales pitch — a
-      human &ldquo;great to meet you, here&rsquo;s that book I mentioned.&rdquo; 95% of people
-      never follow up. The 5% who do stand out immediately.
+      İlginç biriyle tanıştınız mı? 48 saat içinde kısa bir not gönderin. Bir satış konuşması
+      değil — insani bir "tanıştığımıza memnun oldum, bahsettiğim kitap burada." İnsanların %95'i
+      asla takip etmez. Takip eden %5 hemen öne çıkar.
     </p>
 
-    <h2>4. Keep a simple relationship log</h2>
+    <h2>4. Basit bir ilişki günlüğü tutun</h2>
     <p>
-      A spreadsheet or notes file with names, what you talked about, and when to reach out
-      again. Every 3-6 months, a quick check-in: &ldquo;hey, thinking of you — how&rsquo;s the
-      new role?&rdquo; Consistency beats volume. Most people you meet, you&rsquo;ll forget.
-      Intentional effort prevents that.
+      İsimler, ne hakkında konuştuğunuz ve ne zaman tekrar iletişime geçeceğinizi içeren bir
+      elektronik tablo veya not dosyası. Her 3-6 ayda bir hızlı bir dokunuş: "hey, aklıma
+      geldin — yeni rol nasıl gidiyor?" Tutarlılık hacmi yener. Tanıştığınız çoğu insanı
+      unutacaksınız. Bilinçli çaba bunu engeller.
     </p>
 
-    <h2>5. Go deep, not wide</h2>
+    <h2>5. Geniş değil, derine gidin</h2>
     <p>
-      100 shallow LinkedIn connections are worth less than 10 people who&rsquo;d actually vouch
-      for you. Build a small number of strong relationships rather than a large number of weak
-      ones. Quality matters more than quantity at every scale.
+      100 sığ LinkedIn bağlantısı, sizin için gerçekten kefil olacak 10 kişiden daha az değerlidir.
+      Çok sayıda zayıf bağ yerine az sayıda güçlü bağ kurun. Kalite her ölçekte miktarı yener.
     </p>
 
-    <h2>6. Find communities, not just individuals</h2>
+    <h2>6. Sadece bireyleri değil, toplulukları bulun</h2>
     <p>
-      Join small communities (hobby groups, professional guilds, online communities, local
-      meetups) where you&rsquo;ll see the same people repeatedly. Repeated exposure creates
-      familiarity, familiarity creates trust, trust creates opportunities. One-off networking
-      events rarely produce this.
+      Aynı insanları tekrar tekrar göreceğiniz küçük topluluklara katılın (hobi grupları,
+      profesyonel loncalar, çevrimiçi topluluklar, yerel buluşmalar). Tekrarlanan maruz kalma
+      aşinalık yaratır, aşinalık güven yaratır, güven fırsatlar yaratır. Tek seferlik ağ kurma
+      etkinlikleri bunu nadiren sağlar.
     </p>
 
-    <h2>7. Be interesting — or at least interested</h2>
+    <h2>7. İlginç olun — ya da en azından ilgili</h2>
     <p>
-      If you don&rsquo;t have anything to share yet, ask good questions and really listen. The
-      most memorable people at any event are the ones who paid genuine attention to others.
-      This is a low-bar skill and massively underutilized.
+      Henüz paylaşacak bir şeyiniz yoksa, iyi sorular sorun ve gerçekten dinleyin. Herhangi bir
+      etkinlikte en akılda kalan insanlar, başkalarına gerçek ilgi gösterenlerdir. Bu, çok az
+      kullanılan düşük seviyeli bir beceridir.
     </p>
 
-    <h2>8. Publish what you&rsquo;re working on</h2>
+    <h2>8. Üzerinde çalıştıklarınızı yayınlayın</h2>
     <p>
-      A blog, a newsletter, posting on X/LinkedIn — people can&rsquo;t network with you if
-      they don&rsquo;t know what you do. Writing publicly creates serendipity. People find you;
-      conversations start without you initiating.
+      Bir blog, bir bülten, X/LinkedIn'de gönderiler — insanlar ne yaptığınızı bilmiyorsa sizinle
+      ağ kuramaz. Kamuya açık yazmak tesadüfler yaratır. İnsanlar sizi bulur; siz başlatmadan
+      sohbetler başlar.
     </p>
 
-    <h2>9. Make warm intros</h2>
+    <h2>9. Sıcak tanıştırmalar yapın</h2>
     <p>
-      Connecting two people who&rsquo;d benefit from knowing each other is the highest-value
-      low-cost act in networking. Both sides remember who made the intro. Do this regularly
-      and your reputation as a connector compounds.
+      Birbirini tanımaktan fayda sağlayacak iki kişiyi birbirine bağlamak, ağ kurmada en yüksek
+      değerli, en düşük maliyetli harekettir. Her iki taraf da tanıştırmayı yapanı hatırlar.
+      Bunu düzenli olarak yapın ve bir bağlayıcı olarak itibarınız katlanarak büyür.
     </p>
 
-    <h2>10. Don&rsquo;t network only when you need something</h2>
+    <h2>10. Sadece bir şeye ihtiyacınız olduğunda ağ kurmayın</h2>
     <p>
-      People who disappear for 2 years and resurface when they need a job get ignored. Stay
-      present when you don&rsquo;t need anything. When you do need help, the reservoir is
-      already full.
+      2 yıl ortadan kaybolup bir işe ihtiyaçları olduğunda yeniden ortaya çıkan insanlar
+      görmezden gelinir. Hiçbir şeye ihtiyacınız olmadığında ortaya çıkın. Yardıma ihtiyacınız
+      olduğunda, rezervuar zaten doludur.
     </p>
 
-    <h2>11. Have a clear answer to &ldquo;what do you do&rdquo;</h2>
+    <h2>11. "Ne iş yapıyorsun?" sorusuna net bir cevabınız olsun</h2>
     <p>
-      One crisp sentence. Not a resume. Not a monologue. &ldquo;I help early-stage startups
-      fix their billing systems.&rdquo; Make it memorable enough that someone can repeat it to
-      their friend. Vague answers produce vague introductions later.
+      Net bir cümle. Bir özgeçmiş değil. Bir monolog değil. "Erken aşama startupların fatura
+      sistemlerini düzeltmelerine yardımcı oluyorum." Bir arkadaşınıza tekrarlayabilecek kadar
+      akılda kalıcı yapın. Belirsiz cevaplar daha sonra belirsiz tanıştırmalar üretir.
     </p>
 
-    <h2>12. Accept that it&rsquo;s a decade-long game</h2>
+    <h2>12. Bunun on yıllık bir oyun olduğunu kabul edin</h2>
     <p>
-      Most valuable network effects emerge 5-15 years after the initial meeting. The person
-      you helped in 2019 becomes the hiring manager in 2029. Networking has an absurdly long
-      payback; play accordingly. This is why it rewards patience more than charisma.
+      En değerli ağ etkileri, ilk konuşmadan 5-15 yıl sonra ortaya çıkar. 2019'da yardım ettiğiniz
+      kişi 2029'da bir işe alım yöneticisi olur. Ağ kurmanın gülünç derecede uzun bir geri ödeme
+      süresi vardır; buna göre oynayın. Bu yüzden karizmadan çok sabrı ödüllendirir.
     </p>
 
-    <h2>Your first month</h2>
+    <h2>İlk ayınız</h2>
     <p>
-      Write 5 messages to people you&rsquo;ve been meaning to catch up with. Make 1 warm
-      intro. Attend 1 small community event. Follow up on 3 recent meetings. Start a
-      relationship log. That&rsquo;s it. Compound this over years.
+      Tanışmak istediğiniz kişilere 5 mesaj yazın. 1 sıcak tanıştırma yapın. 1 küçük topluluk
+      etkinliğine katılın. Yaptığınız son 3 toplantıyı takip edin. Bir ilişki günlüğü başlatın.
+      Bu kadar. Bunu yıllar boyunca biriktirin.
     </p>
   </>
 );

@@ -3,189 +3,153 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      An emergency fund is the lowest-tech, highest-value piece of personal finance. The
-      classic rule is <strong>3-6 months of essential expenses</strong> in a liquid, low-risk
-      account, ready to absorb a job loss, medical bill, or major repair without forcing
-      you into credit card debt or selling investments at the wrong time. Most people either
-      skip this step entirely (relying on credit) or overcorrect and park 2 years of
-      spending in savings earning nothing. This guide walks through how much you actually
-      need, what counts as an &ldquo;expense,&rdquo; where to keep the money, and how to
-      build it up without freezing your other goals.
+      Acil durum fonu, kişisel finansın en düşük teknolojili, en yüksek değerli parçasıdır. Klasik kural, bir iş kaybı, tıbbi fatura veya büyük bir onarım durumunda sizi kredi kartı borcuna veya yanlış zamanda yatırım satmaya zorlamadan hazır olacak şekilde, likit ve düşük riskli bir hesapta <strong>3-6 aylık temel harcamalar</strong> bulundurmaktır. Çoğu kişi ya bu adımı tamamen atlar (krediye güvenerek) ya da aşırıya kaçıp 2 yıllık harcamayı hiçbir şey kazandırmayan tasarrufta tutar. Bu rehber, gerçekte ne kadar ihtiyacınız olduğunu, "harcama" olarak neyin sayıldığını, parayı nerede tutmanız gerektiğini ve diğer hedeflerinizi durdurmadan nasıl biriktireceğinizi adım adım anlatır.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>1. Why an emergency fund comes before almost everything else</h2>
+    <h2>1. Acil durum fonu neden neredeyse her şeyden önce gelir</h2>
     <p>
-      A Federal Reserve survey found that <strong>~35% of US adults</strong> can&rsquo;t
-      cover an unexpected $400 expense without borrowing. When the car breaks down,
-      that&rsquo;s a 20%+ credit card at minimum, or a payday loan at 400%+ <a href="/learn/apr">APR</a>. Those
-      interest rates eclipse any investment return you&rsquo;d have earned by skipping the
-      fund. Emergency savings is defensive capital: its job isn&rsquo;t to grow, it&rsquo;s
-      to keep the rest of your finances from collapsing when life happens.
+      Federal Rezerv anketi, ABD'li yetişkinlerin <strong>~%35'inin</strong> beklenmedik 400 dolarlık bir masrafı borçlanmadan karşılayamadığını ortaya koyuyor. Araba bozulduğunda, bu en az %20+ faizli bir kredi kartı veya %400+ <a href="/learn/apr">APR</a> ile bir maaş günü kredisi anlamına gelir. Bu faiz oranları, fonu atlayarak elde edeceğiniz herhangi bir yatırım getirisini gölgede bırakır. Acil durum tasarrufu savunma sermayesidir: görevi büyümek değil, hayat olayları gerçekleştiğinde finansal durumunuzun çökmesini önlemektir.
     </p>
 
-    <h2>2. The 3-6 month rule</h2>
+    <h2>2. 3-6 ay kuralı</h2>
     <p>
-      Aim for 3-6 months of <strong>essential</strong> monthly expenses:
+      <strong>Temel</strong> aylık harcamalarınızın 3-6 ayını hedefleyin:
     </p>
     <ul>
-      <li>Single-income household, stable W-2: 3 months</li>
-      <li>Dual-income, both stable: 3 months</li>
-      <li>Single parent, one income, young kids: 6 months</li>
-      <li>Self-employed, freelance, commission: 6-9 months</li>
-      <li>Near retirement, approaching fixed income: 6-12 months</li>
-      <li>High-income but volatile (tech, sales, startup): 6 months</li>
+      <li>Tek gelirli hane, istikrarlı W-2: 3 ay</li>
+      <li>Çift gelirli, her ikisi de istikrarlı: 3 ay</li>
+      <li>Tek ebeveyn, tek gelir, küçük çocuklar: 6 ay</li>
+      <li>Serbest çalışan, freelance, komisyonlu: 6-9 ay</li>
+      <li>Emekliliğe yakın, sabit gelire geçiş: 6-12 ay</li>
+      <li>Yüksek gelirli ancak değişken (teknoloji, satış, startup): 6 ay</li>
     </ul>
 
-    <h2>3. What counts as an &ldquo;essential expense&rdquo;</h2>
+    <h2>3. "Temel harcama" olarak ne sayılır</h2>
     <p>
-      Only the expenses you&rsquo;d still need to pay if you lost your job tomorrow:
+      Yarın işinizi kaybetseniz bile ödemek zorunda kalacağınız harcamalar:
     </p>
     <ul>
-      <li>Rent or mortgage (not extra principal)</li>
-      <li>Utilities, internet (basic tier)</li>
-      <li>Groceries (normal, not pared down)</li>
-      <li>Insurance: health, auto, home/renters</li>
-      <li>Transportation: fuel, transit, car insurance</li>
-      <li>Minimum debt payments (not extra payoff)</li>
-      <li>Childcare (if required for job search)</li>
-      <li>Phone</li>
+      <li>Kira veya ipotek (ek anapara değil)</li>
+      <li>Faturalar, internet (temel paket)</li>
+      <li>Market alışverişi (normal, kısılmış değil)</li>
+      <li>Sigorta: sağlık, araba, ev/kiracı</li>
+      <li>Ulaşım: yakıt, toplu taşıma, araba sigortası</li>
+      <li>Asgari borç ödemeleri (ekstra ödeme değil)</li>
+      <li>Çocuk bakımı (iş aramak için gerekliyse)</li>
+      <li>Telefon</li>
     </ul>
     <p>
-      Exclude: dining out, subscriptions you&rsquo;d cancel, travel, gym memberships,
-      discretionary shopping, retirement contributions.
+      Hariç: dışarıda yemek, iptal edeceğiniz abonelikler, seyahat, spor salonu üyelikleri, isteğe bağlı alışveriş, emeklilik katkıları.
     </p>
 
-    <h2>4. A worked example</h2>
-    <pre>{`Rent:            $1,800
-Utilities/phone:   $250
-Groceries:         $600
-Insurance:         $350
-Transport:         $200
-Min debt pmts:     $300
-Subtotal:        $3,500
+    <h2>4. Örnek bir hesaplama</h2>
+    <pre>{`Kira:            $1,800
+Faturalar/telefon:   $250
+Market:         $600
+Sigorta:         $350
+Ulaşım:         $200
+Asgari borç ödemeleri:     $300
+Ara toplam:        $3,500
 
-3-month fund:  $10,500
-6-month fund:  $21,000`}</pre>
+3 aylık fon:  $10,500
+6 aylık fon:  $21,000`}</pre>
     <p>
-      The essential number is almost always lower than your actual current spend. Many
-      people confuse &ldquo;months of lifestyle&rdquo; with &ldquo;months of survival.&rdquo;
+      Temel sayı neredeyse her zaman mevcut harcamanızdan düşüktür. Birçok kişi "aylık yaşam tarzı" ile "aylık hayatta kalma"yı karıştırır.
     </p>
 
-    <h2>5. Where to keep it</h2>
+    <h2>5. Nerede tutulmalı</h2>
     <p>
-      Emergency savings should be <strong>liquid</strong> (accessible within 1-2 business
-      days), <strong>safe</strong> (no principal risk), and <strong>earning something</strong>.
-      Best options in 2026:
+      Acil durum tasarrufları <strong>likit</strong> (1-2 iş günü içinde erişilebilir), <strong>güvenli</strong> (anapara riski yok) ve <strong>bir miktar kazandıran</strong> olmalıdır. 2026'daki en iyi seçenekler:
     </p>
     <ul>
-      <li>High-yield savings account (HYSA): 4-5% <a href="/learn/apy">APY</a>, FDIC insured</li>
-      <li>Money market fund: similar yield, brokerage-held</li>
-      <li>Short-term Treasury bills (4-26 weeks): state-tax-exempt</li>
-      <li>I-bonds for a portion (after 12-month lockup)</li>
+      <li>Yüksek getirili tasarruf hesabı (HYSA): %4-5 <a href="/learn/apy">APY</a>, FDIC sigortalı</li>
+      <li>Para piyasası fonu: benzer getiri, aracı kurumda tutulur</li>
+      <li>Kısa vadeli Hazine bonoları (4-26 hafta): eyalet vergisinden muaf</li>
+      <li>Bir kısmı için I-bond'lar (12 aylık kilitlenme süresinden sonra)</li>
     </ul>
     <p>
-      Avoid: CDs longer than 3 months, bond funds with duration risk, stocks, crypto. The
-      goal is stability, not yield optimization.
+      Kaçının: 3 aydan uzun vadeli mevduatlar, süre riski olan tahvil fonları, hisse senetleri, kripto. Amaç getiri optimizasyonu değil, istikrardır.
     </p>
 
-    <h2>6. Where <em>not</em> to keep it</h2>
+    <h2>6. Nerede <em>tutulmamalı</em></h2>
     <ul>
-      <li>Checking account: no interest, too tempting to tap</li>
-      <li>Regular brokerage in stocks: could drop 40% right when you need it</li>
-      <li>Physical cash: no interest, fire/theft risk, hard to deploy</li>
-      <li>Crypto: volatile and poorly insured</li>
-      <li>401(k) or IRA: penalties and delays when accessing early</li>
+      <li>Vadesiz hesap: faiz yok, kullanma cazibesi yüksek</li>
+      <li>Normal aracı kurumda hisse senetleri: tam ihtiyacınız olduğunda %40 düşebilir</li>
+      <li>Fiziksel nakit: faiz yok, yangın/hırsızlık riski, kullanımı zor</li>
+      <li>Kripto: değişken ve zayıf sigortalı</li>
+      <li>401(k) veya IRA: erken erişimde cezalar ve gecikmeler</li>
     </ul>
 
-    <h2>7. Build it in stages</h2>
+    <h2>7. Aşamalı olarak biriktirin</h2>
     <p>
-      Don&rsquo;t try to front-load 6 months before doing anything else. Sensible progression:
+      Başka hiçbir şey yapmadan önce 6 ayı peşin doldurmaya çalışmayın. Mantıklı ilerleme:
     </p>
     <ol>
-      <li>$1,000 starter fund (covers most small emergencies)</li>
-      <li>Pay off any credit card debt &gt; 10% APR</li>
-      <li>1-month fund</li>
-      <li>Full employer 401(k) match</li>
-      <li>3-month fund</li>
-      <li>Max Roth IRA, build to 6-month fund</li>
+      <li>1.000 dolarlık başlangıç fonu (çoğu küçük acil durumu karşılar)</li>
+      <li>%10 APR üzerindeki kredi kartı borçlarını ödeyin</li>
+      <li>1 aylık fon</li>
+      <li>İşverenin 401(k) eşleştirmesinin tamamı</li>
+      <li>3 aylık fon</li>
+      <li>Roth IRA'yı maksimize edin, 6 aylık fona ulaşın</li>
     </ol>
     <p>
-      The starter $1k stops most emergencies from becoming debt while you&rsquo;re still
-      paying off existing high-interest debt.
+      Başlangıçtaki 1.000 dolar, mevcut yüksek faizli borçları öderken çoğu acil durumun borca dönüşmesini engeller.
     </p>
 
-    <h2>8. The &ldquo;HELOC as emergency fund&rdquo; shortcut</h2>
+    <h2>8. "HELOC acil durum fonu olarak" kısayolu</h2>
     <p>
-      Homeowners sometimes argue: &ldquo;I don&rsquo;t need a cash fund, I have a $100k home
-      equity line.&rdquo; This fails in the exact scenarios an emergency fund is built for
-      — banks tend to freeze or reduce HELOC availability during recessions, right when
-      jobs are being cut. <strong>Don&rsquo;t rely on credit for emergencies</strong>.
-      A line of credit can be a supplement, not a substitute.
+      Ev sahipleri bazen şöyle der: "Nakit fona ihtiyacım yok, 100 bin dolarlık bir konut kredisi limitim var." Bu, tam da acil durum fonunun inşa edildiği senaryolarda başarısız olur — bankalar, işten çıkarmaların yaşandığı dönemlerde, tam da ihtiyaç duyulduğunda HELOC kullanılabilirliğini dondurma veya azaltma eğilimindedir. <strong>Acil durumlar için krediye güvenmeyin</strong>. Bir kredi limiti tamamlayıcı olabilir, ancak ikame olamaz.
     </p>
 
-    <h2>9. When to use the fund (and when not to)</h2>
+    <h2>9. Fon ne zaman kullanılır (ve ne zaman kullanılmaz)</h2>
     <p>
-      Legitimate uses: unexpected medical bill, job loss, major car or home repair that
-      can&rsquo;t wait, travel for a family emergency.
+      Meşru kullanımlar: beklenmedik tıbbi fatura, iş kaybı, ertelenemeyecek büyük araba veya ev onarımı, aile acil durumu için seyahat.
     </p>
     <p>
-      Not legitimate: vacation, new TV, annual insurance premium (that&rsquo;s a sinking
-      fund, separate), &ldquo;it&rsquo;s on sale.&rdquo; If you use it, rebuild immediately.
+      Meşru değil: tatil, yeni televizyon, yıllık sigorta primi (bu ayrı bir biriktirme fonudur), "indirimdeydi." Kullanırsanız, hemen yeniden biriktirin.
     </p>
 
-    <h2>10. Separate sinking funds for known expenses</h2>
+    <h2>10. Bilinen harcamalar için ayrı biriktirme fonları</h2>
     <p>
-      Annual insurance, car maintenance, holiday gifts, and home repairs are foreseeable.
-      Don&rsquo;t drain the emergency fund for them &mdash; build sinking funds (separate
-      savings buckets for each category, funded monthly). This keeps the emergency fund
-      reserved for real emergencies and prevents &ldquo;it always happens&rdquo; expenses
-      from feeling like shocks.
+      Yıllık sigorta, araba bakımı, tatil hediyeleri ve ev onarımları öngörülebilirdir. Bunlar için acil durum fonunu tüketmeyin — her kategori için ayrı tasarruf kovaları (aylık olarak fonlanan) oluşturun. Bu, acil durum fonunu gerçek acil durumlar için ayırır ve "her zaman olan" harcamaların şok gibi hissedilmesini önler.
     </p>
 
-    <h2>11. Recalibrating annually</h2>
+    <h2>11. Yıllık olarak yeniden ayarlama</h2>
     <p>
-      Your essential monthly expenses change: new apartment, new baby, paid-off car.
-      Re-run the math once a year. If rent went up $200/month, your 6-month target went up
-      $1,200. Conversely, a major debt payoff can reduce your monthly need.
+      Temel aylık harcamalarınız değişir: yeni daire, yeni bebek, ödenmiş araba. Yılda bir kez hesaplamayı tekrar yapın. Kira ayda 200 dolar arttıysa, 6 aylık hedefiniz 1.200 dolar arttı. Tersine, büyük bir borç ödemesi aylık ihtiyacınızı azaltabilir.
     </p>
 
-    <h2>12. Common mistakes</h2>
+    <h2>12. Yaygın hatalar</h2>
     <ul>
       <li>
-        <strong>Calculating on full spending, not essentials.</strong> You can cut dining
-        out during a job loss. 6 months of lifestyle is usually overkill.
+        <strong>Temel harcamalar yerine tam harcama üzerinden hesaplamak.</strong> İş kaybı sırasında dışarıda yemeyi kesebilirsiniz. 6 aylık yaşam tarzı genellikle gereksizdir.
       </li>
       <li>
-        <strong>Keeping it in checking.</strong> 0% yield costs you $500-1,000/year on a
-        healthy fund, and spending leaks are more likely.
+        <strong>Vadesiz hesapta tutmak.</strong> %0 getiri, sağlıklı bir fonda yılda 500-1.000 dolara mal olur ve harcama sızıntıları daha olasıdır.
       </li>
       <li>
-        <strong>Investing it in stocks.</strong> Sequence-of-returns risk is maximal when
-        the money is small and you need it most.
+        <strong>Hisse senetlerine yatırmak.</strong> Getiri sırası riski, para küçükken ve en çok ihtiyaç duyulduğunda maksimumdur.
       </li>
       <li>
-        <strong>Never rebuilding.</strong> After an emergency, the priority shifts back to
-        replenishing before resuming other goals.
+        <strong>Asla yeniden biriktirmemek.</strong> Bir acil durumdan sonra, öncelik diğer hedeflere devam etmeden önce yeniden doldurmaya kayar.
       </li>
       <li>
-        <strong>Calling credit an emergency fund.</strong> Credit evaporates when the
-        economy sours.
+        <strong>Krediye acil durum fonu demek.</strong> Ekonomi kötüleştiğinde kredi buharlaşır.
       </li>
     </ul>
 
-    <h2>13. Run the numbers</h2>
+    <h2>13. Rakamları hesaplayın</h2>
     <p>
-      Plug in your essential monthly expenses and target months to get a precise savings
-      goal, then model how long it&rsquo;ll take to build at your current savings rate.
+      Kesin bir tasarruf hedefi elde etmek için temel aylık harcamalarınızı ve hedef ay sayısını girin, ardından mevcut tasarruf oranınızda ne kadar sürede biriktireceğinizi modelleyin.
     </p>
     <p>
-      <a href="/tools/emergency-fund-calculator">Emergency fund calculator</a>
-      <a href="/tools/budget-calculator">Budget calculator</a>
-      <a href="/tools/savings-goal-calculator">Savings goal calculator</a>
+      <a href="/tools/emergency-fund-calculator">Acil durum fonu hesaplayıcısı</a>
+      <a href="/tools/budget-calculator">Bütçe hesaplayıcısı</a>
+      <a href="/tools/savings-goal-calculator">Tasarruf hedefi hesaplayıcısı</a>
     </p>
   </>
 );

@@ -3,220 +3,164 @@
 export const intro = (
   <>
     <p>
-      The &ldquo;best free file converter&rdquo; question has different answers
-      depending on what you&rsquo;re converting, how often, and how sensitive the
-      content is. This guide is the cross-platform breakdown — what to install on
-      Mac vs Windows, what comes built-in, and which browser-only tools cover
-      everything else without an installer.
+      &ldquo;En iyi ücretsiz dosya dönüştürücü&rdquo; sorusunun cevabı, neyi dönüştürdüğünüze, ne sıklıkta yaptığınıza ve içeriğin ne kadar hassas olduğuna göre değişir. Bu rehber, platformlar arası bir dökümdür — Mac vs Windows'a ne kurulmalı, hangi araçlar yerleşik gelir ve kurulum gerektirmeyen tarayıcı tabanlı araçlar diğer her şeyi nasıl kapsar.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "browser", label: "Browser-only (no install)" },
-  { id: "mac", label: "Mac built-in options" },
-  { id: "windows", label: "Windows built-in options" },
-  { id: "desktop", label: "Cross-platform desktop tools" },
-  { id: "business", label: "Business document converters" },
-  { id: "review", label: "Which tools are actually worth it?" },
+  { id: "browser", label: "Yalnızca tarayıcı (kurulum yok)" },
+  { id: "mac", label: "Mac yerleşik seçenekleri" },
+  { id: "windows", label: "Windows yerleşik seçenekleri" },
+  { id: "desktop", label: "Platformlar arası masaüstü araçları" },
+  { id: "business", label: "İş belgesi dönüştürücüleri" },
+  { id: "review", label: "Hangi araçlar gerçekten değer?" },
 ];
 
 export const body = (
   <>
-    <h2 id="browser">Browser-only converters (no install needed, work on any OS)</h2>
+    <h2 id="browser">Yalnızca tarayıcı dönüştürücüleri (kurulum gerekmez, her işletim sisteminde çalışır)</h2>
     <p>
-      The fastest path for one-off conversions on any machine. Every tool below
-      runs locally in your browser — files never upload anywhere. Coverage:
+      Herhangi bir makinede tek seferlik dönüşümler için en hızlı yol. Aşağıdaki her araç tarayıcınızda yerel olarak çalışır — dosyalar hiçbir yere yüklenmez. Kapsam:
     </p>
     <ul>
-      <li><strong>PDF:</strong> see our <a href="/tools/pdf-to-text">PDF tools index</a> — 14+ PDF converters and editors.</li>
-      <li><strong>Images:</strong> <a href="/tools/image-format-converter">PNG/JPG/WEBP</a>, <a href="/tools/heic-to-jpg">HEIC</a>, <a href="/tools/svg-to-png">SVG</a>, GIF, AVIF.</li>
-      <li><strong>Data:</strong> <a href="/tools/json-to-csv">JSON ↔ CSV</a>, <a href="/tools/xml-to-csv">XML to CSV</a>, <a href="/tools/csv-to-excel-xml">CSV to Excel</a>, YAML.</li>
-      <li><strong>Text:</strong> Markdown ↔ HTML, Base64, case conversion.</li>
-      <li><strong>OCR:</strong> <a href="/tools/pdf-ocr-to-text">scanned/handwritten PDF to text</a>.</li>
+      <li><strong>PDF:</strong> <a href="/tools/pdf-to-text">PDF araçları dizinimize</a> bakın — 14+ PDF dönüştürücü ve düzenleyici.</li>
+      <li><strong>Görseller:</strong> <a href="/tools/image-format-converter">PNG/JPG/WEBP</a>, <a href="/tools/heic-to-jpg">HEIC</a>, <a href="/tools/svg-to-png">SVG</a>, GIF, AVIF.</li>
+      <li><strong>Veri:</strong> <a href="/tools/json-to-csv">JSON ↔ CSV</a>, <a href="/tools/xml-to-csv">XML'den CSV'ye</a>, <a href="/tools/csv-to-excel-xml">CSV'den Excel'e</a>, YAML.</li>
+      <li><strong>Metin:</strong> Markdown ↔ HTML, Base64, büyük/küçük harf dönüşümü.</li>
+      <li><strong>OCR:</strong> <a href="/tools/pdf-ocr-to-text">taranmış/el yazısı PDF'den metne</a>.</li>
     </ul>
     <p>
-      For 80% of casual conversions, browser-only is the answer — no install, no
-      account, no upload, works on Mac/Windows/Linux/ChromeOS identically.
+      Gündelik dönüşümlerin %80'i için yalnızca tarayıcı yeterlidir — kurulum yok, hesap yok, yükleme yok, Mac/Windows/Linux/ChromeOS'te aynı şekilde çalışır.
     </p>
 
-    <h2 id="mac">Mac built-in options (no install required)</h2>
+    <h2 id="mac">Mac yerleşik seçenekleri (kurulum gerekmez)</h2>
     <p>
-      macOS ships with surprisingly capable conversion built-in:
+      macOS, şaşırtıcı derecede yetenekli yerleşik dönüştürme araçlarıyla gelir:
     </p>
     <ul>
       <li>
-        <strong>Preview app:</strong> opens almost every image and PDF format. Save
-        As lets you convert between PNG/JPG/HEIC/PDF/TIFF. The hidden trick:
-        select multiple images in Finder, right-click, Quick Actions → Convert
-        Image lets you batch-convert without opening anything.
+        <strong>Preview uygulaması:</strong> neredeyse tüm görsel ve PDF formatlarını açar. Farklı Kaydet ile PNG/JPG/HEIC/PDF/TIFF arasında dönüşüm yapabilirsiniz. Gizli numara: Finder'da birden çok görsel seçin, sağ tıklayın, Hızlı İşlemler → Görsel Dönüştür ile hiçbir şey açmadan toplu dönüşüm yapabilirsiniz.
       </li>
       <li>
-        <strong>Quick Actions menu:</strong> right-click any file → Quick Actions.
-        Built-in actions include &ldquo;Create PDF&rdquo; (any file type),
-        &ldquo;Convert Image&rdquo; (multiple images at once), &ldquo;Encode Selected
-        Video Files&rdquo; (transcode video).
+        <strong>Hızlı İşlemler menüsü:</strong> herhangi bir dosyaya sağ tıklayın → Hızlı İşlemler. Yerleşik işlemler arasında &ldquo;PDF Oluştur&rdquo; (herhangi bir dosya türü), &ldquo;Görsel Dönüştür&rdquo; (aynı anda birden çok görsel), &ldquo;Seçili Video Dosyalarını Kodla&rdquo; (video dönüştürme) bulunur.
       </li>
       <li>
-        <strong>Automator + Shortcuts:</strong> the macOS automation framework
-        builds custom file converters in 5 minutes. Drag-and-drop interface, no
-        coding. Works for batches, scheduled folders, etc.
+        <strong>Automator + Kısayollar:</strong> macOS otomasyon çerçevesi, 5 dakikada özel dosya dönüştürücüler oluşturur. Sürükle-bırak arayüzü, kodlama gerektirmez. Toplu işler, zamanlanmış klasörler vb. için çalışır.
       </li>
       <li>
-        <strong>Pages / Numbers / Keynote → File → Export:</strong> export to PDF,
-        Word, Excel, PowerPoint, EPUB, plain text. No third-party tool needed for
-        Office format conversions if you have iWork (free with macOS).
+        <strong>Pages / Numbers / Keynote → Dosya → Dışa Aktar:</strong> PDF, Word, Excel, PowerPoint, EPUB, düz metin olarak dışa aktarın. iWork'unuz varsa (macOS ile ücretsiz) Office formatı dönüşümleri için üçüncü taraf araca gerek yoktur.
       </li>
       <li>
-        <strong>Terminal:</strong> macOS includes <code>sips</code> (image
-        processing), <code>iconutil</code> (icns), and you can install Pandoc
-        (homebrew) for document conversion. Power-user territory.
+        <strong>Terminal:</strong> macOS, <code>sips</code> (görsel işleme), <code>iconutil</code> (icns) içerir ve belge dönüşümü için Pandoc (homebrew) kurabilirsiniz. İleri düzey kullanıcı alanı.
       </li>
     </ul>
 
-    <h2 id="windows">Windows built-in options</h2>
+    <h2 id="windows">Windows yerleşik seçenekleri</h2>
     <p>
-      Windows is less generous out of the box than macOS, but the basics are there:
+      Windows, macOS kadar cömert değildir ancak temel ihtiyaçlar mevcuttur:
     </p>
     <ul>
       <li>
-        <strong>Microsoft Print to PDF:</strong> built into Windows since 10.
-        Print → Microsoft Print to PDF turns any printable document into a PDF.
-        Works from any application.
+        <strong>Microsoft PDF'ye Yazdır:</strong> Windows 10'dan beri yerleşiktir. Yazdır → Microsoft PDF'ye Yazdır, yazdırılabilir herhangi bir belgeyi PDF'ye dönüştürür. Herhangi bir uygulamadan çalışır.
       </li>
       <li>
-        <strong>Photos app:</strong> opens HEIC, PNG, JPG, GIF, WEBP, BMP. Save As
-        for basic format conversion.
+        <strong>Photos uygulaması:</strong> HEIC, PNG, JPG, GIF, WEBP, BMP açar. Temel format dönüşümü için Farklı Kaydet.
       </li>
       <li>
-        <strong>Snipping Tool / Snip &amp; Sketch:</strong> screenshots saved as
-        PNG; rich annotation. Save as JPG for size reduction.
+        <strong>Ekran Alıntısı Aracı / Alıntı ve Taslak:</strong> ekran görüntüleri PNG olarak kaydedilir; zengin açıklama. Boyut küçültme için JPG olarak kaydedin.
       </li>
       <li>
-        <strong>Office:</strong> Word, Excel, PowerPoint all support Save As to
-        PDF, XPS, plain text, and many other formats. Free Office Online does the
-        same in browser.
+        <strong>Office:</strong> Word, Excel, PowerPoint'in tümü PDF, XPS, düz metin ve diğer birçok formata Farklı Kaydet'i destekler. Ücretsiz Office Online, tarayıcıda aynısını yapar.
       </li>
       <li>
-        <strong>PowerShell:</strong> built-in scripting. <code>ImageMagick</code>{" "}
-        (free, separate install via winget) plus PowerShell loops handles batch
-        conversion at scale.
+        <strong>PowerShell:</strong> yerleşik betik dili. <code>ImageMagick</code>{" "}
+        (ücretsiz, winget ile ayrı kurulum) artı PowerShell döngüleri, büyük ölçekte toplu dönüşümü halleder.
       </li>
       <li>
-        <strong>WSL2:</strong> for power users — full Linux subsystem with{" "}
-        <code>pandoc</code>, <code>imagemagick</code>, <code>ffmpeg</code>,
-        whatever you need.
+        <strong>WSL2:</strong> ileri düzey kullanıcılar için — <code>pandoc</code>, <code>imagemagick</code>, <code>ffmpeg</code> ve ihtiyacınız olan her şeyi içeren tam Linux alt sistemi.
       </li>
     </ul>
 
-    <h2 id="desktop">Cross-platform desktop tools (the power-user picks)</h2>
+    <h2 id="desktop">Platformlar arası masaüstü araçları (ileri düzey kullanıcı seçimleri)</h2>
     <ul>
       <li>
-        <strong>Pandoc</strong> (free, open-source). The universal document
-        converter. Markdown ↔ HTML ↔ DOCX ↔ EPUB ↔ LaTeX ↔ many more. CLI-driven
-        but well-documented. The right tool for batch document conversion.
+        <strong>Pandoc</strong> (ücretsiz, açık kaynak). Evrensel belge dönüştürücü. Markdown ↔ HTML ↔ DOCX ↔ EPUB ↔ LaTeX ↔ çok daha fazlası. CLI tabanlı ancak iyi belgelenmiştir. Toplu belge dönüşümü için doğru araç.
       </li>
       <li>
-        <strong>FFmpeg</strong> (free, open-source). Universal video and audio
-        converter. Steep learning curve; can do almost anything. The de-facto
-        standard for video conversion.
+        <strong>FFmpeg</strong> (ücretsiz, açık kaynak). Evrensel video ve ses dönüştürücü. Dik öğrenme eğrisi; neredeyse her şeyi yapabilir. Video dönüşümü için fiili standart.
       </li>
       <li>
-        <strong>ImageMagick</strong> (free, open-source). Universal image
-        converter and manipulator. Same shape as FFmpeg — CLI, complex, but
-        capable. <code>convert input.png output.jpg</code> — that&rsquo;s it.
+        <strong>ImageMagick</strong> (ücretsiz, açık kaynak). Evrensel görsel dönüştürücü ve düzenleyici. FFmpeg ile aynı yapıda — CLI, karmaşık, ancak yetenekli. <code>convert input.png output.jpg</code> — işte bu kadar.
       </li>
       <li>
-        <strong>Calibre</strong> (free, open-source). Best-in-class for
-        ebook conversion (EPUB ↔ MOBI ↔ AZW3 ↔ PDF) — see our{" "}
-        <a href="/guides/ebook-and-3d-file-conversion">ebook + 3D conversion guide</a>{" "}
-        for the workflow.
+        <strong>Calibre</strong> (ücretsiz, açık kaynak). E-kitap dönüşümünde (EPUB ↔ MOBI ↔ AZW3 ↔ PDF) en iyisi — iş akışı için <a href="/guides/ebook-and-3d-file-conversion">e-kitap + 3D dönüşüm rehberimize</a> bakın.
       </li>
       <li>
-        <strong>LibreOffice</strong> (free, open-source). The Microsoft Office
-        alternative. Headless mode (<code>libreoffice --headless --convert-to
-        pdf *.docx</code>) batch-converts hundreds of files. Quality near Office.
+        <strong>LibreOffice</strong> (ücretsiz, açık kaynak). Microsoft Office alternatifi. Başsız mod (<code>libreoffice --headless --convert-to pdf *.docx</code>) yüzlerce dosyayı toplu olarak dönüştürür. Kalite Office'e yakındır.
       </li>
     </ul>
 
-    <h2 id="business">Best file converter for business documents</h2>
+    <h2 id="business">İş belgeleri için en iyi dosya dönüştürücü</h2>
     <p>
-      For professional documents (contracts, reports, financial statements):
+      Profesyonel belgeler (sözleşmeler, raporlar, mali tablolar) için:
     </p>
     <ul>
       <li>
-        <strong>Microsoft Word + Excel + PowerPoint:</strong> the safest choice for
-        round-tripping Office formats. Free Office Online handles most cases.
+        <strong>Microsoft Word + Excel + PowerPoint:</strong> Office formatlarında gidiş-dönüş için en güvenli seçenek. Ücretsiz Office Online çoğu durumu halleder.
       </li>
       <li>
-        <strong>Adobe Acrobat Pro</strong> ($20/month). Best PDF round-tripping
-        especially when preserving complex layouts (forms, tables, signatures).
+        <strong>Adobe Acrobat Pro</strong> (aylık $20). En iyi PDF gidiş-dönüşü, özellikle karmaşık düzenleri (formlar, tablolar, imzalar) korurken.
       </li>
       <li>
-        <strong>LibreOffice</strong> for batch conversion of Office formats —
-        handles 95% of layouts identically to Microsoft Office, free, can run
-        headlessly.
+        <strong>LibreOffice</strong> Office formatlarının toplu dönüşümü için — düzenlerin %95'ini Microsoft Office ile aynı şekilde işler, ücretsizdir, başsız çalıştırılabilir.
       </li>
       <li>
-        <strong>Pandoc</strong> for Markdown-based workflows — engineering teams,
-        technical writers, anyone using Git for docs. Best for converting
-        clean structured content.
+        <strong>Pandoc</strong> Markdown tabanlı iş akışları için — mühendislik ekipleri, teknik yazarlar, dokümanlar için Git kullanan herkes. Temiz yapılandırılmış içeriği dönüştürmek için en iyisi.
       </li>
       <li>
-        <strong>Browser-only on this site:</strong> for everyday tasks (CSV ↔
-        Excel, PDF text extraction, image format swap), the privacy-friendly
-        path.
+        <strong>Bu sitede yalnızca tarayıcı:</strong> günlük görevler (CSV ↔ Excel, PDF metin çıkarma, görsel format değiştirme) için gizlilik dostu yol.
       </li>
     </ul>
 
-    <h2 id="review">Which file converter tools are actually worth it?</h2>
+    <h2 id="review">Hangi dosya dönüştürücü araçları gerçekten değer?</h2>
     <p>
-      The honest review:
+      Dürüst değerlendirme:
     </p>
     <ul>
       <li>
-        <strong>Worth it:</strong> Pandoc, FFmpeg, ImageMagick, Calibre,
-        LibreOffice — all free, all best-in-class for their domains. Adobe
-        Acrobat Pro for professional PDF workflows ($20/month). Browser-only
-        converters for occasional tasks.
+        <strong>Değer:</strong> Pandoc, FFmpeg, ImageMagick, Calibre, LibreOffice — hepsi ücretsiz, kendi alanlarında en iyisi. Profesyonel PDF iş akışları için Adobe Acrobat Pro (aylık $20). Ara sıra yapılan görevler için yalnızca tarayıcı dönüştürücüleri.
       </li>
       <li>
-        <strong>Skip:</strong> the dozens of $5/month &ldquo;all-in-one converter&rdquo;
-        SaaS apps. Most are wrappers around the free tools above with worse UX
-        and worse privacy. The exception: a few like CloudConvert offer real
-        value at scale, but for individual users the free options cover the
-        ground.
+        <strong>Atlayın:</strong> aylık $5 olan düzinelerce &ldquo;hepsi bir arada dönüştürücü&rdquo; SaaS uygulaması. Çoğu, yukarıdaki ücretsiz araçların daha kötü kullanıcı deneyimi ve daha kötü gizlilikle sarılmış halleridir. İstisna: CloudConvert gibi birkaçı ölçekte gerçek değer sunar, ancak bireysel kullanıcılar için ücretsiz seçenekler yeterlidir.
       </li>
       <li>
-        <strong>Be skeptical of:</strong> &ldquo;AI-powered file converter&rdquo;
-        marketing. The underlying tech is the same; the AI buzzword usually adds
-        cost without adding capability. The exception is OCR, where modern AI
-        models genuinely outperform Tesseract on degraded inputs.
+        <strong>Şüpheci olun:</strong> &ldquo;Yapay zeka destekli dosya dönüştürücü&rdquo; pazarlamasına karşı. Altta yatan teknoloji aynıdır; yapay zeka moda sözcüğü genellikle yetenek eklemeden maliyet ekler. İstisna, modern yapay zeka modellerinin bozuk girdilerde Tesseract'tan gerçekten daha iyi performans gösterdiği OCR'dir.
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Try our XML to CSV converter (no install)",
+  label: "XML'den CSV'ye dönüştürücümüzü deneyin (kurulum yok)",
   targetSlug: "xml-to-csv",
 };
 
 export const faq = [
   {
-    q: "What's the best free file format converter for Mac?",
-    a: "macOS has surprisingly capable built-in tools: Preview for image/PDF conversion, Quick Actions in Finder for batch image conversion, Pages/Numbers/Keynote for Office formats, Automator for custom workflows. For anything else, browser-only converters work without installing anything.",
+    q: "Mac için en iyi ücretsiz dosya formatı dönüştürücü nedir?",
+    a: "macOS'un şaşırtıcı derecede yetenekli yerleşik araçları vardır: görsel/PDF dönüşümü için Preview, toplu görsel dönüşümü için Finder'da Hızlı İşlemler, Office formatları için Pages/Numbers/Keynote, özel iş akışları için Automator. Bunların dışında kalanlar için yalnızca tarayıcı dönüştürücüleri hiçbir şey kurmadan çalışır.",
   },
   {
-    q: "What's the best free file format converter for Windows?",
-    a: "Microsoft Print to PDF is built-in; Office (or free Office Online) handles document formats; Photos for images; PowerShell + ImageMagick for batch. For everything else, browser-only converters or installing Pandoc/FFmpeg/Calibre via winget cover the gaps.",
+    q: "Windows için en iyi ücretsiz dosya formatı dönüştürücü nedir?",
+    a: "Microsoft PDF'ye Yazdır yerleşiktir; Office (veya ücretsiz Office Online) belge formatlarını halleder; görseller için Photos; toplu işler için PowerShell + ImageMagick. Bunların dışında kalan her şey için yalnızca tarayıcı dönüştürücüleri veya winget ile Pandoc/FFmpeg/Calibre kurulumu boşlukları doldurur.",
   },
   {
-    q: "How do I convert files on Mac without extra software?",
-    a: "Preview app: Save As converts between image/PDF formats. Finder Quick Actions: select files → right-click → Convert Image works for batches. Pages/Numbers/Keynote: File → Export to PDF/Word/Excel/EPUB/text. Automator: drag-and-drop builder for custom converters. Terminal: sips for image processing, iconutil for icns.",
+    q: "Mac'te ekstra yazılım olmadan dosyaları nasıl dönüştürebilirim?",
+    a: "Preview uygulaması: Farklı Kaydet ile görsel/PDF formatları arasında dönüşüm yapın. Finder Hızlı İşlemler: dosyaları seçin → sağ tıklayın → Görsel Dönüştür toplu işler için çalışır. Pages/Numbers/Keynote: Dosya → PDF/Word/Excel/EPUB/metin olarak Dışa Aktar. Automator: özel dönüştürücüler için sürükle-bırak oluşturucu. Terminal: görsel işleme için sips, icns için iconutil.",
   },
   {
-    q: "Are paid file converter tools worth it?",
-    a: "Adobe Acrobat Pro ($20/mo) for professional PDF workflows is worth it. Pandoc, FFmpeg, ImageMagick, Calibre, LibreOffice are all free and best-in-class — paid alternatives rarely beat them. Skip $5/mo 'all-in-one converter' SaaS apps; most are wrappers around these free tools with worse privacy.",
+    q: "Ücretli dosya dönüştürücü araçları buna değer mi?",
+    a: "Profesyonel PDF iş akışları için Adobe Acrobat Pro (aylık $20) değer. Pandoc, FFmpeg, ImageMagick, Calibre, LibreOffice'in tümü ücretsiz ve kendi alanlarında en iyisidir — ücretli alternatifler nadiren onları geçer. Aylık $5 olan 'hepsi bir arada dönüştürücü' SaaS uygulamalarını atlayın; çoğu, bu ücretsiz araçların daha kötü gizlilikle sarılmış halleridir.",
   },
 ];

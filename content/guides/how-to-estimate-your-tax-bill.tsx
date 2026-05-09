@@ -3,164 +3,106 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Estimating your federal tax bill before April is the difference
-      between a pleasant refund and a surprise five-figure payment. The
-      math sounds intimidating but breaks down into six steps that a
-      calculator can run in seconds — the hard part is knowing which
-      inputs to gather. This guide walks through gross-to-taxable math,
-      the marginal-vs-effective-rate confusion that causes bad decisions,
-      withholding checks, and when quarterly estimated payments become
-      mandatory.
+      Vergi faturanızı Nisan ayından önce tahmin etmek, hoş bir iade ile sürpriz beş haneli bir ödeme arasındaki farktır. Matematik göz korkutucu görünür ancak bir hesap makinesinin saniyeler içinde yapabileceği altı adıma ayrılır — zor kısım hangi girdileri toplayacağını bilmektir. Bu rehber, brüt gelirden vergilendirilebilir gelire geçişi, kötü kararlara neden olan marjinal-efektif oran karışıklığını, stopaj kontrollerini ve üç aylık tahmini ödemelerin ne zaman zorunlu hale geldiğini adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The 6-step calculation</h2>
+    <h2>6 adımlı hesaplama</h2>
     <p>
-      <strong>(1) Gross income.</strong> Total salary + bonus + freelance +
-      interest + dividends + capital gains + side hustle. Everything.
+      <strong>(1) Brüt gelir.</strong> Toplam maaş + ikramiyeler + serbest çalışma + faiz + temettüler + sermaye kazançları + ek iş. Her şey.
     </p>
     <p>
-      <strong>(2) Adjustments (above-the-line deductions).</strong> 401(k),
-      traditional IRA, HSA, student loan interest, self-employment tax
-      half. Result: <strong>Adjusted Gross Income (AGI).</strong>
+      <strong>(2) Düzenlemeler (satır üstü kesintiler).</strong> 401(k), geleneksel IRA, HSA, öğrenci kredisi faizi, serbest çalışma vergisinin yarısı. Sonuç: <strong>Düzeltilmiş Brüt Gelir (AGI).</strong>
     </p>
     <p>
-      <strong>(3) Standard or itemized deduction.</strong> 2024–25
-      standard: $14,600 single / $29,200 married filing jointly / $21,900
-      head of household. Itemize only if your mortgage interest + SALT
-      (capped at $10k) + charitable giving exceeds the standard.
+      <strong>(3) Standart veya kalem kalem kesinti.</strong> 2024–25 standardı: 14.600$ bekar / 29.200$ evli ortak başvuru / 21.900$ hane reisi. Yalnızca ipotek faiziniz + SALT (10 bin $ ile sınırlı) + bağışlar standardı aşarsa kalem kalem yapın.
     </p>
     <p>
-      <strong>(4) Taxable income = AGI − deduction.</strong> This is the
-      number brackets are applied to.
+      <strong>(4) Vergilendirilebilir gelir = AGI − kesinti.</strong> Dilimlerin uygulandığı sayı budur.
     </p>
     <p>
-      <strong>(5) Apply brackets</strong> progressively (not all at one
-      rate — see below). This is your <strong>tax before credits.</strong>
+      <strong>(5) Dilimleri uygulayın</strong> aşamalı olarak (hepsi tek bir oranda değil — aşağıya bakın). Bu sizin <strong>kredi öncesi verginizdir.</strong>
     </p>
     <p>
-      <strong>(6) Subtract credits.</strong> Child Tax Credit, Saver&rsquo;s
-      Credit, education credits, EITC. Unlike deductions (which reduce
-      taxable income), credits reduce tax directly dollar-for-dollar.
+      <strong>(6) Kredileri çıkarın.</strong> Çocuk Vergi Kredisi, Tasarruf Sahibi Kredisi, eğitim kredileri, EITC. Kesintilerin (vergilendirilebilir geliri azaltan) aksine, krediler vergiyi bire bir azaltır.
     </p>
 
-    <h2>Marginal vs effective rate — the confusion that kills good decisions</h2>
+    <h2>Marjinal ve efektif oran — iyi kararları öldüren kafa karışıklığı</h2>
     <p>
-      The US uses <strong>progressive brackets</strong>. Your marginal rate
-      is the bracket your last dollar falls into; your effective rate is
-      average across all income. Single filer, $120k taxable income (2024):
+      ABD <strong>aşamalı dilimler</strong> kullanır. Marjinal oranınız, son dolarınızın düştüğü dilimdir; efektif oranınız ise tüm gelir üzerindeki ortalamadır. Bekar mükellef, 120 bin $ vergilendirilebilir gelir (2024):
     </p>
     <p>
-      First $11,600 @ 10% = $1,160. Next $35,550 (to $47,150) @ 12% = $4,266.
-      Next $53,375 (to $100,525) @ 22% = $11,743. Last $19,475 (to $120,000)
-      @ 24% = $4,674. Total: <strong>$21,843.</strong>
+      İlk 11.600 $ %10 = 1.160 $. Sonraki 35.550 $ (47.150 $'a kadar) %12 = 4.266 $. Sonraki 53.375 $ (100.525 $'a kadar) %22 = 11.743 $. Son 19.475 $ (120 bin $'a kadar) %24 = 4.674 $. Toplam: <strong>21.843 $.</strong>
     </p>
     <p>
-      <strong>Marginal rate: 24%</strong> (bracket of last dollar).{" "}
-      <strong>Effective rate: 18.2%</strong> ($21,843 / $120,000). A $1,000
-      raise is taxed at 24% (marginal), not 18% (effective). A $1,000
-      401(k) contribution saves $240 in tax (marginal), not $182.
+      <strong>Marjinal oran: %24</strong> (son doların dilimi).{" "}
+      <strong>Efektif oran: %18,2</strong> (21.843 $ / 120.000 $). 1.000 $'lık bir zam %24 (marjinal) üzerinden vergilendirilir, %18 (efektif) değil. 1.000 $'lık bir 401(k) katkısı vergiden 240 $ (marjinal) tasarruf sağlar, 182 $ değil.
     </p>
     <p>
-      People who confuse these sometimes refuse raises &ldquo;to avoid the
-      next bracket&rdquo; — which is never the right move. A raise always
-      leaves you with more take-home, just not by the full amount.
+      Bunları karıştıran kişiler bazen "sonraki dilime girmemek" için zammı reddeder — bu asla doğru hamle değildir. Bir zam her zaman size daha fazla ele geçen para bırakır, sadece tam miktarı değil.
     </p>
 
-    <h2>State tax — the wildly variable add-on</h2>
+    <h2>Eyalet vergisi — büyük ölçüde değişen ek</h2>
     <p>
-      0% in TX, FL, WA, NV, SD, WY, AK, TN, NH. Flat 4.40% in CO. Tiered
-      up to 9.3% in CA (top bracket above $375k kicks 13.3%). New York
-      tops out at 10.9% above $25M. Always model state tax separately —
-      it can add 0 to 13% on top of federal.
+      TX, FL, WA, NV, SD, WY, AK, TN, NH'de %0. CO'da sabit %4,40. CA'da %9,3'e kadar aşamalı (375 bin $'ın üzerindeki dilim %13,3'e fırlar). New York 25 milyon $'ın üzerinde %10,9 ile zirve yapar. Eyalet vergisini her zaman ayrı modelleyin — federalin üzerine %0 ila %13 ekleyebilir.
     </p>
 
-    <h2>FICA on top (for employees)</h2>
+    <h2>Üstüne FICA (çalışanlar için)</h2>
     <p>
-      <strong>Social Security: 6.2%</strong> on wages up to $168,600
-      (2024). <strong>Medicare: 1.45%</strong> with no cap. Additional
-      0.9% Medicare above $200k single / $250k joint. Employer pays the
-      same amount on your behalf. FICA applies to wages only, not
-      investment income.
+      <strong>Sosyal Güvenlik: %6,2</strong> 168.600 $'a kadar olan ücretlerde (2024). <strong>Medicare: %1,45</strong> üst sınır yok. 200 bin $ bekar / 250 bin $ evli üzerinde ek %0,9 Medicare. İşvereniniz sizin adınıza aynı miktarı öder. FICA yalnızca ücretlere uygulanır, yatırım gelirine değil.
     </p>
     <p>
-      <strong>Self-employed: 15.3%</strong> (both halves), deductible as
-      half above-the-line. Adds meaningfully to the tax bill for freelance
-      and gig workers.
+      <strong>Serbest çalışan: %15,3</strong> (her iki yarı), yarısı satır üstü düşülebilir. Serbest çalışanlar ve konser çalışanları için vergi faturasına önemli ölçüde ekler.
     </p>
 
-    <h2>Common deductions people miss</h2>
+    <h2>İnsanların kaçırdığı yaygın kesintiler</h2>
     <p>
-      <strong>HSA contributions</strong> if you have an HDHP — $4,150
-      single / $8,300 family (2024). Triple-tax-advantaged and many
-      under-fund it.
+      <strong>HSA katkıları</strong> HDHP'niz varsa — 4.150 $ bekar / 8.300 $ aile (2024). Üçlü vergi avantajlı ve çoğu kişi yetersiz fonlar.
     </p>
     <p>
-      <strong>Backdoor Roth</strong> for high earners — legitimate when
-      done correctly, not a deduction but allows Roth access past the
-      income limit.
+      <strong>Backdoor Roth</strong> yüksek kazançlılar için — doğru yapıldığında meşru, bir kesinti değil ancak gelir limitlerinin ötesinde Roth erişimi sağlar.
     </p>
     <p>
-      <strong>Home office deduction</strong> for self-employed — either
-      simplified ($5/sq ft × up to 300 sq ft) or actual-expense method.
+      <strong>Ev ofis kesintisi</strong> serbest çalışanlar için — ya basitleştirilmiş (metrekare başına 5 $ × maksimum 300 ft²) ya da fiili gider yöntemi.
     </p>
     <p>
-      <strong>SEP-IRA or Solo 401(k)</strong> for self-employed — much
-      higher contribution limits than regular 401(k).
+      <strong>SEP-IRA veya Solo 401(k)</strong> serbest çalışanlar için — normal bir 401(k)'den çok daha yüksek katkı limitleri.
     </p>
     <p>
-      <strong>Charitable giving via appreciated securities</strong> —
-      deduct FMV without realizing capital gains.
+      <strong>Değer kazanmış menkul kıymetler yoluyla hayır bağışları</strong> — sermaye kazançlarını gerçekleştirmeden piyasa değerini düşün.
     </p>
 
-    <h2>Withholding — keep refunds small, avoid penalties</h2>
+    <h2>Stopaj — iadeleri küçük tutun, cezalardan kaçının</h2>
     <p>
-      W-2 employees have tax withheld each pay period. Target: withholding
-      ≈ total tax owed, leaving you either a small refund (ideal: under
-      $1,000) or a small balance due.
+      W-2 çalışanlarından her ödeme döneminde vergi kesilir. Hedef: stopaj ≈ toplam vergi faturası, size ya küçük bir iade (ideal olarak 1.000 $'ın altında) ya da küçük bir bakiye borcu bırakır.
     </p>
     <p>
-      A $5,000 refund means you loaned the government $5k interest-free.
-      That&rsquo;s not a windfall, it&rsquo;s a bad spread.
+      5.000 $'lık bir iade, hükümete 5.000 $'ı faizsiz ödünç verdiğiniz anlamına gelir. Bu bir nakit sürprizi değil, kötü bir tahsistir.
     </p>
     <p>
-      A $5,000 balance due might trigger an <strong>underpayment
-      penalty</strong> (currently ~8% annualized). Safe harbor: withhold at
-      least 100% of last year&rsquo;s total tax (110% if AGI &gt; $150k), or
-      90% of current year&rsquo;s projected tax.
+      5.000 $'lık bir bakiye borcu, <strong>eksik ödeme cezasını</strong> (şu anda ~%8 yıllık) tetikleyebilir. Güvenli liman: geçen yılın toplam vergisinin en az %100'ünü (AGI &gt; 150 bin $ ise %110) veya bu yılki tahmini verginin %90'ını stopajlayın.
     </p>
 
-    <h2>Quarterly estimated payments — when required</h2>
+    <h2>Üç aylık tahmini ödemeler — ne zaman gerekli</h2>
     <p>
-      If you&rsquo;re a 1099 contractor, freelancer, or have significant
-      investment income, you need to send quarterly estimated payments
-      (Apr 15, Jun 15, Sep 15, Jan 15). Ignore this and you&rsquo;ll owe
-      underpayment penalty on top of the tax. Pay using IRS Direct Pay
-      (free) or EFTPS.
+      1099 yüklenicisi, serbest çalışan veya önemli yatırım geliriniz varsa, üç aylık tahmini ödemeler göndermeniz gerekir (15 Nis, 15 Haz, 15 Eyl, 15 Oca). Bunu görmezden gelirseniz, verginin üstüne eksik ödeme cezası ödersiniz. IRS Direct Pay (ücretsiz) veya EFTPS kullanarak ödeme yapın.
     </p>
 
-    <h2>The &ldquo;marginal rate decides X&rdquo; rule</h2>
+    <h2>"Marjinal oran X'e karar verir" kuralı</h2>
     <p>
-      All deduction math (401(k), HSA, charitable) is at marginal rate.
-      <a href="/tools/roth-vs-traditional-breakeven">Roth vs traditional </a>is usually a marginal-rate comparison: traditional
-      if current marginal &gt; expected retirement marginal; Roth if the
-      reverse.
+      Tüm kesinti matematiği (401(k), HSA, bağış) marjinal orandadır.
+      <a href="/tools/roth-vs-traditional-breakeven">Roth ve geleneksel karşılaştırması</a> genellikle marjinal oran karşılaştırmasıdır: mevcut marjinal &gt; beklenen emeklilik marjinali ise geleneksel; tersi ise Roth.
     </p>
 
-    <h2>Run the numbers before December 31</h2>
+    <h2>31 Aralık'tan önce sayıları hesaplayın</h2>
     <p>
-      Most tax moves (401(k), HSA, charitable, deferred comp, harvesting
-      losses) have to be done before year-end. Run the{" "}
-      <a href="/tools/tax-calculator">tax calculator</a> in November —
-      plug in YTD gross, withholding, and projected full-year gross from
-      your pay stub&rsquo;s YTD columns. Cross-check with the{" "}
-      <a href="/tools/paycheck-calculator">paycheck calculator</a> to
-      verify withholding is on pace, and see our{" "}
-      <a href="/guides/how-to-read-your-paycheck">paycheck guide</a> for
-      what every line means.
+      Çoğu vergi hamlesi (401(k), HSA, bağış, ertelenmiş tazminat, zarar hasadı) yıl sonundan önce yapılmalıdır.{" "}
+      <a href="/tools/tax-calculator">Vergi hesaplayıcısını</a> Kasım ayında çalıştırın — bordronuzun yılbaşından bugüne sütunlarından YTD brüt, stopaj ve tahmini tam yıl brütünü girin. Stopajın yolunda olduğunu doğrulamak için{" "}
+      <a href="/tools/paycheck-calculator">maaş çeki hesaplayıcısıyla</a> çapraz kontrol yapın ve her satırın ne anlama geldiği için{" "}
+      <a href="/guides/how-to-read-your-paycheck">maaş çeki rehberimize</a> bakın.
     </p>
   </>
 );

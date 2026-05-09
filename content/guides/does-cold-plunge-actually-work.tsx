@@ -2,35 +2,33 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Cold plunges blew up via Andrew Huberman, Wim Hof, and the recovery culture &mdash; but the actual evidence
-    is more mixed than the influencer message. Here&rsquo;s the honest 2026 picture.
+    Soğuk dalışlar, Andrew Huberman, Wim Hof ve iyileşme kültürü sayesinde popüler hale geldi &mdash; ancak gerçek kanıtlar, iddiaların öne sürdüğünden daha nüanslı. İşte 2026 için dürüst tablo.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What the research actually says</h2>
+    <h2>Araştırmalar aslında ne söylüyor</h2>
     <ul>
-      <li><strong>Mood + alertness:</strong> consistent, robust. Norepinephrine + dopamine surge; effect lasts hours.</li>
-      <li><strong>Recovery from soreness:</strong> real, modest. Helpful for endurance recovery; may BLUNT <a href="/learn/protein-synthesis">muscle protein synthesis</a> if done within 4 hours of strength training.</li>
-      <li><strong>Brown fat / metabolism:</strong> small effect (~few hundred extra cal/week). Marketed bigger than it is.</li>
-      <li><strong>Immunity boost:</strong> weak evidence, often overstated.</li>
-      <li><strong>Mental discipline / cold tolerance:</strong> definitely improves with practice; transfers to non-cold contexts (anecdotal but plausible).</li>
+      <li><strong>Ruh hali + uyanıklık:</strong> tutarlı, güçlü. Noradrenalin + dopamin artışı; etkiler saatlerce sürer.</li>
+      <li><strong>Ağrı iyileşmesi:</strong> gerçek, mütevazı. Dayanıklılık toparlanması için faydalı; kuvvet antrenmanından sonraki 4 saat içinde yapılırsa <a href="/learn/protein-synthesis">kas protein sentezini</a> ENGELLEYEBİLİR.</li>
+      <li><strong>Kahverengi yağ / metabolizma:</strong> küçük etki (~haftada birkaç yüz ekstra kalori). Pazarlandığı kadar büyük değil.</li>
+      <li><strong>Bağışıklık güçlendirme:</strong> zayıf kanıt, genellikle abartılıyor.</li>
+      <li><strong>Zihinsel disiplin / soğuk toleransı:</strong> pratikle kesinlikle gelişir; soğuk olmayan bağlamlara aktarılır (anekdotsal ama makul).</li>
     </ul>
-    <h2>If you do it</h2>
+    <h2>Yapacaksanız</h2>
     <ul>
-      <li>50-60°F for 60-180 sec is the well-studied range.</li>
-      <li>2-3 sessions/week is the sweet spot. More isn&rsquo;t better.</li>
-      <li>Strength athletes: NEVER within 4 hours of lifting; rest days only.</li>
-      <li>Skip if you have heart conditions, are pregnant, or are intoxicated.</li>
+      <li>50-60°F aralığı, 60-180 saniye iyi çalışılmış penceredir.</li>
+      <li>Haftada 2-3 seans ideal noktadır. Daha fazlası daha iyi değildir.</li>
+      <li>Kuvvet sporcuları: Kaldırıştan sonraki 4 saat içinde ASLA; sadece dinlenme günlerinde.</li>
+      <li>Kalp rahatsızlığınız varsa, hamileyseniz veya alkol etkisi altındaysanız atlayın.</li>
     </ul>
-    <h2>What probably matters more</h2>
+    <h2>Muhtemelen daha önemli olan şeyler</h2>
     <p>
-      Sleep, protein intake, <a href="/learn/zone-2">zone 2 cardio</a>, strength training. Cold plunges are the cherry, not the cake. Don&rsquo;t
-      replace fundamentals with cold exposure.
+      Uyku, protein alımı, <a href="/learn/zone-2">bölge 2 kardiyo</a>, kuvvet antrenmanı. Soğuk dalışlar pastanın üzerindeki kirazdır, pastanın kendisi değil. Temel unsurları soğuk maruziyetiyle değiştirmeyin.
     </p>
     <p>
-      Build a personalized protocol with the <a href="/tools/cold-plunge-protocol-builder">cold plunge protocol builder</a>.
+      <a href="/tools/cold-plunge-protocol-builder">Soğuk dalış protokolü oluşturucu</a> ile kişiselleştirilmiş bir protokol oluşturun.
     </p>
   </>
 );

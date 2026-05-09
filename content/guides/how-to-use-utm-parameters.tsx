@@ -1,122 +1,121 @@
 export const intro = (
   <>
     <p>
-      UTM parameters are the five query-string tags you bolt onto a URL so your analytics tool
-      knows where the traffic came from. Without them, everything from a newsletter, a podcast
-      sponsorship, a tweet, and a friend&rsquo;s blog post shows up as &ldquo;direct&rdquo; or
-      &ldquo;referral&rdquo; — you have no idea which campaign actually drove the signup.
+      UTM parametreleri, bir URL'ye eklediğiniz beş sorgu dizesi etiketidir; böylece analiz aracınız
+      trafiğin nereden geldiğini bilir. Onlar olmadan, bir bülten, bir podcast sponsorluğu, bir tweet
+      ve bir arkadaşınızın blog yazısı &ldquo;doğrudan&rdquo; veya &ldquo;yönlendirme&rdquo; olarak
+      görünür — hangi kampanyanın kaydolmayı sağladığını bilemezsiniz.
     </p>
     <p>
-      Used consistently, UTMs turn marketing from a guessing game into a measurable system.
-      Used inconsistently, they create a data mess that takes weeks to clean up. This guide covers
-      what each parameter does, how to name them so the data stays sane, and the mistakes that
-      destroy reporting.
+      Tutarlı kullanıldığında, UTM'ler pazarlamayı bir tahmin oyunundan ölçülebilir bir sisteme dönüştürür.
+      Tutarsız kullanıldığında, temizlenmesi haftalar süren bir veri karmaşası yaratır. Bu kılavuz,
+      her parametrenin ne işe yaradığını, verilerin düzenli kalması için nasıl adlandırılması gerektiğini
+      ve raporlamayı mahveden hataları kapsar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>The five UTM parameters</h2>
+    <h2>Beş UTM parametresi</h2>
     <p>
-      Google Analytics reads five named query parameters: <strong>utm_source</strong>,{" "}
+      Google Analytics, beş adlandırılmış sorgu parametresini okur: <strong>utm_source</strong>,{" "}
       <strong>utm_medium</strong>, <strong>utm_campaign</strong>,{" "}
-      <strong>utm_term</strong>, and <strong>utm_content</strong>. The first three are required
-      for any useful report. The last two are optional — term is for paid search keywords, content
-      is for A/B testing link variants inside the same campaign.
+      <strong>utm_term</strong> ve <strong>utm_content</strong>. İlk üçü, herhangi bir yararlı rapor
+      için gereklidir. Son ikisi isteğe bağlıdır — term, ücretli arama anahtar kelimeleri içindir,
+      content ise aynı kampanya içindeki bağlantı varyantlarını A/B test etmek içindir.
     </p>
 
-    <h2>What each parameter actually means</h2>
+    <h2>Her parametrenin gerçek anlamı</h2>
     <p>
-      <strong>Source</strong> is the referrer: the platform or publication. Examples: newsletter,
-      twitter, google, producthunt. <strong>Medium</strong> is the channel type: email, social,
-      cpc (paid search), referral, affiliate. <strong>Campaign</strong> is the named effort:
-      spring-launch-2026, black-friday-2026, feature-x-announcement. If you mix source and
-      medium, the reports break — newsletter is a source, email is a medium; they are not
-      interchangeable.
+      <strong>Source</strong>, yönlendirendir: platform veya yayın. Örnekler: newsletter,
+      twitter, google, producthunt. <strong>Medium</strong>, kanal türüdür: email, social,
+      cpc (ücretli arama), referral, affiliate. <strong>Campaign</strong>, adlandırılmış çabadır:
+      spring-launch-2026, black-friday-2026, feature-x-announcement. Source ve medium'u
+      karıştırırsanız, raporlar bozulur — newsletter bir source'dur, email bir medium'dur; bunlar
+      birbirinin yerine kullanılamaz.
     </p>
 
-    <h2>Build URLs with a consistent scheme</h2>
+    <h2>Tutarlı bir şema ile URL'ler oluşturun</h2>
     <p>
-      The fastest way to poison analytics is to let three teammates type UTMs by hand. One uses
-      &ldquo;Facebook,&rdquo; another uses &ldquo;facebook,&rdquo; a third uses &ldquo;FB&rdquo; —
-      now you have three separate rows in the source report for the same platform. Pick a
-      convention (all lowercase, hyphens not underscores) and use our{" "}
-      <a href="/tools/utm-builder">UTM builder</a> to generate every link the same way.
+      Analitiği zehirlemenin en hızlı yolu, üç ekip arkadaşınızın UTM'leri elle yazmasına izin vermektir.
+      Biri &ldquo;Facebook,&rdquo; kullanır, diğeri &ldquo;facebook,&rdquo; üçüncüsü &ldquo;FB&rdquo; kullanır —
+      şimdi aynı platform için kaynak raporunda üç ayrı satırınız var. Bir kural belirleyin (tümü küçük harf,
+      alt çizgi değil kısa çizgi) ve her bağlantıyı aynı şekilde oluşturmak için{" "}
+      <a href="/tools/utm-builder">UTM oluşturucumuzu</a> kullanın.
     </p>
 
-    <h2>A naming convention that scales</h2>
+    <h2>Ölçeklenebilir bir adlandırma kuralı</h2>
     <p>
-      Lowercase everything. Use hyphens between words (utm_campaign=spring-sale-2026, not
-      Spring_Sale_2026). Keep the source short and human (twitter, not twitter-feed-link).
-      Put the date or quarter in the campaign name if you run recurring campaigns — it lets you
-      compare year-over-year without renaming everything. Document the scheme in a shared doc
-      so new teammates don&rsquo;t invent their own format.
+      Her şeyi küçük harf yapın. Kelimeler arasında kısa çizgi kullanın (utm_campaign=spring-sale-2026,
+      Spring_Sale_2026 değil). Source'u kısa ve insan tarafından okunabilir tutun (twitter, twitter-feed-link değil).
+      Tekrarlayan kampanyalar yürütüyorsanız, kampanya adına tarih veya çeyrek ekleyin — bu, her şeyi yeniden
+      adlandırmadan yıldan yıla karşılaştırma yapmanızı sağlar. Şemayı paylaşılan bir belgede belgeleyin,
+      böylece yeni ekip arkadaşları kendi formatlarını icat etmez.
     </p>
 
-    <h2>Where to put UTMs — and where not to</h2>
+    <h2>UTM'ler nereye konulmalı — ve nereye konulmamalı</h2>
     <p>
-      Tag every link you place outside your own site: social posts, email campaigns,
-      partnerships, ads, sponsorships. Do <em>not</em> tag internal links between pages on your
-      own site — it will overwrite session data and misattribute users to yourself. If you need
-      to track internal clicks, use event tracking in your analytics tool, not UTMs.
+      Kendi siteniz dışına yerleştirdiğiniz her bağlantıyı etiketleyin: sosyal paylaşımlar, e-posta kampanyaları,
+      ortaklıklar, reklamlar, sponsorluklar. Kendi sitenizdeki sayfalar arasındaki dahili bağlantıları
+      etiketlemeyin — bu, oturum verilerinin üzerine yazacak ve kullanıcıları kendinize yanlış atfedecektir.
+      Dahili tıklamaları izlemeniz gerekiyorsa, UTM'leri değil, analiz aracınızda olay izlemeyi kullanın.
     </p>
 
-    <h2>Shorten UTM links before sharing</h2>
+    <h2>Paylaşmadan önce UTM bağlantılarını kısaltın</h2>
     <p>
-      Long UTM-tagged URLs look like spam in a tweet or a newsletter. Run them through a URL
-      shortener before you share. Just make sure the shortener preserves the query string on
-      redirect (most do). If you ever inherit a pile of mystery UTM links, our{" "}
-      <a href="/tools/utm-parser">UTM parser</a> breaks them back down into their source, medium,
-      and campaign so you can audit what was running.
+      UTM etiketli uzun URL'ler, bir tweet veya bültende spam gibi görünür. Paylaşmadan önce bunları bir URL
+      kısaltıcıdan geçirin. Yalnızca kısaltıcının yönlendirmede sorgu dizesini koruduğundan emin olun (çoğu korur).
+      Bir yığın gizemli UTM bağlantısı devralırsanız,{" "}
+      <a href="/tools/utm-parser">UTM ayrıştırıcımız</a> bunları source, medium
+      ve campaign'lerine ayırarak neyin çalıştığını denetlemenizi sağlar.
     </p>
 
-    <h2>Track the destination, not the redirect</h2>
+    <h2>Yönlendirmeyi değil, hedefi izleyin</h2>
     <p>
-      If your landing page redirects (301 or 302) to a different URL, some analytics setups lose
-      the UTM parameters on the redirect. Test a tagged link yourself before you hit publish —
-      click it, land on the page, and confirm the UTMs show up in your real-time analytics.
+      Açılış sayfanız farklı bir URL'ye yönlendiriyorsa (301 veya 302), bazı analiz kurulumları
+      yönlendirmede UTM parametrelerini kaybeder. Yayınlamadan önce etiketli bir bağlantıyı kendiniz test edin —
+      tıklayın, sayfaya gelin ve UTM'lerin gerçek zamanlı analitiğinizde göründüğünü onaylayın.
     </p>
 
-    <h2>Campaign naming for multi-channel launches</h2>
+    <h2>Çok kanallı lansmanlar için kampanya adlandırma</h2>
     <p>
-      When one campaign runs across email, social, and paid ads, keep the{" "}
-      <strong>utm_campaign</strong> identical across all three but vary the{" "}
-      <strong>utm_medium</strong> and <strong>utm_source</strong>. That way the campaign report
-      rolls them up together, and the source/medium report breaks them down by channel. This is
-      the pattern that lets you say &ldquo;the launch drove 4,200 signups, 60% from email, 25%
-      from social, 15% from paid.&rdquo;
+      Bir kampanya e-posta, sosyal ve ücretli reklamlar arasında yürütüldüğünde,{" "}
+      <strong>utm_campaign</strong>'i her üçünde de aynı tutun, ancak{" "}
+      <strong>utm_medium</strong> ve <strong>utm_source</strong>'ı değiştirin. Bu şekilde kampanya raporu
+      bunları bir araya getirir ve source/medium raporu kanala göre ayırır. Bu, &ldquo;lansman 4.200 kaydolma
+      getirdi, %60'ı e-postadan, %25'i sosyalden, %15'i ücretliden&rdquo; demenizi sağlayan kalıptır.
     </p>
 
-    <h2>Using utm_content for A/B testing</h2>
+    <h2>A/B testi için utm_content kullanma</h2>
     <p>
-      Two versions of the same link — one with utm_content=button-top, the other
-      button-bottom. Same campaign, same source, same medium. Now the content breakdown tells you
-      which version drove more conversions. Use this for CTA copy tests, image tests, or subject
-      line tests in email.
+      Aynı bağlantının iki versiyonu — biri utm_content=button-top, diğeri
+      button-bottom. Aynı kampanya, aynı source, aynı medium. Şimdi içerik dökümü size
+      hangi versiyonun daha fazla dönüşüm sağladığını söyler. Bunu CTA metin testleri, görsel testleri veya e-postadaki
+      konu satırı testleri için kullanın.
     </p>
 
-    <h2>Common mistakes to avoid</h2>
+    <h2>Kaçınılması gereken yaygın hatalar</h2>
     <p>
-      Tagging your own internal links. Tagging links with PII (email addresses, user IDs) in the
-      URL — this exposes user data in every analytics report. Letting spaces into UTM values
-      (use <code>%20</code> or hyphens). Reusing the same campaign name for unrelated efforts.
-      Forgetting that UTM values are case-sensitive in many analytics tools.
+      Kendi dahili bağlantılarınızı etiketlemek. URL'de PII (e-posta adresleri, kullanıcı kimlikleri) içeren
+      bağlantıları etiketlemek — bu, her analiz raporunda kullanıcı verilerini açığa çıkarır. UTM değerlerine
+      boşluk eklemek (<code>%20</code> veya kısa çizgi kullanın). İlgisiz çabalar için aynı kampanya adını
+      yeniden kullanmak. Birçok analiz aracında UTM değerlerinin büyük/küçük harfe duyarlı olduğunu unutmak.
     </p>
 
-    <h2>Putting it all together</h2>
+    <h2>Hepsini bir araya getirmek</h2>
     <p>
-      Start with a naming doc. Run every shared link through the{" "}
-      <a href="/tools/utm-builder">UTM builder</a>. Audit your analytics source/medium report
-      monthly for typos or duplicates. Once the data is clean, you can actually compare channels
-      — which is the entire point.
+      Bir adlandırma belgesiyle başlayın. Paylaşılan her bağlantıyı{" "}
+      <a href="/tools/utm-builder">UTM oluşturucudan</a> geçirin. Analiz source/medium raporunuzu
+      aylık olarak yazım hataları veya kopyalar için denetleyin. Veriler temizlendikten sonra, kanalları
+      gerçekten karşılaştırabilirsiniz — ki tüm mesele budur.
     </p>
 
     <p>
-      Related: <a href="/guides/seo-basics-for-beginners">SEO basics for beginners</a>,{" "}
-      <a href="/guides/how-to-start-a-blog">how to start a blog</a>, and{" "}
-      <a href="/guides/how-to-write-a-meta-description">how to write a meta description</a> that
-      earns the clicks you&rsquo;re now measuring.
+      İlgili: <a href="/guides/seo-basics-for-beginners">Yeni başlayanlar için SEO temelleri</a>,{" "}
+      <a href="/guides/how-to-start-a-blog">blog nasıl başlatılır</a> ve{" "}
+      <a href="/guides/how-to-write-a-meta-description">meta açıklama nasıl yazılır</a> ki
+      şimdi ölçtüğünüz tıklamaları kazansın.
     </p>
   </>
 );

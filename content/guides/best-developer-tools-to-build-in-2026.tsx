@@ -3,174 +3,131 @@
 export const intro = (
   <>
     <p>
-      What&rsquo;s worth building in dev tools in 2026? Big shifts in the underlying
-      ecosystem — AI codegen, observability glut, build-system fragmentation, edge
-      compute — opened gaps that didn&rsquo;t exist 3 years ago. This guide is an honest
-      pattern-match: areas where the demand is high, the build-cost is achievable for a
-      small team, and the existing players are either incomplete or actively struggling.
+      2026'da geliştirici araçları alanında ne inşa etmeye değer? Temel ekosistemdeki büyük değişimler — yapay zeka kod üretimi, gözlemlenebilirlik bolluğu, derleme sistemi parçalanması, uç bilişim — 3 yıl önce var olmayan boşluklar yarattı. Bu rehber dürüst bir örüntü eşlemesidir: talebin yüksek olduğu, küçük bir ekip için inşa maliyetinin ulaşılabilir olduğu ve mevcut oyuncuların ya eksik ya da aktif olarak zorlandığı alanlar.
     </p>
     <p>
-      Pair with our <a href="/tools/dev-tool-idea-scorer">idea scorer</a> — pick an idea
-      from the list, score it for your specific context, then commit if you score 75+.
+      <a href="/tools/dev-tool-idea-scorer">Fikir puanlayıcımız</a> ile birlikte kullanın — listeden bir fikir seçin, kendi bağlamınıza göre puanlayın ve 75+ puan alırsanız taahhüt edin.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "high-demand", label: "High-demand categories in 2026" },
-  { id: "small-team", label: "Buildable by a small team" },
-  { id: "validation", label: "Validating before committing" },
-  { id: "avoid", label: "Categories to avoid" },
+  { id: "high-demand", label: "2026'da yüksek talep gören kategoriler" },
+  { id: "small-team", label: "Küçük bir ekip tarafından inşa edilebilir" },
+  { id: "validation", label: "Taahhüt etmeden önce doğrulama" },
+  { id: "avoid", label: "Kaçınılması gereken kategoriler" },
 ];
 
 export const body = (
   <>
-    <h2 id="high-demand">High-demand categories in 2026</h2>
+    <h2 id="high-demand">2026'da yüksek talep gören kategoriler</h2>
     <p>
-      Areas with consistent recurring demand on r/programming, HN, and dev-Slack
-      communities:
+      r/programming, HN ve geliştirici Slack topluluklarında sürekli tekrarlanan taleplerin olduğu alanlar:
     </p>
     <ul>
       <li>
-        <strong>AI eval and observability.</strong> Companies are shipping <a href="/learn/llm">LLM</a> features
-        without good ways to test prompt regressions, monitor <a href="/learn/hallucination">hallucination</a> rates, or
-        debug failed agent runs. Tools like LangSmith, Helicone, Arize set the bar — but
-        the market is wide and underserved.
+        <strong>Yapay zeka değerlendirme ve gözlemlenebilirlik.</strong> Şirketler, <a href="/learn/llm">LLM</a> özelliklerini, prompt regresyonlarını test etmek, <a href="/learn/hallucination">halüsinasyon</a> oranlarını izlemek veya başarısız ajan çalışmalarını hata ayıklamak için iyi yöntemler olmadan gönderiyor. LangSmith, Helicone, Arize gibi araçlar çıtayı belirliyor — ancak pazar geniş ve yeterince hizmet verilmemiş durumda.
       </li>
       <li>
-        <strong>Local-first developer infrastructure.</strong> The DevContainer / Nix /
-        flake ecosystem has gaps — local dev environments are still painful. Tools that
-        compress &ldquo;clone repo → run&rdquo; from 30 minutes to 30 seconds win.
+        <strong>Yerel-öncelikli geliştirici altyapısı.</strong> DevContainer / Nix / flake ekosisteminde boşluklar var — yerel geliştirme ortamları hala zahmetli. &ldquo;Depoyu klonla → çalıştır&rdquo; sürecini 30 dakikadan 30 saniyeye indiren araçlar kazanır.
       </li>
       <li>
-        <strong>Build-system migration tooling.</strong> Companies stuck on legacy build
-        systems want out. Migrations from Webpack → Vite, Make → Bazel, Babel → swc
-        are recurring tickets. Tools that automate the migration are valuable.
+        <strong>Derleme sistemi geçiş araçları.</strong> Eski derleme sistemlerine takılıp kalmış şirketler kurtulmak istiyor. Webpack → Vite, Make → Bazel, Babel → swc geçişleri tekrarlayan işlerdir. Geçişi otomatikleştiren araçlar değerlidir.
       </li>
       <li>
-        <strong>SDK / client-library generators.</strong> OpenAPI generators are still
-        clunky. Stainless and Speakeasy are good examples; the next layer (better DX,
-        more language support, more type-safety) has room.
+        <strong>SDK / istemci kütüphanesi oluşturucuları.</strong> OpenAPI oluşturucuları hala kullanışsız. Stainless ve Speakeasy iyi örnekler; sonraki katman (daha iyi geliştirici deneyimi, daha fazla dil desteği, daha fazla tip güvenliği) için yer var.
       </li>
       <li>
-        <strong>Database tooling for AI workloads.</strong> Vector databases, embedding
-        management, RAG eval, semantic-cache observability. Most teams reinvent these
-        badly.
+        <strong>Yapay zeka iş yükleri için veritabanı araçları.</strong> Vektör veritabanları, gömme yönetimi, RAG değerlendirme, anlamsal önbellek gözlemlenebilirliği. Çoğu ekip bunları kötü bir şekilde yeniden icat ediyor.
       </li>
       <li>
-        <strong>Code review + PR experience improvements.</strong> GitHub PR review is
-        unchanged for 5+ years. Tools that improve review (Graphite, Reviewable) show
-        traction; the space has room for more.
+        <strong>Kod incelemesi + PR deneyimi iyileştirmeleri.</strong> GitHub PR incelemesi 5+ yıldır değişmedi. İncelemeyi iyileştiren araçlar (Graphite, Reviewable) ivme kazanıyor; bu alanda daha fazla yer var.
       </li>
       <li>
-        <strong>Internal documentation that stays current.</strong> The
-        &ldquo;how-do-I-do-X-at-our-company&rdquo; problem. Tools that wire into the
-        codebase + Slack + tickets to surface accurate answers.
+        <strong>Güncel kalan dahili dokümantasyon.</strong> &ldquo;Şirketimizde X'i nasıl yaparım?&rdquo; sorunu. Kod tabanı + Slack + ticket'lara bağlanarak doğru yanıtları yüzeye çıkaran araçlar.
       </li>
     </ul>
 
-    <h2 id="small-team">Buildable by a small team</h2>
+    <h2 id="small-team">Küçük bir ekip tarafından inşa edilebilir</h2>
     <p>
-      What separates buildable-in-8-weeks from &ldquo;you&rsquo;ll-still-be-shipping-in-3-years&rdquo;:
+      8 haftada inşa edilebilir olanı &ldquo;3 yıl sonra hala gönderiyor olacaksınız&rdquo; durumundan ayıran şey:
     </p>
     <ul>
       <li>
-        <strong>Single primary integration.</strong> A tool that works with GitHub or
-        Slack only is shippable. A tool that promises GitHub + GitLab + Bitbucket +
-        Azure DevOps + Jira + Linear is not.
+        <strong>Tek birincil entegrasyon.</strong> Yalnızca GitHub veya Slack ile çalışan bir araç gönderilebilir. GitHub + GitLab + Bitbucket + Azure DevOps + Jira + Linear vaat eden bir araç gönderilemez.
       </li>
       <li>
-        <strong>Single primary persona.</strong> &ldquo;A tool for backend engineers at
-        Series A startups using Go&rdquo; is shippable. &ldquo;A tool for all
-        developers&rdquo; is too vague.
+        <strong>Tek birincil kişi.</strong> &ldquo;Go kullanan Seri A girişimlerindeki backend mühendisleri için bir araç&rdquo; gönderilebilir. &ldquo;Tüm geliştiriciler için bir araç&rdquo; çok belirsizdir.
       </li>
       <li>
-        <strong>Stateful local first.</strong> CLIs and IDE extensions ship faster than
-        SaaS. No auth, no billing, no infra. Add SaaS only after CLI traction.
+        <strong>Durum bilgisi olan, yerel öncelikli.</strong> CLI'lar ve IDE uzantıları SaaS'ten daha hızlı gönderilir. Kimlik doğrulama, faturalama, altyapı yok. CLI ivmesi kazandıktan sonra SaaS ekleyin.
       </li>
       <li>
-        <strong>Boring tech stack.</strong> Go or Python or Node + Postgres + a basic
-        front-end. Skip the cutting-edge framework while shipping; revisit after 1.0.
+        <strong>Sıkıcı teknoloji yığını.</strong> Go veya Python veya Node + Postgres + basit bir ön yüz. Gönderim yaparken son teknoloji çerçeveyi atlayın; 1.0'dan sonra tekrar gözden geçirin.
       </li>
     </ul>
 
-    <h2 id="validation">Validating an idea before committing</h2>
+    <h2 id="validation">Taahhüt etmeden önce bir fikri doğrulama</h2>
     <p>
-      The 5-step validation flow that beats &ldquo;just start building&rdquo;:
+      &ldquo;Sadece inşa etmeye başla&rdquo; yaklaşımını yenen 5 adımlı doğrulama akışı:
     </p>
     <ol>
       <li>
-        <strong>Run our <a href="/tools/dev-tool-idea-scorer">idea scorer</a></strong>{" "}
-        with honest evidence. Aim for 75+ before committing 6 months.
+        <strong><a href="/tools/dev-tool-idea-scorer">Fikir puanlayıcımızı</a> çalıştırın</strong>{" "}
+        dürüst kanıtlarla. 6 ay taahhüt etmeden önce 75+ hedefleyin.
       </li>
       <li>
-        <strong>Find 5 prospective users on Discord/Slack/Twitter.</strong> Show them
-        either (a) a 5-minute Loom of you using a hand-rolled hack version, or (b) a
-        figma mock of the workflow. Get reactions.
+        <strong>Discord/Slack/Twitter'da 5 potansiyel kullanıcı bulun.</strong> Onlara (a) elle yapılmış bir hack sürümünü kullandığınız 5 dakikalık bir Loom videosu veya (b) iş akışının bir figma maketini gösterin. Tepkileri alın.
       </li>
       <li>
-        <strong>Build a one-evening prototype.</strong> Hardcoded values, terrible UX,
-        zero polish. Just confirm the technical approach works. If you can&rsquo;t hack
-        a prototype in one evening, the technical risk is too high.
+        <strong>Bir akşamlık bir prototip oluşturun.</strong> Sabit kodlanmış değerler, berbat kullanıcı deneyimi, sıfır cilalama. Sadece teknik yaklaşımın işe yaradığını doğrulayın. Bir akşamda bir prototip hazırlayamıyorsanız, teknik risk çok yüksektir.
       </li>
       <li>
-        <strong>Ship a closed beta to 5 people.</strong> See if they actually use it
-        more than once. If they don&rsquo;t, you&rsquo;re not ready for public launch.
+        <strong>5 kişiye kapalı bir beta sürümü gönderin.</strong> Gerçekten birden fazla kez kullanıp kullanmadıklarını görün. Kullanmazlarsa, halka açık lansmana hazır değilsiniz.
       </li>
       <li>
-        <strong>Public launch via HN + your audience + 1-2 niche communities.</strong>{" "}
-        Measure 7-day retention. If &lt; 30% of trial users are still active at day 7,
-        the idea probably needs rework.
+        <strong>HN + kitleniz + 1-2 niş topluluk aracılığıyla halka açık lansman yapın.</strong>{" "}
+        7 günlük kullanıcı tutma oranını ölçün. Deneme kullanıcılarının %30'undan azı 7. günde hala aktifse, fikrin muhtemelen yeniden çalışılması gerekir.
       </li>
     </ol>
 
-    <h2 id="avoid">Categories to avoid (without strong reason)</h2>
+    <h2 id="avoid">Kaçınılması gereken kategoriler (güçlü bir neden olmadan)</h2>
     <ul>
       <li>
-        <strong>Generic IDEs / code editors.</strong> VSCode + JetBrains + Cursor are
-        the moats. Building a new IDE in 2026 needs a wedge (specific language, specific
-        workflow) or you&rsquo;re fighting impossible distribution math.
+        <strong>Genel amaçlı IDE'ler / kod düzenleyicileri.</strong> VSCode + JetBrains + Cursor hendeklerdir. 2026'da yeni bir IDE oluşturmak bir kama (belirli bir dil, belirli bir iş akışı) gerektirir, aksi takdirde imkansız dağıtım matematiğiyle savaşırsınız.
       </li>
       <li>
-        <strong>Generic CI/CD platforms.</strong> GitHub Actions + GitLab CI + Buildkite
-        + CircleCI saturated this space. Niche use cases (mobile builds, GPU CI) still
-        have room.
+        <strong>Genel amaçlı CI/CD platformları.</strong> GitHub Actions + GitLab CI + Buildkite + CircleCI bu alanı doyurdu. Niş kullanım durumları (mobil derlemeler, GPU CI) hala yer sunuyor.
       </li>
       <li>
-        <strong>&ldquo;Better Notion for engineers.&rdquo;</strong> Repeatedly attempted,
-        repeatedly fails. Engineers default to whatever the wiki their company already
-        runs.
+        <strong>Mühendisler için &ldquo;Daha iyi Notion.&rdquo;</strong> Defalarca denendi, defalarca başarısız oldu. Mühendisler varsayılan olarak şirketlerinin halihazırda kullandığı wiki'yi tercih eder.
       </li>
       <li>
-        <strong>Generic monitoring / APM platforms.</strong> Datadog and New Relic spent
-        a billion dollars on the category; entering as a generalist is hard. Specific
-        verticals (LLM apps, edge functions) have room.
+        <strong>Genel amaçlı izleme / APM platformları.</strong> Datadog ve New Relic bu kategoriye bir milyar dolar harcadı; genelci olarak girmek zordur. Belirli dikeyler (LLM uygulamaları, uç işlevler) yer sunuyor.
       </li>
       <li>
-        <strong>AI-powered chatbot for &ldquo;your codebase.&rdquo;</strong> Saturation
-        peaked in 2024–2025. The pivot is to specific workflows (code review, on-call
-        runbooks) not generic chat.
+        <strong>&ldquo;Kod tabanınız&rdquo; için yapay zeka destekli sohbet robotu.</strong> Doygunluk 2024–2025'te zirve yaptı. Dönüş, belirli iş akışlarına (kod incelemesi, nöbetçi runbook'ları) yöneliktir, genel sohbet değil.
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Score your idea before committing",
+  label: "Taahhüt etmeden önce fikrinizi puanlayın",
   targetSlug: "dev-tool-idea-scorer",
 };
 
 export const faq = [
   {
-    q: "What are the best developer tools to build in 2026?",
-    a: "High-demand categories: AI eval and observability, local-first dev infra, build-system migration tools, SDK/client generators, database tooling for AI, code review experience, internal docs that stay current. Pick a category where you live the pain — fundamental for shipping a tool people actually use.",
+    q: "2026'da inşa edilecek en iyi geliştirici araçları nelerdir?",
+    a: "Yüksek talep gören kategoriler: yapay zeka değerlendirme ve gözlemlenebilirlik, yerel-öncelikli geliştirici altyapısı, derleme sistemi geçiş araçları, SDK/istemci oluşturucuları, yapay zeka için veritabanı araçları, kod inceleme deneyimi, güncel kalan dahili dokümantasyon. Acısını yaşadığınız bir kategori seçin — insanların gerçekten kullandığı bir araç göndermek için temel öneme sahiptir.",
   },
   {
-    q: "How do I know if my developer tool idea is worth building?",
-    a: "Five-step validation: score on a structured framework (use our scorer), interview 5 prospective users with a Loom or mock, build a one-evening prototype to confirm technical feasibility, ship to 5 closed-beta users for retention check, public launch with retention measurement. Don't skip steps.",
+    q: "Geliştirici aracı fikrimin inşa etmeye değer olup olmadığını nasıl anlarım?",
+    a: "Beş adımlı doğrulama: yapılandırılmış bir çerçevede puanlayın (puanlayıcımızı kullanın), bir Loom veya maket ile 5 potansiyel kullanıcıyla görüşün, teknik fizibiliteyi doğrulamak için bir akşamlık bir prototip oluşturun, kullanıcı tutma kontrolü için 5 kişiye kapalı beta gönderin, tutma ölçümü ile halka açık lansman yapın. Adımları atlamayın.",
   },
   {
-    q: "What developer tool categories should I avoid in 2026?",
-    a: "Generic IDEs (VSCode/JetBrains/Cursor moats too strong), generic CI/CD (GitHub Actions/GitLab CI saturate), 'better Notion for engineers' (repeatedly fails), generic monitoring (Datadog spent billions on the category), generic 'AI for your codebase' (peaked 2024-2025). All have niche carve-outs but generalist plays are hard.",
+    q: "2026'da hangi geliştirici aracı kategorilerinden kaçınmalıyım?",
+    a: "Genel amaçlı IDE'ler (VSCode/JetBrains/Cursor hendekleri çok güçlü), genel amaçlı CI/CD (GitHub Actions/GitLab CI doygun), 'mühendisler için daha iyi Notion' (defalarca başarısız), genel amaçlı izleme (Datadog kategoriye milyarlar harcadı), genel amaçlı 'kod tabanınız için yapay zeka' (2024-2025'te zirve yaptı). Hepsinin niş çıkış yolları var ancak genelci oyunlar zordur.",
   },
 ];

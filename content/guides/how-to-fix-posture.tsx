@@ -1,101 +1,77 @@
 export const intro = (
   <>
     <p>
-      If you sit at a desk, you have posture problems. Rounded shoulders, forward head,
-      weak glutes, tight hips — this is the &ldquo;knowledge worker&rsquo;s body.&rdquo;
-      The good news: most of it is fixable in 10-15 minutes a day of the right
-      movements.
+      Masada çalışıyorsanız, duruş sorunlarınız var demektir. Yuvarlak omuzlar, öne eğik baş,
+      zayıf kalçalar, gergin kalçalar — işte bu &ldquo;bilgi çalışanının vücudu.&rdquo;
+      İyi haber: Çoğu, günde 10–15 dakikalık doğru hareketlerle düzeltilebilir.
     </p>
     <p>
-      No gimmicks. Just the drills and habits that actually work over 8-12 weeks.
+      Hile yok. Sadece 8–12 hafta içinde gerçekten işe yarayan egzersizler ve alışkanlıklar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Posture is a habit, not a pose</h2>
+    <h2>1. Duruş bir alışkanlıktır, bir poz değil</h2>
     <p>
-      &ldquo;Stand up straight&rdquo; for 5 seconds a day does nothing. Good posture is
-      what your body defaults to when you stop thinking. That takes weeks of the right
-      muscle work, not willpower.
+      &ldquo;Dik oturmak&rdquo; 5 saniye boyunca hiçbir şey ifade etmez. İyi duruş, düşünmeyi bıraktığınızda vücudunuzun varsayılan olarak aldığı şeydir. Bu, haftalarca süren doğru kas çalışmasından gelir, iradeden değil.
     </p>
 
-    <h2>2. The desk body: what&rsquo;s actually wrong</h2>
+    <h2>2. Masa başı vücudu: aslında ne yanlış</h2>
     <p>
-      Tight chest and hip flexors (shortened from sitting). Weak mid-back, glutes, and
-      deep neck flexors (under-used). The combination pulls you into slump. Fixing it
-      means stretching what&rsquo;s tight and strengthening what&rsquo;s weak.
+      Gergin göğüs ve kalça fleksörleri (oturmaktan kısalmış). Zayıf sırt ortası, kalçalar ve derin boyun fleksörleri (az kullanılmış). Bu kombinasyon sizi kambur duruşa çeker. Düzeltmek, gergin olanı esnetmek ve zayıf olanı güçlendirmek anlamına gelir.
     </p>
 
-    <h2>3. Daily stretches: chest and hip flexors</h2>
+    <h2>3. Günlük esnemeler: göğüs ve kalça fleksörleri</h2>
     <p>
-      Doorway chest stretch, 30 seconds each side. Half-kneeling hip flexor stretch,
-      30 seconds each side. Do both twice a day. Two minutes total. Non-negotiable if
-      you sit a lot.
+      Kapı aralığı göğüs esnemesi, her iki taraf için 30 saniye. Yarım diz çökme kalça fleksör esnemesi, her iki taraf için 30 saniye. İkisini de günde iki kez yapın. Toplam iki dakika. Çok oturuyorsanız tartışmasız yapılmalı.
     </p>
 
-    <h2>4. Daily strength: mid-back and glutes</h2>
+    <h2>4. Günlük güç: sırt ortası ve kalçalar</h2>
     <p>
-      Band pull-aparts (15-20 reps), face pulls, glute bridges, wall sits. 10 minutes
-      a day, 4-5 days a week. You don&rsquo;t need a gym. Resistance bands and
-      bodyweight are enough to start.
+      Bantla açma (15–20 tekrar), yüz çekişi, kalça köprüsü, duvar oturuşu. Günde 10 dakika, haftada 4–5 gün. Spor salonu gerekmez. Direnç bantları ve vücut ağırlığı başlamak için yeterlidir.
     </p>
 
-    <h2>5. Chin tucks for the neck</h2>
+    <h2>5. Boynunuz için çene germe</h2>
     <p>
-      Pull your head back so your ears line up over your shoulders. Hold 5 seconds,
-      repeat 10 times. Do it hourly at your desk. Fixes the forward-head posture that
-      comes from staring at screens.
+      Başınızı geriye çekin, böylece kulaklarınız omuzlarınızla aynı hizaya gelsin. 5 saniye tutun, 10 kez tekrarlayın. Bunu masanızda her saat başı yapın. Ekranlara bakmaktan kaynaklanan öne eğik baş duruşunu düzeltir.
     </p>
 
-    <h2>6. Walk every hour</h2>
+    <h2>6. Her saat başı yürüyün</h2>
     <p>
-      Set a timer. Stand up, walk 2 minutes. Breaks the sitting pattern and wakes up
-      dormant muscles. 8 breaks a day &gt; one long workout that you do and then sit
-      another 10 hours.
+      Bir zamanlayıcı ayarlayın. Ayağa kalkın, 2 dakika yürüyün. Oturma düzenini bozar ve hareketsiz kasları uyandırır. Günde 8 mola &gt; ardından 10 saat daha oturmanın geldiği tek bir uzun antrenmandan daha iyidir.
     </p>
 
-    <h2>7. Fix your desk setup</h2>
+    <h2>7. Masa düzeninizi düzeltin</h2>
     <p>
-      Monitor at eye level. Elbows at 90 degrees. Feet flat on the floor. Keyboard and
-      mouse close. A $30 monitor stand can do more than 10 hours of posture exercises.
-      See <a href="/guides/how-to-set-up-a-home-office">home office setup</a>.
+      Monitör göz hizasında. Dirsekler 90 derecede. Ayaklar yere düz basıyor. Klavye ve fare yakında. 30 dolarlık bir monitör standı, 10 saatlik duruş egzersizinden daha fazlasını yapabilir. Bkz. <a href="/guides/how-to-set-up-a-home-office">ev ofisi kurulumu</a>.
     </p>
 
-    <h2>8. Lift heavy things</h2>
+    <h2>8. Ağır şeyler kaldırın</h2>
     <p>
-      Deadlifts, rows, overhead presses. Strength training is the single most
-      effective posture fix over 6 months. Builds a body that holds itself upright.
-      See <a href="/guides/how-to-start-working-out">workout guide</a>.
+      Deadlift, kürek çekme, baş üstü pres. Kuvvet antrenmanı, 6 ay içinde duruşu düzeltmenin en etkili tek yoludur. Kendini dik tutan bir vücut inşa eder. Bkz. <a href="/guides/how-to-start-working-out">egzersiz rehberi</a>.
     </p>
 
-    <h2>9. Sleep position matters</h2>
+    <h2>9. Uyku pozisyonu önemlidir</h2>
     <p>
-      Sleeping on your stomach is terrible for neck posture. Back or side is better.
-      Pillow should align your neck with your spine — not too tall, not flat. Replace
-      yours every 2 years.
+      Yüzüstü uyumak boyun duruşu için berbattır. Sırt üstü veya yan uyumak daha iyidir. Yastığınız boynunuzu omurganızla aynı hizada tutmalı — çok yüksek değil, çok düz değil. Her 2 yılda bir değiştirin.
     </p>
 
-    <h2>10. Carry things symmetrically</h2>
+    <h2>10. Simetrik şeyler taşıyın</h2>
     <p>
-      Always the same shoulder bag, always on the same side? Your body adapts and
-      twists. Switch sides or use a backpack. Small thing, compounds over years.
+      Her zaman aynı omuz çantası, her zaman aynı taraf? Vücudunuz uyum sağlar ve bükülür. Tarafları değiştirin veya sırt çantası kullanın. Küçük şey, yıllar içinde büyük birikim.
     </p>
 
-    <h2>11. Consider a standing desk</h2>
+    <h2>11. Ayakta çalışma masası düşünün</h2>
     <p>
-      Not a magic fix — standing all day causes different problems. But alternating
-      sit/stand every hour is measurably better for posture and energy. Adjustable
-      desks start at $150.
+      Sihirli bir çözüm değil — bütün gün ayakta durmak farklı sorunlara neden olur. Ancak her saat başı oturma ve ayakta durma arasında geçiş yapmak, duruş ve enerji için ölçülebilir şekilde daha iyidir. Ayarlanabilir masalar 150 dolardan başlar.
     </p>
 
-    <h2>12. Give it 12 weeks</h2>
+    <h2>12. 12 hafta verin</h2>
     <p>
-      Bodies change slowly. You probably won&rsquo;t notice a difference at week 3.
-      You will at week 12. Stick with it. See{" "}
-      <a href="/guides/how-to-boost-energy-naturally">energy guide</a> for adjacent
-      habits.
+      Vücutlar yavaş değişir. Muhtemelen 3. haftada bir fark görmeyeceksiniz. 12. haftada göreceksiniz. Devam edin. Bkz.{" "}
+      <a href="/guides/how-to-boost-energy-naturally">enerji rehberi</a> ilgili alışkanlıklar için.
     </p>
   </>
 );

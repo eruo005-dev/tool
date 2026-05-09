@@ -3,55 +3,35 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Word frequency is one of the oldest text-analysis techniques and
-      still powers SEO, content audits, plagiarism detection, style
-      checking, and basic NLP. Count how often each word appears in a
-      document and you can spot overused terms, keyword coverage gaps,
-      tonal tics, and the shape of a corpus. But naive
-      <code>split(&rdquo; &rdquo;)</code> breaks on punctuation, treats
-      &ldquo;run,&rdquo; &ldquo;runs,&rdquo; and &ldquo;running&rdquo; as
-      three different words, and conflates meaningful content with
-      high-frequency filler. This guide covers tokenization rules, stop
-      words, stemming, n-grams, and the specific tuning you need for SEO
-      vs style vs research applications.
+      Kelime frekansı, en eski metin analizi tekniklerinden biridir ve hâlâ SEO, içerik denetimleri, intihal tespiti, stil kontrolü ve temel NLP'yi destekler. Bir belgede her kelimenin kaç kez geçtiğini sayarak aşırı kullanılan terimleri, anahtar kelime kapsama boşluklarını, ton alışkanlıklarını ve bir külliyatın şeklini tespit edebilirsiniz. Ancak saf bir <code>split(" ")</code> noktalama işaretlerinde bozulur, "run," "runs" ve "running" ifadelerini üç farklı kelime olarak ele alır ve anlamlı içeriği yaygın dolgu kelimeleriyle karıştırır. Bu kılavuz, tokenizasyon kurallarını, durdurma kelimelerini, kök bulmayı, n-gramları ve SEO, stil ile araştırma uygulamaları için ihtiyaç duyduğunuz özel ayarlamaları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Tokenization: the first hard choice</h2>
+    <h2>Tokenizasyon: ilk zor karar</h2>
     <p>
-      How you cut text into words determines every count downstream.
-      Naive whitespace split:
+      Metni kelimelere nasıl ayırdığınız, sonraki tüm sayımları belirler. Saf boşlukla ayırma:
     </p>
     <pre>{`"Don't split on hyphens, maybe."
- -&gt;  ["Don't", "split", "on", "hyphens,", "maybe."]`}</pre>
+ ->  ["Don't", "split", "on", "hyphens,", "maybe."]`}</pre>
     <p>
-      Punctuation is attached. Better: split on non-word characters, then
-      lowercase:
+      Noktalama işaretleri eklenmiştir. Daha iyisi: kelime olmayan karakterlerden ayırın, ardından küçük harfe çevirin:
     </p>
     <pre>{`str.toLowerCase().match(/\\b[\\p{L}\\p{N}']+\\b/gu)`}</pre>
     <p>
-      This keeps contractions (&ldquo;don&rsquo;t&rdquo;) but strips
-      commas and periods. Add hyphens to the class if you want
-      &ldquo;state-of-the-art&rdquo; as one token.
+      Bu, kısaltmaları ("don't") korur ancak virgül ve noktaları atar. "state-of-the-art" ifadesini tek bir token olarak istiyorsanız, karakter sınıfına kısa çizgi ekleyin.
     </p>
 
-    <h2>Case folding</h2>
+    <h2>Büyük/küçük harf dönüşümü</h2>
     <p>
-      &ldquo;The&rdquo; and &ldquo;the&rdquo; should count as the same
-      word unless you&rsquo;re analyzing capitalization patterns.
-      <code>toLowerCase</code> is usually fine, but remember
-      locale-specific rules (Turkish dotted/dotless i, German &szlig;).
+      "The" ve "the" aynı kelime olarak sayılmalıdır, ancak büyük harf kullanım modellerini analiz ediyorsanız sayılmamalıdır. <code>toLowerCase</code> genellikle yeterlidir, ancak yerel ayara özgü kuralları unutmayın (Türkçe noktalı/noktasız i, Almanca ß).
     </p>
 
-    <h2>Stop words</h2>
+    <h2>Durdurma kelimeleri</h2>
     <p>
-      The top 20 words in English text are &ldquo;the, of, and, a, to,
-      in, is, you, that, it, he, was, for, on, are&rdquo; &mdash; rarely
-      interesting. Standard stop-word lists strip them so the remaining
-      counts reflect content.
+      İngilizce metindeki en sık 20 kelime "the, of, and, a, to, in, is, you, that, it, he, was, for, on, are" şeklindedir — nadiren ilginçtir. Standart durdurma kelime listeleri bunları atar, böylece kalan sayımlar içeriği yansıtır.
     </p>
     <pre>{`const STOP = new Set([
   "the","a","an","and","or","but","if","then","else","of",
@@ -62,58 +42,47 @@ export const body: ReactElement = (
   "he","she","it","we","they"
 ]);
 
-tokens.filter(t =&gt; !STOP.has(t))`}</pre>
+tokens.filter(t => !STOP.has(t))`}</pre>
     <p>
-      Customize the list for your domain. SEO stop-word lists usually
-      keep more terms than research-corpus lists.
+      Listeyi alanınıza göre özelleştirin. SEO durdurma kelime listeleri genellikle araştırma külliyatı listelerinden daha fazla terim tutar.
     </p>
 
-    <h2>Stemming vs lemmatization</h2>
+    <h2>Kök bulma ve lemmatizasyon</h2>
     <p>
-      Both collapse word variants to a single form:
+      Her ikisi de kelime varyantlarını tek bir forma indirger:
     </p>
     <ul>
       <li>
-        <strong>Stemming</strong> &mdash; algorithmic, cheap, aggressive.
-        &ldquo;running&rdquo; &rarr; &ldquo;run&rdquo;, &ldquo;better&rdquo;
-        &rarr; &ldquo;better&rdquo; (doesn&rsquo;t handle irregulars)
+        <strong>Kök bulma</strong> — algoritmik, ucuz, agresif. "running" → "run", "better" → "better" (düzensizleri işlemez)
       </li>
       <li>
-        <strong>Lemmatization</strong> &mdash; dictionary-based,
-        accurate, slower. &ldquo;running&rdquo; &rarr; &ldquo;run&rdquo;,
-        &ldquo;better&rdquo; &rarr; &ldquo;good&rdquo;
+        <strong>Lemmatizasyon</strong> — sözlük tabanlı, doğru, yavaş. "running" → "run", "better" → "good"
       </li>
     </ul>
     <p>
-      Stemming is usually good enough for frequency counting. Porter
-      stemmer is the classic; Snowball is its modern descendant. For
-      accuracy-critical work, use <code>spaCy</code> or
-      <code>NLTK</code> with WordNet.
+      Kök bulma genellikle frekans sayımı için yeterlidir. Porter kök bulucu klasiktir; Snowball modern türevidir. Doğruluk kritik işler için <code>spaCy</code> veya <code>NLTK</code> ile WordNet kullanın.
     </p>
 
-    <h2>Counting</h2>
+    <h2>Sayma</h2>
     <p>
-      Trivial with a map:
+      Bir harita ile basit:
     </p>
     <pre>{`const counts = new Map();
 for (const t of tokens) {
   counts.set(t, (counts.get(t) || 0) + 1);
 }
 
-// sort desc
+// azalan sırala
 const sorted = [...counts.entries()]
-  .sort((a, b) =&gt; b[1] - a[1]);`}</pre>
+  .sort((a, b) => b[1] - a[1]);`}</pre>
 
-    <h2>N-grams: beyond single words</h2>
+    <h2>N-gramlar: tek kelimelerin ötesinde</h2>
     <p>
-      Single-word counts miss phrases. &ldquo;San Francisco&rdquo;
-      carries information that &ldquo;san&rdquo; + &ldquo;francisco&rdquo;
-      separately doesn&rsquo;t. Bigrams (2-word) and trigrams (3-word)
-      capture this:
+      Tek kelime sayımları ifadeleri kaçırır. "San Francisco", "san" + "francisco"nun ayrı ayrı taşıdığından daha fazla bilgi taşır. Bigramlar (2 kelime) ve trigramlar (3 kelime) bunu yakalar:
     </p>
     <pre>{`function ngrams(tokens, n) {
   const out = [];
-  for (let i = 0; i &lt;= tokens.length - n; i++) {
+  for (let i = 0; i <= tokens.length - n; i++) {
     out.push(tokens.slice(i, i + n).join(" "));
   }
   return out;
@@ -122,87 +91,63 @@ const sorted = [...counts.entries()]
 const bigrams = ngrams(tokens, 2);
 const trigrams = ngrams(tokens, 3);`}</pre>
     <p>
-      Bigram stop-word filtering is trickier &mdash; &ldquo;of the&rdquo;
-      is noise but &ldquo;state of the art&rdquo; is signal. Strip
-      bigrams where both tokens are stop words, keep the rest.
+      Bigram durdurma kelime filtrelemesi daha zordur — "of the" gürültüdür ancak "state of the art" sinyaldir. Her iki tokenin de durdurma kelimesi olduğu bigramları atın, gerisini tutun.
     </p>
 
-    <h2>TF-IDF: frequency in context</h2>
+    <h2>TF-IDF: bağlam içinde frekans</h2>
     <p>
-      Raw frequency favors stop words and common terms. TF-IDF (term
-      frequency inverse document frequency) measures how distinctive a
-      word is <em>to this document</em> relative to a corpus.
+      Ham frekans, durdurma kelimelerini ve yaygın terimleri kayırır. TF-IDF (terim frekansı ters belge frekansı), bir kelimenin bir külliyata göre <em>bu belge için</em> ne kadar ayırt edici olduğunu ölçer.
     </p>
-    <pre>{`tf(t, d)   = count of t in d / total terms in d
-idf(t)     = log(N / n_t)   // N docs total, n_t docs with t
+    <pre>{`tf(t, d)   = t'nin d'deki sayısı / d'deki toplam terim
+idf(t)     = log(N / n_t)   // N toplam belge, n_t t'yi içeren belge
 tfidf(t,d) = tf(t, d) * idf(t)`}</pre>
     <p>
-      High TF-IDF = characteristic of the document. Great for tagging,
-      topic extraction, and finding the &ldquo;gist&rdquo; words.
+      Yüksek TF-IDF = belgenin karakteristiği. Etiketleme, konu çıkarma ve "öz" kelimeleri bulmak için harika.
     </p>
 
-    <h2>SEO application: keyword density</h2>
+    <h2>SEO uygulaması: anahtar kelime yoğunluğu</h2>
     <p>
-      Keyword density = (count of keyword / total words) &times; 100.
-      Old SEO target was 1&ndash;3%. Modern consensus: natural language
-      beats forced density. Use frequency counting to:
+      Anahtar kelime yoğunluğu = (anahtar kelime sayısı / toplam kelime) × 100. Eski SEO hedefi %1–3 idi. Modern görüş: doğal dil, zorlanmış yoğunluğu yener. Frekans sayımını şunlar için kullanın:
     </p>
     <ul>
-      <li>Catch obvious keyword stuffing (&gt;5% for any one term)</li>
-      <li>Find coverage gaps where expected terms are missing</li>
-      <li>Audit multi-page consistency</li>
-      <li>Spot over-indexing on stop-word-like phrases</li>
+      <li>Bariz anahtar kelime doldurmayı yakalama (herhangi bir terim için &gt;%5)</li>
+      <li>Beklenen terimlerin eksik olduğu kapsama boşluklarını bulma</li>
+      <li>Çok sayfalı tutarlılığı denetleme</li>
+      <li>Durdurma kelimesi benzeri ifadelere aşırı odaklanmayı tespit etme</li>
     </ul>
 
-    <h2>Style checking</h2>
+    <h2>Stil kontrolü</h2>
     <p>
-      Frequency counts reveal habitual tics: &ldquo;really,&rdquo;
-      &ldquo;just,&rdquo; &ldquo;very,&rdquo; &ldquo;that&rdquo; overused
-      as filler. Run your draft through a frequency pass and the top 30
-      content words show your patterns.
+      Frekans sayımları alışılmış dil kalıplarını ortaya çıkarır: "really," "just," "very," "that" dolgu olarak aşırı kullanılır. Taslağınızı bir frekans geçişinden geçirin ve ilk 30 içerik kelimesi kalıplarınızı gösterir.
     </p>
 
-    <h2>Research and corpus analysis</h2>
+    <h2>Araştırma ve külliyat analizi</h2>
     <p>
-      For larger corpora:
+      Daha büyük külliyatlar için:
     </p>
     <ul>
-      <li>Normalize to NFKC, lowercase, strip punctuation</li>
-      <li>Apply a domain-specific stop-word list</li>
-      <li>Stem with Snowball or Porter</li>
-      <li>Generate uni/bi/trigrams, report top 50 of each</li>
-      <li>For larger analysis, compute TF-IDF across document-by-document breakdown</li>
+      <li>NFKC'ye normalleştirin, küçük harfe çevirin, noktalamayı atın</li>
+      <li>Alana özgü bir durdurma kelime listesi uygulayın</li>
+      <li>Snowball veya Porter ile kök bulun</li>
+      <li>Uni/bi/trigramlar oluşturun, her birinin ilk 50'sini raporlayın</li>
+      <li>Daha büyük analizler için belge bazında TF-IDF hesaplayın</li>
     </ul>
 
-    <h2>Hapax legomena and Zipf&rsquo;s law</h2>
+    <h2>Hapax legomena ve Zipf yasası</h2>
     <p>
-      Natural-language frequency distributions follow Zipf&rsquo;s law:
-      the Nth most common word has frequency roughly proportional to
-      1/N. The single most common word appears twice as often as the
-      second, three times as often as the third, etc. Deviations from
-      Zipf&rsquo;s law often indicate artificially generated or
-      translated text. Hapax legomena (words that appear exactly once)
-      typically make up 40&ndash;60% of the distinct vocabulary in any
-      corpus &mdash; a useful sanity check.
+      Doğal dil frekans dağılımları Zipf yasasını takip eder: N'inci en yaygın kelimenin frekansı kabaca 1/N ile orantılıdır. En yaygın kelime, ikinciden iki kat, üçüncüden üç kat daha sık görülür, vb. Zipf yasasından sapmalar genellikle yapay olarak oluşturulmuş veya çevrilmiş metni gösterir. Hapax legomena (tam olarak bir kez görünen kelimeler) tipik olarak herhangi bir külliyattaki farklı kelime dağarcığının %40–60'ını oluşturur — kullanışlı bir mantık kontrolü.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Splitting on whitespace only and keeping punctuation attached to
-      tokens. Case-folding too early and losing proper-noun distinction.
-      Applying an English stop-word list to non-English text. Counting
-      &ldquo;run,&rdquo; &ldquo;runs,&rdquo; and &ldquo;running&rdquo;
-      separately when you meant them as one concept. Forgetting that
-      HTML tags, URLs, and numbers need separate handling. And
-      confusing frequency rank with importance &mdash; Zipf&rsquo;s law
-      guarantees &ldquo;the&rdquo; wins every time.
+      Yalnızca boşluklara bölmek ve noktalama işaretlerini tokenlara ekli tutmak. Büyük/küçük harf dönüşümünü çok erken yapmak ve özel isim ayrımını kaybetmek. İngilizce olmayan metne İngilizce durdurma kelime listesi uygulamak. "run," "runs" ve "running" ifadelerini tek bir kavram olarak kastederken ayrı ayrı saymak. HTML etiketlerinin, URL'lerin ve sayıların ayrı işleme ihtiyacı olduğunu unutmak. Ve frekans sırasını önemle karıştırmak — Zipf yasası "the"nin her zaman kazandığını garanti eder.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      <a href="/tools/word-frequency-counter">Word frequency counter</a>
-      <a href="/tools/keyword-density-checker">Keyword density checker</a>
-      <a href="/tools/word-counter">Word counter</a>
+      <a href="/tools/word-frequency-counter">Kelime frekansı sayacı</a>
+      <a href="/tools/keyword-density-checker">Anahtar kelime yoğunluğu denetleyicisi</a>
+      <a href="/tools/word-counter">Kelime sayacı</a>
     </p>
   </>
 );

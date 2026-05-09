@@ -3,218 +3,159 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      The &ldquo;eight glasses a day&rdquo; rule is what everyone remembers
-      and what almost no research supports. Actual water needs swing by a
-      factor of three depending on body weight, climate, activity, and diet,
-      and much of the intake that keeps you hydrated comes from food rather
-      than a glass. Drink too little and cognition, kidney function, and
-      athletic output all drop; drink too much and you can genuinely land in
-      the hospital with hyponatremia. This guide covers where the 8x8 rule
-      came from, the body-weight formulas that are a better starting point,
-      how climate and exercise adjust the number, how to tell if you&rsquo;re
-      actually hydrated, and the real limits of how much water is too much.
+      &ldquo;Günde sekiz bardak&rdquo; kuralı herkesin hatırladığı ama neredeyse hiçbir araştırmanın desteklemediği bir kuraldır. Gerçek su ihtiyacı; vücut ağırlığı, iklim, aktivite ve beslenmeye bağlı olarak üç kata kadar değişir ve sizi susuz kalmaktan koruyan alımın büyük kısmı bardaktan değil, yiyeceklerden gelir. Çok az içerseniz bilişsel işlevler, böbrek fonksiyonları ve atletik performans düşer; çok fazla içerseniz hiponatremi ile hastaneye kaldırılmanız gerçekten mümkündür. Bu rehber, 8x8 kuralının nereden geldiğini, daha iyi bir başlangıç noktası olan vücut ağırlığı formüllerini, iklim ve egzersizin bu sayıyı nasıl değiştirdiğini, gerçekten susuz kalıp kalmadığınızı nasıl anlayacağınızı ve çok fazla suyun gerçek sınırlarını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Where &ldquo;8 glasses a day&rdquo; came from</h2>
+    <h2>&ldquo;Günde 8 bardak&rdquo; kuralı nereden geldi</h2>
     <p>
-      Often misattributed to a 1945 National Research Council report. The
-      actual recommendation was &ldquo;about 1 mL of water for each calorie
-      consumed,&rdquo; which for a 2,000-calorie diet is 2 liters. But then
-      the same report noted: &ldquo;most of this quantity is contained in
-      prepared foods.&rdquo; That second sentence got lost. The 8x8 rule is
-      decent shorthand but not based on a hydration study.
+      Genellikle 1945 tarihli bir Ulusal Araştırma Konseyi raporuna atfedilir. Asıl öneri &ldquo;tüketilen her kalori için yaklaşık 1 mL su&rdquo; idi ve 2.000 kalorilik bir diyet için bu 2 litreye denk geliyordu. Ancak aynı rapor şunu da belirtiyordu: &ldquo;bu miktarın çoğu hazır yiyeceklerde bulunur.&rdquo; İkinci cümle kayboldu. 8x8 kuralı iyi bir kısayoldur ancak bir hidrasyon çalışmasına dayanmaz.
     </p>
 
-    <h2>By body weight (the better baseline)</h2>
+    <h2>Vücut ağırlığına göre (daha iyi temel)</h2>
     <p>
-      A body-weight formula is closer to what your body actually needs,
-      because bigger bodies have more tissue to hydrate.
+      Vücut ağırlığı formülü, vücudunuzun gerçekte ihtiyaç duyduğu miktara daha yakındır çünkü daha büyük vücutların nemlendirecek daha fazla dokusu vardır.
     </p>
-    <pre>{`Baseline:  weight(lb) * 0.5 to 0.7  =  daily ounces
-           or  weight(kg) * 30 to 40  =  daily milliliters
+    <pre>{`Temel:  ağırlık(lb) * 0,5 ila 0,7  =  günlük ons
+           veya  ağırlık(kg) * 30 ila 40  =  günlük mililitre
 
-150 lb person:  75 to 105 oz/day  =  2.2 to 3.1 L
-80 kg person:   2.4 to 3.2 L/day`}</pre>
+68 kg kişi:  2,2 ila 3,1 L/gün
+80 kg kişi:  2,4 ila 3,2 L/gün`}</pre>
     <p>
-      &ldquo;Daily&rdquo; here means total fluid intake from all sources, not
-      plain water only. Fruit, soup, coffee, milk, tea all count.
+      &ldquo;Günlük&rdquo; burada sadece sade su değil, tüm kaynaklardan alınan toplam sıvı alımı anlamına gelir. Meyve, çorba, kahve, süt, çayın hepsi sayılır.
     </p>
 
-    <h2>Food contributes ~20% of water intake</h2>
+    <h2>Yiyecekler su alımının ~%20'sini sağlar</h2>
     <p>
-      Fruits and vegetables are mostly water: watermelon 92%, cucumber 96%,
-      strawberries 91%, orange 86%. Even bread is ~35% water, meat ~60%. A
-      typical Western diet contributes ~20% of daily water; Mediterranean or
-      fruit-heavy diets can push that to 30%+.
+      Meyve ve sebzeler çoğunlukla sudur: karpuz %92, salatalık %96, çilek %91, portakal %86. Ekmek bile ~%35, et ~%60 sudur. Tipik bir Batı diyeti günlük suyun ~%20'sini sağlar; Akdeniz veya meyve ağırlıklı diyetler bunu %30+'a çıkarabilir.
     </p>
     <p>
-      Practical upshot: if your baseline says 2.5 L/day, you need to
-      <em> drink</em> more like 2 L &mdash; food covers the rest.
+      Pratik sonuç: temel ihtiyacınız 2,5 L/gün diyorsa, <em>içmeniz</em> gereken miktar daha çok 2 L'dir &mdash; kalanını yiyecekler karşılar.
     </p>
 
-    <h2>Climate adjustment</h2>
+    <h2>İklim ayarlaması</h2>
     <p>
-      Heat and humidity both increase fluid needs; cold and dry conditions
-      usually need slightly less but can still dehydrate via respiration.
+      Sıcaklık ve nem sıvı ihtiyacını artırır; soğuk ve kuru koşullar genellikle biraz daha az gerektirir ancak yine de solunum yoluyla susuzluğa neden olabilir.
     </p>
-    <pre>{`Hot humid  (30 C, 70% RH)         +500-1000 mL/day
-Hot dry    (35 C, low humidity)   +500-1500 mL/day
-Cold dry   (sub-zero, altitude)   +250-500 mL/day (easy to underestimate)
-AC office  (21 C, 40% RH)         baseline`}</pre>
+    <pre>{`Sıcak nemli  (30 C, %70 nem)         +500-1000 mL/gün
+Sıcak kuru   (35 C, düşük nem)      +500-1500 mL/gün
+Soğuk kuru   (sıfır altı, yükseklik) +250-500 mL/gün (hafife almak kolay)
+Klima ofis   (21 C, %40 nem)         temel`}</pre>
     <p>
-      At altitude (&gt;2,500 m / 8,000 ft) you lose water through faster
-      breathing and increased urine output. Add 500&ndash;1000 mL for the
-      first 48 hours, then taper.
+      Yüksek irtifada (&gt;2.500 m / 8.000 ft) daha hızlı nefes alma ve artan idrar çıkışı yoluyla su kaybedersiniz. İlk 48 saat için 500&ndash;1000 mL ekleyin, ardından azaltın.
     </p>
 
-    <h2>Exercise adjustment</h2>
+    <h2>Egzersiz ayarlaması</h2>
     <p>
-      Roughly 400&ndash;800 mL per hour of exercise at moderate intensity,
-      more in heat. Serious endurance sport can lose 1.5 L/hour through
-      sweat.
+      Orta yoğunlukta egzersizde saatte yaklaşık 400&ndash;800 mL, sıcakta daha fazla. Ciddi dayanıklılık sporları ter yoluyla saatte 1,5 L kaybedebilir.
     </p>
-    <pre>{`Light (walking, yoga):     200-400 mL/hr extra
-Moderate (gym, running):   400-600 mL/hr
-Vigorous (soccer, HIIT):   600-1000 mL/hr
-Endurance race in heat:    up to 1500 mL/hr`}</pre>
+    <pre>{`Hafif (yürüyüş, yoga):      saatte 200-400 mL ek
+Orta (spor salonu, koşu):   saatte 400-600 mL
+Yoğun (futbol, HIIT):      saatte 600-1000 mL
+Sıcakta dayanıklılık yarışı: saatte 1500 mL'ye kadar`}</pre>
     <p>
-      For anything past 60 minutes, add electrolytes. Water alone replaces
-      volume but not sodium, and long sweaty sessions on plain water trend
-      toward hyponatremia.
+      60 dakikayı geçen her şey için elektrolit ekleyin. Su tek başına hacmi değiştirir ancak sodyumu değiştirmez ve sade suyla uzun terli seanslar hiponatremiye doğru gider.
     </p>
 
-    <h2>Caffeine, alcohol, and diuretics</h2>
+    <h2>Kafein, alkol ve diüretikler</h2>
     <p>
-      Old wisdom: caffeine dehydrates you, so coffee doesn&rsquo;t count.
-      Current evidence: caffeine has a mild diuretic effect that is largely
-      offset by the water in the coffee. For habitual drinkers (daily
-      coffee), the net effect is near-zero. Your morning cup counts.
+      Eski bilgi: kafein susuz bırakır, bu yüzden kahve sayılmaz. Güncel kanıt: kafeinin hafif bir idrar söktürücü etkisi vardır ve bu etki büyük ölçüde kahvedeki su ile dengelenir. Alışkanlık haline getirenler (günlük kahve) için net etki sıfıra yakındır. Sabah fincanınız sayılır.
     </p>
     <p>
-      Alcohol is genuinely dehydrating &mdash; ethanol suppresses
-      vasopressin, causing more urine output than fluid input. Each standard
-      drink needs ~250 mL of water to net neutral.
+      Alkol gerçekten susuz bırakır &mdash; etanol vazopressini baskılayarak sıvı alımından daha fazla idrar çıkışına neden olur. Her standart içki, net sıfır için ~250 mL su gerektirir.
     </p>
 
-    <h2>Hydration markers</h2>
+    <h2>Hidrasyon belirteçleri</h2>
     <p>
-      You don&rsquo;t need an app to know if you&rsquo;re hydrated. Your body
-      tells you:
+      Susuz kalıp kalmadığınızı bilmek için bir uygulamaya ihtiyacınız yok. Vücudunuz size söyler:
     </p>
     <p>
-      <strong>Urine color.</strong> Pale straw = hydrated. Apple-juice or
-      darker = drink up. Completely clear = slightly overhydrated. Morning
-      urine is naturally darker and not a good marker.
+      <strong>İdrar rengi.</strong> Açık saman rengi = susuz kalmamış. Elma suyu veya daha koyu = su için. Tamamen berrak = hafif fazla sıvı. Sabah idrarı doğal olarak daha koyudur ve iyi bir belirteç değildir.
     </p>
     <p>
-      <strong>Thirst.</strong> Underrated in fitness culture. Thirst responds
-      before dehydration impairs performance, unless you&rsquo;re an older
-      adult (thirst response blunts with age).
+      <strong>Susuzluk.</strong> Fitness kültüründe hafife alınır. Susuzluk, dehidrasyon performansı bozmadan önce tepki verir, ancak yaşlı bir yetişkin değilseniz (susuzluk tepkisi yaşla birlikte körelir).
     </p>
     <p>
-      <strong>Urine frequency.</strong> Roughly every 2&ndash;4 hours during
-      waking hours. Much less = dry; much more = excessive intake.
+      <strong>İdrar sıklığı.</strong> Uyanık saatlerde kabaca her 2&ndash;4 saatte bir. Çok daha az = kuru; çok daha fazla = aşırı alım.
     </p>
     <p>
-      <strong>Weight change across a workout.</strong> Loss of &gt;2% of
-      body weight indicates dehydration for that session. Replace 1.5 L per
-      kg lost.
+      <strong>Egzersiz boyunca kilo değişimi.</strong> Vücut ağırlığının &gt;%2'sinin kaybı, o seans için dehidrasyonu gösterir. Kaybedilen kg başına 1,5 L değiştirin.
     </p>
 
-    <h2>Can you drink too much water?</h2>
+    <h2>Çok fazla su içebilir misiniz?</h2>
     <p>
-      Yes. Water intoxication (hyponatremia) happens when blood sodium drops
-      critically low because you&rsquo;ve diluted it faster than your
-      kidneys can dump the excess water. Symptoms: nausea, headache,
-      confusion, seizures. Cases include marathoners who over-hydrated and
-      hazing-style water-drinking contests.
+      Evet. Su zehirlenmesi (hiponatremi), böbrekleriniz fazla suyu atamayacağı kadar hızlı bir şekilde kan sodyumunun kritik derecede düşmesiyle oluşur. Belirtiler: mide bulantısı, baş ağrısı, kafa karışıklığı, nöbetler. Vakalar arasında aşırı sıvı alan maratoncular ve su içme yarışmaları yer alır.
     </p>
-    <pre>{`Healthy kidneys can process ~800-1000 mL/hour.
-Drinking 1.5+ L/hour for several hours risks hyponatremia.`}</pre>
+    <pre>{`Sağlıklı böbrekler saatte ~800-1000 mL işleyebilir.
+Birkaç saat boyunca saatte 1,5+ L içmek hiponatremi riski taşır.`}</pre>
     <p>
-      For everyday life this is hard to hit by accident. For endurance
-      athletes on plain water, it&rsquo;s a real risk. Electrolyte mixes on
-      long efforts are the fix.
+      Günlük hayatta buna kazara ulaşmak zordur. Sade su içen dayanıklılık sporcuları için gerçek bir risktir. Uzun eforlarda elektrolit karışımları çözümdür.
     </p>
 
-    <h2>When to drink</h2>
+    <h2>Ne zaman içilmeli</h2>
     <p>
-      Spread across the day rather than slamming glasses:
+      Bardakları bir anda devirmek yerine güne yayarak:
     </p>
     <ul>
-      <li>1 glass on waking (you dehydrated overnight)</li>
-      <li>1 glass before each meal (helps satiety too)</li>
-      <li>Sip during work hours</li>
-      <li>1 glass 1&ndash;2 hours before bed; avoid chugging right before</li>
-      <li>Pre-/intra-/post-workout: 200&ndash;400 mL each phase</li>
+      <li>Uyanınca 1 bardak (gece susuz kalırsınız)</li>
+      <li>Her öğünden önce 1 bardak (tokluk hissine de yardımcı olur)</li>
+      <li>Çalışma saatlerinde yudumlayın</li>
+      <li>Yatmadan 1&ndash;2 saat önce 1 bardak; hemen önce kafaya dikmekten kaçının</li>
+      <li>Antrenman öncesi/sırası/sonrası: her aşamada 200&ndash;400 mL</li>
     </ul>
 
-    <h2>Kidneys, hormones, and special cases</h2>
+    <h2>Böbrekler, hormonlar ve özel durumlar</h2>
     <p>
-      Chronic kidney disease, heart failure, and some medications change
-      optimal intake. If you have a medical condition that involves fluid
-      restriction or potassium/sodium balance, the formulas here
-      don&rsquo;t apply &mdash; follow your clinician&rsquo;s plan.
+      Kronik böbrek hastalığı, kalp yetmezliği ve bazı ilaçlar optimal alımı değiştirir. Sıvı kısıtlaması veya potasyum/sodyum dengesi içeren tıbbi bir durumunuz varsa, buradaki formüller geçerli değildir &mdash; doktorunuzun planını izleyin.
     </p>
     <p>
-      Pregnancy: ~+300 mL/day. Breastfeeding: ~+700 mL/day.
+      Hamilelik: ~+300 mL/gün. Emzirme: ~+700 mL/gün.
     </p>
 
-    <h2>Practical targets</h2>
-    <pre>{`Sedentary 70kg adult, temperate climate:
-  ~2.5 L total fluid (food + drinks)
-  ~2.0 L from drinks (water, coffee, tea, etc.)
+    <h2>Pratik hedefler</h2>
+    <pre>{`Hareketsiz 70 kg yetişkin, ılıman iklim:
+  ~2,5 L toplam sıvı (yiyecek + içecek)
+  ~2,0 L içeceklerden (su, kahve, çay vb.)
 
-Active 90kg adult, hot climate, 1hr training:
-  ~4.0 L total fluid
-  ~3.2 L from drinks, of which ~1L during/around training`}</pre>
+Aktif 90 kg yetişkin, sıcak iklim, 1 saat antrenman:
+  ~4,0 L toplam sıvı
+  ~3,2 L içeceklerden, bunun ~1L'si antrenman sırasında/çevresinde`}</pre>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Treating 8x8 as gospel.</strong> It&rsquo;s a rule of thumb
-      for sedentary temperate-climate adults. Adjust for your body and
-      conditions.
+      <strong>8x8'i mutlak doğru kabul etmek.</strong> Hareketsiz, ılıman iklimdeki yetişkinler için bir kuraldır. Vücudunuza ve koşullarınıza göre ayarlayın.
     </p>
     <p>
-      <strong>Ignoring food as a water source.</strong> Tracking only water
-      bottles means overestimating what you need to drink.
+      <strong>Yiyecekleri su kaynağı olarak görmezden gelmek.</strong> Sadece su şişelerini takip etmek, içmeniz gereken miktarı olduğundan fazla tahmin etmenize neden olur.
     </p>
     <p>
-      <strong>Chugging a liter at once.</strong> Your kidneys can&rsquo;t
-      process it that fast; most of it goes straight out. Sip throughout
-      the day.
+      <strong>Bir litreyi bir anda içmek.</strong> Böbrekleriniz bunu o kadar hızlı işleyemez; çoğu doğrudan dışarı çıkar. Gün boyunca yudumlayın.
     </p>
     <p>
-      <strong>Drinking only plain water during long efforts.</strong> Risk
-      of hyponatremia. Use electrolytes for anything past an hour.
+      <strong>Uzun eforlar sırasında sadece sade su içmek.</strong> Hiponatremi riski. Bir saati geçen her şey için elektrolit kullanın.
     </p>
     <p>
-      <strong>Using urine color first thing in the morning.</strong> Always
-      dark; not a useful marker. Check mid-morning.
+      <strong>Sabah ilk iş idrar rengini kullanmak.</strong> Her zaman koyudur; yararlı bir belirteç değildir. Öğleye doğru kontrol edin.
     </p>
     <p>
-      <strong>Drinking to a number rather than to thirst.</strong> Thirst
-      plus a urine-color check is more accurate than any spreadsheet.
+      <strong>Susuzluğa değil, bir sayıya göre içmek.</strong> Susuzluk artı idrar rengi kontrolü, herhangi bir tablodan daha doğrudur.
     </p>
     <p>
-      <strong>Drinking huge amounts before bed.</strong> Sleep disruption
-      from bathroom trips. Front-load earlier in the day.
+      <strong>Yatmadan önce büyük miktarlarda su içmek.</strong> Tuvalet ziyaretlerinden uyku bölünmesi. Günün erken saatlerinde tüketin.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları hesaplayın</h2>
     <p>
-      Enter weight, activity, and climate into the{" "}
-      <a href="/tools/water-intake-calculator">water intake calculator</a> for
-      a personalized liters-per-day target. Watch your caffeine total with the{" "}
-      <a href="/tools/caffeine-intake-calculator">caffeine intake calculator</a>{" "}
-      (coffee contributes both fluid and stimulant) and balance against your
-      eating pattern with the{" "}
-      <a href="/tools/calorie-calculator">calorie calculator</a> so the
-      food-water contribution isn&rsquo;t a mystery.
+      Kilo, aktivite ve iklimi{" "}
+      <a href="/tools/water-intake-calculator">su alımı hesaplayıcısına</a> girerek
+      kişiselleştirilmiş bir litre/gün hedefi alın. Toplam kafein miktarınızı{" "}
+      <a href="/tools/caffeine-intake-calculator">kafein alımı hesaplayıcısıyla</a>{" "}
+      (kahve hem sıvı hem de uyarıcı sağlar) izleyin ve{" "}
+      <a href="/tools/calorie-calculator">kalori hesaplayıcısıyla</a> beslenme
+      düzeninize göre dengeleyin, böylece yiyeceklerden gelen su katkısı bir sır olmaktan çıksın.
     </p>
   </>
 );

@@ -3,147 +3,101 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Subscription spend is the quiet assassin of personal budgets. A &ldquo;$9.99 a
-      month&rdquo; service looks harmless until you stack twelve of them on top of
-      <a href="/learn/stream">streaming</a>, cloud storage, fitness apps, newsletters, and the fantasy
-      football league you forgot about. A quarterly audit drags every recurring
-      charge into the light, forces you to annualize the real cost, and helps
-      you kill anything you wouldn&rsquo;t buy fresh today. Most people shave
-      20&ndash;40% off recurring spend the first time they run this exercise.
-      This guide walks through the full workflow &mdash; from pulling
-      statements to cancelling cleanly &mdash; without turning it into a
-      weekend-long project.
+      Abonelik harcamaları, kişisel bütçelerin sessiz katilidir. Aylık 9,99 dolarlık bir hizmet masum görünür—ta ki on iki tanesini biriktirene kadar. Bunlara <a href="/learn/stream">streaming</a>, bulut depolama, fitness uygulamaları, haber bültenleri ve unuttuğunuz o fantazi futbol ligi dahildir. Üç aylık bir denetim, her yinelenen ücreti ortaya çıkarır, gerçek yıllık maliyeti hesaplamanızı sağlar ve bugün sıfırdan satın almayacağınız her şeyi iptal etmenize yardımcı olur. Çoğu kişi bu alıştırmayı ilk kez yaptığında yinelenen harcamalarında %20-40 oranında bir azalma görür. Bu rehber, tüm iş akışını—hesap özetlerini çekmekten temiz bir şekilde iptal etmeye kadar—hafta sonu süren bir projeye dönüştürmeden adım adım anlatır.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Why a quarterly audit beats a yearly one</h2>
+    <h2>Üç aylık denetimler neden yıllık denetimlerden daha iyidir</h2>
     <p>
-      Annual reviews miss too much. A free trial signed up for in February
-      becomes a paid subscription in March, and if you only audit in December
-      you&rsquo;ve funded ten months of something you forgot existed. A
-      90-day cadence catches trial-to-paid flips, rate hikes, and
-      double-billing before they compound. Put the audit on a recurring
-      calendar event &mdash; first Saturday of January, April, July, October
-      &mdash; and treat it like a dentist appointment.
+      Yıllık incelemeler çok şey kaçırır. Şubat ayında başlatılan ücretsiz bir deneme Mart ayında ücretliye dönüşür ve yalnızca Aralık ayında denetim yaparsanız, varlığını unuttuğunuz bir şey için on ay ödemiş olursunuz. 90 günlük bir döngü, denemeden ücretliye geçişleri, fiyat artışlarını ve çifte faturalandırmayı birikmeden yakalar. Denetimi yinelenen bir takvim etkinliğine (Ocak, Nisan, Temmuz, Ekim aylarının ilk cumartesisi) koyun ve dişçi randevusu gibi davranın.
     </p>
 
-    <h2>Step 1: Pull every recurring charge</h2>
+    <h2>Adım 1: Her yinelenen ücreti çekin</h2>
     <p>
-      Open your last 90 days of bank and credit card statements. Search for
-      charges that look monthly or annual: streaming, SaaS, gym, cloud
-      backup, insurance, memberships, news, domains, and app store bundles.
-      Don&rsquo;t forget <strong>app-store subscriptions</strong> billed
-      through Apple or Google &mdash; those hide inside a single line item
-      and often contain four or five separate apps.
+      Son 90 günlük banka ve kredi kartı hesap özetlerinizi açın. Aylık veya yıllık görünen ücretleri arayın: streaming, SaaS, spor salonu, bulut yedekleme, sigorta, üyelikler, haber siteleri, alan adları ve uygulama mağazası paketleri. Apple veya Google üzerinden faturalanan <strong>uygulama mağazası aboneliklerini</strong> unutmayın—bunlar tek bir satır öğesi içinde saklanır ve genellikle dört veya beş ayrı uygulama içerir.
     </p>
     <ul>
-      <li>Credit card portals &mdash; most now have a &ldquo;recurring charges&rdquo; filter</li>
-      <li>Apple ID &rarr; Subscriptions</li>
-      <li>Google Play &rarr; Payments &amp; subscriptions</li>
-      <li>PayPal &rarr; Automatic payments</li>
-      <li>Your email &mdash; search for &ldquo;receipt&rdquo; and &ldquo;renewal&rdquo;</li>
+      <li>Kredi kartı portalları &mdash; çoğunda artık &ldquo;yinelenen ücretler&rdquo; filtresi var</li>
+      <li>Apple ID &rarr; Abonelikler</li>
+      <li>Google Play &rarr; Ödemeler ve abonelikler</li>
+      <li>PayPal &rarr; Otomatik ödemeler</li>
+      <li>E-postanız &mdash; &ldquo;makbuz&rdquo; ve &ldquo;yenileme&rdquo; için arama yapın</li>
     </ul>
 
-    <h2>Step 2: Annualize everything</h2>
+    <h2>Adım 2: Her şeyi yıllıklandırın</h2>
     <p>
-      Monthly pricing is psychological sleight-of-hand. A $14.99/month service
-      is $179.88/year. Stack five of those and you&rsquo;re at $900 before
-      you&rsquo;ve bought anything fun. Multiply every monthly charge by 12
-      and every weekly charge by 52. Then sort the list descending by annual
-      cost &mdash; the top third is usually where the surprises live.
+      Aylık fiyatlandırma psikolojik bir el çabukluğudur. Aylık 14,99 dolarlık bir hizmet yılda 179,88 dolara mal olur. Bunlardan beş tane biriktirin ve eğlenceli bir şey satın almadan 900 dolara ulaşırsınız. Her aylık ücreti 12 ile, her haftalık ücreti 52 ile çarpın. Ardından listeyi yıllık maliyete göre azalan şekilde sıralayın—ilk üçte birlik kısım genellikle sürprizlerin olduğu yerdir.
     </p>
-    <pre>{`monthly * 12 = annual
-weekly  * 52 = annual
-quarterly * 4 = annual
-biennial / 2 = annual`}</pre>
+    <pre>{`aylık * 12 = yıllık
+haftalık * 52 = yıllık
+üç aylık * 4 = yıllık
+iki yıllık / 2 = yıllık`}</pre>
 
-    <h2>Step 3: Rate each one 0&ndash;10</h2>
+    <h2>Adım 3: Her birine 0'dan 10'a kadar puan verin</h2>
     <p>
-      Next to each subscription, write a gut score: how much value did this
-      deliver in the last 90 days? Anything scoring <strong>4 or below</strong>
-      is a cancel candidate. Anything 5&ndash;7 is a &ldquo;downgrade or pause&rdquo;
-      candidate. Only 8+ earns the auto-renew.
+      Her aboneliğin yanına, içgüdüsel bir puan yazın: bu size son 90 günde ne kadar değer kattı? <strong>4 veya altı</strong> puan alan her şey iptal adayıdır. 5-7 puanları &ldquo;düşür veya duraklat&rdquo; adaylarıdır. Yalnızca 8+ puanlar otomatik yenilemeyi hak eder.
     </p>
 
-    <h2>Step 4: The forgotten-trial trap</h2>
+    <h2>Adım 4: Unutulan deneme tuzağı</h2>
     <p>
-      Free trials are designed to convert via forgetfulness. The moment you
-      start a trial, set a calendar reminder for <em>two days before</em> it
-      ends. Better: use a virtual card number with a spending cap, so the
-      renewal attempt simply fails. If you find a trial that already
-      converted, check the terms &mdash; many providers will refund the most
-      recent charge if you cancel within 7&ndash;14 days and ask politely.
+      Ücretsiz denemeler, unutkanlık yoluyla dönüşüm sağlamak için tasarlanmıştır. Bir denemeye başlar başlamaz, bitiminden <em>iki gün önce</em> bir takvim hatırlatıcısı ayarlayın. Daha da iyisi: yenileme girişiminin başarısız olması için harcama limiti olan bir sanal kart numarası kullanın. Halihazırda dönüşmüş bir deneme bulursanız, şartları kontrol edin—birçok sağlayıcı, 7-14 gün içinde iptal edip kibarca sorarsanız son ücreti iade edecektir.
     </p>
 
-    <h2>Step 5: Consolidate with family and bundle plans</h2>
+    <h2>Adım 5: Aile ve paket planlarla birleştirin</h2>
     <p>
-      Family plans are the single highest-leverage move. A $17.99 family music
-      plan split four ways is $4.50/person &mdash; less than half the solo
-      rate. Do the same audit across your household and look for:
+      Aile planları, en yüksek kaldıraçlı tek hamledir. Dört kişiye bölünmüş 17,99 dolarlık bir aile müzik planı kişi başı 4,50 dolar—bireysel ücretin yarısından az. Hane halkınız için aynı denetimi yapın ve şunları arayın:
     </p>
     <ul>
-      <li>Music &amp; video streaming family tiers</li>
-      <li>Cloud storage family shares (iCloud, Google One)</li>
-      <li>Password manager family plans (often cheaper than 2 solo)</li>
-      <li>Warehouse-club memberships shared across generations</li>
-      <li>Bundle deals (streaming + wireless, internet + TV)</li>
+      <li>Müzik ve video streaming aile kademeleri</li>
+      <li>Bulut depolama aile paylaşımları (iCloud, Google One)</li>
+      <li>Parola yöneticisi aile planları (genellikle 2 bireyselden daha ucuz)</li>
+      <li>Çok kuşaklı ortak depo kulübü üyelikleri</li>
+      <li>Paket fırsatları (streaming + kablosuz, internet + TV)</li>
     </ul>
 
-    <h2>Step 6: Run the cancellation workflow</h2>
+    <h2>Adım 6: İptal iş akışını uygulayın</h2>
     <p>
-      Cancellation UX is adversarial by design. Block 30 minutes, make a list,
-      and go in order. For each one:
+      İptal kullanıcı deneyimi, doğası gereği çekişmelidir. 30 dakika ayırın, bir liste yapın ve sırayla üzerinde çalışın. Her biri için:
     </p>
     <ul>
-      <li>Screenshot the cancellation confirmation</li>
-      <li>Save the confirmation email</li>
-      <li>Remove the card on file if possible</li>
-      <li>Note the next billing date &mdash; watch for a &ldquo;surprise&rdquo; final charge</li>
+      <li>İptal onayının ekran görüntüsünü alın</li>
+      <li>Onay e-postasını kaydedin</li>
+      <li>Mümkünse dosyadaki kartı kaldırın</li>
+      <li>Bir sonraki fatura tarihini not edin—&ldquo;sürpriz&rdquo; bir son ücrete dikkat edin</li>
     </ul>
     <p>
-      If a service hides its cancel button, searching <code>cancel [service name] subscription</code>
-      usually surfaces the exact path. Under US federal rules, companies must
-      honor cancellation requests &mdash; a &ldquo;save offer&rdquo; is not a
-      requirement to answer.
+      Bir hizmet iptal düğmesini gizlerse, <code>[hizmet adı] abonelik iptal</code> araması genellikle tam yolu ortaya çıkarır. ABD federal kurallarına göre, şirketler iptal taleplerini yerine getirmek zorundadır—bir &ldquo;elde tutma teklifi&rdquo; yanıt verme zorunluluğu değildir.
     </p>
 
-    <h2>Step 7: Negotiate the keepers</h2>
+    <h2>Adım 7: Kalanlar için pazarlık yapın</h2>
     <p>
-      For the subscriptions that survive the audit, 10 minutes on chat can
-      often shave 20&ndash;30% via retention offers. Key phrases:
-      &ldquo;thinking of cancelling,&rdquo; &ldquo;I see a better deal at,&rdquo;
-      &ldquo;what loyalty offers do you have.&rdquo; Insurance, wireless, and
-      cable respond especially well.
+      Denetimden sağ çıkan abonelikler için, sohbette 10 dakika harcamak genellikle elde tutma teklifleri yoluyla %20-30 indirim sağlar. Anahtar ifadeler: &ldquo;İptal etmeyi düşünüyorum,&rdquo; &ldquo;Daha iyi bir fırsat görüyorum,&rdquo; &ldquo;Hangi sadakat teklifleriniz var.&rdquo; Sigorta, kablosuz ve kablolu TV özellikle iyi yanıt verir.
     </p>
 
-    <h2>Step 8: Build a subscription register</h2>
+    <h2>Adım 8: Bir abonelik defteri oluşturun</h2>
     <p>
-      Keep a simple spreadsheet: service, category, monthly cost, annual cost,
-      renewal date, rating, notes. Update it every quarter. Over a year
-      you&rsquo;ll see patterns &mdash; which categories creep, which trials
-      converted, which price hikes slipped past you. That register is the
-      most valuable artifact of the whole audit.
+      Basit bir elektronik tablo tutun: hizmet, kategori, aylık maliyet, yıllık maliyet, yenileme tarihi, puan, notlar. Her üç ayda bir güncelleyin. Bir yıl içinde desenler göreceksiniz—hangi kategoriler büyüyor, hangi denemeler dönüştü, hangi fiyat artışları sizi atlattı. Bu defter, tüm denetimin en değerli tek çıktısıdır.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Three patterns show up constantly. First, auditing only the big names
-      while ignoring $3&ndash;5 charges &mdash; a dozen of those is $700 a year.
-      Second, cancelling verbally and not getting written confirmation, then
-      watching the charge recur. Third, signing up for an annual plan to
-      &ldquo;save money&rdquo; on something you won&rsquo;t use past month
-      three. Annual plans only save money if you&rsquo;d confidently re-buy
-      them on day 180.
+      Üç desen sürekli olarak ortaya çıkar. Birincisi, yalnızca büyük markaları denetlerken 3-5 dolarlık ücretleri görmezden gelmek—bunlardan bir düzinesi yılda 700 dolara ulaşır. İkincisi, yazılı onay olmadan sözlü olarak iptal etmek ve hala fatura almak. Üçüncüsü, bir hizmeti iptal ettikten sonra verileri yedeklemeyi unutmak—bulut depolama, fotoğraf kitaplıkları ve not uygulamaları, hesap kapanmadan önce dışa aktarma gerektirir.
     </p>
 
-    <h2>Run the numbers</h2>
-    <p>
-      <a href="/tools/subscription-cost-calculator">Subscription cost calculator</a>
-      <a href="/tools/budget-calculator">Budget calculator</a>
-      <a href="/tools/smoking-cost-calculator">Smoking cost calculator</a>
-    </p>
+    <h2>Denetim kontrol listesi</h2>
+    <ul>
+      <li>Son 90 günlük hesap özetlerini toplayın</li>
+      <li>Her yinelenen ücreti belirleyin</li>
+      <li>Her birini yıllıklandırın</li>
+      <li>0-10 arası bir değer puanı atayın</li>
+      <li>4 veya altı puan alan her şeyi iptal edin</li>
+      <li>5-7 puanlarını düşürün veya duraklatın</li>
+      <li>Kalanlar için pazarlık yapın</li>
+      <li>Bir abonelik defteri oluşturun</li>
+      <li>Bir sonraki denetim için takvim hatırlatıcısı ayarlayın</li>
+    </ul>
   </>
 );

@@ -3,175 +3,181 @@
 export const intro = (
   <>
     <p>
-      For small businesses with a development team, GitHub Copilot pays back
-      faster than almost any other software subscription. The barrier isn&rsquo;t
-      cost — it&rsquo;s adoption mechanics + measuring real productivity gains.
-      This guide is the small-business decision framework.
+      Küçük işletmeler için bir geliştirme ekibiyle, GitHub Copilot neredeyse
+      diğer tüm yazılım aboneliklerinden daha hızlı geri dönüş sağlar. Engel
+      maliyet değil — benimseme mekaniği ve gerçek üretkenlik kazanımlarını
+      ölçmektir. Bu rehber, küçük işletmeler için karar çerçevesidir.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "math", label: "The math for small teams" },
-  { id: "rollout", label: "Rollout playbook" },
-  { id: "measure", label: "Measuring real productivity gain" },
-  { id: "objections", label: "Common dev objections" },
+  { id: "math", label: "Küçük ekipler için matematik" },
+  { id: "rollout", label: "Kullanıma sunma oyun kitabı" },
+  { id: "measure", label: "Gerçek üretkenlik kazancını ölçme" },
+  { id: "objections", label: "Yaygın geliştirici itirazları" },
 ];
 
 export const body = (
   <>
-    <h2 id="math">The math for small teams</h2>
+    <h2 id="math">Küçük ekipler için matematik</h2>
     <p>
-      Use our <a href="/tools/github-copilot-roi-calculator">ROI calculator</a> with
-      your numbers. Quick benchmarks at conservative 15% productivity gain on
-      coding tasks:
+      Kendi rakamlarınızla <a href="/tools/github-copilot-roi-calculator">ROI hesaplayıcımızı</a> kullanın.
+      Kodlama görevlerinde muhafazakar %15 üretkenlik artışıyla hızlı kıyaslamalar:
     </p>
     <ul>
-      <li><strong>3-person dev team:</strong> $684/year subscription. ~$50K/year saved.</li>
-      <li><strong>5-person dev team:</strong> $1140/year subscription. ~$80K/year saved.</li>
-      <li><strong>10-person dev team:</strong> $2280/year subscription. ~$170K/year saved.</li>
-      <li><strong>15-person dev team:</strong> $3420/year subscription. ~$250K/year saved.</li>
+      <li><strong>3 kişilik geliştirici ekibi:</strong> $684/yıl abonelik. ~$50K/yıl tasarruf.</li>
+      <li><strong>5 kişilik geliştirici ekibi:</strong> $1140/yıl abonelik. ~$80K/yıl tasarruf.</li>
+      <li><strong>10 kişilik geliştirici ekibi:</strong> $2280/yıl abonelik. ~$170K/yıl tasarruf.</li>
+      <li><strong>15 kişilik geliştirici ekibi:</strong> $3420/yıl abonelik. ~$250K/yıl tasarruf.</li>
     </ul>
     <p>
-      Even at half the assumed productivity gain (7.5%), the <a href="/learn/roi">ROI</a> is overwhelming.
-      The subscription cost is below the noise floor of most small-business IT
-      budgets.
+      Varsayılan üretkenlik kazancının yarısında bile (%7.5), <a href="/learn/roi">ROI</a> ezici bir
+      şekilde yüksektir. Abonelik maliyeti, çoğu küçük işletme BT bütçesinin gürültü
+      tabanının altındadır.
     </p>
 
-    <h2 id="rollout">Rollout playbook for small teams</h2>
+    <h2 id="rollout">Küçük ekipler için kullanıma sunma oyun kitabı</h2>
     <ol>
       <li>
-        <strong>Pilot with 3-5 willing volunteers for 60 days.</strong> Self-
-        selected; not mandated. Includes one senior dev, one mid, one junior
-        ideally.
+        <strong>60 gün boyunca 3-5 gönüllüyle pilot uygulama yapın.</strong> Kendi
+        seçtikleri; zorunlu değil. İdeal olarak bir kıdemli geliştirici, bir orta
+        seviye, bir junior içerir.
       </li>
       <li>
-        <strong>Track outcomes.</strong> PR throughput, lines committed (caveat),
-        self-reported satisfaction. The qualitative signal is more reliable than
-        the quantitative — devs are good judges of whether a tool is helping.
+        <strong>Sonuçları takip edin.</strong> PR çıktısı, işlenen satırlar (uyarı),
+        kendi bildirilen memnuniyet. Niteliksel sinyal, nicelikselden daha
+        güvenilirdir — geliştiriciler bir aracın yardımcı olup olmadığını iyi
+        değerlendirir.
       </li>
       <li>
-        <strong>Iterate on workflow.</strong> Some teams use Copilot heavily for
-        first drafts; others use it sparingly for autocomplete only. The right
-        usage pattern varies.
+        <strong>İş akışını iyileştirin.</strong> Bazı ekipler Copilot'u ilk
+        taslaklar için yoğun kullanır; diğerleri yalnızca otomatik tamamlama için
+        seyrek kullanır. Doğru kullanım şekli değişir.
       </li>
       <li>
-        <strong>If pilot is positive (most are), roll out to full team.</strong>{" "}
-        Optional opt-in beats forced adoption — devs who explicitly opt out tend
-        to have specific concerns that mandate-from-above doesn&rsquo;t resolve.
+        <strong>Pilot olumluysa (çoğu öyledir), tüm ekibe yayın.</strong>{" "}
+        İsteğe bağlı katılım, zorunlu benimsemeden daha iyidir — açıkça
+        katılmayan geliştiricilerin, yukarıdan zorlamanın çözmediği belirli
+        endişeleri olma eğilimindedir.
       </li>
       <li>
-        <strong>Set up Business tier billing.</strong> Centralized; org admin
-        controls.
+        <strong>Business katmanı faturalandırmasını ayarlayın.</strong> Merkezi;
+        kurum yöneticisi kontrolünde.
       </li>
       <li>
-        <strong>Update policies.</strong> Document the org&rsquo;s position on
-        Copilot use in OSS contributions, in client work, in code reviews.
-        Reduces ambiguity.
+        <strong>Politikaları güncelleyin.</strong> Kuruluşun Copilot kullanımıyla
+        ilgili Açık Kaynak katkıları, müşteri çalışmaları ve kod incelemelerindeki
+        tutumunu belgeleyin. Belirsizliği azaltır.
       </li>
     </ol>
 
-    <h2 id="measure">Measuring real productivity gain</h2>
+    <h2 id="measure">Gerçek üretkenlik kazancını ölçme</h2>
     <p>
-      The quantitative metrics that work:
+      İşe yarayan niceliksel metrikler:
     </p>
     <ul>
       <li>
-        <strong>PRs per week per dev.</strong> Compare 60-day pre-Copilot baseline to
-        60-day post-rollout. Adjust for team size + project complexity.
+        <strong>Geliştirici başına haftalık PR sayısı.</strong> Copilot öncesi 60
+        günlük temel çizgiyi, kullanıma sunma sonrası 60 günle karşılaştırın. Ekip
+        büyüklüğü ve proje karmaşıklığına göre ayarlayın.
       </li>
       <li>
-        <strong>Time-from-ticket-start to PR-opened.</strong> Tighter than
-        ticket-completion which includes review wait.
+        <strong>Görev başlangıcından PR açılışına kadar geçen süre.</strong> İnceleme
+        beklemesini içeren görev tamamlamadan daha hassastır.
       </li>
       <li>
-        <strong>Lines of code per dev (with caveat).</strong> AI tools encourage
-        verbose code; raw line count can mislead. Use as a directional signal
-        only.
+        <strong>Geliştirici başına kod satırı (uyarı ile).</strong> Yapay zeka
+        araçları ayrıntılı kodu teşvik eder; ham satır sayısı yanıltıcı olabilir.
+        Yalnızca yönlendirici sinyal olarak kullanın.
       </li>
       <li>
-        <strong>Test coverage trends.</strong> Should stay flat or improve.
-        Tests-shipping should accompany Copilot adoption.
+        <strong>Test kapsamı eğilimleri.</strong> Sabit kalmalı veya iyileşmelidir.
+        Test gönderimi, Copilot benimsemesine eşlik etmelidir.
       </li>
     </ul>
     <p>
-      The qualitative metrics that work:
+      İşe yarayan niteliksel metrikler:
     </p>
     <ul>
       <li>
-        <strong>Self-reported satisfaction.</strong> Quarterly survey: &ldquo;is
-        Copilot helping?&rdquo; Most teams converge on yes by month 3.
+        <strong>Kendi bildirilen memnuniyet.</strong> Üç aylık anket: &ldquo;Copilot
+        yardımcı oluyor mu?&rdquo; Çoğu ekip 3. ayda evet cevabında birleşir.
       </li>
       <li>
-        <strong>&ldquo;Would you keep it if you had to pay personally?&rdquo;</strong>{" "}
-        The retention test. If most devs say yes, ROI is real.
+        <strong>&ldquo;Kişisel olarak ödemeniz gerekse tutar mıydınız?&rdquo;</strong>{" "}
+        Elde tutma testi. Çoğu geliştirici evet derse, ROI gerçektir.
       </li>
       <li>
-        <strong>Specific use-case examples.</strong> Devs sharing &ldquo;Copilot
-        wrote this and it saved me an hour&rdquo; stories. Anecdotal but accumulates.
+        <strong>Belirli kullanım senaryosu örnekleri.</strong> Geliştiricilerin
+        &ldquo;Copilot bunu yazdı ve bana bir saat kazandırdı&rdquo; hikayeleri
+        paylaşması. Anekdotsal ama birikir.
       </li>
     </ul>
 
-    <h2 id="objections">Common developer objections + how to address them</h2>
+    <h2 id="objections">Yaygın geliştirici itirazları + bunlara nasıl yanıt verilir</h2>
     <ul>
       <li>
-        <strong>&ldquo;It writes bad code.&rdquo;</strong> Sometimes true. Frame: it&rsquo;s
-        a starting point, not a finish line. Code review still required. Tests
-        still catch errors.
+        <strong>&ldquo;Kötü kod yazıyor.&rdquo;</strong> Bazen doğru. Çerçeve: bu bir
+        başlangıç noktasıdır, bitiş çizgisi değil. Kod incelemesi hala gereklidir.
+        Testler hala hataları yakalar.
       </li>
       <li>
-        <strong>&ldquo;It will make me a worse programmer.&rdquo;</strong> Concern is
-        real for juniors over-relying. Mitigate: pair-program with senior on
-        non-Copilot weeks; insist on understanding generated code before merging.
+        <strong>&ldquo;Beni daha kötü bir programcı yapacak.&rdquo;</strong> Aşırı
+        güvenen juniorlar için endişe gerçektir. Azaltın: Copilot olmayan haftalarda
+        kıdemliyle eşli programlama yapın; birleştirmeden önce üretilen kodu
+        anladığınızdan emin olun.
       </li>
       <li>
-        <strong>&ldquo;Privacy / training data.&rdquo;</strong> Business + Enterprise
-        tiers opt out of training-data use. Get this in the contract.
+        <strong>&ldquo;Gizlilik / eğitim verileri.&rdquo;</strong> Business ve
+        Enterprise katmanları eğitim verisi kullanımından çıkar. Bunu sözleşmeye
+        ekleyin.
       </li>
       <li>
-        <strong>&ldquo;I don&rsquo;t want my code on GitHub&rsquo;s servers.&rdquo;</strong>{" "}
-        Self-hosted alternatives (Continue.dev with local models, Tabnine self-
-        hosted, Codeium self-hosted) exist. Acknowledge the concern; offer the
-        alternatives.
+        <strong>&ldquo;Kodumun GitHub sunucularında olmasını istemiyorum.&rdquo;</strong>{" "}
+        Kendi kendine barındırılan alternatifler (Continue.dev yerel modellerle,
+        Tabnine kendi kendine barındırılan, Codeium kendi kendine barındırılan)
+        mevcuttur. Endişeyi kabul edin; alternatifleri sunun.
       </li>
       <li>
-        <strong>&ldquo;Copyright on output.&rdquo;</strong> Real concern. Business +
-        Enterprise tiers include IP indemnification. Individual tier doesn&rsquo;t.
+        <strong>&ldquo;Çıktıda telif hakkı.&rdquo;</strong> Gerçek endişe. Business ve
+        Enterprise katmanları fikri mülkiyet tazminatı içerir. Bireysel katman
+        içermez.
       </li>
       <li>
-        <strong>&ldquo;Vendor lock-in.&rdquo;</strong> Modest. Copilot is an editor
-        plugin — switching to Cursor, Codeium, or Continue is straightforward.
-        Your code doesn&rsquo;t live in Copilot.
+        <strong>&ldquo;Satıcı bağımlılığı.&rdquo;</strong> Mütevazı. Copilot bir
+        düzenleyici eklentisidir — Cursor, Codeium veya Continue'e geçmek
+        basittir. Kodunuz Copilot'ta yaşamaz.
       </li>
     </ul>
     <p>
-      The pattern across most objections: not entirely wrong, addressable with the
-      right tier + workflow. Forced adoption fails; volunteer-driven adoption with
-      transparent objection-handling succeeds.
+      Çoğu itirazdaki desen: tamamen yanlış değil, doğru katman ve iş akışıyla
+      ele alınabilir. Zorunlu benimseme başarısız olur; şeffaf itiraz yönetimiyle
+      gönüllü odaklı benimseme başarılı olur.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Calculate ROI for your team",
+  label: "Ekibiniz için ROI hesaplayın",
   targetSlug: "github-copilot-roi-calculator",
 };
 
 export const faq = [
   {
-    q: "Is GitHub Copilot worth it for small businesses?",
-    a: "Almost always yes for any team with developers. 3-person team: $684/year saves ~$50K/year at conservative 15% productivity gain. 10-person team: $2280/year saves ~$170K/year. Subscription cost is below most small-business IT noise floor. Barrier isn't cost — it's adoption mechanics.",
+    q: "GitHub Copilot küçük işletmeler için değer mi?",
+    a: "Geliştiricileri olan her ekip için neredeyse her zaman evet. 3 kişilik ekip: $684/yıl, muhafazakar %15 üretkenlik artışıyla ~$50K/yıl tasarruf sağlar. 10 kişilik ekip: $2280/yıl, ~$170K/yıl tasarruf sağlar. Abonelik maliyeti çoğu küçük işletme BT gürültü tabanının altındadır. Engel maliyet değil — benimseme mekaniğidir.",
   },
   {
-    q: "How do I roll out GitHub Copilot to my team?",
-    a: "60-day pilot with 3-5 willing volunteers (one senior, one mid, one junior). Track PR throughput + qualitative satisfaction. If positive (most pilots are), roll out to full team with optional opt-in (forced adoption fails). Set up Business tier billing. Document policies for OSS / client work.",
+    q: "GitHub Copilot'u ekibime nasıl sunarım?",
+    a: "3-5 gönüllüyle (bir kıdemli, bir orta, bir junior) 60 günlük pilot uygulama. PR çıktısını ve niteliksel memnuniyeti takip edin. Olumluysa (çoğu pilot öyledir), isteğe bağlı katılımla tüm ekibe yayın (zorunlu benimseme başarısız olur). Business katmanı faturalandırmasını ayarlayın. Açık Kaynak / müşteri çalışmaları için politikaları belgeleyin.",
   },
   {
-    q: "How do I measure real productivity gain from Copilot?",
-    a: "Quantitative: PRs/week/dev (compare pre/post 60-day baselines), ticket-start to PR-opened time, test coverage trends. Qualitative: self-reported satisfaction (quarterly survey), 'would you keep it if you had to pay personally' retention test, specific use-case stories.",
+    q: "Copilot'tan gerçek üretkenlik kazancını nasıl ölçerim?",
+    a: "Niceliksel: geliştirici başına haftalık PR sayısı (öncesi/sonrası 60 günlük temel çizgileri karşılaştırın), görev başlangıcından PR açılışına kadar geçen süre, test kapsamı eğilimleri. Niteliksel: kendi bildirilen memnuniyet (üç aylık anket), 'kişisel olarak ödemeniz gerekse tutar mıydınız' elde tutma testi, belirli kullanım senaryosu hikayeleri.",
   },
   {
-    q: "How do I address developer objections to Copilot?",
-    a: "Common objections + addresses: 'writes bad code' (it's a starting point, code review still required), 'makes me worse programmer' (real for juniors over-relying — mitigate with non-Copilot pair sessions), 'privacy' (Business/Enterprise opt out), 'copyright' (Business/Enterprise IP indemnification). Forced adoption fails; volunteer-driven with transparent handling succeeds.",
+    q: "Geliştiricilerin Copilot'a itirazlarını nasıl ele alırım?",
+    a: "Yaygın itirazlar ve yanıtlar: 'kötü kod yazar' (bir başlangıç noktasıdır, kod incelemesi hala gereklidir), 'beni daha kötü programcı yapar' (aşırı güvenen juniorlar için gerçek — Copilot olmayan eşli oturumlarla azaltın), 'gizlilik' (Business/Enterprise çıkar), 'telif hakkı' (Business/Enterprise fikri mülkiyet tazminatı). Zorunlu benimseme başarısız olur; şeffaf yönetimle gönüllü odaklı benimseme başarılı olur.",
   },
 ];

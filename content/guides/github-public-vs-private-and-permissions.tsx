@@ -3,240 +3,236 @@
 export const intro = (
   <>
     <p>
-      &ldquo;Is GitHub safe for client work?&rdquo; comes up weekly in
-      r/freelance and r/cscareerquestions. The answer depends on what you mean by
-      safe — visibility, IP protection, security, or compliance. This guide walks
-      each.
+      &ldquo;GitHub müşteri işleri için güvenli mi?&rdquo; sorusu r/freelance ve
+      r/cscareerquestions'da her hafta gündeme geliyor. Yanıt, güvenlikten ne
+      anladığınıza bağlı — görünürlük, fikri mülkiyet koruması, güvenlik veya
+      uyumluluk. Bu rehber her birini ele alıyor.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "private-vs-public", label: "Private vs public repos" },
-  { id: "client-projects", label: "GitHub for client projects" },
-  { id: "stolen-code", label: "Code theft + IP protection" },
-  { id: "permissions", label: "Permissions + production safety" },
-  { id: "license", label: "Using others&rsquo; code legally" },
-  { id: "hacked", label: "What if GitHub gets hacked?" },
-  { id: "api-keys", label: "Stopping API key leaks" },
+  { id: "private-vs-public", label: "Özel ve herkese açık repolar" },
+  { id: "client-projects", label: "Müşteri projeleri için GitHub" },
+  { id: "stolen-code", label: "Kod hırsızlığı + fikri mülkiyet koruması" },
+  { id: "permissions", label: "İzinler + üretim güvenliği" },
+  { id: "license", label: "Başkalarının kodunu yasal olarak kullanmak" },
+  { id: "hacked", label: "Ya GitHub saldırıya uğrarsa?" },
+  { id: "api-keys", label: "API anahtarı sızıntılarını önleme" },
 ];
 
 export const body = (
   <>
-    <h2 id="private-vs-public">Private vs public repos</h2>
+    <h2 id="private-vs-public">Özel ve herkese açık repolar</h2>
     <ul>
       <li>
-        <strong>Public:</strong> anyone can read. You control who can write. Free for
-        unlimited repos. Visible to search engines.
+        <strong>Herkese açık:</strong> herkes okuyabilir. Kimin yazabileceğini siz
+        kontrol edersiniz. Sınırsız repo için ücretsiz. Arama motorlarında görünür.
       </li>
       <li>
-        <strong>Private:</strong> only invited collaborators can read or write. Free
-        for unlimited repos (since 2019). Not visible to search engines or
-        non-collaborators.
+        <strong>Özel:</strong> yalnızca davet edilen işbirlikçiler okuyabilir veya
+        yazabilir. Sınırsız repo için ücretsiz (2019'dan beri). Arama motorlarında
+        veya işbirlikçi olmayanlara görünmez.
       </li>
     </ul>
     <p>
-      The default is private for new repos. Make sure you check before pushing
-      anything sensitive.
+      Yeni repolar için varsayılan özeldir. Hassas bir şey göndermeden önce
+      kontrol ettiğinizden emin olun.
     </p>
 
-    <h2 id="client-projects">Is GitHub safe for client projects?</h2>
+    <h2 id="client-projects">GitHub müşteri projeleri için güvenli mi?</h2>
     <p>
-      For most freelance + agency work: yes, with sensible setup.
+      Çoğu freelance + ajans işi için: mantıklı bir kurulumla evet.
     </p>
     <ul>
       <li>
-        <strong>Use private repos for client work.</strong> Add the client as a
-        collaborator if they want access; otherwise keep it to your team.
+        <strong>Müşteri işleri için özel repolar kullanın.</strong> İsterlerse
+        müşteriyi işbirlikçi olarak ekleyin; aksi halde ekibinizle sınırlı tutun.
       </li>
       <li>
-        <strong>Don&rsquo;t commit secrets.</strong> Use environment variables;
-        configure the client&rsquo;s secrets via GitHub Actions secrets or their
-        cloud provider&rsquo;s secret manager.
+        <strong>Sırları işlemeyin.</strong> Ortam değişkenleri kullanın;
+        müşterinin sırlarını GitHub Actions sırları veya bulut sağlayıcılarının
+        gizli yöneticisi aracılığıyla yapılandırın.
       </li>
       <li>
-        <strong>Sign NDAs first.</strong> If client requires it, GitHub Enterprise
-        Cloud or Enterprise Server has the compliance features (SAML SSO, audit
-        logs, longer retention).
+        <strong>Önce Gizlilik Sözleşmesi (NDA) imzalayın.</strong> Müşteri
+        gerektiriyorsa, GitHub Enterprise Cloud veya Enterprise Server uyumluluk
+        özelliklerine (SAML SSO, denetim günlükleri, daha uzun saklama) sahiptir.
       </li>
       <li>
-        <strong>Transfer the repo at project end.</strong> GitHub has a built-in
-        repo transfer flow. Move it to the client&rsquo;s org when the engagement
-        ends.
+        <strong>Proje sonunda repoyu devredin.</strong> GitHub'ın yerleşik bir
+        repo devir akışı vardır. Çalışma bittiğinde müşterinin organizasyonuna
+        taşıyın.
       </li>
     </ul>
     <p>
-      For HIPAA / FedRAMP / similarly regulated work: GitHub Enterprise Cloud is
-      compliant. Confirm specific requirements with the client&rsquo;s compliance team
-      before committing.
+      HIPAA / FedRAMP / benzer düzenlemelere tabi işler için: GitHub Enterprise
+      Cloud uyumludur. İşlem yapmadan önce müşterinin uyumluluk ekibiyle belirli
+      gereksinimleri teyit edin.
     </p>
 
-    <h2 id="stolen-code">How would I know if my code was stolen on GitHub?</h2>
+    <h2 id="stolen-code">Kodum GitHub'da çalınırsa nasıl anlarım?</h2>
     <p>
-      Practical detection:
+      Pratik tespit yöntemleri:
     </p>
     <ul>
       <li>
-        <strong>GitHub code search.</strong> Search distinctive strings from your
-        code. Catches direct copy-paste theft.
+        <strong>GitHub kod araması.</strong> Kodunuzdan ayırt edici dizeleri
+        arayın. Doğrudan kopyala-yapıştır hırsızlığını yakalar.
       </li>
       <li>
-        <strong>Sourcegraph public search.</strong> Same idea, different index.
-        Sometimes catches what GitHub search doesn&rsquo;t.
+        <strong>Sourcegraph genel araması.</strong> Aynı fikir, farklı dizin.
+        Bazen GitHub aramasının yakalayamadığını yakalar.
       </li>
       <li>
-        <strong>Distinctive variable names + comments.</strong> Add unusual
-        identifiers to your code. Plagiarism detection becomes trivial.
+        <strong>Ayırt edici değişken adları + yorumlar.</strong> Kodunuza sıra dışı
+        tanımlayıcılar ekleyin. İntihal tespiti çok kolaylaşır.
       </li>
       <li>
-        <strong>License signal.</strong> If your repo is MIT/Apache, &ldquo;stealing&rdquo;
-        is mostly attribution failure. Add a clear LICENSE file.
+        <strong>Lisans sinyali.</strong> Reponuz MIT/Apache ise, &ldquo;çalma&rdquo;
+        çoğunlukla atıf eksikliğidir. Net bir LİSANS dosyası ekleyin.
       </li>
     </ul>
     <p>
-      For genuinely critical IP: don&rsquo;t put it on GitHub at all. Use a
-      private repo with strict access controls, or self-host on GitLab/Gitea.
+      Gerçekten kritik fikri mülkiyet için: hiçbir şekilde GitHub'a koymayın.
+      Sıkı erişim kontrolleri olan özel bir repo kullanın veya GitLab/Gitea'da
+      kendi sunucunuzda barındırın.
     </p>
 
-    <h2 id="permissions">GitHub permissions + production safety</h2>
+    <h2 id="permissions">GitHub izinleri + üretim güvenliği</h2>
     <p>
-      The branch protection rules that prevent breaking production:
+      Üretimi bozmayı önleyen dal koruma kuralları:
     </p>
     <ul>
       <li>
-        <strong>Required reviews.</strong> Block merge to main without N approvals.
+        <strong>Gerekli incelemeler.</strong> N onay olmadan ana dala birleştirmeyi
+        engelleyin.
       </li>
       <li>
-        <strong>Required status checks.</strong> Block merge until CI passes.
+        <strong>Gerekli durum kontrolleri.</strong> CI geçene kadar birleştirmeyi
+        engelleyin.
       </li>
       <li>
-        <strong>No force-push.</strong> Prevents history rewriting on main.
+        <strong>Zorla gönderme yok.</strong> Ana dalda geçmişin yeniden
+        yazılmasını önler.
       </li>
       <li>
-        <strong>Restrict who can push.</strong> Limit deploy-related branches to
-        specific roles.
+        <strong>Kimin gönderebileceğini kısıtlayın.</strong> Dağıtımla ilgili
+        dalları belirli rollere sınırlayın.
       </li>
       <li>
-        <strong>Code owners.</strong> Require specific people to approve changes
-        to specific paths (e.g. infra dirs require infra-team approval).
+        <strong>Kod sahipleri.</strong> Belirli yollardaki değişiklikler için
+        belirli kişilerin onayını gerektirin (ör. altyapı dizinleri altyapı
+        ekibinin onayını gerektirir).
       </li>
     </ul>
     <p>
-      Set these on day 1 for any team repo. Teams that skip them eventually have
-      a &ldquo;why did this break production?&rdquo; incident that traces to a
-      missing protection rule.
+      Bunları herhangi bir ekip reposu için ilk günden ayarlayın. Bunları atlayan
+      ekipler eninde sonunda &ldquo;bu neden üretimi bozdu?&rdquo; olayıyla
+      karşılaşır ve bu, eksik bir koruma kuralına kadar izlenir.
     </p>
 
-    <h2 id="license">Can I download someone else&rsquo;s code and use it legally?</h2>
+    <h2 id="license">Başka birinin kodunu indirip yasal olarak kullanabilir miyim?</h2>
     <p>
-      Depends on the license:
+      Lisansa bağlıdır:
     </p>
     <ul>
       <li>
-        <strong>MIT, Apache 2.0, BSD:</strong> permissive. You can use, modify,
-        distribute, even commercially. Must include attribution.
+        <strong>MIT, Apache 2.0, BSD:</strong> izin verici. Kullanabilir,
+        değiştirebilir, dağıtabilir, hatta ticari olarak kullanabilirsiniz. Atıf
+        yapmalısınız.
       </li>
       <li>
-        <strong>GPL, AGPL:</strong> copyleft. If you distribute software using
-        GPL code, your software must also be GPL. AGPL extends this to
-        network-served software.
+        <strong>GPL, AGPL:</strong> copyleft. GPL kod kullanan yazılım
+        dağıtıyorsanız, yazılımınız da GPL olmalıdır. AGPL bunu ağ üzerinden
+        sunulan yazılımları da kapsayacak şekilde genişletir.
       </li>
       <li>
-        <strong>No license:</strong> default copyright applies. You can&rsquo;t
-        legally use it without permission, even if it&rsquo;s public on GitHub.
+        <strong>Lisans yok:</strong> varsayılan telif hakkı geçerlidir. GitHub'da
+        herkese açık olsa bile izinsiz yasal olarak kullanamazsınız.
       </li>
       <li>
-        <strong>&ldquo;Source available&rdquo; (BSL, Elastic License):</strong>{" "}
-        somewhere in between. Read the specific terms — usually allows internal
-        use but restricts hosting as a competing service.
+        <strong>&ldquo;Kaynak mevcut&rdquo; (BSL, Elastic License):</strong>{" "}
+        ikisi arasında bir yerde. Belirli şartları okuyun — genellikle dahili
+        kullanıma izin verir ancak rakip bir hizmet olarak barındırmayı kısıtlar.
       </li>
     </ul>
 
-    <h2 id="hacked">What happens to my code if GitHub gets hacked?</h2>
+    <h2 id="hacked">GitHub saldırıya uğrarsa koduma ne olur?</h2>
     <p>
-      GitHub has had security incidents but no full-database breach to date. The
-      practical risks:
+      GitHub'ın güvenlik olayları oldu ancak bugüne kadar tam veritabanı ihlali
+      yaşanmadı. Pratik riskler:
     </p>
     <ul>
       <li>
-        <strong>Account compromise.</strong> Most common. Mitigate with 2FA + a
-        password manager.
+        <strong>Hesap ele geçirme.</strong> En yaygın olanı. İki faktörlü
+        doğrulama (2FA) + bir parola yöneticisi ile azaltın.
       </li>
       <li>
-        <strong>Token leakage.</strong> Personal Access Tokens accidentally
-        committed to public repos. GitHub Secret Scanning catches most of these
-        automatically.
+        <strong>Token sızıntısı.</strong> Herkese açık repolara yanlışlıkla
+        işlenen Kişisel Erişim Token'ları. GitHub Secret Scanning bunların
+        çoğunu otomatik olarak yakalar.
       </li>
       <li>
-        <strong>Provider-wide breach.</strong> Hypothetical. The realistic mitigation
-        is keeping local clones (you have them anyway) and not relying on GitHub
-        as your only backup.
+        <strong>Sağlayıcı çapında ihlal.</strong> Varsayımsal. Gerçekçi önlem,
+        yerel kopyaları (zaten vardır) bulundurmak ve GitHub'ı tek yedek olarak
+        kullanmamaktır.
       </li>
     </ul>
     <p>
-      For genuinely critical code: mirror to a second provider (GitLab, Bitbucket,
-      self-hosted Gitea) on a periodic schedule. Never have a single point of failure.
+      Gerçekten kritik kod için: periyodik olarak ikinci bir sağlayıcıya (GitLab,
+      Bitbucket, kendi sunucunuzda Gitea) yansıtın. Asla tek bir hata noktanız
+      olmasın.
     </p>
 
-    <h2 id="api-keys">Stopping API keys from getting leaked</h2>
+    <h2 id="api-keys">API anahtarlarının sızmasını önleme</h2>
     <p>
-      Standard practices:
+      Standart uygulamalar:
     </p>
     <ul>
       <li>
-        <strong>Never commit secrets.</strong> Use .env files (gitignored), GitHub
-        Actions secrets, or cloud secret managers.
+        <strong>Sırları asla işlemeyin.</strong> .env dosyaları (gitignore'da),
+        GitHub Actions sırları veya bulut gizli yöneticileri kullanın.
       </li>
       <li>
-        <strong>GitHub Secret Scanning.</strong> Free, scans for known token
-        patterns (AWS, Stripe, etc.). Auto-rotates some tokens via partner
-        integrations.
+        <strong>GitHub Secret Scanning.</strong> Ücretsiz, bilinen token
+        kalıplarını (AWS, Stripe vb.) tarar. Bazı token'ları ortak
+        entegrasyonlar aracılığıyla otomatik olarak döndürür.
       </li>
       <li>
-        <strong>Pre-commit hooks.</strong> Tools like git-secrets or trufflehog
-        prevent committing tokens locally.
+        <strong>İşleme öncesi kancalar (pre-commit hooks).</strong> git-secrets
+        veya trufflehog gibi araçlar, token'ların yerel olarak işlenmesini
+        engeller.
       </li>
       <li>
-        <strong>Rotate tokens regularly.</strong> Even with prevention, assume some
-        will leak. Short token lifetimes limit damage.
+        <strong>Token'ları düzenli olarak döndürün.</strong> Önleme olsa bile,
+        bazılarının sızacağını varsayın. Kısa token ömrü hasarı sınırlar.
       </li>
       <li>
-        <strong>If a token leaks:</strong> rotate immediately, audit access logs,
-        force-push removal won&rsquo;t help (Git history persists in clones —
-        consider it permanently exposed).
+        <strong>Bir token sızarsa:</strong> hemen döndürün, erişim günlüklerini
+        denetleyin, zorla gönderme ile kaldırma işe yaramaz (Git geçmişi
+        kopyalarda kalır — kalıcı olarak açığa çıktığını kabul edin).
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Score your GitHub profile (free)",
+  label: "GitHub profilinizi puanlayın (ücretsiz)",
   targetSlug: "github-profile-scorecard",
 };
 
 export const faq = [
   {
-    q: "Is GitHub safe for client projects?",
-    a: "Yes with sensible setup: use private repos, don't commit secrets, sign NDAs first, transfer repo at project end. For HIPAA/FedRAMP/regulated work: GitHub Enterprise Cloud is compliant — confirm specific client requirements before committing.",
+    q: "GitHub müşteri projeleri için güvenli mi?",
+    a: "Mantıklı bir kurulumla evet: özel repolar kullanın, sırları işlemeyin, önce NDA imzalayın, proje sonunda repoyu devredin. HIPAA/FedRAMP/düzenlemeye tabi işler için: GitHub Enterprise Cloud uyumludur — işlem yapmadan önce müşterinin belirli gereksinimlerini teyit edin.",
   },
   {
-    q: "What's the real difference between public and private repos?",
-    a: "Public: anyone can read, you control writes, visible to search engines. Private: only invited collaborators can read or write, not search-indexed. Both free for unlimited repos. Default for new repos is private — verify before pushing anything sensitive.",
+    q: "Özel ve herkese açık repolar arasındaki gerçek fark nedir?",
+    a: "Herkese açık: herkes okuyabilir, yazmayı siz kontrol edersiniz, arama motorlarında görünür. Özel: yalnızca davet edilen işbirlikçiler okuyabilir veya yazabilir, arama motorlarında dizinlenmez. Her ikisi de sınırsız repo için ücretsiz. Yeni repolar için varsayılan özeldir — hassas bir şey göndermeden önce kontrol edin.",
   },
   {
-    q: "How do I stop my API keys from getting stolen on GitHub?",
-    a: "Never commit secrets — use .env (gitignored) + GitHub Actions secrets or cloud secret managers. Enable GitHub Secret Scanning (free, auto-detects tokens). Use pre-commit hooks (git-secrets, trufflehog). Rotate tokens regularly. If a token leaks: rotate immediately; force-push won't help (Git history persists in clones).",
-  },
-  {
-    q: "Can I download someone else's code on GitHub and use it legally?",
-    a: "Depends on license. MIT/Apache/BSD: yes with attribution. GPL/AGPL: yes but your software must also be GPL/AGPL. No license: default copyright applies, you legally can't use without permission. Source-available (BSL, Elastic): read terms — usually allows internal use but restricts competing hosting.",
-  },
-  {
-    q: "What happens to my code if GitHub gets hacked?",
-    a: "GitHub has had incidents but no full-database breach to date. Realistic risks: account compromise (mitigate with 2FA), token leakage (Secret Scanning catches most), provider-wide breach (keep local clones, mirror to second provider for critical code). Never single-point-of-failure.",
-  },
-  {
-    q: "How do I set up GitHub permissions so my team can't break production?",
-    a: "Branch protection rules: required reviews (block merge without N approvals), required status checks (CI must pass), no force-push, restrict who can push to deploy branches, code owners (require specific approvers for specific paths). Set these on day 1 — teams that skip eventually have a 'why did this break' incident.",
+    q: "API anahtarlarımın GitHub'da çalınmasını nasıl önlerim?",
+    a: "Sırları asla işlemeyin — .env (gitignore'da) + GitHub Actions sırları veya bulut gizli yöneticileri kullanın. GitHub Secret Scanning'i etkinleştirin, işleme öncesi kancalar (pre-commit hooks) kurun, token'ları düzenli olarak döndürün. Bir token sızarsa: hemen döndürün, erişim günlüklerini denetleyin, kalıcı olarak açığa çıktığını kabul edin.",
   },
 ];

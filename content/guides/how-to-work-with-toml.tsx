@@ -3,24 +3,19 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      TOML (Tom&rsquo;s Obvious Minimal Language) is a config-file
-      format designed to be easier to read than JSON and less
-      whitespace-sensitive than YAML. It powers{" "}
+      TOML (Tom&rsquo;s Obvious Minimal Language), JSON'dan daha okunabilir ve YAML'dan daha az boşluk duyarlı olacak şekilde tasarlanmış bir yapılandırma dosyası formatıdır.{" "}
       <code>Cargo.toml</code>, <code>pyproject.toml</code>,{" "}
-      <code>hugo.toml</code>, and many other project configs. This
-      guide covers TOML syntax (scalars, tables, arrays, inline),
-      how it compares to JSON and YAML, version differences (0.5 vs
-      1.0), common gotchas (datetimes, nested tables, mixing dotted
-      and header tables), and when to pick TOML vs the alternatives.
+      <code>hugo.toml</code> ve diğer birçok proje yapılandırmasında kullanılır. Bu
+      kılavuz, TOML sözdizimini (skalerler, tablolar, diziler, satır içi), JSON ve YAML ile karşılaştırmasını, sürüm farklılıklarını (0.5 vs 1.0), yaygın tuzakları (tarih-saatler, iç içe tablolar, noktalı ve başlık tablolarının karıştırılması) ve TOML'yi alternatiflerine karşı ne zaman seçmeniz gerektiğini kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The basics</h2>
+    <h2>Temel bilgiler</h2>
     <pre>
-{`title = "Example"
+{`title = "Örnek"
 port = 8080
 enabled = true
 
@@ -37,55 +32,51 @@ name = "logging"
 version = "0.9.0"`}
     </pre>
     <p>
-      Top-level is a table. Sections in square brackets are
-      sub-tables. Double brackets <code>[[...]]</code> are arrays of
-      tables.
+      En üst düzey bir tablodur. Köşeli parantez içindeki bölümler alt tablolardır. Çift köşeli parantezler <code>[[...]]</code> tablo dizileridir.
     </p>
 
-    <h2>Scalar types</h2>
+    <h2>Skaler türler</h2>
     <p>
-      <strong>String:</strong> double-quoted (with escapes) or
-      literal single-quoted (raw, no escapes):{" "}
-      <code>&quot;hello&quot;</code>,{" "}
-      <code>&apos;raw\string&apos;</code>.
+      <strong>String:</strong> çift tırnaklı (kaçış karakterleriyle) veya tek tırnaklı (ham, kaçış yok):{" "}
+      <code>&quot;merhaba&quot;</code>,{" "}
+      <code>&apos;ham\string&apos;</code>.
     </p>
     <p>
-      <strong>Multi-line string:</strong> triple quotes —{" "}
-      <code>&quot;&quot;&quot;...&quot;&quot;&quot;</code> or{" "}
+      <strong>Çok satırlı string:</strong> üçlü tırnak —{" "}
+      <code>&quot;&quot;&quot;...&quot;&quot;&quot;</code> veya{" "}
       <code>&apos;&apos;&apos;...&apos;&apos;&apos;</code>.
     </p>
     <p>
-      <strong>Integer:</strong>{" "}
+      <strong>Tam sayı:</strong>{" "}
       <code>42</code>, <code>-17</code>, <code>0xdeadbeef</code>
-      {" "}(hex), <code>0o777</code> (octal), <code>0b1010</code>
-      {" "}(binary).
+      {" "}(onaltılı), <code>0o777</code> (sekizli), <code>0b1010</code>
+      {" "}(ikili).
     </p>
     <p>
-      <strong>Float:</strong> <code>3.14</code>, <code>1e10</code>,{" "}
+      <strong>Ondalıklı sayı:</strong> <code>3.14</code>, <code>1e10</code>,{" "}
       <code>inf</code>, <code>nan</code>.
     </p>
     <p>
-      <strong>Boolean:</strong> <code>true</code>,{" "}
-      <code>false</code>. Lowercase only.
+      <strong>Mantıksal:</strong> <code>true</code>,{" "}
+      <code>false</code>. Sadece küçük harf.
     </p>
     <p>
-      <strong>Datetime (RFC 3339):</strong>{" "}
+      <strong>Tarih-saat (RFC 3339):</strong>{" "}
       <code>2026-04-22T10:30:00Z</code>, <code>2026-04-22</code>
-      {" "}(date), <code>10:30:00</code> (local time).
+      {" "}(tarih), <code>10:30:00</code> (yerel saat).
     </p>
     <p>
-      <strong>Array:</strong>{" "}
+      <strong>Dizi:</strong>{" "}
       <code>[1, 2, 3]</code>,{" "}
-      <code>[&quot;a&quot;, &quot;b&quot;]</code>. Homogeneous in
-      TOML 0.5 and earlier; mixed-type arrays legal in 1.0+.
+      <code>[&quot;a&quot;, &quot;b&quot;]</code>. TOML 0.5 ve öncesinde homojen; 1.0+ sürümünde karışık türde dizilere izin verilir.
     </p>
 
-    <h2>Tables</h2>
+    <h2>Tablolar</h2>
     <p>
-      A table is a set of key/value pairs. Three ways to declare:
+      Tablo, bir dizi anahtar/değer çiftidir. Bildirmenin üç yolu vardır:
     </p>
     <p>
-      <strong>Header table:</strong>
+      <strong>Başlık tablosu:</strong>
     </p>
     <pre>
 {`[server]
@@ -93,24 +84,23 @@ host = "localhost"
 port = 8080`}
     </pre>
     <p>
-      <strong>Inline table:</strong>
+      <strong>Satır içi tablo:</strong>
     </p>
     <pre>
 {`server = { host = "localhost", port = 8080 }`}
     </pre>
     <p>
-      <strong>Dotted keys:</strong>
+      <strong>Noktalı anahtarlar:</strong>
     </p>
     <pre>
 {`server.host = "localhost"
 server.port = 8080`}
     </pre>
     <p>
-      All three produce the same logical structure. Pick one style
-      per file for readability.
+      Üçü de aynı mantıksal yapıyı üretir. Okunabilirlik için dosya başına bir stil seçin.
     </p>
 
-    <h2>Nested tables</h2>
+    <h2>İç içe tablolar</h2>
     <pre>
 {`[database]
 url = "postgres://..."
@@ -120,8 +110,7 @@ min = 2
 max = 10`}
     </pre>
     <p>
-      The <code>database.pool</code> header names the nested table.
-      Dotted key style also works:
+      <code>database.pool</code> başlığı iç içe tabloyu adlandırır. Noktalı anahtar stili de çalışır:
     </p>
     <pre>
 {`[database]
@@ -130,10 +119,9 @@ pool.min = 2
 pool.max = 10`}
     </pre>
 
-    <h2>Arrays of tables</h2>
+    <h2>Tablo dizileri</h2>
     <p>
-      Double-bracket headers define array elements, each its own
-      table:
+      Çift köşeli parantez başlıkları, her biri kendi tablosu olan dizi öğelerini tanımlar:
     </p>
     <pre>
 {`[[products]]
@@ -145,163 +133,123 @@ name = "Gadget"
 price = 14.99`}
     </pre>
     <p>
-      Equivalent JSON:{" "}
+      Eşdeğer JSON:{" "}
       <code>{`"products":[{"name":"Widget",...},{"name":"Gadget",...}]`}</code>.
     </p>
 
     <h2>TOML vs JSON vs YAML</h2>
     <p>
-      <strong>JSON:</strong> machine-to-machine. Verbose, no
-      comments, bad for config.
+      <strong>JSON:</strong> makineden makineye. Ayrıntılı, yorum yok, yapılandırma için kötü.
     </p>
     <p>
-      <strong>YAML:</strong> human-friendly but whitespace-sensitive.
-      Subtle bugs (<code>no</code> parsing as false; unquoted{" "}
-      <code>1.0</code> becoming a float). Anchors and references
-      add power but confusion.
+      <strong>YAML:</strong> insan dostu ancak boşluk duyarlı. İnce hatalar (<code>no</code> ifadesinin false olarak ayrıştırılması; tırnaksız{" "}
+      <code>1.0</code> ifadesinin ondalıklı sayıya dönüşmesi). Çapalar ve referanslar güç katar ancak kafa karışıklığına yol açar.
     </p>
     <p>
-      <strong>TOML:</strong> config-focused. No whitespace rules.
-      Comments supported. Types are explicit. Less expressive than
-      YAML (no merging, no references).
+      <strong>TOML:</strong> yapılandırma odaklı. Boşluk kuralları yok. Yorumlar desteklenir. Türler açıktır. YAML'dan daha az ifade gücüne sahiptir (birleştirme, referans yok).
     </p>
     <p>
-      <strong>Rule of thumb:</strong> TOML for project config,
-      JSON for API payloads and machine-generated data, YAML when
-      you need anchors/overrides or match an existing ecosystem
-      (Kubernetes, Ansible).
+      <strong>Genel kural:</strong> Proje yapılandırması için TOML, API yükleri ve makine tarafından oluşturulan veriler için JSON, çapa/geçersiz kılma ihtiyacınız olduğunda veya mevcut bir ekosistemle (Kubernetes, Ansible) uyum sağlamanız gerektiğinde YAML kullanın.
     </p>
 
-    <h2>TOML version differences</h2>
+    <h2>TOML sürüm farklılıkları</h2>
     <p>
-      <strong>0.5 → 1.0:</strong> 1.0 allows mixed-type arrays,
-      clarified datetime handling, tightened redeclaration rules.
+      <strong>0.5 → 1.0:</strong> 1.0, karışık türde dizilere izin verir, tarih-saat işlemeyi netleştirir, yeniden bildirim kurallarını sıkılaştırır.
     </p>
     <p>
-      <strong>Parser compatibility:</strong> old parsers may reject
-      1.0 files that use mixed arrays. When sharing TOML, target
-      1.0 and document it.
+      <strong>Ayrıştırıcı uyumluluğu:</strong> eski ayrıştırıcılar, karışık diziler kullanan 1.0 dosyalarını reddedebilir. TOML paylaşırken 1.0'ı hedefleyin ve belgeleyin.
     </p>
     <p>
-      <strong>Check parser version:</strong>{" "}
-      <code>toml_edit</code> (Rust), <code>tomli</code> (Python
-      3.11+ stdlib), <code>@iarna/toml</code> (JS). Check your
-      parser supports 1.0 if you use mixed arrays.
+      <strong>Ayrıştırıcı sürümünü kontrol edin:</strong>{" "}
+      <code>toml_edit</code> (Rust), <code>tomli</code> (Python 3.11+ standart kütüphanesi), <code>@iarna/toml</code> (JS). Karışık diziler kullanıyorsanız ayrıştırıcınızın 1.0'ı desteklediğini kontrol edin.
     </p>
 
-    <h2>Comments</h2>
+    <h2>Yorumlar</h2>
     <pre>
-{`# full-line comment
-port = 8080  # inline comment`}
+{`# tam satır yorumu
+port = 8080  # satır içi yorum`}
     </pre>
     <p>
-      Start with <code>#</code>. No multi-line comment syntax.
-      Comments are not preserved by most parsers unless you use a
-      round-trip parser (e.g., <code>toml_edit</code>).
+      <code>#</code> ile başlar. Çok satırlı yorum sözdizimi yoktur. Yorumlar, yuvarlak yol ayrıştırıcısı (ör. <code>toml_edit</code>) kullanmadığınız sürece çoğu ayrıştırıcı tarafından korunmaz.
     </p>
 
-    <h2>Round-trip preservation</h2>
+    <h2>Yuvarlak yol koruması</h2>
     <p>
-      Most TOML parsers throw away comments and reorder keys. For
-      tools that need to edit config files while preserving
-      formatting (think Cargo editing <code>Cargo.toml</code>), use
-      a round-trip parser: <code>toml_edit</code> in Rust,{" "}
-      <code>tomlkit</code> in Python.
+      Çoğu TOML ayrıştırıcısı yorumları atar ve anahtarları yeniden sıralar. Biçimlendirmeyi korurken yapılandırma dosyalarını düzenlemesi gereken araçlar için (Cargo'nun <code>Cargo.toml</code>'u düzenlemesi gibi), bir yuvarlak yol ayrıştırıcısı kullanın: Rust'ta <code>toml_edit</code>, Python'da <code>tomlkit</code>.
     </p>
 
-    <h2>Common gotchas</h2>
+    <h2>Yaygın tuzaklar</h2>
     <p>
-      <strong>Redefining tables:</strong> you can&rsquo;t declare{" "}
-      <code>[server]</code> twice. Second header = error.
+      <strong>Tabloları yeniden tanımlama:</strong> <code>[server]</code>'ı iki kez bildiremezsiniz. İkinci başlık = hata.
     </p>
     <p>
-      <strong>Mixing header and dotted declarations of the same
-      path:</strong>
+      <strong>Aynı yol için başlık ve noktalı bildirimleri karıştırma:</strong>
     </p>
     <pre>
 {`[server]
 host = "x"
-server.port = 8080  # error — server already declared`}
+server.port = 8080  # hata — server zaten bildirildi`}
     </pre>
     <p>
-      <strong>Datetime timezone:</strong> offset datetimes vs local
-      datetimes matter. <code>2026-04-22T10:30:00Z</code> is UTC;{" "}
-      <code>2026-04-22T10:30:00</code> has no offset (local time).
+      <strong>Tarih-saat saat dilimi:</strong> ofsetli tarih-saatler ile yerel tarih-saatler önemlidir. <code>2026-04-22T10:30:00Z</code> UTC'dir;{" "}
+      <code>2026-04-22T10:30:00</code> ofsetsizdir (yerel saat).
     </p>
     <p>
-      <strong>Hex/octal/binary only for integers:</strong> not for
-      floats.
+      <strong>Onaltılı/sekizli/ikili yalnızca tam sayılar için:</strong> ondalıklı sayılar için değil.
     </p>
     <p>
-      <strong>Raw strings can&rsquo;t contain single quotes:</strong>
-      {" "}use basic strings with escapes or multiline literal.
+      <strong>Ham stringler tek tırnak içeremez:</strong>{" "}
+      kaçış karakterli temel stringler veya çok satırlı literal kullanın.
     </p>
 
-    <h2>TOML to JSON and back</h2>
+    <h2>TOML'den JSON'a ve geri</h2>
     <p>
-      TOML converts cleanly to JSON (TOML is strictly less
-      expressive — comments and some number formats lost). JSON to
-      TOML is lossy in one case: JSON doesn&rsquo;t distinguish
-      integer and float, so <code>1</code> might round-trip as{" "}
-      <code>1</code> or <code>1.0</code> depending on the converter.
+      TOML, JSON'a temiz bir şekilde dönüşür (TOML kesinlikle daha az ifade gücüne sahiptir — yorumlar ve bazı sayı biçimleri kaybolur). JSON'dan TOML'ye dönüşüm bir durumda kayıplıdır: JSON, tam sayı ve ondalıklı sayıyı ayırt etmez, bu nedenle <code>1</code>, dönüştürücüye bağlı olarak <code>1</code> veya <code>1.0</code> olarak yuvarlak yol yapabilir.
     </p>
     <p>
-      Most tools (including our converter) parse TOML into an
-      internal object, then serialize to JSON. Clean for most data;
-      datetimes may need special handling.
+      Çoğu araç (dönüştürücümüz dahil) TOML'yi bir iç nesneye ayrıştırır, ardından JSON'a serileştirir. Çoğu veri için temizdir; tarih-saatler özel işlem gerektirebilir.
     </p>
 
-    <h2>When to pick TOML</h2>
+    <h2>TOML ne zaman seçilmeli</h2>
     <p>
-      <strong>Project config:</strong>{" "}
-      <code>Cargo.toml</code>, <code>pyproject.toml</code> made it a
-      de facto standard.
+      <strong>Proje yapılandırması:</strong>{" "}
+      <code>Cargo.toml</code>, <code>pyproject.toml</code> onu fiili bir standart haline getirdi.
     </p>
     <p>
-      <strong>Tool config:</strong> <code>netlify.toml</code>,{" "}
+      <strong>Araç yapılandırması:</strong> <code>netlify.toml</code>,{" "}
       <code>hugo.toml</code>, <code>black.toml</code>.
     </p>
     <p>
-      <strong>Config that humans edit:</strong> clearer than JSON,
-      less bite than YAML.
+      <strong>İnsanların düzenlediği yapılandırma:</strong> JSON'dan daha net, YAML'dan daha az ısırıcı.
     </p>
     <p>
-      <strong>Avoid for:</strong> anything that needs
-      anchors/references, deep nesting (YAML is often better), or
-      binary data (base64 into strings gets ugly).
+      <strong>Şunlar için kaçının:</strong> çapa/referans gerektiren her şey, derin iç içe geçme (YAML genellikle daha iyidir) veya ikili veri (stringlere base64 eklemek çirkinleşir).
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Using YAML-style list indentation.</strong> TOML
-      arrays use brackets, not hyphens.
+      <strong>YAML tarzı liste girintisi kullanmak.</strong> TOML dizileri kısa çizgi değil, köşeli parantez kullanır.
     </p>
     <p>
-      <strong>Forgetting quotes on string values.</strong> Unquoted
-      strings are illegal except for bare keys.
+      <strong>String değerlerde tırnak işaretlerini unutmak.</strong> Tırnaksız stringler, çıplak anahtarlar dışında geçersizdir.
     </p>
     <p>
-      <strong>Mixing dotted and header declarations for one path.</strong>
-      {" "}Parser error.
+      <strong>Bir yol için noktalı ve başlık bildirimlerini karıştırmak.</strong>{" "}
+      Ayrıştırıcı hatası.
     </p>
     <p>
-      <strong>Treating TOML dates as strings.</strong> They&rsquo;re
-      first-class datetime types. Use the parsed datetime object.
+      <strong>TOML tarihlerini string olarak ele almak.</strong> Bunlar birinci sınıf tarih-saat türleridir. Ayrıştırılmış tarih-saat nesnesini kullanın.
     </p>
     <p>
-      <strong>Expecting round-trip formatting.</strong> Most parsers
-      reformat. Use a round-trip parser if formatting matters.
+      <strong>Yuvarlak yol biçimlendirmesi beklemek.</strong> Çoğu ayrıştırıcı yeniden biçimlendirir. Biçimlendirme önemliyse yuvarlak yol ayrıştırıcısı kullanın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Convert TOML to JSON instantly with the{" "}
-      <a href="/tools/toml-to-json">TOML to JSON converter</a>. Pair
-      with the{" "}
-      <a href="/tools/yaml-json-converter">YAML/JSON converter</a>
-      {" "}when comparing config formats, and the{" "}
-      <a href="/tools/json-formatter">JSON formatter</a> to tidy the
-      output.
+      TOML'yi anında JSON'a dönüştürmek için{" "}
+      <a href="/tools/toml-to-json">TOML'den JSON'a dönüştürücüyü</a> kullanın. Yapılandırma biçimlerini karşılaştırırken{" "}
+      <a href="/tools/yaml-json-converter">YAML/JSON dönüştürücü</a> ve çıktıyı düzenlemek için{" "}
+      <a href="/tools/json-formatter">JSON biçimlendirici</a> ile birlikte kullanın.
     </p>
   </>
 );

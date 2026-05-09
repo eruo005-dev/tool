@@ -2,97 +2,70 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Most dating-app bios fail the same way: too short, too vague, and full of phrases that
-    every other profile already used. The fix is small. You don&rsquo;t need to be funnier or
-    more interesting than the people getting matches &mdash; you need to give a stranger
-    something specific to react to.
+    Çoğu flört uygulaması biyografisi aynı şekilde başarısız olur: çok kısa, çok belirsiz ve diğer her profilin zaten kullandığı ifadelerle dolu. Çözüm küçük. Eşleşme alan insanlardan daha komik veya daha ilginç olmana gerek yok &mdash; bir yabancıya tepki verebileceği somut bir şey vermelisin.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      A bio is a casting tape, not a resume. The job is to filter <em>in</em> people who would
-      actually click with you, not to maximize raw matches. The best bios trade swipe volume
-      for swipe quality: fewer matches, but the right ones, with built-in opening lines.
+      Bir biyografi, bir özgeçmiş değil, bir oyuncu seçme kasetidir. İş, seninle gerçekten uyum sağlayacak insanları <em>filtrelemek</em>, ham eşleşme sayısını maksimize etmek değil. En iyi biyografiler, kaydırma hacmini kaydırma kalitesiyle takas eder: daha az eşleşme, ama doğru olanlar, yerleşik açılış cümleleriyle.
     </p>
 
-    <h2>The 60&ndash;150 word sweet spot</h2>
+    <h2>60&ndash;150 kelimelik ideal nokta</h2>
     <p>
-      Hinge research and most dating-coach data converge on roughly 60&ndash;150 words. Under
-      60 reads as low effort. Over 150 reads as a personal essay no one volunteered to read.
-      You&rsquo;re not writing a contract &mdash; you&rsquo;re writing the back-cover copy of a
-      book someone might pick up.
+      Hinge araştırmaları ve çoğu flört koçu verisi, kabaca 60&ndash;150 kelime üzerinde birleşiyor. 60'ın altı düşük çaba olarak okunur. 150'nin üstü ise kimsenin okumaya gönüllü olmadığı kişisel bir makale gibi okunur. Bir sözleşme yazmıyorsun &mdash; birinin eline alabileceği bir kitabın arka kapağını yazıyorsun.
     </p>
 
-    <h2>Replace cliches with specifics</h2>
+    <h2>Klişeleri somut ayrıntılarla değiştir</h2>
     <p>
-      &ldquo;Fluent in sarcasm.&rdquo; &ldquo;Partner in crime.&rdquo; &ldquo;I love to laugh.&rdquo;
-      These phrases don&rsquo;t describe you, they describe the average dating-app user. They
-      get skipped because the brain has already filed them away. Pick three concrete details
-      and put those instead:
+      &ldquo;Alaycılıkta anadilim.&rdquo; &ldquo;Suç ortağı.&rdquo; &ldquo;Gülmeyi severim.&rdquo; Bu ifadeler seni tanımlamaz, ortalama bir flört uygulaması kullanıcısını tanımlar. Beyin onları çoktan dosyalamış olduğu için atlanırlar. Bunun yerine üç somut ayrıntı seç ve onları koy:
     </p>
     <ul>
-      <li>A neighborhood, city, or recent move (&ldquo;just moved to East Austin from Brooklyn&rdquo;).</li>
-      <li>A hobby with a verb (&ldquo;rock climbing on Mondays, badly&rdquo; vs &ldquo;I love being active&rdquo;).</li>
-      <li>One thing you&rsquo;re weirdly into (&ldquo;arguing about ramen brothes&rdquo;).</li>
+      <li>Bir mahalle, şehir veya yakın zamandaki taşınma (&ldquo;Brooklyn'den East Austin'e yeni taşındım&rdquo;).</li>
+      <li>Fiil içeren bir hobi (&ldquo;Pazartesileri kaya tırmanışı, kötü bir şekilde&rdquo; vs &ldquo;Aktif olmayı severim&rdquo;).</li>
+      <li>Tuhaf bir şekilde ilgilendiğin bir şey (&ldquo;ramen çorbaları hakkında tartışmak&rdquo;).</li>
     </ul>
 
-    <h2>Engineer at least one hook</h2>
+    <h2>En az bir kanca tasarla</h2>
     <p>
-      A hook is a sentence designed to be quoted back to you. It&rsquo;s how strangers solve
-      the &ldquo;what do I open with?&rdquo; problem without resorting to &ldquo;hey.&rdquo;
-      Hooks come in three flavors:
+      Kanca, sana geri alıntılanmak üzere tasarlanmış bir cümledir. Yabancıların &ldquo;hey&rdquo; demek zorunda kalmadan &ldquo;neyle açılış yapayım?&rdquo; sorununu çözme şeklidir. Kancalar üç çeşittir:
     </p>
     <ul>
-      <li><strong>The micro-debate:</strong> &ldquo;Argue with me about whether airport bars count as travel.&rdquo;</li>
-      <li><strong>The recommendation request:</strong> &ldquo;Tell me what I should be reading next &mdash; my last book was a 5-star.&rdquo;</li>
-      <li><strong>The call-out:</strong> &ldquo;If you also pronounce caramel with three syllables, hi.&rdquo;</li>
+      <li><strong>Mikro-tartışma:</strong> &ldquo;Havaalanı barlarının seyahat sayılıp sayılmadığı konusunda benimle tartış.&rdquo;</li>
+      <li><strong>Tavsiye isteği:</strong> &ldquo;Bana sırada ne okumam gerektiğini söyle &mdash; son kitabım 5 yıldızlıydı.&rdquo;</li>
+      <li><strong>Meydan okuma:</strong> &ldquo;Eğer sen de karameli üç heceyle telaffuz ediyorsan, merhaba.&rdquo;</li>
     </ul>
     <p>
-      One hook is plenty. Two if the rest of the bio carries it. Three or more starts to feel
-      like a quiz.
+      Bir kanca yeterlidir. Biyografinin geri kalanı taşıyorsa iki tane. Üç veya daha fazlası bir teste dönüşmeye başlar.
     </p>
 
-    <h2>Say what you&rsquo;re looking <em>toward</em>, not what you&rsquo;re running from</h2>
+    <h2>Kaçtığın şeyi değil, <em>neye doğru</em> gittiğini söyle</h2>
     <p>
-      &ldquo;No drama.&rdquo; &ldquo;Don&rsquo;t message me if you can&rsquo;t hold a conversation.&rdquo;
-      &ldquo;Tired of games.&rdquo; Lines like these are wallpaper for bitterness. They tell
-      a reader more about your last relationship than your next one. Lead with the positive
-      version: what kind of weekend you&rsquo;d actually want to share, what you&rsquo;d like to
-      build with someone.
+      &ldquo;Drama yok.&rdquo; &ldquo;Sohbet edemiyorsan bana mesaj atma.&rdquo; &ldquo;Oyunlardan bıktım.&rdquo; Bu tür cümleler acılık için duvar kağıdıdır. Okuyucuya bir sonraki ilişkinden çok bir önceki ilişkin hakkında bilgi verirler. Olumlu versiyonla başla: gerçekten paylaşmak isteyeceğin türden bir hafta sonu, biriyle ne tür bir şey inşa etmek istediğin.
     </p>
 
-    <h2>Photo-bio coherence beats either alone</h2>
+    <h2>Fotoğraf-biyografi uyumu, tek başına ikisinden de daha iyidir</h2>
     <p>
-      The bio carries less weight if the photos tell a clashing story. Climbing photo + bio
-      that mentions climbing? Match. Climbing photo + bio that says you&rsquo;re &ldquo;low
-      key&rdquo;? Reader confused. Pick the 2&ndash;3 things you actually want to talk about
-      and make sure both surfaces &mdash; photos and words &mdash; reinforce them.
+      Fotoğraflar çelişkili bir hikaye anlatıyorsa biyografi daha az ağırlık taşır. Tırmanma fotoğrafı + tırmanmadan bahseden biyografi? Eşleşme. Tırmanma fotoğrafı + &ldquo;sakin&rdquo; olduğunu söyleyen biyografi? Okuyucu kafası karışık. Gerçekten hakkında konuşmak istediğin 2&ndash;3 şeyi seç ve her iki yüzeyin de &mdash; fotoğraflar ve kelimeler &mdash; onları pekiştirdiğinden emin ol.
     </p>
 
-    <h2>Format for skim, not for depth</h2>
+    <h2>Derinlik için değil, göz atma için biçimlendir</h2>
     <ul>
-      <li>2&ndash;4 short lines or fragments, not a paragraph.</li>
-      <li>Specific over general. Verbs over adjectives.</li>
-      <li>One emoji, two max. They replace personality past that.</li>
-      <li>Capital I, periods on full sentences. Effortless reads as effortful in 2026.</li>
+      <li>Bir paragraf değil, 2&ndash;4 kısa satır veya parçacık.</li>
+      <li>Genel yerine somut. Sıfatlar yerine fiiller.</li>
+      <li>Bir emoji, en fazla iki. Bundan sonra kişiliğin yerini alırlar.</li>
+      <li>Büyük I, tam cümlelerde nokta. 2026'da zahmetsiz, çaba göstermiş gibi okunur.</li>
     </ul>
 
-    <h2>The 30-second test</h2>
+    <h2>30 saniye testi</h2>
     <p>
-      Read your bio out loud. If it could fit any reasonably attractive 28-year-old in your
-      city, it&rsquo;s too generic. If you&rsquo;d be embarrassed to read it to a friend,
-      it&rsquo;s too try-hard. The right bio sounds like you wrote it &mdash; not like a
-      template you filled out.
+      Biyografini yüksek sesle oku. Şehrindeki makul derecede çekici herhangi bir 28 yaşındaki kişiye uyabiliyorsa, çok genel. Bir arkadaşına okumaktan utanacaksan, çok zorlama. Doğru biyografi, senin yazdığın gibi ses çıkarır &mdash; doldurduğun bir şablon gibi değil.
     </p>
 
-    <h2>Score your draft before you post it</h2>
+    <h2>Yayınlamadan önce taslağını puanla</h2>
     <p>
-      Run your draft through our <a href="/tools/dating-app-bio-rater">dating app bio rater</a>:
-      it scores length, hooks, cliche density, framing, and specificity, and surfaces the top
-      three things to fix. Five minutes, free, runs in your browser &mdash; no paste-into-an-AI,
-      no training-data concerns.
+      Taslağını <a href="/tools/dating-app-bio-rater">flört uygulaması biyografi değerlendiricimizden</a> geçir: uzunluğu, kancaları, klişe yoğunluğunu, çerçevelemeyi ve somutluğu puanlar ve düzeltilecek en önemli üç şeyi gösterir. Beş dakika, ücretsiz, tarayıcında çalışır &mdash; yapay zekaya yapıştırma yok, eğitim verisi endişesi yok.
     </p>
   </>
 );

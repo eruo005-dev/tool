@@ -3,192 +3,137 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Meta tags are the instructions you give a browser, search engine, or crawler in the
-      <code>&lt;head&gt;</code> of an HTML document. Most of them are small, but collectively
-      they control how the page is indexed, how it renders on mobile, what character set the
-      browser uses, which URL is canonical, which languages the page has alternates in, and
-      how it appears when shared. Some meta tags that were once critical are now dead
-      (<code>meta keywords</code> has been ignored by major search engines for over a decade).
-      Others that are easy to forget (<code>viewport</code>, <code>charset</code>) break the
-      page outright if missing. This guide covers the tags that actually matter in 2026, the
-      ones that are dead weight, and how they interact with each other and with structured
-      data.
+      Meta etiketleri, bir HTML belgesinin <code>&lt;head&gt;</code> kısmında tarayıcıya, arama motoruna veya tarayıcıya verdiğiniz talimatlardır. Çoğu küçüktür, ancak toplu olarak sayfanın nasıl indeksleneceğini, mobilde nasıl görüntüleneceğini, tarayıcının hangi karakter setini kullanacağını, hangi URL'nin kanonik olduğunu, sayfanın hangi dillerde alternatifleri olduğunu ve paylaşıldığında nasıl görüneceğini kontrol ederler. Bir zamanlar kritik olan bazı meta etiketleri artık ölüdür (<code>meta keywords</code> on yılı aşkın süredir büyük arama motorları tarafından dikkate alınmamaktadır). Unutulması kolay olan diğerleri (<code>viewport</code>, <code>charset</code>) eksik olduklarında sayfayı tamamen bozar. Bu kılavuz, 2026'da gerçekten önemli olan etiketleri, ölü ağırlık olanları ve bunların birbirleriyle ve yapılandırılmış verilerle nasıl etkileşime girdiğini kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Charset and viewport: the non-negotiables</h2>
+    <h2>Karakter seti ve görüntü alanı: pazarlık konusu olmayanlar</h2>
     <p>
-      The very first meta tag in <code>&lt;head&gt;</code> should be
-      <code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code>. It must appear within the first 1024
-      bytes of the document or browsers may fall back to an incorrect default encoding.
+      <code>&lt;head&gt;</code> içindeki ilk meta etiketi <code>&lt;meta charset=&quot;UTF-8&quot;&gt;</code> olmalıdır. Belgenin ilk 1024 baytı içinde görünmelidir, aksi takdirde tarayıcılar yanlış bir varsayılan kodlamaya geri dönebilir.
       <code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width,
-      initial-scale=1&quot;&gt;</code> tells mobile browsers to render at the device&rsquo;s
-      actual width rather than a zoomed-out desktop simulation. Without it, your site looks
-      tiny on phones and fails Google&rsquo;s mobile-friendly test, which directly affects
-      mobile ranking.
+      initial-scale=1&quot;&gt;</code> mobil tarayıcılara, uzaklaştırılmış bir masaüstü simülasyonu yerine cihazın gerçek genişliğinde işleme yapmalarını söyler. Bu olmadan, siteniz telefonlarda küçük görünür ve Google'ın mobil uyumluluk testinde başarısız olur, bu da doğrudan mobil sıralamayı etkiler.
     </p>
     <pre>{`<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">`}</pre>
 
-    <h2>Title and description</h2>
+    <h2>Başlık ve açıklama</h2>
     <p>
-      The <code>&lt;title&gt;</code> tag and <code>&lt;meta name=&quot;description&quot;&gt;</code>
-      are the two highest-impact head elements. Title is a ranking signal and the SERP
-      headline; description influences click-through rate. Title target is 50-60 characters.
-      Description target is 150-160 characters. Both need to be unique per page. Covered
-      separately in dedicated guides but mentioned here because they belong in every
-      meta-tag checklist.
+      <code>&lt;title&gt;</code> etiketi ve <code>&lt;meta name=&quot;description&quot;&gt;</code>
+      en yüksek etkiye sahip iki baş öğesidir. Başlık bir sıralama sinyalidir ve SERP
+      başlığıdır; açıklama tıklama oranını etkiler. Başlık hedefi 50-60 karakterdir.
+      Açıklama hedefi 150-160 karakterdir. Her ikisinin de sayfa başına benzersiz olması gerekir. Ayrıntılı kılavuzlarda ayrı ayrı ele alınmıştır, ancak her meta etiket kontrol listesinde yer aldıkları için burada bahsedilmiştir.
     </p>
 
-    <h2>Robots directives</h2>
+    <h2>Robot yönergeleri</h2>
     <p>
-      <code>&lt;meta name=&quot;robots&quot; content=&quot;...&quot;&gt;</code> controls crawler
-      behavior for the page. Common values: <code>index, follow</code> (default, can be
-      omitted), <code>noindex</code> (do not include in search results),
-      <code>nofollow</code> (do not pass link equity), <code>noindex, nofollow</code>
-      (exclude entirely). More specific directives include <code>noarchive</code> (do not
-      cache a copy), <code>nosnippet</code> (do not show a description), <code>max-snippet</code>,
-      <code>max-image-preview</code>, and <code>max-video-preview</code> for fine-grained
-      snippet control. A page with <code>noindex</code> still gets crawled but not listed; a
-      page with <code>noindex, nofollow</code> gets crawled and neither listed nor passing any
-      link equity.
+      <code>&lt;meta name=&quot;robots&quot; content=&quot;...&quot;&gt;</code> sayfa için tarayıcı
+      davranışını kontrol eder. Yaygın değerler: <code>index, follow</code> (varsayılan, atlanabilir), <code>noindex</code> (arama sonuçlarına dahil etme),
+      <code>nofollow</code> (bağlantı değerini iletme), <code>noindex, nofollow</code>
+      (tamamen hariç tut). Daha spesifik yönergeler arasında <code>noarchive</code> (bir kopyayı önbelleğe alma), <code>nosnippet</code> (bir açıklama gösterme), <code>max-snippet</code>,
+      <code>max-image-preview</code> ve <code>max-video-preview</code> bulunur. <code>noindex</code> içeren bir sayfa yine de taranır ancak listelenmez; <code>noindex, nofollow</code> içeren bir sayfa taranır ve ne listelenir ne de herhangi bir bağlantı değeri iletir.
     </p>
 
-    <h2>Canonical link</h2>
+    <h2>Kanonik bağlantı</h2>
     <p>
-      Technically a <code>&lt;link&gt;</code> rather than a <code>&lt;meta&gt;</code>, the
-      canonical tag belongs in any meta-tags checklist.
+      Teknik olarak bir <code>&lt;meta&gt;</code> değil, bir <code>&lt;link&gt;</code> olan
+      kanonik etiketi, herhangi bir meta etiket kontrol listesinde yer almalıdır.
       <code>&lt;link rel=&quot;canonical&quot; href=&quot;https://example.com/page&quot;&gt;</code>
-      tells search engines which URL is the primary version when multiple URLs serve the same
-      content. Use absolute URLs, self-reference canonicals on primary pages, and make sure the
-      <a href="/learn/canonical-url">canonical URL</a> actually exists and returns 200 status. A canonical pointing to a
-      non-existent or redirecting URL confuses crawlers.
+      arama motorlarına, birden çok URL aynı içeriği sunduğunda hangi URL'nin birincil sürüm olduğunu söyler. Mutlak URL'ler kullanın, birincil sayfalarda kendine referans veren kanonikler kullanın ve
+      <a href="/learn/canonical-url">kanonik URL'nin</a> gerçekten var olduğundan ve 200 durumu döndürdüğünden emin olun. Var olmayan veya yönlendiren bir URL'yi işaret eden bir kanonik, tarayıcıların kafasını karıştırır.
     </p>
 
-    <h2>Language and hreflang alternates</h2>
+    <h2>Dil ve hreflang alternatifleri</h2>
     <p>
-      <code>&lt;html lang=&quot;en&quot;&gt;</code> on the root element declares the page&rsquo;s
-      primary language for screen readers and search engines. For multilingual sites,
+      Kök öğedeki <code>&lt;html lang=&quot;en&quot;&gt;</code>, sayfanın birincil dilini
+      ekran okuyucular ve arama motorları için bildirir. Çok dilli siteler için,
       <code>&lt;link rel=&quot;alternate&quot; hreflang=&quot;fr&quot;
-      href=&quot;https://example.com/fr/page&quot;&gt;</code> lists alternate language
-      versions. Hreflang is complex: every variant must reference every other variant and
-      itself; <code>x-default</code> specifies the fallback; invalid combinations can deindex
-      alternates. Google Search Console flags hreflang errors in the International Targeting
-      report.
+      href=&quot;https://example.com/fr/page&quot;&gt;</code> alternatif dil
+      sürümlerini listeler. Hreflang karmaşıktır: her varyant diğer her varyanta ve kendisine referans vermelidir; <code>x-default</code> geri dönüşü belirtir; geçersiz kombinasyonlar alternatiflerin indeks dışı kalmasına neden olabilir. Google Search Console, Uluslararası Hedefleme raporunda hreflang hatalarını işaretler.
     </p>
     <pre>{`<link rel="alternate" hreflang="en" href="https://example.com/page" />
 <link rel="alternate" hreflang="fr" href="https://example.com/fr/page" />
 <link rel="alternate" hreflang="es" href="https://example.com/es/page" />
 <link rel="alternate" hreflang="x-default" href="https://example.com/page" />`}</pre>
 
-    <h2>Theme color and application metadata</h2>
+    <h2>Tema rengi ve uygulama meta verileri</h2>
     <p>
       <code>&lt;meta name=&quot;theme-color&quot; content=&quot;#0066cc&quot;&gt;</code>
-      controls the color of the mobile browser chrome (URL bar) on Android Chrome and iOS
-      Safari Technology Preview. <code>&lt;meta name=&quot;application-name&quot;&gt;</code>
-      provides the short name when the site is saved to a device home screen without a proper
-      PWA manifest. For full PWA support, link to a separate <code>manifest.json</code>
-      instead&mdash;the manifest subsumes most of the old Apple-specific meta tags.
+      Android Chrome ve iOS Safari Technology Preview'da mobil tarayıcı kromunun (URL çubuğu) rengini kontrol eder. <code>&lt;meta name=&quot;application-name&quot;&gt;</code>
+      site, uygun bir PWA manifestosu olmadan bir cihaz ana ekranına kaydedildiğinde kısa adı sağlar. Tam PWA desteği için bunun yerine ayrı bir <code>manifest.json</code> dosyasına bağlantı verin&mdash;manifesto, eski Apple'a özgü meta etiketlerinin çoğunu kapsar.
     </p>
 
-    <h2>The dead keyword tag</h2>
+    <h2>Ölü anahtar kelime etiketi</h2>
     <p>
-      <code>&lt;meta name=&quot;keywords&quot;&gt;</code> is dead. Google has ignored it since
-      at least 2009, Bing stopped using it as a ranking signal around 2014, and most SEO tools
-      now flag its presence as clutter. Including it does no direct harm, but if your content
-      team is spending time curating keyword meta tags, that time is wasted. Remove it during
-      the next template audit.
+      <code>&lt;meta name=&quot;keywords&quot;&gt;</code> ölüdür. Google en az 2009'dan beri onu dikkate almamaktadır, Bing 2014 civarında onu bir sıralama sinyali olarak kullanmayı bırakmıştır ve çoğu SEO aracı artık varlığını karmaşa olarak işaretlemektedir. Dahil edilmesi doğrudan bir zarar vermez, ancak içerik ekibiniz anahtar kelime meta etiketlerini düzenlemek için zaman harcıyorsa, bu zaman boşa harcanıyordur. Bir sonraki şablon denetimi sırasında kaldırın.
     </p>
 
-    <h2>Open Graph and Twitter Cards</h2>
+    <h2>Open Graph ve Twitter Kartları</h2>
     <p>
-      Open Graph tags (<code>og:title</code>, <code>og:description</code>, <code>og:image</code>,
-      <code>og:url</code>, <code>og:type</code>) control how the page previews when shared on
-      Facebook, LinkedIn, Slack, iMessage, and most chat apps. Twitter Card tags
+      Open Graph etiketleri (<code>og:title</code>, <code>og:description</code>, <code>og:image</code>,
+      <code>og:url</code>, <code>og:type</code>) sayfanın Facebook, LinkedIn, Slack, iMessage ve çoğu sohbet uygulamasında paylaşıldığında nasıl önizleneceğini kontrol eder. Twitter Kartı etiketleri
       (<code>twitter:card</code>, <code>twitter:site</code>, <code>twitter:creator</code>)
-      control Twitter/X shares. Covered in depth in a dedicated guide. Include the core four
-      og tags on every indexable page.
+      Twitter/X paylaşımlarını kontrol eder. Ayrıntılı bir kılavuzda derinlemesine ele alınmıştır. Dizine eklenebilir her sayfaya dört temel og etiketini ekleyin.
     </p>
 
-    <h2>Referrer policy and security headers</h2>
+    <h2>Yönlendiren politikası ve güvenlik başlıkları</h2>
     <p>
       <code>&lt;meta name=&quot;referrer&quot; content=&quot;strict-origin-when-cross-origin&quot;&gt;</code>
-      controls how much referrer information is sent when users click outbound links. Common
-      values: <code>no-referrer</code>, <code>same-origin</code>,
-      <code>strict-origin-when-cross-origin</code> (modern default),
-      <code>unsafe-url</code>. For most sites, HTTP response headers are the right place for
-      this policy, but meta tag fallbacks help when a CDN strips headers.
-      Content-Security-Policy can also be set via meta, though HTTP headers are preferred.
+      kullanıcılar harici bağlantılara tıkladığında ne kadar yönlendiren bilgisinin gönderileceğini kontrol eder. Yaygın değerler: <code>no-referrer</code>, <code>same-origin</code>,
+      <code>strict-origin-when-cross-origin</code> (modern varsayılan),
+      <code>unsafe-url</code>. Çoğu site için HTTP yanıt başlıkları bu politika için doğru yerdir, ancak meta etiket geri dönüşleri, bir CDN başlıkları kaldırdığında yardımcı olur.
+      İçerik-Güvenlik-Politikası da meta aracılığıyla ayarlanabilir, ancak HTTP başlıkları tercih edilir.
     </p>
 
-    <h2>Verification and ownership tags</h2>
+    <h2>Doğrulama ve sahiplik etiketleri</h2>
     <p>
-      Google Search Console, Bing Webmaster Tools, Pinterest, Facebook Domain Verification, and
-      others offer meta-tag-based ownership verification:
+      Google Search Console, Bing Web Yöneticisi Araçları, Pinterest, Facebook Alan Adı Doğrulaması ve
+      diğerleri, meta etiket tabanlı sahiplik doğrulaması sunar:
       <code>&lt;meta name=&quot;google-site-verification&quot; content=&quot;...&quot;&gt;</code>.
-      Many sites accumulate half a dozen of these over the years. They are harmless if current
-      but clutter the head if stale. Periodically audit and remove verification tags for
-      services you no longer use.
+      Birçok site yıllar içinde yarım düzine kadar biriktirir. Güncellerse zararsızdırlar, ancak eskimişlerse baş kısmını karıştırırlar. Artık kullanmadığınız hizmetler için doğrulama etiketlerini periyodik olarak denetleyin ve kaldırın.
     </p>
 
-    <h2>Legacy tags you can skip</h2>
+    <h2>Atlayabileceğiniz eski etiketler</h2>
     <p>
-      <code>meta http-equiv=&quot;Content-Type&quot;</code> is redundant with
-      <code>meta charset</code>. <code>meta name=&quot;author&quot;</code> is not used by
-      search engines&mdash;use structured data if you need authorship. <code>meta
-      name=&quot;generator&quot;</code> leaks your CMS version and has no user-facing value.
-      Apple-specific meta tags (<code>apple-mobile-web-app-capable</code>,
-      <code>apple-mobile-web-app-title</code>) are replaced by a PWA manifest.
-      <code>meta name=&quot;revisit-after&quot;</code> was never supported by any major search
-      engine. Remove all of these during template cleanup.
+      <code>meta http-equiv=&quot;Content-Type&quot;</code>, <code>meta charset</code> ile gereksizdir. <code>meta name=&quot;author&quot;</code> arama motorları tarafından kullanılmaz&mdash;yazarlık gerekiyorsa yapılandırılmış veri kullanın. <code>meta
+      name=&quot;generator&quot;</code> CMS sürümünüzü sızdırır ve kullanıcıya yönelik bir değeri yoktur.
+      Apple'a özgü meta etiketleri (<code>apple-mobile-web-app-capable</code>,
+      <code>apple-mobile-web-app-title</code>) bir PWA manifestosu ile değiştirilmiştir.
+      <code>meta name=&quot;revisit-after&quot;</code> hiçbir zaman büyük bir arama motoru tarafından desteklenmemiştir. Şablon temizliği sırasında bunların tümünü kaldırın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Missing viewport.</strong> Without the viewport meta, mobile renders at
-      desktop width and zooms out. Fails Google&rsquo;s mobile-friendly check and tanks mobile
-      rankings. Always present.
+      <strong>Eksik görüntü alanı.</strong> Görüntü alanı meta etiketi olmadan, mobil masaüstü genişliğinde işlenir ve uzaklaştırılır. Google'ın mobil uyumluluk kontrolünde başarısız olur ve mobil sıralamaları düşürür. Her zaman mevcut olmalıdır.
     </p>
     <p>
-      <strong>Charset below byte 1024.</strong> Browsers parse the first kilobyte to detect
-      encoding. If the charset tag sits below that boundary, the browser may guess wrong and
-      render special characters as mojibake.
+      <strong>Karakter seti 1024. baytın altında.</strong> Tarayıcılar, kodlamayı algılamak için ilk kilobaytı ayrıştırır. Karakter seti etiketi bu sınırın altındaysa, tarayıcı yanlış tahmin edebilir ve özel karakterleri bozuk metin olarak işleyebilir.
     </p>
     <p>
-      <strong>Noindex left on production.</strong> Accidentally shipping a staging template
-      with <code>noindex</code> is one of the most common SEO disasters. Always audit robots
-      directives before launch.
+      <strong>Noindex'in üretimde bırakılması.</strong> Yanlışlıkla <code>noindex</code> içeren bir hazırlık şablonunu yayınlamak en yaygın SEO felaketlerinden biridir. Yayınlamadan önce robot yönergelerini her zaman denetleyin.
     </p>
     <p>
-      <strong>Canonical pointing to wrong URL.</strong> Self-referencing canonicals on primary
-      pages; canonicals to the preferred version on duplicates. A canonical to a redirecting
-      or non-existent URL confuses crawlers and can deindex the page.
+      <strong>Kanonik'in yanlış URL'yi işaret etmesi.</strong> Birincil sayfalarda kendine referans veren kanonikler; kopyalarda tercih edilen sürüme kanonikler. Yönlendiren veya var olmayan bir URL'ye kanonik, tarayıcıların kafasını karıştırır ve sayfanın indeks dışı kalmasına neden olabilir.
     </p>
     <p>
-      <strong>Keeping the keyword meta tag.</strong> Zero impact, ongoing waste of editorial
-      time. Remove it from templates.
+      <strong>Anahtar kelime meta etiketini tutmak.</strong> Sıfır etki, sürekli editoryal zaman kaybı. Şablonlardan kaldırın.
     </p>
     <p>
-      <strong>Hreflang typos.</strong> Region codes are ISO 3166-1 (like <code>GB</code>, not
-      <code>UK</code>). Language codes are ISO 639-1 (like <code>he</code> for Hebrew, not
-      <code>iw</code>). Typos silently ignore the alternate.
+      <strong>Hreflang yazım hataları.</strong> Bölge kodları ISO 3166-1'dir (<code>GB</code> gibi, <code>UK</code> değil). Dil kodları ISO 639-1'dir (İbranice için <code>he</code> gibi, <code>iw</code> değil). Yazım hataları alternatifi sessizce yok sayar.
     </p>
     <p>
-      <strong>Accumulating verification tags.</strong> Old Pinterest, Bing, and Yandex
-      verifications pile up over years. Audit and remove the ones no longer needed.
+      <strong>Doğrulama etiketlerinin birikmesi.</strong> Eski Pinterest, Bing ve Yandex doğrulamaları yıllar içinde birikir. Artık ihtiyaç duyulmayanları denetleyin ve kaldırın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Build a complete, modern meta tag block in one shot with the{" "}
-      <a href="/tools/meta-tag-generator">meta tag generator</a>. Pair with the{" "}
-      <a href="/tools/open-graph-generator">Open Graph generator</a> for the social-sharing
-      half of the head, and the{" "}
-      <a href="/tools/schema-markup-generator">schema markup generator</a> for the <a href="/learn/json-ld">JSON-LD</a>
-      structured data that unlocks rich snippet features in search results.
+      Eksiksiz, modern bir meta etiket bloğunu tek seferde{" "}
+      <a href="/tools/meta-tag-generator">meta etiket oluşturucu</a> ile oluşturun. Baş kısmının sosyal paylaşım yarısı için{" "}
+      <a href="/tools/open-graph-generator">Open Graph oluşturucu</a> ve arama sonuçlarında zengin snippet özelliklerinin kilidini açan <a href="/learn/json-ld">JSON-LD</a>
+      yapılandırılmış verileri için{" "}
+      <a href="/tools/schema-markup-generator">şema işaretleme oluşturucu</a> ile eşleştirin.
     </p>
   </>
 );

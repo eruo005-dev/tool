@@ -3,202 +3,198 @@
 export const intro = (
   <>
     <p>
-      &ldquo;Are free ATS tools any good?&rdquo; is one of the most-asked questions in{" "}
+      &ldquo;Ücretsiz ATS araçları işe yarar mı?&rdquo; en çok sorulan sorulardan biridir{" "}
       <a href="https://www.reddit.com/r/recruiting/" rel="noreferrer">r/recruiting</a>.
-      The marketing answer (&ldquo;yes!&rdquo;) and the practitioner answer
-      (&ldquo;sort of&rdquo;) diverge. We pulled the spec sheets, checked the limits, and
-      wrote down what each free tier actually does — including resume parsing, screening,
-      and the gotchas that hide in the fine print.
+      Pazarlama cevabı (&ldquo;evet!&rdquo;) ile uygulayıcı cevabı
+      (&ldquo;biraz&rdquo;) farklılaşır. Teknik özellik belgelerini inceledik, sınırları kontrol ettik ve
+      her ücretsiz katmanın gerçekte ne yaptığını yazdık — özgeçmiş ayrıştırma, eleme
+      ve ince yazıda gizlenen tuzaklar dahil.
     </p>
     <p>
-      Three buckets: tier-limited freemium ATSes, fully-free open-source self-hosted, and
-      &ldquo;build your own with off-the-shelf parts.&rdquo; Each has a real use case and a
-      real failure mode.
+      Üç kategori: katman sınırlı freemium ATS'ler, tamamen ücretsiz açık kaynak kendi barındırmalı ve
+      &ldquo;hazır parçalarla kendi sistemini kur.&rdquo; Her birinin gerçek bir kullanım senaryosu ve gerçek bir
+      başarısızlık modu vardır.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "freemium", label: "Freemium ATSes (with limits)" },
-  { id: "oss", label: "Open-source self-hosted" },
-  { id: "diy", label: "DIY: build your own free stack" },
-  { id: "parsing", label: "Resume parsing for free" },
-  { id: "accuracy", label: "Are free screeners actually accurate?" },
+  { id: "freemium", label: "Freemium ATS'ler (sınırlamalarla)" },
+  { id: "oss", label: "Açık kaynak kendi barındırmalı" },
+  { id: "diy", label: "Kendin Yap: ücretsiz yığınını oluştur" },
+  { id: "parsing", label: "Ücretsiz özgeçmiş ayrıştırma" },
+  { id: "accuracy", label: "Ücretsiz eleme araçları gerçekten doğru mu?" },
 ];
 
 export const body = (
   <>
-    <h2 id="freemium">Freemium ATSes — what they actually give you</h2>
+    <h2 id="freemium">Freemium ATS'ler — size gerçekte ne veriyorlar</h2>
     <p>
-      The popular &ldquo;free ATS&rdquo; tools are freemium with hard caps. The limits as
-      of mid-2026:
+      Popüler &ldquo;ücretsiz ATS&rdquo; araçları, sert sınırları olan freemium modellerdir. 2026 ortası itibarıyla sınırlar:
     </p>
     <ul>
       <li>
-        <strong>Recruitee Free:</strong> not a real free tier anymore — only a free trial.
+        <strong>Recruitee Free:</strong> artık gerçek bir ücretsiz katman değil — yalnızca ücretsiz deneme.
       </li>
       <li>
-        <strong>Recruiterflow Free trial:</strong> 14 days then paid.
+        <strong>Recruiterflow Free trial:</strong> 14 gün sonra ücretli.
       </li>
       <li>
-        <strong>Manatal Free trial:</strong> 14 days then $15/seat.
+        <strong>Manatal Free trial:</strong> 14 gün sonra $15/koltuk.
       </li>
       <li>
-        <strong>Zoho Recruit Free Forever:</strong> 1 active job, 1 user, 100 candidates,
-        1 GB storage. Real free tier; usable for solo recruiters at low volume. The
-        upgrade is at $25/seat which is competitive.
+        <strong>Zoho Recruit Free Forever:</strong> 1 aktif iş ilanı, 1 kullanıcı, 100 aday,
+        1 GB depolama. Gerçek ücretsiz katman; düşük hacimde çalışan bireysel işe alımcılar için kullanılabilir.
+        Yükseltme $25/koltuk ile rekabetçidir.
       </li>
       <li>
-        <strong>Freshteam Free:</strong> deprecated in 2024 — Freshworks killed the free
-        plan.
+        <strong>Freshteam Free:</strong> 2024'te kullanımdan kaldırıldı — Freshworks ücretsiz planı sonlandırdı.
       </li>
       <li>
-        <strong>SmartRecruiters Free:</strong> 5 active jobs, 1 user, candidate management,
-        career site. Genuinely free, but the upsell is aggressive — you'll be in the
-        sales-call funnel after week 2.
+        <strong>SmartRecruiters Free:</strong> 5 aktif iş ilanı, 1 kullanıcı, aday yönetimi,
+        kariyer sitesi. Gerçekten ücretsiz, ancak yükseltme baskısı agresif — 2. haftadan sonra satış görüşmesi hunisine girersiniz.
       </li>
     </ul>
     <p>
-      Verdict: <strong>Zoho Recruit Free</strong> and <strong>SmartRecruiters Free</strong>{" "}
-      are the only two real free-forever options as of 2026. Zoho is solo-friendly,
-      SmartRecruiters is multi-job-friendly. Both gate stage automation and reporting
-      behind paid tiers.
+      Karar: <strong>Zoho Recruit Free</strong> ve <strong>SmartRecruiters Free</strong>{" "}
+      2026 itibarıyla gerçekten sonsuza kadar ücretsiz olan iki seçenektir. Zoho bireysel kullanıcı dostu,
+      SmartRecruiters çoklu iş ilanı dostudur. Her ikisi de aşama otomasyonu ve raporlamayı
+      ücretli katmanların arkasına koyar.
     </p>
 
-    <h2 id="oss">Open-source self-hosted (free if you can host)</h2>
+    <h2 id="oss">Açık kaynak kendi barındırmalı (barındırabiliyorsanız ücretsiz)</h2>
     <p>
-      Self-hosted means you run the software on your own server. Requires technical
-      ability or a developer on the team:
+      Kendi barındırmalı, yazılımı kendi sunucunuzda çalıştırdığınız anlamına gelir. Teknik
+      beceri veya ekipte bir geliştirici gerektirir:
     </p>
     <ul>
       <li>
-        <strong>Open-Source ATS / OSCATS:</strong> oldest. Active. PHP-based. Tracks jobs,
-        candidates, applications. UI is dated. Realistic if you have a sysadmin.
+        <strong>Open-Source ATS / OSCATS:</strong> en eskisi. Aktif. PHP tabanlı. İş ilanlarını,
+        adayları, başvuruları takip eder. Arayüzü eski. Bir sistem yöneticiniz varsa gerçekçi bir seçenek.
       </li>
       <li>
-        <strong>Calibre / Recruiteefy / forks:</strong> various GitHub projects, mostly
-        unmaintained. Read commit recency before adopting.
+        <strong>Calibre / Recruiteefy / çatallar:</strong> çeşitli GitHub projeleri, çoğu
+        bakımsız. Benimsemeden önce son taahhüt tarihini kontrol edin.
       </li>
       <li>
-        <strong>Notion / Airtable templates:</strong> not technically an ATS but the
-        community-built templates have stage-tracking, application forms, and reports out
-        of the box. Closest to &ldquo;free ATS that actually works.&rdquo;
+        <strong>Notion / Airtable şablonları:</strong> teknik olarak bir ATS değil ancak
+        topluluk tarafından oluşturulan şablonlar kutudan çıktığı gibi aşama takibi, başvuru formları ve raporlar
+        sunar. &ldquo;Gerçekten çalışan ücretsiz ATS&rdquo;ye en yakın seçenek.
       </li>
     </ul>
     <p>
-      The open-source ATS option mostly attracts hobbyists. For a real working team it&rsquo;s
-      easier to use freemium tier limits + spreadsheet overflow than to maintain self-hosted.
+      Açık kaynak ATS seçeneği çoğunlukla meraklıları çeker. Gerçek bir çalışan ekip için, kendi barındırmalı bir sistemi sürdürmektense
+      freemium katman sınırlarını + elektronik tablo taşmasını kullanmak daha kolaydır.
     </p>
 
-    <h2 id="diy">DIY: building a free stack from off-the-shelf parts</h2>
+    <h2 id="diy">Kendin Yap: hazır parçalardan ücretsiz bir yığın oluşturma</h2>
     <p>
-      The most common &ldquo;free ATS&rdquo; in practice is the stitched stack:
+      Pratikte en yaygın &ldquo;ücretsiz ATS&rdquo;, birleştirilmiş yığındır:
     </p>
     <ol>
       <li>
-        <strong>Pipeline:</strong>{" "}
-        <a href="/tools/recruiting-pipeline-tracker">our free tracker</a> (or Trello /
+        <strong>İşlem hattı:</strong>{" "}
+        <a href="/tools/recruiting-pipeline-tracker">ücretsiz takip aracımız</a> (veya Trello /
         Notion).
       </li>
       <li>
-        <strong>Resume screening:</strong>{" "}
-        <a href="/tools/resume-keyword-match-scorer">our keyword scorer</a>.
+        <strong>Özgeçmiş eleme:</strong>{" "}
+        <a href="/tools/resume-keyword-match-scorer">anahtar kelime puanlayıcımız</a>.
       </li>
       <li>
-        <strong>Application form:</strong> Google Form → Sheet, or Typeform free tier (10
-        responses/month is too low for hiring; use Tally free instead).
+        <strong>Başvuru formu:</strong> Google Form → Sheet veya Typeform ücretsiz katmanı (ayda 10 yanıt
+        işe alım için çok düşük; bunun yerine Tally ücretsiz kullanın).
       </li>
       <li>
-        <strong>Scheduling:</strong> Calendly free.
+        <strong>Planlama:</strong> Calendly ücretsiz.
       </li>
       <li>
-        <strong>Email:</strong> Gmail with templates (canned responses).
+        <strong>E-posta:</strong> Şablonlarla (hazır yanıtlar) Gmail.
       </li>
     </ol>
     <p>
-      Total cost: $0/month. Cost in time: 1–2 hours/week of stitching for a 3-req team.
-      See our <a href="/tools/free-recruiting-tool-true-cost-calculator">true cost calculator</a>{" "}
-      for whether that math works for you.
+      Toplam maliyet: $0/ay. Zaman maliyeti: 3 iş ilanlı bir ekip için haftada 1–2 saat birleştirme.
+      Bu matematiğin sizin için işe yarayıp yaramadığını görmek için <a href="/tools/free-recruiting-tool-true-cost-calculator">gerçek maliyet hesaplayıcımıza</a>{" "}
+      bakın.
     </p>
 
-    <h2 id="parsing">Free resume parsing — what works, what doesn't</h2>
+    <h2 id="parsing">Ücretsiz özgeçmiş ayrıştırma — ne işe yarar, ne yaramaz</h2>
     <p>
-      &ldquo;Resume parsing&rdquo; means turning a PDF/Word resume into structured fields
-      (name, email, work history, skills). Paid ATSes do this with vendors like Sovren or
-      RChilli. Free options:
+      &ldquo;Özgeçmiş ayrıştırma,&rdquo; bir PDF/Word özgeçmişini yapılandırılmış alanlara
+      (isim, e-posta, iş geçmişi, beceriler) dönüştürmek anlamına gelir. Ücretli ATS'ler bunu Sovren veya
+      RChilli gibi satıcılarla yapar. Ücretsiz seçenekler:
     </p>
     <ul>
       <li>
-        <strong>LLMs (ChatGPT/Claude/Gemini free):</strong> paste resume text, ask for
-        structured output (JSON schema). 90% accurate on standard formats. Fails on
-        2-column resumes, scanned PDFs, weird fonts.
+        <strong>LLM'ler (ChatGPT/Claude/Gemini ücretsiz):</strong> özgeçmiş metnini yapıştırın, yapılandırılmış
+        çıktı (JSON şeması) isteyin. Standart formatlarda %90 doğruluk. İki sütunlu
+        özgeçmişler, taranmış PDF'ler, garip yazı tiplerinde başarısız olur.
       </li>
       <li>
-        <strong>Affinda Free Tier:</strong> 100 free parses/month. Real ATS-quality
-        parser. The honest free option for low volume.
+        <strong>Affinda Free Tier:</strong> ayda 100 ücretsiz ayrıştırma. Gerçek ATS kalitesinde
+        ayrıştırıcı. Düşük hacim için dürüst ücretsiz seçenek.
       </li>
       <li>
-        <strong>Open-source parsers (resume-parser on PyPI etc.):</strong> brittle on
-        anything but plain-text resumes. Hard to recommend unless you're a developer
-        comfortable maintaining a Python pipeline.
+        <strong>Açık kaynak ayrıştırıcılar (PyPI'de resume-parser vb.):</strong> düz metin
+        özgeçmişler dışında kırılgan. Bir Python işlem hattını sürdürmekte rahat bir geliştirici değilseniz
+        önermek zor.
       </li>
       <li>
-        <strong>Apache Tika:</strong> free OCR + text extraction (not parsing). Pair with
-        an <a href="/learn/llm">LLM</a> for structuring.
+        <strong>Apache Tika:</strong> ücretsiz OCR + metin çıkarma (ayrıştırma değil). Yapılandırma için
+        bir <a href="/learn/llm">LLM</a> ile eşleştirin.
       </li>
     </ul>
 
-    <h2 id="accuracy">Are free resume screeners actually accurate?</h2>
+    <h2 id="accuracy">Ücretsiz özgeçmiş eleme araçları gerçekten doğru mu?</h2>
     <p>
-      Pretrained AI models (GPT-4, Claude, Gemini) score resumes against JDs at roughly
-      75–85% agreement with human screeners on tech roles, per published evaluations
-      (the field is moving — newer benchmarks vary). The failure modes are consistent:
+      Önceden eğitilmiş AI modelleri (GPT-4, Claude, Gemini), yayınlanan değerlendirmelere göre
+      teknik rollerde özgeçmişleri iş tanımlarına karşı insan eleme uzmanlarıyla yaklaşık %75–85
+      uyumla puanlar (alan gelişiyor — daha yeni kıyaslamalar değişiyor). Başarısızlık modları tutarlıdır:
     </p>
     <ul>
       <li>
-        <strong>False positives on keyword stuffing.</strong> A resume that pads
-        &ldquo;React, Redux, Next.js&rdquo; everywhere will score well even if the
-        candidate has barely used them.
+        <strong>Anahtar kelime doldurmada yanlış pozitifler.</strong> Her yere
+        &ldquo;React, Redux, Next.js&rdquo; ekleyen bir özgeçmiş, aday bunları zar zor kullanmış olsa bile
+        iyi puan alır.
       </li>
       <li>
-        <strong>False negatives on transferable skills.</strong> A 5-year backend engineer
-        applying for a frontend role gets scored low because the JD keywords aren&rsquo;t
-        in the resume — but they could ramp.
+        <strong>Aktarılabilir becerilerde yanlış negatifler.</strong> Bir ön uç rolüne başvuran 5 yıllık arka uç mühendisi
+        düşük puan alır çünkü iş tanımı anahtar kelimeleri özgeçmişte yoktur — ancak
+        uyum sağlayabilir.
       </li>
       <li>
-        <strong>Title mismatch.</strong> &ldquo;Senior Software Engineer&rdquo; at a
-        startup vs Google has different meanings; the screener doesn&rsquo;t know.
+        <strong>Unvan uyuşmazlığı.</strong> Bir startup'ta &ldquo;Kıdemli Yazılım Mühendisi&rdquo; ile
+        Google'daki aynı unvan farklı anlamlara gelir; eleme aracı bunu bilmez.
       </li>
     </ul>
     <p>
-      The right way to use any screener (free or paid): as a triage tool, not a decision
-      tool. A 70%+ score is &ldquo;worth a phone screen&rdquo;; a 30% score is
-      &ldquo;skip unless you have a referral.&rdquo; Never reject without a human
-      reviewing the borderline cases.
+      Herhangi bir eleme aracını (ücretsiz veya ücretli) kullanmanın doğru yolu: bir karar aracı değil, bir triyaj aracı olarak.
+      %70+ puan &ldquo;telefon görüşmesine değer&rdquo;; %30 puan
+      &ldquo;referansınız yoksa geçin.&rdquo; Sınırda vakaları bir insan incelemeden asla reddetmeyin.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Try our free resume keyword scorer",
+  label: "Ücretsiz özgeçmiş anahtar kelime puanlayıcımızı deneyin",
   targetSlug: "resume-keyword-match-scorer",
 };
 
 export const faq = [
   {
-    q: "What's the best fully-free ATS for a 1-person recruiting team?",
-    a: "Zoho Recruit Free Forever — 1 active job, 1 user, 100 candidates, decent UI. Below that volume our free pipeline tracker may be enough; above it, you'll need to upgrade Zoho or move to SmartRecruiters Free.",
+    q: "1 kişilik bir işe alım ekibi için en iyi tamamen ücretsiz ATS hangisidir?",
+    a: "Zoho Recruit Free Forever — 1 aktif iş ilanı, 1 kullanıcı, 100 aday, iyi bir arayüz. Bu hacmin altında ücretsiz işlem hattı takip aracımız yeterli olabilir; üstünde Zoho'yu yükseltmeniz veya SmartRecruiters Free'ye geçmeniz gerekir.",
   },
   {
-    q: "Are free resume parsers accurate enough to skip human review?",
-    a: "No, and they shouldn't be. Use parsers to extract structured data; use humans (or AI as a second pass) for the actual judgment call. Affinda's free tier is the best parsing-only option at low volume.",
+    q: "Ücretsiz özgeçmiş ayrıştırıcılar insan incelemesini atlamak için yeterince doğru mu?",
+    a: "Hayır ve olmamalıdır. Yapılandırılmış veri çıkarmak için ayrıştırıcıları kullanın; gerçek karar için insanları (veya ikinci bir geçiş olarak AI'yı) kullanın. Affinda'nın ücretsiz katmanı, düşük hacimde en iyi yalnızca ayrıştırma seçeneğidir.",
   },
   {
-    q: "Can ChatGPT free actually screen resumes?",
-    a: "For triage, yes. Paste 5-10 resumes plus the JD with a structured prompt ('rank 1-5 against these specific requirements, output a table'). For final hiring decisions, no — same caution as any screener.",
+    q: "ChatGPT ücretsiz özgeçmişleri gerçekten eleyebilir mi?",
+    a: "Triyaj için evet. 5-10 özgeçmişi ve iş tanımını yapılandırılmış bir komutla yapıştırın ('bu belirli gereksinimlere göre 1-5 arası sırala, bir tablo çıktısı ver'). Nihai işe alım kararları için hayır — herhangi bir eleme aracıyla aynı uyarı geçerlidir.",
   },
   {
-    q: "Is open-source self-hosted ATS a real option?",
-    a: "Only if you have a sysadmin and like maintaining infrastructure. For most teams, freemium with a spreadsheet overflow is less hassle than running an OSS ATS yourself.",
+    q: "Açık kaynak kendi barındırmalı ATS gerçek bir seçenek mi?",
+    a: "Yalnızca bir sistem yöneticiniz varsa ve altyapıyı sürdürmeyi seviyorsanız. Çoğu ekip için, bir OSS ATS'yi kendiniz çalıştırmaktansa freemium ve elektronik tablo taşması daha az zahmetlidir.",
   },
 ];

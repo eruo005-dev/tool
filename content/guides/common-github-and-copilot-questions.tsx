@@ -3,231 +3,231 @@
 export const intro = (
   <>
     <p>
-      Quick answers to recurring GitHub + GitHub Copilot questions from
-      r/learnprogramming, r/programming, r/cscareerquestions, and r/SoftwareRecs.
-      Each links to a deeper guide where the answer needs more space.
+      r/learnprogramming, r/programming, r/cscareerquestions ve r/SoftwareRecs
+      altındaki sık sorulan GitHub + GitHub Copilot sorularına hızlı yanıtlar.
+      Her biri, yanıtın daha fazla alana ihtiyaç duyduğu daha derin bir kılavuza
+      bağlanır.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "abandoned", label: "Abandoned + offline + maintenance" },
-  { id: "find-code", label: "Finding code that solves your problem" },
-  { id: "forking", label: "What forking actually means" },
-  { id: "deleted-recovery", label: "Recovering deleted code" },
-  { id: "copilot-misc", label: "Copilot mistakes + customization + updates" },
+  { id: "abandoned", label: "Terk edilmiş + çevrimdışı + bakım" },
+  { id: "find-code", label: "Sorununuzu çözen kodu bulma" },
+  { id: "forking", label: "Çatallamanın (fork) gerçek anlamı" },
+  { id: "deleted-recovery", label: "Silinen kodu kurtarma" },
+  { id: "copilot-misc", label: "Copilot hataları + özelleştirme + güncellemeler" },
 ];
 
 export const body = (
   <>
-    <h2 id="abandoned">How do I know if an open source project is maintained?</h2>
+    <h2 id="abandoned">Bir açık kaynak projenin bakımının yapılıp yapılmadığını nasıl anlarım?</h2>
     <p>
-      Five signals (in order of reliability):
+      Beş sinyal (güvenilirlik sırasına göre):
     </p>
     <ol>
       <li>
-        <strong>Recent commits.</strong> Last commit in the past 90 days = active.
-        6-12 months = check why; might still be alive but lower-priority. 1+ year
-        = treat as abandoned unless explicitly stated otherwise.
+        <strong>Son commit'ler.</strong> Son 90 gün içinde commit = aktif.
+        6-12 ay = nedenini kontrol edin; hala canlı olabilir ancak düşük öncelikli. 1+ yıl
+        = aksi açıkça belirtilmedikçe terk edilmiş olarak kabul edin.
       </li>
       <li>
-        <strong>Recent releases.</strong> A real version bump in the last 6 months
-        signals active maintenance.
+        <strong>Son sürümler.</strong> Son 6 ayda gerçek bir sürüm atlaması
+        aktif bakım olduğunu gösterir.
       </li>
       <li>
-        <strong>PR + issue response time.</strong> Look at recent PRs — are
-        maintainers responding? &ldquo;Open for 200 days, no response&rdquo; is a
-        bad sign.
+        <strong>PR + sorun yanıt süresi.</strong> Son PR'lara bakın — bakımcılar
+        yanıt veriyor mu? &ldquo;200 gündür açık, yanıt yok&rdquo; kötü bir
+        işarettir.
       </li>
       <li>
-        <strong>Maintainer count.</strong> Single-maintainer projects are
-        bus-factor risks. Multi-maintainer + organization-owned is safer.
+        <strong>Bakımcı sayısı.</strong> Tek bakımcılı projeler
+        otobüs-faktörü riskidir. Çok bakımcılı + kuruluş sahipli daha güvenlidir.
       </li>
       <li>
-        <strong>Funding source.</strong> Foundation-backed (Apache, Linux),
-        corporate-sponsored (React from Meta, K8s from Google), or commercial-
-        backed (Posthog, Sentry) projects survive maintainer churn.
+        <strong>Finansman kaynağı.</strong> Vakıf destekli (Apache, Linux),
+        kurumsal sponsorlu (Meta'dan React, Google'dan K8s) veya ticari
+        destekli (Posthog, Sentry) projeler bakımcı değişimine dayanır.
       </li>
     </ol>
 
-    <h2>Can I use GitHub if I&rsquo;m offline most of the time?</h2>
+    <h2>Çoğu zaman çevrimdışıysam GitHub'ı kullanabilir miyim?</h2>
     <p>
-      Yes — Git is fundamentally offline. The git CLI works without internet;
-      you commit + branch + browse history locally. You only need internet to{" "}
-      <code>push</code> to GitHub or <code>pull</code> changes from collaborators.
+      Evet — Git temelde çevrimdışıdır. git CLI'si internet olmadan çalışır;
+      yerel olarak commit + dal oluşturma + geçmişe göz atma yapabilirsiniz. Yalnızca
+      GitHub'a <code>push</code> yapmak veya işbirlikçilerden değişiklikleri <code>pull</code> etmek için
+      internete ihtiyacınız vardır.
     </p>
     <p>
-      Workflow: work offline all week, push when you have connection. The
-      occasional internet visit is enough for most use cases.
+      İş akışı: hafta boyunca çevrimdışı çalışın, bağlantınız olduğunda push yapın.
+      Ara sıra internet ziyareti çoğu kullanım durumu için yeterlidir.
     </p>
 
-    <h2>Does GitHub require maintenance?</h2>
+    <h2>GitHub bakım gerektirir mi?</h2>
     <p>
-      Minimal for individual users. Periodic items:
+      Bireysel kullanıcılar için minimum düzeydedir. Periyodik öğeler:
     </p>
     <ul>
-      <li>Rotate Personal Access Tokens (annually or on suspicion of leak).</li>
-      <li>Review repo settings + permissions when team membership changes.</li>
-      <li>Clean up stale forks + branches periodically.</li>
-      <li>Audit dependabot alerts; either fix or accept the risk explicitly.</li>
+      <li>Kişisel Erişim Belirteçlerini döndürün (yıllık veya sızıntı şüphesinde).</li>
+      <li>Ekip üyeliği değiştiğinde repo ayarlarını + izinleri gözden geçirin.</li>
+      <li>Eski çatalları + dalları periyodik olarak temizleyin.</li>
+      <li>Dependabot uyarılarını denetleyin; ya düzeltin ya da riski açıkça kabul edin.</li>
     </ul>
 
-    <h2 id="find-code">What&rsquo;s the easiest way to find code that solves my problem?</h2>
+    <h2 id="find-code">Sorunumu çözen kodu bulmanın en kolay yolu nedir?</h2>
     <p>
-      Three search strategies:
+      Üç arama stratejisi:
     </p>
     <ul>
       <li>
-        <strong>GitHub code search.</strong> Search distinctive function names,
-        error strings, or specific API patterns. Good for &ldquo;has anyone done
-        X with library Y?&rdquo;
+        <strong>GitHub kod araması.</strong> Ayırt edici fonksiyon adlarını,
+        hata dizelerini veya belirli API kalıplarını arayın. &ldquo;Birisi daha önce
+        Y kütüphanesiyle X'i yaptı mı?&rdquo; için iyidir.
       </li>
       <li>
-        <strong>Sourcegraph public search.</strong> Different index, sometimes
-        finds what GitHub doesn&rsquo;t. Free tier covers public repos.
+        <strong>Sourcegraph genel arama.</strong> Farklı bir dizin, bazen
+        GitHub'ın bulamadığını bulur. Ücretsiz katman genel repoları kapsar.
       </li>
       <li>
-        <strong>npm / PyPI / crates search by topic.</strong> Find well-known
-        libraries first; then dig into their source if you need to understand
-        the implementation.
-      </li>
-    </ul>
-    <p>
-      For learning: pick a popular library, read the source. The compounding from
-      reading high-quality production code beats course-taking.
-    </p>
-
-    <h2 id="forking">What does &ldquo;forking&rdquo; actually mean?</h2>
-    <p>
-      Fork = your personal copy of someone else&rsquo;s repo. Practical
-      implications:
-    </p>
-    <ul>
-      <li>
-        Your fork can have changes the original doesn&rsquo;t.
-      </li>
-      <li>
-        You can open a Pull Request from your fork back to the original to
-        propose changes (the standard OSS contribution flow).
-      </li>
-      <li>
-        If the original is updated, you can &ldquo;sync&rdquo; your fork from the
-        GitHub UI.
-      </li>
-      <li>
-        Forks count toward your repo total but use minimal storage (GitHub
-        deduplicates).
+        <strong>Konuya göre npm / PyPI / crates araması.</strong> Önce iyi bilinen
+        kütüphaneleri bulun; uygulamayı anlamanız gerekiyorsa kaynaklarına dalın.
       </li>
     </ul>
     <p>
-      When to fork: contributing to OSS projects (you fork → branch → PR back).
-      When not to fork: you only want to use the project — just install / clone,
-      don&rsquo;t fork.
+      Öğrenmek için: popüler bir kütüphane seçin, kaynağı okuyun. Yüksek kaliteli
+      üretim kodu okumaktan elde edilen birikim, kurs almaktan daha iyidir.
     </p>
 
-    <h2 id="deleted-recovery">How do I recover code I accidentally deleted?</h2>
+    <h2 id="forking">&ldquo;Çatallama (forking)&rdquo; gerçekte ne anlama geliyor?</h2>
     <p>
-      Multiple safety nets:
+      Çatal = başka birinin reposunun kişisel kopyanız. Pratik
+      sonuçlar:
     </p>
     <ul>
       <li>
-        <strong>Local Git history.</strong> If you committed it before deleting,
-        <code>git log</code> shows it. <code>git checkout &lt;commit&gt; -- &lt;file&gt;</code> recovers.
+        Çatalınız, orijinalinde olmayan değişikliklere sahip olabilir.
       </li>
       <li>
-        <strong>git reflog.</strong> Shows operations including HEAD changes. Can
-        recover after force-push or reset.
+        Değişiklik önermek için çatalınızdan orijinale bir Çekme İsteği (Pull Request) açabilirsiniz
+        (standart AKK katkı akışı).
       </li>
       <li>
-        <strong>GitHub recovery.</strong> If you deleted a repo, you have ~90
-        days to restore via Settings → General → Restore.
+        Orijinal güncellenirse, çatalınızı GitHub arayüzünden &ldquo;senkronize edebilirsiniz&rdquo;.
       </li>
       <li>
-        <strong>Cached PR diffs.</strong> Even after force-push removal, GitHub
-        sometimes shows old PR diffs that include the deleted content.
-      </li>
-      <li>
-        <strong>Collaborator clones.</strong> If anyone else cloned the repo,
-        their copy still has the history.
+        Çatallar repo toplamınıza dahil edilir ancak minimum depolama kullanır (GitHub
+        yinelenenleri kaldırır).
       </li>
     </ul>
     <p>
-      First step: don&rsquo;t panic, don&rsquo;t commit anything new. Then run
-      <code>git reflog</code>. 95% of accidents recover from there.
+      Ne zaman çatallanır: AKK projelerine katkıda bulunurken (çatal → dal → geri PR).
+      Ne zaman çatallanmaz: yalnızca projeyi kullanmak istiyorsanız — sadece kurun / klonlayın,
+      çatallamayın.
     </p>
 
-    <h2 id="copilot-misc">GitHub Copilot mistakes, customization, and updates</h2>
+    <h2 id="deleted-recovery">Yanlışlıkla sildiğim kodu nasıl kurtarırım?</h2>
+    <p>
+      Birden çok güvenlik ağı:
+    </p>
     <ul>
       <li>
-        <strong>Common Copilot mistakes:</strong> hallucinated APIs (always
-        verify with docs), insecure defaults (SQL concat, missing input
-        validation), outdated patterns (deprecated APIs from training data),
-        confidently wrong off-by-ones. Code review + tests catch most.
+        <strong>Yerel Git geçmişi.</strong> Silmeden önce commit ettiyseniz,
+        <code>git log</code> gösterir. <code>git checkout &lt;commit&gt; -- &lt;file&gt;</code> kurtarır.
       </li>
       <li>
-        <strong>Customization:</strong> limited on Individual / Business tiers.
-        Enterprise tier supports custom instructions per repo (style guides,
-        naming conventions). For all tiers, .editorconfig + linters + formatters
-        do most of what custom Copilot rules would.
+        <strong>git reflog.</strong> HEAD değişiklikleri dahil işlemleri gösterir.
+        Zorla push veya sıfırlamadan sonra kurtarabilir.
       </li>
       <li>
-        <strong>Update frequency:</strong> base model updates rolling — GitHub
-        rotates underlying models periodically. Specific dates not announced
-        for most upgrades. Stable IDE extension; major UX changes 1-2× per year.
+        <strong>GitHub kurtarma.</strong> Bir repoyu silerseniz, Ayarlar → Genel → Geri Yükle
+        yoluyla geri yüklemek için ~90 gününüz vardır.
       </li>
       <li>
-        <strong>Multi-language support:</strong> 20+ languages with varying
-        quality. Top: JS/TS, Python, Go, Java, Ruby, PHP, C#. Mobile: Swift,
-        Kotlin. Niche: Erlang, Elixir, Haskell, Clojure work but accuracy
-        drops.
+        <strong>Önbelleğe alınmış PR farkları.</strong> Zorla push kaldırmasından sonra bile,
+        GitHub bazen silinen içeriği içeren eski PR farklarını gösterir.
       </li>
       <li>
-        <strong>Open source projects:</strong> using Copilot on OSS contributions
-        is generally fine. Some maintainers reject AI-assisted PRs on principle;
-        check CONTRIBUTING.md before submitting.
+        <strong>İşbirlikçi klonları.</strong> Başka biri repoyu klonladıysa,
+        kopyalarında hala geçmiş vardır.
+      </li>
+    </ul>
+    <p>
+      İlk adım: panik yapmayın, yeni bir şey commit etmeyin. Ardından
+      <code>git reflog</code> çalıştırın. Kazaların %95'i oradan kurtarılır.
+    </p>
+
+    <h2 id="copilot-misc">GitHub Copilot hataları, özelleştirme ve güncellemeler</h2>
+    <ul>
+      <li>
+        <strong>Yaygın Copilot hataları:</strong> hayali API'ler (her zaman
+        belgelerle doğrulayın), güvenli olmayan varsayılanlar (SQL birleştirme, eksik girdi
+        doğrulaması), güncel olmayan kalıplar (eğitim verilerinden kullanımdan kaldırılmış
+        API'ler), kendinden emin bir şekilde yanlış birer birer hatalar. Kod incelemesi + testler çoğunu yakalar.
+      </li>
+      <li>
+        <strong>Özelleştirme:</strong> Bireysel / İş katmanlarında sınırlıdır.
+        Kurumsal katman, repo başına özel talimatları destekler (stil kılavuzları,
+        adlandırma kuralları). Tüm katmanlar için .editorconfig + linter'lar + biçimlendiriciler,
+        özel Copilot kurallarının yapacağının çoğunu yapar.
+      </li>
+      <li>
+        <strong>Güncelleme sıklığı:</strong> temel model güncellemeleri kademeli olarak gelir —
+        GitHub, temel modelleri periyodik olarak değiştirir. Çoğu yükseltme için belirli tarihler
+        duyurulmaz. Kararlı IDE eklentisi; büyük UX değişiklikleri yılda 1-2 kez.
+      </li>
+      <li>
+        <strong>Çoklu dil desteği:</strong> Değişen kalitede 20'den fazla dil.
+        En iyiler: JS/TS, Python, Go, Java, Ruby, PHP, C#. Mobil: Swift,
+        Kotlin. Niş: Erlang, Elixir, Haskell, Clojure çalışır ancak doğruluk
+        düşer.
+      </li>
+      <li>
+        <strong>Açık kaynak projeler:</strong> AKK katkılarında Copilot kullanmak
+        genellikle sorun değildir. Bazı bakımcılar, prensip olarak AI destekli PR'ları reddeder;
+        göndermeden önce CONTRIBUTING.md'yi kontrol edin.
       </li>
     </ul>
 
-    <h2>How do I know if Copilot&rsquo;s suggestion is correct?</h2>
+    <h2>Copilot'un önerisinin doğru olup olmadığını nasıl anlarım?</h2>
     <p>
-      Same way you know any code is correct: run it, test it, read it. Copilot
-      output isn&rsquo;t magically right or wrong — it&rsquo;s a starting point.
-      Specifically check:
+      Herhangi bir kodun doğru olduğunu bildiğiniz yolla aynı: çalıştırın, test edin, okuyun. Copilot
+      çıktısı sihirli bir şekilde doğru veya yanlış değildir — bir başlangıç noktasıdır.
+      Özellikle şunları kontrol edin:
     </p>
     <ul>
-      <li>Does the API call exist? (Most common <a href="/learn/hallucination">hallucination</a> type.)</li>
-      <li>Are the function arguments in the right order?</li>
-      <li>Does the logic actually do what the comment said?</li>
-      <li>Are edge cases handled? (Copilot weak here.)</li>
-      <li>Does it match your existing code style?</li>
+      <li>API çağrısı var mı? (En yaygın <a href="/learn/hallucination">halüsinasyon</a> türü.)</li>
+      <li>Fonksiyon argümanları doğru sırada mı?</li>
+      <li>Mantık, yorumun söylediğini gerçekten yapıyor mu?</li>
+      <li>Kenar durumlar ele alınıyor mu? (Copilot burada zayıf.)</li>
+      <li>Mevcut kod stilinizle eşleşiyor mu?</li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Get GitHub Copilot ROI estimate",
+  label: "GitHub Copilot YG tahmini alın",
   targetSlug: "github-copilot-roi-calculator",
 };
 
 export const faq = [
   {
-    q: "How do I know if an open source project is actually maintained?",
-    a: "Five signals: recent commits (last 90 days = active, 1+ year = abandoned), recent releases, PR/issue response time, maintainer count (single-maintainer = bus-factor risk), funding source (foundation/corporate/commercial backing survives churn).",
+    q: "Bir açık kaynak projenin gerçekten bakımının yapılıp yapılmadığını nasıl anlarım?",
+    a: "Beş sinyal: son commit'ler (son 90 gün = aktif, 1+ yıl = terk edilmiş), son sürümler, PR/sorun yanıt süresi, bakımcı sayısı (tek bakımcı = otobüs-faktörü riski), finansman kaynağı (vakıf/kurumsal/ticari destek değişime dayanır).",
   },
   {
-    q: "Can I use GitHub if I'm offline most of the time?",
-    a: "Yes — Git is fundamentally offline. CLI works without internet; commit + branch + browse history locally. Only need internet to push or pull. Work offline all week, sync when connected.",
+    q: "Çoğu zaman çevrimdışıysam GitHub'ı kullanabilir miyim?",
+    a: "Evet — Git temelde çevrimdışıdır. CLI internet olmadan çalışır; yerel olarak commit + dal + geçmişe göz atma. Yalnızca push veya pull için internete ihtiyaç vardır. Hafta boyunca çevrimdışı çalışın, bağlandığınızda senkronize edin.",
   },
   {
-    q: "What does 'forking' actually mean for beginners?",
-    a: "Fork = your personal copy of someone else's repo. You can have your own changes, open PRs back to original, sync from upstream when needed. Standard OSS contribution flow: fork → branch → PR. Don't fork if you just want to use a project — clone instead.",
+    q: "Yeni başlayanlar için 'çatallama (forking)' gerçekte ne anlama geliyor?",
+    a: "Çatal = başka birinin reposunun kişisel kopyanız. Kendi değişikliklerinize sahip olabilir, orijinale PR'lar açabilir, gerektiğinde yukarı akıştan senkronize edebilirsiniz. Standart AKK katkı akışı: çatal → dal → PR. Yalnızca bir projeyi kullanmak istiyorsanız çatallamayın — bunun yerine klonlayın.",
   },
   {
-    q: "How do I recover code I accidentally deleted?",
-    a: "Don't panic. git reflog shows recent operations including ones that look 'lost'. git checkout <commit> -- <file> recovers from history. GitHub repo deletion has 90-day restore window. Force-pushed removals sometimes survive in PR diffs. Collaborator clones still have full history.",
+    q: "Yanlışlıkla sildiğim kodu nasıl kurtarırım?",
+    a: "Panik yapmayın. git reflog, 'kaybolmuş' görünenler dahil son işlemleri gösterir. git checkout <commit> -- <file> geçmişten kurtarır. GitHub repo silme işleminin 90 günlük geri yükleme penceresi vardır. Zorla push ile kaldırılanlar bazen PR farklarında hayatta kalır. İşbirlikçi klonlarında hala tam geçmiş bulunur.",
   },
   {
-    q: "How do I know if GitHub Copilot's suggestion is correct?",
-    a: "Same way as any code — run it, test it, read it. Specifically check: does the API call exist (most common hallucination), are arguments in right order, does logic match the comment, are edge cases handled (weak point), matches your style? Tests catch most subtle errors.",
+    q: "GitHub Copilot'un önerisinin doğru olup olmadığını nasıl anlarım?",
+    a: "Herhangi bir kodla aynı yol — çalıştırın, test edin, okuyun. Özellikle şunları kontrol edin: API çağrısı var mı (en yaygın halüsinasyon), argümanlar doğru sırada mı, mantık yorumla eşleşiyor mu, kenar durumlar ele alınıyor mu (zayıf nokta), stilinizle eşleşiyor mu? Testler çoğu ince hatayı yakalar.",
   },
 ];

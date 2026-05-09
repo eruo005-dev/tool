@@ -3,188 +3,149 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A 401(k) is the single most powerful wealth-building tool available to most US
-      workers. Tax-deferred (or tax-free with Roth) growth, employer match, high contribution
-      limits, and automatic payroll deduction do more for long-term outcomes than any
-      investment selection. The 2026 contribution limit is <strong>$24,000</strong> for
-      under-50s and <strong>$31,500</strong> with the 50+ catch-up. Most people leave free
-      money on the table by missing the employer match or choosing between traditional and
-      Roth without understanding the tradeoff. This guide covers contribution limits, the
-      match math, Traditional vs Roth, catch-ups, vesting, and a decision tree for how much
-      to put in.
+      401(k), ABD'li çalışanların kullanabileceği en güçlü servet biriktirme aracıdır. Vergi ertelenmiş (veya Roth ile vergisiz) büyüme, işveren katkısı, yüksek katkı limitleri ve otomatik maaş kesintisi, uzun vadeli sonuçlar için herhangi bir yatırım seçiminden daha fazlasını sağlar. 2026 katkı limiti, 50 yaş altı için <strong>24.000$</strong> ve 50+ telafi katkısı ile <strong>31.500$</strong>'dır. Çoğu kişi, işveren katkısını kaçırarak veya geleneksel ile Roth arasında bu takası anlamadan seçim yaparak bedava parayı masada bırakır. Bu rehber, katkı limitlerini, işveren eşleştirme matematiğini, Geleneksel vs Roth'u, telafi katkılarını, hak ediş sürelerini ve ne kadar yatırılacağına dair bir karar ağacını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>1. The 2026 contribution limits</h2>
+    <h2>1. 2026 katkı limitleri</h2>
     <ul>
-      <li>Employee elective deferral: <strong>$24,000</strong> (up from $23,500 in 2025)</li>
-      <li>50+ catch-up: additional <strong>$7,500</strong> (total $31,500)</li>
-      <li>60-63 super catch-up (SECURE 2.0): additional <strong>$11,250</strong></li>
-      <li>Combined employee + employer limit: <strong>$70,000</strong> (or $77,500 / $81,250 with catch-ups)</li>
+      <li>Çalışan isteğe bağlı ertelemesi: <strong>24.000$</strong> (2025'te 23.500$'dan arttı)</li>
+      <li>50+ telafi katkısı: ek <strong>7.500$</strong> (toplam 31.500$)</li>
+      <li>60-63 süper telafi katkısı (SECURE 2.0): ek <strong>11.250$</strong></li>
+      <li>Çalışan + işveren birleşik limiti: <strong>70.000$</strong> (veya telafilerle 77.500$ / 81.250$)</li>
     </ul>
     <p>
-      Most employees never hit the combined limit because they don&rsquo;t have 25%+ employer
-      matches. But if you do — some tech and finance employers go that high — you can shelter
-      up to $70k/year.
+      Çoğu çalışan, %25+ işveren eşleştirmesine sahip olmadığı için birleşik limite asla ulaşmaz. Ancak eğer sahipseniz — bazı teknoloji ve finans işverenleri bu kadar yükseğe çıkar — yılda 70.000$'a kadar biriktirebilirsiniz.
     </p>
 
-    <h2>2. The employer match: free money</h2>
+    <h2>2. İşveren eşleştirmesi: bedava para</h2>
     <p>
-      The typical match is &ldquo;100% of the first 3%, 50% of the next 2%&rdquo; — a
-      4% effective match on a 5% contribution. On a $80,000 salary, that&rsquo;s $3,200/year
-      you get for showing up. <strong>Always contribute at least enough to max the match</strong>.
-      Not doing so is the equivalent of refusing a 4% raise.
+      Tipik eşleştirme, "%100 ilk %3, sonraki %2'nin %50'si" şeklindedir — bu, %5'lik bir katkı üzerinde %4'lük etkili bir eşleştirmedir. 80.000$'lık bir maaşta, bu sadece işe gelmeniz karşılığında yılda 3.200$'dır. <strong>Her zaman en azından eşleştirmeyi maksimize edecek kadar katkı yapın</strong>. Bunu yapmamak, %4'lük bir zammı reddetmekle eşdeğerdir.
     </p>
 
-    <h2>3. Priority order for retirement contributions</h2>
+    <h2>3. Emeklilik katkıları için öncelik sırası</h2>
     <ol>
-      <li>401(k) up to the full employer match</li>
-      <li>Pay off high-interest debt (credit cards at 20%+)</li>
-      <li>Roth IRA up to the annual limit ($7,500 in 2026, $8,500 if 50+)</li>
-      <li>HSA to limit if eligible (triple tax advantage)</li>
-      <li>401(k) up to the annual elective limit</li>
-      <li>Taxable brokerage with index funds</li>
+      <li>Tam işveren eşleştirmesine kadar 401(k)</li>
+      <li>Yüksek faizli borcu ödeyin (%20+ kredi kartları)</li>
+      <li>Yıllık limite kadar Roth IRA (2026'da 7.500$, 50+ ise 8.500$)</li>
+      <li>Uygunsa limite kadar HSA (üçlü vergi avantajı)</li>
+      <li>Yıllık isteğe bağlı limite kadar 401(k)</li>
+      <li>Endeks fonları ile vergilendirilebilir aracı kurum hesabı</li>
     </ol>
     <p>
-      Roth IRA goes before the rest of your 401(k) because it gives you more flexibility:
-      broader investment choices and tax-free withdrawal of contributions anytime.
+      Roth IRA, 401(k)'nizin geri kalanından önce gelir çünkü size daha fazla esneklik sağlar: daha geniş yatırım seçenekleri ve katkıların istediğiniz zaman vergisiz çekilmesi.
     </p>
 
-    <h2>4. Traditional vs Roth 401(k)</h2>
+    <h2>4. Geleneksel vs Roth 401(k)</h2>
     <p>
-      <strong>Traditional</strong>: contributions are pre-tax, investments grow tax-deferred,
-      withdrawals taxed as ordinary income in retirement.
+      <strong>Geleneksel</strong>: katkılar vergi öncesidir, yatırımlar vergi ertelenmiş olarak büyür, emeklilikte çekimler olağan gelir olarak vergilendirilir.
     </p>
     <p>
-      <strong>Roth</strong>: contributions are after-tax, growth and qualified withdrawals
-      are tax-free.
+      <strong>Roth</strong>: katkılar vergi sonrasıdır, büyüme ve nitelikli çekimler vergisizdir.
     </p>
     <p>
-      Simple rule: if you expect your tax rate in retirement to be <strong>higher</strong>
-      than today, go Roth. If <strong>lower</strong>, go traditional. Young earners early in
-      their careers usually win with Roth. Peak-earning mid-career workers usually win with
-      traditional. Splitting contributions 50/50 is a reasonable hedge.
+      Basit kural: Emeklilikte vergi oranınızın bugünkünden <strong>daha yüksek</strong> olmasını bekliyorsanız Roth'u seçin. <strong>Daha düşük</strong> ise gelenekseli seçin. Kariyerlerinin başındaki genç kazançlılar genellikle Roth ile kazanır. Kariyer ortasındaki en yüksek kazançlı çalışanlar genellikle geleneksel ile kazanır. Katkıları %50/%50 bölmek makul bir korunmadır.
     </p>
 
-    <h2>5. The math of pre-tax vs post-tax</h2>
-    <pre>{`Traditional: $1,000 pre-tax grows to $10,000 → withdraw at 22% → $7,800 net
-Roth:        $780 after-tax grows to $7,800 → withdraw tax-free → $7,800 net`}</pre>
+    <h2>5. Vergi öncesi vs vergi sonrasının matematiği</h2>
+    <pre>{`Geleneksel: 1.000$ vergi öncesi 10.000$'a büyür → %22'den çekilir → 7.800$ net
+Roth:        780$ vergi sonrası 7.800$'a büyür → vergisiz çekilir → 7.800$ net`}</pre>
     <p>
-      If your marginal rate is the same in both periods, the math is identical. The
-      difference comes from <strong>rate differences</strong> between now and retirement.
-      Roth also hedges against future tax rate increases — a non-trivial risk given US
-      fiscal trajectory.
+      Marjinal oranınız her iki dönemde de aynıysa, matematik aynıdır. Fark, şimdi ile emeklilik arasındaki <strong>oran farklılıklarından</strong> kaynaklanır. Roth ayrıca gelecekteki vergi oranı artışlarına karşı koruma sağlar — ABD mali gidişatı göz önüne alındığında önemsiz olmayan bir risk.
     </p>
 
-    <h2>6. Vesting schedules</h2>
+    <h2>6. Hak ediş takvimleri</h2>
     <p>
-      Your contributions are always 100% yours. Employer matches may be subject to a vesting
-      schedule:
+      Katkılarınız her zaman %100 sizindir. İşveren eşleştirmeleri bir hak ediş takvimine tabi olabilir:
     </p>
     <ul>
-      <li><strong>Immediate</strong>: yours day one (best)</li>
-      <li><strong>Cliff (3 years)</strong>: 0% vested until year 3, then 100%</li>
-      <li><strong>Graded (2-6 years)</strong>: 20% per year starting in year 2</li>
+      <li><strong>Anında</strong>: ilk günden sizin (en iyisi)</li>
+      <li><strong>Uçurum (3 yıl)</strong>: 3. yıla kadar %0 hak edilmiş, sonra %100</li>
+      <li><strong>Kademeli (2-6 yıl)</strong>: 2. yıldan itibaren yılda %20</li>
     </ul>
     <p>
-      Leaving before fully vested forfeits unvested employer money. If you&rsquo;re thinking
-      about switching jobs, check your vesting schedule — delaying a jump by 6 months could
-      be worth $10k+.
+      Tamamen hak etmeden ayrılmak, hak edilmemiş işveren parasını kaybettirir. İş değiştirmeyi düşünüyorsanız, hak ediş takviminizi kontrol edin — bir atlamayı 6 ay geciktirmek 10.000$+ değerinde olabilir.
     </p>
 
-    <h2>7. 401(k) loans: usually a bad idea</h2>
+    <h2>7. 401(k) kredileri: genellikle kötü bir fikir</h2>
     <p>
-      Most plans allow loans up to 50% of your balance or $50k (whichever is less). No
-      credit check, interest paid back to yourself. But:
+      Çoğu plan, bakiyenizin %50'sine veya 50.000$'a kadar (hangisi daha düşükse) krediye izin verir. Kredi kontrolü yok, faiz kendinize geri ödenir. Ancak:
     </p>
     <ul>
-      <li>Money out of the market misses compound growth</li>
-      <li>Must repay within 5 years (or immediately if you leave the job)</li>
-      <li>If you default, the outstanding balance is treated as a withdrawal — taxed plus 10% penalty under 59&frac12;</li>
+      <li>Piyasadan çıkan para bileşik büyümeyi kaçırır</li>
+      <li>5 yıl içinde geri ödenmelidir (veya işten ayrılırsanız hemen)</li>
+      <li>Temerrüde düşerseniz, kalan bakiye bir çekim olarak kabul edilir — 59½ yaşından küçükse vergilendirilir artı %10 ceza</li>
     </ul>
     <p>
-      Use only for genuine emergencies with no alternative.
+      Yalnızca alternatifi olmayan gerçek acil durumlar için kullanın.
     </p>
 
-    <h2>8. Early withdrawal penalty and exceptions</h2>
+    <h2>8. Erken çekim cezası ve istisnalar</h2>
     <p>
-      Withdrawing before age 59&frac12; triggers a 10% penalty plus ordinary income tax on
-      the amount. Exceptions include: SEPP 72(t) substantially equal periodic payments,
-      hardship (very narrow definition), first-time home purchase ($10k lifetime), disability,
-      and the Rule of 55 (separated from employer in the year you turn 55).
+      59½ yaşından önce para çekmek, tutar üzerinden %10 ceza artı olağan gelir vergisi tetikler. İstisnalar şunları içerir: SEPP 72(t) önemli ölçüde eşit periyodik ödemeler, zorluk (çok dar tanım), ilk ev alımı (ömür boyu 10.000$), engellilik ve 55 Kuralı (55 yaşına bastığınız yıl işverenden ayrılma).
     </p>
 
-    <h2>9. Required minimum distributions (RMDs)</h2>
+    <h2>9. Gerekli asgari dağıtımlar (RMD'ler)</h2>
     <p>
-      Traditional 401(k) RMDs start at age 73 (rising to 75 by 2033 under SECURE 2.0). Roth
-      401(k) RMDs were eliminated starting in 2024, matching Roth IRA rules. If you have a
-      sizable traditional balance, RMDs can push you into higher tax brackets — consider
-      Roth conversions in low-income years between retirement and 73.
+      Geleneksel 401(k) RMD'leri 73 yaşında başlar (SECURE 2.0 kapsamında 2033'e kadar 75'e yükselecek). Roth 401(k) RMD'leri 2024'ten itibaren kaldırıldı ve Roth IRA kurallarıyla eşleşti. Önemli bir geleneksel bakiyeniz varsa, RMD'ler sizi daha yüksek vergi dilimlerine itebilir — emeklilik ile 73 yaş arasındaki düşük gelirli yıllarda Roth dönüşümlerini değerlendirin.
     </p>
 
-    <h2>10. Investment selection inside the 401(k)</h2>
+    <h2>10. 401(k) içinde yatırım seçimi</h2>
     <p>
-      Most plans offer 15-30 funds. For nearly everyone, the right choice is:
+      Çoğu plan 15-30 fon sunar. Neredeyse herkes için doğru seçim şudur:
     </p>
     <ul>
-      <li>A low-cost <strong>target date fund</strong> matching your expected retirement year, OR</li>
-      <li>A 3-fund lazy portfolio: US total market + international + bonds</li>
+      <li>Beklenen emeklilik yılınıza uyan düşük maliyetli bir <strong>hedef tarih fonu</strong> VEYA</li>
+      <li>3 fonlu tembel portföy: ABD toplam piyasa + uluslararası + tahviller</li>
     </ul>
     <p>
-      Check expense ratios. A 1% fee difference compounded over 30 years costs roughly 25%
-      of your final balance. Anything over 0.5% deserves scrutiny.
+      Gider oranlarını kontrol edin. 30 yıl boyunca birleştirilen %1'lik bir ücret farkı, nihai bakiyenizin yaklaşık %25'ine mal olur. %0,5'in üzerindeki her şey incelemeyi hak eder.
     </p>
 
-    <h2>11. When maxing out is premature</h2>
+    <h2>11. Maksimize etmenin erken olduğu durumlar</h2>
     <p>
-      Don&rsquo;t max the 401(k) if you:
+      Aşağıdaki durumlarda 401(k)'yi maksimize etmeyin:
     </p>
     <ul>
-      <li>Have credit card debt &gt; 10% <a href="/learn/apr">APR</a></li>
-      <li>Lack a 3-month emergency fund</li>
-      <li>Would be forced to take early withdrawals (10% penalty)</li>
-      <li>Have a better match at a job change within 12 months</li>
+      <li>%10'un üzerinde <a href="/learn/apr">APR</a>'ye sahip kredi kartı borcunuz varsa</li>
+      <li>3 aylık acil durum fonunuz yoksa</li>
+      <li>Erken çekim yapmaya zorlanacaksanız (%10 ceza)</li>
+      <li>12 ay içinde iş değişikliğinde daha iyi bir eşleştirmeniz varsa</li>
     </ul>
     <p>
-      Match-first is non-negotiable. Beyond the match, other financial priorities often win.
+      Önce eşleştirme tartışılmaz. Eşleştirmenin ötesinde, diğer finansal öncelikler genellikle kazanır.
     </p>
 
-    <h2>12. Common mistakes</h2>
+    <h2>12. Yaygın hatalar</h2>
     <ul>
       <li>
-        <strong>Missing the match.</strong> An estimated 20% of US workers contribute less
-        than their employer match.
+        <strong>Eşleştirmeyi kaçırmak.</strong> Tahminen ABD'li çalışanların %20'si işveren eşleştirmelerinden daha az katkı yapıyor.
       </li>
       <li>
-        <strong>Leaving money in old 401(k)s at bad plans.</strong> Roll into an IRA or your
-        current employer&rsquo;s plan to get better fund options.
+        <strong>Parayı kötü planlardaki eski 401(k)'lerde bırakmak.</strong> Daha iyi fon seçenekleri elde etmek için bir IRA'ya veya mevcut işvereninizin planına aktarın.
       </li>
       <li>
-        <strong>Picking target-date fund by current age, not retirement year.</strong>
-        Target 2055, not &ldquo;the one with young-sounding date.&rdquo;
+        <strong>Hedef tarih fonunu emeklilik yılına göre değil, mevcut yaşa göre seçmek.</strong> "Genç görünen tarihli olanı" değil, 2055 hedefini seçin.
       </li>
       <li>
-        <strong>Taking a loan for lifestyle spending.</strong> Worst form of liquidating
-        retirement savings.
+        <strong>Yaşam tarzı harcamaları için kredi çekmek.</strong> Emeklilik birikimlerini nakde çevirmenin en kötü şekli.
       </li>
       <li>
-        <strong>Cashing out when changing jobs.</strong> Small balances get swept out and
-        taxed + penalized. Always roll over.
+        <strong>İş değiştirirken parayı bozdurmak.</strong> Küçük bakiyeler silinir ve vergilendirilir + cezalandırılır. Her zaman aktarın.
       </li>
     </ul>
 
-    <h2>13. Run the numbers</h2>
+    <h2>13. Rakamları hesaplayın</h2>
     <p>
-      Enter your salary, contribution rate, employer match, and years to retirement to see
-      what your 401(k) could be worth at 65.
+      Maaşınızı, katkı oranınızı, işveren eşleştirmenizi ve emekliliğe kalan yıllarınızı girerek 65 yaşında 401(k)'nizin ne kadar olabileceğini görün.
     </p>
     <p>
-      <a href="/tools/401k-calculator">401k calculator</a>
-      <a href="/tools/roth-ira-calculator">Roth IRA calculator</a>
-      <a href="/tools/retirement-calculator">Retirement calculator</a>
+      <a href="/tools/401k-calculator">401k hesaplayıcı</a>
+      <a href="/tools/roth-ira-calculator">Roth IRA hesaplayıcı</a>
+      <a href="/tools/retirement-calculator">Emeklilik hesaplayıcı</a>
     </p>
   </>
 );

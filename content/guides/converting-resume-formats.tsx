@@ -3,198 +3,205 @@
 export const intro = (
   <>
     <p>
-      &ldquo;Should my resume be a PDF or a Word doc?&rdquo; is one of the most
-      asked questions on r/jobs and r/resumes. The answer depends on the
-      application context, the ATS the company uses, and what stage of review
-      you&rsquo;re at. This guide is the practical breakdown.
+      &ldquo;Özgeçmişim PDF mi yoksa Word belgesi mi olmalı?&rdquo; sorusu,
+      r/jobs ve r/resumes alt dizinlerinde en çok sorulan sorulardan biridir.
+      Cevap, başvuru bağlamına, şirketin kullandığı ATS'ye ve incelemenin hangi
+      aşamasında olduğunuza bağlıdır. Bu rehber, konunun pratik bir dökümünü
+      sunar.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "default", label: "The default: PDF, with caveats" },
-  { id: "ats", label: "When ATSes prefer Word" },
-  { id: "plain-text", label: "When plain text wins" },
-  { id: "what-recruiters-want", label: "What recruiters actually open" },
-  { id: "tools", label: "Resume conversion tools" },
+  { id: "default", label: "Varsayılan: PDF, ancak uyarılar var" },
+  { id: "ats", label: "ATS'ler Word'ü ne zaman tercih eder" },
+  { id: "plain-text", label: "Düz metin ne zaman kazanır" },
+  { id: "what-recruiters-want", label: "İşe alımcılar aslında neyi açar" },
+  { id: "tools", label: "Özgeçmiş dönüştürme araçları" },
 ];
 
 export const body = (
   <>
-    <h2 id="default">The default: PDF (with caveats)</h2>
+    <h2 id="default">Varsayılan: PDF (ancak uyarılar var)</h2>
     <p>
-      For most direct-to-recruiter and most direct-to-careers-page applications,
-      PDF is the right default. Reasons:
+      Doğrudan işe alımcıya veya doğrudan kariyer sayfasına yapılan başvuruların
+      çoğu için PDF doğru varsayılandır. Nedenleri:
     </p>
     <ul>
       <li>
-        <strong>Layout fidelity.</strong> Your resume looks the same on the
-        recruiter&rsquo;s machine as on yours. No mystery font substitution,
-        no margin shifts.
+        <strong>Düzen bütünlüğü.</strong> Özgeçmişiniz, işe alımcının
+        bilgisayarında sizinkiyle aynı görünür. Gizemli yazı tipi değişimi veya
+        kenar boşluğu kayması olmaz.
       </li>
       <li>
-        <strong>Universal compatibility.</strong> Every device opens PDFs.
-        Recruiters won&rsquo;t need to ask you to re-send.
+        <strong>Evrensel uyumluluk.</strong> Her cihaz PDF açar. İşe alımcıların
+        sizden yeniden göndermenizi istemesi gerekmez.
       </li>
       <li>
-        <strong>Hard to accidentally edit.</strong> Word docs sometimes get
-        annotated by recruiters during review and the edits propagate to
-        whoever opens the file next. PDFs preserve your original.
+        <strong>Yanlışlıkla düzenlenmesi zordur.</strong> Word belgeleri bazen
+        işe alımcılar tarafından inceleme sırasında notlanır ve düzenlemeler,
+        dosyayı daha sonra açan herkese yayılır. PDF'ler orijinal halinizi
+        korur.
       </li>
       <li>
-        <strong>Smaller file size.</strong> Compressed text + embedded fonts
-        beats the bloat of DOCX in most cases.
+        <strong>Daha küçük dosya boyutu.</strong> Sıkıştırılmış metin + gömülü
+        yazı tipleri, çoğu durumda DOCX'in şişkinliğini yener.
       </li>
     </ul>
     <p>
-      The caveat: if the job application explicitly asks for Word (.docx), or
-      if you&rsquo;re feeding into an ATS upload form that has a strong
-      preference for Word, follow what they ask for.
+      Uyarı: iş başvurusu açıkça Word (.docx) istiyorsa veya Word için güçlü
+      bir tercihi olan bir ATS yükleme formuna besleme yapıyorsanız, onların
+      istediğini yapın.
     </p>
 
-    <h2 id="ats">When ATSes prefer Word</h2>
+    <h2 id="ats">ATS'ler Word'ü ne zaman tercih eder</h2>
     <p>
-      Some older ATSes (Taleo, iCIMS old versions) parse Word more reliably
-      than PDF — the text-extraction logic is more permissive. The signals to
-      watch:
+      Bazı eski ATS'ler (Taleo, iCIMS eski sürümleri) Word'ü PDF'den daha
+      güvenilir bir şekilde ayrıştırır — metin çıkarma mantığı daha esnektir.
+      Dikkat edilmesi gereken işaretler:
     </p>
     <ul>
       <li>
-        <strong>Application form upload accepts &ldquo;.doc, .docx, .pdf&rdquo;</strong>{" "}
-        with PDF last in the list — they&rsquo;re technically supporting it
-        but their parser was built for Word.
+        <strong>Başvuru formu yüklemesi &ldquo;.doc, .docx, .pdf&rdquo; kabul
+        ediyor</strong> ve PDF listede en sonda — teknik olarak destekliyorlar
+        ancak ayrıştırıcıları Word için oluşturulmuş.
       </li>
       <li>
-        <strong>Application form parses your Word doc into form fields,
-        but doesn&rsquo;t parse PDF.</strong> Strong signal — submit Word.
+        <strong>Başvuru formu Word belgenizi form alanlarına ayrıştırıyor,
+        ancak PDF'i ayrıştırmıyor.</strong> Güçlü işaret — Word gönderin.
       </li>
       <li>
-        <strong>Application form says &ldquo;.docx preferred.&rdquo;</strong>{" "}
-        Listen.
+        <strong>Başvuru formu &ldquo;.docx tercih edilir&rdquo; diyor.</strong>{" "}
+        Dinleyin.
       </li>
     </ul>
     <p>
-      For most modern ATSes (Greenhouse, Lever, Ashby, Workday) PDF is fine —
-      they&rsquo;ve had years to fix PDF parsing and the bug rate is low.
+      Çoğu modern ATS (Greenhouse, Lever, Ashby, Workday) için PDF sorunsuzdur —
+      PDF ayrıştırmayı düzeltmek için yılları olmuştur ve hata oranı düşüktür.
     </p>
 
-    <h2 id="plain-text">When plain text wins</h2>
+    <h2 id="plain-text">Düz metin ne zaman kazanır</h2>
     <p>
-      Plain text (TXT) is rarely the right primary format, but useful in
-      specific situations:
+      Düz metin (TXT) nadiren doğru birincil formattır, ancak belirli
+      durumlarda kullanışlıdır:
     </p>
     <ul>
       <li>
-        <strong>You&rsquo;re pasting into a text-only application form.</strong>{" "}
-        A plain-text version preserves no formatting but you control exactly
-        what goes in. Useful when the upload mangles your formatted version.
+        <strong>Yalnızca metin içeren bir başvuru formuna yapıştırıyorsunuz.</strong>{" "}
+        Düz metin sürümü hiçbir biçimlendirmeyi korumaz, ancak ne girdiğinizi
+        tamamen kontrol edersiniz. Yüklemenin biçimlendirilmiş sürümünüzü
+        bozduğu durumlarda kullanışlıdır.
       </li>
       <li>
-        <strong>You&rsquo;re running the resume through{" "}
-        <a href="/tools/resume-keyword-match-scorer">our keyword match
-        scorer</a></strong> or similar tools — text is the input format.
+        <strong>Özgeçmişi{" "}
+        <a href="/tools/resume-keyword-match-scorer">anahtar kelime eşleme
+        puanlayıcımız</a></strong> veya benzer araçlardan geçiriyorsunuz —
+        metin giriş formatıdır.
       </li>
       <li>
-        <strong>You&rsquo;re submitting via email body</strong> (rare in 2026,
-        but happens for personal-network referrals). Plain text in the email
-        body + a PDF attachment is good; the recipient sees the content
-        immediately.
+        <strong>E-posta gövdesi aracılığıyla gönderiyorsunuz</strong> (2026'da
+        nadir, ancak kişisel ağ yönlendirmeleri için olur). E-posta gövdesinde
+        düz metin + PDF eki iyidir; alıcı içeriği hemen görür.
       </li>
     </ul>
 
-    <h2 id="what-recruiters-want">What recruiters actually open</h2>
+    <h2 id="what-recruiters-want">İşe alımcılar aslında neyi açar</h2>
     <p>
-      Anonymous recruiter surveys consistently show:
+      Anonim işe alımcı anketleri tutarlı bir şekilde şunu gösteriyor:
     </p>
     <ul>
       <li>
-        Most recruiters open PDFs first. They look more polished and require
-        no decision about what to do with formatting.
+        Çoğu işe alımcı önce PDF'leri açar. Daha cilalı görünürler ve
+        biçimlendirme ile ilgili ne yapılacağına karar vermeyi gerektirmezler.
       </li>
       <li>
-        Recruiters who use specific ATS extensions sometimes prefer Word
-        because it parses cleanly into the system.
+        Belirli ATS uzantıları kullanan işe alımcılar bazen Word'ü tercih eder
+        çünkü sisteme temiz bir şekilde ayrışır.
       </li>
       <li>
-        Plain text is rarely opened directly by recruiters; it&rsquo;s
-        primarily an ATS-input format.
+        Düz metin, işe alımcılar tarafından nadiren doğrudan açılır; öncelikle
+        bir ATS giriş formatıdır.
       </li>
     </ul>
     <p>
-      The practical workflow:
+      Pratik iş akışı:
     </p>
     <ol>
       <li>
-        Maintain your master resume in <strong>Word (DOCX) or Google Docs</strong> —
-        easiest to edit.
+        Ana özgeçmişinizi <strong>Word (DOCX) veya Google Dokümanlar</strong>'da
+        tutun — düzenlemesi en kolay olanıdır.
       </li>
       <li>
-        For each application, tailor the master (see our{" "}
+        Her başvuru için ana özgeçmişi özelleştirin (iş akışı için{" "}
         <a href="/guides/tailor-your-resume-to-job-postings-for-free">
-          resume tailoring guide
+          özgeçmiş özelleştirme rehberimize
         </a>{" "}
-        for the workflow).
+        bakın).
       </li>
       <li>
-        Export as <strong>PDF</strong> for the application — this is what 95%
-        of submissions should be.
+        Başvuru için <strong>PDF</strong> olarak dışa aktarın — başvuruların
+        %95'i bu şekilde olmalıdır.
       </li>
       <li>
-        Keep the latest <strong>DOCX</strong> handy in case an ATS specifically
-        asks for it.
+        Bir ATS özellikle istediğinde kullanmak üzere en güncel <strong>DOCX</strong>'i
+        hazır bulundurun.
       </li>
       <li>
-        Generate a <strong>plain-text version</strong> only when you&rsquo;re
-        pasting into a text field.
+        Yalnızca bir metin alanına yapıştıracaksanız <strong>düz metin
+        sürümü</strong> oluşturun.
       </li>
     </ol>
 
-    <h2 id="tools">Resume conversion tools</h2>
+    <h2 id="tools">Özgeçmiş dönüştürme araçları</h2>
     <ul>
       <li>
-        <strong>Word → PDF:</strong> File → Save As → PDF. Built in. Free.
+        <strong>Word → PDF:</strong> Dosya → Farklı Kaydet → PDF. Yerleşik.
+        Ücretsiz.
       </li>
       <li>
-        <strong>Google Docs → PDF:</strong> File → Download → PDF Document.
-        Free. Cloud-based but the resume isn&rsquo;t typically sensitive.
+        <strong>Google Dokümanlar → PDF:</strong> Dosya → İndir → PDF Belgesi.
+        Ücretsiz. Bulut tabanlıdır ancak özgeçmiş genellikle hassas değildir.
       </li>
       <li>
-        <strong>PDF → Word (when an ATS asks):</strong> see our{" "}
-        <a href="/guides/pdf-to-word-and-editable-text">PDF to Word guide</a>.
+        <strong>PDF → Word (bir ATS istediğinde):</strong>{" "}
+        <a href="/guides/pdf-to-word-and-editable-text">PDF'den Word'e
+        rehberimize</a> bakın.
       </li>
       <li>
-        <strong>PDF → plain text:</strong>{" "}
-        <a href="/tools/pdf-to-text">our PDF to text tool</a>. Browser-only.
+        <strong>PDF → düz metin:</strong>{" "}
+        <a href="/tools/pdf-to-text">PDF'den metne aracımız</a>. Yalnızca
+        tarayıcıda çalışır.
       </li>
       <li>
-        <strong>Resume keyword match scoring:</strong>{" "}
-        <a href="/tools/resume-keyword-match-scorer">our scorer</a> shows JD
-        keyword overlap. Aim for 70%+ before submitting.
+        <strong>Özgeçmiş anahtar kelime eşleme puanlaması:</strong>{" "}
+        <a href="/tools/resume-keyword-match-scorer">puanlayıcımız</a>, iş
+        tanımı anahtar kelime örtüşmesini gösterir. Göndermeden önce %70+
+        hedefleyin.
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Score your resume against the JD (free)",
+  label: "Özgeçmişinizi iş tanımına göre puanlayın (ücretsiz)",
   targetSlug: "resume-keyword-match-scorer",
 };
 
 export const faq = [
   {
-    q: "Should my resume be PDF, Word, or plain text?",
-    a: "Default to PDF for most applications — preserves layout, universal compatibility, hard to accidentally edit. Some older ATSes (Taleo, older iCIMS) parse Word better — submit DOCX if the form's signals suggest it. Plain text only when pasting into a text field or running through a parser tool.",
+    q: "Özgeçmişim PDF mi, Word mü yoksa düz metin mi olmalı?",
+    a: "Çoğu başvuru için varsayılan olarak PDF kullanın — düzeni korur, evrensel uyumluluk sağlar, yanlışlıkla düzenlenmesi zordur. Bazı eski ATS'ler (Taleo, eski iCIMS) Word'ü daha iyi ayrıştırır — formun işaretleri bunu gösteriyorsa DOCX gönderin. Düz metin yalnızca bir metin alanına yapıştırırken veya bir ayrıştırıcı aracından geçirirken kullanılır.",
   },
   {
-    q: "Will an ATS reject my PDF resume?",
-    a: "Most modern ATSes (Greenhouse, Lever, Ashby, Workday) parse PDF fine. Older systems (some Taleo, iCIMS deployments) parse Word more reliably. Watch for signals: if the application says '.docx preferred' or parses Word into form fields but not PDF, submit Word. Otherwise PDF.",
+    q: "Bir ATS, PDF özgeçmişimi reddeder mi?",
+    a: "Çoğu modern ATS (Greenhouse, Lever, Ashby, Workday) PDF'i sorunsuz ayrıştırır. Eski sistemler (bazı Taleo, iCIMS dağıtımları) Word'ü daha güvenilir bir şekilde ayrıştırır. İşaretlere dikkat edin: başvuru '.docx tercih edilir' diyorsa veya Word'ü form alanlarına ayrıştırıp PDF'i ayrıştırmıyorsa, Word gönderin. Aksi takdirde PDF.",
   },
   {
-    q: "How do I convert my Word resume to PDF?",
-    a: "In Word: File → Save As → PDF. In Google Docs: File → Download → PDF Document. Both built-in, free. Always preview the PDF before submitting — fonts, page breaks, and bullet styles can shift. Fix in the source DOCX, not the PDF.",
+    q: "Word özgeçmişimi PDF'e nasıl dönüştürebilirim?",
+    a: "Word'de: Dosya → Farklı Kaydet → PDF. Google Dokümanlar'da: Dosya → İndir → PDF Belgesi. Her ikisi de yerleşik ve ücretsizdir. Göndermeden önce PDF'i her zaman önizleyin — yazı tipleri, sayfa sonları ve madde işareti stilleri kayabilir. Kaynak DOCX'te düzeltin, PDF'te değil.",
   },
   {
-    q: "Why would I want a plain-text version of my resume?",
-    a: "For pasting into text-only application forms (some older ATSes), running through resume keyword scorers like our free tool, or submitting via email body for personal-network referrals. It's never the primary submission format — it's a working format for specific workflows.",
+    q: "Neden özgeçmişimin düz metin sürümüne ihtiyaç duyayım?",
+    a: "Yalnızca metin içeren başvuru formlarına (bazı eski ATS'ler) yapıştırmak, ücretsiz aracımız gibi özgeçmiş anahtar kelime puanlayıcılarından geçirmek veya kişisel ağ yönlendirmeleri için e-posta gövdesiyle göndermek için. Asla birincil gönderim formatı değildir — belirli iş akışları için bir çalışma formatıdır.",
   },
 ];

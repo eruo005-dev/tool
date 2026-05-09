@@ -2,39 +2,37 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    E-bike sales doubled in the US between 2022 and 2026. For city commuters they often beat cars on door-to-door
-    time. Here&rsquo;s the <a href="/learn/roi">ROI</a> math + how to pick one.
+    ABD'de e-bisiklet satışları 2022 ile 2026 arasında iki katına çıktı. Şehir içi işe gidip gelenler için, kapıdan kapıya sürede genellikle arabaları geride bırakıyorlar. İşte <a href="/learn/roi">ROI</a> hesaplaması + nasıl seçileceği.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The cost math</h2>
+    <h2>Maliyet dökümü</h2>
     <ul>
-      <li><strong>Decent commuter e-bike:</strong> $1,500-3,000.</li>
-      <li><strong>Operating cost:</strong> ~$0.05/mile electricity vs ~$0.65/mile car (gas + depreciation + insurance prorated).</li>
-      <li><strong>Break-even vs car:</strong> typically 18-30 months at 10 mi/day commute.</li>
-      <li><strong>Tax credits:</strong> many states + cities offer $500-1,500 incentives in 2026.</li>
+      <li><strong>İyi şehir e-bisikleti:</strong> 1.500–3.000 $.</li>
+      <li><strong>İşletme maliyeti:</strong> Elektrik için mil başına ~0,05 $'a karşı araba için mil başına ~0,65 $ (benzin + amortisman + orantılı sigorta).</li>
+      <li><strong>Araba ile başa baş noktası:</strong> 10 millik günlük işe gidiş geliş için tipik olarak 18–30 ay.</li>
+      <li><strong>Vergi kredileri:</strong> 2026'da birçok eyalet ve şehir 500–1.500 $ arasında teşvik sunuyor.</li>
     </ul>
-    <h2>Faster than cars in cities</h2>
+    <h2>Şehirlerde arabalardan daha hızlı</h2>
     <p>
-      Door-to-door commute speed for trips 1-8 miles: e-bike often wins on dense city routes (no parking hunt,
-      bypass traffic). Above 8 miles depends on bike infrastructure and rider tolerance.
+      1–8 millik yolculuklar için kapıdan kapıya hız: e-bisiklet genellikle sıkışık şehir rotalarında kazanır (park arama yok, trafiği baypas eder). 8 milin üzerinde, bisiklet altyapısına ve sürücü toleransına bağlıdır.
     </p>
-    <h2>How to pick</h2>
+    <h2>Nasıl seçilir</h2>
     <ul>
-      <li><strong>Class 1</strong> (pedal-assist, max 20 mph): allowed on most bike paths.</li>
-      <li><strong>Class 2</strong> (throttle + pedal-assist, max 20 mph): some path restrictions.</li>
-      <li><strong>Class 3</strong> (pedal-assist, max 28 mph): often street-only, helmet required.</li>
-      <li><strong>Battery range:</strong> assume 60-70% of advertised range in real-world use.</li>
-      <li><strong>Brands worth knowing:</strong> Specialized, Trek, Tern, Lectric, Aventon, Rad Power.</li>
+      <li><strong>Sınıf 1</strong> (pedal destekli, maks. 20 mph): çoğu bisiklet yolunda izin verilir.</li>
+      <li><strong>Sınıf 2</strong> (gaz + pedal destekli, maks. 20 mph): bazı yol kısıtlamaları vardır.</li>
+      <li><strong>Sınıf 3</strong> (pedal destekli, maks. 28 mph): genellikle sadece cadde, kask zorunludur.</li>
+      <li><strong>Pil menzili:</strong> Gerçek kullanımda reklamı yapılan menzilin %60–70'ini varsayın.</li>
+      <li><strong>Bilinmesi gereken markalar:</strong> Specialized, Trek, Tern, Lectric, Aventon, Rad Power.</li>
     </ul>
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <ul>
-      <li>Buying for max range you&rsquo;ll never use &mdash; expensive battery weight.</li>
-      <li>Skipping fenders, lights, lock for &ldquo;a clean look&rdquo; &mdash; you&rsquo;ll add them in 2 weeks.</li>
-      <li>Not factoring in storage if you live in an apartment.</li>
-      <li>Forgetting that e-bikes get stolen aggressively; budget $100-150 for a real lock.</li>
+      <li>Asla kullanmayacağınız maksimum menzil için satın almak &mdash; pahalı pil ağırlığı.</li>
+      <li>"Temiz görünüm" için çamurlukları, ışıkları, kilidi atlamak &mdash; 2 hafta içinde eklersiniz.</li>
+      <li>Bir apartmanda yaşıyorsanız depolamayı hesaba katmamak.</li>
+      <li>E-bisikletlerin agresif bir şekilde çalındığını unutmak; gerçek bir kilit için 100–150 $ bütçe ayırın.</li>
     </ul>
   </>
 );

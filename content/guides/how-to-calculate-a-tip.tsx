@@ -3,218 +3,144 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Tipping is straightforward math wrapped in a pile of social
-      convention that changes by country, by industry, and by whether
-      you&rsquo;re in a booth or at the counter. This guide covers the
-      quick mental math for 15/18/20%, how tipping differs country by
-      country, when to tip on pre-tax vs post-tax, how to handle
-      split checks, and the edge cases most people get wrong.
+      Bahşiş, ülkeden ülkeye, sektörden sektöre ve hatta bir locada mı yoksa tezgahta mı olduğunuza göre değişen bir dizi sosyal kurala sarılı basit bir matematik işlemidir. Bu rehber, %15/%18/%20 için hızlı zihinsel matematiği, bahşişin ülkeden ülkeye nasıl farklılık gösterdiğini, vergi öncesi ve vergi sonrası ne zaman bahşiş verileceğini, hesabın nasıl bölüneceğini ve çoğu kişinin yanlış yaptığı uç durumları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The quick mental math</h2>
+    <h2>Hızlı zihinsel matematik</h2>
     <p>
-      <strong>10%:</strong> move the decimal left one place. $47.80
-      bill → $4.78 tip.
+      <strong>%10:</strong> Ondalık işaretini bir basamak sola kaydırın. 47,80 TL'lik hesap → 4,78 TL bahşiş.
     </p>
     <p>
-      <strong>20%:</strong> double the 10%. $47.80 → $9.56.
+      <strong>%20:</strong> %10'u ikiye katlayın. 47,80 TL → 9,56 TL.
     </p>
     <p>
-      <strong>15%:</strong> 10% + half of 10%. $47.80 → $4.78 +
-      $2.39 = $7.17.
+      <strong>%15:</strong> %10 + %10'un yarısı. 47,80 TL → 4,78 TL + 2,39 TL = 7,17 TL.
     </p>
     <p>
-      <strong>18%:</strong> 20% minus 10% of 20% (i.e., 20% × 0.9).
-      Or just split the difference between 15% and 20%. $47.80 →
-      about $8.60.
+      <strong>%18:</strong> %20 eksi %20'nin %10'u (yani %20 × 0,9). Veya sadece %15 ile %20 arasındaki farkı ikiye bölün. 47,80 TL → yaklaşık 8,60 TL.
     </p>
     <p>
-      For faster mental math on the fly: round the bill up to the
-      nearest $5, take 20%, and you&rsquo;re typically within $0.50
-      of the actual 18-20%.
+      Anlık daha hızlı zihinsel matematik için: faturayı en yakın 5 TL'ye yuvarlayın, %20 alın ve genellikle gerçek %18-20'nin 0,50 TL'si içinde olursunuz.
     </p>
 
-    <h2>Pre-tax vs post-tax</h2>
+    <h2>Vergi öncesi ve vergi sonrası</h2>
     <p>
-      In the US: tradition is to tip on the pre-tax subtotal,
-      especially in states with high sales tax (California at 7.25%+,
-      Tennessee at 9.5%+). Tipping post-tax inflates your effective
-      tip by ~1-2 percentage points.
+      ABD'de: gelenek, özellikle yüksek satış vergisi olan eyaletlerde (California %7,25+, Tennessee %9,5+) vergi öncesi ara toplam üzerinden bahşiş vermektir. Vergi sonrası bahşiş vermek, efektif bahşişinizi ~1-2 puan artırır.
     </p>
     <p>
-      In practice most people tip on the total shown, because the
-      subtotal requires mental work. Not a huge deal — pick a
-      convention and stick with it.
+      Pratikte çoğu kişi, ara toplam zihinsel çaba gerektirdiğinden gösterilen toplam üzerinden bahşiş verir. Çok büyük bir mesele değil — bir kural seçin ve ona bağlı kalın.
     </p>
     <p>
-      Most card readers default to tip on the post-tax total
-      (&ldquo;Total including tax&rdquo;). If you want to tip on
-      pre-tax, you may need to enter a dollar amount rather than a
-      percentage.
+      Çoğu kart okuyucu, varsayılan olarak vergi sonrası toplam üzerinden bahşiş alır ("Vergi dahil toplam"). Vergi öncesi bahşiş vermek istiyorsanız, yüzde yerine dolar tutarı girmeniz gerekebilir.
     </p>
 
-    <h2>US tipping standards by industry</h2>
+    <h2>Sektöre göre ABD bahşiş standartları</h2>
     <p>
-      <strong>Sit-down restaurant:</strong> 18-22% standard. 15% is
-      the bare minimum for adequate service and is read as
-      dissatisfaction.
+      <strong>Oturmalı restoran:</strong> %18-22 standart. %15, yeterli hizmet için minimumdur ve memnuniyetsizlik olarak okunur.
     </p>
     <p>
-      <strong>Counter service / coffee shop:</strong> 10-15% if
-      tipping; $1-2 per drink is fine. The card-reader prompt for
-      20-25% at a coffee shop is aggressive — feel free to use
-      &ldquo;custom&rdquo; or &ldquo;no tip.&rdquo;
+      <strong>Tezgah servisi / kahve dükkanı:</strong> Bahşiş veriliyorsa %10-15; içecek başına 1-2 dolar yeterlidir. Bir kahve dükkanında kart okuyucunun %20-25 istemesi agresiftir — "özel" veya "bahşiş yok" seçeneğini kullanmaktan çekinmeyin.
     </p>
     <p>
-      <strong>Delivery driver:</strong> 15-20%, minimum $5 on small
-      orders. Delivery apps often separate this from the &ldquo;delivery
-      fee&rdquo; — that fee does not go to the driver.
+      <strong>Teslimat sürücüsü:</strong> %15-20, küçük siparişlerde minimum 5 dolar. Teslimat uygulamaları bunu genellikle "teslimat ücreti"nden ayırır — bu ücret sürücüye gitmez.
     </p>
     <p>
-      <strong>Taxi / rideshare:</strong> 15-20%. Round up for short
-      trips.
+      <strong>Taksi / araç paylaşımı:</strong> %15-20. Kısa yolculuklar için yukarı yuvarlayın.
     </p>
     <p>
-      <strong>Bartender:</strong> $1-2 per drink, or 15-20% of the
-      tab if running one.
+      <strong>Barmen:</strong> İçecek başına 1-2 dolar veya hesap açıksa %15-20.
     </p>
     <p>
-      <strong>Hairdresser / barber:</strong> 15-20%.
+      <strong>Kuaför / berber:</strong> %15-20.
     </p>
     <p>
-      <strong>Hotel housekeeping:</strong> $3-5 per night, left
-      daily. Leaving a lump sum on the last day typically goes to
-      whoever cleans that day, not the person who cleaned the rest
-      of the week.
+      <strong>Otel kat hizmetleri:</strong> Gece başına 3-5 dolar, günlük bırakılır. Son gün toplu bırakmak genellikle haftanın geri kalanında temizlik yapan kişiye değil, o gün temizlik yapan kişiye gider.
     </p>
     <p>
-      <strong>Hotel bellhop / valet:</strong> $2-5 per bag or car.
+      <strong>Otel hamalı / vale:</strong> Bagaj veya araba başına 2-5 dolar.
     </p>
 
-    <h2>Tipping abroad — the rules change</h2>
+    <h2>Yurtdışında bahşiş — kurallar değişir</h2>
     <p>
-      <strong>Europe (general):</strong> service is often included
-      (&ldquo;service compris&rdquo;). A round-up or 5-10% is
-      generous. 20% is wildly excessive in most of continental
-      Europe.
+      <strong>Avrupa (genel):</strong> Servis genellikle dahildir ("service compris"). Yukarı yuvarlamak veya %5-10 vermek cömertliktir. Kıta Avrupası'nın çoğunda %20 aşırı fazladır.
     </p>
     <p>
-      <strong>UK:</strong> 10-12.5% at sit-down restaurants; often
-      added as &ldquo;optional service charge&rdquo; on the bill
-      (check before tipping again).
+      <strong>Birleşik Krallık:</strong> Oturmalı restoranlarda %10-12,5; genellikle faturaya "isteğe bağlı servis ücreti" olarak eklenir (tekrar bahşiş vermeden önce kontrol edin).
     </p>
     <p>
-      <strong>Japan:</strong> no tipping. Attempting to tip can be
-      confusing or mildly rude — the service culture treats it as
-      &ldquo;your price already includes good service.&rdquo;
+      <strong>Japonya:</strong> Bahşiş yok. Bahşiş vermeye çalışmak kafa karıştırıcı veya hafif kaba olabilir — hizmet kültürü bunu "fiyatınız zaten iyi hizmeti içerir" olarak görür.
     </p>
     <p>
-      <strong>Australia / New Zealand:</strong> not expected. Round
-      up or leave a small amount for exceptional service; not a
-      percentage.
+      <strong>Avustralya / Yeni Zelanda:</strong> Beklenmez. Olağanüstü hizmet için yukarı yuvarlayın veya küçük bir miktar bırakın; yüzde değil.
     </p>
     <p>
-      <strong>China:</strong> historically not customary; changing
-      in upscale international hotels but still uncommon in most
-      restaurants.
+      <strong>Çin:</strong> Tarihsel olarak alışılmış değil; lüks uluslararası otellerde değişiyor ancak çoğu restoranda hala yaygın değil.
     </p>
     <p>
-      <strong>South Korea:</strong> not customary. Tip jars at coffee
-      shops exist but are for loose change.
+      <strong>Güney Kore:</strong> Alışılmış değil. Kahve dükkanlarında bahşiş kavanozları vardır ancak bozuk para içindir.
     </p>
     <p>
-      <strong>Middle East (UAE, Saudi):</strong> 10% often included
-      as service charge; an additional 5-10% for good service.
+      <strong>Orta Doğu (BAE, Suudi Arabistan):</strong> %10 genellikle servis ücreti olarak dahildir; iyi hizmet için ek %5-10.
     </p>
     <p>
-      <strong>Latin America (Mexico, Argentina):</strong> 10-15%
-      typical, often on pre-tax; check if &ldquo;propina&rdquo; is
-      already on the bill.
+      <strong>Latin Amerika (Meksika, Arjantin):</strong> %10-15 tipiktir, genellikle vergi öncesi; faturada "propina" olup olmadığını kontrol edin.
     </p>
 
-    <h2>Splitting the check — the right way</h2>
+    <h2>Hesabı bölmek — doğru yol</h2>
     <p>
-      Even split: take the total (including tip), divide by number
-      of people. Fastest at the table.
+      Eşit bölme: Toplamı (bahşiş dahil) alın, kişi sayısına bölün. Masada en hızlısı.
     </p>
     <p>
-      Itemized split: each person pays their own items + a pro-rata
-      share of tax and tip. Fairer when orders differ
-      significantly. Apps like Tab or Splitwise handle this; so
-      does <a href="/tools/tip-calculator">our tip calculator</a>
-      {" "}with a split field.
+      Maddelere göre bölme: Her kişi kendi siparişlerini + vergi ve bahşişten orantılı payını öder. Siparişler önemli ölçüde farklılık gösterdiğinde daha adildir. Tab veya Splitwise gibi uygulamalar bunu halleder;{" "}
+      <a href="/tools/tip-calculator">bahşiş hesaplayıcımız</a> da bölme alanıyla bunu yapar.
     </p>
     <p>
-      If one person is clearly ordering much more (steak vs salad,
-      multiple drinks vs water), itemized is fair. If orders are
-      similar, even-split is faster and avoids nickel-and-diming.
+      Bir kişi açıkça çok daha fazla sipariş veriyorsa (biftek vs salata, birden fazla içecek vs su), maddelere göre bölmek adildir. Siparişler benzer ise, eşit bölme daha hızlıdır ve kuruş hesabı yapmaktan kaçınır.
     </p>
     <p>
-      When paying by card with multiple cards: waitstaff can usually
-      split evenly but dislike splitting by item. Do itemized
-      calculations yourself and tell them the per-card amount.
+      Birden fazla kartla kartla ödeme yaparken: garsonlar genellikle eşit olarak bölebilir ancak madde madde bölmeyi sevmezler. Maddelere göre hesaplamaları kendiniz yapın ve onlara kart başına tutarı söyleyin.
     </p>
 
-    <h2>Large-party auto-gratuity</h2>
+    <h2>Büyük gruplar için otomatik bahşiş</h2>
     <p>
-      Parties of 6 or 8+ often see an automatic 18-20% gratuity
-      already added to the bill. This should be disclosed on the
-      menu. If it&rsquo;s included:
+      6 veya 8+ kişilik gruplar genellikle faturaya otomatik olarak eklenmiş %18-20 bahşiş görür. Bu, menüde belirtilmelidir. Dahil edilmişse:
     </p>
     <p>
-      You don&rsquo;t need to tip additionally unless service was
-      exceptional. Adding another 20% on top effectively doubles the
-      tip.
+      Hizmet olağanüstü değilse ekstra bahşiş vermenize gerek yoktur. Üstüne bir %20 daha eklemek, bahşişi fiilen ikiye katlar.
     </p>
     <p>
-      The amount shown on the tip line of the receipt should be $0
-      or blank (not re-tipped). Some card readers still prompt for
-      an additional tip — it&rsquo;s OK to leave it blank.
+      Makbuzun bahşiş satırında gösterilen miktar 0 TL veya boş olmalıdır (tekrar bahşiş verilmemelidir). Bazı kart okuyucular hala ek bir bahşiş ister — boş bırakmak sorun değildir.
     </p>
 
-    <h2>When to tip more (or less)</h2>
+    <h2>Ne zaman daha fazla (veya daha az) bahşiş verilir</h2>
     <p>
-      <strong>Tip more:</strong> exceptional service, difficult
-      requests accommodated, holidays, end-of-year for regular
-      staff, bad weather for delivery, large parties without
-      auto-gratuity.
+      <strong>Daha fazla bahşiş:</strong> olağanüstü hizmet, karşılanan zor talepler, tatiller, düzenli personel için yıl sonu, teslimat için kötü hava, otomatik bahşiş olmayan büyük gruplar.
     </p>
     <p>
-      <strong>Tip less:</strong> genuinely bad service. Standard
-      guidance is to still leave 10% and speak to the manager, not
-      zero out — the person may not control kitchen speed, etc.
+      <strong>Daha az bahşiş:</strong> gerçekten kötü hizmet. Standart tavsiye, yine de %10 bırakmak ve müdürle konuşmaktır, sıfırlamamak — kişi mutfak hızını vb. kontrol edemeyebilir.
     </p>
     <p>
-      Never tip 0% as a silent protest — it reads as forgetting,
-      not as a message. If service was unacceptable, say so (kindly)
-      and tip 10% or use management.
+      Sessiz bir protesto olarak asla %0 bahşiş vermeyin — bu bir mesaj olarak değil, unutma olarak okunur. Hizmet kabul edilemezse, bunu (kibarca) söyleyin ve %10 bahşiş verin veya yönetime başvurun.
     </p>
 
-    <h2>Cash vs card</h2>
+    <h2>Nakit vs kart</h2>
     <p>
-      Cash tips typically reach the worker faster (same shift) and
-      in full. Card tips go through payroll and may take 1-2 weeks
-      to hit their account; in some systems, a percentage is withheld
-      for processing fees.
+      Nakit bahşişler genellikle işçiye daha hızlı (aynı vardiyada) ve tam olarak ulaşır. Kart bahşişleri maaş bordrosundan geçer ve hesaplarına yansıması 1-2 hafta sürebilir; bazı sistemlerde işlem ücretleri için bir yüzde kesilir.
     </p>
     <p>
-      If the bill is on card and you&rsquo;d like to tip in cash:
-      write &ldquo;Cash&rdquo; or zero on the tip line and leave
-      cash on the table.
+      Hesap kartla ödenecekse ve nakitle bahşiş vermek istiyorsanız: bahşiş satırına "Nakit" veya sıfır yazın ve masaya nakit bırakın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları hesaplayın</h2>
     <p>
-      Compute tip + per-person split with the{" "}
-      <a href="/tools/tip-calculator">tip calculator</a>. Pair with
-      the <a href="/tools/budget-calculator">budget calculator</a>
-      {" "}if dining out is a regular line item, and the{" "}
-      <a href="/tools/currency-converter">currency converter</a> when
-      calculating tips in a foreign currency.
+      Bahşiş + kişi başına düşen payı{" "}
+      <a href="/tools/tip-calculator">bahşiş hesaplayıcı</a> ile hesaplayın. Dışarıda yemek düzenli bir harcama kalemiyse{" "}
+      <a href="/tools/budget-calculator">bütçe hesaplayıcı</a> ile ve yabancı bir para biriminde bahşiş hesaplarken{" "}
+      <a href="/tools/currency-converter">döviz çevirici</a> ile birlikte kullanın.
     </p>
   </>
 );

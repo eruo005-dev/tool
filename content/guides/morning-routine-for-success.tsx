@@ -1,108 +1,83 @@
 export const intro = (
   <>
     <p>
-      The first hour of your day decides the other 15. Mess it up and you spend the rest of the
-      day reacting. Get it right and you&rsquo;re operating from a position of energy, clarity,
-      and control. Morning routines aren&rsquo;t aesthetic — they&rsquo;re leverage.
+      Gününün ilk saati diğer 15 saati belirler. Berbat edersen, günün geri kalanında tepki vererek geçirirsin.
+      Doğru yaparsan, enerji, netlik ve kontrol pozisyonundan hareket edersin. Sabah rutinleri estetik değil — kaldıraçtır.
     </p>
     <p>
-      This guide covers what actually works, based on how the body and brain behave in the
-      first two hours after waking, not what looks good on Instagram.
+      Bu rehber, vücudun ve beynin uyandıktan sonraki ilk iki saatte nasıl davrandığına dayanarak gerçekten işe yarayanı kapsar, Instagram'da güzel görünene değil.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Same wake time every day</h2>
+    <h2>1. Her gün aynı saatte uyan</h2>
     <p>
-      The single biggest lever: wake at the same hour every day, including weekends. Your
-      <a href="/learn/circadian-rhythm">circadian rhythm</a> hates variance. One inconsistent weekend wrecks your Monday. Pick a time
-      and anchor to it. See our <a href="/guides/how-to-sleep-better">sleep guide</a>.
+      En büyük kaldıraç: hafta sonları dahil her gün aynı saatte uyanmak. Sirkadiyen ritmin
+      <a href="/learn/circadian-rhythm">sirkadiyen ritmin</a> değişkenlikten nefret eder. Tutarsız bir hafta sonu Pazartesi'ni mahveder. Bir saat seç ve ona bağlan. <a href="/guides/how-to-sleep-better">Uyku rehberimize</a> göz at.
     </p>
 
-    <h2>2. Don&rsquo;t check your phone for 30 minutes</h2>
+    <h2>2. 30 dakika telefonuna bakma</h2>
     <p>
-      Phone = other people&rsquo;s agendas. Emails, notifications, news — all reactive inputs
-      that hijack your attention before you&rsquo;ve set your own direction. Delay the first
-      check. Start the day with your own thoughts.
+      Telefon = başkalarının gündemleri. E-postalar, bildirimler, haberler — kendi yönünü belirlemeden önce dikkatini kaçıran tüm tepkisel girdiler. İlk kontrolü geciktir. Güne kendi düşüncelerinle başla.
     </p>
 
-    <h2>3. Get sunlight in your eyes</h2>
+    <h2>3. Gözlerine güneş ışığı al</h2>
     <p>
-      Within 30 minutes of waking, get 5-10 minutes of outdoor light (not through a window).
-      This sets your circadian clock, boosts alertness, and improves nighttime sleep. Free, no
-      equipment, most powerful single intervention.
+      Uyandıktan sonraki 30 dakika içinde, 5-10 dakika dış mekan ışığı al (camdan değil). Bu, sirkadiyen saatinizi ayarlar, uyanıklığı artırır ve gece uykusunu iyileştirir. Ücretsiz, ekipman gerektirmez, en güçlü tek müdahale.
     </p>
 
-    <h2>4. Hydrate before caffeine</h2>
+    <h2>4. Kafeinden önce su iç</h2>
     <p>
-      You lose ~1L of water overnight through respiration. Drink 500ml of water on waking. It
-      rehydrates you, kickstarts metabolism, and actually reduces the caffeine you need. Black
-      coffee 90 minutes after waking, not immediately — cortisol is already high.
+      Gece boyunca solunum yoluyla ~1L su kaybedersin. Uyanır uyanmaz 500ml su iç. Bu seni yeniden nemlendirir, metabolizmayı hızlandırır ve aslında ihtiyacın olan kafeini azaltır. Uyandıktan 90 dakika sonra siyah kahve, hemen değil — kortizol zaten yüksek.
     </p>
 
-    <h2>5. Move your body for 10-20 minutes</h2>
+    <h2>5. 10-20 dakika vücudunu hareket ettir</h2>
     <p>
-      Not a full workout — just movement. A walk, bodyweight squats, a few yoga poses. Raises
-      heart rate, burns off residual sleep inertia, primes cognition. See our{" "}
-      <a href="/guides/beginner-workout-plan-at-home">beginner workout guide</a>.
+      Tam bir egzersiz değil — sadece hareket. Bir yürüyüş, vücut ağırlığı squatları, birkaç yoga pozu. Kalp atış hızını yükseltir, kalan uyku ataletini yakar, bilişi hazırlar.{" "}
+      <a href="/guides/beginner-workout-plan-at-home">Başlangıç egzersiz rehberimize</a> göz at.
     </p>
 
-    <h2>6. Plan the day on paper</h2>
+    <h2>6. Günü kağıt üzerinde planla</h2>
     <p>
-      Three priorities. Write them down. Not ten, not fifteen — three. Everything else is
-      optional. People who define the day proactively get different results than people who let
-      the day unfold.
+      Üç öncelik. Bunları yaz. On değil, on beş değil — üç. Diğer her şey isteğe bağlı. Günü proaktif olarak tanımlayan insanlar, günün akışına bırakan insanlardan farklı sonuçlar alır.
     </p>
 
-    <h2>7. Tackle the hardest thing first</h2>
+    <h2>7. Önce en zor işi hallet</h2>
     <p>
-      Willpower and cognitive capacity peak in the morning and decline through the day. Your
-      most difficult, important, or uncomfortable task belongs before 10 AM. Don&rsquo;t spend
-      your sharpest hours on email.
+      İrade gücü ve bilişsel kapasite sabah zirve yapar ve gün boyunca azalır. En zor, en önemli veya en rahatsız edici görevin sabah 10'dan önce olmalı. En keskin saatlerini e-postada harcama.
     </p>
 
-    <h2>8. Protect the first 90 minutes</h2>
+    <h2>8. İlk 90 dakikayı koru</h2>
     <p>
-      No meetings, no Slack, no email before 9:30 AM if possible. That first 90-minute block of
-      deep work is worth more than the rest of the day combined. Architect your schedule
-      around this.
+      Mümkünse sabah 9:30'dan önce toplantı yok, Slack yok, e-posta yok. Bu ilk 90 dakikalık derin çalışma bloğu, günün geri kalanından daha değerlidir. Programını buna göre düzenle.
     </p>
 
-    <h2>9. Eat breakfast — or don&rsquo;t</h2>
+    <h2>9. Kahvaltı yap — ya da yapma</h2>
     <p>
-      There&rsquo;s no universal answer. Some people thrive on protein-heavy breakfasts; some
-      do better skipping until noon. Experiment for 2-3 weeks with each. Track energy and
-      focus. Pick what works for you, not what an influencer eats.
+      Evrensel bir cevap yok. Bazı insanlar protein ağırlıklı kahvaltılarla iyi çalışır; bazıları öğlene kadar atlamakta daha iyidir. Her biriyle 2-3 hafta deney yap. Enerji ve odaklanmayı takip et. Bir fenomenin ne yediğine değil, senin için işe yarayanı seç.
     </p>
 
-    <h2>10. Read 10 pages</h2>
+    <h2>10. 10 sayfa oku</h2>
     <p>
-      Before input from the internet, absorb slow, high-quality input. A book, not social
-      media. Ten pages a day = 15 books a year. A morning reading habit compounds into
-      decades of insight.
+      İnternetten gelen girdilerden önce, yavaş, kaliteli girdi al. Bir kitap, sosyal medya değil. Günde on sayfa = yılda 15 kitap. Bir sabah okuma alışkanlığı, on yıllarca sürecek içgörüye dönüşür.
     </p>
 
-    <h2>11. Build the routine in layers</h2>
+    <h2>11. Rutini katmanlar halinde oluştur</h2>
     <p>
-      Don&rsquo;t launch a 2-hour morning overhaul on day one. Start with one habit (wake
-      consistent). Add another after 2 weeks (sunlight). Stack slowly. Our{" "}
-      <a href="/guides/how-to-build-good-habits">habits guide</a> covers the mechanics.
+      İlk günden 2 saatlik bir sabah revizyonu başlatma. Bir alışkanlıkla başla (tutarlı uyanma). 2 hafta sonra bir tane daha ekle (güneş ışığı). Yavaşça biriktir.{" "}
+      <a href="/guides/how-to-build-good-habits">Alışkanlık rehberimiz</a> mekanizmaları kapsar.
     </p>
 
-    <h2>12. Protect it like a meeting</h2>
+    <h2>12. Bir toplantı gibi koru</h2>
     <p>
-      Your morning routine is the most important meeting you have. Others will try to steal it
-      — early meetings, urgent texts, kids waking earlier. Build boundaries. The routine only
-      works if it happens every day.
+      Sabah rutinin sahip olduğun en önemli toplantıdır. Diğerleri onu çalmaya çalışacak — erken toplantılar, acil mesajlar, daha erken uyanan çocuklar. Sınırlar oluştur. Rutin sadece her gün yapılırsa işe yarar.
     </p>
 
-    <h2>A simple starter routine</h2>
+    <h2>Basit bir başlangıç rutini</h2>
     <p>
-      Wake 6:30 AM. Water + sunlight walk 10 minutes. Plan 3 priorities. One hour deep work on
-      task #1. Then shower, breakfast, start scheduled day. That&rsquo;s it. Anything fancier is
-      optimization.
+      Sabah 6:30'da uyan. Su + 10 dakika güneş ışığı yürüyüşü. 3 önceliği planla. 1. görevde bir saat derin çalışma. Ardından duş, kahvaltı, planlanmış güne başla. Bu kadar. Daha süslü olan her şey optimizasyondur.
     </p>
   </>
 );

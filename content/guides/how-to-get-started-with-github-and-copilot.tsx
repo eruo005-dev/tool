@@ -3,136 +3,136 @@
 export const intro = (
   <>
     <p>
-      Getting started with GitHub feels overwhelming because the platform does many
-      things — version control, hosting, collaboration, CI/CD, project management.
-      For your first project, you only need a fraction of it. This guide walks through
-      the practical first-week setup, including GitHub Copilot if you&rsquo;re adding
-      it.
+      GitHub'a başlamak ilk başta bunaltıcı gelebilir çünkü platform çok sayıda işlevi
+      bir arada sunar — sürüm kontrolü, barındırma, iş birliği, CI/CD, proje yönetimi.
+      İlk projeniz için bunun yalnızca küçük bir kısmına ihtiyacınız var. Bu rehber,
+      GitHub Copilot'u da ekliyorsanız dahil olmak üzere, pratik ilk hafta kurulumunu
+      adım adım anlatır.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "first-project", label: "Your first project on GitHub" },
-  { id: "copilot-setup", label: "Setting up Copilot" },
-  { id: "team-onboarding", label: "Onboarding a team" },
-  { id: "learning-curve", label: "Realistic learning curve" },
+  { id: "first-project", label: "GitHub'daki ilk projeniz" },
+  { id: "copilot-setup", label: "Copilot'u kurma" },
+  { id: "team-onboarding", label: "Bir ekibi GitHub'a alıştırma" },
+  { id: "learning-curve", label: "Gerçekçi öğrenme eğrisi" },
 ];
 
 export const body = (
   <>
-    <h2 id="first-project">Your first project on GitHub</h2>
+    <h2 id="first-project">GitHub'daki ilk projeniz</h2>
     <p>
-      The minimum-viable workflow:
+      Minimum uygulanabilir iş akışı:
     </p>
     <ol>
       <li>
-        <strong>Sign up</strong> at github.com (free).
+        <strong>Kaydolun</strong> github.com adresine (ücretsiz).
       </li>
       <li>
-        <strong>Click &ldquo;New repository.&rdquo;</strong> Pick a name. Decide
-        public or private (public is fine for learning, private if it contains
-        anything sensitive).
+        <strong>"New repository" butonuna tıklayın.</strong> Bir isim seçin. Herkese
+        açık veya özel olmasına karar verin (öğrenme amaçlı herkese açık iyidir, hassas
+        bir şey içeriyorsa özel yapın).
       </li>
       <li>
-        <strong>Initialize with README + .gitignore.</strong> Pick the .gitignore
-        template matching your language (Node, Python, etc.).
+        <strong>README + .gitignore ile başlatın.</strong> Dilinize uygun .gitignore
+        şablonunu seçin (Node, Python vb.).
       </li>
       <li>
-        <strong>Clone to your machine.</strong> Copy the HTTPS URL, run{" "}
-        <code>git clone &lt;url&gt;</code> in your terminal.
+        <strong>Bilgisayarınıza klonlayın.</strong> HTTPS URL'sini kopyalayın, terminalde{" "}
+        <code>git clone &lt;url&gt;</code> komutunu çalıştırın.
       </li>
       <li>
-        <strong>Add files, commit, push.</strong>
+        <strong>Dosyaları ekleyin, commit yapın, push yapın.</strong>
         <pre><code>{`git add .
 git commit -m "Initial commit"
 git push`}</code></pre>
       </li>
       <li>
-        <strong>Refresh GitHub.</strong> Your code is now hosted.
+        <strong>GitHub'ı yenileyin.</strong> Kodunuz artık barındırılıyor.
       </li>
     </ol>
     <p>
-      That&rsquo;s the entire first day. Everything else (branches, PRs, Actions,
-      issues) you&rsquo;ll add as you need it.
+      Tüm ilk gün bundan ibaret. Diğer her şeyi (dallar, PR'lar, Actions,
+      issue'lar) ihtiyacınız oldukça ekleyeceksiniz.
     </p>
 
-    <h2 id="copilot-setup">Setting up GitHub Copilot</h2>
+    <h2 id="copilot-setup">GitHub Copilot'u kurma</h2>
     <ol>
-      <li>Sign up at <code>github.com/features/copilot</code>. 30-day free trial.</li>
-      <li>Install the extension in your IDE — VSCode, JetBrains, Neovim, Cursor all support.</li>
-      <li>Sign in to the extension with your GitHub account.</li>
-      <li>Open any code file. Type a function comment. Copilot suggests the body. Tab to accept; Esc to dismiss.</li>
+      <li><code>github.com/features/copilot</code> adresine kaydolun. 30 günlük ücretsiz deneme.</li>
+      <li>IDE'nize eklentiyi yükleyin — VSCode, JetBrains, Neovim, Cursor'un tümü destekler.</li>
+      <li>Eklentiye GitHub hesabınızla giriş yapın.</li>
+      <li>Herhangi bir kod dosyasını açın. Bir fonksiyon yorumu yazın. Copilot gövdeyi önerir. Kabul etmek için Tab'a, reddetmek için Esc'ye basın.</li>
     </ol>
     <p>
-      Time investment: 10 minutes for setup. 1-2 weeks for your acceptance habits to
-      stabilize (which suggestions you take vs reject). Most people see meaningful
-      productivity gains by week 2.
+      Zaman yatırımı: Kurulum için 10 dakika. Kabul alışkanlıklarınızın (hangi önerileri
+      alıp reddettiğiniz) oturması 1-2 hafta. Çoğu kişi 2. haftada anlamlı verimlilik
+      artışı görür.
     </p>
 
-    <h2 id="team-onboarding">Onboarding a team to GitHub</h2>
+    <h2 id="team-onboarding">Bir ekibi GitHub'a alıştırma</h2>
     <p>
-      For a 5-15 person team:
+      5-15 kişilik bir ekip için:
     </p>
     <ul>
       <li>
-        <strong>Day 1:</strong> create the org, add team members, set up repository
-        permissions.
+        <strong>1. Gün:</strong> organizasyonu oluşturun, ekip üyelerini ekleyin, depo
+        izinlerini ayarlayın.
       </li>
       <li>
-        <strong>Day 2-3:</strong> 30-minute walkthrough on creating branches, opening
-        PRs, code review etiquette. Most teams have someone already familiar — let
-        them lead.
+        <strong>2-3. Gün:</strong> dal oluşturma, PR açma ve kod inceleme görgü kuralları
+        üzerine 30 dakikalık bir uygulamalı anlatım. Çoğu ekipte konuya aşina biri vardır —
+        onun liderlik etmesine izin verin.
       </li>
       <li>
-        <strong>Week 2:</strong> introduce GitHub Actions for tests + lint. Use
-        existing workflow templates; don&rsquo;t custom-build initially.
+        <strong>2. Hafta:</strong> testler ve lint için GitHub Actions'ı tanıtın. Mevcut
+        iş akışı şablonlarını kullanın; başlangıçta özel bir şey oluşturmayın.
       </li>
       <li>
-        <strong>Month 2:</strong> introduce GitHub Issues + Projects for tracking
-        work (if you want to consolidate from Jira/Linear). Optional.
+        <strong>2. Ay:</strong> iş takibi için GitHub Issues + Projects'i tanıtın
+        (Jira/Linear'dan geçiş yapmak isterseniz). İsteğe bağlı.
       </li>
     </ul>
     <p>
-      Don&rsquo;t try to teach everything at once. The Git Bible is a mistake; learn
-      by doing.
+      Her şeyi bir anda öğretmeye çalışmayın. Git ansiklopedisi bir hatadır; yaparak
+      öğrenin.
     </p>
 
-    <h2 id="learning-curve">Realistic learning curve</h2>
+    <h2 id="learning-curve">Gerçekçi öğrenme eğrisi</h2>
     <ul>
-      <li><strong>Week 1:</strong> commit + push + clone. Comfortable with the basics.</li>
-      <li><strong>Week 2:</strong> branches + pull requests. The collaboration mental model clicks.</li>
-      <li><strong>Month 1:</strong> code review etiquette, .gitignore, basic Actions.</li>
-      <li><strong>Month 3:</strong> rebases, cherry-picks, conflict resolution, Issues + Projects.</li>
-      <li><strong>Year 1:</strong> comfortable enough that GitHub feels like infrastructure rather than a tool to learn.</li>
+      <li><strong>1. Hafta:</strong> commit + push + clone. Temel bilgilerde rahat hissedin.</li>
+      <li><strong>2. Hafta:</strong> dallar + pull request'ler. İş birliği zihniyeti oturur.</li>
+      <li><strong>1. Ay:</strong> kod inceleme görgü kuralları, .gitignore, temel Actions.</li>
+      <li><strong>3. Ay:</strong> rebase, cherry-pick, çakışma çözümü, Issues + Projects.</li>
+      <li><strong>1. Yıl:</strong> GitHub'ın öğrenilmesi gereken bir araç değil, altyapı gibi hissettirecek kadar rahat olun.</li>
     </ul>
     <p>
-      For Copilot specifically: 1-2 weeks until your acceptance habits stabilize.
-      6 months until you internalize what kinds of prompts produce useful suggestions.
+      Copilot özelinde: Kabul alışkanlıklarınızın oturması 1-2 hafta. Hangi tür
+      istemlerin faydalı öneriler ürettiğini içselleştirmeniz 6 ay sürer.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Score your GitHub profile (free)",
+  label: "GitHub profilinizi puanlayın (ücretsiz)",
   targetSlug: "github-profile-scorecard",
 };
 
 export const faq = [
   {
-    q: "How do I actually use GitHub for my first project?",
-    a: "Sign up, create a repo with README + .gitignore, clone to your machine, add code, commit, push. That's day 1 — everything else (branches, PRs, Actions) you'll learn as you need it.",
+    q: "İlk projem için GitHub'ı nasıl kullanabilirim?",
+    a: "Kaydolun, README + .gitignore ile bir depo oluşturun, bilgisayarınıza klonlayın, kod ekleyin, commit yapın, push yapın. İlk gün bu kadar — diğer her şeyi (dallar, PR'lar, Actions) ihtiyacınız oldukça öğreneceksiniz.",
   },
   {
-    q: "How long does it take to learn GitHub?",
-    a: "Week 1: basics (commit/push/clone). Week 2: branches + PRs. Month 1: code review + Actions. Month 3: advanced operations. Year 1: feels like infrastructure rather than a tool to learn.",
+    q: "GitHub'ı öğrenmek ne kadar sürer?",
+    a: "1. Hafta: temel bilgiler (commit/push/clone). 2. Hafta: dallar + PR'lar. 1. Ay: kod inceleme + Actions. 3. Ay: ileri düzey işlemler. 1. Yıl: öğrenilmesi gereken bir araç değil, altyapı gibi hissettirir.",
   },
   {
-    q: "How do I get started with GitHub Copilot?",
-    a: "Sign up at github.com/features/copilot for 30-day free trial. Install extension in your IDE (VSCode, JetBrains, Neovim, Cursor). Sign in. Type a function comment, see suggestion. 10 minutes setup; 1-2 weeks for acceptance habits to stabilize.",
+    q: "GitHub Copilot'a nasıl başlayabilirim?",
+    a: "github.com/features/copilot adresine kaydolarak 30 günlük ücretsiz denemeye başlayın. IDE'nize eklentiyi yükleyin (VSCode, JetBrains, Neovim, Cursor). Giriş yapın. Bir fonksiyon yorumu yazın, öneriyi görün. Kurulum 10 dakika; kabul alışkanlıklarının oturması 1-2 hafta.",
   },
   {
-    q: "What's the easiest way to learn GitHub for my team?",
-    a: "Day 1: org + permissions. Day 2-3: 30-min walkthrough on branches + PRs (let an experienced team member lead). Week 2: introduce Actions for tests/lint with templates. Month 2: optional Issues + Projects. Don't try to teach everything at once.",
+    q: "Ekibim için GitHub'ı öğrenmenin en kolay yolu nedir?",
+    a: "1. Gün: organizasyon + izinler. 2-3. Gün: dallar ve PR'lar üzerine 30 dakikalık uygulamalı anlatım (deneyimli bir ekip üyesinin liderlik etmesine izin verin). 2. Hafta: testler/lint için şablonlarla Actions'ı tanıtın. 2. Ay: isteğe bağlı Issues + Projects. Her şeyi bir anda öğretmeye çalışmayın.",
   },
 ];

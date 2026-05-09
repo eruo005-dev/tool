@@ -1,87 +1,65 @@
 export const intro = (
   <>
     <p>
-      Students have more unstructured time than they&rsquo;ll ever have again — and
-      most waste it. The problem isn&rsquo;t laziness; it&rsquo;s lack of systems.
-      With a few simple habits, the same 24 hours feel twice as long.
+      Öğrenciler, hayatlarının hiçbir döneminde olmayacağı kadar yapılandırılmamış zamana sahiptir — ve çoğu bunu boşa harcar. Sorun tembellik değil; sistem eksikliğidir. Birkaç basit alışkanlıkla aynı 24 saat iki kat daha uzun hissedilir.
     </p>
     <p>
-      These work whether you&rsquo;re in high school, college, or grad school.
+      Bunlar ister lisede, ister üniversitede, ister yüksek lisansta olun işe yarar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Plan Sunday night</h2>
+    <h2>1. Pazar gecesi plan yapın</h2>
     <p>
-      15 minutes to lay out the week. Deadlines, class meetings, study blocks, social.
-      Writing it down is half the battle. Every class and every study session has a
-      time slot. No vague &ldquo;I&rsquo;ll study this weekend.&rdquo;
+      Haftayı düzenlemek için 15 dakika. Teslim tarihleri, ders toplantıları, çalışma blokları, sosyal aktiviteler. Yazmak savaşın yarısıdır. Her ders ve her çalışma oturumunun bir zaman dilimi vardır. "Bu hafta sonu çalışırım" gibi belirsizlikler yok.
     </p>
 
-    <h2>2. Two-week deadline rule</h2>
+    <h2>2. İki haftalık teslim kuralı</h2>
     <p>
-      Start any assignment worth &gt;10% of the grade at least 2 weeks out. Papers,
-      projects, exams. Spreading the work catches problems early and makes quality
-      possible without all-nighters.
+      Notun %10'undan fazlasını oluşturan her ödeve en az 2 hafta kala başlayın. Makaleler, projeler, sınavlar. İşi yaymak, sorunları erken yakalar ve tüm gece çalışmadan kaliteyi mümkün kılar.
     </p>
 
-    <h2>3. Pomodoros for study</h2>
+    <h2>3. Çalışmak için Pomodoro</h2>
     <p>
-      25 minutes on, 5 off. Four rounds, then a longer break. Beats vague &ldquo;I
-      studied 4 hours&rdquo; (which is usually 1 hour of study + 3 of distraction). See
-      our <a href="/tools/pomodoro-timer">pomodoro timer</a> and{" "}
-      <a href="/guides/how-to-use-pomodoro-technique">pomodoro guide</a>.
+      25 dakika çalışma, 5 dakika ara. Dört tur, ardından daha uzun bir mola. "4 saat çalıştım" gibi belirsiz ifadelerden iyidir (ki bu genellikle 1 saat çalışma + 3 saat dikkat dağınıklığıdır). <a href="/tools/pomodoro-timer">Pomodoro zamanlayıcımıza</a> ve{" "}
+      <a href="/guides/how-to-use-pomodoro-technique">Pomodoro rehberimize</a> bakın.
     </p>
 
-    <h2>4. Phone in another room while studying</h2>
+    <h2>4. Çalışırken telefonu başka bir odada bırakın</h2>
     <p>
-      Biggest single study productivity hack. Notifications destroy focus. Airplane
-      mode isn&rsquo;t enough; physical distance works. You&rsquo;ll get 2x more done
-      in the same time.
+      En büyük tek çalışma verimliliği hilesi. Bildirimler odaklanmayı yok eder. Uçak modu yeterli değil; fiziksel mesafe işe yarar. Aynı sürede 2 kat daha fazla iş çıkarırsınız.
     </p>
 
-    <h2>5. Library or cafe, not your room</h2>
+    <h2>5. Kütüphane veya kafe, odanız değil</h2>
     <p>
-      Your bedroom has your bed, your Xbox, your distractions. A neutral space with
-      other people working raises your baseline effort. Don&rsquo;t fight your
-      environment — change it.
+      Yatak odanızda yatağınız, Xbox'ınız ve dikkat dağıtıcı şeyleriniz var. Diğer insanların çalıştığı nötr bir alan, temel çabanızı artırır. Çevrenizle savaşmayın — onu değiştirin.
     </p>
 
-    <h2>6. Batch similar tasks</h2>
+    <h2>6. Benzer görevleri gruplayın</h2>
     <p>
-      All reading in one block. All problem sets in another. All emails in another.
-      Switching contexts costs 15-20 minutes each time. Batching saves hours per week.
+      Tüm okumalar bir blokta. Tüm problem setleri başka bir blokta. Tüm e-postalar başka bir blokta. Bağlam değiştirmek her seferinde 15-20 dakika kaybettirir. Gruplama haftada saatler kazandırır.
     </p>
 
-    <h2>7. Sleep is a study technique</h2>
+    <h2>7. Uyku bir çalışma tekniğidir</h2>
     <p>
-      You can&rsquo;t learn what you don&rsquo;t consolidate in sleep. Pulling all-
-      nighters drops test scores more than the extra study time gains. 7-8 hours is
-      the real productivity hack. See <a href="/guides/how-to-sleep-better">sleep
-      guide</a>.
+      Uykuda pekiştirmediğiniz şeyi öğrenemezsiniz. Tüm gece çalışmak, ek çalışma süresinin kazancından daha fazla sınav puanı düşürür. 7-8 saat gerçek verimlilik hilesidir. <a href="/guides/how-to-sleep-better">Uyku rehberine</a> bakın.
     </p>
 
-    <h2>8. Say no to things</h2>
+    <h2>8. Bazı şeylere hayır deyin</h2>
     <p>
-      College tries to convince you every event is essential. It isn&rsquo;t. Pick
-      the 2-3 activities and groups that matter, skip the rest. Busy isn&rsquo;t the
-      same as productive.
+      Üniversite size her etkinliğin gerekli olduğuna inandırmaya çalışır. Öyle değil. Önemli olan 2-3 aktivite ve grubu seçin, gerisini atlayın. Meşgul olmak, üretken olmakla aynı şey değildir.
     </p>
 
-    <h2>9. Review your week every Friday</h2>
+    <h2>9. Her Cuma haftanızı gözden geçirin</h2>
     <p>
-      15 minutes. What worked, what didn&rsquo;t, what&rsquo;s next week. This
-      reflection step is what separates students who improve semester to semester from
-      those who don&rsquo;t.
+      15 dakika. Ne işe yaradı, ne yaramadı, gelecek hafta ne var? Bu yansıtma adımı, dönemden döneme gelişen öğrencileri gelişmeyenlerden ayıran şeydir.
     </p>
 
-    <h2>10. Don&rsquo;t skip breaks and fun</h2>
+    <h2>10. Molaları ve eğlenceyi atlamayın</h2>
     <p>
-      Grind-culture studying burns you out by midterms. Planned fun — friends,
-      exercise, hobbies — is not the enemy of grades. It&rsquo;s how you sustain the
-      effort. See <a href="/guides/how-to-beat-burnout">burnout guide</a>.
+      Sıkı çalışma kültürü sizi vize haftasında tüketir. Planlı eğlence — arkadaşlar, egzersiz, hobiler — notların düşmanı değildir. Çabayı sürdürmenin yoludur. <a href="/guides/how-to-beat-burnout">Tükenmişlik rehberine</a> bakın.
     </p>
   </>
 );

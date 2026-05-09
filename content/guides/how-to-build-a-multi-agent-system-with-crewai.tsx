@@ -1,63 +1,47 @@
 export const intro = (
   <>
     <p>
-      CrewAI is the most approachable framework for <strong>role-based
-      multi-agent systems</strong>. Instead of one giant prompt juggling a
-      dozen responsibilities, you describe a small team of agents — Researcher,
-      Writer, Editor — give each one tools and a goal, and let them hand work
-      back and forth.
+      CrewAI, <strong>rol tabanlı çoklu ajan sistemleri</strong> için en erişilebilir framework'tür. Bir düzine sorumluluğu tek bir devasa prompt'ta toplamak yerine, küçük bir ajan ekibi tanımlarsınız — Araştırmacı, Yazar, Editör — her birine araçlar ve bir hedef verir, işi birbirlerine devretmelerini sağlarsınız.
     </p>
     <p>
-      This guide builds a working three-agent crew in Python, explains the
-      four primitives (Agent, Task, Crew, Tool), and flags the failure modes
-      you&rsquo;ll hit once you put one on a schedule. Written April 2026.
+      Bu rehber, Python'da çalışan üç ajanlı bir ekip kurar, dört temel yapı taşını (Ajan, Görev, Ekip, Araç) açıklar ve bir ekibi zamanlamaya koyduğunuzda karşılaşacağınız hata modlarını işaret eder. Nisan 2026'da yazılmıştır.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>When to reach for CrewAI</h2>
+    <h2>CrewAI'ye ne zaman başvurmalı</h2>
     <p>
-      CrewAI is worth it when the task <em>naturally decomposes</em> into
-      specialist roles that talk to each other. Good fits: content pipelines,
-      research reports, customer-onboarding flows, multi-step analyses. Bad
-      fits: a single API-call task (too heavy), tight low-latency work (too
-      much overhead), deeply branching logic (use LangGraph — see our{" "}
-      <a href="/guides/how-to-build-a-stateful-agent-with-langgraph">LangGraph guide</a>).
+      CrewAI, görev <em>doğal olarak</em> birbiriyle konuşan uzman rollere ayrıştığında değerlidir. Uygun kullanım alanları: içerik hatları, araştırma raporları, müşteri kayıt akışları, çok adımlı analizler. Uygun olmayan kullanım alanları: tek bir API çağrısı görevi (çok ağır), düşük gecikme süreli işler (çok fazla yük), derin dallanan mantık (LangGraph kullanın —{" "}
+      <a href="/guides/how-to-build-a-stateful-agent-with-langgraph">LangGraph rehberimize</a> bakın).
     </p>
 
-    <h2>Step 1 — Install</h2>
+    <h2>Adım 1 — Kurulum</h2>
     <pre><code>{`python -m venv .venv && source .venv/bin/activate
 pip install crewai crewai-tools`}</code></pre>
     <p>
-      Set <code>OPENAI_API_KEY</code> or <code>ANTHROPIC_API_KEY</code> depending
-      on the model you&rsquo;ll use. CrewAI is model-agnostic; you configure
-      per-agent.
+      Kullanacağınız modele göre <code>OPENAI_API_KEY</code> veya <code>ANTHROPIC_API_KEY</code> ayarlayın. CrewAI modelden bağımsızdır; yapılandırmayı ajan bazında yaparsınız.
     </p>
 
-    <h2>Step 2 — The four primitives</h2>
+    <h2>Adım 2 — Dört temel yapı taşı</h2>
     <ul>
       <li>
-        <strong>Agent</strong> — a role with a goal, a backstory (short!), and
-        an optional list of tools.
+        <strong>Ajan</strong> — bir hedefi, bir geçmişi (kısa!) ve isteğe bağlı bir araç listesi olan bir rol.
       </li>
       <li>
-        <strong>Task</strong> — a specific unit of work given to an agent, with
-        an expected output format.
+        <strong>Görev</strong> — bir ajana verilen, beklenen bir çıktı formatı olan belirli bir iş birimi.
       </li>
       <li>
-        <strong>Crew</strong> — the orchestrator. Knows the agents, the tasks,
-        and the process (sequential or hierarchical).
+        <strong>Ekip</strong> — orkestratör. Ajanları, görevleri ve süreci (sıralı veya hiyerarşik) bilir.
       </li>
       <li>
-        <strong>Tool</strong> — a function any agent can call. Built-ins for
-        web search, file I/O, etc.
+        <strong>Araç</strong> — herhangi bir ajanın çağırabileceği bir fonksiyon. Web arama, dosya G/Ç vb. için yerleşik araçlar.
       </li>
     </ul>
 
-    <h2>Step 3 — A three-agent crew</h2>
-    <p>The canonical example: research, write, edit. Paste into <code>crew.py</code>:</p>
+    <h2>Adım 3 — Üç ajanlı bir ekip</h2>
+    <p>Kanonik örnek: araştır, yaz, düzenle. <code>crew.py</code> dosyasına yapıştırın:</p>
     <pre><code>{`from crewai import Agent, Task, Crew, Process
 from crewai_tools import SerperDevTool
 
@@ -115,75 +99,57 @@ if __name__ == "__main__":
     result = crew.kickoff()
     print(result)`}</code></pre>
 
-    <h2>Step 4 — Run it</h2>
+    <h2>Adım 4 — Çalıştırın</h2>
     <pre><code>{`python crew.py`}</code></pre>
     <p>
-      You&rsquo;ll see the agents talk to each other in the console. Each
-      task&rsquo;s output flows into the next task&rsquo;s context, which is
-      why <code>context=[previous_task]</code> matters — without it, the next
-      agent starts from nothing.
+      Konsolda ajanların birbirleriyle konuştuğunu göreceksiniz. Her görevin çıktısı bir sonraki görevin bağlamına akar, bu nedenle <code>context=[previous_task]</code> önemlidir — onsuz, sonraki ajan sıfırdan başlar.
     </p>
 
-    <h2>Step 5 — Tighten the prompts</h2>
+    <h2>Adım 5 — Prompt'ları sıkılaştırın</h2>
     <p>
-      CrewAI&rsquo;s biggest trap is verbose backstories. Keep them to one or
-      two sentences. A long backstory eats context and distracts the model. If
-      your &ldquo;Writer&rdquo; agent is drifting, cut the backstory, not the
-      goal.
+      CrewAI'nin en büyük tuzağı ayrıntılı geçmişlerdir. Bunları bir veya iki cümleyle sınırlayın. Uzun bir geçmiş, bağlamı tüketir ve modelin dikkatini dağıtır. "Yazar" ajanınız konudan sapıyorsa, geçmişi değil hedefi kısaltın.
     </p>
 
-    <h2>Step 6 — Sequential vs. hierarchical</h2>
+    <h2>Adım 6 — Sıralı ve hiyerarşik</h2>
     <ul>
       <li>
-        <strong>Sequential</strong> (default) — tasks run in order; each feeds
-        the next. Deterministic, easy to debug.
+        <strong>Sıralı</strong> (varsayılan) — görevler sırayla çalışır; her biri bir sonrakini besler. Belirleyici, hata ayıklaması kolay.
       </li>
       <li>
-        <strong>Hierarchical</strong> — a manager agent delegates tasks
-        dynamically. More flexible, harder to debug. Use it only once sequential
-        stops expressing the workflow.
+        <strong>Hiyerarşik</strong> — bir yönetici ajan, görevleri dinamik olarak devreder. Daha esnek, hata ayıklaması daha zor. Yalnızca sıralı iş akışını ifade edemediğinde kullanın.
       </li>
     </ul>
 
-    <h2>Step 7 — Cost control</h2>
+    <h2>Adım 7 — Maliyet kontrolü</h2>
     <p>
-      Every agent is a separate model call. A 3-agent sequential crew with
-      retries can easily hit 15–20 turns. Before you put one on a schedule:
+      Her ajan ayrı bir model çağrısıdır. Yeniden denemeleri olan 3 ajanlı sıralı bir ekip, kolayca 15-20 tura ulaşabilir. Bir ekibi zamanlamaya koymadan önce:
     </p>
     <ul>
-      <li>Run once with <code>verbose=True</code> and count the turns.</li>
-      <li>Estimate per-run cost with our <a href="/tools/ai-token-counter">token counter</a>.</li>
-      <li>Cap <code>max_rpm</code> on the crew to avoid runaway loops.</li>
-      <li>Set a per-task <code>max_iter</code> for safety.</li>
+      <li><code>verbose=True</code> ile bir kez çalıştırın ve turları sayın.</li>
+      <li><a href="/tools/ai-token-counter">token sayacımızla</a> çalıştırma başına maliyeti tahmin edin.</li>
+      <li>Kaçak döngüleri önlemek için ekipte <code>max_rpm</code> sınırlayın.</li>
+      <li>Güvenlik için görev başına <code>max_iter</code> ayarlayın.</li>
     </ul>
 
-    <h2>Step 8 — Schedule it</h2>
+    <h2>Adım 8 — Zamanlayın</h2>
     <p>
-      Once the crew runs cleanly on your laptop, wrap it in a FastAPI handler,
-      trigger it from a cron, or drop it into a Modal / Temporal worker. The
-      agents stay the same; only the trigger changes. For long-running or
-      stateful work, compare against{" "}
-      <a href="/guides/how-to-build-a-stateful-agent-with-langgraph">LangGraph</a> —
-      it gives you retries and state persistence that CrewAI doesn&rsquo;t.
+      Ekip dizüstü bilgisayarınızda sorunsuz çalıştığında, bir FastAPI işleyicisine sarın, bir cron'dan tetikleyin veya bir Modal / Temporal işçisine bırakın. Ajanlar aynı kalır; yalnızca tetikleyici değişir. Uzun süreli veya durum bilgisi olan işler için{" "}
+      <a href="/guides/how-to-build-a-stateful-agent-with-langgraph">LangGraph</a> ile karşılaştırın — CrewAI'nin sunmadığı yeniden denemeler ve durum kalıcılığı sağlar.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Sık yapılan hatalar</h2>
     <ul>
       <li>
-        <strong>Too many agents.</strong> Three or four is the sweet spot. Ten
-        agents = ten prompt drift sources.
+        <strong>Çok fazla ajan.</strong> Üç veya dört ideal sayıdır. On ajan = on prompt kayması kaynağı.
       </li>
       <li>
-        <strong>Overlapping roles.</strong> If &ldquo;Researcher&rdquo; and
-        &ldquo;Analyst&rdquo; could be the same person, they should be.
+        <strong>Örtüşen roller.</strong> "Araştırmacı" ve "Analist" aynı kişi olabiliyorsa, öyle olmalıdır.
       </li>
       <li>
-        <strong>No <code>expected_output</code>.</strong> Without it, agents
-        freestyle the format and the next agent struggles to parse.
+        <strong><code>expected_output</code> yok.</strong> Olmadan, ajanlar formatı serbest bırakır ve sonraki ajan ayrıştırmakta zorlanır.
       </li>
       <li>
-        <strong>Using CrewAI as a chat wrapper.</strong> If the task is one
-        turn, just call the model directly.
+        <strong>CrewAI'yi sohbet sarmalayıcısı olarak kullanmak.</strong> Görev tek turluysa, doğrudan modeli çağırın.
       </li>
     </ul>
   </>

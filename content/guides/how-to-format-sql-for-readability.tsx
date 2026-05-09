@@ -3,127 +3,125 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A 300-line SELECT crammed onto three lines is the SQL
-      equivalent of unreadable code. Format it — indent joins, align
-      columns, uppercase keywords, break at logical boundaries — and
-      the same query tells its story at a glance. This guide covers
-      the conventions teams actually agree on, the stylistic
-      decisions worth having an opinion about (leading comma vs
-      trailing, river vs indent), auto-formatters, style guides from
-      major projects, and the small rules that keep PRs readable a
-      year from now.
+      300 satırlık bir SELECT ifadesini üç satıra sıkıştırmak, SQL'in
+      okunamaz kod karşılığıdır. Onu biçimlendirin — birleştirmeleri girintileyin,
+      sütunları hizalayın, anahtar kelimeleri büyük harf yapın, mantıksal
+      sınırlarda ayırın — ve aynı sorgu hikayesini bir bakışta anlatır. Bu kılavuz,
+      ekiplerin üzerinde gerçekten anlaştığı kuralları, hakkında fikir sahibi olmaya
+      değer biçimsel kararları (başta virgül vs sonda virgül, nehir vs girinti),
+      otomatik biçimlendiricileri, büyük projelerden stil rehberlerini ve PR'ları
+      bir yıl sonra bile okunabilir tutan küçük kuralları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Why SQL formatting matters more than most code formatting</h2>
+    <h2>SQL biçimlendirmesi neden çoğu kod biçimlendirmesinden daha önemlidir</h2>
     <p>
-      SQL is declarative and often nested. A single query can be the
-      logic of an entire business report. Unlike Python or
-      JavaScript, linters and auto-formatters were uncommon in SQL
-      workflows for years — teams picked up habits that clash.
+      SQL bildirimseldir ve genellikle iç içedir. Tek bir sorgu, tüm bir iş
+      raporunun mantığı olabilir. Python veya JavaScript'in aksine, SQL
+      iş akışlarında yıllarca linter'lar ve otomatik biçimlendiriciler yaygın
+      değildi — ekipler çatışan alışkanlıklar edindi.
     </p>
     <p>
-      Poorly formatted SQL hides: duplicate joins, wrong filter
-      placement (WHERE vs HAVING vs ON), missed NULL handling, and
-      unintended cross joins. Formatting exposes these by making the
-      shape of the query readable.
-    </p>
-
-    <h2>The core rules most teams agree on</h2>
-    <p>
-      <strong>Keywords uppercase.</strong> SELECT, FROM, WHERE, JOIN,
-      GROUP BY, ORDER BY — all caps. Table and column names stay
-      lowercase (or follow your DB&rsquo;s case convention).
-    </p>
-    <p>
-      <strong>One column per line in SELECT lists.</strong> Easier
-      to add, remove, and comment individual columns in diffs.
-    </p>
-    <p>
-      <strong>One join per line.</strong> Each JOIN clause on its
-      own line with the ON condition either inline or indented.
-    </p>
-    <p>
-      <strong>Logical indentation.</strong> Subqueries and CTEs
-      indented from their parent; related clauses aligned.
-    </p>
-    <p>
-      <strong>Trailing commas.</strong> (Or leading — opinions
-      differ; see below.) Consistent within your codebase.
+      Kötü biçimlendirilmiş SQL şunları gizler: yinelenen birleştirmeler, yanlış
+      filtre yerleşimi (WHERE vs HAVING vs ON), gözden kaçan NULL işleme ve
+      istenmeyen çapraz birleştirmeler. Biçimlendirme, sorgunun şeklini okunabilir
+      kılarak bunları ortaya çıkarır.
     </p>
 
-    <h2>Leading comma vs trailing comma — pick one</h2>
+    <h2>Çoğu ekibin üzerinde anlaştığı temel kurallar</h2>
     <p>
-      <strong>Trailing comma style</strong> (more common):
+      <strong>Anahtar kelimeler büyük harf.</strong> SELECT, FROM, WHERE, JOIN,
+      GROUP BY, ORDER BY — hepsi büyük harf. Tablo ve sütun adları küçük harf
+      kalır (veya veritabanınızın büyük/küçük harf kuralını izler).
+    </p>
+    <p>
+      <strong>SELECT listelerinde her sütun için bir satır.</strong> Farklarda
+      tek tek sütunları eklemek, kaldırmak ve yorumlamak daha kolaydır.
+    </p>
+    <p>
+      <strong>Her birleştirme için bir satır.</strong> Her JOIN cümlesi kendi
+      satırında, ON koşulu satır içinde veya girintili olarak.
+    </p>
+    <p>
+      <strong>Mantıksal girinti.</strong> Alt sorgular ve CTE'ler üst
+      öğelerinden girintili; ilgili cümleler hizalanmış.
+    </p>
+    <p>
+      <strong>Sonda virgül.</strong> (Veya başta — görüşler farklıdır; aşağıya
+      bakın.) Kod tabanınızda tutarlı olun.
+    </p>
+
+    <h2>Başta virgül vs sonda virgül — birini seçin</h2>
+    <p>
+      <strong>Sonda virgül stili</strong> (daha yaygın):
     </p>
     <p>
       <code>SELECT id, name, email, created_at FROM users</code>
-      with each column on a new line and the comma at the end.
+      her sütun yeni bir satırda ve virgül sonda.
     </p>
     <p>
-      <strong>Leading comma style</strong> (catches bugs, polarizing):
+      <strong>Başta virgül stili</strong> (hataları yakalar, kutuplaştırıcı):
     </p>
     <p>
       <code>SELECT id , name , email , created_at FROM users</code>
-      with each column on a new line and the comma at the start.
+      her sütun yeni bir satırda ve virgül başta.
     </p>
     <p>
-      <strong>The argument for leading comma:</strong> the last line
-      doesn&rsquo;t end with a comma, so you don&rsquo;t forget to
-      remove it when commenting out the last column. Also, the
-      visual alignment makes it easy to see which columns are
-      selected.
+      <strong>Başta virgül lehine argüman:</strong> son satır
+      virgülle bitmez, bu nedenle son sütunu yorumlarken virgülü
+      kaldırmayı unutmazsınız. Ayrıca, görsel hizalama hangi sütunların
+      seçildiğini görmeyi kolaylaştırır.
     </p>
     <p>
-      <strong>The argument against:</strong> looks odd compared to
-      other languages. Modern SQL formatters handle trailing-comma
-      commenting automatically.
+      <strong>Aleyhine argüman:</strong> diğer dillere kıyasla garip
+      görünür. Modern SQL biçimlendiricileri, sonda virgül yorumlamayı
+      otomatik olarak halleder.
     </p>
     <p>
-      Pick one, write it in your style guide, enforce it with a
-      formatter.
+      Birini seçin, stil rehberinize yazın, bir biçimlendirici ile
+      uygulayın.
     </p>
 
-    <h2>The &ldquo;river&rdquo; style</h2>
+    <h2>&ldquo;Nehir&rdquo; stili</h2>
     <p>
-      Classic SQL formatting puts each major clause keyword on its
-      own line, right-aligned to create a visual &ldquo;river&rdquo;
-      of whitespace down the left edge:
+      Klasik SQL biçimlendirmesi, her ana cümle anahtar kelimesini kendi
+      satırına, sol kenarda görsel bir &ldquo;nehir&rdquo;
+      boşluk oluşturmak için sağa hizalar:
     </p>
     <p>
       <code>   SELECT id, name FROM users WHERE active = true
       ORDER BY created_at DESC</code>
     </p>
     <p>
-      (With SELECT, FROM, WHERE, ORDER BY right-aligned in a column.)
+      (SELECT, FROM, WHERE, ORDER BY bir sütunda sağa hizalanmış olarak.)
     </p>
     <p>
-      <strong>Pros:</strong> very scannable; clauses jump out.
+      <strong>Artıları:</strong> çok taranabilir; cümleler göze çarpar.
     </p>
     <p>
-      <strong>Cons:</strong> painful to maintain manually; not well
-      supported by modern formatters.
+      <strong>Eksileri:</strong> manuel olarak koruması zahmetli; modern
+      biçimlendiriciler tarafından iyi desteklenmez.
     </p>
     <p>
-      In 2026, most teams use indent-based style (keywords
-      left-aligned, arguments indented under them) because it
-      auto-formats cleanly.
+      2026'da çoğu ekip girinti tabanlı stili (anahtar kelimeler
+      sola hizalanmış, argümanlar altlarında girintili) kullanır çünkü
+      temiz bir şekilde otomatik biçimlendirilir.
     </p>
 
-    <h2>JOIN formatting</h2>
+    <h2>JOIN biçimlendirmesi</h2>
     <p>
-      Every JOIN on its own line. ON condition either:
+      Her JOIN kendi satırında. ON koşulu ya:
     </p>
     <p>
-      <strong>Inline</strong> when short: <code>JOIN orders ON
+      <strong>Satır içi</strong> kısa olduğunda: <code>JOIN orders ON
       orders.user_id = users.id</code>
     </p>
     <p>
-      <strong>Below with indentation</strong> when long or multi-
-      condition:
+      <strong>Girinti ile altında</strong> uzun veya çoklu
+      koşul olduğunda:
     </p>
     <p>
       <code>JOIN orders ON orders.user_id = users.id AND
@@ -131,16 +129,16 @@ export const body: ReactElement = (
       &apos;2026-01-01&apos;</code>
     </p>
     <p>
-      Always use explicit JOIN syntax (INNER JOIN, LEFT JOIN) —
-      never comma joins with WHERE conditions. Old syntax mixes
-      filters and join conditions, hiding bugs.
+      Her zaman açık JOIN sözdizimi kullanın (INNER JOIN, LEFT JOIN) —
+      asla WHERE koşullarıyla virgül birleştirmeleri yapmayın. Eski sözdizimi
+      filtreleri ve birleştirme koşullarını karıştırarak hataları gizler.
     </p>
 
-    <h2>CTEs (WITH clauses) — the readability superpower</h2>
+    <h2>CTE'ler (WITH cümleleri) — okunabilirlik süper gücü</h2>
     <p>
-      Break complex queries into named CTEs. Each CTE is a
-      labeled, reusable subquery. Even if the query planner doesn&rsquo;t
-      need it, humans do.
+      Karmaşık sorguları adlandırılmış CTE'lere bölün. Her CTE, etiketli,
+      yeniden kullanılabilir bir alt sorgudur. Sorgu planlayıcısı buna
+      ihtiyaç duymasa bile, insanlar duyar.
     </p>
     <p>
       <code>WITH active_users AS (SELECT id FROM users WHERE active),
@@ -150,143 +148,144 @@ export const body: ReactElement = (
       au.id = ro.user_id</code>
     </p>
     <p>
-      Indentation rule: each CTE body indented two spaces from the
-      CTE name; CTEs separated by a blank line (or at least the
-      closing paren + comma on its own line).
+      Girinti kuralı: her CTE gövdesi, CTE adından iki boşluk girintili;
+      CTE'ler boş bir satırla ayrılmış (veya en azından kapanış parantezi +
+      virgül kendi satırında).
     </p>
     <p>
-      <strong>Rule:</strong> if a subquery is referenced twice or is
-      more than 5-6 lines, promote it to a CTE. Queries with 3-5
-      named CTEs read like a paragraph; inline nested subqueries
-      read like a regex.
+      <strong>Kural:</strong> bir alt sorgu iki kez başvuruluyorsa veya
+      5-6 satırdan uzunsa, onu bir CTE'ye yükseltin. 3-5 adlandırılmış
+      CTE'ye sahip sorgular bir paragraf gibi okunur; satır içi iç içe
+      alt sorgular bir regex gibi okunur.
     </p>
 
-    <h2>WHERE clause formatting</h2>
+    <h2>WHERE cümlesi biçimlendirmesi</h2>
     <p>
-      Short WHERE: single line. <code>WHERE active = true</code>.
+      Kısa WHERE: tek satır. <code>WHERE active = true</code>.
     </p>
     <p>
-      Multi-condition WHERE: each condition on its own line with AND
-      or OR at the start. Makes it easy to comment individual
-      conditions.
+      Çok koşullu WHERE: her koşul kendi satırında, AND
+      veya OR başta. Tek tek koşulları yorumlamayı kolaylaştırır.
     </p>
     <p>
       <code>WHERE active = true AND created_at &gt; &apos;2026-01-01&apos;
       AND role IN (&apos;admin&apos;, &apos;member&apos;)</code>
     </p>
     <p>
-      <strong>Parens for OR logic:</strong> always parenthesize mixed
-      AND/OR to make precedence explicit. <code>WHERE (a = 1 OR b =
-      2) AND c = 3</code>, not <code>WHERE a = 1 OR b = 2 AND c = 3</code>
-      (which means <code>a = 1 OR (b = 2 AND c = 3)</code> — surprise).
+      <strong>OR mantığı için parantezler:</strong> önceliği açık hale
+      getirmek için karışık AND/OR'u her zaman parantezleyin. <code>WHERE (a = 1 OR b =
+      2) AND c = 3</code>, <code>WHERE a = 1 OR b = 2 AND c = 3</code>
+      değil (bu <code>a = 1 OR (b = 2 AND c = 3)</code> anlamına gelir — sürpriz).
     </p>
 
-    <h2>Naming — the unwritten part of formatting</h2>
+    <h2>Adlandırma — biçimlendirmenin yazılı olmayan kısmı</h2>
     <p>
-      <strong>snake_case for identifiers.</strong> user_id, not
-      userId. SQL is case-insensitive for unquoted identifiers; stick
-      to snake_case for consistency across engines.
+      <strong>Tanımlayıcılar için snake_case.</strong> user_id, userId
+      değil. SQL, tırnak işareti olmayan tanımlayıcılar için büyük/küçük harfe
+      duyarsızdır; motorlar arasında tutarlılık için snake_case'e bağlı kalın.
     </p>
     <p>
-      <strong>Singular or plural tables?</strong> Pick one. &ldquo;
-      users&rdquo; or &ldquo;user&rdquo; — both work, but don&rsquo;t
-      mix. Most teams use plural (&ldquo;users&rdquo;, &ldquo;orders
-      &rdquo;) because they&rsquo;re collections.
+      <strong>Tekil veya çoğul tablolar?</strong> Birini seçin. &ldquo;
+      users&rdquo; veya &ldquo;user&rdquo; — ikisi de işe yarar, ancak
+      karıştırmayın. Çoğu ekip çoğul kullanır (&ldquo;users&rdquo;, &ldquo;orders
+      &rdquo;) çünkü koleksiyonlardır.
     </p>
     <p>
-      <strong>Aliases are short and meaningful.</strong> <code>FROM
-      users u JOIN orders o ON o.user_id = u.id</code>. Avoid
-      single-letter aliases on long queries where context is lost.
+      <strong>Takma adlar kısa ve anlamlıdır.</strong> <code>FROM
+      users u JOIN orders o ON o.user_id = u.id</code>. Bağlamın
+      kaybolduğu uzun sorgularda tek harfli takma adlardan kaçının.
     </p>
     <p>
-      <strong>Qualify columns when more than one table is
-      involved.</strong> <code>u.email</code>, not bare <code>email</code>.
-      Makes queries survive when tables are renamed or columns
-      added.
-    </p>
-
-    <h2>Auto-formatters</h2>
-    <p>
-      Don&rsquo;t format by hand. Pick a tool:
-    </p>
-    <p>
-      <strong>sql-formatter (npm):</strong> open-source, dialect-aware
-      (Postgres, MySQL, Snowflake, BigQuery, etc.). Configurable
-      line width, keyword case, comma position. Widely used.
-    </p>
-    <p>
-      <strong>SQLFluff:</strong> Python-based, opinionated,
-      production-grade. Dialect-aware, configurable rules. Integrates
-      with dbt. Standard in data-engineering shops.
-    </p>
-    <p>
-      <strong>DataGrip / SQL Developer / pgAdmin:</strong> IDE-level
-      formatters, varying quality.
-    </p>
-    <p>
-      <strong>Prettier SQL plugin:</strong> if your team uses
-      Prettier for other languages, add the SQL plugin for
-      consistency.
-    </p>
-    <p>
-      <strong>dbt users:</strong> SQLFluff with dbt-specific rules
-      is the standard. Runs as a pre-commit hook.
+      <strong>Birden fazla tablo söz konusu olduğunda sütunları
+      niteleyin.</strong> <code>u.email</code>, çıplak <code>email</code>
+      değil. Tablolar yeniden adlandırıldığında veya sütunlar
+      eklendiğinde sorguların hayatta kalmasını sağlar.
     </p>
 
-    <h2>Style guides worth reading</h2>
+    <h2>Otomatik biçimlendiriciler</h2>
     <p>
-      <strong>GitLab data team style guide:</strong> well-known,
-      detailed, opinionated. CTE-first, leading comma, lowercase
-      keywords (yes, they buck the trend).
+      Elle biçimlendirmeyin. Bir araç seçin:
     </p>
     <p>
-      <strong>Mozilla SQL style guide:</strong> short, practical.
+      <strong>sql-formatter (npm):</strong> açık kaynak, lehçe bilincinde
+      (Postgres, MySQL, Snowflake, BigQuery, vb.). Yapılandırılabilir
+      satır genişliği, anahtar kelime büyük/küçük harfi, virgül konumu. Yaygın
+      olarak kullanılır.
     </p>
     <p>
-      <strong>Matt Mazur&rsquo;s SQL style guide:</strong> written
-      from analytics-engineering perspective; readable.
+      <strong>SQLFluff:</strong> Python tabanlı, fikir sahibi,
+      üretim kalitesinde. Lehçe bilincinde, yapılandırılabilir kurallar. dbt
+      ile entegre olur. Veri mühendisliği ortamlarında standarttır.
     </p>
     <p>
-      <strong>dbt Labs blog:</strong> ongoing discussion of SQL style
-      in the modern data stack.
-    </p>
-
-    <h2>Common mistakes</h2>
-    <p>
-      <strong>Mixing uppercase and lowercase keywords
-      inconsistently.</strong> Pick one. Most teams: UPPERCASE for
-      keywords.
+      <strong>DataGrip / SQL Developer / pgAdmin:</strong> IDE düzeyinde
+      biçimlendiriciler, değişen kalite.
     </p>
     <p>
-      <strong>SELECT *.</strong> Fine in ad-hoc queries, bad in
-      production. Lists of explicit columns survive schema changes
-      and show intent.
+      <strong>Prettier SQL eklentisi:</strong> ekibiniz diğer diller için
+      Prettier kullanıyorsa, tutarlılık için SQL eklentisini ekleyin.
     </p>
     <p>
-      <strong>Nested subqueries instead of CTEs.</strong> Hard to
-      read, hard to test. Unwrap into CTEs; query planner usually
-      treats them equivalently.
-    </p>
-    <p>
-      <strong>No explicit JOIN type.</strong> <code>JOIN</code>
-      defaults to INNER JOIN in most engines, but being explicit
-      makes it obvious.
-    </p>
-    <p>
-      <strong>Formatting only the final query.</strong> If you ship
-      SQL in a migration, a dbt model, or a report config, it gets
-      read repeatedly. Format once, save the team hours later.
+      <strong>dbt kullanıcıları:</strong> dbt'ye özgü kurallarla SQLFluff
+      standarttır. Bir ön-commit kancası olarak çalışır.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Okumaya değer stil rehberleri</h2>
     <p>
-      Paste SQL and get a cleanly formatted version with the{" "}
-      <a href="/tools/sql-formatter">SQL formatter</a>. Pair with
-      the{" "}
-      <a href="/tools/json-formatter">JSON formatter</a> when your
-      query returns JSON that needs cleaning up, and the{" "}
-      <a href="/tools/case-converter">case converter</a> to
-      normalize identifier casing in bulk.
+      <strong>GitLab veri ekibi stil rehberi:</strong> iyi bilinir,
+      ayrıntılı, fikir sahibi. CTE-ilk, başta virgül, küçük harf
+      anahtar kelimeler (evet, trende karşı çıkarlar).
+    </p>
+    <p>
+      <strong>Mozilla SQL stil rehberi:</strong> kısa, pratik.
+    </p>
+    <p>
+      <strong>Matt Mazur'un SQL stil rehberi:</strong> analitik
+      mühendislik perspektifinden yazılmış; okunabilir.
+    </p>
+    <p>
+      <strong>dbt Labs blogu:</strong> modern veri yığınında SQL stili
+      üzerine devam eden tartışma.
+    </p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>
+      <strong>Büyük ve küçük harf anahtar kelimeleri tutarsız
+      bir şekilde karıştırmak.</strong> Birini seçin. Çoğu ekip: anahtar
+      kelimeler için BÜYÜK HARF.
+    </p>
+    <p>
+      <strong>SELECT *.</strong> Anlık sorgularda sorun yok, üretimde
+      kötü. Açık sütun listeleri şema değişikliklerine dayanır
+      ve amacı gösterir.
+    </p>
+    <p>
+      <strong>CTE'ler yerine iç içe alt sorgular.</strong> Okuması
+      zor, test etmesi zor. CTE'lere ayırın; sorgu planlayıcı genellikle
+      onları eşdeğer olarak ele alır.
+    </p>
+    <p>
+      <strong>Açık JOIN türü yok.</strong> <code>JOIN</code>
+      çoğu motorda varsayılan olarak INNER JOIN'dir, ancak açık olmak
+      onu bariz kılar.
+    </p>
+    <p>
+      <strong>Yalnızca son sorguyu biçimlendirmek.</strong> Bir geçişte,
+      bir dbt modelinde veya bir rapor yapılandırmasında SQL gönderiyorsanız,
+      tekrar tekrar okunur. Bir kez biçimlendirin, ekibin saatlerini sonra
+      kurtarın.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      SQL yapıştırın ve{" "}
+      <a href="/tools/sql-formatter">SQL biçimlendirici</a> ile temiz
+      biçimlendirilmiş bir sürüm alın. Sorgunuz temizlenmesi gereken JSON
+      döndürdüğünde{" "}
+      <a href="/tools/json-formatter">JSON biçimlendirici</a> ile ve
+      tanımlayıcı büyük/küçük harflerini toplu olarak normalleştirmek için{" "}
+      <a href="/tools/case-converter">büyük/küçük harf dönüştürücü</a> ile
+      eşleştirin.
     </p>
   </>
 );

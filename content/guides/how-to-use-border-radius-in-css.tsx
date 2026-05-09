@@ -3,71 +3,71 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      The CSS <code>border-radius</code> property rounds the corners of any box and is one of the highest-<a href="/learn/roi">ROI</a> design knobs on the web: one line changes the entire feel of a card, button, or avatar. The basics are trivial, but the full feature is surprisingly deep &mdash; shorthand for all four corners, individual-corner properties, pixel versus percent units, elliptical radii, and the pill, circle, and squircle patterns every design system eventually needs. This guide walks through the syntax variations in the order you actually need them, explains when to use percent versus pixels, and covers the common shape patterns with copy-ready code.
+      CSS <code>border-radius</code> özelliği, herhangi bir kutunun köşelerini yuvarlar ve web'deki en yüksek <a href="/learn/roi">ROI</a>'li tasarım araçlarından biridir: tek bir satır, bir kartın, düğmenin veya avatarın tüm hissini değiştirir. Temel bilgiler basittir, ancak tam özellik şaşırtıcı derecede derindir &mdash; dört köşenin tümü için kısa yazım, her bir köşe için ayrı özellikler, piksel ve yüzde birimleri, eliptik yarıçaplar ve her tasarım sisteminin eninde sonunda ihtiyaç duyduğu hap, daire ve kare yuvarlak (squircle) desenleri. Bu kılavuz, sözdizimi varyasyonlarını gerçekten ihtiyaç duyduğunuz sırayla adım adım açıklar, yüzdeye karşı piksel kullanım zamanını anlatır ve kopyalanmaya hazır kodlarla yaygın şekil desenlerini kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The simplest form</h2>
+    <h2>En basit biçim</h2>
     <p>
-      One value applies to all four corners:
+      Tek bir değer dört köşenin tümüne uygulanır:
     </p>
     <pre>{`.card {
   border-radius: 8px;
 }`}</pre>
     <p>
-      This is 80% of what most sites need: a single radius that softens every corner of every card, button, and input. Pick one value for your design system (commonly 4, 6, 8, 12, or 16&nbsp;px), apply it globally, and stop agonizing.
+      Bu, çoğu sitenin ihtiyaç duyduğu şeyin %80'idir: her kartın, düğmenin ve giriş alanının her köşesini yumuşatan tek bir yarıçap. Tasarım sisteminiz için bir değer seçin (genellikle 4, 6, 8, 12 veya 16&nbsp;px), küresel olarak uygulayın ve daha fazla düşünmeyi bırakın.
     </p>
 
-    <h2>Shorthand: one, two, three, or four values</h2>
+    <h2>Kısa yazım: bir, iki, üç veya dört değer</h2>
     <p>
-      Like <code>padding</code> and <code>margin</code>, <code>border-radius</code> accepts up to four values with specific meanings:
+      <code>padding</code> ve <code>margin</code> gibi, <code>border-radius</code> da belirli anlamları olan en fazla dört değer kabul eder:
     </p>
-    <pre>{`border-radius: 8px;                  /* all four corners */
-border-radius: 8px 16px;             /* top-left+bottom-right, top-right+bottom-left */
-border-radius: 8px 16px 4px;         /* TL, TR+BL, BR */
-border-radius: 8px 16px 4px 12px;    /* TL, TR, BR, BL (clockwise from top-left) */`}</pre>
+    <pre>{`border-radius: 8px;                  /* dört köşenin tümü */
+border-radius: 8px 16px;             /* sol üst+sağ alt, sağ üst+sol alt */
+border-radius: 8px 16px 4px;         /* SÜ, SÜ+SA, SA */
+border-radius: 8px 16px 4px 12px;    /* SÜ, SÜ, SA, SA (sol üstten saat yönünde) */`}</pre>
     <p>
-      The four-value form is clockwise starting from the top-left, same order as padding and margin (top, right, bottom, left adapted to corners).
+      Dört değerli biçim, sol üstten başlayarak saat yönündedir, padding ve margin ile aynı sıradadır (üst, sağ, alt, sol köşelere uyarlanmıştır).
     </p>
 
-    <h2>Individual corner properties</h2>
+    <h2>Her bir köşe için ayrı özellikler</h2>
     <p>
-      When you want to round only specific corners, the per-corner properties are clearer than a four-value shorthand:
+      Yalnızca belirli köşeleri yuvarlamak istediğinizde, her bir köşe için ayrı özellikler dört değerli kısa yazımdan daha açıktır:
     </p>
     <pre>{`.tab {
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  /* bottom corners stay square */
+  /* alt köşeler kare kalır */
 }`}</pre>
     <p>
-      Common patterns:
+      Yaygın desenler:
     </p>
     <ul>
-      <li><strong>Tab shape:</strong> top corners rounded, bottom square.</li>
-      <li><strong>Card with image on top:</strong> top-radius on the image, match on the outer card, bottom square or matching the card.</li>
-      <li><strong>Chat bubble with tail:</strong> three corners rounded, one square on the speaker side.</li>
-      <li><strong>Modal with a footer:</strong> top corners rounded to match content, footer gets bottom rounding.</li>
+      <li><strong>Sekme şekli:</strong> üst köşeler yuvarlak, alt kare.</li>
+      <li><strong>Üstte resim olan kart:</strong> resimde üst yarıçap, dış kartta eşleştir, alt kare veya kartla eşleşen.</li>
+      <li><strong>Kuyruklu sohpet balonu:</strong> üç köşe yuvarlak, konuşmacı tarafında bir kare.</li>
+      <li><strong>Altbilgisi olan modal:</strong> içerikle eşleşmesi için üst köşeler yuvarlak, altbilgi alt yuvarlamayı alır.</li>
     </ul>
 
-    <h2>Percent versus pixels</h2>
+    <h2>Yüzdeye karşı pikseller</h2>
     <p>
-      A fixed pixel radius (<code>border-radius: 12px</code>) keeps the same visual curve regardless of element size. A percentage (<code>border-radius: 50%</code>) scales with the box: 50% of the shorter side for a circle, or proportional curves that grow with the element.
+      Sabit bir piksel yarıçapı (<code>border-radius: 12px</code>), öğe boyutundan bağımsız olarak aynı görsel eğriyi korur. Bir yüzde (<code>border-radius: 50%</code>) kutuyla birlikte ölçeklenir: bir daire için kısa kenarın %50'si veya öğeyle birlikte büyüyen orantılı eğriler.
     </p>
     <p>
-      Use pixels for consistent curves across a design system. Use percentages for shapes that should morph with size:
+      Bir tasarım sistemi genelinde tutarlı eğriler için pikseller kullanın. Boyutla birlikte şekil değiştirmesi gereken şekiller için yüzdeler kullanın:
     </p>
     <ul>
-      <li><code>50%</code> on a square gives a circle.</li>
-      <li><code>50%</code> on a rectangle gives a pill with half-circle ends.</li>
-      <li><code>25%</code> gives a rounded-square shape that scales.</li>
+      <li>Bir karede <code>50%</code> bir daire verir.</li>
+      <li>Bir dikdörtgende <code>50%</code>, yarım daire uçları olan bir hap verir.</li>
+      <li><code>25%</code>, ölçeklenen yuvarlak kare bir şekil verir.</li>
     </ul>
 
-    <h2>Pill and capsule buttons</h2>
+    <h2>Hap ve kapsül düğmeler</h2>
     <p>
-      The classic pill button: make the radius greater than or equal to half the height:
+      Klasik hap düğmesi: yarıçapı yüksekliğin yarısına eşit veya daha büyük yapın:
     </p>
     <pre>{`.pill {
   height: 40px;
@@ -75,12 +75,12 @@ border-radius: 8px 16px 4px 12px;    /* TL, TR, BR, BL (clockwise from top-left)
   border-radius: 9999px;
 }`}</pre>
     <p>
-      Using <code>9999px</code> (or any large value) is the idiom: the radius saturates at half the height, so the value doesn&rsquo;t need to match the height exactly. The button stays perfectly pill-shaped even if you change height or padding later.
+      <code>9999px</code> (veya herhangi bir büyük değer) kullanmak yaygın bir kullanımdır: yarıçap, yüksekliğin yarısında doygunluğa ulaşır, bu nedenle değerin yükseklikle tam olarak eşleşmesi gerekmez. Düğme, yüksekliği veya dolguyu daha sonra değiştirseniz bile mükemmel hap şeklinde kalır.
     </p>
 
-    <h2>Perfect circles</h2>
+    <h2>Mükemmel daireler</h2>
     <p>
-      A perfect circle needs a square container plus 50% radius:
+      Mükemmel bir daire, kare bir kap artı %50 yarıçap gerektirir:
     </p>
     <pre>{`.avatar {
   width: 48px;
@@ -88,59 +88,59 @@ border-radius: 8px 16px 4px 12px;    /* TL, TR, BR, BL (clockwise from top-left)
   border-radius: 50%;
 }`}</pre>
     <p>
-      If the element isn&rsquo;t square, 50% produces an ellipse. For avatar grids, enforce square dimensions with <code>aspect-ratio: 1 / 1</code> or explicit width and height.
+      Öğe kare değilse, %50 bir elips üretir. Avatar ızgaraları için, <code>aspect-ratio: 1 / 1</code> veya açık genişlik ve yükseklik ile kare boyutları zorunlu kılın.
     </p>
 
-    <h2>Elliptical radii</h2>
+    <h2>Eliptik yarıçaplar</h2>
     <p>
-      A corner can have different horizontal and vertical radii, producing an ellipse in that corner. Syntax uses a slash:
+      Bir köşe, o köşede bir elips üreten farklı yatay ve dikey yarıçaplara sahip olabilir. Sözdizimi bir eğik çizgi kullanır:
     </p>
     <pre>{`.hero {
   border-radius: 40px / 20px;
 }`}</pre>
     <p>
-      This makes every corner an ellipse wider than it is tall. Combined with the four-value shorthand, you can produce creative shapes:
+      Bu, her köşeyi olduğundan daha geniş bir elips yapar. Dört değerli kısa yazımla birleştirildiğinde yaratıcı şekiller üretebilirsiniz:
     </p>
     <pre>{`.blob {
   border-radius: 60% 40% 70% 30% / 50% 60% 40% 50%;
 }`}</pre>
     <p>
-      That produces an organic, blob-like shape useful for decorative backgrounds.
+      Bu, dekoratif arka planlar için kullanışlı, organik, damla benzeri bir şekil üretir.
     </p>
 
-    <h2>Radius versus overflow clipping</h2>
+    <h2>Yarıçap ve taşma kırpma</h2>
     <p>
-      A rounded box clips its background and border at the radius, but child elements leak past the curve by default. To clip children too &mdash; images that extend to the card&rsquo;s edge, video embeds &mdash; add <code>overflow: hidden</code>:
+      Yuvarlak bir kutu, arka planını ve kenarlığını yarıçapta kırpar, ancak alt öğeler varsayılan olarak eğrinin ötesine sızar. Alt öğeleri de kırpmak için &mdash; kartın kenarına uzanan resimler, video yerleştirmeleri &mdash; <code>overflow: hidden</code> ekleyin:
     </p>
     <pre>{`.card {
   border-radius: 12px;
   overflow: hidden;
 }`}</pre>
     <p>
-      Watch out: <code>overflow: hidden</code> also clips box shadows of children, so if you&rsquo;ve got a child element with its own shadow that should spill outside, you need a different approach (usually shadow on the parent, not the child).
+      Dikkat: <code>overflow: hidden</code> ayrıca alt öğelerin kutu gölgelerini de kırpar, bu nedenle dışarı taşması gereken kendi gölgesine sahip bir alt öğeniz varsa, farklı bir yaklaşıma ihtiyacınız vardır (genellikle alt öğede değil, üst öğede gölge).
     </p>
 
-    <h2>Radius and borders</h2>
+    <h2>Yarıçap ve kenarlıklar</h2>
     <p>
-      When you have both <code>border</code> and <code>border-radius</code>, the border follows the curve. Keep borders subtle at small radii; a 2&nbsp;px border on an 8&nbsp;px radius reads fine, but a 10&nbsp;px border on a 12&nbsp;px radius looks chunky and cartoonish.
+      Hem <code>border</code> hem de <code>border-radius</code> olduğunda, kenarlık eğriyi takip eder. Küçük yarıçaplarda kenarlıkları ince tutun; 8&nbsp;px'lik bir yarıçapta 2&nbsp;px'lik bir kenarlık iyi okunur, ancak 12&nbsp;px'lik bir yarıçapta 10&nbsp;px'lik bir kenarlık hantal ve karikatürize görünür.
     </p>
     <p>
-      Borders with large radii on rectangular elements can produce a visible &ldquo;stretched ring&rdquo; effect at the long ends &mdash; the border appears thicker there because the curve is tighter. For pills this is usually fine; for oblong cards, consider smaller radii.
-    </p>
-
-    <h2>Radius and outlines</h2>
-    <p>
-      Historically, <code>outline</code> did not respect <code>border-radius</code> &mdash; the outline would draw a sharp-cornered rectangle around a rounded element. Modern browsers support rounded outlines natively, but if you need to support older browsers or want extra control, <code>box-shadow</code> with <code>0 0 0 2px color</code> is a common drop-in replacement that does respect the radius.
+      Dikdörtgen öğelerde büyük yarıçaplı kenarlıklar, uzun uçlarda görünür bir "gerilmiş halka" efekti üretebilir &mdash; eğri daha sıkı olduğu için kenarlık orada daha kalın görünür. Haplar için bu genellikle sorun değildir; dikdörtgen kartlar için daha küçük yarıçaplar düşünün.
     </p>
 
-    <h2>The squircle problem</h2>
+    <h2>Yarıçap ve dış çizgiler</h2>
     <p>
-      iOS app icons use a shape called a squircle &mdash; a superellipse, not a true rounded rectangle. CSS <code>border-radius</code> can&rsquo;t produce a true squircle; its curves are circular arcs. For most design contexts the difference is imperceptible, but if you&rsquo;re matching iOS iconography precisely, you need SVG or <code>clip-path</code> with a squircle formula rather than <code>border-radius</code>.
+      Geçmişte, <code>outline</code> <code>border-radius</code>'a saygı göstermezdi &mdash; dış çizgi, yuvarlak bir öğenin etrafına keskin köşeli bir dikdörtgen çizerdi. Modern tarayıcılar yuvarlak dış çizgileri yerel olarak destekler, ancak eski tarayıcıları desteklemeniz gerekiyorsa veya ekstra kontrol istiyorsanız, yarıçapa saygı duyan yaygın bir yedek olarak <code>0 0 0 2px color</code> ile <code>box-shadow</code> kullanılır.
     </p>
 
-    <h2>Design system presets</h2>
+    <h2>Kare yuvarlak (squircle) sorunu</h2>
     <p>
-      Rather than choosing radii per component, define a scale and use it:
+      iOS uygulama simgeleri, kare yuvarlak (squircle) adı verilen bir şekil kullanır &mdash; gerçek bir yuvarlak dikdörtgen değil, bir süperelipstir. CSS <code>border-radius</code> gerçek bir kare yuvarlak üretemez; eğrileri dairesel yaylardır. Çoğu tasarım bağlamında fark algılanamaz, ancak iOS ikonografisini tam olarak eşleştiriyorsanız, <code>border-radius</code> yerine bir kare yuvarlak formülü ile SVG veya <code>clip-path</code>'e ihtiyacınız vardır.
+    </p>
+
+    <h2>Tasarım sistemi ön ayarları</h2>
+    <p>
+      Bileşen başına yarıçap seçmek yerine, bir ölçek tanımlayın ve kullanın:
     </p>
     <pre>{`:root {
   --radius-sm: 4px;
@@ -150,17 +150,17 @@ border-radius: 8px 16px 4px 12px;    /* TL, TR, BR, BL (clockwise from top-left)
   --radius-full: 9999px;
 }`}</pre>
     <p>
-      Then components reference the variables. Changing the system is one edit instead of a hundred.
+      Ardından bileşenler değişkenlere başvurur. Sistemi değiştirmek yüz düzenleme yerine tek bir düzenlemedir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Using 50% radius on a rectangle when you wanted a rounded square, and getting a pill. Forgetting <code>overflow: hidden</code> and watching child images leak past rounded corners. Applying giant radii to small elements so the content feels cramped inside a blob. Using inconsistent radii across a design (4&nbsp;px here, 6&nbsp;px there, 7&nbsp;px somewhere else) so nothing feels like one system. Rounding borders to the point of cartoonishness. And putting <code>border-radius</code> on a table element without knowing that tables have quirks &mdash; the cells can leak past the curve unless you also set <code>border-collapse: separate</code> and radii on the corner cells.
+      Yuvarlak bir kare isterken bir dikdörtgende %50 yarıçap kullanmak ve hap elde etmek. <code>overflow: hidden</code>'ı unutmak ve alt öğe resimlerinin yuvarlak köşelerden taştığını görmek. Küçük öğelere devasa yarıçaplar uygulamak, içeriğin bir damla içinde sıkışmış hissetmesine neden olmak. Bir tasarımda tutarsız yarıçaplar kullanmak (burada 4&nbsp;px, şurada 6&nbsp;px, başka bir yerde 7&nbsp;px) hiçbir şeyin tek bir sistem gibi hissettirmemesi. Kenarlıkları karikatürize olma noktasına kadar yuvarlamak. Ve tablo öğelerinin tuhaflıkları olduğunu bilmeden bir tablo öğesine <code>border-radius</code> koymak &mdash; ayrıca <code>border-collapse: separate</code> ve köşe hücrelerinde yarıçaplar ayarlamadığınız sürece hücreler eğrinin ötesine sızabilir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Our <a href="/tools/border-radius-generator">border-radius generator</a> gives you a live visual for any combination of per-corner radii and copy-ready CSS. Pair it with the <a href="/tools/box-shadow-generator">box shadow generator</a> for card styling and the <a href="/tools/gradient-generator">gradient generator</a> for modern-looking backgrounds.
+      <a href="/tools/border-radius-generator">border-radius oluşturucumuz</a>, her bir köşe yarıçapının herhangi bir kombinasyonu için canlı bir görsel ve kopyalanmaya hazır CSS sunar. Kart stillendirme için <a href="/tools/box-shadow-generator">kutu gölgesi oluşturucu</a> ve modern görünümlü arka planlar için <a href="/tools/gradient-generator">gradyan oluşturucu</a> ile birlikte kullanın.
     </p>
   </>
 );

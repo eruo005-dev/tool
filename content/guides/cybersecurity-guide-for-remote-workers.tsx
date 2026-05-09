@@ -1,40 +1,40 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>Remote work shifts the security perimeter from the office firewall to your kitchen table &mdash; and that means the basics suddenly matter a lot more.</p>);
+export const intro: ReactElement = (<p>Uzaktan çalışmak, güvenlik çevresini ofis güvenlik duvarından mutfak masanıza taşır — ve bu, temel şeylerin birdenbire çok daha önemli hale geldiği anlamına gelir.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>The good news: you don&rsquo;t need to be a security engineer to protect yourself. A small stack of habits &mdash; unique passwords, MFA, encryption, skepticism &mdash; blocks the vast majority of real-world attacks aimed at remote workers. The bad news: skipping any one of them leaves a gap that attackers actively look for. Below is a practical checklist, ordered roughly by impact per hour of effort. Do the top items first; the rest can wait a week.</p>
+    <p>İyi haber: Kendinizi korumak için bir güvenlik mühendisi olmanıza gerek yok. Küçük bir alışkanlık yığını — benzersiz şifreler, 2FA, şifreleme, şüphecilik — uzaktan çalışanları hedef alan gerçek dünya saldırılarının büyük çoğunluğunu durdurur. Kötü haber: Bunlardan herhangi birini atlamak, saldırganların aktif olarak aradığı bir boşluk bırakır. Aşağıda, kabaca saat başına çabaya göre sıralanmış pratik bir kontrol listesi bulunmaktadır. Önce en üstteki maddeleri yapın; gerisi bir hafta bekleyebilir.</p>
 
-    <h2>Passwords and MFA, done right</h2>
-    <p>Use a unique password for every account, generated and stored in a password manager like 1Password or Bitwarden. Reused passwords are the single biggest source of account takeovers, because one breach anywhere leaks credentials everywhere. Layer MFA on top &mdash; and prefer phishing-resistant hardware keys (YubiKey, Titan) on email, banking, and work SSO. App-based TOTP codes (Authy, 1Password) are fine for everything else. SMS codes are the weakest option because SIM-swap attacks exist, but they still beat no MFA at all.</p>
+    <h2>Şifreler ve 2FA, doğru şekilde</h2>
+    <p>Her hesap için benzersiz bir şifre kullanın, bunları 1Password veya Bitwarden gibi bir şifre yöneticisinde oluşturun ve saklayın. Yeniden kullanılan şifreler, hesap ele geçirmelerinin en büyük tek kaynağıdır çünkü herhangi bir yerdeki ihlal, kimlik bilgilerini her yere sızdırır. 2FA ekleyin — ve e-posta, bankacılık ve iş SSO'su için kimlik avına dayanıklı donanım anahtarlarını (YubiKey, Titan) tercih edin. Uygulama tabanlı TOTP kodları (Authy, 1Password) diğer her şey için uygundur. SMS kodları, SIM değiştirme saldırıları mevcut olduğu için en zayıf seçenektir, ancak yine de hiç 2FA olmamasından daha iyidir.</p>
 
-    <h2>VPN: only when you actually need it</h2>
-    <p>A VPN protects you on untrusted networks &mdash; hotel WiFi, airports, coffee shops. It is not a magic privacy blanket for everyday home use, and most modern sites already run HTTPS end-to-end. Turn the VPN on for public WiFi or when your employer requires it for internal resources. Leave it off otherwise; routing all your traffic through a third party has its own trade-offs.</p>
+    <h2>VPN: yalnızca gerçekten ihtiyacınız olduğunda</h2>
+    <p>VPN sizi güvenilmeyen ağlarda korur — otel WiFi'si, havaalanları, kafeler. Günlük ev kullanımı için sihirli bir gizlilik battaniyesi değildir ve modern sitelerin çoğu zaten uçtan uca HTTPS kullanır. Genel WiFi'deyken veya işvereniniz dahili kaynaklar için bunu gerektirdiğinde VPN'i açın. Aksi takdirde kapalı bırakın; tüm trafiğinizi bir üçüncü taraf üzerinden yönlendirmenin kendi takasları vardır.</p>
 
-    <h2>Encrypt the laptop, back up the data</h2>
+    <h2>Dizüstü bilgisayarı şifreleyin, verileri yedekleyin</h2>
     <ul>
-      <li>Turn on FileVault (macOS) or BitLocker (Windows). A lost laptop without disk encryption is a lost data breach.</li>
-      <li>Follow the 3-2-1 backup rule: 3 copies of your data, on 2 different media, with 1 off-site (a cloud backup like Backblaze counts).</li>
-      <li>Test a restore once a quarter. An untested backup is a hope, not a backup.</li>
+      <li>FileVault'u (macOS) veya BitLocker'ı (Windows) açın. Disk şifrelemesi olmayan kayıp bir dizüstü bilgisayar, kayıp bir veri ihlalidir.</li>
+      <li>3-2-1 yedekleme kuralını izleyin: Verilerinizin 3 kopyası, 2 farklı ortamda, 1'i sitede olmayan (Backblaze gibi bir bulut yedeklemesi sayılır).</li>
+      <li>Her çeyrekte bir geri yüklemeyi test edin. Test edilmemiş bir yedekleme, bir umuttur, bir yedekleme değildir.</li>
     </ul>
 
-    <h2>Phishing red flags</h2>
-    <p>Phishing still works because it pressures you to act fast. Slow down whenever a message creates urgency (&ldquo;your account will be closed&rdquo;), asks for credentials, or comes from a slightly-off domain (&ldquo;paypa1.com&rdquo;). Hover over links before clicking, confirm unusual requests through a second channel, and never approve an MFA push you didn&rsquo;t initiate. If a &ldquo;CEO&rdquo; texts you asking for gift cards, it isn&rsquo;t the CEO.</p>
+    <h2>Kimlik avı kırmızı bayrakları</h2>
+    <p>Kimlik avı hala işe yarıyor çünkü sizi hızlı hareket etmeye zorluyor. Bir mesaj aciliyet yarattığında (&ldquo;hesabınız kapatılacak&rdquo;), kimlik bilgileri istediğinde veya biraz farklı bir alan adından (&ldquo;paypa1.com&rdquo;) geldiğinde yavaşlayın. Tıklamadan önce bağlantıların üzerine gelin, olağandışı istekleri ikinci bir kanaldan onaylayın ve tetiklemediğiniz bir 2FA bildirimini asla onaylamayın. Eğer bir &ldquo;CEO&rdquo; size hediye kartları isteyen mesaj atıyorsa, o CEO değildir.</p>
 
-    <h2>Physical and device hygiene</h2>
-    <p>Never plug in a USB drive you found in a parking lot or received unsolicited &mdash; malicious USB payloads are a real attack, not just a movie trope. Lock your screen when you step away. Keep your OS, browser, and password manager on auto-update; most exploited vulnerabilities have had patches available for months.</p>
+    <h2>Fiziksel ve cihaz hijyeni</h2>
+    <p>Otoparkta bulduğunuz veya istenmeden alınan bir USB sürücüsünü asla takmayın — kötü amaçlı USB yükleri sadece bir film klişesi değil, gerçek bir saldırıdır. Uzaklaştığınızda ekranınızı kilitleyin. İşletim sisteminizi, tarayıcınızı ve şifre yöneticinizi otomatik güncellemede tutun; istismar edilen güvenlik açıklarının çoğu için aylardır yamalar mevcuttur.</p>
 
-    <h2>What your employer can see on the work laptop</h2>
-    <p>On a managed work device, assume your employer can see installed apps, visited domains, screenshots, clipboard contents, and sometimes keystrokes &mdash; depending on the MDM and endpoint tools deployed. They generally cannot read your personal iCloud, Gmail, or encrypted iMessage content, but anything typed into the work browser or work apps is fair game. If you&rsquo;d be embarrassed for IT to read it, use a personal device on a personal network.</p>
+    <h2>İşvereninizin bir iş dizüstü bilgisayarında görebilecekleri</h2>
+    <p>Yönetilen bir iş cihazında, işvereninizin yüklü uygulamaları, ziyaret edilen alan adlarını, ekran görüntülerini, pano içeriğini ve bazen tuş vuruşlarını görebileceğini varsayın — kullanılan MDM ve uç nokta araçlarına bağlı olarak. Genellikle kişisel iCloud'unuzu, Gmail'inizi veya şifrelenmiş iMessage içeriğinizi okuyamazlar, ancak iş tarayıcısına veya iş uygulamalarına yazılan her şey serbesttir. BT'nin okumasından utanacağınız bir şey varsa, kişisel bir ağda kişisel bir cihaz kullanın.</p>
 
-    <h2>BYOD: personal devices for work</h2>
-    <p>Using your own laptop or phone for work sounds convenient until the company enrolls it in MDM and gains the ability to remote-wipe it, enforce policies, or audit data. If BYOD is required, set up a separate work profile (iOS Work Profile, Android Work Profile, a dedicated macOS user) so a remote wipe doesn&rsquo;t also take your family photos.</p>
+    <h2>BYOD: iş için kişisel cihazlar</h2>
+    <p>Kendi dizüstü bilgisayarınızı veya telefonunuzu iş için kullanmak, şirket onu MDM'ye kaydedene ve uzaktan silme, politikalar uygulama veya verileri denetleme yeteneği kazanana kadar kulağa uygun gelir. BYOD gerekiyorsa, ayrı bir iş profili (iOS İş Profili, Android İş Profili, özel bir macOS kullanıcısı) oluşturun, böylece uzaktan silme işlemi aile fotoğraflarınızı da götürmez.</p>
 
-    <h2>Common mistakes</h2>
-    <p>Sharing passwords over Slack or email, disabling MFA because it&rsquo;s &ldquo;annoying,&rdquo; ignoring OS updates for months, storing recovery codes in the same password manager you&rsquo;re trying to recover, and treating the home router as set-and-forget (change the default admin password, update firmware).</p>
+    <h2>Yaygın hatalar</h2>
+    <p>Slack veya e-posta üzerinden şifre paylaşmak, &ldquo;can sıkıcı&rdquo; olduğu için 2FA'yı devre dışı bırakmak, işletim sistemi güncellemelerini aylarca görmezden gelmek, kurtarma kodlarını kurtarmaya çalıştığınız aynı şifre yöneticisinde saklamak ve ev yönlendiricisini kur ve unut olarak ele almak (varsayılan yönetici şifresini değiştirin, donanım yazılımını güncelleyin).</p>
 
-    <h2>Bottom line</h2>
-    <p>You don&rsquo;t need perfect security &mdash; you need enough friction that attackers move on. Password manager, MFA everywhere, disk encryption, backups, and healthy skepticism cover 90% of the real threat.</p>
+    <h2>Sonuç</h2>
+    <p>Mükemmel güvenliğe ihtiyacınız yok — saldırganların yoluna devam etmesi için yeterli sürtüşmeye ihtiyacınız var. Bir şifre yöneticisi, her yerde 2FA, disk şifrelemesi, yedeklemeler ve sağlıklı şüphecilik, gerçek tehdidin %90'ını kapsar.</p>
   </>
 );

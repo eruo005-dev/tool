@@ -3,254 +3,166 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Barcodes look interchangeable — black bars on white, a scanner
-      beep, a lookup — but they&rsquo;re not. Code 128 carries
-      arbitrary ASCII; EAN-13 is locked to 13 digits; QR codes hold
-      kilobytes; Data Matrix survives damage. Picking the wrong
-      format means failed scans, rejected shipments, or retail
-      compliance violations. This guide covers the dominant linear
-      and 2D formats, what each is actually for, data capacity,
-      scanner compatibility, print-size minimums, check-digit rules,
-      and the defaults that get you to a working label without
-      surprises.
+      Barkodlar birbirinin yerine geçebilir gibi görünür — beyaz üzerinde siyah çubuklar, bir tarayıcı bip sesi, bir sorgulama — ama öyle değiller. Code 128, rastgele ASCII karakterleri taşır; EAN-13, 13 haneyle sınırlıdır; QR kodları kilobaytlar tutar; Data Matrix hasara dayanıklıdır. Yanlış formatı seçmek, başarısız taramalar, reddedilen sevkiyatlar veya perakende uyumluluk ihlalleri anlamına gelir. Bu kılavuz, baskın doğrusal ve 2D formatları, her birinin aslında ne için olduğunu, veri kapasitesini, tarayıcı uyumluluğunu, baskı boyutu minimumlarını, kontrol basamağı kurallarını ve sizi sürprizsiz çalışan bir etikete ulaştıracak varsayılanları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Linear vs 2D — the first decision</h2>
+    <h2>Doğrusal ve 2D — ilk karar</h2>
     <p>
-      <strong>Linear (1D) barcodes</strong> encode data in bar
-      widths along a single axis. Simple, legacy-compatible, work
-      with cheap laser scanners. Limited capacity (typically 20-40
-      characters).
+      <strong>Doğrusal (1D) barkodlar</strong>, veriyi tek bir eksen boyunca çubuk genişliklerinde kodlar. Basit, eski sistemlerle uyumlu, ucuz lazer tarayıcılarla çalışır. Sınırlı kapasite (genellikle 20-40 karakter).
     </p>
     <p>
-      <strong>2D barcodes</strong> encode data in a matrix (grid of
-      squares or dots). Much higher capacity — QR codes hold up to
-      ~3 KB. Require camera-based or imaging scanners (universal in
-      2026 — every smartphone qualifies).
+      <strong>2D barkodlar</strong>, veriyi bir matriste (kareler veya noktalardan oluşan bir ızgara) kodlar. Çok daha yüksek kapasite — QR kodları ~3 KB'a kadar tutar. Kamera tabanlı veya görüntüleme tarayıcıları gerektirir (2026'da evrensel — her akıllı telefon buna uygundur).
     </p>
     <p>
-      Rule of thumb: if you&rsquo;re encoding a few digits and need
-      retail-counter compatibility, go linear. If you&rsquo;re
-      encoding URLs, JSON payloads, or anything over 20 characters,
-      go 2D.
+      Temel kural: birkaç haneyi kodluyorsanız ve perakende kasası uyumluluğuna ihtiyacınız varsa, doğrusal kullanın. URL'leri, JSON yüklerini veya 20 karakterden uzun herhangi bir şeyi kodluyorsanız, 2D kullanın.
     </p>
 
-    <h2>The linear formats you&rsquo;ll actually encounter</h2>
+    <h2>Gerçekten karşılaşacağınız doğrusal formatlar</h2>
     <p>
-      <strong>UPC-A:</strong> 12 digits. Dominant in North American
-      retail. Required for product listings at most big-box
-      retailers. First digit = product category; next 5 = manufacturer
-      code; next 5 = product; last = check digit.
+      <strong>UPC-A:</strong> 12 hane. Kuzey Amerika perakendesinde baskın. Çoğu büyük mağaza perakendecisinde ürün listelemesi için gereklidir. İlk hane = ürün kategorisi; sonraki 5 = üretici kodu; sonraki 5 = ürün; son = kontrol basamağı.
     </p>
     <p>
-      <strong>EAN-13:</strong> 13 digits. International retail
-      standard. A superset of UPC-A — a UPC-A barcode is an EAN-13
-      with a leading zero. Use EAN-13 for European/Asian markets.
+      <strong>EAN-13:</strong> 13 hane. Uluslararası perakende standardı. UPC-A'nın bir üst kümesidir — bir UPC-A barkodu, başında sıfır olan bir EAN-13'tür. Avrupa/Asya pazarları için EAN-13 kullanın.
     </p>
     <p>
-      <strong>EAN-8:</strong> 8 digits. Compact version for very
-      small products (lipstick, gum). Limited product-code space;
-      rarely used for new allocations.
+      <strong>EAN-8:</strong> 8 hane. Çok küçük ürünler (ruj, sakız) için kompakt versiyon. Sınırlı ürün kodu alanı; yeni tahsisler için nadiren kullanılır.
     </p>
     <p>
-      <strong>Code 128:</strong> encodes all 128 ASCII characters,
-      variable length. The workhorse of shipping and logistics —
-      FedEx, UPS, USPS all use it. Denser than Code 39 for the same
-      data.
+      <strong>Code 128:</strong> tüm 128 ASCII karakterini kodlar, değişken uzunluk. Nakliye ve lojistiğin işgücü — FedEx, UPS, USPS'in tamamı kullanır. Aynı veri için Code 39'dan daha yoğundur.
     </p>
     <p>
-      <strong>Code 39:</strong> uppercase letters, digits, and a few
-      symbols. Older, less dense than Code 128, but still required
-      in some government and automotive workflows (AIAG).
+      <strong>Code 39:</strong> büyük harfler, rakamlar ve birkaç sembol. Daha eski, Code 128'den daha az yoğun, ancak bazı devlet ve otomotiv iş akışlarında (AIAG) hala gereklidir.
     </p>
     <p>
-      <strong>ITF-14 (Interleaved 2 of 5):</strong> 14 digits. Used
-      on shipping cartons that contain retail units — the &ldquo;
-      outer box&rdquo; code.
+      <strong>ITF-14 (Interleaved 2 of 5):</strong> 14 hane. Perakende birimleri içeren nakliye kolilerinde kullanılır — "dış kutu" kodu.
     </p>
 
-    <h2>The 2D formats — use when you need capacity</h2>
+    <h2>2D formatlar — kapasiteye ihtiyacınız olduğunda kullanın</h2>
     <p>
-      <strong>QR Code:</strong> the dominant 2D format. Up to 7089
-      digits or ~2953 bytes. Reads from any angle (position markers
-      in 3 corners). Error correction up to 30% damage. Native
-      camera support on every smartphone since ~2018. Default choice
-      for anything consumer-facing.
+      <strong>QR Kodu:</strong> baskın 2D format. 7089 haneye veya ~2953 bayta kadar. Her açıdan okur (3 köşede konum işaretleri). %30 hasara kadar hata düzeltme. ~2018'den beri her akıllı telefonda yerel kamera desteği. Tüketiciye yönelik her şey için varsayılan seçim.
     </p>
     <p>
-      <strong>Data Matrix:</strong> very compact (smallest 2D format
-      at small sizes). Dominant in industrial marking, medical
-      device traceability, and small electronics. Reads at tiny
-      sizes — can print on a 2mm square.
+      <strong>Data Matrix:</strong> çok kompakt (küçük boyutlarda en küçük 2D format). Endüstriyel işaretleme, tıbbi cihaz izlenebilirliği ve küçük elektronikte baskın. Küçük boyutlarda okur — 2mm'lik bir kareye basılabilir.
     </p>
     <p>
-      <strong>PDF417:</strong> stacked linear format. Used on
-      driver&rsquo;s licenses, boarding passes, shipping labels where
-      a rectangular aspect ratio fits better than a square.
+      <strong>PDF417:</strong> istiflenmiş doğrusal format. Ehliyetlerde, biniş kartlarında, dikdörtgen en-boy oranının kareden daha iyi uyduğu nakliye etiketlerinde kullanılır.
     </p>
     <p>
-      <strong>Aztec Code:</strong> similar capacity to QR; used on
-      transit tickets (especially European rail), airline boarding
-      passes. Central bullseye is the position marker.
+      <strong>Aztec Kodu:</strong> QR'a benzer kapasite; toplu taşıma biletlerinde (özellikle Avrupa demiryolu), havayolu biniş kartlarında kullanılır. Merkezi hedef tahtası konum işaretidir.
     </p>
     <p>
-      <strong>MaxiCode:</strong> UPS-specific format for package
-      routing.
+      <strong>MaxiCode:</strong> Paket yönlendirme için UPS'e özel format.
     </p>
 
-    <h2>Data capacity at a glance</h2>
+    <h2>Bir bakışta veri kapasitesi</h2>
     <p>
-      <strong>UPC/EAN:</strong> 8-13 digits only.
+      <strong>UPC/EAN:</strong> yalnızca 8-13 hane.
     </p>
     <p>
-      <strong>Code 39:</strong> ~40 uppercase-alphanumeric characters
-      practical max.
+      <strong>Code 39:</strong> pratik maksimum ~40 büyük harf-alfanümerik karakter.
     </p>
     <p>
-      <strong>Code 128:</strong> ~80 ASCII characters practical max.
+      <strong>Code 128:</strong> pratik maksimum ~80 ASCII karakteri.
     </p>
     <p>
-      <strong>Data Matrix:</strong> up to 2335 ASCII characters.
+      <strong>Data Matrix:</strong> 2335 ASCII karakterine kadar.
     </p>
     <p>
-      <strong>QR Code:</strong> up to 4296 alphanumeric or 2953
-      binary bytes.
+      <strong>QR Kodu:</strong> 4296 alfanümerik veya 2953 ikili bayta kadar.
     </p>
     <p>
-      <strong>PDF417:</strong> up to 1850 ASCII characters.
+      <strong>PDF417:</strong> 1850 ASCII karakterine kadar.
     </p>
 
-    <h2>Retail compliance — not optional</h2>
+    <h2>Perakende uyumluluğu — isteğe bağlı değil</h2>
     <p>
-      <strong>Selling on Amazon:</strong> UPC or EAN required, must be
-      purchased from GS1 (the official registry). Made-up codes get
-      your listing suppressed.
+      <strong>Amazon'da satış:</strong> UPC veya EAN gerekli, GS1'den (resmi kayıt kuruluşu) satın alınmalıdır. Uydurma kodlar listenizin askıya alınmasına neden olur.
     </p>
     <p>
-      <strong>Selling in retail stores:</strong> UPC-A (US) or EAN-13
-      (Europe). Retailers scan at checkout — the code must be in the
-      global GS1 database.
+      <strong>Perakende mağazalarında satış:</strong> UPC-A (ABD) veya EAN-13 (Avrupa). Perakendeciler kasada tarar — kod küresel GS1 veritabanında olmalıdır.
     </p>
     <p>
-      <strong>Shipping:</strong> carriers define their own labels.
-      FedEx/UPS use Code 128 for tracking numbers and MaxiCode for
-      routing.
+      <strong>Nakliye:</strong> taşıyıcılar kendi etiketlerini tanımlar. FedEx/UPS, takip numaraları için Code 128 ve yönlendirme için MaxiCode kullanır.
     </p>
     <p>
-      <strong>Pharma (US DSCSA):</strong> Data Matrix with GS1
-      application identifiers for product ID, lot, expiration, serial.
-      Mandatory for prescription drug units.
+      <strong>İlaç (ABD DSCSA):</strong> Ürün kimliği, parti, son kullanma tarihi, seri numarası için GS1 uygulama tanımlayıcılarıyla Data Matrix. Reçeteli ilaç birimleri için zorunludur.
     </p>
 
-    <h2>Check digits — the silent protector</h2>
+    <h2>Kontrol basamakları — sessiz koruyucu</h2>
     <p>
-      Most retail barcode formats include a check digit — the last
-      digit, computed from the others using a modulo algorithm. A
-      scanner that reads 11 of 12 UPC digits and computes a check
-      that doesn&rsquo;t match rejects the scan.
+      Çoğu perakende barkod formatı bir kontrol basamağı içerir — diğerlerinden bir modulo algoritması kullanılarak hesaplanan son basamak. 12 UPC basamağından 11'ini okuyan ve eşleşmeyen bir kontrol hesaplayan bir tarayıcı taramayı reddeder.
     </p>
     <p>
-      <strong>UPC-A / EAN-13:</strong> mod-10 weighted sum.
+      <strong>UPC-A / EAN-13:</strong> mod-10 ağırlıklı toplam.
     </p>
     <p>
-      <strong>Code 128:</strong> mod-103 checksum.
+      <strong>Code 128:</strong> mod-103 sağlama toplamı.
     </p>
     <p>
-      <strong>QR and Data Matrix:</strong> use Reed-Solomon error
-      correction, which goes further — they can recover from
-      partially damaged codes, not just detect errors.
+      <strong>QR ve Data Matrix:</strong> Reed-Solomon hata düzeltme kullanır, bu daha da ileri gider — yalnızca hataları tespit etmekle kalmaz, kısmen hasarlı kodlardan kurtulabilirler.
     </p>
     <p>
-      <strong>Don&rsquo;t compute check digits by hand.</strong> Let
-      the generator do it. Hand-calculated UPC codes are a common
-      source of returned labels.
+      <strong>Kontrol basamaklarını elle hesaplamayın.</strong> Bunu oluşturucunun yapmasına izin verin. Elle hesaplanan UPC kodları, iade edilen etiketlerin yaygın bir kaynağıdır.
     </p>
 
-    <h2>Print size and resolution</h2>
+    <h2>Baskı boyutu ve çözünürlük</h2>
     <p>
-      Barcodes have minimum module sizes (the width of the smallest
-      bar or square). Print too small and the scanner can&rsquo;t
-      resolve individual elements.
+      Barkodların minimum modül boyutları vardır (en küçük çubuk veya karenin genişliği). Çok küçük yazdırırsanız tarayıcı tek tek öğeleri çözemez.
     </p>
     <p>
-      <strong>UPC-A:</strong> nominal 100% size is 1.469&quot; wide,
-      1.02&quot; tall. Allowed range 80-200% of nominal. Below 80%
-      and scanners struggle.
+      <strong>UPC-A:</strong> nominal %100 boyutu 1.469" genişlik, 1.02" yüksekliktir. Nominalin %80-200'ü aralığına izin verilir. %80'in altında tarayıcılar zorlanır.
     </p>
     <p>
-      <strong>Code 128:</strong> minimum module typically 0.010&quot;
-      at 300 DPI print. Shrinks well on thermal printers.
+      <strong>Code 128:</strong> 300 DPI baskıda tipik minimum modül 0.010". Termal yazıcılarda iyi küçülür.
     </p>
     <p>
-      <strong>QR Code:</strong> minimum recommended is 1cm × 1cm for
-      phone scanning. Below that you need macro scanning.
+      <strong>QR Kodu:</strong> telefon taraması için önerilen minimum 1cm × 1cm'dir. Bunun altında makro taramaya ihtiyacınız vardır.
     </p>
     <p>
-      <strong>Quiet zone:</strong> blank space around the barcode.
-      Omitting it breaks scanning. Linear codes need 10× module
-      width of quiet space on each end; QR codes need 4 modules of
-      white around the matrix.
+      <strong>Sessiz bölge:</strong> barkodun etrafındaki boş alan. Atlanması taramayı bozar. Doğrusal kodların her iki ucunda 10× modül genişliğinde sessiz alana ihtiyacı vardır; QR kodlarının matrisin etrafında 4 modül beyaza ihtiyacı vardır.
     </p>
 
-    <h2>Color and contrast</h2>
+    <h2>Renk ve kontrast</h2>
     <p>
-      Barcodes need high contrast between bars and background.
+      Barkodların çubuklar ve arka plan arasında yüksek kontrasta ihtiyacı vardır.
     </p>
     <p>
-      <strong>Black on white</strong> is the safe default.
+      <strong>Beyaz üzerinde siyah</strong> güvenli varsayılandır.
     </p>
     <p>
-      <strong>Colored barcodes</strong> can work but risk scanner
-      rejection. Red bars on white fail common laser scanners (the
-      laser is red and red-on-white reads as white-on-white). Dark
-      blue or black on white/cream is safest.
+      <strong>Renkli barkodlar</strong> çalışabilir ancak tarayıcı reddi riski taşır. Beyaz üzerinde kırmızı çubuklar yaygın lazer tarayıcılarda başarısız olur (lazer kırmızıdır ve kırmızı üzerinde beyaz, beyaz üzerinde beyaz olarak okunur). Beyaz/krem üzerinde koyu mavi veya siyah en güvenlisidir.
     </p>
     <p>
-      <strong>Inverted barcodes</strong> (white bars on black) work
-      in 2D formats that support them but break most linear scanners.
+      <strong>Ters barkodlar</strong> (siyah üzerinde beyaz çubuklar) onları destekleyen 2D formatlarda çalışır ancak çoğu doğrusal tarayıcıyı bozar.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Generating your own UPC.</strong> Retailers check GS1
-      registry. A fabricated UPC gets your product delisted. Buy
-      codes from GS1 or use a product-registration service.
+      <strong>Kendi UPC'nizi oluşturmak.</strong> Perakendeciler GS1 kaydını kontrol eder. Uydurma bir UPC, ürününüzün listeden çıkarılmasına neden olur. Kodları GS1'den satın alın veya bir ürün kayıt hizmeti kullanın.
     </p>
     <p>
-      <strong>Skipping the quiet zone.</strong> Bordering a barcode
-      with text or decoration right against the bars breaks scans.
+      <strong>Sessiz bölgeyi atlamak.</strong> Bir barkodu çubukların hemen yanında metin veya süslemeyle çevrelemek taramaları bozar.
     </p>
     <p>
-      <strong>Using QR for data that isn&rsquo;t scanned.</strong>
-      A QR code that prints on a receipt nobody photographs is
-      wasted ink. Match the format to the workflow.
+      <strong>Taranmayan veriler için QR kullanmak.</strong> Kimsenin fotoğraflamadığı bir fişe basılan QR kodu boşa harcanmış mürekkeptir. Formatı iş akışına uydurun.
     </p>
     <p>
-      <strong>Storing URLs in QR codes without tracking.</strong>
-      If you need to change the destination later, point QR to a
-      URL you control (with a redirect), not the final URL.
-      Otherwise reprinting is your only option.
+      <strong>QR kodlarında URL'leri izleme olmadan saklamak.</strong> Hedefi daha sonra değiştirmeniz gerekirse, QR'yi nihai URL'ye değil, kontrol ettiğiniz bir URL'ye (bir yönlendirmeyle) yönlendirin. Aksi takdirde yeniden basım tek seçeneğinizdir.
     </p>
     <p>
-      <strong>Small, low-error-correction QR on printed materials.</strong>
-      Anything physical will get scuffed. Use medium or high error
-      correction (15% or 25%) on print, even if it slightly increases
-      size.
+      <strong>Basılı malzemelerde küçük, düşük hata düzeltmeli QR.</strong> Fiziksel her şey çizilecektir. Baskıda orta veya yüksek hata düzeltme (%15 veya %25) kullanın, boyutu biraz artırsa bile.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Generate and test barcodes with the{" "}
-      <a href="/tools/barcode-generator">barcode generator</a>. Pair
-      with the{" "}
-      <a href="/tools/qr-code-generator">QR code generator</a> when
-      you need 2D codes with URL or vCard payloads, and the{" "}
-      <a href="/tools/uuid-generator">UUID generator</a> if you need
-      unique IDs to encode inside the barcode payload.
+      Barkodları{" "}
+      <a href="/tools/barcode-generator">barkod oluşturucu</a> ile oluşturun ve test edin. URL veya vCard yükleriyle 2D kodlara ihtiyacınız olduğunda{" "}
+      <a href="/tools/qr-code-generator">QR kodu oluşturucu</a> ile ve barkod yükünün içinde kodlamak için benzersiz kimliklere ihtiyacınız varsa{" "}
+      <a href="/tools/uuid-generator">UUID oluşturucu</a> ile eşleştirin.
     </p>
   </>
 );

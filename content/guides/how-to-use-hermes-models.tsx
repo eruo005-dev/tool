@@ -2,86 +2,70 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Hermes is Nous Research&rsquo;s family of open-weight fine-tunes built on top of Meta&rsquo;s Llama base models.
-    This guide covers what Hermes 3 is actually good at, how to pick a size, and how to run it locally alongside
-    your existing <a href="/learn/llm">LLM</a> stack.
+    Hermes, Nous Research'in Meta'nın Llama temel modelleri üzerine inşa edilmiş açık ağırlıklı ince ayar ailesidir.
+    Bu rehber, Hermes 3'ün gerçekten ne kadar iyi olduğunu, doğru boyutu nasıl seçeceğinizi ve mevcut <a href="/learn/llm">LLM</a> yığınınızla birlikte yerel olarak nasıl çalıştıracağınızı kapsar.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What Hermes models are</h2>
+    <h2>Hermes modelleri nedir</h2>
     <p>
-      Hermes 3 is Nous Research&rsquo;s flagship fine-tune series, released in sizes matching the Llama 3.1 base
-      (8B, 70B, 405B). Nous specializes in instruction-following, <a href="/learn/function-calling">function calling</a>, structured outputs, long-context
-      reliability, and preserving steerability &mdash; Hermes models tend to refuse less than stock Llama-Instruct
-      and follow system prompts more literally.
+      Hermes 3, Nous Research'in amiral gemisi ince ayar serisidir ve Llama 3.1 tabanına uygun boyutlarda (8B, 70B, 405B) yayınlanmıştır. Nous, talimat takibi, <a href="/learn/function-calling">fonksiyon çağırma</a>, yapılandırılmış çıktılar, uzun bağlam güvenilirliği ve yönlendirilebilirliği koruma konularında uzmanlaşmıştır &mdash; Hermes modelleri, stok Llama-Instruct'e göre daha az reddetme eğilimindedir ve sistem istemlerini daha harfiyen takip eder.
     </p>
     <p>
-      The weights are Llama-3.1-licensed (inherited from Meta), so you can use them commercially under the usual
-      Llama terms. They publish on Hugging Face under <code>NousResearch/Hermes-3-Llama-3.1-*</code>.
+      Ağırlıklar Llama-3.1 lisanslıdır (Meta'dan devralınmıştır), bu nedenle olağan Llama koşulları altında ticari olarak kullanabilirsiniz. Hugging Face'te <code>NousResearch/Hermes-3-Llama-3.1-*</code> altında yayınlarlar.
     </p>
 
-    <h2>Picking the right size</h2>
-    <p>Choose based on your hardware and task:</p>
+    <h2>Doğru boyutu seçmek</h2>
+    <p>Donanımınıza ve görevinize göre seçim yapın:</p>
     <ul>
       <li>
-        <strong>Hermes 3 8B</strong> &mdash; runs on a 16GB laptop at Q4. Good agent/assistant quality, better
-        function-calling than stock Llama 3.1 Instruct.
+        <strong>Hermes 3 8B</strong> &mdash; Q4'te 16GB bir dizüstü bilgisayarda çalışır. İyi ajan/asistan kalitesi, stok Llama 3.1 Instruct'tan daha iyi fonksiyon çağırma.
       </li>
       <li>
-        <strong>Hermes 3 70B</strong> &mdash; needs serious hardware (48GB+ <a href="/learn/vrm-vram">VRAM</a> at Q4, or a Mac Studio with
-        sufficient unified memory). Competitive with frontier open models on reasoning.
+        <strong>Hermes 3 70B</strong> &mdash; ciddi donanım gerektirir (Q4'te 48GB+ <a href="/learn/vrm-vram">VRAM</a> veya yeterli birleşik belleğe sahip bir Mac Studio). Akıl yürütmede açık kaynak öncü modellerle rekabetçidir.
       </li>
       <li>
-        <strong>Hermes 3 405B</strong> &mdash; datacenter-only. Multi-GPU or quantized heavily on an H100 cluster.
+        <strong>Hermes 3 405B</strong> &mdash; yalnızca veri merkezi. Çoklu GPU veya bir H100 kümesinde ağır şekilde nicelenmiş.
       </li>
     </ul>
     <p>
-      For most local use cases, start with the 8B. It is the pragmatic sweet spot and ships with the same
-      function-calling and structured-output training as its larger siblings.
+      Çoğu yerel kullanım durumu için 8B ile başlayın. Pragmatik tatlı noktadır ve daha büyük kardeşleriyle aynı fonksiyon çağırma ve yapılandırılmış çıktı eğitimiyle birlikte gelir.
     </p>
 
-    <h2>Running Hermes locally</h2>
-    <p>With Ollama, pull a community GGUF port (or roll your own via llama.cpp&rsquo;s converter):</p>
+    <h2>Hermes'i yerel olarak çalıştırmak</h2>
+    <p>Ollama ile, bir topluluk GGUF bağlantı noktasını çekin (veya llama.cpp'nin dönüştürücüsüyle kendinizinkini oluşturun):</p>
     <pre>{`ollama pull hermes3:8b
-ollama run hermes3:8b "You are a terse code reviewer. Review this function: ..."`}</pre>
-    <p>With llama.cpp directly, download a GGUF and serve it:</p>
-    <pre>{`huggingface-cli download bartowski/Hermes-3-Llama-3.1-8B-GGUF \\
+ollama run hermes3:8b "Sen kısa ve öz bir kod incelemecisisin. Bu fonksiyonu incele: ..."`}</pre>
+    <p>Doğrudan llama.cpp ile, bir GGUF indirin ve sunun:</p>
+    <pre>{`huggingface-cli download bartowski/Hermes-3-Llama-3.1-8B-GGUF \\\
   Hermes-3-Llama-3.1-8B-Q4_K_M.gguf --local-dir ./models
-./build/bin/llama-server -m ./models/Hermes-3-Llama-3.1-8B-Q4_K_M.gguf \\
+./build/bin/llama-server -m ./models/Hermes-3-Llama-3.1-8B-Q4_K_M.gguf \\\
   --host 0.0.0.0 --port 8080 -c 8192 -ngl 99`}</pre>
 
-    <h2>Using function calling and structured outputs</h2>
+    <h2>Fonksiyon çağırma ve yapılandırılmış çıktıları kullanmak</h2>
     <p>
-      Hermes 3 uses a specific tool-call format that it was trained on. It emits calls wrapped in{" "}
-      <code>&lt;tool_call&gt;...&lt;/tool_call&gt;</code> XML tags with JSON payloads. The model card spells out the
-      exact <a href="/learn/system-prompt">system prompt</a> template &mdash; read it before building an agent on top.
+      Hermes 3, üzerinde eğitildiği belirli bir araç çağrısı formatını kullanır. JSON yükleriyle birlikte{" "}
+      <code>&lt;tool_call&gt;...&lt;/tool_call&gt;</code> XML etiketleri içinde sarılmış çağrılar yayar. Model kartı, tam
+      <a href="/learn/system-prompt">sistem istemi</a> şablonunu belirtir &mdash; üzerine bir ajan oluşturmadan önce okuyun.
     </p>
     <p>
-      For strict JSON output, combine a clear system prompt with llama.cpp&rsquo;s <code>--grammar</code> flag or a
-      GBNF grammar file to constrain decoding. You will get dramatically more reliable structured outputs than
-      relying on the model alone:
+      Katı JSON çıktısı için, net bir sistem istemini llama.cpp'nin <code>--grammar</code> bayrağı veya bir GBNF dil bilgisi dosyasıyla birleştirerek kod çözmeyi kısıtlayın. Yalnızca modele güvenmekten çok daha güvenilir yapılandırılmış çıktılar elde edeceksiniz:
     </p>
-    <pre>{`./build/bin/llama-cli -m ./models/hermes-3-8b.gguf \\
-  --grammar-file json.gbnf \\
-  -p "Extract name and age as JSON from: 'Sam is 34.'"`}</pre>
+    <pre>{`./build/bin/llama-cli -m ./models/hermes-3-8b.gguf \\\
+  --grammar-file json.gbnf \\\
+  -p "JSON olarak ad ve yaşı çıkar: 'Sam 34 yaşında.'"`}</pre>
 
-    <h2>Sampling settings that matter</h2>
+    <h2>Önemli olan örnekleme ayarları</h2>
     <p>
-      Hermes benefits from slightly lower temperatures than stock Llama for agentic work. Try{" "}
-      <code>temperature=0.4</code>, <code>top_p=0.9</code>, and a mild repeat penalty of <code>1.05</code> as a
-      starting point. For creative writing, push <a href="/learn/temperature-ai">temperature</a> up to 0.8&ndash;1.0. Context length is inherited from
-      Llama 3.1, so 128k is supported on paper, but quality degrades past ~32k unless your hardware can fit the full
-      KV cache.
+      Hermes, ajanlık çalışmaları için stok Llama'dan biraz daha düşük sıcaklıklardan faydalanır. Başlangıç noktası olarak{" "}
+      <code>temperature=0.4</code>, <code>top_p=0.9</code> ve hafif bir tekrar cezası olarak <code>1.05</code> deneyin. Yaratıcı yazı için, <a href="/learn/temperature-ai">sıcaklığı</a> 0.8&ndash;1.0'a yükseltin. Bağlam uzunluğu Llama 3.1'den devralınmıştır, bu nedenle kağıt üzerinde 128k desteklenir, ancak donanımınız tam KV önbelleğini sığdıramazsa kalite ~32k'dan sonra düşer.
     </p>
 
-    <h2>When Hermes is the wrong choice</h2>
+    <h2>Hermes'in yanlış seçim olduğu durumlar</h2>
     <p>
-      If you are doing code-specific work, Qwen 2.5 Coder or DeepSeek-Coder V2 usually beat Hermes at the same size.
-      If you want the absolute most refusal-free chat model, there are more specialized fine-tunes &mdash; though
-      they come with their own risks. For general-purpose assistants, agents, and function-calling workloads on open
-      weights, Hermes 3 is a strong, well-supported default.
+      Kod odaklı bir iş yapıyorsanız, Qwen 2.5 Coder veya DeepSeek-Coder V2 genellikle aynı boyuttaki Hermes'i yener. Kesinlikle en reddetmesiz sohbet modelini istiyorsanız, daha özelleşmiş ince ayarlar vardır &mdash; ancak bunlar kendi risklerini taşır. Genel amaçlı asistanlar, ajanlar ve açık ağırlıklarda fonksiyon çağırma iş yükleri için Hermes 3, güçlü ve iyi desteklenen bir varsayılandır.
     </p>
   </>
 );

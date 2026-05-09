@@ -2,57 +2,57 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    The most sustainable shirt is the one already in your closet &mdash; everything else is tactics to make that closet smaller, better, and longer-lasting.
+    En sürdürülebilir giysi, zaten dolabınızda olanıdır &mdash; geri kalan her şey, o dolabı daha küçük, daha iyi ve daha uzun ömürlü kılmak için kullanılan taktiklerdir.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      Fashion is roughly 10% of global emissions, and most of that comes from sheer volume &mdash; the average American buys about 68 garments a year and discards 80 pounds of textiles. Fixing that doesn&rsquo;t require a capsule wardrobe on Instagram. It requires a few boring habits.
+      Moda, küresel emisyonların kabaca %10'unu oluşturur ve bunun çoğu saf hacimden gelir &mdash; ortalama bir Amerikalı yılda yaklaşık 68 giysi satın alır ve 36 kilo tekstil atar. Bunu düzeltmek Instagram'da kapsül bir gardırop gerektirmez. Birkaç sıkıcı alışkanlık gerektirir.
     </p>
 
-    <h2>The #1 move is buy less</h2>
+    <h2>1 numaralı hamle: daha az satın al</h2>
     <p>
-      Nothing you can do &mdash; organic cotton, carbon-neutral shipping, GOTS certifications &mdash; beats buying fewer items. A 30-item closet worn for five years has a fraction of the footprint of a 200-item rotation replaced every year, even if every item is &ldquo;sustainable.&rdquo; Before any purchase, wait 30 days. Most urges pass.
+      Yapabileceğiniz hiçbir şey &mdash; organik pamuk, karbon-nötr nakliye, GOTS sertifikaları &mdash; daha az ürün satın almaktan daha etkili değildir. Beş yıl giyilen 30 parçalık bir gardırop, her yıl değiştirilen 200 parçalık bir rotasyona kıyasla çok daha düşük bir ayak izine sahiptir, her parça "sürdürülebilir" olsa bile. Herhangi bir satın alma işleminden önce 30 gün bekleyin. Çoğu istek geçer.
     </p>
 
-    <h2>Quality basics over trendy pieces</h2>
+    <h2>Trend parçalar yerine kaliteli temel ürünler</h2>
     <p>
-      A well-made cotton t-shirt can last 50+ years with care. A cheap polyester one shreds in the dryer inside 12 months. Buy a smaller number of high-quality staples &mdash; jeans, white tees, a good jacket, proper shoes &mdash; and skip micro-trends entirely. The price-per-wear on a $120 pair of jeans worn 500 times is 24 cents. A $25 fast-fashion pair worn 15 times is $1.67.
+      İyi yapılmış bir pamuklu tişört, özenle 50+ yıl dayanabilir. Ucuz bir polyester tişört, kurutucuda 12 ay içinde parçalanır. Az sayıda yüksek kaliteli temel ürün satın alın &mdash; kot pantolon, beyaz tişört, iyi bir ceket, uygun ayakkabılar &mdash; ve mikro trendleri tamamen atlayın. 500 kez giyilen 120 dolarlık bir kot pantolonun giyim başına maliyeti 24 senttir. 15 kez giyilen 25 dolarlık bir hızlı moda kot pantolonun maliyeti 1,67 dolardır.
     </p>
 
-    <h2>Second-hand first</h2>
+    <h2>Önce ikinci el</h2>
     <p>
-      Before buying new, check second-hand. ThredUp and Depop have deep inventory for common sizes. Poshmark is strong for brand-name items. Local consignment shops and buy-nothing Facebook groups cover what the apps miss. Goodwill and Savers remain the cheapest option if you have time to dig. Roughly 1 in 3 items you want exists used &mdash; buying it that way is effectively zero additional footprint.
+      Yeni satın almadan önce ikinci eli kontrol edin. ThredUp ve Depop, yaygın bedenler için geniş bir envantere sahiptir. Poshmark, markalı ürünler için güçlüdür. Yerel konsinye mağazaları ve ücretsiz Facebook grupları, uygulamaların kaçırdıklarını kapsar. Goodwill ve Savers, kazmak için zamanınız varsa en ucuz seçenek olmaya devam ediyor. İstediğiniz ürünlerin kabaca 3'te 1'i ikinci el olarak mevcuttur &mdash; bu şekilde satın almak, etkili bir şekilde sıfır ek ayak izi anlamına gelir.
     </p>
 
-    <h2>Certifications worth knowing</h2>
+    <h2>Bilmeye değer sertifikalar</h2>
     <ul>
-      <li>GOTS (Global Organic Textile Standard): the real bar for organic cotton and wool.</li>
-      <li>Fair Trade Certified: covers wages and conditions in the supply chain.</li>
-      <li>OEKO-TEX Standard 100: verifies no harmful chemicals in the finished garment.</li>
-      <li>B Corp: broader company-level ethics signal, not garment-specific.</li>
+      <li>GOTS (Küresel Organik Tekstil Standardı): organik pamuk ve yün için gerçek standart.</li>
+      <li>Fair Trade Certified (Adil Ticaret Sertifikalı): tedarik zincirindeki ücretleri ve koşulları kapsar.</li>
+      <li>OEKO-TEX Standard 100: bitmiş giyside zararlı kimyasal olmadığını doğrular.</li>
+      <li>B Corp: giysiye özel olmayan, daha geniş şirket düzeyinde etik sinyali.</li>
     </ul>
 
-    <h2>Mending and tailoring</h2>
+    <h2>Onarım ve terzilik</h2>
     <p>
-      Most garments get thrown out for fixable reasons &mdash; a popped seam, a broken zipper, a slightly off fit. A local tailor charges $10&ndash;$30 for repairs that extend a garment&rsquo;s life 2&ndash;3x. Basic mending (button, hem, small tear) is a 20-minute YouTube tutorial. Visible mending (sashiko stitching, patches) is having a moment and looks intentional.
+      Çoğu giysi, düzeltilebilir nedenlerle atılır &mdash; patlamış bir dikiş, kırık bir fermuar, hafif bir uyum sorunu. Yerel bir terzi, bir giysinin ömrünü 2-3 kat uzatan onarımlar için 10-30 dolar ücret alır. Temel onarım (düğme, etek ucu, küçük yırtık) 20 dakikalık bir YouTube eğitimidir. Görünür onarım (sashiko dikişi, yamalar) şu anda popüler ve kasıtlı görünüyor.
     </p>
 
-    <h2>Fiber knowledge</h2>
+    <h2>Lif bilgisi</h2>
     <p>
-      Cotton is biodegradable and comfortable but extremely water-intensive &mdash; organic is better, but it&rsquo;s still thirsty. Bamboo <em>viscose</em> is usually a chemical-heavy rayon process with little of bamboo&rsquo;s natural benefit; bamboo linen is rare and genuinely low-impact. Linen and wool have the lowest lifecycle impact of common fibers &mdash; they last, they biodegrade, and they need washing less often. Polyester, nylon, and acrylic shed microplastics with every wash; a Guppyfriend bag helps if you own them.
+      Pamuk biyolojik olarak parçalanabilir ve rahattır ancak son derece su yoğundur &mdash; organik daha iyidir, ancak yine de susuzdur. Bambu <em>viskon</em> genellikle bambunun doğal faydasından çok azını taşıyan, kimyasal yoğun bir rayon işlemidir; bambu keteni nadirdir ve gerçekten düşük etkilidir. Keten ve yün, yaygın lifler arasında en düşük yaşam döngüsü etkisine sahiptir &mdash; uzun ömürlüdürler, biyolojik olarak parçalanırlar ve daha az yıkama gerektirirler. Polyester, naylon ve akrilik her yıkamada mikroplastik yayar; bunlara sahipseniz bir Guppyfriend torbası yardımcı olur.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Trusting &ldquo;conscious&rdquo; collections from fast-fashion brands (H&amp;M, Zara, Shein) &mdash; they&rsquo;re usually a single-digit percentage of the line with vague claims and no certifications. Buying new sustainable items to replace perfectly good existing items &mdash; the carbon is already spent, wear them out. Tossing clothing in the trash instead of donating, reselling, or using textile recycling bins. Washing on hot when cold works fine &mdash; most wear and energy use happens in the dryer, which you can also skip for half your loads.
+      Hızlı moda markalarının (H&amp;M, Zara, Shein) "bilinçli" koleksiyonlarına güvenmek &mdash; bunlar genellikle koleksiyonun tek haneli bir yüzdesidir, belirsiz iddialar ve sertifikasız ürünlerdir. Mükemmel şekilde işlevsel mevcut ürünleri değiştirmek için yeni sürdürülebilir ürünler satın almak &mdash; karbon zaten harcanmıştır, onları eskitin. Giysileri bağışlamak, yeniden satmak veya tekstil geri dönüşüm kutuları kullanmak yerine çöpe atmak. Soğuk su işe yararken sıcakta yıkamak &mdash; aşınma ve enerji kullanımının çoğu, yüklerinizin yarısı için atlayabileceğiniz kurutucuda gerçekleşir.
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Alt satır</h2>
     <p>
-      Buy less, buy used first, buy quality when you do buy new, and wear everything longer. Certifications and fiber choice matter at the margins, but volume is the whole game. A closet of 40 well-chosen pieces worn for a decade beats any amount of &ldquo;eco&rdquo; branding on a cycle of new purchases.
+      Daha az satın alın, önce ikinci el satın alın, yeni satın aldığınızda kaliteli satın alın ve her şeyi daha uzun süre giyin. Sertifikalar ve lif seçimi marjinal olarak önemlidir, ancak asıl oyun hacimdir. On yıl boyunca giyilen, iyi seçilmiş 40 parçalık bir gardırop, yeni satın almalar döngüsündeki herhangi bir miktarda "eko" markalamadan daha iyidir.
     </p>
   </>
 );

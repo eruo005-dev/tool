@@ -2,66 +2,64 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Students in 2026 are using AI for studying, paper drafts, problem sets, language learning, and
-    research. The right tools depend on what you study and how your school treats AI &mdash; but
-    most students find a working stack for under $25/month.
+    2026'da öğrenciler ders çalışma, makale taslakları, problem setleri, dil öğrenimi ve
+    araştırma için yapay zeka kullanıyor. Doğru araçlar ne okuduğunuza ve okulunuzun yapay zekayı nasıl ele aldığına bağlı &mdash; ancak
+    çoğu öğrenci ayda 25 doların altında çalışan bir yığın buluyor.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The honest student stack</h2>
+    <h2>Dürüst öğrenci yığını</h2>
     <ul>
-      <li><strong>Free tier first:</strong> NotebookLM (free) + ChatGPT free + Perplexity free +
-        Claude free. Most homework runs on this.</li>
-      <li><strong>If you can pay $20:</strong> Pick one paid plan. ChatGPT Plus is the best
-        all-rounder for students &mdash; voice mode, code interpreter, image gen, broadest help.</li>
-      <li><strong>If you can pay $25:</strong> Add Cursor Pro for CS students. Bundles Claude + GPT-5
-        for coding workflows.</li>
+      <li><strong>Önce ücretsiz katman:</strong> NotebookLM (ücretsiz) + ChatGPT ücretsiz + Perplexity ücretsiz +
+        Claude ücretsiz. Çoğu ödev bununla yapılır.</li>
+      <li><strong>20 dolar ödeyebiliyorsanız:</strong> Bir ücretli plan seçin. ChatGPT Plus öğrenciler için en iyi
+        çok yönlü araçtır &mdash; ses modu, kod yorumlayıcı, görsel oluşturma, en geniş yardım.</li>
+      <li><strong>25 dolar ödeyebiliyorsanız:</strong> Bilgisayar bilimi öğrencileri için Cursor Pro ekleyin. Kodlama
+        iş akışları için Claude + GPT-5'i bir araya getirir.</li>
     </ul>
 
-    <h2>By subject</h2>
+    <h2>Derse göre</h2>
     <ul>
-      <li><strong>STEM problem sets:</strong> ChatGPT Plus or Claude. Both are excellent at
-        step-by-step solutions. Use the &ldquo;explain like I&rsquo;m new to this&rdquo; framing.</li>
-      <li><strong>Essay drafts:</strong> Claude Pro. Cleaner voice, less &ldquo;AI smell.&rdquo;</li>
-      <li><strong>Research papers / lit reviews:</strong> NotebookLM (free) + Perplexity Pro. Upload
-        your sources to NotebookLM and chat with them.</li>
-      <li><strong>Language learning:</strong> ChatGPT voice mode (best in 2026), or Duolingo Max
-        ($14/mo). Real-time pronunciation feedback.</li>
-      <li><strong>CS / programming:</strong> Cursor Pro or Claude Code. Free GitHub Copilot via the
-        Student Pack.</li>
-      <li><strong>Math:</strong> Claude Opus or DeepSeek R1 for hard reasoning. Show working.</li>
-      <li><strong>Test prep:</strong> ChatGPT for practice questions, Claude for explanations.</li>
+      <li><strong>STEM problem setleri:</strong> ChatGPT Plus veya Claude. Her ikisi de adım adım
+        çözümlerde mükemmeldir. &ldquo;Bunda yeniymişim gibi açıkla&rdquo; çerçevesini kullanın.</li>
+      <li><strong>Makale taslakları:</strong> Claude Pro. Daha temiz ses, daha az &ldquo;yapay zeka kokusu.&rdquo;</li>
+      <li><strong>Araştırma makaleleri / literatür taramaları:</strong> NotebookLM (ücretsiz) + Perplexity Pro. Kaynaklarınızı
+        NotebookLM'ye yükleyin ve onlarla sohbet edin.</li>
+      <li><strong>Dil öğrenimi:</strong> ChatGPT ses modu (2026'da en iyisi) veya Duolingo Max
+        ($14/ay). Gerçek zamanlı telaffuz geri bildirimi.</li>
+      <li><strong>Bilgisayar bilimi / programlama:</strong> Cursor Pro veya Claude Code. Öğrenci Paketi aracılığıyla ücretsiz GitHub Copilot.</li>
+      <li><strong>Matematik:</strong> Zor muhakeme için Claude Opus veya DeepSeek R1. Çözümü gösterin.</li>
+      <li><strong>Sınava hazırlık:</strong> Pratik sorular için ChatGPT, açıklamalar için Claude.</li>
     </ul>
 
-    <h2>Free benefits worth knowing</h2>
+    <h2>Bilmeye değer ücretsiz avantajlar</h2>
     <ul>
-      <li><strong>GitHub Student Pack:</strong> free Copilot Pro for verified students.</li>
-      <li><strong>NotebookLM:</strong> free, no signup beyond Google account. Best paper-stack tool.</li>
-      <li><strong>Claude.ai free tier:</strong> Sonnet access without payment.</li>
-      <li><strong>ChatGPT free:</strong> GPT-5 with rate limits.</li>
-      <li><strong>Perplexity free:</strong> quick search unlimited; Pro Search rate-limited.</li>
+      <li><strong>GitHub Öğrenci Paketi:</strong> Doğrulanmış öğrenciler için ücretsiz Copilot Pro.</li>
+      <li><strong>NotebookLM:</strong> ücretsiz, Google hesabı dışında kayıt gerekmez. En iyi makale yığını aracı.</li>
+      <li><strong>Claude.ai ücretsiz katmanı:</strong> Ödeme olmadan Sonnet erişimi.</li>
+      <li><strong>ChatGPT ücretsiz:</strong> Hız sınırları olan GPT-5.</li>
+      <li><strong>Perplexity ücretsiz:</strong> hızlı arama sınırsız; Pro Search hız sınırlı.</li>
     </ul>
 
-    <h2>The integrity question</h2>
+    <h2>Dürüstlük sorunu</h2>
     <p>
-      Schools are still figuring out AI rules. Practical norms in 2026: AI for understanding
-      concepts, brainstorming, drafting, and editing is widely accepted. AI writing whole essays or
-      solving graded problem sets without disclosure is academic dishonesty in most institutions.
-      When in doubt, ask the professor &mdash; the explicit answer protects you both ways.
+      Okullar hala yapay zeka kurallarını belirliyor. 2026'daki pratik normlar: Kavramları anlamak, beyin fırtınası yapmak, taslak hazırlamak ve düzenleme yapmak için yapay zeka
+      yaygın olarak kabul edilir. Yapay zekanın tüm makaleyi yazması veya bildirilmeden notlandırılan problem setlerini çözmesi
+      çoğu kurumda akademik sahtekarlıktır.
+      Emin olmadığınızda, profesöre sorun &mdash; açık cevap sizi her iki şekilde de korur.
     </p>
 
-    <h2>One workflow that just works</h2>
+    <h2>İşe yarayan bir iş akışı</h2>
     <p>
-      Read the assignment. Use Perplexity to find 5-10 key sources. Drop them in NotebookLM. Ask
-      NotebookLM to summarize each. Draft your outline yourself. Use Claude or ChatGPT to expand
-      each section. Edit heavily. Cite real sources from NotebookLM. Done in half the time, with
-      better understanding than skipping the AI entirely.
+      Ödevi okuyun. 5-10 ana kaynak bulmak için Perplexity'yi kullanın. Bunları NotebookLM'ye bırakın.
+      NotebookLM'den her birini özetlemesini isteyin. Taslağınızı kendiniz çıkarın. Her bölümü genişletmek için Claude veya ChatGPT'yi kullanın. Yoğun bir şekilde düzenleyin. NotebookLM'den gerçek kaynaklara atıf yapın. Yapay zekayı tamamen atlamaktan daha iyi bir anlayışla,
+      sürenin yarısında bitirin.
     </p>
     <p>
-      Related reads: <a href="/guides/how-to-take-better-notes">how to take better notes</a>,{" "}
-      <a href="/guides/how-to-focus-better">how to focus better</a>.
+      İlgili okumalar: <a href="/guides/how-to-take-better-notes">daha iyi not nasıl alınır</a>,{" "}
+      <a href="/guides/how-to-focus-better">daha iyi nasıl odaklanılır</a>.
     </p>
   </>
 );

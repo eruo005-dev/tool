@@ -3,257 +3,255 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Typing speed is one of those quiet career multipliers — it
-      compounds across every email, meeting note, code review, and
-      Slack message you send. The difference between 40 and 80
-      wpm is roughly an hour a day for knowledge workers. This
-      guide covers where you realistically are (baselines, percentiles),
-      how to measure honestly, the proper technique that unlocks
-      speed gains, and the practice schedule that actually works
-      versus the ones that plateau.
+      Yazma hızı, sessiz bir kariyer çarpanıdır — gönderdiğiniz her e-posta,
+      toplantı notu, kod incelemesi ve Slack mesajında kendini gösterir.
+      40 ve 80 kelime/dakika arasındaki fark, bilgi çalışanları için kabaca
+      günde bir saat demektir. Bu rehber, gerçekçi olarak nerede olduğunuzu
+      (temel seviyeler, yüzdelik dilimler), nasıl dürüstçe ölçüm yapacağınızı,
+      hız kazanımlarını sağlayan doğru tekniği ve işe yarayan pratik
+      programını (duraklamalara neden olanların aksine) kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Where you probably are — typing speed percentiles</h2>
+    <h2>Muhtemelen neredesiniz — yazma hızı yüzdelik dilimleri</h2>
     <p>
-      Based on aggregated typing-test data (10Fast, Monkeytype,
-      Typing.com):
+      Toplanan yazma testi verilerine göre (10Fast, Monkeytype, Typing.com):
     </p>
     <p>
-      <strong>Average adult typist:</strong> 35-45 wpm. The median
-      in unselected populations.
+      <strong>Ortalama yetişkin daktilograf:</strong> 35-45 kelime/dakika.
+      Seçilmemiş popülasyonlarda medyan.
     </p>
     <p>
-      <strong>Proficient:</strong> 50-65 wpm. Comfortable for office
-      work; you can think while typing without losing the thought.
+      <strong>Yeterli:</strong> 50-65 kelime/dakika. Ofis işleri için rahat;
+      düşünceyi kaybetmeden yazarken düşünebilirsiniz.
     </p>
     <p>
-      <strong>Fast:</strong> 70-85 wpm. Notably fast; common ceiling
-      for self-taught typists who don&rsquo;t use proper touch-typing.
+      <strong>Hızlı:</strong> 70-85 kelime/dakika. Belirgin şekilde hızlı;
+      kendi kendine öğrenen ve doğru dokunarak yazma kullanmayan daktilograflar
+      için yaygın tavan.
     </p>
     <p>
-      <strong>Very fast:</strong> 90-110 wpm. Requires proper touch
-      typing, regular practice. Professional developers and writers.
+      <strong>Çok hızlı:</strong> 90-110 kelime/dakika. Doğru dokunarak yazma
+      ve düzenli pratik gerektirir. Profesyonel geliştiriciler ve yazarlar.
     </p>
     <p>
-      <strong>Exceptional:</strong> 120+ wpm. Dedicated practice over
-      years. Top percentile of Monkeytype leaderboards sits around
-      180-200 wpm on short bursts.
+      <strong>Olağanüstü:</strong> 120+ kelime/dakika. Yıllar boyunca özel
+      pratik. Monkeytype liderlik tablosunun en üst yüzdelik dilimi kısa
+      patlamalarda 180-200 kelime/dakika civarındadır.
     </p>
     <p>
-      For context: the Guinness record is 216 wpm sustained, 1,011
-      characters/minute on a specific keyboard by Barbara Blackburn
-      (1946, typewriter era). Modern single-second bursts have
-      exceeded 300 wpm but don&rsquo;t reflect sustained ability.
-    </p>
-
-    <h2>Speed is speed with accuracy</h2>
-    <p>
-      Raw wpm without accuracy is meaningless. Most tests now show
-      two numbers: raw wpm and <em>accuracy-adjusted</em> wpm (which
-      deducts for errors).
-    </p>
-    <p>
-      <strong>Target: 95%+ accuracy.</strong> Below 95%, you&rsquo;re
-      actually slower overall because correcting errors costs more
-      time than the speed gains. Many beginners chase raw wpm and
-      plateau because their error rate balloons.
-    </p>
-    <p>
-      <strong>The speed-accuracy tradeoff:</strong> practice a level
-      ~10-15% slower than your max-burst speed, at 95%+ accuracy.
-      Your sustainable speed will rise to that level and beyond.
+      Bağlam için: Guinness rekoru, Barbara Blackburn (1946, daktilo dönemi)
+      tarafından belirli bir klavyede sürdürülebilir 216 kelime/dakika,
+      1.011 karakter/dakikadır. Modern tek saniyelik patlamalar 300
+      kelime/dakikayı aşmıştır ancak sürdürülebilir yeteneği yansıtmaz.
     </p>
 
-    <h2>Touch typing — the real unlock</h2>
+    <h2>Hız, doğrulukla birlikte hızdır</h2>
     <p>
-      Touch typing: all 10 fingers, each with a home position, eyes
-      on the screen (never the keyboard). The home row is ASDF for
-      the left hand, JKL; for the right, with F and J having tactile
-      bumps.
+      Doğruluk olmadan ham kelime/dakika anlamsızdır. Çoğu test artık iki
+      sayı gösterir: ham kelime/dakika ve <em>doğruluk ayarlı</em> kelime/dakika
+      (hatalar için düşülen).
     </p>
     <p>
-      <strong>Why it matters:</strong> hunt-and-peck has a natural
-      ceiling around 40-60 wpm. Proper touch typing removes the
-      visual look-up step entirely, and both hands type in parallel.
+      <strong>Hedef: %95+ doğruluk.</strong> %95'in altında, aslında genel
+      olarak daha yavaşsınızdır çünkü hataları düzeltmek, hız kazanımlarından
+      daha fazla zaman alır. Birçok yeni başlayan ham kelime/dakika peşinde
+      koşar ve hata oranları şiştiği için duraklar.
     </p>
     <p>
-      If you&rsquo;re self-taught and using only 4-6 fingers, you&rsquo;ll
-      initially get slower when switching to touch typing — then
-      within 2-4 weeks of practice, pass your old speed and keep
-      climbing. Worth the short-term drop.
-    </p>
-    <p>
-      <strong>Signs you&rsquo;re hunt-and-pecking:</strong> looking
-      at the keyboard for any key, using &lt; 8 fingers regularly,
-      wpm plateaued below 60 for years despite volume.
+      <strong>Hız-doğruluk dengesi:</strong> maksimum patlama hızınızdan
+      ~%10-15 daha yavaş bir seviyede, %95+ doğrulukla pratik yapın.
+      Sürdürülebilir hızınız bu seviyeye ve ötesine yükselecektir.
     </p>
 
-    <h2>Proper technique — posture and key-striking</h2>
+    <h2>Dokunarak yazma — gerçek anahtar</h2>
     <p>
-      <strong>Wrists floating or resting lightly.</strong> Wrists
-      shouldn&rsquo;t be angled sharply up or down. A palm rest is
-      for resting between bursts, not during typing.
+      Dokunarak yazma: her biri bir ana konuma sahip 10 parmak, gözler
+      ekranda (asla klavyede değil). Ana sıra, sol el için ASDF, sağ el için
+      JKL;'dir ve F ile J'de dokunsal çıkıntılar bulunur.
     </p>
     <p>
-      <strong>Light touch.</strong> Hammering keys creates fatigue
-      and slower overall cadence. The key doesn&rsquo;t register
-      harder from more force.
+      <strong>Neden önemli:</strong> avuçlama ve vurmanın doğal bir tavanı
+      40-60 kelime/dakika civarındadır. Doğru dokunarak yazma, görsel bakma
+      adımını tamamen ortadan kaldırır ve her iki el paralel olarak yazar.
     </p>
     <p>
-      <strong>Fingers hover near home row.</strong> Return to home
-      position after reaching for outliers. Maps keys to specific
-      fingers — upper-row keys assigned to the nearest home-row
-      finger.
+      Kendi kendine öğreniyorsanız ve yalnızca 4-6 parmak kullanıyorsanız,
+      dokunarak yazmaya geçerken başlangıçta yavaşlayacaksınız — ardından
+      2-4 haftalık pratik içinde eski hızınızı geçecek ve yükselmeye devam
+      edeceksiniz. Kısa vadeli düşüşe değer.
     </p>
     <p>
-      <strong>Thumbs for spacebar only.</strong> Alternate thumbs if
-      it&rsquo;s natural; right thumb is more common.
-    </p>
-    <p>
-      <strong>Shift keys used opposite-handed.</strong> Capitalizing
-      &ldquo;A&rdquo; uses right shift (since A is left-hand);
-      capitalizing &ldquo;P&rdquo; uses left shift.
+      <strong>Avuçlama ve vurma belirtileri:</strong> herhangi bir tuş için
+      klavyeye bakmak, düzenli olarak 8'den az parmak kullanmak, yıllarca
+      hacme rağmen kelime/dakikanın 60'ın altında duraklaması.
     </p>
 
-    <h2>Practice tools that actually work</h2>
+    <h2>Doğru teknik — duruş ve tuş vuruşu</h2>
     <p>
-      <strong>Monkeytype.</strong> Clean, customizable, reliable
-      metrics. Free. Practice common English words at short
-      durations (15s, 30s, 60s) to build speed; longer durations
-      (2-5 min) to build endurance.
+      <strong>Bilekler havada veya hafifçe dayalı.</strong> Bilekler keskin
+      bir şekilde yukarı veya aşağı açılı olmamalıdır. Avuç içi dayanağı,
+      patlamalar arasında dinlenmek içindir, yazma sırasında değil.
     </p>
     <p>
-      <strong>Keybr.</strong> Algorithmic — drills you on your
-      weakest keys. Ugly but effective for identifying and fixing
-      specific finger weaknesses.
+      <strong>Hafif dokunuş.</strong> Tuşlara vurmak yorgunluk yaratır ve
+      genel tempoyu yavaşlatır. Tuş, daha fazla kuvvetle daha sert
+      kaydetmez.
     </p>
     <p>
-      <strong>TypeRacer.</strong> Gamified race format. Good for
-      sustained speed practice and motivation.
+      <strong>Parmaklar ana sıranın yakınında asılı kalır.</strong> Uzak
+      tuşlara uzanıldıktan sonra ana konuma dönün. Tuşları belirli
+      parmaklarla eşleştirir — üst sıra tuşları en yakın ana sıra
+      parmağına atanır.
     </p>
     <p>
-      <strong>10FastFingers.</strong> Simple, widely used for
-      benchmarking. Often used in job-application typing tests.
+      <strong>Başparmaklar yalnızca boşluk çubuğu için.</strong> Doğal
+      geliyorsa başparmakları değiştirin; sağ başparmak daha yaygındır.
     </p>
     <p>
-      <strong>Typing Club, Ratatype, GCFLearnFree</strong> for
-      fundamentals and beginner touch typing lessons.
-    </p>
-
-    <h2>The practice schedule</h2>
-    <p>
-      <strong>15-20 minutes per day</strong> beats &ldquo;2 hours
-      on Sunday.&rdquo; Motor learning responds to frequency, not
-      intensity.
-    </p>
-    <p>
-      <strong>Warm up with familiar drills</strong> (common words,
-      home row) for 3-5 minutes.
-    </p>
-    <p>
-      <strong>Drill weak spots</strong> for 10 minutes. Whatever
-      letter combination or finger you consistently mis-key. Keybr
-      automates this.
-    </p>
-    <p>
-      <strong>End with 2-3 short tests</strong> to track progress.
-      Record wpm and accuracy; watch the trend over weeks.
-    </p>
-    <p>
-      <strong>Expect plateaus.</strong> Real progress isn&rsquo;t
-      linear. Long flat periods followed by jumps are normal. Push
-      through 2-3 week plateaus; if stuck longer, reassess
-      technique.
+      <strong>Shift tuşları karşı elle kullanılır.</strong> "A" harfini
+      büyük yapmak sağ Shift'i kullanır (çünkü A sol elle yazılır);
+      "P" harfini büyük yapmak sol Shift'i kullanır.
     </p>
 
-    <h2>Common mistakes that cap your speed</h2>
+    <h2>Gerçekten işe yarayan pratik araçları</h2>
     <p>
-      <strong>Looking at the keyboard.</strong> Biggest ceiling-
-      imposer. Cover the keys with a cloth or tape pieces of paper
-      over them while practicing.
+      <strong>Monkeytype.</strong> Temiz, özelleştirilebilir, güvenilir
+      metrikler. Ücretsiz. Hız oluşturmak için kısa sürelerde (15s, 30s, 60s)
+      yaygın İngilizce kelimelerle pratik yapın; dayanıklılık oluşturmak
+      için daha uzun süreler (2-5 dk).
     </p>
     <p>
-      <strong>Not using all fingers.</strong> Pinky fingers are
-      underused by self-taught typists; training them up adds 15-
-      20 wpm.
+      <strong>Keybr.</strong> Algoritmik — en zayıf tuşlarınızda sizi
+      çalıştırır. Çirkin ancak belirli parmak zayıflıklarını belirlemek ve
+      düzeltmek için etkilidir.
     </p>
     <p>
-      <strong>Practicing slow and sloppy.</strong> Repeating errors
-      into motor memory. Practice slightly faster than comfortable,
-      with 95%+ accuracy.
+      <strong>TypeRacer.</strong> Oyunlaştırılmış yarış formatı. Sürdürülebilir
+      hız pratiği ve motivasyon için iyidir.
     </p>
     <p>
-      <strong>No attention to weak keys.</strong> Z, Q, X, and
-      letter combinations with pinkies often lag. Targeted drills.
+      <strong>10FastFingers.</strong> Basit, kıyaslama için yaygın olarak
+      kullanılır. Genellikle iş başvurusu yazma testlerinde kullanılır.
     </p>
     <p>
-      <strong>Bad keyboard.</strong> Laptop keyboards with poor key
-      spacing or short travel can limit speed. Mechanical keyboards
-      with tactile switches (browns, clears) help many typists. Not
-      required for 60-80 wpm; mattering more at 100+.
+      <strong>Typing Club, Ratatype, GCFLearnFree</strong> temel bilgiler ve
+      yeni başlayanlar için dokunarak yazma dersleri için.
     </p>
 
-    <h2>Keyboard layout — QWERTY alternatives</h2>
+    <h2>Pratik programı</h2>
     <p>
-      <strong>QWERTY:</strong> dominant layout. Not designed for
-      efficiency but it&rsquo;s what everyone uses.
+      <strong>Günde 15-20 dakika</strong>, "Pazar günü 2 saat"ten daha
+      iyidir. Motor öğrenme yoğunluğa değil, sıklığa yanıt verir.
     </p>
     <p>
-      <strong>Dvorak:</strong> ~5-10% faster for some typists once
-      fully trained, due to better finger load balance. Switching
-      costs you 3-6 months of reduced speed. Rarely worth it for
-      most people.
+      <strong>Bilinen alıştırmalarla ısının</strong> (yaygın kelimeler,
+      ana sıra) 3-5 dakika boyunca.
     </p>
     <p>
-      <strong>Colemak:</strong> modifies QWERTY minimally (17 keys
-      moved). Easier transition than Dvorak. Claimed efficiency gains
-      smaller but real.
+      <strong>Zayıf noktaları çalışın</strong> 10 dakika boyunca. Sürekli
+      yanlış tuşladığınız harf kombinasyonu veya parmak neyse. Keybr bunu
+      otomatikleştirir.
     </p>
     <p>
-      Switching layouts rarely pays off unless you&rsquo;re already
-      at 80+ wpm, have ergonomic concerns, and will commit to the
-      transition. Most typists are better off drilling QWERTY.
-    </p>
-
-    <h2>Text expansion and shortcuts — the other half</h2>
-    <p>
-      Typing faster is only half the game. The other half is typing
-      less.
+      <strong>2-3 kısa testle bitirin</strong> ilerlemeyi takip etmek için.
+      Kelime/dakika ve doğruluğu kaydedin; haftalar içindeki eğilimi izleyin.
     </p>
     <p>
-      <strong>Text expanders</strong> (Espanso free, TextExpander
-      paid) replace short triggers with long strings. &ldquo;;addr&rdquo;
-      → your full mailing address. &ldquo;;sig&rdquo; → email
-      signature.
-    </p>
-    <p>
-      <strong>Keyboard shortcuts.</strong> Cmd/Ctrl+A, C, V, Z are
-      the basics; learn app-specific shortcuts for your most-used
-      tools (Slack, Gmail, VS Code). Savings compound.
-    </p>
-    <p>
-      <strong>Snippets in your editor.</strong> Most modern editors
-      let you define code snippets: type &ldquo;useState&rdquo; +
-      tab, get the full useState boilerplate.
-    </p>
-    <p>
-      <strong>Voice dictation</strong> for long-form writing.
-      Whisper-quality transcription makes voice → text a viable
-      first-draft tool.
+      <strong>Duraklamalar bekleyin.</strong> Gerçek ilerleme doğrusal
+      değildir. Uzun düz dönemler ve ardından sıçramalar normaldir. 2-3
+      haftalık duraklamaları aşın; daha uzun süre takılı kalırsanız, tekniği
+      yeniden değerlendirin.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Hızınızı sınırlayan yaygın hatalar</h2>
     <p>
-      Benchmark your typing speed with the{" "}
-      <a href="/tools/typing-speed-test">typing speed test</a>. Pair
-      with the <a href="/tools/word-counter">word counter</a> to
-      measure output volume (documents written per week), and the{" "}
-      <a href="/tools/stopwatch">stopwatch</a> for timed practice
-      drills.
+      <strong>Klavyeye bakmak.</strong> En büyük tavan koyucu. Pratik
+      yaparken tuşları bir bezle örtün veya üzerlerine kağıt parçaları
+      bantlayın.
+    </p>
+    <p>
+      <strong>Tüm parmakları kullanmamak.</strong> Serçe parmaklar, kendi
+      kendine öğrenen daktilograflar tarafından yeterince kullanılmaz;
+      onları eğitmek 15-20 kelime/dakika ekler.
+    </p>
+    <p>
+      <strong>Yavaş ve özensiz pratik yapmak.</strong> Hataları motor
+      belleğe tekrarlamak. Rahat olandan biraz daha hızlı, %95+ doğrulukla
+      pratik yapın.
+    </p>
+    <p>
+      <strong>Zayıf tuşlara dikkat etmemek.</strong> Z, Q, X ve serçe
+      parmaklarla yapılan harf kombinasyonları genellikle geride kalır.
+      Hedefli alıştırmalar.
+    </p>
+    <p>
+      <strong>Kötü klavye.</strong> Zayıf tuş aralığına veya kısa tuş
+      mesafesine sahip dizüstü bilgisayar klavyeleri hızı sınırlayabilir.
+      Dokunsal anahtarlara (kahverengi, temiz) sahip mekanik klavyeler
+      birçok daktilografa yardımcı olur. 60-80 kelime/dakika için gerekli
+      değildir; 100+ seviyesinde daha önemlidir.
+    </p>
+
+    <h2>Klavye düzeni — QWERTY alternatifleri</h2>
+    <p>
+      <strong>QWERTY:</strong> baskın düzen. Verimlilik için tasarlanmamıştır
+      ancak herkesin kullandığı budur.
+    </p>
+    <p>
+      <strong>Dvorak:</strong> tamamen eğitildikten sonra bazı daktilograflar
+      için ~%5-10 daha hızlıdır, daha iyi parmak yükü dengesi nedeniyle.
+      Geçiş size 3-6 ay azaltılmış hıza mal olur. Çoğu insan için nadiren
+      buna değer.
+    </p>
+    <p>
+      <strong>Colemak:</strong> QWERTY'yi minimum düzeyde değiştirir (17 tuş
+      taşınmış). Dvorak'tan daha kolay geçiş. İddia edilen verimlilik
+      kazanımları daha küçük ancak gerçektir.
+    </p>
+    <p>
+      Düzen değiştirmek, halihazırda 80+ kelime/dakikadaysanız, ergonomik
+      endişeleriniz varsa ve geçişe bağlı kalacaksanız nadiren karşılığını
+      verir. Çoğu daktilograf QWERTY'de pratik yapmakta daha iyidir.
+    </p>
+
+    <h2>Metin genişletme ve kısayollar — diğer yarısı</h2>
+    <p>
+      Daha hızlı yazmak oyunun sadece yarısıdır. Diğer yarısı daha az
+      yazmaktır.
+    </p>
+    <p>
+      <strong>Metin genişleticiler</strong> (Espanso ücretsiz, TextExpander
+      ücretli) kısa tetikleyicileri uzun dizelerle değiştirir. ";;adres"
+      → tam posta adresiniz. ";;imza" → e-posta imzası.
+    </p>
+    <p>
+      <strong>Klavye kısayolları.</strong> Cmd/Ctrl+A, C, V, Z temel
+      olanlardır; en sık kullandığınız araçlar (Slack, Gmail, VS Code) için
+      uygulamaya özel kısayolları öğrenin. Tasarruflar birikir.
+    </p>
+    <p>
+      <strong>Düzenleyicinizdeki snippet'lar.</strong> Çoğu modern düzenleyici,
+      kod snippet'ları tanımlamanıza izin verir: "useState" + sekme yazın,
+      tam useState şablon kodunu alın.
+    </p>
+    <p>
+      <strong>Sesli dikte</strong> uzun metin yazımı için. Fısıltı kalitesinde
+      transkripsiyon, ses → metni uygulanabilir bir ilk taslak aracı haline
+      getirir.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      Yazma hızınızı{" "}
+      <a href="/tools/typing-speed-test">yazma hızı testi</a> ile
+      kıyaslayın. Çıktı hacmini (haftada yazılan belgeler) ölçmek için{" "}
+      <a href="/tools/word-counter">kelime sayacı</a> ve zamanlı pratik
+      alıştırmaları için <a href="/tools/stopwatch">kronometre</a> ile
+      eşleştirin.
     </p>
   </>
 );

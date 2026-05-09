@@ -1,100 +1,75 @@
 export const intro = (
   <>
     <p>
-      A good home office makes remote work bearable; a bad one slowly wrecks your back,
-      your focus, and your motivation. The good news: you don&rsquo;t need $5,000 of
-      gear. You need the right 6-7 things in the right configuration.
+      İyi bir ev ofisi, uzaktan çalışmayı katlanılabilir kılar; kötü bir ofis ise yavaş yavaş sırtınızı, odaklanmanızı ve motivasyonunuzu mahveder. İyi haber: 5.000 dolarlık ekipmana ihtiyacınız yok. Doğru konfigürasyonda doğru 6-7 şeye ihtiyacınız var.
     </p>
     <p>
-      Below is the setup that actually matters, in rough priority order.
+      Aşağıda, kabaca öncelik sırasına göre gerçekten önemli olan düzen bulunuyor.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Dedicated space, any size</h2>
+    <h2>1. Kendine ait bir alan, her boyutta olabilir</h2>
     <p>
-      A room is ideal. A corner of the bedroom works. A foldable desk in the closet
-      works. What matters is that it&rsquo;s yours, set up once, so you don&rsquo;t
-      reassemble your workstation every morning.
+      Bir oda idealdir. Yatak odasının bir köşesi iş görür. Dolapta katlanabilir bir masa da iş görür. Önemli olan, alanın size ait olması ve bir kez kurulduktan sonra her sabah iş istasyonunuzu yeniden kurmak zorunda kalmamanızdır.
     </p>
 
-    <h2>2. A chair that supports your back</h2>
+    <h2>2. Sırtınızı destekleyen bir sandalye</h2>
     <p>
-      The single highest-return purchase. You sit in it 40 hours a week for years.
-      Used Herman Miller Aerons run $400-600 and last a lifetime. Cheap chairs ruin
-      backs. Don&rsquo;t skimp here.
+      En yüksek getirili satın alma. Yıllar boyunca haftada 40 saat içinde oturuyorsunuz. İkinci el Herman Miller Aeron sandalyeler 400-600 dolar arasındadır ve bir ömür dayanır. Ucuz sandalyeler sırtları mahveder. Burada cimrilik etmeyin.
     </p>
 
-    <h2>3. Desk at the right height</h2>
+    <h2>3. Doğru yükseklikte masa</h2>
     <p>
-      Elbows 90 degrees when typing. Most stock desks are too tall. Adjustable desks
-      are the long-term winner — stand part of the day, sit the rest. Autonomous,
-      Fully, Flexispot all reasonable.
+      Yazarken dirsekler 90 derece olmalı. Çoğu standart masa çok yüksektir. Ayarlanabilir masalar uzun vadeli kazananlardır — günün bir kısmında ayakta durun, geri kalanında oturun. Autonomous, Fully, Flexispot markaları makuldür.
     </p>
 
-    <h2>4. External monitor at eye level</h2>
+    <h2>4. Göz hizasında harici monitör</h2>
     <p>
-      Laptops force you to hunch. An external monitor raised to eye level fixes neck
-      and shoulder tension. A single 27&rdquo; 1440p is plenty for most knowledge
-      work. Dual monitors are nice but optional.
+      Dizüstü bilgisayarlar sizi kambur durmaya zorlar. Göz hizasına yükseltilmiş harici bir monitör, boyun ve omuz gerginliğini giderir. Çoğu bilgi işi için tek bir 27 inç 1440p monitör yeterlidir. Çift monitör güzeldir ancak isteğe bağlıdır.
     </p>
 
-    <h2>5. Real keyboard and mouse</h2>
+    <h2>5. Gerçek klavye ve fare</h2>
     <p>
-      Typing on a laptop 8 hours a day cramps your wrists. A cheap external keyboard
-      and mouse, positioned with elbows at 90 degrees, fixes it. Mechanical keyboards
-      are fun but not required.
+      Günde 8 saat dizüstü bilgisayarda yazmak bileklerinizi kramplara sokar. Dirsekler 90 derece olacak şekilde konumlandırılmış ucuz bir harici klavye ve fare bunu çözer. Mekanik klavyeler eğlencelidir ancak gerekli değildir.
     </p>
 
-    <h2>6. Good lighting</h2>
+    <h2>6. İyi aydınlatma</h2>
     <p>
-      A natural-light window plus a warm desk lamp beats overhead fluorescents. Screen
-      brightness matched to the room reduces eye strain. In video calls, face the
-      light, not the window.
+      Doğal ışık alan bir pencere ve sıcak bir masa lambası, tepedeki floresanlardan daha iyidir. Ekran parlaklığının odayla uyumlu olması göz yorgunluğunu azaltır. Video görüşmelerinde ışığa dönük olun, pencereye değil.
     </p>
 
-    <h2>7. Headphones with a decent mic</h2>
+    <h2>7. İyi bir mikrofona sahip kulaklık</h2>
     <p>
-      Built-in laptop mics sound terrible. A $100 headset (Jabra, Logitech) transforms
-      how you come across on calls. Most people judge your professionalism partly by
-      your audio quality. Fair or not.
+      Dizüstü bilgisayarların dahili mikrofonları korkunç ses çıkarır. 100 dolarlık bir kulaklık (Jabra, Logitech) görüşmelerde nasıl algılandığınızı değiştirir. Çoğu insan profesyonelliğinizi kısmen ses kalitenize göre değerlendirir. Adil olsun ya da olmasın.
     </p>
 
-    <h2>8. Webcam (if yours is bad)</h2>
+    <h2>8. Web kamerası (sizinki kötüyse)</h2>
     <p>
-      Most laptop cameras are 720p potato. A $70 Logitech 1080p camera is a massive
-      upgrade. Not required if you&rsquo;re rarely on video.
+      Çoğu dizüstü bilgisayar kamerası 720p patatestir. 70 dolarlık bir Logitech 1080p kamera büyük bir yükseltmedir. Nadiren video yapıyorsanız gerekli değildir.
     </p>
 
-    <h2>9. Cable management</h2>
+    <h2>9. Kablo yönetimi</h2>
     <p>
-      Five cables dangling behind the desk make the whole setup feel chaotic. Velcro
-      ties, a $15 under-desk tray, done. Visual clutter taxes your focus more than
-      you realize.
+      Masanın arkasında sarkan beş kablo tüm düzenin kaotik görünmesine neden olur. Cırt cırt bağlar, 15 dolarlık masa altı kablo tepsisi, iş tamam. Görsel karmaşa, fark ettiğinizden daha fazla odaklanmanızı tüketir.
     </p>
 
-    <h2>10. A small plant</h2>
+    <h2>10. Küçük bir bitki</h2>
     <p>
-      Sounds silly, works. A live plant in your sightline measurably reduces stress.
-      Snake plants and pothos survive neglect. One of the cheapest quality-of-life
-      upgrades you&rsquo;ll make.
+      Kulağa aptalca geliyor ama işe yarıyor. Görüş alanınızda canlı bir bitki, stresi ölçülebilir şekilde azaltır. Yılan bitkisi ve pothos bitkisi ihmale dayanıklıdır. Yapacağınız en ucuz yaşam kalitesi yükseltmelerinden biri.
     </p>
 
-    <h2>11. Separate work phone number (optional)</h2>
+    <h2>11. Ayrı iş telefon numarası (isteğe bağlı)</h2>
     <p>
-      Google Voice is free. A separate work number means you can turn off work in the
-      evening without missing personal calls. Especially valuable for freelancers and
-      small business owners.
+      Google Voice ücretsizdir. Ayrı bir iş numarası, akşam işi kapatırken kişisel aramaları kaçırmamanız anlamına gelir. Özellikle serbest çalışanlar ve küçük işletme sahipleri için değerlidir.
     </p>
 
-    <h2>12. Close the door</h2>
+    <h2>12. Kapıyı kapatın</h2>
     <p>
-      A physical boundary between work and home is the missing piece most remote
-      workers overlook. If you don&rsquo;t have a door, a screen or curtain works.
-      Seeing the office 24/7 makes unwinding harder. See{" "}
-      <a href="/guides/how-to-work-remotely">remote work guide</a>.
+      İş ve ev arasında fiziksel bir sınır, çoğu uzaktan çalışanın gözden kaçırdığı eksik parçadır. Kapınız yoksa bir perde veya bölme iş görür. Ofisi 7/24 görmek, rahatlamayı zorlaştırır. Bkz.{" "}
+      <a href="/guides/how-to-work-remotely">uzaktan çalışma rehberi</a>.
     </p>
   </>
 );

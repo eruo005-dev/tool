@@ -2,58 +2,58 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    <a href="/learn/fire-movement">FIRE</a> &mdash; Financial Independence, Retire Early &mdash; is less about retiring in your 30s and more about buying back your time, on your schedule.
+    <a href="/learn/fire-movement">FIRE</a> &mdash; Finansal Bağımsızlık, Erken Emeklilik &mdash; aslında 30'lu yaşlarda emekli olmaktan çok, zamanınızı kendi programınıza göre geri satın almakla ilgilidir.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      The FIRE movement reframes retirement as a math problem: how much do you spend, how much can you save, and at what point does your portfolio generate enough passive income to cover your life? The answer is surprisingly achievable if you take the savings rate seriously. Not financial advice. Consult a licensed advisor for decisions specific to your situation.
+      FIRE hareketi emekliliği bir matematik problemine dönüştürür: ne kadar harcıyorsunuz, ne kadar biriktirebiliyorsunuz ve portföyünüz hayatınızı karşılamaya yetecek pasif geliri hangi noktada üretiyor? Tasarruf oranınızı ciddiye alırsanız cevap şaşırtıcı derecede ulaşılabilir. Finansal tavsiye değildir. Durumunuza özel kararlar için lisanslı bir danışmana danışın.
     </p>
 
-    <h2>The 4% rule and its limits</h2>
+    <h2>%4 kuralı ve sınırları</h2>
     <p>
-      The 4% rule comes from the Trinity Study: historically, a portfolio of 50&ndash;75% stocks could sustain a 4% annual withdrawal (inflation-adjusted) for 30 years without running out. That&rsquo;s where your FIRE number comes from. But the study assumed a 30-year retirement, U.S. market returns, and a specific stock/bond mix. If you&rsquo;re retiring at 40 with a 50-year horizon, 3.25&ndash;3.5% is safer. Sequence-of-returns risk &mdash; a big drawdown in your first few retirement years &mdash; is the quiet killer of early retirees.
+      %4 kuralı Trinity Çalışması'ndan gelir: tarihsel olarak, %50&ndash;75 hisse senedinden oluşan bir portföy, 30 yıl boyunca tükenmeden %4'lük yıllık çekime (enflasyona göre ayarlanmış) dayanabilir. FIRE sayınız da buradan gelir. Ancak çalışma 30 yıllık bir emeklilik, ABD piyasa getirileri ve belirli bir hisse senedi/tahvil karışımı varsaymıştır. 40 yaşında 50 yıllık bir ufukla emekli oluyorsanız, %3,25&ndash;3,5 daha güvenlidir. Getiri sırası riski &mdash; emekliliğinizin ilk birkaç yılında büyük bir düşüş &mdash; erken emeklilerin sessiz katilidir.
     </p>
 
-    <h2>Calculate your FIRE number</h2>
+    <h2>FIRE sayınızı hesaplayın</h2>
     <p>
-      Annual spending &times; 25 = your FIRE number (at a 4% withdrawal rate). Spend $50k/year? You need $1.25M invested. Spend $80k? You need $2M. This is the single most clarifying number in personal finance &mdash; it turns &ldquo;retirement&rdquo; from a vague feeling into a target. Use our <a href="/tools/fire-number-calculator">FIRE number calculator</a> to model different spending levels and see how the timeline shifts.
+      Yıllık harcama &times; 25 = FIRE sayınız (%4 çekme oranında). Yılda 50 bin dolar mı harcıyorsunuz? Yatırım olarak 1,25 milyon dolara ihtiyacınız var. 80 bin dolar mı harcıyorsunuz? 2 milyon dolara ihtiyacınız var. Bu, kişisel finansta en netleştirici sayıdır &mdash; "emekliliği" belirsiz bir duygudan bir hedefe dönüştürür. Farklı harcama seviyelerini modellemek ve zaman çizelgesinin nasıl değiştiğini görmek için <a href="/tools/fire-number-calculator">FIRE sayısı hesaplayıcımızı</a> kullanın.
     </p>
 
-    <h2>Flavors of FIRE</h2>
+    <h2>FIRE çeşitleri</h2>
     <ul>
-      <li>Lean-FIRE: retire on $25&ndash;40k/year. Requires frugal baseline lifestyle.</li>
-      <li>Regular FIRE: $50&ndash;80k/year, middle-class retirement.</li>
-      <li>FatFIRE: $100k+/year, no lifestyle compromises.</li>
-      <li>Coast-FIRE: hit a number young enough that compounding alone gets you to traditional retirement &mdash; no more contributions needed, just let it grow.</li>
-      <li>Barista-FIRE: portfolio covers most expenses; a part-time job covers the rest and often health insurance.</li>
+      <li>Yalın-FIRE: yılda $25&ndash;40 bin ile emekli olmak. Tutumlu bir temel yaşam tarzı gerektirir.</li>
+      <li>Normal FIRE: yılda $50&ndash;80 bin, orta sınıf emekliliği.</li>
+      <li>Zengin-FIRE: yılda $100 bin+, yaşam tarzından ödün vermeden.</li>
+      <li>Sahil-FIRE: bileşik getirinin sizi tek başına geleneksel emekliliğe götürecek kadar gençken bir sayıya ulaşmak &mdash; daha fazla katkı gerekmez, sadece büyümesine izin verin.</li>
+      <li>Barista-FIRE: portföy çoğu masrafı karşılar; yarı zamanlı bir iş kalanını ve genellikle sağlık sigortasını karşılar.</li>
     </ul>
 
-    <h2>Savings rate is the #1 lever</h2>
+    <h2>Tasarruf oranı 1 numaralı kaldıraçtır</h2>
     <p>
-      At a 10% savings rate, you&rsquo;re looking at 50+ working years. At 25%, roughly 32 years. At 50%, about 17 years. At 70%, under 9 years. FIRE is really about getting your savings rate above 40&ndash;50%, which almost always means attacking the big three: housing, transportation, and food &mdash; not skipping lattes.
+      %10 tasarruf oranında 50+ çalışma yılına bakıyorsunuz. %25'te yaklaşık 32 yıl. %50'de yaklaşık 17 yıl. %70'te 9 yıldan az. FIRE aslında tasarruf oranınızı %40&ndash;50'nin üzerine çıkarmakla ilgilidir ve bu neredeyse her zaman büyük üçlüye saldırmak anlamına gelir: konut, ulaşım ve yiyecek &mdash; latteleri atlamak değil.
     </p>
 
-    <h2>Fill the tax-advantaged buckets first</h2>
+    <h2>Önce vergi avantajlı kovaları doldurun</h2>
     <p>
-      A 401(k), Roth IRA, and HSA combined can shelter $30k+ per year from taxes (more if you&rsquo;re married). Max these before touching a taxable brokerage. The HSA is the stealth MVP: triple tax-advantaged if you invest it instead of spending it on medical bills. Once those are full, a taxable brokerage in low-cost index funds (VTI, VXUS) becomes your &ldquo;bridge&rdquo; account for the years before you can tap retirement accounts penalty-free (though Roth conversion ladders and Rule 72(t) open earlier access).
+      Bir 401(k), Roth IRA ve HSA, yılda 30 bin dolardan fazlasını vergilerden koruyabilir (evliyseniz daha fazla). Vergilendirilebilir bir aracı kuruma dokunmadan önce bunları maksimize edin. HSA gizli MVP'dir: tıbbi faturalara harcamak yerine yatırım yaparsanız üçlü vergi avantajlıdır. Bunlar dolduktan sonra, düşük maliyetli endeks fonlarında (VTI, VXUS) vergilendirilebilir bir aracı kurum hesabı, emeklilik hesaplarına cezasız erişebileceğiniz yıllardan önceki yıllar için "köprü" hesabınız olur (ancak Roth dönüşüm merdivenleri ve Kural 72(t) daha erken erişim sağlar).
     </p>
 
-    <h2>Geoarbitrage and healthcare</h2>
+    <h2>Coğrafi arbitraj ve sağlık hizmetleri</h2>
     <p>
-      Moving from a HCOL city to a LCOL area can cut your FIRE number by 30&ndash;50%. Some FIRE retirees go international (Portugal, Mexico, Thailand) for even lower costs and better healthcare value. Speaking of: healthcare is the single biggest variable for U.S. FIRE planners. ACA subsidies based on MAGI can make pre-Medicare coverage very affordable &mdash; but the rules change with every administration, so build a buffer.
+      Yüksek maliyetli bir şehirden düşük maliyetli bir bölgeye taşınmak FIRE sayınızı %30&ndash;50 oranında azaltabilir. Bazı FIRE emeklileri daha düşük maliyetler ve daha iyi sağlık hizmeti değeri için uluslararası (Portekiz, Meksika, Tayland) gider. Bahsetmişken: sağlık hizmetleri ABD'li FIRE planlayıcıları için en büyük değişkendir. MAGI'ye dayalı ACA sübvansiyonları, Medicare öncesi kapsamı çok uygun fiyatlı hale getirebilir &mdash; ancak kurallar her yönetimle değişir, bu yüzden bir tampon oluşturun.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Not stress-testing your plan against a 2008-style 50% drawdown in year one. Underestimating inflation over a 40-year retirement. Forgetting that lifestyle inflates post-retirement (travel, grandkids, hobbies). Treating FIRE as an all-or-nothing sprint that leads to burnout instead of a flexible target. Ignoring the psychological side: what will you actually do with your time?
+      Planınızı birinci yılda 2008 tarzı %50'lik bir düşüşe karşı stres testi yapmamak. 40 yıllık bir emeklilikte enflasyonu hafife almak. Emeklilik sonrası yaşam tarzının (seyahat, torunlar, hobiler) şiştiğini unutmak. FIRE'ı esnek bir hedef yerine tükenmişliğe yol açan ya hep ya hiç bir sprint olarak görmek. Psikolojik tarafı görmezden gelmek: zamanınızla gerçekte ne yapacaksınız?
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Alt satır</h2>
     <p>
-      FIRE is a spreadsheet wrapped in a lifestyle choice. Know your number, push your savings rate, use every tax shelter available, and build in margin for the unknowns. Even if you never &ldquo;retire early,&rdquo; the financial independence part is life-changing on its own.
+      FIRE, bir yaşam tarzı seçimine sarılmış bir elektronik tablodur. Sayınızı bilin, tasarruf oranınızı artırın, mevcut her vergi sığınağını kullanın ve bilinmeyenler için marj oluşturun. Hiçbir zaman "erken emekli" olmasanız bile, finansal bağımsızlık kısmı tek başına hayat değiştiricidir.
     </p>
   </>
 );

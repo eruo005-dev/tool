@@ -3,164 +3,120 @@
 export const intro = (
   <>
     <p>
-      The difference between a CLI developers love and one they tolerate isn&rsquo;t
-      features — it&rsquo;s the small details. Tools like ripgrep, fd, gh, kubectl, and
-      hyperfine all share a set of principles. This guide is the condensed version, plus
-      the workflow-automation principles that apply when you&rsquo;re building tools
-      developers want adopted across their team.
+      Geliştiricilerin sevdiği bir CLI ile sadece katlandıkları bir CLI arasındaki fark özellikler değil, küçük detaylardır. ripgrep, fd, gh, kubectl ve hyperfine gibi araçların tümü bir dizi prensibi paylaşır. Bu kılavuz, bu prensiplerin yoğunlaştırılmış bir versiyonudur ve ayrıca ekibinizin kullanmasını istediğiniz araçları oluştururken uygulayacağınız iş akışı otomasyon prensiplerini de içerir.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "principles", label: "The 6 design principles" },
-  { id: "ux", label: "First-run UX details that matter" },
-  { id: "automation", label: "Workflow automation tools developers actually use" },
-  { id: "checklist", label: "The 16-item self-review checklist" },
+  { id: "principles", label: "6 tasarım prensibi" },
+  { id: "ux", label: "Önemli olan ilk kullanım UX detayları" },
+  { id: "automation", label: "Geliştiricilerin gerçekten kullandığı iş akışı otomasyon araçları" },
+  { id: "checklist", label: "16 maddelik öz değerlendirme kontrol listesi" },
 ];
 
 export const body = (
   <>
-    <h2 id="principles">The 6 design principles for CLIs developers love</h2>
+    <h2 id="principles">Geliştiricilerin sevdiği CLI araçları için 6 tasarım prensibi</h2>
     <ol>
       <li>
-        <strong>Composability.</strong> Your tool is a Unix primitive. Default output
-        should pipe cleanly to another tool. Add structured output (JSON) so users can
-        wrap your tool in scripts without parsing brittle text. The single biggest
-        force-multiplier in CLI design.
+        <strong>Birleştirilebilirlik.</strong> Aracınız bir Unix ilkelidir. Varsayılan çıktı, sorunsuz bir şekilde başka bir araca aktarılmalıdır. Kullanıcıların aracınızı kırılgan metinleri ayrıştırmadan betiklerde kullanabilmesi için yapılandırılmış çıktı (JSON) ekleyin. CLI tasarımındaki en büyük güç çarpanı.
       </li>
       <li>
-        <strong>Sensible defaults, configurable knobs.</strong> The 80% case should
-        work with no flags. The 20% case should be reachable with explicit flags. If
-        your tool requires reading the README to do anything useful, the default is
-        wrong.
+        <strong>Makul varsayılanlar, yapılandırılabilir düğmeler.</strong> %80'lik durum sıfır bayrakla çalışmalıdır. %20'lik duruma açık bayraklarla ulaşılabilmelidir. Aracınız yararlı bir şey yapmak için bir README okumayı gerektiriyorsa, varsayılan yanlıştır.
       </li>
       <li>
-        <strong>Speak human, not machine.</strong> Error messages tell users what
-        happened and what to do next. &ldquo;Connection refused&rdquo; is unhelpful.
-        &ldquo;Connection refused — your token at $XDG_CONFIG_HOME/foo/auth may have
-        expired; run `foo auth refresh`&rdquo; is gold.
+        <strong>İnsan gibi konuşun, makine gibi değil.</strong> Hata mesajları kullanıcıya ne olduğunu ve bundan sonra ne yapması gerektiğini söyler. "Bağlantı reddedildi" işe yaramaz. "Bağlantı reddedildi — $XDG_CONFIG_HOME/foo/auth adresindeki belirtecinizin süresi dolmuş olabilir; `foo auth refresh` komutunu çalıştırın" altın değerindedir.
       </li>
       <li>
-        <strong>Trust by default.</strong> Don&rsquo;t silently delete things, send
-        data to your server, or change global state. Destructive operations need a
-        --dry-run or confirmation. Telemetry needs to be opt-in (or at minimum
-        documented + easy to disable).
+        <strong>Varsayılan olarak güven.</strong> Sessizce bir şeyleri silmeyin, sunucunuza veri göndermeyin veya genel durumu değiştirmeyin. Yıkıcı işlemler bir --dry-run veya onay gerektirir. Telemetri, kullanıcının açık iznine bağlı olmalıdır (veya en azından belgelenmeli ve devre dışı bırakılması kolay olmalıdır).
       </li>
       <li>
-        <strong>Predictable across platforms.</strong> Same flags work on Linux, macOS,
-        Windows. Same exit codes mean the same things. Same input file format works
-        everywhere. Cross-platform tests catch the bugs.
+        <strong>Platformlar arasında tahmin edilebilir.</strong> Aynı bayraklar Linux, macOS, Windows'ta çalışır. Aynı çıkış kodları aynı anlama gelir. Aynı giriş dosyası formatı her yerde çalışır. Platformlar arası testler hataları yakalar.
       </li>
       <li>
-        <strong>Fast feedback.</strong> Sub-second startup time. <a href="/learn/stream">Streaming</a> output (don&rsquo;t
-        buffer everything before printing). Progress indicators on long operations.
-        Developers are impatient — design for that.
+        <strong>Hızlı geri bildirim.</strong> Saniyeden kısa başlatma süresi. <a href="/learn/stream">Akış</a> çıktısı (yazdırmadan önce her şeyi arabelleğe almayın). Uzun işlemlerde ilerleme göstergeleri. Geliştiriciler sabırsızdır — buna göre tasarım yapın.
       </li>
     </ol>
 
-    <h2 id="ux">First-run UX details that matter</h2>
+    <h2 id="ux">Önemli olan ilk kullanım UX detayları</h2>
     <p>
-      The first 30 seconds of a developer&rsquo;s experience with your CLI sets the
-      adoption signal. The details that pay off:
+      Bir geliştiricinin CLI'nizle geçirdiği ilk 30 saniye, benimsenme sinyalini belirler. Karşılığını veren detaylar:
     </p>
     <ul>
       <li>
-        <strong>Working --help.</strong> --help, -h, and no-args should all show help.
-        Each is a distinct user mental model.
+        <strong>Çalışan --help.</strong> --help, -h ve argümansız çağrıların tümü yardımı göstermelidir. Her biri farklı bir kullanıcı zihinsel modelidir.
       </li>
       <li>
-        <strong>Examples in --help.</strong> 2-3 real example invocations beat any
-        amount of flag descriptions.
+        <strong>--help içinde örnekler.</strong> 2-3 gerçek kullanım örneği, herhangi bir miktardaki bayrak açıklamasından daha iyidir.
       </li>
       <li>
-        <strong>Tab completion shipped, not optional.</strong> Generate bash + zsh +
-        fish completions; document install in 1 command.
+        <strong>Sekme tamamlama dahil, isteğe bağlı değil.</strong> bash + zsh + fish tamamlamaları oluşturun; kurulumu 1 komutta belgeleyin.
       </li>
       <li>
-        <strong>Useful default output for the empty case.</strong> &ldquo;What now?&rdquo; is
-        the worst landing place. Show the user what to try.
+        <strong>Boş durum için yararlı varsayılan çıktı.</strong> "Şimdi ne olacak?" en kötü başlangıç noktasıdır. Kullanıcıya ne denemesi gerektiğini gösterin.
       </li>
       <li>
-        <strong>--version with commit SHA.</strong> Bug reports are 10× faster when you
-        know the exact build.
+        <strong>Commit SHA ile --version.</strong> Tam derlemeyi bildiğinizde hata raporları 10 kat daha hızlıdır.
       </li>
       <li>
-        <strong>Color that auto-disables on pipe.</strong> Color in TTYs is friendly;
-        color codes in piped output is hostile. Detect and adapt.
+        <strong>Yönlendirmede otomatik olarak devre dışı kalan renk.</strong> Renk TTY'lerde dostanedir; renk kodları yönlendirilmiş çıktıda düşmancadır. Algılayın ve uyum sağlayın.
       </li>
     </ul>
 
-    <h2 id="automation">Workflow automation tools developers actually use</h2>
+    <h2 id="automation">Geliştiricilerin gerçekten kullandığı iş akışı otomasyon araçları</h2>
     <p>
-      For tools that aren&rsquo;t CLIs but workflow automations (n8n, GitHub Actions, Zapier-
-      for-devs categories):
+      CLI olmayan ancak iş akışı otomasyonu olan araçlar için (n8n, GitHub Actions, geliştiriciler için Zapier kategorileri):
     </p>
     <ul>
       <li>
-        <strong>Solve a single boring problem completely</strong> rather than ten
-        problems halfway. The boring-and-complete bar (&ldquo;X is the obvious choice
-        for Y&rdquo;) is reachable; the broad-but-shallow bar isn&rsquo;t.
+        <strong>On sıkıcı sorunu yarı yarıya çözmektense, bir sıkıcı sorunu tamamen çözün.</strong> Sıkıcı-ve-tam çıtası ("X, Y için bariz seçimdir") ulaşılabilirdir; geniş-ama-sığ çıtası ulaşılabilir değildir.
       </li>
       <li>
-        <strong>Integrate with where developers already work.</strong> GitHub, Slack,
-        their IDE. Standalone web UIs that require a separate login face an adoption
-        tax that often kills the tool.
+        <strong>Geliştiricilerin zaten çalıştığı yerlere entegre olun.</strong> GitHub, Slack, IDE'leri. Ayrı bir giriş gerektiren bağımsız web arayüzleri, genellikle aracı öldüren bir benimseme vergisiyle karşı karşıyadır.
       </li>
       <li>
-        <strong>Provide an exit ramp.</strong> If users can export their automations as
-        plain code (a script, a YAML), they trust your tool more. Lock-in increases
-        adoption resistance.
+        <strong>Bir çıkış rampası sağlayın.</strong> Kullanıcılar otomasyonlarını düz kod olarak (bir betik, bir YAML) dışa aktarabiliyorsa, aracınıza daha çok güvenirler. Kilitlenme, benimseme direncini artırır.
       </li>
       <li>
-        <strong>Show real-time output during runs.</strong> Workflow tools that hide
-        execution behind &ldquo;processing...&rdquo; spinners feel worse than scripts that
-        print as they go.
+        <strong>Çalıştırmalar sırasında gerçek zamanlı çıktı gösterin.</strong> Yürütmeyi "işleniyor..." döndürücülerinin arkasına gizleyen iş akışı araçları, giderken yazdıran betiklerden daha kötü hissettirir.
       </li>
       <li>
-        <strong>Fail loud with actionable diagnostics.</strong> When step 7 of an
-        automation fails, the user needs to know step 7 failed, why, and how to fix
-        without re-running steps 1-6.
+        <strong>Uygulanabilir tanılama ile yüksek sesle başarısız olun.</strong> Bir otomasyonun 7. adımı başarısız olduğunda, kullanıcının 7. adımın başarısız olduğunu, nedenini ve 1-6. adımları yeniden çalıştırmadan nasıl düzelteceğini bilmesi gerekir.
       </li>
     </ul>
     <p>
-      Specifically for n8n and similar low-code automation platforms: they&rsquo;re
-      excellent for &ldquo;glue&rdquo; integrations between SaaS APIs (Slack → Jira →
-      Email). They struggle when you need stateful long-running processes or complex
-      branching logic — those still belong in real code.
+      Özellikle n8n ve benzeri düşük kodlu otomasyon platformları için: SaaS API'leri (Slack → Jira → E-posta) arasındaki "tutkal" entegrasyonlarında başarılıdırlar. Durum bilgisi olan uzun süreli işlemler veya karmaşık dallanma mantığı gerektiğinde zorlanırlar — bunlar hala gerçek koda aittir.
     </p>
 
-    <h2 id="checklist">The 16-item self-review checklist</h2>
+    <h2 id="checklist">16 maddelik öz değerlendirme kontrol listesi</h2>
     <p>
-      We turned the principles above into an interactive checklist:{" "}
-      <a href="/tools/cli-dx-checklist">our CLI DX checklist</a>. Five categories
-      (first-run, output, errors, trust + safety, distribution), 16 items, each with a
-      rationale. Saved to your browser as you check off items. Use during build or as a
-      self-review before public launch.
+      Yukarıdaki prensipleri etkileşimli bir kontrol listesine dönüştürdük:{" "}
+      <a href="/tools/cli-dx-checklist">CLI DX kontrol listemiz</a>. Beş kategori (ilk kullanım, çıktı, hatalar, güven + emniyet, dağıtım), her biri bir gerekçeyle birlikte 16 madde. Öğeleri işaretledikçe tarayıcınıza kaydedilir. Derleme sırasında veya herkese açık lansmandan önce öz değerlendirme olarak kullanın.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Run through the CLI DX checklist (free)",
+  label: "CLI DX kontrol listesini uygulayın (ücretsiz)",
   targetSlug: "cli-dx-checklist",
 };
 
 export const faq = [
   {
-    q: "How do I design CLI tools that developers love?",
-    a: "Six principles: composability (output pipes cleanly, structured output available), sensible defaults with knobs, speak human in error messages, trust by default (no silent destructive actions or unannounced telemetry), predictable across platforms, fast feedback (sub-second startup, streaming output). Use our 16-item self-review checklist before launch.",
+    q: "Geliştiricilerin seveceği CLI araçlarını nasıl tasarlarım?",
+    a: "Altı prensip: birleştirilebilirlik (çıktı temiz bir şekilde aktarılır, yapılandırılmış çıktı mevcuttur), ayarlanabilir düğmelerle makul varsayılanlar, hata mesajlarında insan gibi konuşun, varsayılan olarak güvenin (sessiz yıkıcı eylemler veya açıklanmayan telemetri yok), platformlar arasında tahmin edilebilir, hızlı geri bildirim (saniyeden kısa başlatma, akış çıktısı). Lansmandan önce 16 maddelik öz değerlendirme kontrol listemizi kullanın.",
   },
   {
-    q: "What makes a good developer tool?",
-    a: "Solving one boring problem completely (vs ten halfway), integrating where developers already work (GitHub, Slack, IDE), providing an exit ramp from lock-in, showing real-time output during execution, failing loud with actionable diagnostics. The first-run UX matters more than feature count.",
+    q: "İyi bir geliştirici aracını ne oluşturur?",
+    a: "On sorunu yarı yarıya çözmektense bir sıkıcı sorunu tamamen çözmek, geliştiricilerin zaten çalıştığı yerlere entegre olmak (GitHub, Slack, IDE), kilitlenme olmadan bir çıkış rampası sağlamak, yürütme sırasında gerçek zamanlı çıktı göstermek, uygulanabilir tanılama ile yüksek sesle başarısız olmak. İlk kullanım UX'i, özellik sayısından daha önemlidir.",
   },
   {
-    q: "How to build automation tools that developers actually use?",
-    a: "Single-problem-deep beats multi-problem-shallow. Integrate where they live (GitHub/Slack/IDE) — standalone web UIs lose adoption. Provide an exit ramp (export to plain code) so users trust the platform. Show real-time output. Fail loud with actionable diagnostics. Build with n8n for SaaS-glue automations; reserve real code for complex/long-running workflows.",
+    q: "Geliştiricilerin gerçekten kullanacağı otomasyon araçları nasıl oluşturulur?",
+    a: "Bir problemde derinleşmek, birçok problemde sığ kalmaktan iyidir. Bulundukları yere entegre olun (GitHub/Slack/IDE) — bağımsız web arayüzleri benimsemeyi kaybeder. Kullanıcıların platforma güvenmesi için bir çıkış rampası (düz koda dışa aktarma) sağlayın. Gerçek zamanlı çıktı gösterin. Uygulanabilir tanılama ile yüksek sesle başarısız olun. SaaS-tutkal otomasyonları için n8n ile oluşturun; karmaşık/uzun süreli iş akışları için gerçek kodu ayırın.",
   },
   {
-    q: "How to learn n8n for developer automation?",
-    a: "Start with their official quickstart (~30 min). Build 2-3 real automations from your own workflow (Slack notification on PR review, GitHub issue → Jira ticket, etc.). The conceptual leap is from imperative scripts to node-based flows — most devs find it intuitive within a few projects. Strengths: SaaS-glue integrations. Weaknesses: stateful long-running logic, complex branching.",
+    q: "Geliştirici otomasyonu için n8n nasıl öğrenilir?",
+    a: "Resmi hızlı başlangıç kılavuzuyla başlayın (~30 dk). Kendi iş akışınızdan 2-3 gerçek otomasyon oluşturun (PR incelemesinde Slack bildirimi, GitHub sorunu → Jira bileti vb.). Kavramsal sıçrama, zorunlu betiklerden düğüm tabanlı akışlara geçiştir — çoğu geliştirici bunu birkaç proje içinde sezgisel bulur. Güçlü yönler: SaaS-tutkal entegrasyonları. Zayıf yönler: durum bilgisi olan uzun süreli mantık, karmaşık dallanma.",
   },
 ];

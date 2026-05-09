@@ -2,46 +2,41 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    &ldquo;AI-proof&rdquo; jobs don&rsquo;t exist. AI-resistant ones do &mdash; the ones where displacement happens
-    last and where new tooling makes humans more valuable, not less. Here&rsquo;s what 2026 looks like and how to
-    pick a direction.
+    &ldquo;AI-proof&rdquo; işler yoktur. AI'ya dayanıklı olanlar vardır &mdash; yer değiştirmenin en son gerçekleştiği ve yeni araçların insanları daha değerli kıldığı, daha az değil. İşte 2026'nın görünümü ve bir yön nasıl seçilir.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What AI is fastest at displacing</h2>
+    <h2>AI'nın en hızlı yer değiştirdiği şeyler</h2>
     <ul>
-      <li>Routine cognitive work: copywriting, basic analytics, paralegal research, level-1 support.</li>
-      <li>Pattern-recognition with clear rules: invoice processing, claim adjudication, medical coding.</li>
-      <li>Translation, transcription, basic editing.</li>
-      <li>Code review of small changes; generation of routine boilerplate.</li>
+      <li>Rutin bilişsel işler: metin yazarlığı, temel analiz, hukuk araştırması, birinci seviye destek.</li>
+      <li>Açık kurallarla örüntü tanıma: fatura işleme, hasar değerlendirme, tıbbi kodlama.</li>
+      <li>Çeviri, transkripsiyon, temel düzenleme.</li>
+      <li>Küçük değişikliklerin kod incelemesi; rutin şablon oluşturma.</li>
     </ul>
-    <h2>What stays human longer</h2>
+    <h2>İnsanlarda daha uzun süre kalanlar</h2>
     <ul>
-      <li><strong>Hands-on work:</strong> trades (electrician, plumber, HVAC), nursing, dental hygiene, physical therapy.</li>
-      <li><strong>High-trust relationship roles:</strong> therapists, executive coaches, financial advisors, lead salespeople.</li>
-      <li><strong>Complex judgment under uncertainty:</strong> senior product, M&amp;A, litigation strategy, surgery.</li>
-      <li><strong>Creative direction:</strong> not creative execution &mdash; that&rsquo;s being commoditized.</li>
-      <li><strong>AI-leverage roles:</strong> people who use AI to do 5x the work; demand goes UP, not down.</li>
+      <li><strong>Uygulamalı işler:</strong> zanaatlar (elektrikçi, tesisatçı, HVAC), hemşirelik, diş hijyeni, fizik tedavi.</li>
+      <li><strong>Yüksek güven gerektiren ilişki rolleri:</strong> terapistler, yönetici koçları, finansal danışmanlar, lider satış elemanları.</li>
+      <li><strong>Belirsizlik altında karmaşık yargı:</strong> kıdemli ürün, birleşme ve satın alma, dava stratejisi, cerrahi.</li>
+      <li><strong>Yaratıcı yönlendirme:</strong> yaratıcı uygulama değil &mdash; bu metalaştırılıyor.</li>
+      <li><strong>AI kaldıraç rolleri:</strong> AI kullanarak 5 kat daha fazla iş yapan insanlar; talep artar, azalmaz.</li>
     </ul>
-    <h2>The skill mix that wins</h2>
+    <h2>Kazandıran beceri karışımı</h2>
     <ul>
-      <li>Domain expertise + AI fluency. Not either alone.</li>
-      <li>Working with ambiguity (AI is bad at this).</li>
-      <li>Stakeholder management.</li>
-      <li>Quality calibration: knowing what good looks like.</li>
+      <li>Alan uzmanlığı + AI akıcılığı. Sadece biri değil.</li>
+      <li>Belirsizlikle çalışma (AI bunda kötüdür).</li>
+      <li>Paydaş yönetimi.</li>
+      <li>Kalite kalibrasyonu: iyinin neye benzediğini bilmek.</li>
     </ul>
-    <h2>What to do about it</h2>
+    <h2>Bu konuda ne yapmalı</h2>
     <p>
-      Don&rsquo;t pivot careers. Layer AI fluency into what you already do, look for places where AI cuts time on
-      the work but raises the ceiling on output quality, and double down on the parts that need taste, judgment,
-      relationships. Most people hedge with the wrong move (learn to code at 45 to escape AI) when the right move
-      is to be the best AI user in your existing domain.
+      Kariyer değiştirmeyin. Zaten yaptığınız işe AI akıcılığını katmanlayın, AI'ın işte zaman kestiği ancak çıktı kalitesinde tavanı yükselttiği yerleri arayın ve tat, yargı, ilişkiler gerektiren kısımlara odaklanın. Çoğu insan yanlış hamleyle korunur (AI'dan kaçmak için 45 yaşında kodlama öğrenmek) oysa doğru hamle, mevcut alanınızda en iyi AI kullanıcısı olmaktır.
     </p>
     <p>
-      Tooling: <a href="/tools/ai-readiness-score">AI readiness score</a>,{" "}
-      <a href="/tools/ai-model-picker-quiz">AI model picker</a>.
+      Araçlar: <a href="/tools/ai-readiness-score">AI hazırlık puanı</a>,{" "}
+      <a href="/tools/ai-model-picker-quiz">AI model seçici</a>.
     </p>
   </>
 );

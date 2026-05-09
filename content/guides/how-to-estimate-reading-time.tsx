@@ -3,252 +3,253 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      &ldquo;5 min read&rdquo; at the top of an article isn&rsquo;t
-      just decoration — it sets expectations, improves click-through,
-      and gives readers permission to start. The math is simple
-      (words divided by reading speed) but the details matter: which
-      reading speed, how to count words, how to adjust for images
-      and code blocks, and when to round. This guide covers how
-      publishers like Medium, Substack, and the New York Times
-      compute reading time, the science behind reading-speed
-      averages, and how to handle mixed content correctly.
+      &ldquo;5 dakikalık okuma&rdquo; ifadesi bir makalenin başında
+      sadece bir süs değildir — beklentileri belirler, tıklama oranını
+      artırır ve okuyuculara başlama izni verir. Matematik basittir
+      (kelime sayısının okuma hızına bölümü) ancak ayrıntılar önemlidir:
+      hangi okuma hızı, kelimeler nasıl sayılır, görseller ve kod blokları
+      için nasıl ayarlama yapılır ve ne zaman yuvarlanır. Bu kılavuz,
+      Medium, Substack ve New York Times gibi yayıncıların okuma süresini
+      nasıl hesapladığını, okuma hızı ortalamalarının ardındaki bilimi ve
+      karma içeriğin doğru şekilde nasıl ele alınacağını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The base formula</h2>
+    <h2>Temel formül</h2>
     <p>
-      <strong>Reading time = word count ÷ words-per-minute</strong>
+      <strong>Okuma süresi = kelime sayısı ÷ dakikadaki kelime sayısı</strong>
     </p>
     <p>
-      A typical adult reading non-technical content reads at ~240
-      words per minute. Academic studies cluster around 200-300 WPM
-      for adults reading for comprehension (not speed-reading, not
-      skimming).
+      Teknik olmayan içerik okuyan tipik bir yetişkin, dakikada ~240
+      kelime okur. Akademik çalışmalar, anlayarak okuyan (hızlı okuma veya
+      göz atma değil) yetişkinler için 200-300 KDS aralığında
+      yoğunlaşır.
     </p>
     <p>
-      <strong>Medium uses 265 WPM.</strong>
+      <strong>Medium, 265 KDS kullanır.</strong>
     </p>
     <p>
-      <strong>New York Times uses 240 WPM.</strong>
+      <strong>New York Times, 240 KDS kullanır.</strong>
     </p>
     <p>
-      <strong>Academic research (Brysbaert 2019):</strong> 238 WPM
-      silent reading, 183 WPM reading aloud.
+      <strong>Akademik araştırma (Brysbaert 2019):</strong> Sessiz okuma
+      238 KDS, sesli okuma 183 KDS.
     </p>
     <p>
-      Pick one, use it consistently. 240 WPM is the safe middle
-      ground.
+      Birini seçin, tutarlı kullanın. 240 KDS güvenli orta yoldur.
     </p>
 
-    <h2>What counts as a word</h2>
+    <h2>Kelime olarak ne sayılır</h2>
     <p>
-      Simplest definition: whitespace-separated tokens.
+      En basit tanım: boşlukla ayrılmış belirteçler.
     </p>
     <p>
       <code>&quot;hello world foo&quot;.split(/\s+/).filter(Boolean).length</code>
       = 3.
     </p>
     <p>
-      <strong>Edge cases:</strong>
+      <strong>Uç durumlar:</strong>
     </p>
     <p>
-      Hyphenated words: &ldquo;long-term&rdquo; — count as 1 or 2?
-      Most counters split on <code>\s+</code> so it&rsquo;s 1. Fine
-      either way; don&rsquo;t overthink.
+      Tireli kelimeler: &ldquo;uzun-vadeli&rdquo; — 1 mi yoksa 2 mi
+      sayılır? Çoğu sayaç <code>\s+</code> ile böler, bu nedenle 1'dir. Her
+      iki şekilde de sorun yok; fazla düşünmeyin.
     </p>
     <p>
-      Contractions: &ldquo;don&rsquo;t&rdquo; = 1 word.
+      Kısaltmalar: &ldquo;yapma&rdquo; = 1 kelime.
     </p>
     <p>
-      Numbers, punctuation, URLs: each counts as one word if
-      surrounded by spaces.
+      Sayılar, noktalama işaretleri, URL'ler: boşluklarla çevriliyse her biri
+      bir kelime sayılır.
     </p>
     <p>
-      <strong>Don&rsquo;t</strong> count characters divided by 5
-      (the old typewriter standard) — it&rsquo;s less accurate for
-      modern prose with mixed word lengths.
-    </p>
-
-    <h2>Adjusting for images</h2>
-    <p>
-      People don&rsquo;t read images, but they spend time looking at
-      them. Medium&rsquo;s algorithm adds ~12 seconds for the first
-      image, decreasing for subsequent ones (3-10s each).
-    </p>
-    <p>
-      Simple approximation: add 12 seconds per image, capped at
-      maybe 30 seconds total. For articles with heavy visual
-      content, this alone bumps the estimate meaningfully.
-    </p>
-    <p>
-      Alternative approach: ignore images entirely. If your
-      articles are primarily text, the variance per image is small
-      enough not to matter.
+      <strong>Yapmayın</strong> karakterleri 5'e bölerek saymayın
+      (eski daktilo standardı) — karışık kelime uzunluklarına sahip modern
+      düzyazı için daha az doğrudur.
     </p>
 
-    <h2>Adjusting for code blocks</h2>
+    <h2>Görseller için ayarlama</h2>
     <p>
-      Code reads slower than prose — roughly half the speed. A
-      Stanford study found programmers averaging ~100 WPM reading
-      code vs ~250 WPM reading prose.
+      İnsanlar görselleri okumaz, ancak onlara bakarak zaman harcarlar.
+      Medium'un algoritması ilk görsel için ~12 saniye ekler, sonraki
+      görseller için azalır (her biri 3-10 sn).
     </p>
     <p>
-      For articles that mix prose and code:
+      Basit yaklaşım: görsel başına 12 saniye ekleyin, toplamda belki 30
+      saniye ile sınırlayın. Görsel içeriği yoğun makaleler için bu tek
+      başına tahmini anlamlı şekilde artırır.
     </p>
     <p>
-      <strong>Option A:</strong> Extract code blocks, count words
-      separately, apply 100 WPM to code and 240 WPM to prose. Sum
-      the two estimates.
-    </p>
-    <p>
-      <strong>Option B:</strong> Add a flat bump (30 seconds per
-      code block, or 2x the word time for code). Close enough for
-      most cases and simpler to implement.
-    </p>
-    <p>
-      <strong>Option C (publishing default):</strong> Ignore the
-      difference. For a typical technical article, the variance is
-      10-20 seconds, which rounds away.
+      Alternatif yaklaşım: görselleri tamamen yok sayın. Makaleleriniz
+      ağırlıklı olarak metinse, görsel başına fark önemsenecek kadar
+      küçüktür.
     </p>
 
-    <h2>Rounding and display</h2>
+    <h2>Kod blokları için ayarlama</h2>
     <p>
-      Output needs to be usable. &ldquo;3.47 min read&rdquo; looks
-      fake.
+      Kod, düzyazıdan daha yavaş okunur — kabaca yarısı hızında. Bir
+      Stanford çalışması, programcıların kod okurken ortalama ~100 KDS,
+      düzyazı okurken ~250 KDS hızında olduğunu buldu.
     </p>
     <p>
-      <strong>Always round up to the nearest minute.</strong> A 2.1-
-      minute article is &ldquo;3 min read&rdquo; — underpromising is
-      better than overpromising.
+      Düzyazı ve kodu karıştıran makaleler için:
     </p>
     <p>
-      <strong>Articles under a minute:</strong> &ldquo;&lt; 1 min
-      read&rdquo; or &ldquo;Quick read.&rdquo;
+      <strong>Seçenek A:</strong> Kod bloklarını ayıklayın, kelimeleri
+      ayrı ayrı sayın, koda 100 KDS ve düzyazıya 240 KDS uygulayın. İki
+      tahmini toplayın.
     </p>
     <p>
-      <strong>Very long articles:</strong> some publishers switch
-      to hours. Avoid fractional hours (&ldquo;2.5 hr read&rdquo;);
-      say &ldquo;3 hr read&rdquo; or break into parts.
+      <strong>Seçenek B:</strong> Sabit bir artış ekleyin (kod bloğu başına
+      30 saniye veya kod için kelime süresinin 2 katı). Çoğu durum için
+      yeterince yakındır ve uygulaması daha basittir.
     </p>
     <p>
-      <strong>Language matters:</strong> &ldquo;min read&rdquo; is
-      the standard; &ldquo;minutes to read&rdquo; is longer but
-      clearer. Medium picked &ldquo;min read.&rdquo; It stuck.
-    </p>
-
-    <h2>When accuracy matters more</h2>
-    <p>
-      For content where time pressure is real:
-    </p>
-    <p>
-      <strong>Audiobooks/podcasts:</strong> different calculation —
-      ~150-160 WPM for spoken content. Length in minutes is exact
-      (duration) rather than estimated.
-    </p>
-    <p>
-      <strong>Speech-to-text:</strong> generated transcripts inherit
-      the audio duration directly.
-    </p>
-    <p>
-      <strong>Email campaigns:</strong> A/B tests show promised
-      reading times (&ldquo;3 min read&rdquo;) boost open-to-click
-      rates ~10-15%. Overpromising (&ldquo;1 min&rdquo; on a 5-min
-      read) hurts trust.
+      <strong>Seçenek C (yayıncılık varsayılanı):</strong> Farkı yok sayın.
+      Tipik bir teknik makale için fark 10-20 saniyedir ve yuvarlanarak
+      kaybolur.
     </p>
 
-    <h2>Non-English content</h2>
+    <h2>Yuvarlama ve görüntüleme</h2>
     <p>
-      Reading speeds differ by language:
+      Çıktı kullanılabilir olmalıdır. &ldquo;3.47 dakikalık okuma&rdquo;
+      yapay görünür.
     </p>
     <p>
-      English: 238 WPM.
+      <strong>Her zaman en yakın dakikaya yuvarlayın.</strong> 2.1 dakikalık
+      bir makale &ldquo;3 dakikalık okuma&rdquo;dır — az söz vermek, çok
+      söz vermekten iyidir.
     </p>
     <p>
-      French: ~214 WPM.
+      <strong>Bir dakikanın altındaki makaleler:</strong> &ldquo;&lt; 1
+      dakikalık okuma&rdquo; veya &ldquo;Hızlı okuma.&rdquo;
     </p>
     <p>
-      Spanish: ~218 WPM.
+      <strong>Çok uzun makaleler:</strong> bazı yayıncılar saatlere geçer.
+      Kesirli saatlerden (&ldquo;2.5 saatlik okuma&rdquo;) kaçının;
+      &ldquo;3 saatlik okuma&rdquo; deyin veya parçalara ayırın.
     </p>
     <p>
-      Chinese: ~158 CPM (characters per minute, not words — Chinese
-      doesn&rsquo;t use spaces).
-    </p>
-    <p>
-      For Chinese/Japanese, count characters instead of words.
-      Typical rate: 300-400 Chinese characters per minute.
-    </p>
-
-    <h2>Reading level and complexity</h2>
-    <p>
-      Readers slow down on dense academic prose or unfamiliar
-      technical material. Flesch-Kincaid grade 12+ text is read
-      roughly 20-30% slower than grade 8 text.
-    </p>
-    <p>
-      Most publishers ignore this — estimates are rough by design.
-      If you need precision, pair reading time with a readability
-      score (Flesch, Dale-Chall) so readers see both.
+      <strong>Dil önemlidir:</strong> &ldquo;dakikalık okuma&rdquo;
+      standarttır; &ldquo;okumak için dakikalar&rdquo; daha uzun ancak
+      daha açıktır. Medium &ldquo;dakikalık okuma&rdquo;yı seçti. Bu
+      yerleşti.
     </p>
 
-    <h2>Putting reading time where it helps</h2>
+    <h2>Doğruluğun daha önemli olduğu durumlar</h2>
     <p>
-      <strong>Top of article:</strong> standard placement. Medium,
-      Substack, New York Times — all put it near the byline.
+      Zaman baskısının gerçek olduğu içerikler için:
     </p>
     <p>
-      <strong>In the preview card:</strong> on a list of articles,
-      reading time helps readers pick what fits their available
-      time.
+      <strong>Sesli kitaplar/podcast'ler:</strong> farklı hesaplama —
+      konuşulan içerik için ~150-160 KDS. Dakika cinsinden uzunluk,
+      tahmin edilmek yerine kesindir (süre).
     </p>
     <p>
-      <strong>In email newsletters:</strong> &ldquo;5 things, 8 min
-      read total&rdquo; performs well.
+      <strong>Konuşmadan metne:</strong> oluşturulan transkriptler ses
+      süresini doğrudan devralır.
     </p>
     <p>
-      <strong>Schema.org markup:</strong> the <code>timeRequired</code>
-      property on Article lets search engines display reading time in
-      rich results. <code>timeRequired: &quot;PT5M&quot;</code> in
-      ISO 8601 duration format.
-    </p>
-
-    <h2>Common mistakes</h2>
-    <p>
-      <strong>Using 200 WPM (too slow).</strong> Modern adult
-      readers exceed that. 200 WPM overstates reading time. Use
-      240-265.
-    </p>
-    <p>
-      <strong>Counting HTML or markdown syntax.</strong> Strip the
-      markup first. <code>&lt;strong&gt;text&lt;/strong&gt;</code> is
-      one word (&ldquo;text&rdquo;), not three tokens.
-    </p>
-    <p>
-      <strong>Showing 0 min.</strong> Always floor at &ldquo;&lt; 1
-      min read&rdquo; or &ldquo;1 min read.&rdquo; Never display
-      zero.
-    </p>
-    <p>
-      <strong>Counting words in comments or related-post
-      sections.</strong> Only count the article body itself.
-    </p>
-    <p>
-      <strong>Hard-coding the estimate.</strong> Compute it from the
-      content at build/render time so edits update the display
-      automatically.
+      <strong>E-posta kampanyaları:</strong> A/B testleri, vaat edilen
+      okuma sürelerinin (&ldquo;3 dakikalık okuma&rdquo;) açma-tıklama
+      oranlarını ~%10-15 artırdığını gösterir. Çok söz vermek (&ldquo;1
+      dakika&rdquo; 5 dakikalık bir okuma için) güveni zedeler.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>İngilizce olmayan içerik</h2>
     <p>
-      Paste any text into the{" "}
-      <a href="/tools/reading-time-estimator">reading time estimator</a>
-      {" "}and get instant word count and minutes. Pair with the{" "}
-      <a href="/tools/word-counter">word counter</a> for detailed
-      stats including sentences and paragraphs, and the{" "}
-      <a href="/tools/readability-score-checker">readability score
-      checker</a> to match tone and grade level to your audience.
+      Okuma hızları dile göre değişir:
+    </p>
+    <p>
+      İngilizce: 238 KDS.
+    </p>
+    <p>
+      Fransızca: ~214 KDS.
+    </p>
+    <p>
+      İspanyolca: ~218 KDS.
+    </p>
+    <p>
+      Çince: ~158 KDS (dakikadaki karakter sayısı, kelime değil — Çince'de
+      boşluk kullanılmaz).
+    </p>
+    <p>
+      Çince/Japonca için kelimeler yerine karakterleri sayın.
+      Tipik hız: dakikada 300-400 Çince karakter.
+    </p>
+
+    <h2>Okuma seviyesi ve karmaşıklık</h2>
+    <p>
+      Okuyucular, yoğun akademik düzyazı veya alışılmadık teknik
+      materyallerde yavaşlar. Flesch-Kincaid 12+ seviye metin, 8. seviye
+      metinden kabaca %20-30 daha yavaş okunur.
+    </p>
+    <p>
+      Çoğu yayıncı bunu yok sayar — tahminler doğası gereği kabadır.
+      Hassasiyete ihtiyacınız varsa, okuma süresini bir okunabilirlik
+      puanıyla (Flesch, Dale-Chall) eşleştirin, böylece okuyucular her
+      ikisini de görür.
+    </p>
+
+    <h2>Okuma süresini faydalı yere koymak</h2>
+    <p>
+      <strong>Makalenin başı:</strong> standart yerleşim. Medium,
+      Substack, New York Times — hepsi yazar adının yanına koyar.
+    </p>
+    <p>
+      <strong>Önizleme kartında:</strong> bir makale listesinde, okuma
+      süresi okuyucuların mevcut zamanlarına uygun olanı seçmesine
+      yardımcı olur.
+    </p>
+    <p>
+      <strong>E-posta bültenlerinde:</strong> &ldquo;5 şey, toplam 8
+      dakikalık okuma&rdquo; iyi performans gösterir.
+    </p>
+    <p>
+      <strong>Schema.org işaretlemesi:</strong> Makale üzerindeki <code>timeRequired</code>
+      özelliği, arama motorlarının zengin sonuçlarda okuma süresini
+      göstermesini sağlar. ISO 8601 süre formatında <code>timeRequired: &quot;PT5M&quot;</code>.
+    </p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>
+      <strong>200 KDS kullanmak (çok yavaş).</strong> Modern yetişkin
+      okuyucular bunu aşar. 200 KDS okuma süresini olduğundan fazla
+      gösterir. 240-265 kullanın.
+    </p>
+    <p>
+      <strong>HTML veya markdown sözdizimini saymak.</strong> Önce
+      işaretlemeyi kaldırın. <code>&lt;strong&gt;metin&lt;/strong&gt;</code>
+      bir kelimedir (&ldquo;metin&rdquo;), üç belirteç değil.
+    </p>
+    <p>
+      <strong>0 dakika göstermek.</strong> Her zaman &ldquo;&lt; 1
+      dakikalık okuma&rdquo; veya &ldquo;1 dakikalık okuma&rdquo; ile
+      tabanlayın. Asla sıfır göstermeyin.
+    </p>
+    <p>
+      <strong>Yorumlardaki veya ilgili gönderi bölümlerindeki kelimeleri
+      saymak.</strong> Yalnızca makale gövdesini sayın.
+    </p>
+    <p>
+      <strong>Tahmini sabit kodlamak.</strong> Düzenlemelerin
+      görüntülemeyi otomatik olarak güncellemesi için içerikten derleme/işleme
+      zamanında hesaplayın.
+    </p>
+
+    <h2>Rakamları çalıştırın</h2>
+    <p>
+      Herhangi bir metni{" "}
+      <a href="/tools/reading-time-estimator">okuma süresi hesaplayıcısına</a>
+      {" "}yapıştırın ve anında kelime sayısı ve dakika alın. Ayrıntılı
+      istatistikler için{" "}
+      <a href="/tools/word-counter">kelime sayacı</a> ile
+      ve tonu ve sınıf seviyesini kitlenizle eşleştirmek için{" "}
+      <a href="/tools/readability-score-checker">okunabilirlik puanı
+      denetleyicisi</a> ile birlikte kullanın.
     </p>
   </>
 );

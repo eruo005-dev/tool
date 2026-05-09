@@ -1,66 +1,66 @@
 import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
-  <p>LangChain is the sprawling but battle-tested framework for composing <a href="/learn/llm">LLM</a> calls, retrievers, tools, and agents in Python or JavaScript.</p>
+  <p>LangChain, Python veya JavaScript'te <a href="/learn/llm">LLM</a> çağrıları, alıcılar, araçlar ve ajanlar oluşturmak için kapsamlı ancak savaşta test edilmiş bir çerçevedir.</p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      LangChain gives you a vocabulary &mdash; prompts, chat models, output parsers, retrievers, vector stores, agents
-      &mdash; and the glue to wire them together. Its modern composition layer, LCEL (LangChain Expression Language),
-      uses a pipe operator to chain Runnables: prompt | model | parser reads like the data flow itself and unlocks
-      <a href="/learn/stream">streaming</a>, batching, and async for free.
+      LangChain size bir kelime dağarcığı sunar &mdash; istemler, sohbet modelleri, çıktı ayrıştırıcıları, alıcılar, vektör depoları, ajanlar
+      &mdash; ve bunları birbirine bağlamak için yapıştırıcı. Modern kompozisyon katmanı LCEL (LangChain Expression Language),
+      Runnables'ları zincirlemek için bir boru operatörü kullanır: prompt | model | parser, veri akışının kendisi gibi okunur ve
+      <a href="/learn/stream">streaming</a>, toplu işleme ve asenkron çalışmayı ücretsiz olarak sunar.
     </p>
 
-    <h2>What it is</h2>
+    <h2>Ne olduğu</h2>
     <p>
-      LangChain is MIT-licensed and maintained by LangChain Inc. (Harrison Chase and team). In 2024 it split into
-      langchain-core (Runnables and interfaces), langchain (high-level chains), partner packages like langchain-openai
-      and langchain-anthropic, and langchain-community for third-party integrations. JavaScript lives in a separate
-      monorepo with equivalent modules.
+      LangChain, MIT lisanslıdır ve LangChain Inc. (Harrison Chase ve ekip) tarafından sürdürülmektedir. 2024'te
+      langchain-core (Runnables ve arayüzler), langchain (üst düzey zincirler), langchain-openai ve langchain-anthropic gibi ortak paketler
+      ve üçüncü taraf entegrasyonları için langchain-community olarak ayrıldı. JavaScript, eşdeğer modüllerle ayrı bir
+      monorepoda bulunur.
     </p>
 
-    <h2>Install</h2>
+    <h2>Kurulum</h2>
     <pre>{`pip install langchain langchain-openai langchain-community
 # JavaScript
 npm install langchain @langchain/openai`}</pre>
 
-    <h2>First run</h2>
-    <p>A three-step LCEL chain that answers a question with structured output:</p>
+    <h2>İlk çalıştırma</h2>
+    <p>Yapılandırılmış çıktıyla bir soruyu yanıtlayan üç adımlı bir LCEL zinciri:</p>
     <pre>{`from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-prompt = ChatPromptTemplate.from_template("Answer briefly: {q}")
+prompt = ChatPromptTemplate.from_template("Kısaca cevapla: {q}")
 model = ChatOpenAI(model="gpt-4o-mini")
 chain = prompt | model | StrOutputParser()
 
-print(chain.invoke({"q": "Why is the sky blue?"}))`}</pre>
+print(chain.invoke({"q": "Gökyüzü neden mavidir?"}))`}</pre>
 
-    <h2>Everyday workflows</h2>
+    <h2>Günlük iş akışları</h2>
     <ul>
-      <li>Build RAG with a Chroma or pgvector retriever piped into a prompt; add a reranker for quality.</li>
-      <li>Expose the chain over HTTP with LangServe or Flask; trace every run in LangSmith.</li>
-      <li>For agents, prefer LangGraph (the sibling project) over the legacy AgentExecutor &mdash; it is more controllable.</li>
+      <li>Bir Chroma veya pgvector alıcısını bir isteme bağlayarak RAG oluşturun; kalite için bir yeniden sıralayıcı ekleyin.</li>
+      <li>Zinciri LangServe veya Flask ile HTTP üzerinden sunun; her çalıştırmayı LangSmith'te izleyin.</li>
+      <li>Ajanlar için, eski AgentExecutor yerine LangGraph'ı (kardeş proje) tercih edin &mdash; daha kontrol edilebilirdir.</li>
     </ul>
 
-    <h2>Gotchas and tips</h2>
+    <h2>Tuzaklar ve ipuçları</h2>
     <p>
-      LangChain&rsquo;s surface area is enormous and documentation lags behind code. Pin versions, read the source when
-      docs conflict, and avoid deeply nested chains you cannot trace. A 5-line chain you understand beats a 50-line
-      chain you copied from a tutorial.
+      LangChain'in yüzey alanı çok geniştir ve dokümantasyon kodun gerisinde kalır. Sürümleri sabitleyin, dokümanlar çeliştiğinde kaynağı okuyun
+      ve izleyemediğiniz derinlemesine iç içe geçmiş zincirlerden kaçının. Anladığınız 5 satırlık bir zincir, bir eğitimden kopyaladığınız
+      50 satırlık bir zincirden daha iyidir.
     </p>
     <p>
-      Production caveats matter: many community integrations are community-maintained, meaning patchy reliability.
-      Wrap external tools with retries, timeouts, and circuit breakers; never trust a retriever to return within SLA
-      without measuring it first.
+      Üretim uyarıları önemlidir: birçok topluluk entegrasyonu topluluk tarafından sürdürülür, yani düzensiz güvenilirlik anlamına gelir.
+      Harici araçları yeniden denemeler, zaman aşımları ve devre kesicilerle sarın; bir alıcının SLA içinde döneceğine
+      ölçmeden asla güvenmeyin.
     </p>
 
-    <h2>Who it&rsquo;s for</h2>
+    <h2>Kimin için</h2>
     <p>
-      Teams that want the broadest integration ecosystem and are willing to pay the complexity tax. Tip: LangSmith
-      tracing is the single biggest quality-of-life upgrade &mdash; turn it on before you write your second chain.
+      En geniş entegrasyon ekosistemini isteyen ve karmaşıklık vergisini ödemeye istekli ekipler. İpucu: LangSmith
+      izleme, en büyük yaşam kalitesi yükseltmesidir &mdash; ikinci zincirinizi yazmadan önce açın.
     </p>
   </>
 );

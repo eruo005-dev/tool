@@ -3,106 +3,109 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      &ldquo;Without losing quality&rdquo; is technically a lie — every lossy
-      compressor loses something. The real question is whether you can tell.
-      With the right format, the right dimensions, and a reasonable quality
-      setting, you can cut a 4MB photo to 200KB and no one — not even you — will
-      see the difference. This guide is the short version of what actually moves
-      the needle, and what doesn&rsquo;t.
+      &ldquo;Kalite kaybı olmadan&rdquo; ifadesi teknik olarak bir yalandır — her kayıplı
+      sıkıştırıcı bir şey kaybeder. Asıl soru, farkı anlayıp anlayamayacağınızdır.
+      Doğru format, doğru boyutlar ve makul bir kalite ayarı ile 4MB'lık bir fotoğrafı
+      200KB'a düşürebilirsiniz ve hiç kimse — siz bile — farkı göremez. Bu rehber,
+      gerçekten işe yarayan ve yaramayan şeylerin kısa versiyonudur.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The three quality levers</h2>
+    <h2>Üç kalite kolu</h2>
     <p>
-      Every image compression decision is really three decisions, and most people
-      only touch one. The levers are <strong>format</strong> (JPG, PNG, WebP,
-      AVIF), <strong>dimensions</strong> (pixel width and height), and{" "}
-      <strong>compression quality</strong> (the 0-100 slider). Pull all three and
-      the file gets dramatically smaller. Pull only the slider and you&rsquo;re
-      leaving most of the savings on the table.
+      Her görsel sıkıştırma kararı aslında üç karardır ve çoğu kişi yalnızca birine
+      dokunur. Kollar şunlardır: <strong>format</strong> (JPG, PNG, WebP,
+      AVIF), <strong>boyutlar</strong> (piksel genişliği ve yüksekliği) ve{" "}
+      <strong>sıkıştırma kalitesi</strong> (0-100 arası kaydırıcı). Üçünü de
+      kullanırsanız dosya önemli ölçüde küçülür. Yalnızca kaydırıcıyı kullanırsanız
+      tasarrufun büyük kısmını masada bırakırsınız.
     </p>
 
-    <h2>When JPG beats PNG</h2>
+    <h2>JPG'nin PNG'ye üstün geldiği durumlar</h2>
     <p>
-      JPG is for photographs — anything with continuous tones, skin, sky,
-      landscapes. PNG is for anything with sharp edges and flat color: logos,
-      icons, screenshots of UI, text. Save a photo as PNG and you&rsquo;ll end up
-      with a 4MB file that a 300KB JPG would match visually. Save a logo as JPG
-      and you&rsquo;ll get ugly compression halos around the edges.
+      JPG fotoğraflar içindir — sürekli tonlar, cilt, gökyüzü, manzaralar içeren
+      her şey. PNG ise keskin kenarlar ve düz renkler içeren şeyler içindir: logolar,
+      simgeler, arayüz ekran görüntüleri, metin. Bir fotoğrafı PNG olarak kaydederseniz
+      4MB'lık bir dosya elde edersiniz, oysa 300KB'lık bir JPG görsel olarak aynı
+      kaliteyi sağlar. Bir logoyu JPG olarak kaydederseniz kenarlarda çirkin
+      sıkıştırma halkaları oluşur.
     </p>
     <p>
-      Rough rule: if the image has a camera in its history, it&rsquo;s a JPG. If
-      it came out of Figma, Illustrator, or a screenshot, it&rsquo;s a PNG.
-    </p>
-
-    <h2>When WebP and AVIF win</h2>
-    <p>
-      WebP is usually 25-35% smaller than JPG at the same visual quality, and
-      supports transparency like PNG. AVIF goes further — often 50% smaller than
-      JPG — but encoders are slower and ancient software doesn&rsquo;t understand
-      it. For a modern website or a blog image, WebP is the default answer.
-      AVIF if you control the whole stack and care about the last 20% of savings.
-    </p>
-    <p>
-      For anything leaving your site — email, Slack, a print shop, iMessage — stay
-      in JPG or PNG. The recipient&rsquo;s tool chain may or may not handle the
-      newer formats.
+      Kabaca kural: görselin geçmişinde bir kamera varsa JPG'dir. Figma,
+      Illustrator veya ekran görüntüsünden geldiyse PNG'dir.
     </p>
 
-    <h2>Resize before you compress</h2>
+    <h2>WebP ve AVIF'in kazandığı durumlar</h2>
     <p>
-      This is the move that gets skipped most often and saves the most bytes. A
-      photo straight off a phone is 4032×3024 pixels. A blog hero image displays
-      at maybe 1600px wide. Shipping the phone resolution to a browser is a 6x
-      waste. Resize first with an <a href="/tools/image-resizer">image resizer</a>,
-      then run the result through an{" "}
-      <a href="/tools/image-compressor">image compressor</a>. Compression after
-      resizing is vastly more effective than compression alone.
+      WebP genellikle aynı görsel kalitede JPG'den %25-35 daha küçüktür ve PNG gibi
+      saydamlığı destekler. AVIF daha da ileri gider — genellikle JPG'den %50 daha
+      küçüktür — ancak kodlayıcılar daha yavaştır ve eski yazılımlar bunu anlamaz.
+      Modern bir web sitesi veya blog görseli için WebP varsayılan cevaptır.
+      Tüm sistemi kontrol ediyorsanız ve son %20 tasarrufu önemsiyorsanız AVIF
+      kullanın.
+    </p>
+    <p>
+      Sitenizden ayrılan her şey için — e-posta, Slack, matbaa, iMessage — JPG
+      veya PNG'de kalın. Alıcının araç zinciri yeni formatları işleyebilir de
+      işlemeyebilir de.
     </p>
 
-    <h2>Acceptable file sizes in the wild</h2>
+    <h2>Sıkıştırmadan önce yeniden boyutlandırın</h2>
     <p>
-      Rough targets, after both resizing and compression:
+      Bu en sık atlanan ve en çok bayt tasarrufu sağlayan adımdır. Telefondan
+      çıkan bir fotoğraf 4032×3024 pikseldir. Bir blog kahraman görseli belki
+      1600 piksel genişliğinde görüntülenir. Telefon çözünürlüğünü tarayıcıya
+      göndermek 6 kat israftır. Önce bir <a href="/tools/image-resizer">görsel
+      yeniden boyutlandırıcı</a> ile yeniden boyutlandırın, ardından sonucu bir{" "}
+      <a href="/tools/image-compressor">görsel sıkıştırıcı</a> ile sıkıştırın.
+      Yeniden boyutlandırmadan sonra sıkıştırma, yalnızca sıkıştırmadan çok daha
+      etkilidir.
+    </p>
+
+    <h2>Gerçek hayatta kabul edilebilir dosya boyutları</h2>
+    <p>
+      Hem yeniden boyutlandırma hem de sıkıştırma sonrası kabaca hedefler:
     </p>
     <ul>
       <li>
-        <strong>Blog hero image</strong> (1600px wide): 150-300KB. Over 500KB and
-        your page speed score will notice.
+        <strong>Blog kahraman görseli</strong> (1600 piksel genişlik): 150-300KB.
+        500KB'ın üzerinde sayfa hızı puanınız etkilenir.
       </li>
       <li>
-        <strong>Product photo</strong> (1200px wide): 80-180KB per image. You
-        probably have a dozen on the page, so every kilobyte compounds.
+        <strong>Ürün fotoğrafı</strong> (1200 piksel genişlik): Görsel başına
+        80-180KB. Sayfada muhtemelen bir düzine var, bu yüzden her kilobayt
+        birikir.
       </li>
       <li>
-        <strong>Email attachment photo</strong> (1600px wide, decent quality):
-        200-400KB. Under that and it starts looking compressed on larger screens.
+        <strong>E-posta eki fotoğrafı</strong> (1600 piksel genişlik, iyi kalite):
+        200-400KB. Bunun altında büyük ekranlarda sıkıştırılmış görünmeye başlar.
       </li>
       <li>
-        <strong>Social upload</strong>: the platform will recompress anyway, so
-        there&rsquo;s no point shipping more than 2MB in.
+        <strong>Sosyal medya yüklemesi</strong>: Platform zaten yeniden
+        sıkıştıracaktır, bu yüzden 2MB'den fazla göndermenin anlamı yoktur.
       </li>
     </ul>
 
-    <h2>Testing with a quality slider</h2>
+    <h2>Kalite kaydırıcısı ile test etme</h2>
     <p>
-      The honest way to pick a quality setting: export at 90, 80, and 70, open all
-      three side by side at 100% zoom, and pick the lowest number where you
-      genuinely can&rsquo;t tell the difference from the original. For most
-      photos, that&rsquo;s 80-85. For screenshots with text, stay at 90+ or
-      you&rsquo;ll see fringing on letters. Don&rsquo;t trust your memory — open
-      them side by side.
+      Kalite ayarını seçmenin dürüst yolu: 90, 80 ve 70'te dışa aktarın, üçünü
+      de %100 yakınlaştırmada yan yana açın ve orijinalden gerçekten farkı
+      göremediğiniz en düşük sayıyı seçin. Çoğu fotoğraf için bu 80-85'tir.
+      Metin içeren ekran görüntülerinde 90+ kalın, aksi takdirde harflerde
+      saçaklanma görürsünüz. Hafızanıza güvenmeyin — yan yana açın.
     </p>
 
-    <h2>What doesn&rsquo;t help</h2>
+    <h2>İşe yaramayan şeyler</h2>
     <p>
-      Running a file through two compressors in a row does nothing good — you
-      just compound artifacts. Saving a JPG as JPG repeatedly (opening, editing,
-      re-saving) degrades it every time; keep a PNG or RAW master if you&rsquo;re
-      going to edit. And obsessing over the last 5KB on a file that&rsquo;s already
-      under 200KB is almost never worth it.
+      Bir dosyayı arka arkaya iki sıkıştırıcıdan geçirmek hiçbir işe yaramaz —
+      sadece bozulmaları artırırsınız. Bir JPG'yi tekrar tekrar JPG olarak
+      kaydetmek (açma, düzenleme, yeniden kaydetme) her seferinde kaliteyi
+      düşürür; düzenleme yapacaksanız bir PNG veya RAW ana kopya saklayın.
+      Zaten 200KB'ın altında olan bir dosyada son 5KB için takıntı yapmak
+      neredeyse hiçbir zaman buna değmez.
     </p>
   </>
 );

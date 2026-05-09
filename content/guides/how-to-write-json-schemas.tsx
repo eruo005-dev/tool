@@ -3,23 +3,23 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      JSON Schema is how you describe the shape of JSON data so
-      machines can validate it, humans can understand it, and APIs
-      can generate docs and clients from it. Write a schema once and
-      you get validation, auto-completion, fixture generation, and
-      contract tests for free. This guide covers the core keywords
-      (type, properties, required, additionalProperties), the
-      composition patterns (allOf, oneOf, $ref), how drafts differ,
-      when to reach for JSON Schema vs alternatives (OpenAPI, Zod,
-      TypeBox), and the common mistakes that let invalid data slip
-      through.
+      JSON Schema, JSON verilerinin şeklini tanımlamanın bir yoludur;
+      böylece makineler doğrulayabilir, insanlar anlayabilir ve API'ler
+      dokümantasyon ve istemciler oluşturabilir. Bir şemayı bir kez yazın,
+      doğrulama, otomatik tamamlama, test verisi oluşturma ve sözleşme
+      testlerini ücretsiz olarak elde edin. Bu kılavuz, temel anahtar
+      kelimeleri (type, properties, required, additionalProperties),
+      birleştirme desenlerini (allOf, oneOf, $ref), taslakların nasıl
+      farklılaştığını, JSON Schema ile alternatifler (OpenAPI, Zod,
+      TypeBox) arasında ne zaman seçim yapmanız gerektiğini ve geçersiz
+      verilerin sızmasına izin veren yaygın hataları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>A minimal schema</h2>
+    <h2>Minimal bir şema</h2>
     <pre>
 {`{
   "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -32,118 +32,120 @@ export const body: ReactElement = (
 }`}
     </pre>
     <p>
-      This validates:{" "}
+      Bu doğrular:{" "}
       <code>{`{"name":"Alice","age":30}`}</code> ✓
     </p>
     <p>
-      Rejects:{" "}
-      <code>{`{"age":30}`}</code> (missing name),{" "}
-      <code>{`{"name":"Alice","age":-1}`}</code> (negative age).
+      Reddeder:{" "}
+      <code>{`{"age":30}`}</code> (eksik name),{" "}
+      <code>{`{"name":"Alice","age":-1}`}</code> (negatif yaş).
     </p>
 
-    <h2>Core types</h2>
+    <h2>Temel türler</h2>
     <p>
       <strong>string</strong>, <strong>number</strong>,{" "}
       <strong>integer</strong>, <strong>boolean</strong>,{" "}
       <strong>null</strong>, <strong>object</strong>,{" "}
-      <strong>array</strong>. <code>integer</code> rejects{" "}
-      <code>1.5</code> where <code>number</code> accepts it.
+      <strong>array</strong>. <code>integer</code>,{" "}
+      <code>1.5</code>'i reddederken <code>number</code> kabul eder.
     </p>
     <p>
-      <strong>Union:</strong>{" "}
-      <code>{`"type": ["string", "null"]`}</code> for fields that
-      can be nullable.
+      <strong>Birleşim:</strong>{" "}
+      <code>{`"type": ["string", "null"]`}</code> nullable olabilen
+      alanlar için.
     </p>
 
-    <h2>String constraints</h2>
+    <h2>String kısıtlamaları</h2>
     <p>
-      <strong>minLength / maxLength:</strong> character bounds.
+      <strong>minLength / maxLength:</strong> karakter sınırları.
     </p>
     <p>
-      <strong>pattern:</strong> regex the string must match.
+      <strong>pattern:</strong> string'in eşleşmesi gereken regex.
     </p>
     <p>
       <strong>format:</strong> <code>email</code>, <code>uri</code>,
       {" "}<code>date-time</code>, <code>uuid</code>, <code>hostname</code>.
-      Formats are informational by default; enable format validation
-      to enforce.
+      Formatlar varsayılan olarak bilgilendirme amaçlıdır; zorunlu kılmak
+      için format doğrulamasını etkinleştirin.
     </p>
     <p>
-      <strong>enum:</strong> whitelist of allowed values —{" "}
+      <strong>enum:</strong> izin verilen değerlerin beyaz listesi —{" "}
       <code>{`"enum": ["draft","published","archived"]`}</code>.
     </p>
 
-    <h2>Number constraints</h2>
+    <h2>Sayı kısıtlamaları</h2>
     <p>
-      <strong>minimum / maximum:</strong> inclusive bounds.
+      <strong>minimum / maximum:</strong> kapsayıcı sınırlar.
     </p>
     <p>
       <strong>exclusiveMinimum / exclusiveMaximum:</strong>{" "}
-      non-inclusive bounds.
+      kapsayıcı olmayan sınırlar.
     </p>
     <p>
-      <strong>multipleOf:</strong> divisor check. Useful for cents
-      (<code>multipleOf: 0.01</code>) or step sizes.
+      <strong>multipleOf:</strong> bölen kontrolü. Sentler
+      (<code>multipleOf: 0.01</code>) veya adım boyutları için
+      kullanışlıdır.
     </p>
 
-    <h2>Object constraints</h2>
+    <h2>Nesne kısıtlamaları</h2>
     <p>
-      <strong>properties:</strong> map of key → sub-schema.
+      <strong>properties:</strong> anahtar → alt şema haritası.
     </p>
     <p>
-      <strong>required:</strong> array of keys that must be present.
-      Absent in <code>required</code> means optional.
+      <strong>required:</strong> mevcut olması gereken anahtarların
+      dizisi. <code>required</code> içinde olmaması isteğe bağlı
+      anlamına gelir.
     </p>
     <p>
-      <strong>additionalProperties:</strong> controls unknown keys.{" "}
-      <code>false</code> rejects any key not listed; a schema object
-      validates extra keys against that schema.
+      <strong>additionalProperties:</strong> bilinmeyen anahtarları
+      kontrol eder. <code>false</code>, listelenmeyen herhangi bir
+      anahtarı reddeder; bir şema nesnesi, ekstra anahtarları o şemaya
+      göre doğrular.
     </p>
     <p>
-      <strong>patternProperties:</strong> match property names by
-      regex, apply sub-schema to values.
+      <strong>patternProperties:</strong> özellik adlarını regex ile
+      eşleştirir, değerlere alt şema uygular.
     </p>
     <p>
-      <strong>minProperties / maxProperties:</strong> count bounds.
-    </p>
-
-    <h2>Array constraints</h2>
-    <p>
-      <strong>items:</strong> schema every element must match.
-    </p>
-    <p>
-      <strong>prefixItems (draft 2020-12):</strong> tuple mode — first
-      element matches first schema, second matches second, etc.
-    </p>
-    <p>
-      <strong>minItems / maxItems:</strong> length bounds.
-    </p>
-    <p>
-      <strong>uniqueItems:</strong> enforce no duplicates.
-    </p>
-    <p>
-      <strong>contains:</strong> at least one item must match this
-      schema.
+      <strong>minProperties / maxProperties:</strong> sayı sınırları.
     </p>
 
-    <h2>Composition</h2>
+    <h2>Dizi kısıtlamaları</h2>
     <p>
-      <strong>allOf:</strong> value must match every sub-schema.
-      Useful for extending a base schema.
+      <strong>items:</strong> her öğenin eşleşmesi gereken şema.
     </p>
     <p>
-      <strong>oneOf:</strong> exactly one sub-schema must match.
-      Common for discriminated unions.
+      <strong>prefixItems (taslak 2020-12):</strong> demet modu — ilk
+      öğe ilk şemayla, ikinci ikinciyle eşleşir, vb.
     </p>
     <p>
-      <strong>anyOf:</strong> at least one sub-schema must match.
+      <strong>minItems / maxItems:</strong> uzunluk sınırları.
     </p>
     <p>
-      <strong>not:</strong> negation — value must NOT match the
-      sub-schema.
+      <strong>uniqueItems:</strong> tekrarları zorunlu kılar.
+    </p>
+    <p>
+      <strong>contains:</strong> en az bir öğe bu şemayla eşleşmelidir.
     </p>
 
-    <h2>$ref — reusable pieces</h2>
+    <h2>Birleştirme</h2>
+    <p>
+      <strong>allOf:</strong> değer her alt şemayla eşleşmelidir.
+      Temel bir şemayı genişletmek için kullanışlıdır.
+    </p>
+    <p>
+      <strong>oneOf:</strong> tam olarak bir alt şema eşleşmelidir.
+      Ayrıştırılmış birleşimler için yaygındır.
+    </p>
+    <p>
+      <strong>anyOf:</strong> en az bir alt şema eşleşmelidir.
+    </p>
+    <p>
+      <strong>not:</strong> olumsuzlama — değer alt şemayla
+      eşleşmemelidir.
+    </p>
+
+    <h2>$ref — yeniden kullanılabilir parçalar</h2>
     <pre>
 {`{
   "$defs": {
@@ -164,35 +166,36 @@ export const body: ReactElement = (
 }`}
     </pre>
     <p>
-      Definitions live in <code>$defs</code>;{" "}
-      <code>$ref</code> points at them with a JSON Pointer.
+      Tanımlar <code>$defs</code> içinde yaşar;{" "}
+      <code>$ref</code>, bir JSON Pointer ile onları işaret eder.
     </p>
 
-    <h2>Drafts matter</h2>
+    <h2>Taslaklar önemlidir</h2>
     <p>
-      <strong>Draft 4:</strong> widely supported. Uses{" "}
-      <code>definitions</code>, not <code>$defs</code>. Older API
-      tooling often stuck here.
+      <strong>Taslak 4:</strong> yaygın olarak desteklenir.{" "}
+      <code>$defs</code> yerine <code>definitions</code> kullanır.
+      Eski API araçları genellikle burada takılı kalır.
     </p>
     <p>
-      <strong>Draft 7:</strong> common default. Added{" "}
+      <strong>Taslak 7:</strong> yaygın varsayılan.{" "}
       <code>if/then/else</code>, <code>readOnly</code>,{" "}
-      <code>writeOnly</code>.
+      <code>writeOnly</code> eklenmiştir.
     </p>
     <p>
-      <strong>2019-09:</strong> <code>$defs</code> replaces{" "}
-      <code>definitions</code>. Recursive refs cleaned up.
+      <strong>2019-09:</strong> <code>$defs</code>,{" "}
+      <code>definitions</code> yerini alır. Yinelemeli referanslar
+      temizlenmiştir.
     </p>
     <p>
-      <strong>2020-12:</strong> <code>prefixItems</code> for tuples.
-      Cleaner array validation.
+      <strong>2020-12:</strong> demetler için <code>prefixItems</code>.
+      Daha temiz dizi doğrulaması.
     </p>
     <p>
-      <strong>Rule:</strong> always declare <code>$schema</code> so
-      validators pick the right version.
+      <strong>Kural:</strong> doğrulayıcıların doğru sürümü seçmesi
+      için her zaman <code>$schema</code> bildirin.
     </p>
 
-    <h2>Conditional schemas — if/then/else</h2>
+    <h2>Koşullu şemalar — if/then/else</h2>
     <pre>
 {`{
   "type": "object",
@@ -202,92 +205,94 @@ export const body: ReactElement = (
 }`}
     </pre>
     <p>
-      If <code>kind === &quot;admin&quot;</code>,{" "}
-      <code>permissions</code> becomes required. Otherwise no extra
-      constraint.
+      Eğer <code>kind === &quot;admin&quot;</code> ise,{" "}
+      <code>permissions</code> zorunlu hale gelir. Aksi halde ek
+      kısıtlama yoktur.
     </p>
 
-    <h2>JSON Schema vs alternatives</h2>
+    <h2>JSON Schema vs alternatifler</h2>
     <p>
-      <strong>OpenAPI:</strong> uses JSON Schema under the hood (with
-      some extensions). Use OpenAPI for HTTP APIs where you want
-      paths, responses, and auth all in one doc.
+      <strong>OpenAPI:</strong> altında JSON Schema kullanır (bazı
+      uzantılarla). HTTP API'leri için OpenAPI kullanın; yollar,
+      yanıtlar ve kimlik doğrulamanın tek bir belgede olmasını
+      istiyorsanız.
     </p>
     <p>
-      <strong>TypeScript interfaces:</strong> great for compile-time,
-      useless at runtime. You need a runtime validator either way.
+      <strong>TypeScript arayüzleri:</strong> derleme zamanı için
+      harika, çalışma zamanında işe yaramaz. Her iki durumda da bir
+      çalışma zamanı doğrulayıcıya ihtiyacınız vardır.
     </p>
     <p>
-      <strong>Zod / Yup / Joi (JS ecosystem):</strong> nicer DX,
-      schema-as-code. Good for forms and internal validation. Export
-      to JSON Schema when you need interop.
+      <strong>Zod / Yup / Joi (JS ekosistemi):</strong> daha iyi DX,
+      şema-kod-olarak. Formlar ve iç doğrulama için iyidir. Birlikte
+      çalışabilirlik gerektiğinde JSON Schema'ya dışa aktarın.
     </p>
     <p>
-      <strong>Protobuf / Avro:</strong> when you need binary
-      efficiency and strict schema evolution rules, not JSON.
+      <strong>Protobuf / Avro:</strong> ikili verimlilik ve katı şema
+      evrim kuralları gerektiğinde, JSON değil.
     </p>
 
-    <h2>Tooling</h2>
+    <h2>Araçlar</h2>
     <p>
-      <strong>Validators:</strong>{" "}
-      <code>ajv</code> (JS, fastest), <code>jsonschema</code>
+      <strong>Doğrulayıcılar:</strong>{" "}
+      <code>ajv</code> (JS, en hızlı), <code>jsonschema</code>
       {" "}(Python), <code>go-jsonschema</code> (Go).
     </p>
     <p>
-      <strong>Doc generators:</strong>{" "}
+      <strong>Belge oluşturucular:</strong>{" "}
       <code>json-schema-to-markdown</code>, Redocly, Stoplight.
     </p>
     <p>
-      <strong>Code generators:</strong>{" "}
+      <strong>Kod oluşturucular:</strong>{" "}
       <code>json-schema-to-typescript</code>,{" "}
       <code>quicktype</code>, <code>datamodel-code-generator</code>{" "}
       (Python Pydantic).
     </p>
     <p>
-      <strong>IDE integration:</strong> VS Code auto-validates JSON
-      files against a matching schema. Huge productivity win for
-      config files.
+      <strong>IDE entegrasyonu:</strong> VS Code, JSON dosyalarını
+      eşleşen bir şemaya karşı otomatik olarak doğrular. Yapılandırma
+      dosyaları için büyük bir üretkenlik kazancı.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Forgetting additionalProperties: false.</strong>{" "}
-      Default is to allow unknown keys silently. Breaks contract
-      testing.
+      <strong>additionalProperties: false unutmak.</strong>{" "}
+      Varsayılan, bilinmeyen anahtarları sessizce kabul etmektir.
+      Sözleşme testlerini bozar.
     </p>
     <p>
-      <strong>Using type: number when you mean integer.</strong>{" "}
-      Floats sneak through.
+      <strong>integer demek istediğinizde type: number kullanmak.</strong>{" "}
+      Ondalıklı sayılar sızar.
     </p>
     <p>
-      <strong>Missing required.</strong> Without <code>required</code>,
-      every property is optional. Easy to miss on required fields.
+      <strong>required eksik.</strong> <code>required</code> olmadan,
+      her özellik isteğe bağlıdır. Zorunlu alanlarda kaçırmak kolaydır.
     </p>
     <p>
-      <strong>Mixing drafts.</strong> <code>$defs</code> in draft 7
-      doesn&rsquo;t work; <code>definitions</code> in 2020-12
-      doesn&rsquo;t work (well, it&rsquo;s allowed but unused).
+      <strong>Taslakları karıştırmak.</strong> Taslak 7'de{" "}
+      <code>$defs</code> çalışmaz; 2020-12'de <code>definitions</code>
+      çalışmaz (aslında izin verilir ancak kullanılmaz).
     </p>
     <p>
-      <strong>Overly permissive enum.</strong>{" "}
-      <code>{`"enum": ["A", "a"]`}</code> accepts both. Decide on
-      case-sensitivity.
+      <strong>Aşırı izin verici enum.</strong>{" "}
+      <code>{`"enum": ["A", "a"]`}</code> her ikisini de kabul eder.
+      Büyük/küçük harf duyarlılığına karar verin.
     </p>
     <p>
-      <strong>No format validation.</strong> <code>format: email</code>
-      {" "}is a hint, not an enforced check unless you enable format
-      mode in the validator.
+      <strong>Format doğrulaması yok.</strong> <code>format: email</code>
+      {" "}bir ipucudur, doğrulayıcıda format modunu etkinleştirmediğiniz
+      sürece zorunlu bir kontrol değildir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Generate a starter schema from sample JSON with the{" "}
-      <a href="/tools/json-schema-generator">JSON schema generator</a>.
-      Pair with the{" "}
-      <a href="/tools/json-formatter">JSON formatter</a> to tidy
-      your sample first, and the{" "}
-      <a href="/tools/json-to-typescript">JSON to TypeScript converter</a>
-      {" "}to get types for your codebase.
+      Örnek JSON'dan bir başlangıç şeması oluşturmak için{" "}
+      <a href="/tools/json-schema-generator">JSON şema oluşturucuyu</a>
+      kullanın. Örneğinizi düzenlemek için{" "}
+      <a href="/tools/json-formatter">JSON biçimlendirici</a> ile
+      eşleştirin ve kod tabanınız için türler almak üzere{" "}
+      <a href="/tools/json-to-typescript">JSON'dan TypeScript dönüştürücüsünü</a>
+      {" "}kullanın.
     </p>
   </>
 );

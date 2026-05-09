@@ -2,90 +2,72 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    llama.cpp is the C++ <a href="/learn/inference">inference</a> engine that most of the local-<a href="/learn/llm">LLM</a> ecosystem &mdash; Ollama, LM Studio, Jan, GPT4All
-    &mdash; is built on. Using it directly gives you the fastest path to running GGUF weights on CPUs, Apple Silicon,
-    and GPUs with minimal overhead.
+    llama.cpp, yerel <a href="/learn/llm">LLM</a> ekosisteminin büyük kısmının (Ollama, LM Studio, Jan, GPT4All) üzerine inşa edildiği C++ <a href="/learn/inference">çıkarım</a> motorudur. Doğrudan kullanmak, GGUF ağırlıklarını CPU'lar, Apple Silicon ve GPU'lar üzerinde minimum ek yük ile çalıştırmanın en hızlı yoludur.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What llama.cpp is</h2>
+    <h2>llama.cpp nedir</h2>
     <p>
-      llama.cpp is Georgi Gerganov&rsquo;s single-repo C/C++ implementation of Llama-family inference. It supports
-      dozens of model architectures (Llama 2/3, Mistral, Qwen, Phi, Gemma, DeepSeek, and more), quantizes them to
-      GGUF, and runs on CPU, CUDA, Metal, Vulkan, ROCm, and SYCL. The project ships a CLI (<code>llama-cli</code>),
-      a server (<code>llama-server</code>), and bindings for Python, Go, Rust, and Node.
+      llama.cpp, Georgi Gerganov'un Llama ailesi çıkarımını gerçekleştiren tek depolu C/C++ uygulamasıdır. Düzinelerce model mimarisini (Llama 2/3, Mistral, Qwen, Phi, Gemma, DeepSeek ve daha fazlası) destekler, bunları GGUF'a niceler ve CPU, CUDA, Metal, Vulkan, ROCm ve SYCL üzerinde çalıştırır. Proje, bir CLI (<code>llama-cli</code>), bir sunucu (<code>llama-server</code>) ve Python, Go, Rust ile Node için bağlamalar sunar.
     </p>
     <p>
-      Every other &ldquo;easy&rdquo; local-LLM tool eventually bottoms out here. Knowing llama.cpp directly means
-      you can skip the wrappers when they get in your way.
+      Diğer tüm "kolay" yerel-LLM araçları eninde sonunda buraya dayanır. llama.cpp'yi doğrudan bilmek, sarıcılar yolunuza çıktığında onları atlayabileceğiniz anlamına gelir.
     </p>
 
-    <h2>Building from source</h2>
+    <h2>Kaynaktan derleme</h2>
     <p>
-      Clone the repo and build with CMake. The default build is CPU-only; pass flags for your accelerator:
+      Depoyu klonlayın ve CMake ile derleyin. Varsayılan derleme yalnızca CPU içindir; hızlandırıcınız için bayrakları ekleyin:
     </p>
     <pre>{`git clone https://github.com/ggml-org/llama.cpp
 cd llama.cpp
 cmake -B build -DGGML_CUDA=ON    # NVIDIA
-# cmake -B build -DGGML_METAL=ON   # Apple Silicon (on by default)
-# cmake -B build -DGGML_VULKAN=ON  # AMD / Intel / cross-GPU
+# cmake -B build -DGGML_METAL=ON   # Apple Silicon (varsayılan olarak açık)
+# cmake -B build -DGGML_VULKAN=ON  # AMD / Intel / çapraz-GPU
 cmake --build build --config Release -j`}</pre>
     <p>
-      The binaries land under <code>build/bin/</code>. On macOS you can also install via <code>brew install llama.cpp
-      </code> for a Metal-enabled prebuilt.
+      İkili dosyalar <code>build/bin/</code> altına yerleşir. macOS'ta ayrıca Metal destekli önceden derlenmiş bir sürüm için <code>brew install llama.cpp</code> ile de kurabilirsiniz.
     </p>
 
-    <h2>Getting a GGUF model</h2>
+    <h2>GGUF modeli edinme</h2>
     <p>
-      Pull a pre-quantized GGUF from Hugging Face. The <code>bartowski</code> and <code>TheBloke</code> accounts
-      publish high-quality conversions for most popular base models:
+      Hugging Face'den önceden nicelenmiş bir GGUF çekin. <code>bartowski</code> ve <code>TheBloke</code> hesapları, en popüler temel modeller için yüksek kaliteli dönüşümler yayınlar:
     </p>
-    <pre>{`huggingface-cli download bartowski/Meta-Llama-3.1-8B-Instruct-GGUF \\
-  Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf \\
+    <pre>{`huggingface-cli download bartowski/Meta-Llama-3.1-8B-Instruct-GGUF \\\\
+  Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf \\\\
   --local-dir ./models`}</pre>
     <p>
-      If you have raw Hugging Face weights, convert them yourself with <code>convert_hf_to_gguf.py</code> and
-      quantize with the <code>llama-quantize</code> binary.
+      Ham Hugging Face ağırlıklarınız varsa, bunları <code>convert_hf_to_gguf.py</code> ile kendiniz dönüştürün ve <code>llama-quantize</code> ikili dosyası ile nicelendirin.
     </p>
 
-    <h2>Running inference</h2>
-    <p>Single-shot prompt from the CLI:</p>
-    <pre>{`./build/bin/llama-cli \\
-  -m ./models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf \\
-  -p "Write a haiku about distributed systems." \\
+    <h2>Çıkarım çalıştırma</h2>
+    <p>CLI'dan tek seferlik istem:</p>
+    <pre>{`./build/bin/llama-cli \\\\
+  -m ./models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf \\\\
+  -p "Dağıtık sistemler hakkında bir haiku yaz." \\\\
   -n 128 -ngl 99`}</pre>
     <p>
-      <code>-ngl 99</code> offloads all layers to the GPU. For an OpenAI-compatible server, use{" "}
-      <code>llama-server</code>:
+      <code>-ngl 99</code> tüm katmanları GPU'ya aktarır. OpenAI uyumlu bir sunucu için <code>llama-server</code> kullanın:
     </p>
-    <pre>{`./build/bin/llama-server \\
-  -m ./models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf \\
+    <pre>{`./build/bin/llama-server \\\\
+  -m ./models/Meta-Llama-3.1-8B-Instruct-Q4_K_M.gguf \\\\
   --host 0.0.0.0 --port 8080 -ngl 99 -c 8192`}</pre>
     <p>
-      The server exposes <code>/v1/chat/completions</code>, <code>/v1/embeddings</code>, and a built-in web UI at
-      the root URL.
+      Sunucu, <code>/v1/chat/completions</code>, <code>/v1/embeddings</code> uç noktalarını ve kök URL'de yerleşik bir web arayüzünü sunar.
     </p>
 
-    <h2>Picking <a href="/learn/quantization">quantization</a> and context</h2>
+    <h2><a href="/learn/quantization">Niceleme</a> ve bağlam seçimi</h2>
     <p>
-      The standard quantization grid is <code>Q2_K</code> through <code>Q8_0</code>, with <code>K_M</code> and{" "}
-      <code>K_S</code> variants. For most 7B&ndash;13B models, <code>Q4_K_M</code> is the right default. For code
-      and reasoning, bump to <code>Q5_K_M</code> or <code>Q6_K</code> if memory allows &mdash; Q4 noticeably hurts
-      math and code accuracy.
+      Standart niceleme ızgarası <code>Q2_K</code>'dan <code>Q8_0</code>'a kadardır ve <code>K_M</code> ile <code>K_S</code> varyantları bulunur. Çoğu 7B&ndash;13B modeli için <code>Q4_K_M</code> doğru varsayılandır. Kod ve akıl yürütme için, bellek izin veriyorsa <code>Q5_K_M</code> veya <code>Q6_K</code>'ya yükseltin &mdash; Q4, matematik ve kod doğruluğunu belirgin şekilde düşürür.
     </p>
     <p>
-      The <code>-c</code> flag sets context size. Do not crank it past what you need &mdash; KV cache grows linearly
-      with context and eats <a href="/learn/vrm-vram">VRAM</a> fast. Use <code>--flash-attn</code> to cut the overhead when supported.
+      <code>-c</code> bayrağı bağlam boyutunu ayarlar. İhtiyacınız olanın ötesine çıkarmayın &mdash; KV önbelleği bağlamla doğrusal olarak büyür ve <a href="/learn/vrm-vram">VRAM</a>'i hızla tüketir. Desteklendiğinde ek yükü azaltmak için <code>--flash-attn</code> kullanın.
     </p>
 
-    <h2>When to reach past llama.cpp</h2>
+    <h2>llama.cpp'nin ötesine ne zaman geçmeli</h2>
     <p>
-      llama.cpp is unbeatable for single-user inference on commodity hardware, and its server is fine for small
-      internal tools. For high-concurrency production serving with continuous batching and paged attention, switch
-      to vLLM or SGLang. For training or <a href="/learn/fine-tuning">fine-tuning</a>, use PyTorch + transformers or Unsloth &mdash; llama.cpp is an
-      inference engine, not a trainer.
+      llama.cpp, tüketici donanımında tek kullanıcılı çıkarım için rakipsizdir ve sunucusu küçük iç araçlar için yeterlidir. Sürekli toplu işleme ve sayfalı dikkat ile yüksek eşzamanlılık gerektiren üretim sunumu için vLLM veya SGLang'a geçin. Eğitim veya <a href="/learn/fine-tuning">ince ayar</a> için PyTorch + transformers veya Unsloth kullanın &mdash; llama.cpp bir çıkarım motorudur, eğitici değildir.
     </p>
   </>
 );

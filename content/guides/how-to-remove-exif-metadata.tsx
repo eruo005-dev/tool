@@ -3,161 +3,161 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Every photo you take records hidden metadata called EXIF: camera model, shutter speed, ISO, the exact GPS coordinates where the shot was taken, the date and time down to the second, and sometimes the serial number of the device. Most of this is useful for photographers and catastrophic for privacy. Share a phone photo with someone online and you may have shared your home address. Removing EXIF before publishing is a one-click habit that every creator should pick up, and the stripping can be done without touching a single pixel of the image itself. This guide covers what EXIF contains, when to strip it, and when keeping it matters.
+      Çektiğiniz her fotoğraf, EXIF adı verilen gizli meta verileri kaydeder: kamera modeli, enstantane hızı, ISO, çekimin yapıldığı tam GPS koordinatları, saniyesine kadar tarih ve saat ve bazen cihazın seri numarası. Bunların çoğu fotoğrafçılar için kullanışlıdır ve gizlilik için felakettir. Bir telefon fotoğrafını çevrimiçi biriyle paylaştığınızda ev adresinizi de paylaşmış olabilirsiniz. Yayınlamadan önce EXIF'i kaldırmak, her içerik oluşturucunun edinmesi gereken tek tıklamalık bir alışkanlıktır ve bu kaldırma işlemi, görüntünün tek bir pikseline dokunmadan yapılabilir. Bu kılavuz, EXIF'in ne içerdiğini, ne zaman kaldırılması gerektiğini ve ne zaman saklanmasının önemli olduğunu kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What&rsquo;s actually in an EXIF record</h2>
+    <h2>Bir EXIF kaydında gerçekte ne var</h2>
     <p>
-      EXIF (Exchangeable Image File Format) is a standard metadata block attached to JPEG, TIFF, and increasingly WebP/HEIC files. A typical record includes:
+      EXIF (Değiştirilebilir Görüntü Dosyası Biçimi), JPEG, TIFF ve giderek artan şekilde WebP/HEIC dosyalarına eklenen standart bir meta veri bloğudur. Tipik bir kayıt şunları içerir:
     </p>
     <ul>
-      <li><strong>Camera make and model</strong> (e.g. Apple iPhone 15 Pro)</li>
-      <li><strong>Lens make and model</strong>, focal length, aperture</li>
-      <li><strong>Shutter speed, ISO, exposure compensation</strong></li>
-      <li><strong>Date and time of capture</strong>, sometimes with timezone</li>
-      <li><strong>GPS latitude, longitude, and altitude</strong> &mdash; often precise to a few meters</li>
-      <li><strong>Orientation tag</strong> (rotation hint for display)</li>
-      <li><strong>Device serial number</strong> (on some cameras)</li>
-      <li><strong>Artist/owner name</strong> if configured in-camera</li>
-      <li><strong>Software</strong> used to process the file (Lightroom, Photoshop, filter apps)</li>
+      <li><strong>Kamera markası ve modeli</strong> (ör. Apple iPhone 15 Pro)</li>
+      <li><strong>Lens markası ve modeli</strong>, odak uzaklığı, diyafram</li>
+      <li><strong>Enstantane hızı, ISO, poz telafisi</strong></li>
+      <li><strong>Çekim tarihi ve saati</strong>, bazen saat dilimiyle birlikte</li>
+      <li><strong>GPS enlemi, boylamı ve yüksekliği</strong> &mdash; genellikle birkaç metre hassasiyetinde</li>
+      <li><strong>Yönlendirme etiketi</strong> (görüntüleme için döndürme ipucu)</li>
+      <li><strong>Cihaz seri numarası</strong> (bazı kameralarda)</li>
+      <li><strong>Sanatçı/sahip adı</strong> kamerada yapılandırılmışsa</li>
+      <li><strong>Dosyayı işlemek için kullanılan yazılım</strong> (Lightroom, Photoshop, filtre uygulamaları)</li>
     </ul>
 
-    <h2>Why privacy matters here</h2>
+    <h2>Gizliliğin burada neden önemli olduğu</h2>
     <p>
-      GPS coordinates are the big one. A parent posts their kid&rsquo;s first-day-of-school picture; the EXIF says latitude 40.748847, longitude -73.985368, and anyone who reads the metadata now knows the family&rsquo;s home or the child&rsquo;s school. Real-estate scammers, stalkers, and casual creeps all know to check this.
+      GPS koordinatları en büyük sorundur. Bir ebeveyn, çocuğunun okulun ilk günü fotoğrafını yayınlar; EXIF, enlem 40.748847, boylam -73.985368 der ve meta verileri okuyan herkes artık ailenin evini veya çocuğun okulunu bilir. Emlak dolandırıcıları, takipçiler ve sıradan sapıklar bunu kontrol etmeyi bilir.
     </p>
     <p>
-      Timestamps are the second risk. Combined with other public info, an &ldquo;I&rsquo;m working from Paris today&rdquo; post with an EXIF timestamp from 6 hours ago Paris-time verifies someone&rsquo;s location and schedule more precisely than they&rsquo;d like.
+      Zaman damgaları ikinci risktir. Diğer kamuya açık bilgilerle birleştirildiğinde, &ldquo;Bugün Paris'ten çalışıyorum&rdquo; gönderisi ve 6 saat önceki Paris saatiyle bir EXIF zaman damgası, bir kişinin konumunu ve programını istediğinden daha kesin bir şekilde doğrular.
     </p>
 
-    <h2>Which platforms strip EXIF and which don&rsquo;t</h2>
+    <h2>Hangi platformlar EXIF'i kaldırır ve hangileri kaldırmaz</h2>
     <p>
-      Don&rsquo;t rely on platforms to protect you &mdash; behavior varies:
+      Sizi korumaları için platformlara güvenmeyin &mdash; davranışları değişir:
     </p>
     <ul>
-      <li><strong>Instagram, Facebook, Twitter/X, LinkedIn:</strong> strip most EXIF on upload, including GPS.</li>
-      <li><strong>WhatsApp:</strong> strips most EXIF from photos; forwarded &ldquo;document&rdquo; files may not be stripped.</li>
-      <li><strong>Email attachments:</strong> usually untouched.</li>
-      <li><strong>Personal websites and blogs:</strong> untouched unless the CMS explicitly strips.</li>
-      <li><strong>File transfer services (Dropbox, iCloud):</strong> untouched.</li>
-      <li><strong>Image boards and forums:</strong> varies widely.</li>
+      <li><strong>Instagram, Facebook, Twitter/X, LinkedIn:</strong> yükleme sırasında GPS dahil çoğu EXIF'i kaldırır.</li>
+      <li><strong>WhatsApp:</strong> fotoğraflardan çoğu EXIF'i kaldırır; iletilen &ldquo;belge&rdquo; dosyaları kaldırılmayabilir.</li>
+      <li><strong>E-posta ekleri:</strong> genellikle dokunulmaz.</li>
+      <li><strong>Kişisel web siteleri ve bloglar:</strong> CMS açıkça kaldırmadıkça dokunulmaz.</li>
+      <li><strong>Dosya aktarım hizmetleri (Dropbox, iCloud):</strong> dokunulmaz.</li>
+      <li><strong>Görüntü panoları ve forumlar:</strong> büyük ölçüde değişir.</li>
     </ul>
     <p>
-      The safe habit: strip before upload, every time.
+      Güvenli alışkanlık: her seferinde yüklemeden önce kaldırın.
     </p>
 
-    <h2>Lossless stripping</h2>
+    <h2>Kayıpsız kaldırma</h2>
     <p>
-      Removing EXIF does not touch the pixel data. Good tools edit only the metadata blocks; the image itself is byte-identical in its pixel representation, and JPEGs stay at their original compression quality. A file will typically shrink by a few KB (sometimes tens of KB if a full-resolution thumbnail preview is stored).
+      EXIF'i kaldırmak piksel verilerine dokunmaz. İyi araçlar yalnızca meta veri bloklarını düzenler; görüntünün kendisi piksel temsilinde bayt olarak aynıdır ve JPEG'ler orijinal sıkıştırma kalitelerinde kalır. Bir dosya tipik olarak birkaç KB (tam çözünürlüklü bir küçük resim önizlemesi depolanıyorsa bazen onlarca KB) küçülür.
     </p>
     <p>
-      Avoid tools that &ldquo;strip EXIF&rdquo; by re-saving the JPEG, which re-encodes and loses quality. A dedicated EXIF tool should be a metadata-only operation.
-    </p>
-
-    <h2>The Orientation tag trap</h2>
-    <p>
-      When you strip EXIF, the Orientation tag goes with it. If the image was a sideways pixel buffer relying on the tag for upright display, it will now show sideways everywhere. The fix: rotate the pixels physically first, then strip the tag.
-    </p>
-    <p>
-      Good EXIF strippers detect the Orientation tag, bake the rotation into the pixels, then strip. Bad ones strip blindly and leave you with sideways photos.
+      JPEG'i yeniden kaydederek &ldquo;EXIF kaldıran&rdquo; araçlardan kaçının, çünkü bu yeniden kodlama yapar ve kalite kaybına neden olur. Özel bir EXIF aracı, yalnızca meta veri işlemi olmalıdır.
     </p>
 
-    <h2>What else gets stripped</h2>
+    <h2>Yönlendirme etiketi tuzağı</h2>
     <p>
-      Beyond EXIF, photos often carry:
+      EXIF'i kaldırdığınızda, Yönlendirme etiketi de gider. Görüntü, dik görüntüleme için etikete güvenen yanlamasına bir piksel arabelleğiyse, şimdi her yerde yanlamasına görünecektir. Çözüm: önce pikselleri fiziksel olarak döndürün, ardından etiketi kaldırın.
+    </p>
+    <p>
+      İyi EXIF kaldırıcılar, Yönlendirme etiketini algılar, döndürmeyi piksellere işler, ardından kaldırır. Kötü olanlar körü körüne kaldırır ve size yanlamasına fotoğraflar bırakır.
+    </p>
+
+    <h2>Başka neler kaldırılır</h2>
+    <p>
+      EXIF'in ötesinde, fotoğraflar genellikle şunları taşır:
     </p>
     <ul>
-      <li><strong>IPTC</strong> &mdash; caption, keywords, copyright, authorship (popular with news and stock).</li>
-      <li><strong>XMP</strong> &mdash; Adobe&rsquo;s extended metadata (edit history, ratings, keywords).</li>
-      <li><strong>ICC profiles</strong> &mdash; color space description.</li>
-      <li><strong>Thumbnail previews</strong> &mdash; small copies embedded inside the file.</li>
+      <li><strong>IPTC</strong> &mdash; altyazı, anahtar kelimeler, telif hakkı, yazarlık (haber ve stok ile popüler).</li>
+      <li><strong>XMP</strong> &mdash; Adobe'nin genişletilmiş meta verileri (düzenleme geçmişi, derecelendirmeler, anahtar kelimeler).</li>
+      <li><strong>ICC profilleri</strong> &mdash; renk uzayı açıklaması.</li>
+      <li><strong>Küçük resim önizlemeleri</strong> &mdash; dosyanın içine gömülü küçük kopyalar.</li>
     </ul>
     <p>
-      Most strippers clear EXIF, IPTC, and XMP together. Keep the ICC profile unless you know the destination handles missing color info gracefully &mdash; colors can shift visibly if you strip the profile and the viewer assumes sRGB when the source was Adobe RGB.
+      Çoğu kaldırıcı, EXIF, IPTC ve XMP'yi birlikte temizler. Hedefin eksik renk bilgisini zarif bir şekilde işlediğini bilmiyorsanız ICC profilini saklayın &mdash; profili kaldırırsanız ve izleyici kaynak Adobe RGB iken sRGB varsayarsa renkler gözle görülür şekilde kayabilir.
     </p>
 
-    <h2>Batch stripping workflows</h2>
+    <h2>Toplu kaldırma iş akışları</h2>
     <p>
-      For bulk jobs &mdash; entire photo libraries before sharing, all the vacation pics before uploading to cloud storage &mdash; batch strippers process hundreds of files in seconds. Look for:
+      Toplu işler için &mdash; paylaşmadan önce tüm fotoğraf kitaplıkları, bulut depolamaya yüklemeden önce tüm tatil fotoğrafları &mdash; toplu kaldırıcılar saniyeler içinde yüzlerce dosyayı işler. Şunlara bakın:
     </p>
     <ul>
-      <li>Recursive folder support.</li>
-      <li>Filter by type (JPEG only, skip RAW).</li>
-      <li>Keep-originals option (write output to a separate folder).</li>
-      <li>Orientation-safe mode.</li>
-      <li>Selective strip (keep copyright, remove GPS).</li>
+      <li>Özyinelemeli klasör desteği.</li>
+      <li>Türe göre filtrele (yalnızca JPEG, RAW'ı atla).</li>
+      <li>Orijinalleri koruma seçeneği (çıktıyı ayrı bir klasöre yaz).</li>
+      <li>Yönlendirme güvenli modu.</li>
+      <li>Seçici kaldırma (telif hakkını sakla, GPS'i kaldır).</li>
     </ul>
 
-    <h2>When EXIF is useful to keep</h2>
+    <h2>EXIF'in saklanmasının faydalı olduğu durumlar</h2>
     <p>
-      Not every use case demands full stripping:
+      Her kullanım durumu tam kaldırma gerektirmez:
     </p>
     <ul>
-      <li><strong>Professional photography portfolios:</strong> camera, lens, settings are part of the content and interested visitors read them.</li>
-      <li><strong>Photo journalism:</strong> timestamps and sometimes GPS are evidence of when and where a photo was taken.</li>
-      <li><strong>Insurance and legal claims:</strong> capture metadata can matter as proof.</li>
-      <li><strong>Personal photo library organization:</strong> dates and GPS drive map and timeline features.</li>
-      <li><strong>Scientific imagery:</strong> capture parameters are part of the data.</li>
+      <li><strong>Profesyonel fotoğrafçılık portföyleri:</strong> kamera, lens, ayarlar içeriğin bir parçasıdır ve ilgili ziyaretçiler bunları okur.</li>
+      <li><strong>Foto muhabirliği:</strong> zaman damgaları ve bazen GPS, bir fotoğrafın ne zaman ve nerede çekildiğine dair kanıttır.</li>
+      <li><strong>Sigorta ve yasal talepler:</strong> yakalama meta verileri kanıt olarak önemli olabilir.</li>
+      <li><strong>Kişisel fotoğraf kitaplığı organizasyonu:</strong> tarihler ve GPS, harita ve zaman çizelgesi özelliklerini yönlendirir.</li>
+      <li><strong>Bilimsel görüntüler:</strong> yakalama parametreleri verinin bir parçasıdır.</li>
     </ul>
     <p>
-      For these cases, strip only GPS and author fields before public sharing; keep the rest.
+      Bu durumlar için, herkese açık paylaşımdan önce yalnızca GPS ve yazar alanlarını kaldırın; gerisini saklayın.
     </p>
 
-    <h2>Selective stripping</h2>
+    <h2>Seçici kaldırma</h2>
     <p>
-      The safest middle ground is selective stripping: remove GPS and author name, keep everything else. Most advanced EXIF tools offer per-field control.
+      En güvenli orta yol, seçici kaldırmadır: GPS ve yazar adını kaldırın, diğer her şeyi saklayın. Çoğu gelişmiş EXIF aracı, alan bazında kontrol sunar.
     </p>
-    <pre>{`Remove: GPSLatitude, GPSLongitude, GPSAltitude,
+    <pre>{`Kaldır: GPSLatitude, GPSLongitude, GPSAltitude,
         GPSTimeStamp, Artist, OwnerName,
         CameraOwnerName, SerialNumber
-Keep:   Make, Model, ExposureTime, FNumber,
-        ISO, DateTimeOriginal, ICC profile`}</pre>
+Sakla:  Make, Model, ExposureTime, FNumber,
+        ISO, DateTimeOriginal, ICC profili`}</pre>
     <p>
-      This balance keeps the photographic craft visible and the personal data private.
+      Bu denge, fotoğrafçılık becerisini görünür kılar ve kişisel verileri gizli tutar.
     </p>
 
-    <h2>Verify after stripping</h2>
+    <h2>Kaldırmadan sonra doğrulama</h2>
     <p>
-      Don&rsquo;t trust &mdash; verify. After running the strip, open the file in an EXIF viewer and confirm the sensitive fields are actually gone. A tool that claims to strip but leaves a GPS field somewhere is worse than no tool at all because it builds false confidence.
+      Güvenmeyin &mdash; doğrulayın. Kaldırma işlemini çalıştırdıktan sonra, dosyayı bir EXIF görüntüleyicide açın ve hassas alanların gerçekten gittiğini onaylayın. Kaldırdığını iddia eden ancak bir yerde bir GPS alanı bırakan bir araç, yanlış güven oluşturduğu için hiç araç olmamasından daha kötüdür.
     </p>
     <p>
-      Running a file through two different strippers occasionally exposes what one missed. For sensitive content, belt-and-braces is fine.
+      Bir dosyayı iki farklı kaldırıcıdan geçirmek, bazen birinin kaçırdığını ortaya çıkarır. Hassas içerik için, çifte önlem iyidir.
     </p>
 
-    <h2>Operating system quick-strip options</h2>
+    <h2>İşletim sistemi hızlı kaldırma seçenekleri</h2>
     <p>
-      Some operating systems offer basic EXIF stripping without a dedicated tool:
+      Bazı işletim sistemleri, özel bir araç olmadan temel EXIF kaldırma sunar:
     </p>
     <ul>
-      <li><strong>Windows:</strong> right-click a file, Properties, Details tab, &ldquo;Remove Properties and Personal Information.&rdquo; Works on a per-file or whole-folder basis.</li>
-      <li><strong>macOS:</strong> Preview&rsquo;s &ldquo;Export&rdquo; with the &ldquo;Keep metadata&rdquo; checkbox unchecked strips most fields. For GPS specifically, Photos app&rsquo;s &ldquo;Image &gt; Location &gt; Hide Location&rdquo; works before export.</li>
-      <li><strong>iOS:</strong> when sharing, tap &ldquo;Options&rdquo; at the top of the share sheet and toggle off &ldquo;Location.&rdquo;</li>
-      <li><strong>Android:</strong> varies by OEM; Google Photos has a &ldquo;Remove geolocation&rdquo; per-file option.</li>
+      <li><strong>Windows:</strong> bir dosyaya sağ tıklayın, Özellikler, Ayrıntılar sekmesi, &ldquo;Özellikleri ve Kişisel Bilgileri Kaldır.&rdquo; Dosya bazında veya tüm klasör bazında çalışır.</li>
+      <li><strong>macOS:</strong> Preview'ın &ldquo;Dışa Aktar&rdquo; özelliği, &ldquo;Meta verileri sakla&rdquo; onay kutusu işaretli değilken çoğu alanı kaldırır. GPS için özel olarak, Fotoğraflar uygulamasının &ldquo;Görüntü &gt; Konum &gt; Konumu Gizle&rdquo; özelliği dışa aktarmadan önce çalışır.</li>
+      <li><strong>iOS:</strong> paylaşırken, paylaşım sayfasının üst kısmındaki &ldquo;Seçenekler&rdquo;e dokunun ve &ldquo;Konum&rdquo;u kapatın.</li>
+      <li><strong>Android:</strong> OEM'e göre değişir; Google Fotoğraflar'ın dosya bazında &ldquo;Coğrafi konumu kaldır&rdquo; seçeneği vardır.</li>
     </ul>
     <p>
-      These built-ins handle the common cases. Dedicated tools still beat them for batch work and selective stripping.
+      Bu yerleşik özellikler yaygın durumları halleder. Özel araçlar, toplu iş ve seçici kaldırma için hala onları geride bırakır.
     </p>
 
-    <h2>Legal and journalistic considerations</h2>
+    <h2>Yasal ve gazetecilikle ilgili hususlar</h2>
     <p>
-      For journalism, never strip EXIF from evidence photos without a clean copy retained for source verification. The metadata is often the difference between &ldquo;this claim is credible&rdquo; and &ldquo;we can&rsquo;t verify this.&rdquo; Keep originals; publish stripped derivatives.
+      Gazetecilik için, kaynak doğrulaması için saklanan temiz bir kopya olmadan kanıt fotoğraflarından asla EXIF kaldırmayın. Meta veriler genellikle &ldquo;bu iddia güvenilir&rdquo; ile &ldquo;bunu doğrulayamıyoruz&rdquo; arasındaki farktır. Orijinalleri saklayın; kaldırılmış türevleri yayınlayın.
     </p>
     <p>
-      For legal discovery, metadata is part of the document and stripping it can itself be an issue. Consult counsel before bulk stripping anything related to litigation.
-    </p>
-
-    <h2>Common mistakes</h2>
-    <p>
-      Stripping EXIF with a tool that re-encodes the JPEG, silently losing quality. Stripping without baking orientation and ending up with sideways photos. Trusting a social platform to strip when it strips some fields but not all. Forgetting that the strip only applies to the current file &mdash; if you share the original HEIC from your phone later, you&rsquo;re back to square one. And the subtle one: some privacy-conscious users strip EXIF but leave the filename &ldquo;IMG_20250810_142355.jpg&rdquo;, which still leaks the capture date. Rename files too for full hygiene.
+      Yasal keşif için, meta veriler belgenin bir parçasıdır ve bunu kaldırmak başlı başına bir sorun olabilir. Dava ile ilgili herhangi bir şeyi toplu olarak kaldırmadan önce avukata danışın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Our <a href="/tools/exif-remover">EXIF remover</a> performs a lossless metadata strip, bakes orientation safely, and offers selective-keep for fields that are legitimately useful. To confirm the result, the <a href="/tools/exif-viewer">EXIF viewer</a> shows exactly what&rsquo;s in any file. And for a privacy pass that also reduces file size, run stripped files through the <a href="/tools/image-compressor">image compressor</a> afterwards.
+      JPEG'i yeniden kodlayan, sessizce kalite kaybına neden olan bir araçla EXIF kaldırmak. Yönlendirmeyi işlemeden kaldırma yapmak ve yanlamasına fotoğraflarla sonuçlanmak. Bazı alanları kaldırırken bazılarını kaldırmayan bir sosyal platforma güvenmek. Kaldırmanın yalnızca geçerli dosya için geçerli olduğunu unutmak &mdash; daha sonra telefonunuzdan orijinal HEIC'i paylaşırsanız, başa dönersiniz. Ve ince olanı: bazı gizlilik bilincine sahip kullanıcılar EXIF'i kaldırır ancak &ldquo;IMG_20250810_142355.jpg&rdquo; dosya adını bırakır, bu da çekim tarihini sızdırır. Tam hijyen için dosyaları da yeniden adlandırın.
+    </p>
+
+    <h2>Rakamları çalıştırın</h2>
+    <p>
+      <a href="/tools/exif-remover">EXIF kaldırıcımız</a>, kayıpsız bir meta veri kaldırma işlemi gerçekleştirir, yönlendirmeyi güvenli bir şekilde işler ve meşru olarak kullanışlı alanlar için seçici saklama sunar. Sonucu onaylamak için <a href="/tools/exif-viewer">EXIF görüntüleyici</a>, herhangi bir dosyada tam olarak ne olduğunu gösterir. Ve dosya boyutunu da azaltan bir gizlilik geçişi için, kaldırılmış dosyaları daha sonra <a href="/tools/image-compressor">görüntü sıkıştırıcıdan</a> geçirin.
     </p>
   </>
 );

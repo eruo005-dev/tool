@@ -3,249 +3,234 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Password strength meters often lie. &ldquo;Tr0ub4dor&amp;3&rdquo;
-      scores &ldquo;strong&rdquo; on most meters but takes hours to
-      crack; &ldquo;correct horse battery staple&rdquo; scores weak
-      but takes centuries. Strength is about entropy and resistance
-      to known attacks, not about symbol mixing. This guide covers
-      what password strength actually measures, the meters that get
-      it right (zxcvbn) vs the ones that get it wrong (rule-based),
-      how length beats complexity, why breach-checked matters more
-      than &ldquo;strong,&rdquo; and practical guidance on building
-      passwords that resist real-world attack patterns.
+      Şifre gücü ölçerler genellikle yalan söyler. &ldquo;Tr0ub4dor&amp;3&rdquo;
+      çoğu ölçerde &ldquo;güçlü&rdquo; puanı alır ancak kırılması saatler sürer;
+      &ldquo;correct horse battery staple&rdquo; zayıf puan alır ancak kırılması yüzyıllar
+      sürer. Güç, sembol karışımıyla değil, entropi ve bilinen saldırılara karşı
+      dirençle ilgilidir. Bu kılavuz, şifre gücünün gerçekte neyi ölçtüğünü,
+      doğru ölçen (zxcvbn) ve yanlış ölçen (kural tabanlı) ölçerleri, uzunluğun
+      karmaşıklığı nasıl yendiğini, ihlal kontrolünün neden &ldquo;güçlü&rdquo;
+      olmaktan daha önemli olduğunu ve gerçek dünya saldırı desenlerine direnen
+      şifreler oluşturmak için pratik rehberliği kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What strength meters try to measure</h2>
+    <h2>Güç ölçerlerin ölçmeye çalıştığı şey</h2>
     <p>
-      Password strength = how long it takes an attacker to crack it
-      with current hardware and methods. Measured in{" "}
-      <strong>guesses</strong> (before a crack is likely) or
-      equivalent <strong>bits of entropy</strong>.
+      Şifre gücü = bir saldırganın mevcut donanım ve yöntemlerle onu kırması
+      için gereken süre. <strong>Tahmin</strong> (kırılma olasılığından önce)
+      veya eşdeğer <strong>entropi biti</strong> cinsinden ölçülür.
     </p>
     <p>
-      Three common methods, in decreasing order of badness:
+      Kötülük sırasına göre azalan üç yaygın yöntem:
     </p>
     <p>
-      <strong>Rule-based:</strong> &ldquo;must have uppercase, digit,
-      symbol.&rdquo; Scores <code>Password1!</code> as strong.
-      Terrible. This is what most corporate policies use.
+      <strong>Kural tabanlı:</strong> &ldquo;büyük harf, rakam, sembol içermelidir.&rdquo;
+      <code>Password1!</code> kodunu güçlü olarak puanlar. Berbat. Çoğu kurumsal
+      politika bunu kullanır.
     </p>
     <p>
-      <strong>Shannon entropy on character classes:</strong>{" "}
-      8-char password with 72 symbols ≈ 49 bits. Ignores dictionary
-      words. Slightly better but still fooled by common patterns.
+      <strong>Karakter sınıfları üzerinden Shannon entropisi:</strong>{" "}
+      72 sembolden 8 karakter ≈ 49 bit. Sözlük kelimelerini yok sayar.
+      Biraz daha iyidir ancak yine de yaygın desenler tarafından kandırılır.
     </p>
     <p>
-      <strong>Attack-simulation (zxcvbn):</strong> models actual
-      cracking — dictionary attacks, leet substitutions, keyboard
-      patterns, dates, common names. Scores log₁₀(guesses) 0-4.
-      Realistic and widely used.
+      <strong>Saldırı simülasyonu (zxcvbn):</strong> gerçek kırma işlemini
+      modeller — sözlük saldırıları, leet ikameleri, klavye desenleri, tarihler,
+      yaygın isimler. log₁₀(tahmin) 0-4 puanlar. Gerçekçi ve yaygın olarak kullanılır.
     </p>
 
-    <h2>The rule-based meter problem</h2>
+    <h2>Kural tabanlı ölçer sorunu</h2>
     <p>
-      The rules &ldquo;uppercase + digit + symbol + 8 chars&rdquo;
-      came from a 2003 NIST doc. NIST retracted that guidance in
-      2017, but corporate IT kept it.
+      &ldquo;Büyük harf + rakam + sembol + 8 karakter&rdquo; kuralları
+      2003 tarihli bir NIST belgesinden gelir. NIST bu kılavuzu 2017'de geri
+      çekti, ancak kurumsal BT bunu korudu.
     </p>
     <p>
-      <strong>The rules push users toward predictable patterns:</strong>
-      {" "}capitalize first letter (<code>Password</code>), append a
-      digit (<code>Password1</code>), add a symbol (<code>Password1!</code>).
-      Attackers know. They try those permutations first.
+      <strong>Kurallar kullanıcıları tahmin edilebilir desenlere iter:</strong>
+      {" "}ilk harfi büyük yap (<code>Password</code>), bir rakam ekle
+      (<code>Password1</code>), bir sembol ekle (<code>Password1!</code>).
+      Saldırganlar bunu bilir. Önce bu permütasyonları denerler.
     </p>
     <p>
-      <strong>Modern NIST SP 800-63B guidance:</strong> length over
-      complexity. Allow all ASCII and Unicode. Don&rsquo;t force
-      periodic rotation. Check against breach lists. Check against
-      dictionaries.
-    </p>
-
-    <h2>Length beats complexity</h2>
-    <p>
-      A 12-char password from a 26-letter alphabet has 26¹² ≈ 9.5 ×
-      10¹⁶ combinations. A 16-char password from a 26-letter alphabet
-      has 26¹⁶ ≈ 4.3 × 10²². Four extra lowercase characters add
-      more entropy than adding uppercase and digits.
-    </p>
-    <p>
-      Practical implication: passphrases of 4-6 random words beat
-      &ldquo;strong&rdquo; 8-char passwords both in security and
-      memorability.
-    </p>
-    <p>
-      <strong>Example passphrases:</strong>{" "}
-      &ldquo;correct horse battery staple&rdquo; (~44 bits);{" "}
-      &ldquo;marine peach rocket helm panda&rdquo; (~55 bits).{" "}
-      Both easier to remember than &ldquo;X#9qLmp4&rdquo; and
-      vastly stronger.
+      <strong>Modern NIST SP 800-63B kılavuzu:</strong> karmaşıklık yerine
+      uzunluk. Tüm ASCII ve Unicode'a izin ver. Periyodik rotasyonu zorlama.
+      İhlal listelerine karşı kontrol et. Sözlüklere karşı kontrol et.
     </p>
 
-    <h2>zxcvbn — the right meter</h2>
+    <h2>Uzunluk karmaşıklığı yener</h2>
     <p>
-      <strong>Dropbox&rsquo;s zxcvbn</strong> simulates cracker
-      logic:
+      26 harfli bir alfabeden 12 karakterli bir şifrenin 26¹² ≈ 9.5 × 10¹⁶
+      kombinasyonu vardır. 26 harfli bir alfabeden 16 karakterli bir şifrenin
+      26¹⁶ ≈ 4.3 × 10²² kombinasyonu vardır. Dört ekstra küçük harf karakteri,
+      büyük harf ve rakam eklemekten daha fazla entropi ekler.
     </p>
     <p>
-      Checks 30,000+ most common passwords.
+      Pratik çıkarım: 4-6 rastgele kelimeden oluşan parolalar, hem güvenlik
+      hem de akılda kalıcılık açısından &ldquo;güçlü&rdquo; 8 karakterli şifreleri
+      yener.
     </p>
     <p>
-      Checks dictionary words (including inverted,{" "}
+      <strong>Örnek parolalar:</strong>{" "}
+      &ldquo;correct horse battery staple&rdquo; (~44 bit);{" "}
+      &ldquo;marine peach rocket helm panda&rdquo; (~55 bit).{" "}
+      Her ikisi de hatırlaması daha kolay ve &ldquo;X#9qLmp4&rdquo;den çok daha güçlüdür.
+    </p>
+
+    <h2>zxcvbn — doğru ölçer</h2>
+    <p>
+      <strong>Dropbox'ın zxcvbn</strong> kırma mantığını simüle eder:
+    </p>
+    <p>
+      30.000+ en yaygın şifreyi kontrol eder.
+    </p>
+    <p>
+      Sözlük kelimelerini kontrol eder (ters çevrilmiş dahil,{" "}
       <code>password</code> → <code>drowssap</code>).
     </p>
     <p>
-      Leet substitutions: <code>p@ssw0rd</code> is scored like{" "}
-      <code>password</code>.
+      Leet ikameleri: <code>p@ssw0rd</code>, <code>password</code> gibi puan alır.
     </p>
     <p>
-      Keyboard patterns: <code>qwerty</code>, <code>asdfgh</code>,{" "}
+      Klavye desenleri: <code>qwerty</code>, <code>asdfgh</code>,{" "}
       <code>1qaz2wsx</code>.
     </p>
     <p>
-      Repeats/sequences: <code>aaaa</code>, <code>1234</code>,{" "}
+      Tekrarlar/diziler: <code>aaaa</code>, <code>1234</code>,{" "}
       <code>abcde</code>.
     </p>
     <p>
-      Dates: <code>1987</code>, <code>01011990</code>.
+      Tarihler: <code>1987</code>, <code>01011990</code>.
     </p>
     <p>
-      Outputs a score 0-4 and an estimate of guesses needed. 4 ≈
-      &ldquo;safe from offline slow-hash crack with 10 years
-      effort&rdquo;. 3 ≈ &ldquo;safe from offline fast-hash&rdquo;.
-      2 ≈ &ldquo;safe from online throttled&rdquo;. 0-1 ≈ crack
-      within minutes.
-    </p>
-
-    <h2>Breach exposure &gt; theoretical strength</h2>
-    <p>
-      The strongest-looking password loses all value if it&rsquo;s
-      in a breach. <code>Hg7$sKq3Mpx9</code> looks strong but if
-      it&rsquo;s in a leaked dump, attackers try it first in
-      credential stuffing.
-    </p>
-    <p>
-      <strong>Strength check + breach check together:</strong>
-    </p>
-    <p>
-      <strong>Strength check:</strong> theoretical difficulty for
-      an attacker who doesn&rsquo;t have the password yet.
-    </p>
-    <p>
-      <strong>Breach check:</strong> whether the password is already
-      known to attackers.
-    </p>
-    <p>
-      Use both. Breach-clean + zxcvbn 3+ is a reasonable bar.
+      0-4 arası bir puan ve gereken tahmin sayısı tahmini çıktılar. 4 ≈
+      &ldquo;10 yıllık çabayla çevrimdışı yavaş hash kırmadan güvenli&rdquo;.
+      3 ≈ &ldquo;çevrimdışı hızlı hashten güvenli&rdquo;.
+      2 ≈ &ldquo;çevrimiçi kısıtlanmıştan güvenli&rdquo;. 0-1 ≈ dakikalar içinde kırılır.
     </p>
 
-    <h2>Attack models matter</h2>
+    <h2>İhlal maruziyeti &gt; teorik güç</h2>
     <p>
-      Strength depends on how an attacker can try passwords:
+      En güçlü görünen şifre, bir ihlalde görünürse tüm değerini kaybeder.
+      <code>Hg7$sKq3Mpx9</code> güçlü görünür ancak sızdırılmış bir dökümdeyse,
+      saldırganlar kimlik bilgisi doldurmada önce onu dener.
     </p>
     <p>
-      <strong>Online throttled:</strong> login form with rate
-      limits. ~10 guesses/second max. Even weak passwords survive
-      short attacks.
+      <strong>Güç kontrolü + ihlal kontrolü birlikte:</strong>
     </p>
     <p>
-      <strong>Online unthrottled:</strong> login form without
-      limits. 100-1000 guesses/second. Weak passwords fall fast.
+      <strong>Güç kontrolü:</strong> şifreyi henüz bilmeyen bir saldırgan için
+      teorik zorluk.
     </p>
     <p>
-      <strong>Offline fast hash (MD5/SHA-1):</strong> password hash
-      was leaked. Billion guesses/second on GPU. 8-char random
-      passwords fall in hours.
+      <strong>İhlal kontrolü:</strong> şifrenin saldırganlar tarafından zaten
+      bilinip bilinmediği.
     </p>
     <p>
-      <strong>Offline slow hash (bcrypt/argon2):</strong> password
-      hash was leaked but the hash algorithm is deliberately slow.
-      Thousands of guesses/second. 12+ char random passwords hold.
-    </p>
-    <p>
-      Design for the worst case: offline fast hash. If your password
-      would crack there, it&rsquo;s too weak.
+      İkisini de kullanın. İhlal temiz + zxcvbn 3+ makul bir eşiktir.
     </p>
 
-    <h2>What strength doesn&rsquo;t protect against</h2>
+    <h2>Saldırı modelleri önemlidir</h2>
     <p>
-      <strong>Phishing:</strong> a strong password given to a fake
-      site is a weak password. No strength helps here — MFA does.
+      Güç, bir saldırganın şifreleri nasıl deneyebileceğine bağlıdır:
     </p>
     <p>
-      <strong>Keyloggers:</strong> strength irrelevant if the
-      attacker captures keystrokes.
+      <strong>Çevrimiçi kısıtlanmış:</strong> hız sınırlamalı giriş formu.
+      Maksimum ~10 tahmin/saniye. Zayıf şifreler bile kısa saldırılara dayanır.
     </p>
     <p>
-      <strong>Password manager breach:</strong> your vault contains
-      all strong passwords. If the vault is cracked, every password
-      leaks. Use a strong master + MFA.
+      <strong>Çevrimiçi kısıtlanmamış:</strong> sınırlamasız giriş formu.
+      100-1000 tahmin/saniye. Zayıf şifreler hızla düşer.
     </p>
     <p>
-      <strong>Session stealing:</strong> cookies grant access
-      post-login. Strength doesn&rsquo;t help.
+      <strong>Çevrimdışı hızlı hash (MD5/SHA-1):</strong> şifre hash'i sızdırıldı.
+      GPU'da milyar tahmin/saniye. 8 karakterli rastgele şifreler saatler içinde düşer.
     </p>
     <p>
-      Strong passwords matter. They&rsquo;re not the whole story.
-    </p>
-
-    <h2>Good passwords by use case</h2>
-    <p>
-      <strong>Master password for a password manager:</strong> 5+
-      random words, memorable. Write it down somewhere physically
-      safe. This is the one password you cannot forget.
+      <strong>Çevrimdışı yavaş hash (bcrypt/argon2):</strong> şifre hash'i sızdırıldı
+      ancak hash algoritması kasıtlı olarak yavaş. Binlerce tahmin/saniye.
+      12+ karakterli rastgele şifreler hayatta kalır.
     </p>
     <p>
-      <strong>Per-service passwords:</strong> generated by your
-      password manager, 16+ random characters. You don&rsquo;t
-      memorize these.
-    </p>
-    <p>
-      <strong>Offline / accounts without a manager:</strong> 4-word
-      passphrase with a digit and symbol inserted — still
-      memorable, still strong.
+      En kötü durum için tasarlayın: çevrimdışı hızlı hash. Şifreniz orada
+      kırılırsa, çok zayıftır.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Gücün korumadığı şeyler</h2>
     <p>
-      <strong>Trusting rule-based meters.</strong> &ldquo;Strong&rdquo;
-      in the meter often means &ldquo;crackable in under an hour&rdquo;.
+      <strong>Oltalama:</strong> sahte bir siteye verilen güçlü bir şifre,
+      zayıf bir şifredir. Hiçbir güç burada yardımcı olmaz — MFA yardımcı olur.
     </p>
     <p>
-      <strong>Optimizing for theoretical entropy while reusing.</strong>
-      {" "}Even the strongest password is weak if shared across
-      services.
+      <strong>Keylogger'lar:</strong> saldırgan tuş vuruşlarını yakalarsa, güç
+      önemsizdir.
     </p>
     <p>
-      <strong>Using personal info.</strong> Pet names, birthdays,
-      addresses all in public data. Crackers know.
+      <strong>Şifre yöneticisi ihlali:</strong> kasanız tüm güçlü şifreleri
+      içerir. Kasa kırılırsa, her şifre sızar. Güçlü bir ana şifre + MFA kullanın.
     </p>
     <p>
-      <strong>Rotating passwords on a schedule.</strong> Without
-      cause, rotation pushes users toward predictable variants.
-      NIST now recommends rotating only after compromise.
+      <strong>Oturum hırsızlığı:</strong> çerezler girişten sonra erişim sağlar.
+      Güç yardımcı olmaz.
     </p>
     <p>
-      <strong>Ignoring length.</strong> An 8-char &ldquo;strong&rdquo;
-      password is weaker than a 16-char all-lowercase phrase.
-    </p>
-    <p>
-      <strong>Checking strength but not breach exposure.</strong>
-      {" "}&ldquo;Strong&rdquo; in a breach is still compromised.
+      Güçlü şifreler önemlidir. Ancak hikayenin tamamı değildir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Kullanım durumuna göre iyi şifreler</h2>
     <p>
-      Measure the real strength of your password with the{" "}
-      <a href="/tools/password-strength-checker">password strength checker</a>.
-      Pair with the{" "}
-      <a href="/tools/password-breach-checker">password breach checker</a>
-      {" "}for exposure, and the{" "}
-      <a href="/tools/password-generator">password generator</a> to
-      create unique strong replacements.
+      <strong>Şifre yöneticisi için ana şifre:</strong> 5+ rastgele kelime,
+      akılda kalıcı. Fiziksel olarak güvenli bir yere yazın. Bu unutamayacağınız
+      tek şifredir.
+    </p>
+    <p>
+      <strong>Hizmet başına şifreler:</strong> şifre yöneticiniz tarafından
+      oluşturulur, 16+ rastgele karakter. Bunları ezberlemezsiniz.
+    </p>
+    <p>
+      <strong>Çevrimdışı / yöneticisiz hesaplar:</strong> içine bir rakam ve
+      sembol eklenmiş 4 kelimelik parola — hala akılda kalıcı, hala güçlü.
+    </p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>
+      <strong>Kural tabanlı ölçerlere güvenmek.</strong> Ölçerde &ldquo;Güçlü&rdquo;
+      genellikle &ldquo;bir saatten kısa sürede kırılabilir&rdquo; anlamına gelir.
+    </p>
+    <p>
+      <strong>Teorik entropiyi optimize ederken şifreleri yeniden kullanmak.</strong>
+      {" "}En güçlü şifre bile hizmetler arasında paylaşılırsa zayıftır.
+    </p>
+    <p>
+      <strong>Kişisel bilgileri kullanmak.</strong> Evcil hayvan isimleri,
+      doğum günleri, adresler kamu verilerinde görünür. Kırıcılar bilir.
+    </p>
+    <p>
+      <strong>Şifreleri bir programa göre döndürmek.</strong> Sebepsiz rotasyon
+      kullanıcıları tahmin edilebilir varyantlara iter. NIST artık rotasyonu
+      yalnızca bir ihlalden sonra önermektedir.
+    </p>
+    <p>
+      <strong>Uzunluğu yok saymak.</strong> 8 karakterli &ldquo;güçlü&rdquo;
+      bir şifre, 16 karakterli tamamen küçük harfli bir ifadeden daha zayıftır.
+    </p>
+    <p>
+      <strong>Gücü kontrol edip ihlal maruziyetini kontrol etmemek.</strong>
+      {" "}Bir ihlaldeki &ldquo;güçlü&rdquo; bir şifre hala tehlikeye atılmıştır.
+    </p>
+
+    <h2>Sayıları hesaplayın</h2>
+    <p>
+      Şifrenizin gerçek gücünü{" "}
+      <a href="/tools/password-strength-checker">şifre gücü denetleyicisi</a>
+      ile ölçün. Maruziyet için{" "}
+      <a href="/tools/password-breach-checker">şifre ihlal denetleyicisi</a>
+      {" "}ve benzersiz güçlü yedekler oluşturmak için{" "}
+      <a href="/tools/password-generator">şifre oluşturucu</a>
+      ile birlikte kullanın.
     </p>
   </>
 );

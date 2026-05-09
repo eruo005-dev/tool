@@ -3,42 +3,29 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Dedup looks like the simplest text operation in the world: remove
-      lines that appear more than once. In reality &ldquo;duplicate&rdquo;
-      is a spectrum. Is leading whitespace significant? Does case matter?
-      Should the first occurrence win, or the last? Do trailing spaces
-      make two lines different or the same? And what about a file
-      that&rsquo;s 10 GB and won&rsquo;t fit in memory? The right answer
-      depends entirely on what you&rsquo;re cleaning &mdash; email lists,
-      log files, source code, shopping lists &mdash; and picking the
-      wrong one can silently discard data you needed. This guide walks
-      through every dedup decision and the patterns that handle each.
+      Dedup, dünyadaki en basit metin işlemi gibi görünür: birden fazla kez geçen satırları kaldırmak. Gerçekte &ldquo;yinelenen&rdquo; bir spektrumdur. Baştaki boşluk anlamlı mı? Büyük/küçük harf fark eder mi? İlk geçen mi kazanmalı, yoksa sonuncu mu? Sondaki boşluklar iki satırı farklı mı yoksa aynı mı yapar? Peki ya belleğe sığmayacak 10 GB'lık bir dosya? Doğru cevap tamamen neyi temizlediğinize bağlıdır &mdash; e-posta listeleri, günlük dosyaları, kaynak kodu, alışveriş listeleri &mdash; ve yanlış olanı seçmek, ihtiyacınız olan veriyi sessizce atabilir. Bu kılavuz, her dedup kararını ve her birini ele alan kalıpları adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Exact vs normalized dedup</h2>
+    <h2>Tam vs normalleştirilmiş dedup</h2>
     <p>
-      Exact dedup compares bytes. Normalized dedup compares after a
-      transformation &mdash; lowercase, trim, collapse whitespace, etc.
-      Real-world lists almost always need some normalization, because
-      real-world sources have inconsistent formatting.
+      Tam dedup, baytları karşılaştırır. Normalleştirilmiş dedup, bir dönüşümden sonra karşılaştırma yapar &mdash; küçük harf, kırpma, boşlukları daraltma vb. Gerçek dünya listeleri neredeyse her zaman bir miktar normalleştirme gerektirir, çünkü gerçek dünya kaynakları tutarsız biçimlendirmeye sahiptir.
     </p>
-    <pre>{`inputs:
+    <pre>{`girdiler:
   "user@example.com"
   "User@Example.com"
   "  user@example.com  "
   "user@example.com\\r"
 
-exact dedup:       4 lines (all different)
-normalized dedup:  1 line`}</pre>
+tam dedup:       4 satır (hepsi farklı)
+normalleştirilmiş dedup:  1 satır`}</pre>
 
-    <h2>Case-insensitive dedup</h2>
+    <h2>Büyük/küçük harf duyarsız dedup</h2>
     <p>
-      Common for emails, usernames, domains. Build a key by lowercasing,
-      keep the original for output:
+      E-postalar, kullanıcı adları, alan adları için yaygındır. Küçük harfe çevirerek bir anahtar oluşturun, çıktı için orijinali koruyun:
     </p>
     <pre>{`const seen = new Set();
 const result = [];
@@ -46,49 +33,44 @@ for (const line of lines) {
   const key = line.toLowerCase();
   if (!seen.has(key)) {
     seen.add(key);
-    result.push(line);   // preserve original case
+    result.push(line);   // orijinal büyük/küçük harfi koru
   }
 }`}</pre>
 
-    <h2>Trimmed comparison</h2>
+    <h2>Kırpılmış karşılaştırma</h2>
     <p>
-      Leading and trailing whitespace silently differentiates identical
-      content. Trim for the comparison, keep whichever version you
-      prefer for output:
+      Baştaki ve sondaki boşluklar, aynı içeriği sessizce farklılaştırır. Karşılaştırma için kırpın, çıktı için hangi sürümü tercih ederseniz onu koruyun:
     </p>
     <pre>{`const key = line.trim();`}</pre>
     <p>
-      For really aggressive matching, also collapse internal whitespace:
+      Gerçekten agresif eşleştirme için, iç boşlukları da daraltın:
     </p>
     <pre>{`const key = line.replace(/\\s+/g, " ").trim();`}</pre>
 
-    <h2>Preserve-first vs preserve-last</h2>
+    <h2>İlkini koru vs sonuncuyu koru</h2>
     <p>
-      When two lines match, which copy do you keep? Default is
-      preserve-first: walk the list, skip anything you&rsquo;ve seen.
-      Preserve-last requires a second pass:
+      İki satır eşleştiğinde, hangi kopyayı saklarsınız? Varsayılan ilkini korumadır: listeyi dolaşın, gördüğünüz her şeyi atlayın. Sonuncuyu korumak ikinci bir geçiş gerektirir:
     </p>
-    <pre>{`// preserve-last: keep the LATER occurrence
+    <pre>{`// sonuncuyu koru: DAHA SONRAKİ geçeni sakla
 const map = new Map();
 lines.forEach((line, i) =&gt; map.set(keyOf(line), { line, i }));
 const result = [...map.values()]
   .sort((a, b) =&gt; a.i - b.i)
   .map(x =&gt; x.line);`}</pre>
     <p>
-      Preserve-first is right for logs (earliest record matters).
-      Preserve-last is right for change feeds (last state wins).
+      İlkini korumak günlükler için doğrudur (en erken kayıt önemlidir). Sonuncuyu korumak değişiklik akışları için doğrudur (son durum kazanır).
     </p>
 
-    <h2>Unique vs all-duplicates</h2>
+    <h2>Benzersiz vs tüm yinelenenler</h2>
     <p>
-      Three possible outputs for a deduplication job:
+      Bir yineleme kaldırma işi için üç olası çıktı:
     </p>
     <ul>
-      <li><strong>Unique</strong> &mdash; each distinct line once</li>
-      <li><strong>First-occurrence only</strong> &mdash; preserves order</li>
-      <li><strong>Only duplicates</strong> &mdash; lines that appeared more than once (opposite direction)</li>
+      <li><strong>Benzersiz</strong> &mdash; her farklı satır bir kez</li>
+      <li><strong>Yalnızca ilk geçen</strong> &mdash; sırayı korur</li>
+      <li><strong>Yalnızca yinelenenler</strong> &mdash; birden fazla kez geçen satırlar (ters yön)</li>
     </ul>
-    <pre>{`// lines that appeared &gt; 1 time
+    <pre>{`// &gt; 1 kez geçen satırlar
 const counts = new Map();
 for (const line of lines) {
   counts.set(line, (counts.get(line) || 0) + 1);
@@ -99,50 +81,41 @@ const dupes = [...counts.entries()]
 
     <h2>Unix: sort | uniq</h2>
     <p>
-      The classic one-liner. But note: <code>uniq</code> only dedups
-      <em>consecutive</em> duplicates, which is why you sort first.
+      Klasik tek satırlık. Ancak not: <code>uniq</code> yalnızca <em>ardışık</em> yinelenenleri kaldırır, bu yüzden önce sıralarsınız.
     </p>
     <pre>{`sort input.txt | uniq &gt; output.txt
 
-sort -f input.txt | uniq -i &gt; output.txt   # case-insensitive
-sort input.txt | uniq -c &gt; counts.txt      # with counts
-sort input.txt | uniq -d &gt; dupes.txt       # only duplicates`}</pre>
+sort -f input.txt | uniq -i &gt; output.txt   # büyük/küçük harf duyarsız
+sort input.txt | uniq -c &gt; counts.txt      # sayılarla birlikte
+sort input.txt | uniq -d &gt; dupes.txt       # yalnızca yinelenenler`}</pre>
 
-    <h2>Preserving order with awk</h2>
+    <h2>awk ile sırayı korumak</h2>
     <p>
-      Sorting destroys order. <code>awk</code> dedups while preserving
-      the original sequence:
+      Sıralama, düzeni bozar. <code>awk</code>, orijinal sırayı koruyarak yineleme kaldırır:
     </p>
     <pre>{`awk '!seen[$0]++' input.txt &gt; output.txt`}</pre>
     <p>
-      The trick: <code>seen[$0]++</code> is 0 on first occurrence (falsy,
-      so <code>!</code> = true, print), and &ge; 1 thereafter (truthy, so
-      <code>!</code> = false, skip).
+      Püf noktası: <code>seen[$0]++</code> ilk geçişte 0'dır (yanlış, yani <code>!</code> = doğru, yazdır) ve sonrasında &ge; 1 (doğru, yani <code>!</code> = yanlış, atla).
     </p>
 
-    <h2>Large files: <a href="/learn/stream">streaming</a> dedup</h2>
+    <h2>Büyük dosyalar: <a href="/learn/stream">akış</a> dedup</h2>
     <p>
-      In-memory <code>Set</code> is O(N) space. For files bigger than
-      RAM, you have two options:
+      Bellek içi <code>Set</code> O(N) alan gerektirir. RAM'den büyük dosyalar için iki seçeneğiniz var:
     </p>
     <ul>
       <li>
-        External sort + uniq &mdash; disk-based, works for any size,
-        O(N log N) time
+        Harici sıralama + uniq &mdash; disk tabanlı, her boyut için çalışır, O(N log N) zaman
       </li>
       <li>
-        Bloom filter &mdash; constant space, probabilistic, may miss
-        rare duplicates or treat uniques as duplicates
+        Bloom filtresi &mdash; sabit alan, olasılıksal, nadir yinelenenleri kaçırabilir veya benzersizleri yinelenen olarak değerlendirebilir
       </li>
     </ul>
-    <pre>{`# GNU sort spills to disk automatically
+    <pre>{`# GNU sort otomatik olarak diske taşar
 sort -u --parallel=4 -S 2G -T /tmp huge.txt &gt; dedup.txt`}</pre>
 
-    <h2>Hash-based keys for long lines</h2>
+    <h2>Uzun satırlar için hash tabanlı anahtarlar</h2>
     <p>
-      If lines are very long (&gt;1&nbsp;KB each) and you have millions
-      of them, storing full lines in a <code>Set</code> wastes memory.
-      Store a hash instead:
+      Satırlar çok uzunsa (&gt;1&nbsp;KB her biri) ve milyonlarcası varsa, tam satırları bir <code>Set</code> içinde saklamak bellek israfıdır. Bunun yerine bir hash saklayın:
     </p>
     <pre>{`import crypto from "crypto";
 const seen = new Set();
@@ -151,31 +124,26 @@ for (const line of lines) {
   if (!seen.has(h)) { seen.add(h); out.push(line); }
 }`}</pre>
     <p>
-      SHA-1 collisions on human text are vanishingly rare. For
-      adversarial input, use SHA-256.
+      İnsan metninde SHA-1 çakışmaları yok denecek kadar nadirdir. Düşmanca girdiler için SHA-256 kullanın.
     </p>
 
-    <h2>Dedup with count column</h2>
+    <h2>Sayı sütunu ile dedup</h2>
     <p>
-      Sometimes you want the deduplicated list <em>with</em> how many
-      times each appeared. Useful for frequency analysis:
+      Bazen yinelenen kaldırılmış listeyi <em>her birinin kaç kez geçtiğiyle</em> birlikte istersiniz. Frekans analizi için kullanışlıdır:
     </p>
     <pre>{`sort input.txt | uniq -c | sort -rn | head -20`}</pre>
     <p>
-      The <code>-c</code> flag prefixes counts; <code>sort -rn</code>
-      puts highest first.
+      <code>-c</code> bayrağı sayıları öne ekler; <code>sort -rn</code> en yüksekleri başa koyar.
     </p>
 
-    <h2>CSV dedup by key column</h2>
+    <h2>Anahtar sütuna göre CSV dedup</h2>
     <p>
-      For tabular data, &ldquo;duplicate&rdquo; usually means &ldquo;same
-      value in the key column,&rdquo; not full-row match. Use a CSV-aware
-      tool:
+      Tablo verileri için &ldquo;yinelenen&rdquo; genellikle &ldquo;anahtar sütunda aynı değer&rdquo; anlamına gelir, tam satır eşleşmesi değil. CSV uyumlu bir araç kullanın:
     </p>
     <pre>{`# csvkit
-csvsort -c email input.csv | uniq -f2   # approximate
+csvsort -c email input.csv | uniq -f2   # yaklaşık
 
-# or better: load into a script and dedup by column
+# veya daha iyisi: bir betiğe yükleyin ve sütuna göre yineleme kaldırın
 import csv
 seen = set()
 with open("in.csv") as f, open("out.csv", "w") as g:
@@ -187,22 +155,16 @@ with open("in.csv") as f, open("out.csv", "w") as g:
             seen.add(row["email"].lower())
             w.writerow(row)`}</pre>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Assuming <code>uniq</code> dedups without sorting first. Comparing
-      raw lines without trimming and getting 80% &ldquo;duplicate&rdquo;
-      survivors that are actually just whitespace variants. Losing order
-      when order mattered. Discarding the wrong copy (first vs last) for
-      the problem. Running in-memory dedup on a 20&nbsp;GB file and
-      crashing. And dedup&rsquo;ing on full rows when only one column
-      mattered.
+      <code>uniq</code>'in önce sıralamadan yineleme kaldırdığını varsaymak. Kırpmadan ham satırları karşılaştırmak ve aslında yalnızca boşluk varyantları olan %80 &ldquo;yinelenen&rdquo; hayatta kalanı elde etmek. Sıra önemliyken sırayı kaybetmek. Sorun için yanlış kopyayı (ilk vs son) atmak. 20&nbsp;GB'lık bir dosyada bellek içi dedup çalıştırmak ve çökmek. Ve yalnızca bir sütun önemliyken tam satırlarda yineleme kaldırmak.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştır</h2>
     <p>
-      <a href="/tools/remove-duplicate-lines">Remove duplicate lines</a>
-      <a href="/tools/text-sorter">Text sorter</a>
-      <a href="/tools/line-counter">Line counter</a>
+      <a href="/tools/remove-duplicate-lines">Yinelenen satırları kaldır</a>
+      <a href="/tools/text-sorter">Metin sıralayıcı</a>
+      <a href="/tools/line-counter">Satır sayacı</a>
     </p>
   </>
 );

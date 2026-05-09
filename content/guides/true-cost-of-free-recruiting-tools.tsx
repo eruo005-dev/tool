@@ -3,172 +3,169 @@
 export const intro = (
   <>
     <p>
-      &ldquo;Free&rdquo; recruiting tools have three hidden costs the marketing copy
-      doesn&rsquo;t mention: time spent stitching tools together, candidates lost to
-      clunky workflows, and the gap between free-tier limits and what you actually need.
-      This guide walks through each, then shows you when those costs cross over the price
-      of a paid ATS.
+      &ldquo;Ücretsiz&rdquo; işe alım araçlarının pazarlama metinlerinde bahsedilmeyen üç gizli maliyeti vardır: araçları birbirine bağlamak için harcanan zaman, hantal iş akışları nedeniyle kaybedilen adaylar ve ücretsiz katman sınırları ile gerçek ihtiyaçlarınız arasındaki boşluk. Bu kılavuz, her birini adım adım ele alır ve ardından bu maliyetlerin ne zaman ücretli bir ATS fiyatını aştığını gösterir.
     </p>
     <p>
-      Run our{" "}
-      <a href="/tools/free-recruiting-tool-true-cost-calculator">true cost calculator</a>{" "}
-      with your numbers as you read.
+      Okurken kendi rakamlarınızla{" "}
+      <a href="/tools/free-recruiting-tool-true-cost-calculator">gerçek maliyet hesaplayıcımızı</a>{" "}
+      çalıştırın.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "stitching", label: "Hidden cost #1: stitching time" },
-  { id: "loss", label: "Hidden cost #2: candidates lost to UX" },
-  { id: "ceiling", label: "Hidden cost #3: hitting free-tier ceilings" },
-  { id: "math", label: "When does paid pay for itself?" },
-  { id: "exception", label: "When free still wins" },
+  { id: "stitching", label: "Gizli maliyet #1: bağlantı kurma süresi" },
+  { id: "loss", label: "Gizli maliyet #2: kullanıcı deneyimine kaybedilen adaylar" },
+  { id: "ceiling", label: "Gizli maliyet #3: ücretsiz katman sınırlarına takılmak" },
+  { id: "math", label: "Ücretli ne zaman kendini amorti eder?" },
+  { id: "exception", label: "Ücretsizin hala kazandığı durumlar" },
 ];
 
 export const body = (
   <>
-    <h2 id="stitching">Hidden cost #1: stitching time</h2>
+    <h2 id="stitching">Gizli maliyet #1: bağlantı kurma süresi</h2>
     <p>
-      A typical free recruiting stack has 4–6 separate tools: pipeline tracker, screening
-      tool, scheduling, email, job posting, metrics. They don&rsquo;t talk to each other.
-      The integration work falls on the recruiter:
+      Tipik bir ücretsiz işe alım yığını 4-6 ayrı araçtan oluşur: iş akışı takipçisi, eleme
+      aracı, planlama, e-posta, iş ilanı, metrikler. Bunlar birbirleriyle iletişim kurmaz.
+      Entegrasyon işi işe alımcıya kalır:
     </p>
     <ul>
-      <li>Forwarding the Indeed application email to the Trello board (5 min).</li>
-      <li>Copy-pasting candidate info from Trello into a Calendly invite (3 min).</li>
-      <li>Updating the metrics spreadsheet from Trello manually (10 min/week).</li>
-      <li>Following up on Calendly bookings via Gmail templates (15 min/week).</li>
-      <li>Re-posting the same JD on 8 boards manually (30 min/post).</li>
+      <li>Indeed başvuru e-postasını Trello panosuna yönlendirmek (5 dk).</li>
+      <li>Aday bilgilerini Trello'dan Calendly davetine kopyala-yapıştır yapmak (3 dk).</li>
+      <li>Metrik elektronik tablosunu Trello'dan manuel olarak güncellemek (10 dk/hafta).</li>
+      <li>Calendly rezervasyonlarını Gmail şablonlarıyla takip etmek (15 dk/hafta).</li>
+      <li>Aynı iş tanımını 8 panoda manuel olarak yeniden yayınlamak (30 dk/ilan).</li>
     </ul>
     <p>
-      Conservatively that&rsquo;s 1–3 hours/week of pure stitching. At a $60/hr fully-loaded
-      cost, that&rsquo;s $3,000–9,000/year — well above the cost of a paid ATS like
-      Workable Starter ($2,268/year).
+      Muhafazakar bir tahminle bu, haftada 1-3 saat saf bağlantı kurma süresidir. Saatlik
+      $60 tam yüklü maliyetle bu, yılda $3.000-9.000 eder — Workable Starter ($2.268/yıl)
+      gibi ücretli bir ATS'nin maliyetinin oldukça üzerinde.
     </p>
 
-    <h2 id="loss">Hidden cost #2: candidates lost to UX</h2>
+    <h2 id="loss">Gizli maliyet #2: kullanıcı deneyimine kaybedilen adaylar</h2>
     <p>
-      Industry-wide, candidate-experience research consistently shows a 5–15% drop-off
-      attributable to clunky processes:
+      Sektör genelinde, aday deneyimi araştırmaları sürekli olarak hantal süreçlere
+      atfedilebilen %5-15'lik bir kayıp oranı göstermektedir:
     </p>
     <ul>
       <li>
-        <strong>The slow-response gap:</strong> SHRM 2024 found that candidates who don&rsquo;t hear back
-        within 7 days are 40% more likely to accept a competing offer. Free stacks tend to slow down at the
-        Trello → email → schedule handoff.
+        <strong>Yavaş yanıt aralığı:</strong> SHRM 2024, 7 gün içinde geri dönüş alamayan
+        adayların rakip bir teklifi kabul etme olasılığının %40 daha fazla olduğunu buldu. Ücretsiz yığınlar,
+        Trello → e-posta → planlama aktarımında yavaşlama eğilimindedir.
       </li>
       <li>
-        <strong>The scheduling-link mismatch:</strong> sending a Calendly link with one event type
-        when the candidate needs to book a panel = back-and-forth × 3 days = candidate ghosts.
+        <strong>Planlama bağlantısı uyumsuzluğu:</strong> adayın bir panel ayarlaması gerekirken tek etkinlik
+        türüne sahip bir Calendly bağlantısı göndermek = 3 günlük gidiş-geliş = aday kaybolur.
       </li>
       <li>
-        <strong>The form abandonment:</strong> Google Forms is functional but ugly; candidates abandon at
-        ~25% on the apply step compared to ~10% on a polished branded apply page.
+        <strong>Form terk etme:</strong> Google Forms işlevseldir ancak çirkindir; adaylar
+        cilalı markalı bir başvuru sayfasında ~%10'a kıyasla başvuru adımında ~%25 oranında terk eder.
       </li>
     </ul>
     <p>
-      A 10% candidate-loss rate on 200 applicants/year = 20 lost candidates. If even 5% of
-      those would&rsquo;ve been viable hires (1 person), and a delayed hire costs ~2 weeks
-      of revenue per role, the math gets ugly fast.
+      Yılda 200 başvuru üzerinden %10 aday kaybı oranı = 20 kayıp aday. Bunların %5'i
+      bile uygun işe alım olsaydı (1 kişi) ve gecikmiş bir işe alım, rol başına ~2 haftalık
+      gelir kaybına mal olsaydı, matematik hızla çirkinleşir.
     </p>
 
-    <h2 id="ceiling">Hidden cost #3: free-tier ceilings</h2>
+    <h2 id="ceiling">Gizli maliyet #3: ücretsiz katman sınırlarına takılmak</h2>
     <p>
-      Every free tool has a ceiling. The pattern:
+      Her ücretsiz aracın bir sınırı vardır. Model şöyledir:
     </p>
     <ul>
-      <li>Trello free: 10 boards. Above 5 reqs you&rsquo;re shuffling.</li>
-      <li>Calendly free: 1 event type. Solo recruiters fine; team interviews painful.</li>
-      <li>Zoho Recruit free: 1 active job, 1 user, 100 candidates. Solo only.</li>
-      <li>Hunter.io free: 25 email lookups/month. Hits ceiling on day 12 of a search.</li>
-      <li>Teal free: 5 active applications tracked. Useless for a real search.</li>
+      <li>Trello ücretsiz: 10 pano. 5 gereksinimin üzerinde yer değiştirirsiniz.</li>
+      <li>Calendly ücretsiz: 1 etkinlik türü. Yalnız çalışan işe alımcılar için iyi; ekip mülakatları için acı verici.</li>
+      <li>Zoho Recruit ücretsiz: 1 aktif iş, 1 kullanıcı, 100 aday. Sadece tek kişilik.</li>
+      <li>Hunter.io ücretsiz: Ayda 25 e-posta araması. Bir aramanın 12. gününde sınıra ulaşılır.</li>
+      <li>Teal ücretsiz: Takip edilen 5 aktif başvuru. Gerçek bir arama için işe yaramaz.</li>
     </ul>
     <p>
-      The ceiling cost shows up as either: (1) you start splitting workload across tools
-      (more stitching), or (2) you upgrade just one tool to paid because you hit its
-      ceiling first — and now you&rsquo;re on a hybrid free/paid stack with worst-of-both
-      ergonomics.
+      Sınır maliyeti iki şekilde ortaya çıkar: (1) iş yükünü araçlar arasında bölmeye
+      başlarsınız (daha fazla bağlantı), veya (2) sınırına ilk ulaştığınız için yalnızca bir
+      aracı ücretliye yükseltirsiniz — ve şimdi her iki dünyanın en kötü ergonomisine sahip
+      hibrit bir ücretsiz/ücretli yığındasınız.
     </p>
 
-    <h2 id="math">When does paid pay for itself?</h2>
+    <h2 id="math">Ücretli ne zaman kendini amorti eder?</h2>
     <p>
-      The breakeven is approximately:
+      Başabaş noktası yaklaşık olarak şöyledir:
     </p>
     <p>
-      <strong>Annual paid ATS cost &lt; (stitching hours × hourly rate × 52) + (lost
-      candidates × value per candidate)</strong>
+      <strong>Yıllık ücretli ATS maliyeti &lt; (bağlantı saatleri × saatlik ücret × 52) + (kaybedilen
+      adaylar × aday başına değer)</strong>
     </p>
     <p>
-      For typical small teams, that&rsquo;s around <strong>8–12 hires per year</strong>{" "}
-      depending on hiring-manager hourly rate. Plug your own numbers into the calculator
-      to see your specific breakeven.
+      Tipik küçük ekipler için bu, işe alım yöneticisinin saatlik ücretine bağlı olarak
+      yılda yaklaşık <strong>8-12 işe alım</strong> civarındadır. Kendi başabaş noktanızı
+      görmek için hesap makinesine kendi rakamlarınızı girin.
     </p>
     <p>
-      Common scenarios:
+      Yaygın senaryolar:
     </p>
     <ul>
       <li>
-        <strong>Solo recruiter, 4–6 hires/year:</strong> free stack wins by ~$2k/year.
-        Stitching cost is real but small; loss-rate cost is small at low volume.
+        <strong>Yalnız işe alımcı, yılda 4-6 işe alım:</strong> ücretsiz yığın yılda ~$2k
+        kazandırır. Bağlantı maliyeti gerçektir ancak küçüktür; düşük hacimde kayıp oranı
+        maliyeti küçüktür.
       </li>
       <li>
-        <strong>Small team, 10–15 hires/year:</strong> tossup. Workable Starter or
-        SmartRecruiters mid-tier starts to look good. Run the numbers.
+        <strong>Küçük ekip, yılda 10-15 işe alım:</strong> başa baş. Workable Starter veya
+        SmartRecruiters orta katmanı iyi görünmeye başlar. Rakamları hesaplayın.
       </li>
       <li>
-        <strong>Growing team, 20+ hires/year:</strong> paid almost always wins. Stitching
-        time scales linearly; loss rate compounds; free-tier ceilings start to bite hard.
+        <strong>Büyüyen ekip, yılda 20+ işe alım:</strong> ücretli neredeyse her zaman
+        kazanır. Bağlantı süresi doğrusal olarak artar; kayıp oranı bileşik etki yapar;
+        ücretsiz katman sınırları sert bir şekilde vurmaya başlar.
       </li>
     </ul>
 
-    <h2 id="exception">When free still wins (and when it&rsquo;s honest)</h2>
+    <h2 id="exception">Ücretsizin hala kazandığı durumlar (ve dürüst olduğu zamanlar)</h2>
     <p>
-      Free stacks legitimately beat paid in three cases:
+      Ücretsiz yığınlar üç durumda meşru olarak ücretliyi yener:
     </p>
     <ul>
       <li>
-        <strong>Very low volume.</strong> 1–3 hires/year, no plans to grow. The
-        stitching cost is small enough that paid feels like overkill.
+        <strong>Çok düşük hacim.</strong> Yılda 1-3 işe alım, büyüme planı yok. Bağlantı
+        maliyeti, ücretlinin gereksiz hissettirecek kadar küçüktür.
       </li>
       <li>
-        <strong>Non-recurring hiring.</strong> One-time annual hire, otherwise no
-        recruiting overhead. Subscription doesn&rsquo;t make sense for a one-shot.
+        <strong>Tekrarlanmayan işe alım.</strong> Yıllık tek seferlik işe alım, aksi halde
+        işe alım yükü yok. Abonelik tek seferlik için mantıklı değildir.
       </li>
       <li>
-        <strong>Recruiter-as-hiring-manager.</strong> Founder doing all the hiring
-        themselves; their time isn&rsquo;t marginal in the same way. The hidden cost is
-        opportunity cost on whatever else they could be doing — which sometimes IS still
-        below the paid-tool cost.
+        <strong>İşe alımcı olarak işe alım yöneticisi.</strong> Tüm işe alımları kendisi yapan
+        kurucu; zamanları aynı şekilde marjinal değildir. Gizli maliyet, yapabilecekleri diğer
+        her şeyin fırsat maliyetidir — ki bu bazen hala ücretli araç maliyetinin altındadır.
       </li>
     </ul>
     <p>
-      Outside those cases, paid wins on the math more often than the free-tools-evangelist
-      crowd admits. The honest version: &ldquo;free for solo, low-volume, founder-driven
-      hiring; paid above that.&rdquo;
+      Bu durumların dışında, ücretli matematikte ücretsiz araç savunucularının kabul
+      ettiğinden daha sık kazanır. Dürüst versiyon: &ldquo;tek kişilik, düşük hacimli, kurucu
+      odaklı işe alım için ücretsiz; bunun üzerinde ücretli.&rdquo;
     </p>
   </>
 );
 
 export const cta = {
-  label: "Calculate your team's true cost",
+  label: "Ekibinizin gerçek maliyetini hesaplayın",
   targetSlug: "free-recruiting-tool-true-cost-calculator",
 };
 
 export const faq = [
   {
-    q: "What's the typical breakeven hire count for paid vs free?",
-    a: "Around 8-12 hires/year for most small teams, but it shifts based on hiring-manager hourly rate (higher rate → paid pays for itself sooner) and how aggressive you measure candidate loss.",
+    q: "Ücretli ve ücretsiz için tipik başabaş işe alım sayısı nedir?",
+    a: "Çoğu küçük ekip için yılda yaklaşık 8-12 işe alım, ancak işe alım yöneticisinin saatlik ücretine (daha yüksek ücret → ücretli kendini daha erken amorti eder) ve aday kaybını ne kadar agresif ölçtüğünüze göre değişir.",
   },
   {
-    q: "Aren't 'lost candidates' a soft cost?",
-    a: "Yes — and that's why they're easy to ignore until you measure. The honest move is to assume some loss exists (5-15% per industry data), price it conservatively, and re-run the math. Pretending zero loss is the optimistic mistake.",
+    q: "'Kaybedilen adaylar' yumuşak bir maliyet değil mi?",
+    a: "Evet — ve bu yüzden ölçene kadar görmezden gelmek kolaydır. Dürüst hareket, bir miktar kaybın var olduğunu varsaymak (sektör verilerine göre %5-15), bunu muhafazakar bir şekilde fiyatlandırmak ve matematiği yeniden yapmaktır. Sıfır kayıp varsaymak iyimser hatadır.",
   },
   {
-    q: "Should I migrate from free to paid mid-year?",
-    a: "Switching costs are real (8-20 hours of data migration, training, configuration). Time the switch around a hiring slowdown, not a hot reqs week. Most teams that should migrate wait too long because the migration feels expensive in the moment.",
+    q: "Yıl ortasında ücretsizden ücretliye geçmeli miyim?",
+    a: "Geçiş maliyetleri gerçektir (8-20 saat veri taşıma, eğitim, yapılandırma). Geçişi, yoğun bir gereksinim haftasında değil, işe alımın yavaşladığı bir dönemde planlayın. Geçiş yapması gereken çoğu ekip, geçiş o an pahalı hissettirdiği için çok bekler.",
   },
   {
-    q: "What about the new AI-recruiting startups offering free tiers?",
-    a: "Most aren't actually free past the trial — they're 'free with seat cap' or 'free until <some volume>'. Read the pricing page carefully, and treat any free-tier feature that's listed as 'beta' or 'subject to change' as effectively a 12-month bet.",
+    q: "Ücretsiz katmanlar sunan yeni yapay zeka işe alım girişimleri ne olacak?",
+    a: "Çoğu, deneme süresi dışında aslında ücretsiz değildir — 'koltuk sınırıyla ücretsiz' veya '<belirli hacme kadar> ücretsiz'dir. Fiyatlandırma sayfasını dikkatlice okuyun ve 'beta' veya 'değişebilir' olarak listelenen herhangi bir ücretsiz katman özelliğini fiilen 12 aylık bir bahis olarak değerlendirin.",
   },
 ];

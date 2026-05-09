@@ -1,91 +1,66 @@
 export const intro = (
   <>
     <p>
-      Moving is consistently ranked among life&rsquo;s most stressful events.
-      Most of that stress is self-inflicted through poor planning. A moderate
-      amount of preparation 8 weeks out turns a nightmare into a logistical
-      exercise. Here&rsquo;s the sequence.
+      Taşınmak, hayatın en stresli olayları arasında sürekli yer alır. Bu stresin büyük kısmı, kötü planlama nedeniyle kişinin kendi kendine yarattığı bir durumdur. Makul bir 8 haftalık hazırlık, kabusu lojistik bir alıştırmaya dönüştürür. İşte sıralama.
     </p>
     <p>
-      Start early, purge ruthlessly, protect your move day.
+      Erken başlayın, acımasızca ayıklayın, taşınma gününüzü koruyun.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Start 8 weeks out</h2>
+    <h2>1. 8 hafta önceden başlayın</h2>
     <p>
-      Most people start planning 2 weeks before move day. That&rsquo;s the
-      source of 90% of moving stress. Starting 8 weeks out gives you time
-      for proper decluttering, vendor selection, and logistics without
-      panic.
+      Çoğu insan, taşınma gününden 2 hafta önce plan yapmaya başlar. Taşınma stresinin %90'ının kaynağı budur. 8 hafta önceden başlamak, doğru şekilde ayıklamak, nakliyeci seçmek ve lojistiği paniğe kapılmadan halletmek için size zaman kazandırır.
     </p>
 
-    <h2>2. Purge before you pack</h2>
+    <h2>2. Paketlemeden önce ayıklayın</h2>
     <p>
-      Moving is the highest-<a href="/learn/roi">ROI</a> decluttering event of your life. Every item
-      you move costs money and energy. Donate, sell, trash anything you
-      haven&rsquo;t used in a year. Target 20-30% reduction in stuff.
+      Taşınmak, hayatınızdaki en yüksek <a href="/learn/roi">ROI</a>'li (yatırım getirisi) ayıklama olayıdır. Taşıdığınız her eşya size para ve enerjiye mal olur. Bir yıldır kullanmadığınız her şeyi bağışlayın, satın veya çöpe atın. Eşyalarınızda %20-30 oranında bir azalma hedefleyin.
     </p>
 
-    <h2>3. Get 3 moving company quotes</h2>
+    <h2>3. 3 nakliye şirketinden fiyat teklifi alın</h2>
     <p>
-      Quotes vary wildly — often 2-3x between cheapest and most expensive.
-      Get three in writing, check reviews on Google and BBB, ask about
-      hidden fees (stairs, long carries, packing materials).
+      Fiyat teklifleri çok farklılık gösterir — genellikle en ucuz ile en pahalı arasında 2-3 kat fark olur. Üçünden de yazılı teklif alın, Google ve BBB'deki yorumları kontrol edin, gizli ücretleri (merdiven, uzun taşıma, paketleme malzemeleri) sorun.
     </p>
 
-    <h2>4. Self-move vs. hired move math</h2>
+    <h2>4. Kendin yap vs. kiralık nakliye hesabı</h2>
     <p>
-      Under 500 miles + few rooms = U-Haul possible. Over that, or a full
-      house, the mover&rsquo;s price is usually worth it. Factor in your
-      time, your back, and the cost of damaged items.
+      800 km'nin altı + az oda = Kiralık araç uygundur. Bunun üzerinde veya tüm bir ev için, nakliyeci maliyeti genellikle buna değer. Zamanınızı, sırtınızı ve hasarlı eşyaların maliyetini hesaba katın.
     </p>
 
-    <h2>5. Inventory everything valuable</h2>
+    <h2>5. Değerli her şeyin envanterini çıkarın</h2>
     <p>
-      Photo or video every room before packing. Worth it for insurance,
-      worth it for finding items later, worth it if the mover breaks
-      something. Takes 30 minutes; saves days of grief.
+      Paketlemeden önce her odayı fotoğraflayın veya videoya çekin. Sigorta için, eşyaları daha sonra bulmak için, nakliyeci bir şey kırarsa diye. 30 dakika sürer; günlerce sürecek üzüntüyü önler.
     </p>
 
-    <h2>6. Pack smart, label obsessively</h2>
+    <h2>6. Akıllıca paketleyin, takıntılı bir şekilde etiketleyin</h2>
     <p>
-      Boxes labeled with room + contents + priority (essentials vs. later).
-      Kitchen, bathroom, bedding go in &ldquo;essentials&rdquo; — you&rsquo;ll
-      want these on day 1. Heavy items in small boxes, light in big ones.
+      Oda + içindekiler + öncelik (temel ihtiyaçlar vs. sonra) ile etiketlenmiş kutular. Mutfak, banyo, yatak takımı &ldquo;temel ihtiyaçlar&rdquo; kategorisine girer — 1. gün bunlara ihtiyacınız olacak. Ağır eşyalar küçük kutularda, hafif eşyalar büyük kutularda olmalı.
     </p>
 
-    <h2>7. Handle utilities and address change 2 weeks out</h2>
+    <h2>7. Taşınmadan 2 hafta önce faturaları ve adres değişikliğini halledin</h2>
     <p>
-      Electric, gas, water, internet — disconnect date old place, connect
-      date new place. USPS forwarding online. Notify banks, employer, IRS.
-      The paperwork is tedious but missing it causes later hassle.
+      Elektrik, gaz, su, internet — eski yer için kapatma tarihi, yeni yer için açtırma. USPS yönlendirmesini çevrimiçi yapın. Bankaları, işvereni, vergi dairesini bilgilendirin. Evrak işi sıkıcıdır ancak atlamak daha sonra sorunlara neden olur.
     </p>
 
-    <h2>8. Essentials bag: 48 hours of stuff</h2>
+    <h2>8. Acil durum çantası: 48 saatlik malzeme</h2>
     <p>
-      A suitcase with 2 days of clothes, toiletries, phone chargers,
-      medications, basic kitchen, sheets, towels. Move this yourself, not
-      with the movers. Day 1 in the new place will be exhausting;
-      don&rsquo;t hunt for toothpaste.
+      2 günlük kıyafet, tuvalet malzemeleri, telefon şarj aletleri, ilaçlar, temel mutfak eşyaları, çarşaf, havlu içeren bir bavul. Bunu kendiniz taşıyın, nakliyecilerle göndermeyin. Yeni yerdeki 1. gün yorucu olacak; diş macunu aramayın.
     </p>
 
-    <h2>9. Move day: you&rsquo;re the coordinator</h2>
+    <h2>9. Taşınma günü: siz koordinatörsünüz</h2>
     <p>
-      Don&rsquo;t try to do heavy lifting. Direct the movers, handle
-      questions, keep valuables with you. Have water, snacks, cash for
-      tips ($20-40 per mover for a full day).
+      Ağır şeyleri kaldırmaya çalışmayın. Nakliyecilere yön verin, soruları yanıtlayın, değerli eşyaları yanınızda bulundurun. Su, atıştırmalık ve bahşiş için nakit bulundurun (tam gün için nakliyeci başına 20-40 dolar).
     </p>
 
-    <h2>10. Unpack the kitchen and bedroom first</h2>
+    <h2>10. Önce mutfağı ve yatak odasını açın</h2>
     <p>
-      Eating and sleeping normally beats living out of boxes for weeks. If
-      those two rooms work, everything else can be unpacked slowly. Most
-      people unpack for 2-4 weeks; rushing it is unnecessary. See{" "}
-      <a href="/guides/how-to-pack-for-travel">packing guide</a> and{" "}
-      <a href="/guides/how-to-declutter-your-home">declutter guide</a>.
+      Haftalarca kutular arasında yaşamaktansa normal yemek yemek ve uyumak daha iyidir. Bu iki oda çalışırsa, diğer her şey yavaşça açılabilir. Çoğu insan 2-4 hafta içinde açar; acele etmeye gerek yok. Ayrıca bakınız{" "}
+      <a href="/guides/how-to-pack-for-travel">seyahat için paketleme rehberi</a> ve{" "}
+      <a href="/guides/how-to-declutter-your-home">ev ayıklama rehberi</a>.
     </p>
   </>
 );

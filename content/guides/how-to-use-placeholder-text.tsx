@@ -3,229 +3,217 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Lorem ipsum is the universal placeholder text of the web —
-      scrambled Latin that lets designers sketch layout without
-      readers getting distracted by the content. Used badly, it
-      ships to production, confuses stakeholders, and makes mockups
-      misleading. Used well, it accelerates design iteration and
-      keeps critique focused on structure. This guide covers why
-      lorem ipsum exists (dating back to the 1500s), when to use it
-      versus real content, modern alternatives (realistic fake
-      content, domain-specific placeholder, AI-generated), and the
-      edge cases where placeholder text can burn you.
+      Lorem ipsum, web dünyasının evrensel yer tutucu metnidir —
+      karıştırılmış Latince, tasarımcıların okuyucular içerikle dikkati dağılmadan
+      mizanpaj taslağı çizmesine olanak tanır. Kötü kullanıldığında,
+      üretime geçer, paydaşların kafasını karıştırır ve maketleri yanıltıcı hale getirir.
+      İyi kullanıldığında, tasarım yinelemesini hızlandırır ve eleştiriyi yapıya odaklı tutar.
+      Bu kılavuz, lorem ipsum'un neden var olduğunu (1500'lere kadar uzanan geçmişi),
+      ne zaman kullanılacağını ve gerçek içerik karşısında ne zaman kullanılacağını,
+      modern alternatifleri (gerçekçi sahte içerik, alana özgü yer tutucu, yapay zeka
+      tarafından oluşturulan) ve yer tutucu metnin sizi yakabileceği uç durumları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Why placeholder text exists</h2>
+    <h2>Yer tutucu metin neden var</h2>
     <p>
-      A mockup with real content invites critique of the content,
-      not the layout. &ldquo;Do we say &lsquo;our mission&rsquo; or
-      &lsquo;our purpose&rsquo;?&rdquo; takes over the meeting when
-      you meant to discuss whether the hero button should be bigger.
+      Gerçek içerikli bir maket, mizanpajı değil, içeriği eleştirmeye davet eder.
+      &ldquo;&lsquo;Misyonumuz&rsquo; mu yoksa &lsquo;Amacımız&rsquo; mı demeliyiz?&rdquo;
+      sorusu, kahraman butonunun daha büyük olup olmaması gerektiğini tartışmayı
+      amaçladığınız toplantıyı ele geçirir.
     </p>
     <p>
-      Scrambled text (lorem ipsum) looks plausibly like prose — same
-      rough word lengths, sentence rhythm, paragraph density — but
-      is unreadable. This lets viewers evaluate typography,
-      hierarchy, and whitespace without getting distracted by meaning.
+      Karıştırılmış metin (lorem ipsum), makul bir şekilde düzyazıya benzer — aynı
+      kabaca kelime uzunlukları, cümle ritmi, paragraf yoğunluğu — ancak
+      okunamaz. Bu, izleyicilerin anlamdan etkilenmeden tipografi,
+      hiyerarşi ve boşluk kullanımını değerlendirmesine olanak tanır.
     </p>
     <p>
-      The canonical text comes from a scrambled version of Cicero&rsquo;s
-      &ldquo;de Finibus Bonorum et Malorum&rdquo; (45 BC). The
-      scramble started in the 1500s when a typesetter jumbled the
-      text to make a sample page. It stuck.
-    </p>
-
-    <h2>When lorem ipsum is the right choice</h2>
-    <p>
-      <strong>Early-stage wireframes and mockups.</strong> Block-out
-      layouts where the content isn&rsquo;t yet written. The goal is
-      to evaluate shape, rhythm, flow.
-    </p>
-    <p>
-      <strong>Typography tests.</strong> Font pairings, size scales,
-      line length, leading. Real content can over-emphasize or
-      distract.
-    </p>
-    <p>
-      <strong>Density studies.</strong> Long-form article templates,
-      documentation layouts, marketing pages with varying content
-      block sizes.
-    </p>
-    <p>
-      <strong>Demo templates.</strong> Theme authors shipping
-      themes for WordPress, Ghost, or Framer need plausible-looking
-      placeholder for screenshots and demos.
+      Standart metin, Cicero'nun &ldquo;de Finibus Bonorum et Malorum&rdquo; (MÖ 45)
+      adlı eserinin karıştırılmış bir versiyonundan gelir. Karıştırma
+      1500'lerde bir dizgicinin örnek bir sayfa yapmak için metni
+      karıştırmasıyla başladı. Tutundu.
     </p>
 
-    <h2>When real content (or realistic fake content) is better</h2>
+    <h2>Lorem ipsum'un doğru seçim olduğu durumlar</h2>
     <p>
-      <strong>Validating content length assumptions.</strong> Lorem
-      ipsum lets you pretend headlines are always 6 words. Real
-      content reveals they&rsquo;re 3-18. Design with the range, not
-      the ideal.
+      <strong>Erken aşama tel çerçeveler ve maketler.</strong> İçeriğin henüz
+      yazılmadığı düzenleri blok haline getirin. Amaç şekli, ritmi, akışı
+      değerlendirmektir.
     </p>
     <p>
-      <strong>Stakeholder reviews past early-stage.</strong> Execs
-      who see lorem ipsum may not trust the design, or may argue
-      about decisions that depend on copy. Realistic content avoids
-      this.
+      <strong>Tipografi testleri.</strong> Font eşleştirmeleri, boyut ölçekleri,
+      satır uzunluğu, satır aralığı. Gerçek içerik aşırı vurgulayabilir veya
+      dikkati dağıtabilir.
     </p>
     <p>
-      <strong>User testing.</strong> Participants can&rsquo;t judge
-      the product with placeholder copy. Always use realistic
-      content.
+      <strong>Yoğunluk çalışmaları.</strong> Uzun biçimli makale şablonları,
+      dokümantasyon düzenleri, değişen içerik blok boyutlarına sahip pazarlama sayfaları.
     </p>
     <p>
-      <strong>Component libraries and design systems.</strong>
-      Realistic samples make the library actually usable (real
-      button labels, real nav items).
-    </p>
-    <p>
-      <strong>Form designs.</strong> Field placeholders should be
-      real hints (&ldquo;name@company.com&rdquo;), not lorem ipsum.
-      Lorem ipsum in a real input field is a UX bug waiting to ship.
+      <strong>Demo şablonları.</strong> WordPress, Ghost veya Framer için tema
+      gönderen tema yazarları, ekran görüntüleri ve demolar için makul görünümlü
+      yer tutucuya ihtiyaç duyar.
     </p>
 
-    <h2>Lorem ipsum variants</h2>
+    <h2>Gerçek içeriğin (veya gerçekçi sahte içeriğin) daha iyi olduğu durumlar</h2>
     <p>
-      Beyond the classic Latin:
+      <strong>İçerik uzunluğu varsayımlarını doğrulama.</strong> Lorem
+      ipsum, başlıkların her zaman 6 kelime olduğunu varsaymanıza izin verir. Gerçek
+      içerik, 3-18 kelime arasında olduklarını ortaya çıkarır. İdeale göre değil, aralığa
+      göre tasarlayın.
     </p>
     <p>
-      <strong>Bacon ipsum:</strong> butcher jargon (brisket, pork
-      belly, short ribs). Humorous placeholder for food-adjacent
-      sites.
+      <strong>Erken aşama sonrası paydaş incelemeleri.</strong> Lorem
+      ipsum gören yöneticiler tasarıma güvenmeyebilir veya metne bağlı
+      kararlar hakkında tartışabilir. Gerçekçi içerik bundan kaçınır.
     </p>
     <p>
-      <strong>Hipster ipsum:</strong> vinyl, artisanal, mustache.
-      Lifestyle brands sometimes use it.
+      <strong>Kullanıcı testi.</strong> Katılımcılar, yer tutucu metinle
+      ürünü değerlendiremez. Her zaman gerçekçi içerik kullanın.
     </p>
     <p>
-      <strong>Corporate ipsum:</strong> synergize, leverage,
-      value-add. Startup / B2B satire.
+      <strong>Bileşen kütüphaneleri ve tasarım sistemleri.</strong>
+      Gerçekçi örnekler, kütüphaneyi gerçekten kullanılabilir kılar (gerçek
+      düğme etiketleri, gerçek gezinme öğeleri).
     </p>
     <p>
-      <strong>Cupcake ipsum, pirate ipsum, Trump ipsum, etc:</strong>
-      endless variants for humor. Use with caution — clients may not
-      share the joke, and leftover pirate ipsum on a corporate site
-      is embarrassing.
-    </p>
-    <p>
-      <strong>Rule:</strong> novelty ipsum works for internal
-      concepts; stick to classic lorem ipsum or realistic placeholder
-      for anything shared outside the design team.
+      <strong>Form tasarımları.</strong> Alan yer tutucuları gerçek
+      ipuçları olmalıdır (&ldquo;ad@firma.com&rdquo;), lorem ipsum değil.
+      Gerçek bir giriş alanındaki Lorem ipsum, yayına çıkmayı bekleyen bir UX hatasıdır.
     </p>
 
-    <h2>Modern alternative: realistic fake content</h2>
+    <h2>Lorem ipsum çeşitleri</h2>
     <p>
-      <strong>Faker.js / faker-js:</strong> JavaScript library that
-      generates realistic fake names, addresses, companies, product
-      descriptions. Drop-in for mockups and prototypes.
+      Klasik Latince'nin ötesinde:
     </p>
     <p>
-      <strong>JSON Placeholder:</strong> API returning fake posts,
-      users, comments — like lorem ipsum but shaped like real data.
-      Good for API wiring before the real backend exists.
+      <strong>Bacon ipsum:</strong> kasap jargonu (döş, domuz göbeği,
+      kısa kaburga). Yiyecekle ilgili siteler için esprili yer tutucu.
     </p>
     <p>
-      <strong>Unsplash / Pexels:</strong> real images in placeholder
-      slots. Shift mockups from &ldquo;obviously fake&rdquo; to
-      &ldquo;plausibly real.&rdquo;
+      <strong>Hipster ipsum:</strong> plak, zanaatkar, bıyık.
+      Yaşam tarzı markaları bazen kullanır.
     </p>
     <p>
-      <strong>AI-generated sample content:</strong> Claude, ChatGPT,
-      or similar produce realistic placeholder that fits your
-      domain. &ldquo;Write five fake SaaS product descriptions, 2-3
-      sentences each&rdquo; is faster than scripting Faker rules.
-    </p>
-
-    <h2>Placeholder in different contexts</h2>
-    <p>
-      <strong>Figma / Sketch / design tools:</strong> built-in lorem
-      ipsum plugins. Generate paragraphs, headlines, variable
-      lengths. Use during wireframing.
+      <strong>Kurumsal ipsum:</strong> sinerji yaratmak, kaldıraç kullanmak,
+      değer katmak. Startup / B2B hicvi.
     </p>
     <p>
-      <strong>Code / HTML prototypes:</strong> keep placeholder
-      identifiable as placeholder. Use <code>&lt;!-- LOREM --&gt;</code>
-      comments or a marker string. Scan for these before shipping.
+      <strong>Cupcake ipsum, korsan ipsum, Trump ipsum, vb:</strong>
+      mizah için sonsuz çeşitler. Dikkatli kullanın — müşteriler
+      şakayı paylaşmayabilir ve kurumsal bir sitede kalan korsan ipsumu
+      utanç vericidir.
     </p>
     <p>
-      <strong>CMS templates:</strong> consider whether lorem ipsum
-      would ship if the client doesn&rsquo;t fill a field. Default
-      to &ldquo;coming soon&rdquo; or hide empty content blocks.
-    </p>
-    <p>
-      <strong>Email templates:</strong> lorem ipsum often escapes
-      into production emails. Scan sent folders for &ldquo;lorem&rdquo;
-      regularly.
+      <strong>Kural:</strong> yenilikçi ipsum, dahili konseptler için işe yarar;
+      tasarım ekibi dışında paylaşılan her şey için klasik lorem ipsum veya gerçekçi yer tutucuya
+      bağlı kalın.
     </p>
 
-    <h2>Placeholder-as-feature: skeleton screens</h2>
+    <h2>Modern alternatif: gerçekçi sahte içerik</h2>
     <p>
-      Modern apps replace lorem ipsum loading states with skeleton
-      screens — gray blocks in the shape of the eventual content.
-      Visual placeholder without the &ldquo;fake text&rdquo; problem.
+      <strong>Faker.js / faker-js:</strong> Gerçekçi sahte isimler, adresler, şirketler, ürün
+      açıklamaları oluşturan JavaScript kütüphanesi. Maketler ve prototipler için hazır.
     </p>
     <p>
-      Skeleton screens reduce perceived loading time by 10-20% in
-      user studies. They communicate &ldquo;the UI is loading&rdquo;
-      without the weirdness of lorem ipsum.
-    </p>
-
-    <h2>Accessibility and lorem ipsum</h2>
-    <p>
-      Screen readers read lorem ipsum out as if it were real text.
-      Demos and prototypes shared with users who rely on assistive
-      tech need realistic content, not lorem ipsum.
+      <strong>JSON Placeholder:</strong> Sahte gönderiler, kullanıcılar, yorumlar döndüren API — lorem ipsum gibi ancak gerçek veri şeklinde.
+      Gerçek arka uç mevcut olmadan önce API bağlantısı için iyidir.
     </p>
     <p>
-      Alt text on placeholder images should be real alt text (or
-      <code> alt=&quot;&quot;</code> for decorative), not &ldquo;Lorem
-      ipsum image.&rdquo;
+      <strong>Unsplash / Pexels:</strong> Yer tutucu yuvalarında gerçek görseller.
+      Maketleri &ldquo;açıkça sahte&rdquo;den &ldquo;makul ölçüde gerçek&rdquo;e kaydırın.
+    </p>
+    <p>
+      <strong>Yapay zeka tarafından oluşturulan örnek içerik:</strong> Claude, ChatGPT
+      veya benzeri, alanınıza uyan gerçekçi yer tutucu üretir. &ldquo;Her biri 2-3 cümlelik beş sahte SaaS ürün açıklaması yaz&rdquo;
+      Faker kurallarını komut dosyası haline getirmekten daha hızlıdır.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Farklı bağlamlarda yer tutucu</h2>
     <p>
-      <strong>Shipping lorem ipsum to production.</strong> The
-      classic. Happens constantly. Add &ldquo;lorem ipsum&rdquo; to
-      your pre-launch checklist.
+      <strong>Figma / Sketch / tasarım araçları:</strong> yerleşik lorem
+      ipsum eklentileri. Paragraflar, başlıklar, değişken uzunluklar oluşturun.
+      Tel çerçeveleme sırasında kullanın.
     </p>
     <p>
-      <strong>Using lorem ipsum in SEO content.</strong> Google
-      won&rsquo;t rank pages with lorem ipsum, and the page
-      quality signals take a hit.
+      <strong>Kod / HTML prototipleri:</strong> yer tutucuyu yer tutucu olarak
+      tanımlanabilir tutun. <code>&lt;!-- LOREM --&gt;</code> yorumları
+      veya bir işaretleyici dize kullanın. Yayından önce bunları tarayın.
     </p>
     <p>
-      <strong>Unrealistic text lengths.</strong> Using 1,500 words
-      of lorem ipsum in a field that will hold a 50-word bio leads
-      to layout decisions that break with real content.
+      <strong>CMS şablonları:</strong> müşteri bir alanı doldurmazsa lorem ipsum'un
+      yayınlanıp yayınlanmayacağını düşünün. Varsayılan olarak &ldquo;çok yakında&rdquo; yapın
+      veya boş içerik bloklarını gizleyin.
     </p>
     <p>
-      <strong>Placeholder in form labels instead of hints.</strong>
-      Form <code>placeholder</code> should show format (&ldquo;
-      MM/DD/YYYY&rdquo;) or an example (&ldquo;name@company.com&rdquo;),
-      not lorem ipsum.
-    </p>
-    <p>
-      <strong>Forgetting to translate placeholder.</strong>
-      International sites sometimes ship with English lorem ipsum in
-      non-English layouts — looks especially wrong.
+      <strong>E-posta şablonları:</strong> lorem ipsum genellikle
+      üretim e-postalarına kaçar. Düzenli olarak gönderilen klasörlerde &ldquo;lorem&rdquo;
+      taraması yapın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yer tutucu-özellik olarak: iskelet ekranlar</h2>
     <p>
-      Generate placeholder text instantly with the{" "}
-      <a href="/tools/lorem-ipsum-generator">lorem ipsum generator</a>.
-      Pair with the{" "}
-      <a href="/tools/word-counter">word counter</a> to size your
-      placeholder to realistic content length, and the{" "}
-      <a href="/tools/reading-time-estimator">reading time
-      estimator</a> to check whether the placeholder length matches
-      the final article&rsquo;s expected reading time.
+      Modern uygulamalar, lorem ipsum yükleme durumlarını iskelet
+      ekranlarıyla değiştirir — sonunda gelecek içeriğin şeklinde gri bloklar.
+      &ldquo;Sahte metin&rdquo; sorunu olmayan görsel yer tutucu.
+    </p>
+    <p>
+      İskelet ekranlar, kullanıcı çalışmalarında algılanan yükleme süresini %10-20 oranında azaltır.
+      Lorem ipsum'un tuhaflığı olmadan &ldquo;UI yükleniyor&rdquo; mesajını iletirler.
+    </p>
+
+    <h2>Erişilebilirlik ve lorem ipsum</h2>
+    <p>
+      Ekran okuyucular, lorem ipsum'u gerçek metinmiş gibi sesli okur.
+      Yardımcı teknolojiye güvenen kullanıcılarla paylaşılan demolar ve prototipler,
+      lorem ipsum değil, gerçekçi içerik gerektirir.
+    </p>
+    <p>
+      Yer tutucu görsellerdeki alt metin, gerçek alt metin (veya dekoratif için
+      <code> alt=&quot;&quot;</code>) olmalıdır, &ldquo;Lorem
+      ipsum görseli&rdquo; değil.
+    </p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>
+      <strong>Lorem ipsum'u üretime göndermek.</strong> Klasik.
+      Sürekli olur. Yayın öncesi kontrol listenize &ldquo;lorem ipsum&rdquo; ekleyin.
+    </p>
+    <p>
+      <strong>Lorem ipsum'u SEO içeriğinde kullanmak.</strong> Google,
+      lorem ipsum içeren sayfaları sıralamaz ve sayfa kalitesi
+      sinyalleri olumsuz etkilenir.
+    </p>
+    <p>
+      <strong>Gerçekçi olmayan metin uzunlukları.</strong> 50 kelimelik bir biyografi
+      tutacak bir alanda 1.500 kelimelik lorem ipsum kullanmak, gerçek içerikle
+      bozulan düzen kararlarına yol açar.
+    </p>
+    <p>
+      <strong>İpucu yerine form etiketlerinde yer tutucu.</strong>
+      Form <code>placeholder</code> özelliği, biçimi (&ldquo;
+      GG/AA/YYYY&rdquo;) veya bir örneği (&ldquo;ad@firma.com&rdquo;) göstermelidir,
+      lorem ipsum değil.
+    </p>
+    <p>
+      <strong>Yer tutucuyu çevirmeyi unutmak.</strong>
+      Uluslararası siteler bazen İngilizce olmayan düzenlerde İngilizce lorem ipsum ile
+      yayın yapar — özellikle yanlış görünür.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      Anında yer tutucu metin oluşturmak için{" "}
+      <a href="/tools/lorem-ipsum-generator">lorem ipsum oluşturucuyu</a> kullanın.
+      Yer tutucunuzu gerçekçi içerik uzunluğuna göre boyutlandırmak için{" "}
+      <a href="/tools/word-counter">kelime sayacı</a> ile eşleştirin ve{" "}
+      <a href="/tools/reading-time-estimator">okuma süresi
+      tahmincisi</a> ile yer tutucu uzunluğunun son makalenin beklenen okuma süresiyle
+      eşleşip eşleşmediğini kontrol edin.
     </p>
   </>
 );

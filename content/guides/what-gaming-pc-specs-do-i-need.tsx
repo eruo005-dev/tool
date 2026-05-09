@@ -3,195 +3,196 @@
 export const intro = (
   <>
     <p>
-      &ldquo;What gaming PC do I need?&rdquo; is the wrong question. The right question
-      is &ldquo;what specs do I need for the games I actually play, at the resolution
-      and refresh rate I&rsquo;ll use them at?&rdquo;
+      &ldquo;Hangi oyun bilgisayarına ihtiyacım var?&rdquo; yanlış soru. Doğru soru
+      şu: &ldquo;Gerçekten oynadığım oyunlar için, kullanacağım çözünürlük ve
+      yenileme hızında hangi özelliklere ihtiyacım var?&rdquo;
     </p>
     <p>
-      This guide is the practical decision flow: figuring out your real use case,
-      avoiding common spec mistakes, and using our{" "}
-      <a href="/tools/gaming-pc-spec-recommender">spec recommender</a> to anchor your
-      build.
+      Bu rehber pratik karar akışını sunar: gerçek kullanım senaryonuzu belirleme,
+      yaygın özellik hatalarından kaçınma ve yapınızı şekillendirmek için{" "}
+      <a href="/tools/gaming-pc-spec-recommender">özellik öneri aracımızı</a> kullanma.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "use-case", label: "Identify your real use case" },
-  { id: "common-mistakes", label: "Common spec mistakes" },
-  { id: "components", label: "Component priority order" },
-  { id: "future-proofing", label: "Future-proofing reality check" },
+  { id: "use-case", label: "Gerçek kullanım senaryonuzu belirleyin" },
+  { id: "common-mistakes", label: "Yaygın özellik hataları" },
+  { id: "components", label: "Bileşen öncelik sırası" },
+  { id: "future-proofing", label: "Geleceğe hazırlık gerçeklik kontrolü" },
 ];
 
 export const body = (
   <>
-    <h2 id="use-case">Identify your real use case</h2>
+    <h2 id="use-case">Gerçek kullanım senaryonuzu belirleyin</h2>
     <p>
-      Before picking parts, answer:
+      Parçaları seçmeden önce şunları cevaplayın:
     </p>
     <ol>
       <li>
-        <strong>Primary game type.</strong> Esports (CS, Valorant, Apex, OW)
-        prioritizes high FPS at lower settings. AAA single-player (Cyberpunk, Witcher)
-        prioritizes visual quality. Strategy / sim games (Cities Skylines, Civ) are
-        CPU-bound. Different games push different hardware.
+        <strong>Birincil oyun türü.</strong> Espor (CS, Valorant, Apex, OW)
+        düşük ayarlarda yüksek FPS'yi önceliklendirir. AAA tek oyunculu (Cyberpunk, Witcher)
+        görsel kaliteyi önceliklendirir. Strateji / simülasyon oyunları (Cities Skylines, Civ)
+        CPU odaklıdır. Farklı oyunlar farklı donanımları zorlar.
       </li>
       <li>
-        <strong>Resolution + refresh rate of your monitor.</strong> 1080p 144 Hz needs
-        very different hardware than 4K 60 Hz or 1440p 240 Hz. The monitor is part of
-        your spec — don&rsquo;t spec a 4K-capable GPU for a 1080p panel.
+        <strong>Monitörünüzün çözünürlüğü + yenileme hızı.</strong> 1080p 144 Hz,
+        4K 60 Hz veya 1440p 240 Hz'den çok farklı donanım gerektirir. Monitör,
+        özelliklerinizin bir parçasıdır — 1080p panel için 4K uyumlu bir GPU seçmeyin.
       </li>
       <li>
-        <strong><a href="/learn/stream">Streaming</a> / content creation.</strong> Adds CPU + RAM requirements.
-        Your &ldquo;just gaming&rdquo; spec is wrong if you&rsquo;ll also be running
-        OBS + Discord + browser + chat tools.
+        <strong><a href="/learn/stream">Yayın</a> / içerik üretimi.</strong> CPU + RAM gereksinimlerini artırır.
+        Ayrıca OBS + Discord + tarayıcı + sohbet araçları çalıştıracaksanız,
+        &ldquo;sadece oyun&rdquo; özellikleriniz yanlış olur.
       </li>
       <li>
-        <strong>VR.</strong> Adds GPU requirements. VR demands consistent 90+ FPS at
-        higher-than-monitor resolutions. Underspec&rsquo;d GPUs cause motion sickness.
+        <strong>VR.</strong> GPU gereksinimlerini artırır. VR, monitör çözünürlüklerinden
+        daha yüksek çözünürlüklerde tutarlı 90+ FPS gerektirir. Düşük özellikli GPU'lar
+        hareket hastalığına neden olur.
       </li>
       <li>
-        <strong>Years of expected use.</strong> 3-year build vs 5-year build vs hand-
-        me-down spec different parts. 5-year builds need overhead on everything that&rsquo;s
-        hard to upgrade later (CPU, motherboard, PSU, case).
+        <strong>Beklenen kullanım yılı.</strong> 3 yıllık yapı vs 5 yıllık yapı vs
+        elden çıkarma özellikleri farklı parçalar gerektirir. 5 yıllık yapılar,
+        daha sonra yükseltmesi zor olan her şeyde (CPU, anakart, PSU, kasa) fazladan
+        kapasiteye ihtiyaç duyar.
       </li>
     </ol>
     <p>
-      Run our <a href="/tools/gaming-pc-spec-recommender">spec recommender</a> with
-      your dominant use case for a tier + budget anchor.
+      Baskın kullanım senaryonuzla <a href="/tools/gaming-pc-spec-recommender">özellik öneri aracımızı</a> çalıştırarak
+      bir seviye ve bütçe referansı alın.
     </p>
 
-    <h2 id="common-mistakes">Common gaming PC spec mistakes</h2>
+    <h2 id="common-mistakes">Yaygın oyun bilgisayarı özellik hataları</h2>
     <ul>
       <li>
-        <strong>Top-tier GPU, mediocre CPU.</strong> Bottlenecks the GPU at higher
-        framerates. Esports especially: a $1200 GPU with a $200 CPU runs 1080p
-        worse than a balanced mid-range build.
+        <strong>Üst düzey GPU, vasat CPU.</strong> Yüksek kare hızlarında GPU'yu
+        darboğaz yapar. Özellikle espor: 1200 dolarlık GPU ile 200 dolarlık CPU,
+        1080p'de dengeli bir orta seviye yapıdan daha kötü çalışır.
       </li>
       <li>
-        <strong>Not enough RAM.</strong> 16 GB is the new minimum in 2026. 32 GB is
-        the comfort zone. Modern AAA games + Discord + browser + Steam easily exceed 16.
+        <strong>Yetersiz RAM.</strong> 2026'da 16 GB yeni minimumdur. 32 GB ise
+        konfor alanıdır. Modern AAA oyunlar + Discord + tarayıcı + Steam kolayca 16'yı aşar.
       </li>
       <li>
-        <strong>Cheap PSU.</strong> Budget PSUs damage other parts when they fail.
-        Stick to Tier A or B brands (Corsair RM, Seasonic Focus, EVGA Gold). Save
-        money on the GPU one tier down before saving money on the PSU.
+        <strong>Ucuz PSU.</strong> Bütçe PSU'lar arızalandığında diğer parçalara zarar verir.
+        Tier A veya B markalarına bağlı kalın (Corsair RM, Seasonic Focus, EVGA Gold). PSU'dan
+        tasarruf etmeden önce GPU'da bir kademe aşağı inerek para biriktirin.
       </li>
       <li>
-        <strong>SATA SSD instead of NVMe.</strong> NVMe is now standard pricing-wise;
-        SATA is a 5-year-old recommendation. Game load times are dramatically better
-        on NVMe.
+        <strong>NVMe yerine SATA SSD.</strong> NVMe artık fiyat olarak standarttır;
+        SATA 5 yıllık bir öneridir. Oyun yükleme süreleri NVMe'de çok daha iyidir.
       </li>
       <li>
-        <strong>No or inadequate cooling.</strong> Modern CPUs throttle aggressively.
-        Stock coolers on i7/Ryzen 7+ class CPUs are inadequate for sustained gaming.
-        Budget for a good air cooler ($35-60) or AIO ($100-150).
+        <strong>Soğutma yok veya yetersiz.</strong> Modern CPU'lar agresif bir şekilde
+        kısıtlama yapar. i7/Ryzen 7+ sınıfı CPU'lardaki stok soğutucular sürekli oyun
+        için yetersizdir. İyi bir hava soğutucu (35-60$) veya AIO (100-150$) için bütçe ayırın.
       </li>
       <li>
-        <strong>Wrong RAM speed.</strong> DDR5 at JEDEC default (4800) is 30% slower
-        than DDR5-6000 with EXPO. Many builds run RAM slow because builders forgot to
-        enable XMP/EXPO.
+        <strong>Yanlış RAM hızı.</strong> JEDEC varsayılanında (4800) DDR5,
+        EXPO ile DDR5-6000'den %30 daha yavaştır. Birçok yapı, kurucular XMP/EXPO'yu
+        etkinleştirmeyi unuttuğu için RAM'i yavaş çalıştırır.
       </li>
       <li>
-        <strong>Buying for the future at the expense of today.</strong> &ldquo;I&rsquo;ll
-        get the 4090 because I might do 4K someday.&rdquo; Buy what you need now for
-        the resolution you have. GPUs depreciate fast.
+        <strong>Bugünün pahasına gelecek için satın almak.</strong> &ldquo;Bir gün 4K yapabilirim
+        diye 4090 alayım.&rdquo; Şu anda sahip olduğunuz çözünürlük için ihtiyacınız olanı
+        satın alın. GPU'lar hızla değer kaybeder.
       </li>
     </ul>
 
-    <h2 id="components">Component priority order</h2>
+    <h2 id="components">Bileşen öncelik sırası</h2>
     <p>
-      Where to spend the marginal dollar, in order:
+      Sınırlı doları nereye harcamalı, sırasıyla:
     </p>
     <ol>
       <li>
-        <strong>GPU.</strong> Single biggest determinant of gaming performance.
-        Pick the GPU first based on resolution + game type, then build around it.
+        <strong>GPU.</strong> Oyun performansının en büyük belirleyicisi.
+        Önce çözünürlük ve oyun türüne göre GPU'yu seçin, ardından onun etrafında
+        bir yapı kurun.
       </li>
       <li>
-        <strong>CPU.</strong> Within reason — the &ldquo;balanced&rdquo; CPU for your
-        GPU class. AMD Ryzen 5 / 7 7000-series or Intel i5/i7 14th gen are the
-        sensible defaults. Avoid mismatched extremes.
+        <strong>CPU.</strong> Makul ölçüde — GPU sınıfınız için &ldquo;dengeli&rdquo;
+        CPU. AMD Ryzen 5 / 7 7000 serisi veya Intel i5/i7 14. nesil mantıklı
+        varsayılanlardır. Uyumsuz uç noktalardan kaçının.
       </li>
       <li>
-        <strong>RAM.</strong> 32 GB DDR5-6000 is the comfortable default for 1440p+
-        gaming + streaming. 16 GB only if you&rsquo;re strictly esports-1080p budget.
+        <strong>RAM.</strong> 32 GB DDR5-6000, 1440p+ oyun ve yayın için rahat
+        varsayılandır. Yalnızca kesinlikle espor-1080p bütçeniz varsa 16 GB.
       </li>
       <li>
-        <strong>Storage.</strong> 1-2 TB NVMe Gen 4. Add a SATA SSD or HDD only if
-        your library exceeds 2 TB.
+        <strong>Depolama.</strong> 1-2 TB NVMe Gen 4. Yalnızca kitaplığınız 2 TB'ı
+        aşarsa bir SATA SSD veya HDD ekleyin.
       </li>
       <li>
-        <strong>PSU.</strong> Tier A/B brand, 100-200 W headroom over your part list&rsquo;s
-        peak draw. 750W Gold for mid-range; 850W for high-end; 1000W for halo.
+        <strong>PSU.</strong> Tier A/B marka, parça listenizin tepe çekiminin 100-200 W
+        üzerinde boşluk. Orta seviye için 750W Gold; üst seviye için 850W; amiral gemisi için 1000W.
       </li>
       <li>
-        <strong>Cooling.</strong> Good air cooler ($35-60) for everything up to mid-
-        range. AIO ($100-150) for i7/Ryzen 7+ class or if you&rsquo;ll stress the
-        CPU heavily.
+        <strong>Soğutma.</strong> Orta seviyeye kadar her şey için iyi bir hava soğutucu
+        (35-60$). i7/Ryzen 7+ sınıfı veya CPU'yu ağır yükleyecekseniz AIO (100-150$).
       </li>
       <li>
-        <strong>Case.</strong> Decent airflow case (Fractal North, Lian Li Lancool,
-        NZXT H7 Flow). Don&rsquo;t go ultra-cheap — bad cases ruin thermals.
+        <strong>Kasa.</strong> İyi hava akışına sahip kasa (Fractal North, Lian Li Lancool,
+        NZXT H7 Flow). Çok ucuza gitmeyin — kötü kasalar termal performansı mahveder.
       </li>
       <li>
-        <strong>Motherboard.</strong> Spend just enough for the features you need.
-        Anything beyond &ldquo;has the right number of M.2 slots and supports your
-        CPU&rdquo; is mostly luxury at gaming use cases.
+        <strong>Anakart.</strong> İhtiyacınız olan özellikler için yeterince harcayın.
+        &ldquo;Doğru sayıda M.2 yuvasına sahip ve CPU'nuzu destekliyor&rdquo; olmanın
+        ötesi, oyun kullanım senaryolarında çoğunlukla lükstür.
       </li>
     </ol>
 
-    <h2 id="future-proofing">Future-proofing reality check</h2>
+    <h2 id="future-proofing">Geleceğe hazırlık gerçeklik kontrolü</h2>
     <p>
-      The honest math:
+      Dürüst hesap:
     </p>
     <ul>
       <li>
-        <strong>GPU:</strong> depreciates ~30% per generation. Buy what you need for
-        2-3 years; plan to replace.
+        <strong>GPU:</strong> nesil başına ~%30 değer kaybeder. 2-3 yıl için
+        ihtiyacınız olanı satın alın; değiştirmeyi planlayın.
       </li>
       <li>
-        <strong>CPU:</strong> 5-7 year viable. Pick a platform with at least one upgrade
-        path (AMD AM5 has guaranteed support through 2027+; Intel sockets shift more).
+        <strong>CPU:</strong> 5-7 yıl kullanılabilir. En az bir yükseltme yolu olan
+        bir platform seçin (AMD AM5'in 2027+ garantili desteği var; Intel soketleri daha
+        sık değişir).
       </li>
       <li>
-        <strong>RAM:</strong> 32 GB is the new comfortable. 64 GB is overkill for pure
-        gaming today; will be useful in 5+ years.
+        <strong>RAM:</strong> 32 GB yeni rahat seviye. 64 GB saf oyun için bugün
+        gereksizdir; 5+ yıl içinde kullanışlı olacaktır.
       </li>
       <li>
-        <strong>PSU + Case:</strong> 7-10 year viable. Spending up here is the cleanest
-        future-proofing because PSU + case carry through multiple generations of
-        rebuilds.
+        <strong>PSU + Kasa:</strong> 7-10 yıl kullanılabilir. Buraya harcama yapmak en
+        temiz geleceğe hazırlıktır çünkü PSU + kasa birden çok yeniden yapılandırma
+        nesli boyunca taşınır.
       </li>
     </ul>
     <p>
-      Optimizing for the future at the expense of today usually loses on net:
-      tomorrow&rsquo;s GPU options will be better than today&rsquo;s top tier, and
-      you&rsquo;ll be locked into 2026-era parts. Buy what you need now.
+      Bugünün pahasına gelecek için optimize etmek genellikle net kaybettirir:
+      yarının GPU seçenekleri bugünün en üst seviyesinden daha iyi olacak ve
+      2026 dönemi parçalarına kilitlenmiş olacaksınız. Şu anda ihtiyacınız olanı satın alın.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Get a tier recommendation for your use case",
+  label: "Kullanım senaryonuz için bir seviye önerisi alın",
   targetSlug: "gaming-pc-spec-recommender",
 };
 
 export const faq = [
   {
-    q: "How do I know what gaming PC specs I need?",
-    a: "Identify your dominant use case (esports, AAA, streaming, VR), then your monitor's resolution + refresh rate. Use our spec recommender to get a tier + budget anchor. Most spec mistakes come from optimizing for the wrong axis — top-tier GPU with mediocre CPU, not enough RAM, cheap PSU, etc.",
+    q: "Hangi oyun bilgisayarı özelliklerine ihtiyacım olduğunu nasıl anlarım?",
+    a: "Baskın kullanım senaryonuzu (espor, AAA, yayın, VR) ve ardından monitörünüzün çözünürlüğü + yenileme hızını belirleyin. Bir seviye ve bütçe referansı almak için özellik öneri aracımızı kullanın. Çoğu özellik hatası, yanlış eksen için optimize etmekten kaynaklanır — üst düzey GPU ile vasat CPU, yetersiz RAM, ucuz PSU vb.",
   },
   {
-    q: "What questions should I ask before buying a gaming PC?",
-    a: "Six: (1) primary use case, (2) target resolution + refresh rate, (3) future-upgrade priorities, (4) thermal environment, (5) total budget including peripherals + games, (6) DIY or hire. The answer to #1 + #2 drives 80% of the spec.",
+    q: "Bir oyun bilgisayarı satın almadan önce hangi soruları sormalıyım?",
+    a: "Altı: (1) birincil kullanım senaryosu, (2) hedef çözünürlük + yenileme hızı, (3) gelecekteki yükseltme öncelikleri, (4) termal ortam, (5) çevre birimleri + oyunlar dahil toplam bütçe, (6) kendin yap veya profesyonel. 1. ve 2. soruların cevabı özelliklerin %80'ini belirler.",
   },
   {
-    q: "What are the most common gaming PC spec mistakes?",
-    a: "Top-tier GPU with mediocre CPU (bottlenecks at high FPS), insufficient RAM (16 GB is now minimum), cheap PSU (damages other parts on failure), SATA instead of NVMe, inadequate CPU cooling, RAM running at default JEDEC instead of XMP/EXPO speed, over-buying for hypothetical future use cases.",
+    q: "En yaygın oyun bilgisayarı özellik hataları nelerdir?",
+    a: "Üst düzey GPU ile vasat CPU (yüksek FPS'de darboğaz), yetersiz RAM (16 GB artık minimum), ucuz PSU (arızada diğer parçalara zarar verir), NVMe yerine SATA, yetersiz CPU soğutması, XMP/EXPO hızı yerine varsayılan JEDEC'te çalışan RAM, varsayımsal gelecek kullanım senaryoları için aşırı satın alma.",
   },
   {
-    q: "How much should I spend on each component?",
-    a: "Priority order: GPU first (biggest impact on gaming perf) → balanced CPU → 32 GB DDR5 RAM → 1-2 TB NVMe → tier A/B PSU with headroom → adequate cooling → decent airflow case → just-enough motherboard. Don't go ultra-cheap on PSU or case (long lifespan parts that affect everything).",
+    q: "Her bileşene ne kadar harcamalıyım?",
+    a: "Öncelik sırası: önce GPU (oyun performansında en büyük etki) → dengeli CPU → 32 GB DDR5 RAM → 1-2 TB NVMe → boşluklu tier A/B PSU → yeterli soğutma → iyi hava akışlı kasa → yeterli anakart. PSU veya kasadan çok ucuzlamayın (uzun ömürlü parçalar ve her şeyi etkiler).",
   },
 ];

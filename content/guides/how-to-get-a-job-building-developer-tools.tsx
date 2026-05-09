@@ -3,193 +3,193 @@
 export const intro = (
   <>
     <p>
-      Getting your first dev-tools job is mostly a portfolio + positioning game. Unlike
-      generic SWE roles where coding-interview performance dominates, dev-tools hiring
-      managers care about whether you can ship a tool other developers actually want to
-      use — and your public artifacts make or break the case.
+      İlk dev-tools işinizi almak çoğunlukla bir portföy + konumlandırma oyunudur.
+      Kodlama mülakatı performansının baskın olduğu genel SWE rollerinin aksine,
+      dev-tools işe alım yöneticileri, diğer geliştiricilerin gerçekten kullanmak isteyeceği
+      bir aracı teslim edip edemeyeceğinizi önemser — ve kamuya açık çalışmalarınız
+      durumu ya lehinize ya da aleyhinize çevirir.
     </p>
     <p>
-      This guide is the complete playbook: which companies hire for dev-tools, what
-      hiring managers look for, the fastest path for career switchers, and the
-      portfolio + interview prep that closes offers.
+      Bu rehber eksiksiz bir oyun kitabıdır: dev-tools için hangi şirketler işe alım yapar,
+      işe alım yöneticileri ne arar, kariyer değiştirenler için en hızlı yol ve
+      teklifleri kapatmanızı sağlayacak portföy + mülakat hazırlığı.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "companies", label: "Companies that hire for dev-tools roles" },
-  { id: "what-hiring-managers-want", label: "What hiring managers look for" },
-  { id: "first-job", label: "Getting your first dev-tools job" },
-  { id: "interview-prep", label: "Interview prep that works" },
+  { id: "companies", label: "Dev-tools rolleri için işe alım yapan şirketler" },
+  { id: "what-hiring-managers-want", label: "İşe alım yöneticilerinin aradıkları" },
+  { id: "first-job", label: "İlk dev-tools işinizi almak" },
+  { id: "interview-prep", label: "İşe yarayan mülakat hazırlığı" },
 ];
 
 export const body = (
   <>
-    <h2 id="companies">Companies that hire for developer tools roles</h2>
+    <h2 id="companies">Dev-tools rolleri için işe alım yapan şirketler</h2>
     <p>
-      Categorized by likelihood of hiring + scale of the team:
+      İşe alma olasılığı + ekibin büyüklüğüne göre kategorize edilmiştir:
     </p>
     <ul>
       <li>
-        <strong>Big tech with named DPE/DevX teams:</strong> Google (Engineering
+        <strong>Adlandırılmış DPE/DevX ekiplerine sahip büyük teknoloji şirketleri:</strong> Google (Engineering
         Productivity), Meta (Developer Infrastructure), Microsoft (Developer Velocity),
         Amazon (Builder Tools), Apple (Internal Tools), Stripe (Developer Productivity),
         Shopify (Developer Acceleration), Airbnb (Tooling), Netflix (Productivity
-        Engineering). Tier 1 comp.
+        Engineering). 1. kademe ücret.
       </li>
       <li>
-        <strong>Dev-tools companies (the product IS the tool):</strong> GitHub, GitLab,
+        <strong>Dev-tools şirketleri (ürünün kendisi araçtır):</strong> GitHub, GitLab,
         JetBrains, Vercel, Netlify, Cloudflare, Datadog, Sentry, HashiCorp, Confluent,
-        MongoDB, Posthog, Linear, dbt Labs, Supabase. Comp varies; mission alignment
-        high.
+        MongoDB, Posthog, Linear, dbt Labs, Supabase. Ücret değişkendir; misyon uyumu
+        yüksektir.
       </li>
       <li>
-        <strong>AI labs + AI-tooling startups:</strong> Anthropic, OpenAI, Cohere,
-        Replicate, LangChain, Cursor (the Anysphere team), various YC AI startups. Tier
-        1 comp at the labs; high upside at startups.
+        <strong>AI laboratuvarları + AI araçları girişimleri:</strong> Anthropic, OpenAI, Cohere,
+        Replicate, LangChain, Cursor (Anysphere ekibi), çeşitli YC AI girişimleri. 1.
+        kademe ücret laboratuvarlarda; girişimlerde yüksek potansiyel.
       </li>
       <li>
-        <strong>Mid-size companies with platform teams:</strong> Stripe, Uber, Lyft,
-        DoorDash, Airbnb, Square, Mercado Libre, Booking.com, Spotify (the Backstage
-        team is the famous example). Strong DPE budgets.
+        <strong>Platform ekipleri olan orta ölçekli şirketler:</strong> Stripe, Uber, Lyft,
+        DoorDash, Airbnb, Square, Mercado Libre, Booking.com, Spotify (Backstage
+        ekibi ünlü örnektir). Güçlü DPE bütçeleri.
       </li>
       <li>
-        <strong>Open-source-heavy companies:</strong> Red Hat, Canonical, GitLab, Hugging
-        Face, Sourcegraph, Postman. Often hire OSS contributors directly.
+        <strong>Açık kaynak ağırlıklı şirketler:</strong> Red Hat, Canonical, GitLab, Hugging
+        Face, Sourcegraph, Postman. Genellikle doğrudan AKK katkıda bulunanları işe alırlar.
       </li>
     </ul>
     <p>
-      Filter on: roles that explicitly say &ldquo;Developer Productivity,&rdquo;
+      Şu ifadeleri açıkça belirten rollere odaklanın: &ldquo;Developer Productivity,&rdquo;
       &ldquo;Developer Experience,&rdquo; &ldquo;Platform Engineer,&rdquo; &ldquo;Build
-      Engineer,&rdquo; &ldquo;Internal Tools&rdquo;, or &ldquo;Tooling Engineer&rdquo;.
+      Engineer,&rdquo; &ldquo;Internal Tools&rdquo; veya &ldquo;Tooling Engineer&rdquo;.
     </p>
 
-    <h2 id="what-hiring-managers-want">What hiring managers look for</h2>
+    <h2 id="what-hiring-managers-want">İşe alım yöneticilerinin aradıkları</h2>
     <p>
-      Public hiring posts and informal interviews with dev-tools hiring managers
-      consistently surface five things:
-    </p>
-    <ol>
-      <li>
-        <strong>Public artifacts.</strong> A GitHub profile with at least 1–2 dev tools
-        you&rsquo;ve shipped (your own or substantial OSS contributions). This is the
-        single biggest signal — it shows you can finish things and that you have taste.
-      </li>
-      <li>
-        <strong>Empathy for users.</strong> Tools fail when authors don&rsquo;t feel
-        their users&rsquo; pain. Interviews probe this with &ldquo;walk me through how
-        you&rsquo;d roll out tool X to a 50-engineer team.&rdquo;
-      </li>
-      <li>
-        <strong>System thinking.</strong> Dev tools touch builds, CI, deploy, runtime.
-        Hiring managers test for the ability to reason across the whole pipeline, not
-        just the slice in front of you.
-      </li>
-      <li>
-        <strong>Documentation + communication.</strong> Tools live or die on docs. A
-        candidate who writes a clean README and clear PR descriptions stands out.
-      </li>
-      <li>
-        <strong>Pragmatism.</strong> Dev tools is a discipline of solving real problems
-        with the simplest possible tools. Over-engineering is a red flag; opinionated
-        but proportional design is a green flag.
-      </li>
-    </ol>
-
-    <h2 id="first-job">Getting your first dev-tools job</h2>
-    <p>
-      The fastest paths from regular dev → dev tools (in order of leverage):
+      Kamuya açık işe alım ilanları ve dev-tools işe alım yöneticileriyle yapılan gayriresmi
+      görüşmeler tutarlı bir şekilde beş şeyi ortaya çıkarmaktadır:
     </p>
     <ol>
       <li>
-        <strong>Internal rotation.</strong> Ask your current employer for a 6-month
-        rotation onto the platform/DevX team. You keep your salary, build the portfolio,
-        and apply externally with the title in hand. This converts faster than any
-        external job search.
+        <strong>Kamuya açık çalışmalar.</strong> Teslim ettiğiniz en az 1-2 dev
+        aracı (kendi aracınız veya önemli AKK katkıları) olan bir GitHub profili. Bu
+        en büyük sinyaldir — işleri bitirebildiğinizi ve zevkiniz olduğunu gösterir.
       </li>
       <li>
-        <strong>Ship one OSS dev tool.</strong> 8 weeks of nights and weekends. Real
-        tool, not a toy. Use our{" "}
-        <a href="/tools/dev-tool-idea-scorer">idea scorer</a> to pick something high-
-        signal. Apply to dev-tools roles with the GitHub link in your application.
+        <strong>Kullanıcılar için empati.</strong> Araçlar, yazarları kullanıcılarının
+        acısını hissetmediğinde başarısız olur. Mülakatlar bunu &ldquo;X aracını 50 mühendislik bir ekibe nasıl yaygınlaştıracağınızı anlatın&rdquo; diyerek sorgular.
       </li>
       <li>
-        <strong>Substantial OSS contributions to dev-tool projects.</strong> Pick 1-2
-        projects you actually use. Submit non-trivial PRs (not typo fixes; real features,
-        documentation overhauls, or test-coverage drives). Reference them in
-        applications.
+        <strong>Sistem düşüncesi.</strong> Dev araçları build, CI, deploy, runtime ile
+        ilgilidir. İşe alım yöneticileri, yalnızca önünüzdeki dilimi değil, tüm
+        hattı kapsayacak şekilde akıl yürütme yeteneğini test eder.
       </li>
       <li>
-        <strong>Conference talk or technical blog series.</strong> Write 6 posts on a
-        dev-tools topic (your CI/CD migration, your build-system optimization, your
-        internal tool pivot). Builds public credibility. Some companies (Stripe,
-        Cloudflare) explicitly recruit blog authors.
+        <strong>Dokümantasyon + iletişim.</strong> Araçlar dokümanlarla yaşar veya ölür.
+        Temiz bir README ve net PR açıklamaları yazan bir aday öne çıkar.
       </li>
       <li>
-        <strong>Cold outreach to teams you admire.</strong> Find DPE/DevX leads on
-        LinkedIn, send a 100-word note referencing one specific thing they&rsquo;ve
-        shipped, attach your GitHub. ~10% reply rate; better-than-zero.
+        <strong>Pragmatizm.</strong> Dev araçları, gerçek sorunları mümkün olan en basit
+        araçlarla çözme disiplinidir. Aşırı mühendislik kırmızı bayraktır; görüşlü ancak
+        orantılı tasarım yeşil bayraktır.
       </li>
     </ol>
 
-    <h2 id="interview-prep">Interview prep that works</h2>
+    <h2 id="first-job">İlk dev-tools işinizi almak</h2>
     <p>
-      Dev-tools interviews are different from generic SWE loops. Expect:
+      Normal geliştiriciden dev araçlarına giden en hızlı yollar (etki sırasına göre):
+    </p>
+    <ol>
+      <li>
+        <strong>İç rotasyon.</strong> Mevcut işvereninizden platform/DevX ekibine 6 aylık
+        bir rotasyon isteyin. Maaşınızı korursunuz, portföy oluşturursunuz ve
+        unvanı elinizde bulundurarak dışarıya başvurursunuz. Bu, herhangi bir dış iş
+        aramasından daha hızlı dönüşüm sağlar.
+      </li>
+      <li>
+        <strong>Bir AKK dev aracı teslim edin.</strong> 8 haftalık gece ve hafta sonu.
+        Gerçek araç, oyuncak değil. Yüksek sinyalli bir şey seçmek için{" "}
+        <a href="/tools/dev-tool-idea-scorer">fikir puanlayıcımızı</a> kullanın. Başvurunuzda
+        GitHub bağlantısıyla dev-tools rollerine başvurun.
+      </li>
+      <li>
+        <strong>Dev-tool projelerine önemli AKK katkıları.</strong> Gerçekten kullandığınız
+        1-2 proje seçin. Önemsiz olmayan PR'lar gönderin (yazım hatası düzeltmeleri değil; gerçek özellikler,
+        dokümantasyon revizyonları veya test kapsamı iyileştirmeleri). Bunlara
+        başvurularda atıfta bulunun.
+      </li>
+      <li>
+        <strong>Konferans konuşması veya teknik blog serisi.</strong> Bir dev-tools
+        konusu hakkında 6 yazı yazın (CI/CD geçişiniz, build sistemi optimizasyonunuz,
+        dahili araç dönüşümünüz). Kamuya açık güvenilirlik oluşturur. Bazı şirketler (Stripe,
+        Cloudflare) açıkça blog yazarlarını işe alır.
+      </li>
+      <li>
+        <strong>Hayran olduğunuz ekiplere soğuk e-posta gönderme.</strong> LinkedIn'de
+        DPE/DevX liderlerini bulun, teslim ettikleri belirli bir şeye atıfta bulunan 100
+        kelimelik bir not gönderin, GitHub'ınızı ekleyin. ~%10 yanıt oranı; sıfırdan iyidir.
+      </li>
+    </ol>
+
+    <h2 id="interview-prep">İşe yarayan mülakat hazırlığı</h2>
+    <p>
+      Dev-tools mülakatları genel SWE süreçlerinden farklıdır. Bekleyin:
     </p>
     <ul>
       <li>
-        <strong>System design with developer-tools framing.</strong> &ldquo;Design an
-        internal feature flag service&rdquo; rather than &ldquo;design Twitter.&rdquo;
-        Practice these specifically — the constraints differ.
+        <strong>Geliştirici araçları çerçevesiyle sistem tasarımı.</strong> &ldquo;Twitter tasarlayın&rdquo;
+        yerine &ldquo;Dahili bir özellik bayrağı servisi tasarlayın.&rdquo;
+        Bunları özellikle pratik edin — kısıtlamalar farklıdır.
       </li>
       <li>
-        <strong>Product / UX questions.</strong> &ldquo;Walk me through the rollout plan
-        for a new internal tool to 200 engineers.&rdquo; &ldquo;How would you handle
-        backwards-compatibility for X?&rdquo; Prep stories from your past work.
+        <strong>Ürün / UX soruları.</strong> &ldquo;200 mühendise yeni bir dahili aracın
+        yaygınlaştırma planını anlatın.&rdquo; &ldquo;X için geriye dönük uyumluluğu nasıl
+        yönetirdiniz?&rdquo; Geçmiş çalışmalarınızdan hikayeler hazırlayın.
       </li>
       <li>
-        <strong>API design.</strong> &ldquo;Design the API for [some dev tool].&rdquo;
-        Read aip.dev (Google&rsquo;s style guide) and Stripe&rsquo;s API design blog
-        before the loop.
+        <strong>API tasarımı.</strong> &ldquo;[Bir dev aracı] için API'yi tasarlayın.&rdquo;
+        Mülakat öncesinde aip.dev (Google'ın stil kılavuzu) ve Stripe'ın API tasarım
+        blogunu okuyun.
       </li>
       <li>
-        <strong>Coding rounds:</strong> still happen, but often weighted lower at
-        senior+ levels. Practice CLI-style problems (parse a command, walk a directory)
-        rather than only LeetCode.
+        <strong>Kodlama turları:</strong> hala olur, ancak genellikle kıdemli+ seviyelerde
+        daha düşük ağırlıklıdır. Yalnızca LeetCode yerine CLI tarzı problemler (bir komutu ayrıştırma, bir dizini dolaşma)
+        pratik edin.
       </li>
       <li>
-        <strong>Trivia about specific tools.</strong> Know your stack — if applying
-        to a Bazel team, brush up on Bazel. If a CI/CD role, know GitHub Actions /
-        GitLab CI / Buildkite differences.
+        <strong>Belirli araçlar hakkında trivia.</strong> Stack'inizi bilin — bir Bazel
+        ekibine başvuruyorsanız Bazel'i tazeleyin. Bir CI/CD rolü ise GitHub Actions /
+        GitLab CI / Buildkite farklarını bilin.
       </li>
     </ul>
     <p>
-      The portfolio link in your resume + clear specific stories from past dev-tools
-      work matter more than LeetCode pattern memorization for these roles.
+      Özgeçmişinizdeki portföy bağlantısı + geçmiş dev-tools çalışmalarından net ve belirli
+      hikayeler, bu roller için LeetCode desen ezberlemesinden daha önemlidir.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Salary ranges by level + tier + region",
+  label: "Seviye + kademe + bölgeye göre maaş aralıkları",
   targetSlug: "dev-tool-salary-estimator",
 };
 
 export const faq = [
   {
-    q: "How do I get a job building developer tools?",
-    a: "Five paths in priority: (1) internal rotation onto your employer's platform/DevX team — fastest by far, (2) ship one OSS dev tool over 8 weeks, (3) substantial PRs to dev-tool projects you use, (4) write a 6-post technical blog series, (5) cold outreach to DPE leads on LinkedIn with specific GitHub artifacts.",
+    q: "Geliştirici araçları oluşturan bir işi nasıl alırım?",
+    a: "Öncelik sırasına göre beş yol: (1) işvereninizin platform/DevX ekibine iç rotasyon — açık ara en hızlısı, (2) 8 hafta içinde bir AKK dev aracı teslim edin, (3) kullandığınız dev-tool projelerine önemli PR'lar, (4) 6 yazılık bir teknik blog serisi yazın, (5) LinkedIn'de DPE liderlerine belirli GitHub çalışmalarıyla soğuk e-posta gönderin.",
   },
   {
-    q: "What companies hire for developer tool roles?",
-    a: "Big tech (Google, Meta, Microsoft, Amazon, Apple) named DPE teams. Dev-tool product companies (GitHub, GitLab, Vercel, Datadog, Sentry, HashiCorp). AI labs + tooling startups (Anthropic, OpenAI, LangChain, Cursor). Mid-size with platform teams (Stripe, Uber, Lyft, Spotify). OSS-heavy (Red Hat, GitLab, Hugging Face).",
+    q: "Hangi şirketler geliştirici araç rolleri için işe alım yapar?",
+    a: "Büyük teknoloji (Google, Meta, Microsoft, Amazon, Apple) adlandırılmış DPE ekipleri. Dev-tool ürün şirketleri (GitHub, GitLab, Vercel, Datadog, Sentry, HashiCorp). AI laboratuvarları + araç girişimleri (Anthropic, OpenAI, LangChain, Cursor). Platform ekipleri olan orta ölçekli şirketler (Stripe, Uber, Lyft, Spotify). AKK ağırlıklı (Red Hat, GitLab, Hugging Face).",
   },
   {
-    q: "What do hiring managers look for in developer tools roles?",
-    a: "Public artifacts (1-2 shipped tools or substantial OSS PRs), empathy for users (rollout reasoning), system thinking (across build/CI/deploy/runtime), documentation quality, and pragmatism (solving real problems with the simplest tools — not over-engineered). The GitHub portfolio link beats LeetCode reps.",
+    q: "İşe alım yöneticileri geliştirici araç rollerinde ne arar?",
+    a: "Kamuya açık çalışmalar (1-2 teslim edilmiş araç veya önemli AKK PR'ları), kullanıcılar için empati (yaygınlaştırma muhakemesi), sistem düşüncesi (build/CI/deploy/runtime genelinde), dokümantasyon kalitesi ve pragmatizm (gerçek sorunları en basit araçlarla çözmek — aşırı mühendislik değil). GitHub portföy bağlantısı LeetCode tekrarlarını yener.",
   },
   {
-    q: "How do I get my first developer tools job as a career switcher?",
-    a: "Internal rotation if your employer has a platform team — fastest path, keeps your salary, gets you the title. If not, ship one OSS dev tool over 8 weeks (use our idea scorer to pick well), then apply externally with the GitHub link. Adding a substantial OSS contribution to a tool you use accelerates further.",
+    q: "Kariyer değiştiren biri olarak ilk geliştirici araçları işimi nasıl alırım?",
+    a: "İşvereninizin bir platform ekibi varsa iç rotasyon — en hızlı yol, maaşınızı korur, unvanı alırsınız. Yoksa, 8 hafta içinde bir AKK dev aracı teslim edin (iyi seçmek için fikir puanlayıcımızı kullanın), ardından GitHub bağlantısıyla dışarıya başvurun. Kullandığınız bir araca önemli bir AKK katkısı eklemek daha da hızlandırır.",
   },
 ];

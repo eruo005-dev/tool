@@ -3,41 +3,22 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      An <a href="/learn/sitemap-xml">XML sitemap</a> is a machine-readable index of the URLs you want
-      search engines to crawl, wrapped in a spec the major engines
-      have agreed on since 2005 (<code>sitemaps.org</code>). It will
-      not magically boost rankings, but on large or deep sites it
-      meaningfully improves discovery &mdash; especially for pages
-      that sit more than three clicks from the homepage or have few
-      inbound links. The format itself is simple, but the size
-      limits, freshness signals, and submission workflow all have
-      sharp edges. This guide covers the required XML structure, the
-      <code> &lt;lastmod&gt;</code>,
-      <code> &lt;changefreq&gt;</code>, and
-      <code> &lt;priority&gt;</code> elements (and which ones Google
-      still reads in 2026), the 50 MB / 50,000 URL limits, sitemap
-      indexes for bigger sites, gzipping, and how to submit and
-      monitor in Google Search Console and Bing Webmaster Tools.
+      Bir <a href="/learn/sitemap-xml">XML site haritası</a>, arama motorlarının taramasını istediğiniz URL'lerin makine tarafından okunabilir bir dizinidir ve büyük motorların 2005'ten beri üzerinde anlaştığı bir spesifikasyonla (<code>sitemaps.org</code>) sarılmıştır. Sihirli bir şekilde sıralamaları yükseltmez, ancak büyük veya derin sitelerde, özellikle ana sayfadan üç tıklamadan fazla uzakta olan veya az sayıda gelen bağlantısı olan sayfalar için keşfedilebilirliği anlamlı şekilde artırır. Formatın kendisi basittir, ancak boyut sınırları, tazelik sinyalleri ve gönderme iş akışının keskin kenarları vardır. Bu kılavuz, gerekli XML yapısını, <code> &lt;lastmod&gt;</code>, <code> &lt;changefreq&gt;</code> ve <code> &lt;priority&gt;</code> öğelerini (ve Google'ın 2026'da hangilerini hâlâ okuduğunu), 50 MB / 50.000 URL sınırlarını, daha büyük siteler için site haritası indekslerini, gzip'lemeyi ve Google Search Console ile Bing Webmaster Tools'a nasıl gönderip izleneceğini kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What a sitemap does and does not do</h2>
+    <h2>Bir site haritasının yaptığı ve yapmadığı şeyler</h2>
     <p>
-      A sitemap tells search engines &ldquo;these are URLs that
-      exist, here is when they changed.&rdquo; It helps crawlers
-      find pages faster and prioritize freshly updated ones.
+      Bir site haritası, arama motorlarına "bunlar var olan URL'ler, işte ne zaman değiştiklerini" söyler. Tarayıcıların sayfaları daha hızlı bulmasına ve yeni güncellenmiş olanlara öncelik vermesine yardımcı olur.
     </p>
     <p>
-      It does <strong>not</strong> force indexing. Google still
-      decides whether each URL is worth including. It does not
-      replace internal linking &mdash; a page reachable only via the
-      sitemap is a weak signal of importance.
+      <strong>Dizine eklemeyi zorlamaz.</strong> Google yine de her URL'nin dahil edilmeye değer olup olmadığına karar verir. Dahili bağlantıların yerini almaz &mdash; yalnızca site haritası aracılığıyla ulaşılabilen bir sayfa, zayıf bir önem sinyalidir.
     </p>
 
-    <h2>The minimum valid sitemap</h2>
+    <h2>Geçerli minimum site haritası</h2>
     <pre>{`<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -50,64 +31,36 @@ export const body: ReactElement = (
   </url>
 </urlset>`}</pre>
     <p>
-      The XML declaration and the <code>xmlns</code> are required.
-      Each <code>&lt;url&gt;</code> needs a <code>&lt;loc&gt;</code>;
-      everything else is optional. URLs must be absolute, use one
-      canonical domain, and be URL-encoded (non-ASCII characters as
-      percent-encoded UTF-8).
+      XML bildirimi ve <code>xmlns</code> gereklidir. Her <code>&lt;url&gt;</code> bir <code>&lt;loc&gt;</code> gerektirir; diğer her şey isteğe bağlıdır. URL'ler mutlak olmalı, tek bir kurallı alan adı kullanmalı ve URL kodlamalı olmalıdır (ASCII olmayan karakterler yüzde kodlamalı UTF-8 olarak).
     </p>
 
-    <h2>lastmod &mdash; the one optional element Google actually uses</h2>
+    <h2>lastmod &mdash; Google'ın gerçekten kullandığı tek isteğe bağlı öğe</h2>
     <p>
-      John Mueller and Gary Illyes have confirmed repeatedly that
-      Google uses <code>&lt;lastmod&gt;</code> as a recrawl signal,
-      but only when it is consistent with the actual content change
-      date. Systems that set <code>lastmod</code> to the current time
-      on every regeneration get their sitemap&rsquo;s lastmod ignored
-      entirely.
+      John Mueller ve Gary Illyes, Google'ın <code>&lt;lastmod&gt;</code> öğesini yeniden tarama sinyali olarak kullandığını, ancak yalnızca gerçek içerik değişiklik tarihiyle tutarlı olduğunda kullandığını defalarca doğruladı. Her yeniden oluşturmada <code>lastmod</code> değerini geçerli saate ayarlayan sistemlerin site haritasının lastmod değeri tamamen yok sayılır.
     </p>
     <p>
-      Use W3C Datetime format: <code>2026-04-22</code> or the full
-      <code> 2026-04-22T14:30:00+00:00</code>. Date-only is fine.
-      Only update the value when the page&rsquo;s meaningful content
-      changes &mdash; not on every template tweak.
+      W3C Datetime formatını kullanın: <code>2026-04-22</code> veya tam <code> 2026-04-22T14:30:00+00:00</code>. Yalnızca tarih olması yeterlidir. Değeri yalnızca sayfanın anlamlı içeriği değiştiğinde güncelleyin &mdash; her şablon düzeltmesinde değil.
     </p>
 
-    <h2>changefreq and priority &mdash; ignored by Google</h2>
+    <h2>changefreq ve priority &mdash; Google tarafından yok sayılır</h2>
     <p>
-      Google has publicly stated (2020, reconfirmed 2024) that it
-      ignores <code>&lt;changefreq&gt;</code> and
-      <code> &lt;priority&gt;</code>. Bing still uses them as weak
-      hints. Keep them out of new sitemaps unless you specifically
-      need them for Bing or internal tooling &mdash; they add noise
-      and file size.
+      Google, <code>&lt;changefreq&gt;</code> ve <code> &lt;priority&gt;</code> öğelerini yok saydığını kamuya açık bir şekilde belirtmiştir (2020, 2024'te yeniden onaylanmıştır). Bing bunları hâlâ zayıf ipuçları olarak kullanır. Özellikle Bing veya dahili araçlar için ihtiyacınız yoksa, bunları yeni site haritalarından çıkarın &mdash; gürültü ve dosya boyutu eklerler.
     </p>
     <p>
-      If included: <code>changefreq</code> takes values
-      <code> always</code>, <code>hourly</code>, <code>daily</code>,
-      <code> weekly</code>, <code>monthly</code>,
-      <code> yearly</code>, <code>never</code>.
-      <code> priority</code> is a number from 0.0 to 1.0, default 0.5.
+      Dahil edilirse: <code>changefreq</code> değerleri <code> always</code>, <code>hourly</code>, <code>daily</code>, <code> weekly</code>, <code>monthly</code>, <code> yearly</code>, <code>never</code> alır. <code> priority</code> 0.0 ile 1.0 arasında bir sayıdır, varsayılan 0.5'tir.
     </p>
 
-    <h2>Size limits</h2>
+    <h2>Boyut sınırları</h2>
     <p>
-      A single sitemap may contain up to <strong>50,000 URLs</strong>
-      {" "}and be no larger than <strong>50 MB uncompressed</strong>.
-      Gzip-compressed sitemaps are allowed (file extension
-      <code> .xml.gz</code>); the 50 MB limit still applies to the
-      uncompressed size.
+      Tek bir site haritası en fazla <strong>50.000 URL</strong> içerebilir ve sıkıştırılmamış olarak <strong>50 MB'tan</strong> büyük olamaz. Gzip sıkıştırılmış site haritalarına izin verilir (dosya uzantısı <code> .xml.gz</code>); 50 MB sınırı hâlâ sıkıştırılmamış boyut için geçerlidir.
     </p>
     <p>
-      Hit either limit and your sitemap is rejected in full, not
-      truncated. Split into multiple sitemaps well before the limit
-      &mdash; 40,000 URLs and 40 MB are sensible thresholds.
+      Sınırlardan birine ulaşırsanız site haritanız tamamen reddedilir, kesilmez. Sınıra çok yaklaşmadan birden fazla site haritasına bölün &mdash; 40.000 URL ve 40 MB makul eşiklerdir.
     </p>
 
-    <h2>Sitemap index for larger sites</h2>
+    <h2>Daha büyük siteler için site haritası indeksi</h2>
     <p>
-      Sites over 50,000 URLs need a sitemap index: a sitemap of
-      sitemaps.
+      50.000 URL'nin üzerindeki sitelerin bir site haritası indeksine ihtiyacı vardır: site haritalarının site haritası.
     </p>
     <pre>{`<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -121,128 +74,77 @@ export const body: ReactElement = (
   </sitemap>
 </sitemapindex>`}</pre>
     <p>
-      An index itself is capped at 50,000 child sitemaps. Index files
-      cannot nest &mdash; only one level deep.
+      Bir indeksin kendisi en fazla 50.000 alt site haritasıyla sınırlıdır. İndeks dosyaları iç içe yerleştirilemez &mdash; yalnızca bir seviye derinliktedir.
     </p>
     <p>
-      Partition by content type (posts, products, categories) or by
-      date (one sitemap per month/year). Partitioning by date makes
-      the per-sitemap lastmod meaningful &mdash; old months rarely
-      change, so Google quickly learns which files to skip.
+      İçerik türüne (yazılar, ürünler, kategoriler) veya tarihe (ay/yıl başına bir site haritası) göre bölün. Tarihe göre bölmek, site haritası başına lastmod değerini anlamlı kılar &mdash; eski aylar nadiren değişir, bu nedenle Google hangi dosyaları atlayacağını hızla öğrenir.
     </p>
 
-    <h2>What to include and exclude</h2>
+    <h2>Neler dahil edilmeli ve çıkarılmalı</h2>
     <p>
-      Include only canonical, indexable URLs that return 200 and
-      that you want Google to evaluate. Exclude:
+      Yalnızca 200 döndüren, dizine eklenebilir kurallı URL'leri ve Google'ın değerlendirmesini istediğiniz URL'leri dahil edin. Hariç tutun:
     </p>
     <p>
-      URLs that 301 or 302 &mdash; list the destination instead.
-      404/410 URLs. URLs marked
-      <code> &lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;</code>.
-      Non-canonical versions (if <code>?utm=</code> variants exist,
-      list the clean URL). Pages blocked by <a href="/learn/robots-txt">robots.txt</a>.
+      301 veya 302 yönlendirmesi yapan URL'ler &mdash; bunun yerine hedefi listeleyin. 404/410 URL'leri. <code> &lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;</code> ile işaretlenmiş URL'ler. Kurallı olmayan sürümler (eğer <code>?utm=</code> varyantları varsa, temiz URL'yi listeleyin). <a href="/learn/robots-txt">robots.txt</a> tarafından engellenen sayfalar.
     </p>
     <p>
-      Search Console will log a warning for each noindex or
-      non-<a href="/learn/canonical-url">canonical URL</a> in your sitemap &mdash; keeping it clean
-      helps the report stay useful.
+      Search Console, site haritanızdaki her noindex veya kurallı olmayan <a href="/learn/canonical-url">URL</a> için bir uyarı kaydeder &mdash; temiz tutmak raporun kullanışlı kalmasına yardımcı olur.
     </p>
 
-    <h2>Submitting and discovering</h2>
+    <h2>Gönderme ve keşfetme</h2>
     <p>
-      Three ways to tell search engines about your sitemap:
+      Arama motorlarına site haritanız hakkında bilgi vermenin üç yolu:
     </p>
     <p>
-      <strong>robots.txt:</strong> add
-      <code> Sitemap: https://example.com/sitemap.xml</code>. Picked
-      up automatically by every major engine.
+      <strong>robots.txt:</strong> <code> Sitemap: https://example.com/sitemap.xml</code> ekleyin. Her büyük motor tarafından otomatik olarak alınır.
     </p>
     <p>
-      <strong>Google Search Console:</strong> Sitemaps report in the
-      left nav. Paste the URL, submit, and GSC will show the last
-      read time, URL count, discovered/indexed split, and any parse
-      errors.
+      <strong>Google Search Console:</strong> Sol gezinme çubuğundaki Site Haritaları raporu. URL'yi yapıştırın, gönderin; GSC son okuma zamanını, URL sayısını, keşfedilen/dizine eklenen ayrımını ve herhangi bir ayrıştırma hatasını gösterecektir.
     </p>
     <p>
-      <strong>Bing Webmaster Tools:</strong> similar submission
-      flow. Also honors the robots.txt declaration.
+      <strong>Bing Webmaster Tools:</strong> benzer gönderme akışı. Ayrıca robots.txt bildirimini de onurlandırır.
     </p>
     <p>
-      The legacy ping endpoint
-      (<code>google.com/ping?sitemap=</code>) was deprecated in June
-      2023 and now returns 404. Do not use it.
+      Eski ping uç noktası (<code>google.com/ping?sitemap=</code>) Haziran 2023'te kullanımdan kaldırılmıştır ve artık 404 döndürmektedir. Kullanmayın.
     </p>
 
-    <h2>Image, video, and news extensions</h2>
+    <h2>Görsel, video ve haber uzantıları</h2>
     <p>
-      The base sitemap spec handles URLs only. Three XML extensions
-      add media metadata:
+      Temel site haritası spesifikasyonu yalnızca URL'leri işler. Üç XML uzantısı medya meta verileri ekler:
     </p>
     <p>
-      <strong>Image sitemap extension</strong>
-      (<code>xmlns:image</code>): lists images per URL. Useful for
-      image-heavy sites &mdash; e-commerce, photography, recipes.
-      Google Images discovery benefits.
+      <strong>Görsel site haritası uzantısı</strong> (<code>xmlns:image</code>): URL başına görselleri listeler. Görsel ağırlıklı siteler için kullanışlıdır &mdash; e-ticaret, fotoğrafçılık, tarifler. Google Görseller keşfi fayda sağlar.
     </p>
     <p>
-      <strong>Video sitemap extension</strong>: duration, thumbnail,
-      content URL. Required for surfacing in Google Video results
-      when the player is complex.
+      <strong>Video site haritası uzantısı</strong>: süre, küçük resim, içerik URL'si. Oynatıcı karmaşık olduğunda Google Video sonuçlarında görünmek için gereklidir.
     </p>
     <p>
-      <strong>News sitemap</strong>: separate file at most 1,000
-      URLs, only articles published in the last two days, for
-      inclusion in Google News.
+      <strong>Haber site haritası</strong>: en fazla 1.000 URL'den oluşan ayrı dosya, yalnızca son iki günde yayınlanan makaleler, Google Haberler'de yer almak için.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Including noindex or redirected URLs.</strong> Google
-      flags these as conflicts and can start ignoring your sitemap
-      signals. Scrub the list on every regeneration.
+      <strong>Noindex veya yönlendirilmiş URL'lerin dahil edilmesi.</strong> Google bunları çakışma olarak işaretler ve site haritası sinyallerinizi yok saymaya başlayabilir. Her yeniden oluşturmada listeyi temizleyin.
     </p>
     <p>
-      <strong>Auto-updating lastmod on every build.</strong> Makes
-      the field useless. Only bump lastmod when the actual content
-      changes &mdash; tie it to post update timestamps, not deploy
-      times.
+      <strong>Her derlemede lastmod değerini otomatik güncelleme.</strong> Alanı kullanışsız hale getirir. lastmod değerini yalnızca gerçek içerik değiştiğinde artırın &mdash; yayın güncelleme zaman damgalarına bağlayın, dağıtım zamanlarına değil.
     </p>
     <p>
-      <strong>Mixing protocols or domains.</strong> A sitemap at
-      <code> https://www.example.com/sitemap.xml</code> may only list
-      URLs on that exact host. Moving between http/https or
-      www/non-www requires the sitemap to live on the same variant.
+      <strong>Protokolleri veya alan adlarını karıştırma.</strong> <code> https://www.example.com/sitemap.xml</code> adresindeki bir site haritası yalnızca bu tam ana bilgisayardaki URL'leri listeleyebilir. http/https veya www/non-www arasında geçiş yapmak, site haritasının aynı varyantta yaşamasını gerektirir.
     </p>
     <p>
-      <strong>Gzipping without the .gz extension.</strong> Google
-      detects compressed sitemaps by extension. A <code>.xml</code>
-      {" "}file served with <code>Content-Encoding: gzip</code> but
-      gzipped bytes inside confuses parsers.
+      <strong>.gz uzantısı olmadan gzip'leme.</strong> Google sıkıştırılmış site haritalarını uzantıya göre algılar. <code>Content-Encoding: gzip</code> ile sunulan ancak içinde gzip'lenmiş baytlar bulunan bir <code>.xml</code> dosyası ayrıştırıcıların kafasını karıştırır.
     </p>
     <p>
-      <strong>Listing redirect chains.</strong> Sitemap URLs that
-      redirect through two or more hops often get dropped before
-      indexing. Keep everything direct-200.
+      <strong>Yönlendirme zincirlerini listeleme.</strong> İki veya daha fazla atlama ile yönlendiren site haritası URL'leri, dizine eklenmeden önce genellikle düşer. Her şeyi doğrudan-200 tutun.
     </p>
     <p>
-      <strong>Forgetting to update on content changes.</strong> A
-      sitemap regenerated nightly from a database stays fresh. One
-      hand-maintained in a text file stops matching reality within
-      weeks.
+      <strong>İçerik değişikliklerinde güncellemeyi unutma.</strong> Bir veritabanından her gece yeniden oluşturulan bir site haritası taze kalır. Bir metin dosyasında elle tutulan bir site haritası haftalar içinde gerçeklikle uyuşmamaya başlar.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Build a valid URL list and <code>&lt;lastmod&gt;</code>-tagged
-      sitemap with the{" "}
-      <a href="/tools/sitemap-url-generator">sitemap URL generator</a>.
-      Pair with the{" "}
-      <a href="/tools/robots-txt-generator">robots.txt generator</a>
-      {" "}so the <code>Sitemap:</code> line is in place, and the{" "}
-      <a href="/tools/url-cleaner">URL cleaner</a> to make sure the
-      URLs you are listing are the canonical versions without
-      tracking cruft.
+      Geçerli bir URL listesi ve <code>&lt;lastmod&gt;</code> etiketli site haritasını <a href="/tools/sitemap-url-generator">site haritası URL oluşturucu</a> ile oluşturun. <code>Sitemap:</code> satırının yerinde olması için <a href="/tools/robots-txt-generator">robots.txt oluşturucu</a> ve listelediğiniz URL'lerin izleme karmaşası olmadan kurallı sürümler olduğundan emin olmak için <a href="/tools/url-cleaner">URL temizleyici</a> ile eşleştirin.
     </p>
   </>
 );

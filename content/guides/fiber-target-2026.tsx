@@ -2,40 +2,40 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Fiber is the most-undersold nutrient on the gym Twitter circuit. While protein dominates discussion, the
-    average American gets 15g/day vs the recommended 25-38g. The downstream effects matter more than people realize.
+    Fiber, spor salonu Twitter çevrelerinde en az değer verilen besindir. Protein söyleme hakim olsa da,
+    ortalama bir Amerikalı 15g alırken önerilen miktar 25-38g'dir. Bunun aşağı yönlü etkileri insanların fark ettiğinden daha büyüktür.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The actual targets</h2>
+    <h2>Gerçek hedefler</h2>
     <ul>
-      <li><strong>Women:</strong> 25g/day</li>
-      <li><strong>Men:</strong> 38g/day</li>
-      <li><strong>Over 50:</strong> 21g (women) / 30g (men) &mdash; calorie-adjusted</li>
+      <li><strong>Kadınlar:</strong> 25g/gün</li>
+      <li><strong>Erkekler:</strong> 38g/gün</li>
+      <li><strong>50 yaş üstü:</strong> 21g (kadın) / 30g (erkek) &mdash; kaloriye göre ayarlanmış</li>
     </ul>
-    <h2>Why hitting it matters</h2>
+    <h2>Hedefe ulaşmak neden önemli</h2>
     <ul>
-      <li>10g/day fiber correlates with 10% lower mortality (multiple cohorts).</li>
-      <li>Improves glycemic response: fiber + carbs spike blood sugar less than carbs alone.</li>
-      <li>Feeds gut microbiome &mdash; downstream effects on mood, immunity, inflammation.</li>
-      <li>Satiety: high-fiber foods are harder to overeat.</li>
+      <li>Günde 10g fiber, %10 daha düşük tüm nedenlere bağlı ölüm oranıyla ilişkilidir (çoklu kohort).</li>
+      <li>Glisemik yanıtı iyileştirir: fiber + karbonhidrat, tek başına karbonhidrattan daha az kan şekeri yükselmesine neden olur.</li>
+      <li>Bağırsak mikrobiyotasını besler &mdash; ruh hali, bağışıklık, iltihaplanma üzerinde aşağı yönlü etkiler.</li>
+      <li>Tokluk: yüksek lifli gıdaları aşırı yemek daha zordur.</li>
     </ul>
-    <h2>Easy wins</h2>
+    <h2>Kolay kazanımlar</h2>
     <ul>
-      <li>Beans + lentils: 12-15g per cup.</li>
-      <li>Berries: 8g per cup raspberries.</li>
-      <li>Chia seeds: 10g per 2 tbsp.</li>
-      <li>Whole oats: 4g per half-cup dry.</li>
-      <li>Avocado: 10g per medium fruit.</li>
-      <li>Veggies in volume &mdash; broccoli, brussels, peppers all 5-8g per generous serving.</li>
+      <li>Fasulye + mercimek: fincan başına 12-15g.</li>
+      <li>Meyveler: bir fincan ahududu 8g içerir.</li>
+      <li>Chia tohumu: 2 yemek kaşığında 10g.</li>
+      <li>Yulaf ezmesi: yarım fincan kuru 4g'dir.</li>
+      <li>Avokado: orta boy bir meyvede 10g.</li>
+      <li>Bol sebze &mdash; brokoli, Brüksel lahanası, biber; cömert bir porsiyonda 5-8g.</li>
     </ul>
-    <h2>Mistakes</h2>
+    <h2>Hatalar</h2>
     <ul>
-      <li>Adding 30g of fiber overnight &mdash; your gut will revolt. Add 5g/day per week.</li>
-      <li>Relying on fiber bars (mostly added isolates that don&rsquo;t deliver the same benefits).</li>
-      <li>Skipping water intake &mdash; high fiber + low water = constipation.</li>
+      <li>Bir gecede 30g fiber eklemek &mdash; bağırsaklarınız isyan eder. Haftada 5g/gün ekleyin.</li>
+      <li>Fiber barlara güvenmek (çoğunlukla aynı faydaları sağlamayan izole katkı maddeleri).</li>
+      <li>Su alımını atlamak &mdash; yüksek fiber + düşük su = kabızlık.</li>
     </ul>
   </>
 );

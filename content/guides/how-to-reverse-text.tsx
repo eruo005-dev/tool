@@ -3,37 +3,38 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Reversing a string is one of the first problems in any programming
-      tutorial, which creates the illusion that it&rsquo;s trivial. It
-      isn&rsquo;t. &ldquo;Reverse this text&rdquo; can mean reverse every
-      character, reverse every word, reverse the bytes, or reverse the
-      user-perceived characters &mdash; and each of those gives a different
-      answer once you include emoji, combining diacritics, or right-to-left
-      scripts. This guide covers the four common reversal definitions, why a
-      naive character-by-character loop breaks modern Unicode text, and how
-      to handle edge cases like flag emoji, Thai vowel marks, and Hebrew.
-      You&rsquo;ll also learn the palindrome-checking application and the
-      gotchas specific to that.
+      Bir metni ters çevirmek, herhangi bir programlama eğitimindeki ilk
+      problemlerden biridir ve bu, işin basit olduğu yanılsamasını yaratır.
+      Oysa öyle değildir. "Bu metni ters çevir" ifadesi, her karakteri ters
+      çevirmek, her kelimeyi ters çevirmek, baytları ters çevirmek veya
+      kullanıcının algıladığı karakterleri ters çevirmek anlamına gelebilir
+      &mdash; ve emoji, birleşik aksan işaretleri veya sağdan sola yazılan
+      betikler eklediğinizde bunların her biri farklı bir cevap verir. Bu
+      kılavuz, dört yaygın ters çevirme tanımını, basit bir karakter
+      karakter döngünün neden modern Unicode metinlerde bozulduğunu ve bayrak
+      emojisi, Tayland sesli harf işaretleri ve İbranice gibi uç durumların
+      nasıl ele alınacağını kapsar. Ayrıca palindrom kontrol uygulamasını ve
+      buna özgü tuzakları da öğreneceksiniz.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Four definitions of &ldquo;reverse&rdquo;</h2>
+    <h2>"Ters çevirme"nin dört tanımı</h2>
     <p>
-      Before writing code, pick a definition:
+      Kod yazmadan önce bir tanım seçin:
     </p>
     <ul>
-      <li><strong>Character reversal</strong> &mdash; last char first, first char last</li>
-      <li><strong>Word reversal</strong> &mdash; word order flips, word spelling stays</li>
-      <li><strong>Byte reversal</strong> &mdash; rarely what you want, shown for completeness</li>
-      <li><strong>Grapheme reversal</strong> &mdash; what users actually expect with emoji/diacritics</li>
+      <li><strong>Karakter ters çevirme</strong> &mdash; son karakter ilk, ilk karakter son</li>
+      <li><strong>Kelime ters çevirme</strong> &mdash; kelime sırası ters döner, kelimelerin yazılışı aynı kalır</li>
+      <li><strong>Bayt ters çevirme</strong> &mdash; nadiren istenen şeydir, tamamlık açısından gösterilmiştir</li>
+      <li><strong>Grafem ters çevirme</strong> &mdash; kullanıcıların emoji/aksan işaretleriyle gerçekten beklediği şey</li>
     </ul>
 
-    <h2>Character reversal: the naive version</h2>
+    <h2>Karakter ters çevirme: basit versiyon</h2>
     <p>
-      The textbook approach works for pure ASCII:
+      Ders kitabı yaklaşımı saf ASCII için işe yarar:
     </p>
     <pre>{`"hello" -> "olleh"
 
@@ -43,45 +44,44 @@ export const body: ReactElement = (
 // Python
 str[::-1]`}</pre>
     <p>
-      This works until the input has anything beyond the basic multilingual
-      plane.
+      Bu, girdi temel çok dilli düzlemin ötesinde bir şey içerene kadar çalışır.
     </p>
 
-    <h2>Why naive reversal breaks on emoji</h2>
+    <h2>Basit ters çevirmenin emoji üzerinde neden bozulduğu</h2>
     <p>
-      Many emoji are stored as <strong>surrogate pairs</strong> in UTF-16
-      &mdash; two code units forming one user-perceived character. JavaScript&rsquo;s
-      <code>str.split(&rdquo;&rdquo;)</code> splits at the code-unit level,
-      which splits surrogate pairs apart.
+      Birçok emoji, UTF-16'da <strong>yedek çiftler</strong> olarak saklanır
+      &mdash; bir kullanıcının algıladığı karakteri oluşturan iki kod birimi.
+      JavaScript'in <code>str.split("")</code> yöntemi kod birimi düzeyinde
+      böler ve bu da yedek çiftleri birbirinden ayırır.
     </p>
-    <pre>{`// Broken:
+    <pre>{`// Bozuk:
 "a\\uD83D\\uDE00b".split("").reverse().join("")
-// produces garbled surrogate order
+// bozuk yedek sırası üretir
 
-// Correct:
+// Doğru:
 [..."a\\uD83D\\uDE00b"].reverse().join("")
-// spread uses iterator, which respects code points`}</pre>
+// spread yineleyiciyi kullanır, bu da kod noktalarına saygı duyar`}</pre>
 
-    <h2>Combining characters: the deeper problem</h2>
+    <h2>Birleşik karakterler: daha derin sorun</h2>
     <p>
-      Even code-point iteration isn&rsquo;t enough. An &ldquo;&eacute;&rdquo; can be
-      one code point (U+00E9) or two (U+0065 + U+0301 combining acute). If
-      you reverse the two-code-point form, the accent ends up on the wrong
-      letter.
+      Kod noktası yinelemesi bile yeterli değildir. Bir "é" harfi tek bir kod
+      noktası (U+00E9) veya iki kod noktası (U+0065 + U+0301 birleşik vurgu)
+      olabilir. İki kod noktalı formu ters çevirirseniz, vurgu yanlış harfe
+      gelir.
     </p>
-    <pre>{`"cafe\\u0301" reversed naively -> "\\u0301efac"
-// the combining mark now attaches to whatever
-// was before it, not to "e"`}</pre>
+    <pre>{`"cafe\\u0301" basitçe ters çevrilirse -> "\\u0301efac"
+// birleşik işaret artı kendisinden önceki
+// herhangi bir şeye eklenir, "e" harfine değil`}</pre>
     <p>
-      The fix: split by <em>grapheme clusters</em>, not code points. Use
-      <code>Intl.Segmenter</code> in modern JS or the <code>regex</code>
-      package in Python.
+      Çözüm: kod noktalarına değil, <em>grafem kümelerine</em> göre bölün.
+      Modern JS'de <code>Intl.Segmenter</code> veya Python'da
+      <code>regex</code> paketini kullanın.
     </p>
 
-    <h2>Grapheme-safe reversal</h2>
+    <h2>Grafem güvenli ters çevirme</h2>
     <pre>{`// JS
 const seg = new Intl.Segmenter("en", { granularity: "grapheme" });
-const graphemes = [...seg.segment(str)].map(s =&gt; s.segment);
+const graphemes = [...seg.segment(str)].map(s => s.segment);
 const reversed = graphemes.reverse().join("");
 
 // Python
@@ -89,92 +89,93 @@ import regex
 graphemes = regex.findall(r"\\X", str)
 reversed = "".join(graphemes[::-1])`}</pre>
     <p>
-      This handles flag emoji (regional-indicator pairs), skin-tone
-      modifiers, ZWJ sequences (family emoji), and combining marks
-      correctly.
+      Bu, bayrak emojilerini (bölgesel gösterge çiftleri), cilt tonu
+      değiştiricilerini, ZWJ dizilerini (aile emojisi) ve birleşik işaretleri
+      doğru şekilde işler.
     </p>
 
-    <h2>Word reversal</h2>
+    <h2>Kelime ters çevirme</h2>
     <p>
-      Word-level reversal flips the order of tokens without reversing each
-      token. &ldquo;The quick brown fox&rdquo; becomes &ldquo;fox brown quick
-      The.&rdquo;
+      Kelime düzeyinde ters çevirme, her bir kelimeyi ters çevirmeden
+      belirteçlerin sırasını tersine çevirir. "Hızlı kahverengi tilki"
+      ifadesi "tilki kahverengi hızlı" olur.
     </p>
     <pre>{`str.split(/\\s+/).reverse().join(" ")`}</pre>
     <p>
-      Watch the whitespace handling &mdash; double spaces, tabs, newlines.
-      Decide whether you want to preserve exact whitespace or normalize.
+      Boşluk işlemesine dikkat edin &mdash; çift boşluklar, sekmeler, yeni
+      satırlar. Tam boşluğu korumak mı yoksa normalleştirmek mi istediğinize
+      karar verin.
     </p>
 
-    <h2>Right-to-left scripts</h2>
+    <h2>Sağdan sola betikler</h2>
     <p>
-      Arabic, Hebrew, and Persian already display right-to-left. Reversing
-      them at the character level produces text that displays in
-      left-to-right order, which looks &ldquo;forward&rdquo; to an LTR
-      reader but is actually a scrambled string. Reversing is almost never
-      what you want for RTL content. If you&rsquo;re rendering a mixed-script
-      sentence, the Unicode bidirectional algorithm handles visual order
-      separately from storage order &mdash; don&rsquo;t fight it.
+      Arapça, İbranice ve Farsça zaten sağdan sola görüntülenir. Bunları
+      karakter düzeyinde ters çevirmek, soldan sağa sırada görüntülenen bir
+      metin üretir; bu, bir LTR okuyucusuna "düz" gibi görünse de aslında
+      karıştırılmış bir dizedir. RTL içerik için ters çevirme neredeyse hiçbir
+      zaman istenen şey değildir. Karma betikli bir cümle oluşturuyorsanız,
+      Unicode çift yönlü algoritması görsel sırayı depolama sırasından ayrı
+      olarak işler &mdash; onunla savaşmayın.
     </p>
 
-    <h2>Byte reversal</h2>
+    <h2>Bayt ters çevirme</h2>
     <p>
-      Reversing raw UTF-8 bytes produces invalid UTF-8 in almost every case
-      and should be avoided unless you&rsquo;re doing low-level work on
-      ASCII-only data. The multi-byte continuation bytes will end up in
-      positions where lead bytes belong.
+      Ham UTF-8 baytlarını ters çevirmek neredeyse her durumda geçersiz UTF-8
+      üretir ve yalnızca ASCII verileri üzerinde düşük seviyeli işler
+      yapmıyorsanız kaçınılmalıdır. Çok baytlı devam baytları, başlangıç
+      baytlarının ait olduğu konumlara gelecektir.
     </p>
 
-    <h2>Palindrome checking</h2>
+    <h2>Palindrom kontrolü</h2>
     <p>
-      The classic application. Canonical workflow:
+      Klasik uygulama. Standart iş akışı:
     </p>
     <ul>
-      <li>Lowercase</li>
-      <li>Strip punctuation and whitespace</li>
-      <li>Normalize Unicode (NFC)</li>
-      <li>Compare to its grapheme-reversed self</li>
+      <li>Küçük harfe çevir</li>
+      <li>Noktalama işaretlerini ve boşlukları kaldır</li>
+      <li>Unicode'u normalleştir (NFC)</li>
+      <li>Grafem olarak ters çevrilmiş haliyle karşılaştır</li>
     </ul>
     <pre>{`function isPalindrome(s) {
   const norm = s.toLowerCase()
     .normalize("NFC")
     .replace(/[^\\p{L}\\p{N}]/gu, "");
   const seg = new Intl.Segmenter("en", { granularity: "grapheme" });
-  const graphs = [...seg.segment(norm)].map(x =&gt; x.segment);
+  const graphs = [...seg.segment(norm)].map(x => x.segment);
   return graphs.join("") === graphs.slice().reverse().join("");
 }`}</pre>
 
-    <h2>Line-by-line reversal</h2>
+    <h2>Satır satır ters çevirme</h2>
     <p>
-      A different kind of &ldquo;reverse&rdquo;: keep each line intact but
-      put the last line first. Useful for chronological log files.
+      Farklı bir "ters çevirme" türü: her satırı bozulmadan tutar ancak son
+      satırı ilk sıraya koyar. Kronolojik günlük dosyaları için kullanışlıdır.
     </p>
     <pre>{`str.split("\\n").reverse().join("\\n")`}</pre>
 
-    <h2>Performance notes</h2>
+    <h2>Performans notları</h2>
     <p>
-      For strings under ~10&nbsp;KB, grapheme segmentation is fast enough
-      that you shouldn&rsquo;t worry. For multi-MB inputs, iterator-based
-      approaches beat splitting the whole thing into an array. <a href="/learn/stream">Streaming</a>
-      grapheme segmentation requires buffer handling because a grapheme
-      can span chunks.
+      Yaklaşık 10&nbsp;KB'nin altındaki dizeler için, grafem bölümleme yeterince
+      hızlıdır, bu yüzden endişelenmemelisiniz. Çok MB'lık girdiler için,
+      yineleyici tabanlı yaklaşımlar her şeyi bir diziye bölmekten daha iyidir.
+      <a href="/learn/stream">Akış</a> grafem bölümleme, bir grafem
+      parçalar arasında yayılabileceğinden arabellek işleme gerektirir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Splitting on empty string and reversing &mdash; breaks emoji and
-      combining marks. Reversing then lowercasing palindromes (do it in the
-      other order &mdash; case changes in some scripts change the code-point
-      count). Forgetting to normalize before comparing, so &ldquo;caf&eacute;&rdquo;
-      and &ldquo;cafe + combining accent&rdquo; compare unequal. Expecting
-      meaningful output from reversing RTL text.
+      Boş dizeye bölüp ters çevirmek &mdash; emoji ve birleşik işaretleri
+      bozar. Palindromları ters çevirip sonra küçük harfe çevirmek (bunu ters
+      sırada yapın &mdash; bazı betiklerde büyük/küçük harf değişiklikleri kod
+      noktası sayısını değiştirir). Karşılaştırmadan önce normalleştirmeyi
+      unutmak, bu yüzden "café" ve "cafe + birleşik vurgu" eşit olmayan şekilde
+      karşılaştırılır. RTL metni ters çevirmekten anlamlı bir çıktı beklemek.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      <a href="/tools/text-reverser">Text reverser</a>
-      <a href="/tools/text-repeater">Text repeater</a>
-      <a href="/tools/case-converter">Case converter</a>
+      <a href="/tools/text-reverser">Metin ters çevirici</a>
+      <a href="/tools/text-repeater">Metin tekrarlayıcı</a>
+      <a href="/tools/case-converter">Büyük/küçük harf dönüştürücü</a>
     </p>
   </>
 );

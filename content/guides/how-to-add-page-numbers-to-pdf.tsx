@@ -3,103 +3,57 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Page numbers feel trivial until you&rsquo;re staring at a 60-page contract that
-      references &ldquo;the indemnity clause on page 12&rdquo; and realize the whole
-      document is unnumbered. Then it&rsquo;s an hour of hunting. This guide covers when
-      page numbers actually matter, the positioning conventions that different document
-      types follow, and the small decisions (skip-first, appendix numbering, total-page
-      format) that separate a polished PDF from a clearly-amateur one.
+      Sayfa numaraları, 60 sayfalık bir sözleşmede birinin "12. sayfadaki tazminat maddesi" demesi ve belgede hiç numara olmamasına kadar önemsiz görünür. Ardından saatler süren bir arama başlar. Bu rehber, sayfa numaralarının gerçekten ne zaman önemli olduğunu, farklı belge türlerinin izlediği konumlandırma kurallarını ve profesyonel bir PDF'yi amatör olandan ayıran küçük kararları (ilk sayfayı atla, ek numaralandırması, toplam sayfa formatı) kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>When page numbers matter</h2>
+    <h2>Sayfa numaraları ne zaman önemlidir</h2>
     <p>
-      Four cases make them non-negotiable. <strong>Contracts and legal documents</strong> —
-      clauses reference other clauses by page; arbitrators and judges flip by page
-      number. <strong>Books and long-form reports</strong> over ~20 pages — the reader
-      needs a table of contents that actually works. <strong>Print-for-binding</strong>
-      — you&rsquo;re physically separating the pages to bind, and unnumbered pages get
-      mis-ordered. <strong>Sworn statements, affidavits, and depositions</strong> —
-      often required by the court, along with line numbering.
+      Dört durum sayfa numaralarını tartışılmaz kılar. <strong>Sözleşmeler ve yasal belgeler</strong> — maddeler diğer maddelere sayfa numarasıyla atıfta bulunur; hakemler ve yargıçlar sayfa numarasına göre gezinir. <strong>Yaklaşık 20 sayfanın üzerindeki kitaplar ve uzun raporlar</strong> — okuyucunun gerçekten çalışan bir içindekiler tablosuna ihtiyacı vardır. <strong>Ciltleme için baskı</strong> — sayfaları ciltlemek için fiziksel olarak ayırırsınız ve numaralandırılmamış sayfalar yanlış sırada sonlanabilir. <strong>İfade tutanakları, yeminli beyanlar ve tanık ifadeleri</strong> — genellikle mahkeme tarafından zorunlu kılınır, bazen yanında satır numaralandırması da bulunur.
     </p>
     <p>
-      For a short memo, a one-page invoice, or a slide export, skip page numbers. They
-      add visual noise without solving a real problem.
+      Kısa bir not, tek sayfalık bir fatura veya slayt çıktısı için sayfa numaralarını atlayın. Gerçek bir sorunu çözmeden görsel karmaşa eklerler.
     </p>
 
-    <h2>Positioning: bottom center</h2>
+    <h2>Konum: alt orta</h2>
     <p>
-      The default for most business documents. Reports, whitepapers, proposals,
-      contracts. Bottom center is neutral — it doesn&rsquo;t compete with headers, it
-      doesn&rsquo;t shift when the content reflows, and it works for both single-sided
-      and double-sided printing. If you&rsquo;re not sure which convention to use, this
-      is the right answer.
+      Çoğu iş belgesi için varsayılan. Raporlar, beyaz sayfalar, teklifler, sözleşmeler. Alt orta nötrdür — başlıklarla rekabet etmez, içerik yeniden akarken kaymaz ve hem tek taraflı hem de çift taraflı baskı için çalışır. Hangi kuralı izleyeceğinizden emin değilseniz, doğru cevap budur.
     </p>
 
-    <h2>Positioning: top outer (books)</h2>
+    <h2>Konum: üst dış (kitaplar)</h2>
     <p>
-      For books and long-form publications, numbers go in the top outer corner — top
-      right on odd (recto) pages, top left on even (verso) pages. This puts the number
-      where a reader&rsquo;s thumb naturally flips, so they can scan to a page quickly.
-      It requires mirrored layouts, which most PDF page-number tools support as a
-      &ldquo;facing pages&rdquo; or &ldquo;mirror margins&rdquo; option.
+      Kitaplar ve uzun yayınlar için numaralar üst dış köşeye gider — tek (sağ) sayfalarda sağ üst, çift (sol) sayfalarda sol üst. Bu, numarayı okuyucunun başparmağının doğal olarak döndüğü yere koyar, böylece hızlıca bir sayfaya geçebilirler. Bu, çoğu PDF sayfa numarası aracının "karşılıklı sayfalar" veya "aynalı kenar boşlukları" seçeneği olarak desteklediği aynalı düzenler gerektirir.
     </p>
 
-    <h2>Positioning: bottom outer (reports with headers)</h2>
+    <h2>Konum: alt dış (başlıklı raporlar)</h2>
     <p>
-      If your document already has running headers (chapter name, section title),
-      putting the page number at the bottom outer corner keeps the top clean and makes
-      the number easy to find during a flip-through. Corporate annual reports and
-      academic theses use this layout.
+      Belgenizde zaten çalışan başlıklar (bölüm adı, kitap başlığı) varsa, sayfa numarasını alt dış köşeye koymak üst kısmı temiz tutar ve sayfaları çevirirken numarayı bulmayı kolaylaştırır. Kurumsal yıllık raporlar ve akademik tezler bu düzeni kullanır.
     </p>
 
-    <h2>&ldquo;Page X of Y&rdquo; vs plain numerals</h2>
+    <h2>"Sayfa X / Y" vs. düz numaralar</h2>
     <p>
-      Use <em>Page X of Y</em> whenever the reader might receive the document out of
-      order — faxed contracts, emailed scans, printed-and-re-scanned packets. The
-      &ldquo;of Y&rdquo; tells them at a glance whether they have the whole thing.
-      Use plain numerals for books, bound reports, and anything with a table of
-      contents — the reader already knows how long it is.
+      Okuyucunun belgeyle sıra dışı karşılaşma olasılığı olduğunda <em>Sayfa X / Y</em> kullanın — faksla gönderilen sözleşmeler, e-postadan taranmış belgeler, basılıp yeniden taranmış paketler. "Y" onlara bir bakışta belgenin tamamına sahip olup olmadıklarını söyler. Kitaplar, ciltli raporlar ve içindekiler tablosu olan her şey için düz numaralar kullanın — okuyucu zaten ne kadar uzun olduğunu bilir.
     </p>
     <p>
-      One edge case: if your document will be signed and has variable-length
-      attachments, &ldquo;Page X of Y&rdquo; on the main body but plain numerals on
-      exhibits is the cleanest convention.
+      Bir uç durum: belgeniz imzalanacaksa ve değişken uzunlukta ekleri varsa, ana gövde için "Sayfa X / Y" kullanmak ancak ekler için düz numaralar kullanmak en temiz kuraldır.
     </p>
 
-    <h2>Skip-first: when the first page is a title or cover</h2>
+    <h2>İlk sayfayı atla: ilk sayfa bir başlık veya kapak sayfası olduğunda</h2>
     <p>
-      Cover pages, title pages, and legal caption pages don&rsquo;t get numbered.
-      Start numbering on page 2, but the convention varies: books traditionally
-      number the title page as &ldquo;i&rdquo; (hidden) and start arabic numerals at
-      the first chapter. For most business documents, skip the cover entirely and
-      start at &ldquo;1&rdquo; on what the reader considers the first real page.
-      Most tools offer a &ldquo;skip first N pages&rdquo; option — use it instead of
-      manually cropping.
+      Kapak sayfaları, başlık sayfaları ve yasal başlık sayfaları numaralandırılmaz. Numaralandırmaya sayfa 2'den başlayın, ancak gelenek değişir: kitaplar geleneksel olarak başlık sayfasını "i" (gizli) olarak numaralandırır ve Arap rakamlarına ilk bölümde başlar. Çoğu iş belgesi için kapak sayfasını tamamen atlayın ve okuyucunun ilk gerçek sayfa olarak kabul ettiği yerde "1" ile başlayın. Çoğu araç bir "ilk N sayfayı atla" seçeneği sunar — manuel kırpma yerine bunu kullanın.
     </p>
 
-    <h2>Appendices and restart conventions</h2>
+    <h2>Ekler ve yeniden başlatma kuralları</h2>
     <p>
-      Long documents often restart numbering for appendices: <code>A-1, A-2, A-3</code>
-      for appendix A, <code>B-1, B-2</code> for appendix B. This makes it easy to
-      reference &ldquo;see A-7&rdquo; without ambiguity about whether you mean the
-      main body or an attachment. If your tool doesn&rsquo;t support prefixed
-      numbering, splitting into separate PDFs per appendix and merging is sometimes
-      simpler.
+      Uzun belgeler genellikle ekler için numaralandırmayı yeniden başlatır: Ek A için <code>A-1, A-2, A-3</code>, Ek B için <code>B-1, B-2</code>. Bu, ana gövde mi yoksa bir ek mi olduğu konusunda belirsizlik olmadan "bkz. A-7" gibi bir referans vermeyi kolaylaştırır. Aracınız ön ekli numaralandırmayı desteklemiyorsa, ek başına ayrı PDF'lere bölmek ve ardından birleştirmek bazen daha basittir.
     </p>
 
-    <h2>Workflow</h2>
+    <h2>İş akışı</h2>
     <p>
-      Open your PDF in <a href="/tools/pdf-page-numbers">our PDF page number tool</a>,
-      pick position (bottom center is the safe default), pick format (<em>Page X of Y</em>
-      for anything that might travel, plain numerals otherwise), set skip-first if you
-      have a cover, and export. Spot-check the first, middle, and last pages — if your
-      document has landscape pages or inserted scans, the number may end up in a
-      different spot than you expect, and it&rsquo;s easier to fix now than after
-      signatures.
+      PDF'nizi <a href="/tools/pdf-page-numbers">PDF sayfa numarası aracımızda</a> açın, konumu seçin (alt orta güvenli varsayılandır), formatı seçin (seyahat edebilecek her şey için <em>Sayfa X / Y</em>, aksi halde düz numaralar), bir kapağınız varsa ilk sayfayı atla seçeneğini ayarlayın ve dışa aktarın. İlk, orta ve son sayfaları rastgele kontrol edin — belgenizde yatay sayfalar veya gömülü taramalar varsa, numara beklenmedik bir yere gelebilir ve şimdi düzeltmek imzalardan sonra düzeltmekten daha kolaydır.
     </p>
   </>
 );

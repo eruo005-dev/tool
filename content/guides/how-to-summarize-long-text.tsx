@@ -3,168 +3,97 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Summarizing a long document sounds simple&mdash;keep the important parts, drop the rest&mdash;but
-      the definition of &ldquo;important&rdquo; shifts wildly by audience, purpose, and length
-      target. A legal summary of a contract keeps every obligation and deadline. A marketing
-      summary of the same document keeps the value prop and drops the clauses. A TL;DR at the top
-      of a blog post needs to fit in two sentences. The algorithmic side has evolved from simple
-      frequency-count approaches in the 1950s through graph-based methods like TextRank in the
-      2000s to modern <a href="/learn/llm">LLM</a> abstractive summarization that can rewrite content from scratch. Each
-      approach has strengths and failure modes. This guide covers extractive versus abstractive
-      methods, the TextRank algorithm, modern LLM summarization, reading-time targets, and how to
-      check summary quality.
+      Uzun bir belgeyi özetlemek kulağa basit gelir&mdash;önemli kısımları koru, gerisini at&mdash;ancak
+      &ldquo;önemli&rdquo; tanımı hedef kitleye, amaca ve uzunluk hedefine göre büyük ölçüde değişir. Bir sözleşmenin hukuki özeti her yükümlülüğü ve son teslim tarihini korur. Aynı belgenin pazarlama özeti değer teklifini korur ve maddeleri atar. Bir blog yazısının üstündeki TL;DR iki cümleye sığmalıdır. Algoritmik taraf, 1950'lerdeki basit kelime sıklığı yaklaşımlarından 2000'lerde TextRank gibi grafik tabanlı yöntemlere ve içeriği sıfırdan yeniden yazabilen modern <a href="/learn/llm">LLM</a> soyutlayıcı özetlemeye kadar evrildi. Her yaklaşımın güçlü yönleri ve başarısızlık modları vardır. Bu kılavuz, çıkarımsal ve soyutlayıcı yöntemleri, TextRank algoritmasını, modern LLM özetlemeyi, okuma süresi hedeflerini ve özet kalitesinin nasıl kontrol edileceğini kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Extractive versus abstractive</h2>
+    <h2>Çıkarımsal ve soyutlayıcı</h2>
     <p>
-      Extractive summarization picks sentences directly from the source and strings them
-      together. The output consists entirely of verbatim text from the original, which keeps
-      attribution clean and prevents <a href="/learn/hallucination">hallucination</a> but sometimes produces awkward transitions
-      and repetition. Abstractive summarization generates new sentences that capture the
-      meaning, which reads more naturally but introduces the risk of paraphrasing inaccurately
-      or inventing details. Most pre-LLM systems are extractive. Modern LLMs default to
-      abstractive, which is why they sometimes confidently summarize a fact that was not in the
-      source.
+      Çıkarımsal özetleme, doğrudan kaynaktan cümleler seçer ve bunları birbirine bağlar. Çıktı tamamen orijinal metnin birebir kopyasından oluşur, bu da atıfı temiz tutar ve <a href="/learn/hallucination">halüsinasyonu</a> önler ancak bazen garip geçişler ve tekrarlar üretir. Soyutlayıcı özetleme, anlamı yakalayan yeni cümleler üretir, bu daha doğal okunur ancak yanlış yorumlama veya ayrıntı uydurma riskini beraberinde getirir. LLM öncesi sistemlerin çoğu çıkarımsaldır. Modern LLM'ler varsayılan olarak soyutlayıcıdır, bu yüzden bazen kaynakta olmayan bir gerçeği güvenle özetlerler.
     </p>
 
-    <h2>TextRank and graph-based methods</h2>
+    <h2>TextRank ve grafik tabanlı yöntemler</h2>
     <p>
-      TextRank (Mihalcea and Tarau, 2004) applies the PageRank algorithm to a graph of
-      sentences. Each sentence is a node, and edges are weighted by a similarity metric
-      (typically cosine similarity of term vectors or simple word overlap normalized by length).
-      Running PageRank over that graph ranks sentences by how &ldquo;central&rdquo; they are
-      across the document, and the top-N highest-ranked sentences form the summary. TextRank is
-      unsupervised, fast, and works without training data, which is why it was the dominant
-      open-source summarization technique for roughly fifteen years. Its weakness: it cannot
-      rewrite awkward sentences or combine ideas spread across the source.
+      TextRank (Mihalcea ve Tarau, 2004), PageRank algoritmasını bir cümle grafiğine uygular. Her cümle bir düğümdür ve kenarlar bir benzerlik metriği (genellikle terim vektörlerinin kosinüs benzerliği veya uzunluğa göre normalleştirilmiş basit kelime örtüşmesi) ile ağırlıklandırılır. Bu grafik üzerinde PageRank çalıştırmak, cümleleri belge genelinde ne kadar &ldquo;merkezi&rdquo; olduklarına göre sıralar ve en yüksek puanlı N cümle özeti oluşturur. TextRank denetimsizdir, hızlıdır ve eğitim verisi olmadan çalışır, bu yüzden yaklaşık on beş yıl boyunca baskın açık kaynak özetleme tekniği olmuştur. Zayıf yönü: garip cümleleri yeniden yazamaz veya kaynak boyunca dağılmış fikirleri birleştiremez.
     </p>
-    <pre>{`# TextRank in pseudocode
-sentences = split_into_sentences(text)
-graph = build_similarity_graph(sentences)
-scores = pagerank(graph)
-summary = [s for s, _ in sorted_by_score(sentences, scores)[:N]]
-return " ".join(in_document_order(summary))`}</pre>
+    <pre>{`# Sözde kodda TextRank
+cümleler = metni_cümlelere_ayır(metin)
+grafik = benzerlik_grafiği_oluştur(cümleler)
+puanlar = pagerank(grafik)
+özet = [c için, _ in puana_göre_sırala(cümleler, puanlar)[:N]]
+return " ".join(belge_sırasında(özet))`}</pre>
 
-    <h2>Frequency-based and TF-IDF approaches</h2>
+    <h2>Sıklık tabanlı ve TF-IDF yaklaşımları</h2>
     <p>
-      Older summarizers rank sentences by the frequency of their terms: sentences containing the
-      most common content words (minus stop words) are considered important. TF-IDF refines this
-      by weighting rare terms higher, under the theory that a term unique to this document is
-      more indicative of its topic than a term common across all documents. These approaches
-      work passably for news articles but struggle with anything that uses a specialized
-      vocabulary evenly throughout.
+      Eski özetleyiciler, cümleleri terimlerinin sıklığına göre sıralar: en yaygın içerik kelimelerini (durdurma kelimeleri hariç) içeren cümleler önemli kabul edilir. TF-IDF, nadir terimleri daha yüksek ağırlıklandırarak bunu iyileştirir; bu belgeye özgü bir terimin, tüm belgelerde yaygın olan bir terimden daha fazla konuyu belirttiği teorisine dayanır. Bu yaklaşımlar haber makaleleri için kabul edilebilir şekilde çalışır ancak özel bir kelime dağarcığını eşit şekilde kullanan herhangi bir şeyde zorlanır.
     </p>
 
-    <h2>LLM-based abstractive summarization</h2>
+    <h2>LLM tabanlı soyutlayıcı özetleme</h2>
     <p>
-      A modern LLM prompted with &ldquo;Summarize the following text in three sentences&rdquo;
-      produces far better output than TextRank in most subjective evaluations. The model can
-      rewrite, combine ideas, match a requested tone, and produce output that reads as though
-      written fresh. The trade-offs: computational cost, possible hallucination, and lack of
-      transparent attribution. For high-stakes summaries (legal, medical, financial), pair
-      LLM output with an extractive pass that surfaces the source sentences the claims are
-      based on.
+      &ldquo;Aşağıdaki metni üç cümlede özetle&rdquo; komutu verilen modern bir LLM, çoğu öznel değerlendirmede TextRank'ten çok daha iyi çıktı üretir. Model yeniden yazabilir, fikirleri birleştirebilir, istenen bir tonu eşleştirebilir ve yeni yazılmış gibi okunan çıktı üretebilir. Ödünleşimler: hesaplama maliyeti, olası halüsinasyon ve şeffaf atıf eksikliği. Yüksek riskli özetler (hukuki, tıbbi, finansal) için, LLM çıktısını, iddiaların dayandığı kaynak cümleleri ortaya çıkaran çıkarımsal bir geçişle eşleştirin.
     </p>
 
-    <h2>Length targets by context</h2>
+    <h2>Bağlama göre uzunluk hedefleri</h2>
     <p>
-      Aim the length at how the summary will be consumed. A TL;DR at the top of a blog post is
-      1 to 3 sentences, about 30 to 70 words. An executive summary at the top of a report is
-      100 to 250 words. A <a href="/learn/meta-description">meta description</a> is 150 to 160 characters. A tweet or X post is 280
-      characters. An abstract in an academic paper is 150 to 300 words. Summarizing to match the
-      consumption format is half the job&mdash;a brilliant 500-word summary is useless if the
-      reader will only see 160 characters.
+      Uzunluğu, özetin nasıl tüketileceğine göre ayarlayın. Bir blog yazısının üstündeki TL;DR 1 ila 3 cümle, yaklaşık 30 ila 70 kelimedir. Bir raporun üstündeki yönetici özeti 100 ila 250 kelimedir. Bir <a href="/learn/meta-description">meta açıklama</a> 150 ila 160 karakterdir. Bir tweet veya X gönderisi 280 karakterdir. Akademik bir makaledeki öz 150 ila 300 kelimedir. Tüketim formatına uygun özetlemek işin yarısıdır&mdash;okuyucu yalnızca 160 karakter görecekse 500 kelimelik harika bir özet işe yaramaz.
     </p>
-    <pre>{`TL;DR:              30-70 words
-Executive summary:  100-250 words
-Abstract:           150-300 words
-Meta description:   150-160 characters
-Social post:        50-280 characters
-Elevator pitch:     30-60 words`}</pre>
+    <pre>{`TL;DR:              30-70 kelime
+Yönetici özeti:     100-250 kelime
+Öz:                 150-300 kelime
+Meta açıklama:      150-160 karakter
+Sosyal medya gönderisi: 50-280 karakter
+Asansör konuşması:  30-60 kelime`}</pre>
 
-    <h2>Reading time as a target</h2>
+    <h2>Hedef olarak okuma süresi</h2>
     <p>
-      Average reading speed is 200 to 250 words per minute for general text, faster for
-      recreational reading and slower for dense technical material. A reader will typically
-      allocate 10 to 20 percent of the time it would take to read the original. For a 5,000-word
-      article (20 minutes), that means a 200-word summary (1 minute). Aim the word count at the
-      reader&rsquo;s likely time budget rather than a fixed ratio of the original length.
+      Ortalama okuma hızı genel metin için dakikada 200 ila 250 kelimedir, eğlence amaçlı okumada daha hızlı, yoğun teknik materyalde daha yavaştır. Bir okuyucu tipik olarak orijinali okumak için gereken sürenin yüzde 10 ila 20'sini ayıracaktır. 5.000 kelimelik bir makale (20 dakika) için bu, 200 kelimelik bir özet (1 dakika) anlamına gelir. Kelime sayısını, orijinal uzunluğun sabit bir oranı yerine okuyucunun olası zaman bütçesine göre hedefleyin.
     </p>
 
-    <h2>Preserving structure</h2>
+    <h2>Yapıyı koruma</h2>
     <p>
-      A summary that collapses a multi-section document into one paragraph often loses the
-      structural information readers need. For a report with distinct sections, preserve the
-      section boundaries by summarizing each section into one or two sentences and keeping the
-      section headings. This produces a scannable summary with the same top-level structure as
-      the original, which readers can navigate like a table of contents. Abstractive summarizers
-      tend to flatten structure by default; ask them explicitly to preserve it.
+      Çok bölümlü bir belgeyi tek bir paragrafta toplayan bir özet, okuyucuların ihtiyaç duyduğu yapısal bilgiyi genellikle kaybeder. Farklı bölümleri olan bir rapor için, her bölümü bir veya iki cümlede özetleyerek ve bölüm başlıklarını koruyarak bölüm sınırlarını koruyun. Bu, orijinaliyle aynı üst düzey yapıya sahip, okuyucuların bir içindekiler tablosu gibi gezinebileceği taranabilir bir özet üretir. Soyutlayıcı özetleyiciler varsayılan olarak yapıyı düzleştirme eğilimindedir; onlardan açıkça korumalarını isteyin.
     </p>
 
-    <h2>Quality checks</h2>
+    <h2>Kalite kontrolleri</h2>
     <p>
-      Read the summary without the source and ask: would someone who has not read the original
-      understand the main points? Then read the source and ask: did the summary miss anything
-      essential? Does it include anything not supported by the source? The first check catches
-      summaries that are too abstract to be useful. The second catches hallucinations and
-      distortions. For extractive methods, verify the sentences are in a sensible order. For
-      abstractive methods, verify every claim traces back to the source.
+      Özeti kaynak olmadan okuyun ve sorun: Orijinali okumamış biri ana noktaları anlar mı? Ardından kaynağı okuyun ve sorun: Özet gerekli herhangi bir şeyi kaçırdı mı? Kaynak tarafından desteklenmeyen herhangi bir şey içeriyor mu? İlk kontrol, kullanışsız olacak kadar soyut özetleri yakalar. İkincisi, halüsinasyonları ve çarpıtmaları yakalar. Çıkarımsal yöntemler için cümlelerin mantıklı bir sırada olduğunu doğrulayın. Soyutlayıcı yöntemler için her iddianın kaynağa kadar izlenebildiğini doğrulayın.
     </p>
 
-    <h2>Handling specialized content</h2>
+    <h2>Özel içeriği işleme</h2>
     <p>
-      Legal text, medical records, technical specifications, and code all have domain
-      conventions that general summarizers miss. Legal text needs every obligation preserved.
-      Medical records need units and dosages intact. Technical specs need numeric values exact.
-      For these domains, general-purpose summarization is a starting point, not a
-      production-ready output. Either use a domain-tuned model or apply a human review pass on
-      anything consequential.
+      Hukuki metin, tıbbi kayıtlar, teknik şartnameler ve kod, genel özetleyicilerin gözden kaçırdığı alan kurallarına sahiptir. Hukuki metin her yükümlülüğün korunmasını gerektirir. Tıbbi kayıtlar birimlerin ve dozajların bozulmamasını gerektirir. Teknik şartnameler sayısal değerlerin tam olmasını gerektirir. Bu alanlar için genel amaçlı özetleme bir başlangıç noktasıdır, üretime hazır bir çıktı değildir. Ya alana özel ayarlanmış bir model kullanın ya da önemli herhangi bir şey için insan incelemesi yapın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Trusting hallucination-prone output for facts.</strong> An abstractive LLM can
-      produce fluent summaries that invent numbers, dates, or attributions. For fact-heavy
-      content, verify every claim against the source or use extractive output.
+      <strong>Halüsinasyona yatkın çıktıya gerçekler için güvenmek.</strong> Soyutlayıcı bir LLM, sayılar, tarihler veya atıflar uyduran akıcı özetler üretebilir. Gerçek ağırlıklı içerik için her iddiayı kaynağa karşı doğrulayın veya çıkarımsal çıktı kullanın.
     </p>
     <p>
-      <strong>Fixed ratio summaries.</strong> &ldquo;Ten percent of the original&rdquo; is a bad
-      target because a 50-word summary of a 500-word post is fine but a 5-word summary of a
-      50-word post is absurd. Pick a length that matches how the summary will be consumed.
+      <strong>Sabit oranlı özetler.</strong> &ldquo;Orijinalin yüzde onu&rdquo; kötü bir hedeftir çünkü 500 kelimelik bir yazının 50 kelimelik özeti iyidir ancak 50 kelimelik bir yazının 5 kelimelik özeti saçmadır. Özetin nasıl tüketileceğine uygun bir uzunluk seçin.
     </p>
     <p>
-      <strong>Dropping the thesis.</strong> A summary that lists supporting points but omits the
-      central argument is useless. Check that the summary&rsquo;s first sentence states the main
-      point.
+      <strong>Tezi atlamak.</strong> Destekleyici noktaları sıralayan ancak ana argümanı atlayan bir özet işe yaramaz. Özetin ilk cümlesinin ana noktayı belirttiğini kontrol edin.
     </p>
     <p>
-      <strong>Summarizing section-by-section when the document is argumentative.</strong>
-      Section summaries work for reference documents but break arguments that build across
-      sections. For long-form argument, summarize as a single narrative.
+      <strong>Belge tartışmacı olduğunda bölüm bölüm özetlemek.</strong> Bölüm özetleri referans belgeler için işe yarar ancak bölümler arasında inşa edilen argümanları bozar. Uzun biçimli argüman için tek bir anlatı olarak özetleyin.
     </p>
     <p>
-      <strong>Ignoring the audience.</strong> The same document summarized for an engineer, a
-      manager, and a customer will read very differently. State the audience before choosing the
-      summary style.
+      <strong>Hedef kitleyi görmezden gelmek.</strong> Bir mühendis, bir yönetici ve bir müşteri için özetlenen aynı belge çok farklı okunacaktır. Özet stilini seçmeden önce hedef kitleyi belirtin.
     </p>
     <p>
-      <strong>Not checking readability.</strong> A dense, jargon-packed summary that scores at
-      grade 16 for readability defeats its purpose. Target the reading level of the audience,
-      usually grade 8 to 10 for general readers.
+      <strong>Okunabilirliği kontrol etmemek.</strong> Okunabilirlikte 16. sınıf seviyesinde puan alan yoğun, jargon dolu bir özet amacını boşa çıkarır. Hedef kitlenin okuma seviyesini hedefleyin, genel okuyucular için genellikle 8 ila 10. sınıf.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Generate first-pass summaries in the browser with the{" "}
-      <a href="/tools/text-summarizer">text summarizer</a>. Pair with the{" "}
-      <a href="/tools/readability-score-checker">readability score checker</a> to verify the
-      summary lands at the right reading level for your audience, and the{" "}
-      <a href="/tools/keyword-density-checker">keyword density checker</a> to confirm the
-      summary still surfaces the terms your source treats as central.
+      Tarayıcıda ilk geçiş özetlerini{" "}
+      <a href="/tools/text-summarizer">metin özetleyici</a> ile oluşturun. Özetin hedef kitleniz için doğru okuma seviyesinde olduğunu doğrulamak için{" "}
+      <a href="/tools/readability-score-checker">okunabilirlik puanı denetleyicisi</a> ve özetin kaynağınızın merkezi olarak ele aldığı terimleri hala yüzeye çıkardığını onaylamak için{" "}
+      <a href="/tools/keyword-density-checker">anahtar kelime yoğunluğu denetleyicisi</a> ile eşleştirin.
     </p>
   </>
 );

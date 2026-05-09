@@ -3,260 +3,258 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Unit conversion sounds trivial — multiply by a factor — until
-      you trip on Fahrenheit-to-Celsius (which needs an offset, not
-      just a ratio), US vs Imperial gallons (20% different), or the
-      international ambiguity of &ldquo;ton.&rdquo; This guide covers
-      the conversion factors that matter, the ones that catch people
-      out, and a mental-math toolkit for the conversions you&rsquo;ll
-      do most often.
+      Birim dönüşümü kulağa basit gelir — bir çarpanla çarpmak — ta ki
+      Fahrenheit'ten Celsius'a geçerken (sadece oran değil, bir ekleme de gerektirir),
+      ABD ile İmparatorluk galonları (%20 farklı) arasında takılıp kalana ya da
+      &ldquo;ton&rdquo;un uluslararası belirsizliğiyle karşılaşana kadar. Bu rehber,
+      önemli olan dönüşüm faktörlerini, insanları yanıltanları ve en sık
+      yapacağınız dönüşümler için bir zihinsel matematik araç setini kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The two types of conversions</h2>
+    <h2>İki tür dönüşüm</h2>
     <p>
-      <strong>Multiplicative:</strong> most conversions. Multiply by
-      a constant factor. Meters → feet: × 3.281. Kilograms →
-      pounds: × 2.205. Same formula both ways, with the reciprocal.
+      <strong>Çarpmalı:</strong> çoğu dönüşüm. Sabit bir faktörle çarpın.
+      Metre → fit: × 3,281. Kilogram → pound: × 2,205. Her iki yönde de aynı formül,
+      karşılıklı olarak.
     </p>
     <p>
-      <strong>Linear (with offset):</strong> Fahrenheit ↔ Celsius
-      needs both a ratio and an offset. You can&rsquo;t &ldquo;multiply
-      by one number.&rdquo;
-    </p>
-
-    <h2><a href="/learn/temperature-ai">Temperature</a> — the one with the offset</h2>
-    <p>
-      <strong>C → F:</strong> F = (C × 9/5) + 32. Or approximately:
-      double C, subtract 10%, add 32.
-    </p>
-    <p>
-      <strong>F → C:</strong> C = (F − 32) × 5/9. Or approximately:
-      subtract 32, multiply by 0.56.
-    </p>
-    <p>
-      <strong>C → K (Kelvin):</strong> K = C + 273.15. No ratio,
-      just an offset.
-    </p>
-    <p>
-      Anchors worth memorizing:
-    </p>
-    <p>
-      0°C = 32°F (freezing)
-    </p>
-    <p>
-      20°C = 68°F (room temperature)
-    </p>
-    <p>
-      37°C = 98.6°F (body temperature)
-    </p>
-    <p>
-      100°C = 212°F (boiling)
-    </p>
-    <p>
-      −40°C = −40°F (the only point where they match)
+      <strong>Doğrusal (eklemeli):</strong> Fahrenheit ↔ Celsius hem bir oran hem de
+      bir ekleme gerektirir. &ldquo;Tek bir sayıyla çarpamazsınız.&rdquo;
     </p>
 
-    <h2>Length — metric vs imperial</h2>
+    <h2><a href="/learn/temperature-ai">Sıcaklık</a> — ekleme gerektiren</h2>
     <p>
-      <strong>1 inch = 2.54 cm</strong> (exact, by definition).
+      <strong>C → F:</strong> F = (C × 9/5) + 32. Veya yaklaşık olarak:
+      C'yi ikiye katla, %10 çıkar, 32 ekle.
     </p>
     <p>
-      <strong>1 foot = 30.48 cm</strong> (exact).
+      <strong>F → C:</strong> C = (F − 32) × 5/9. Veya yaklaşık olarak:
+      32 çıkar, 0,56 ile çarp.
     </p>
     <p>
-      <strong>1 yard = 0.9144 m</strong> (exact).
+      <strong>C → K (Kelvin):</strong> K = C + 273,15. Oran yok,
+      sadece ekleme.
     </p>
     <p>
-      <strong>1 mile = 1.609344 km</strong>. Approximation: km ≈
-      miles × 1.6. Or: miles ≈ km × 0.62.
+      Ezberlemeye değer referans noktaları:
     </p>
     <p>
-      <strong>1 m = 3.281 ft = 39.37 in</strong>.
+      0°C = 32°F (donma)
     </p>
     <p>
-      Mental math: for cm → inches, divide by 2.5 (or multiply by 0.4).
-      10 cm ≈ 4 in. For m → yards, they&rsquo;re roughly equivalent
-      (1 m ≈ 1.09 yd). Close enough for estimation.
-    </p>
-
-    <h2>Weight / mass</h2>
-    <p>
-      <strong>1 lb = 0.4536 kg</strong>. Approximation: lb × 0.45
-      or kg × 2.2.
+      20°C = 68°F (oda sıcaklığı)
     </p>
     <p>
-      <strong>1 kg = 2.2046 lb</strong>.
+      37°C = 98,6°F (vücut sıcaklığı)
     </p>
     <p>
-      <strong>1 oz = 28.35 g</strong>.
+      100°C = 212°F (kaynama)
     </p>
     <p>
-      <strong>Ton</strong> — three different values. US &ldquo;short
-      ton&rdquo; = 2,000 lb = 907 kg. UK &ldquo;long ton&rdquo; =
-      2,240 lb = 1,016 kg. Metric ton (tonne) = 1,000 kg = 2,205 lb.
-      Always clarify which.
-    </p>
-    <p>
-      Mental math: kg → lb, double and add 10%. 50 kg × 2 = 100,
-      + 10 = 110 lb (actual: 110.23).
+      −40°C = −40°F (eşleştikleri tek nokta)
     </p>
 
-    <h2>Volume — where US and UK diverge</h2>
+    <h2>Uzunluk — metrik vs emperyal</h2>
     <p>
-      <strong>1 US gallon = 3.785 L = 4 US quarts = 128 US fl oz</strong>.
+      <strong>1 inç = 2,54 cm</strong> (tam, tanım gereği).
     </p>
     <p>
-      <strong>1 Imperial (UK) gallon = 4.546 L</strong> — about 20%
-      larger than US.
+      <strong>1 fit = 30,48 cm</strong> (tam).
     </p>
     <p>
-      <strong>1 US fluid ounce = 29.57 mL</strong>.
+      <strong>1 yarda = 0,9144 m</strong> (tam).
     </p>
     <p>
-      <strong>1 Imperial fluid ounce = 28.41 mL</strong>. Slightly
-      smaller than US fl oz, despite the gallon being larger.
+      <strong>1 mil = 1,609344 km</strong>. Yaklaşık: km ≈
+      mil × 1,6. Veya: mil ≈ km × 0,62.
     </p>
     <p>
-      <strong>1 cup (US) = 236.6 mL</strong>. Note: cup is US-specific;
-      the UK uses &ldquo;Imperial cup&rdquo; (284 mL) rarely. UK
-      recipes usually specify grams or mL.
+      <strong>1 m = 3,281 ft = 39,37 in</strong>.
     </p>
     <p>
-      <strong>1 cubic meter = 1,000 L</strong>.
-    </p>
-    <p>
-      Recipe-conversion gotcha: a US cup of butter ≈ 227 g; a UK
-      &ldquo;cup&rdquo; of butter could mean 240 mL ≈ 230 g or 284 mL
-      ≈ 270 g. Always weigh if precision matters.
+      Zihinsel matematik: cm → inç için 2,5'e bölün (veya 0,4 ile çarpın).
+      10 cm ≈ 4 in. m → yarda için yaklaşık olarak eşdeğerdirler
+      (1 m ≈ 1,09 yd). Tahmin için yeterince yakın.
     </p>
 
-    <h2>Area</h2>
+    <h2>Ağırlık / kütle</h2>
     <p>
-      <strong>1 sq ft = 0.0929 m²</strong>.
+      <strong>1 lb = 0,4536 kg</strong>. Yaklaşık: lb × 0,45
+      veya kg × 2,2.
     </p>
     <p>
-      <strong>1 m² = 10.764 sq ft</strong>. Approximation: m² × 10.8
-      for sq ft.
+      <strong>1 kg = 2,2046 lb</strong>.
     </p>
     <p>
-      <strong>1 acre = 4,047 m² = 0.4047 hectare = 43,560 sq ft</strong>.
+      <strong>1 oz = 28,35 g</strong>.
     </p>
     <p>
-      <strong>1 hectare = 10,000 m² = 2.471 acres</strong>.
+      <strong>Ton</strong> — üç farklı değer. ABD &ldquo;kısa ton&rdquo; = 2.000 lb = 907 kg.
+      Birleşik Krallık &ldquo;uzun ton&rdquo; = 2.240 lb = 1.016 kg. Metrik ton (tonne) = 1.000 kg = 2.205 lb.
+      Hangisi olduğunu her zaman netleştirin.
     </p>
     <p>
-      <strong>1 sq mile = 640 acres = 2.59 km²</strong>.
+      Zihinsel matematik: kg → lb, ikiye katlayın ve %10 ekleyin. 50 kg × 2 = 100,
+      + 10 = 110 lb (gerçek: 110,23).
     </p>
 
-    <h2>Speed</h2>
+    <h2>Hacim — ABD ve Birleşik Krallık'ın ayrıldığı yer</h2>
     <p>
-      <strong>mph → km/h:</strong> × 1.609. A US 65 mph speed limit
+      <strong>1 ABD galonu = 3,785 L = 4 ABD quartı = 128 ABD sıvı onsu</strong>.
+    </p>
+    <p>
+      <strong>1 İmparatorluk (Birleşik Krallık) galonu = 4,546 L</strong> — ABD'den yaklaşık %20
+      daha büyük.
+    </p>
+    <p>
+      <strong>1 ABD sıvı onsu = 29,57 mL</strong>.
+    </p>
+    <p>
+      <strong>1 İmparatorluk sıvı onsu = 28,41 mL</strong>. Galon daha büyük olmasına rağmen,
+      ABD sıvı onsundan biraz daha küçük.
+    </p>
+    <p>
+      <strong>1 su bardağı (ABD) = 236,6 mL</strong>. Not: su bardağı ABD'ye özgüdür;
+      Birleşik Krallık nadiren &ldquo;İmparatorluk su bardağı&rdquo;nı (284 mL) kullanır. Birleşik Krallık
+      tarifleri genellikle gram veya mL belirtir.
+    </p>
+    <p>
+      <strong>1 metreküp = 1.000 L</strong>.
+    </p>
+    <p>
+      Tarif dönüşüm tuzağı: bir ABD su bardağı tereyağı ≈ 227 g; bir Birleşik Krallık
+      &ldquo;su bardağı&rdquo; tereyağı 240 mL ≈ 230 g veya 284 mL
+      ≈ 270 g anlamına gelebilir. Hassasiyet önemliyse her zaman tartın.
+    </p>
+
+    <h2>Alan</h2>
+    <p>
+      <strong>1 sq ft = 0,0929 m²</strong>.
+    </p>
+    <p>
+      <strong>1 m² = 10,764 sq ft</strong>. Yaklaşık: m² × 10,8
+      sq ft için.
+    </p>
+    <p>
+      <strong>1 akre = 4.047 m² = 0,4047 hektar = 43.560 sq ft</strong>.
+    </p>
+    <p>
+      <strong>1 hektar = 10.000 m² = 2,471 akre</strong>.
+    </p>
+    <p>
+      <strong>1 sq mil = 640 akre = 2,59 km²</strong>.
+    </p>
+
+    <h2>Hız</h2>
+    <p>
+      <strong>mph → km/h:</strong> × 1,609. ABD'de 65 mph hız sınırı
       = ~105 km/h.
     </p>
     <p>
-      <strong>km/h → mph:</strong> × 0.621. German autobahn at 130
+      <strong>km/h → mph:</strong> × 0,621. Alman otobanında 130
       km/h = ~81 mph.
     </p>
     <p>
-      <strong>Knots → mph:</strong> × 1.151. Knots → km/h: × 1.852.
+      <strong>Knot → mph:</strong> × 1,151. Knot → km/h: × 1,852.
     </p>
     <p>
-      <strong>m/s → km/h:</strong> × 3.6. Usain Bolt&rsquo;s peak
+      <strong>m/s → km/h:</strong> × 3,6. Usain Bolt'un zirvesi
       ~12 m/s = ~43 km/h.
     </p>
 
-    <h2>Energy and power</h2>
+    <h2>Enerji ve güç</h2>
     <p>
-      <strong>1 calorie (small)</strong> = 4.184 J. But food
-      &ldquo;calories&rdquo; are kilocalories (kcal) = 4,184 J.
-      Confusing but entrenched.
+      <strong>1 kalori (küçük)</strong> = 4,184 J. Ancak gıda
+      &ldquo;kalorileri&rdquo; kilokaloridir (kcal) = 4.184 J.
+      Kafa karıştırıcı ama yerleşik.
     </p>
     <p>
-      <strong>1 kWh = 3,600,000 J = 3.6 MJ</strong>.
+      <strong>1 kWh = 3.600.000 J = 3,6 MJ</strong>.
     </p>
     <p>
-      <strong>1 BTU = 1,055 J</strong>. 1,000 BTU/h = ~293 W.
+      <strong>1 BTU = 1.055 J</strong>. 1.000 BTU/h = ~293 W.
     </p>
     <p>
-      <strong>1 horsepower (mechanical) = 745.7 W</strong>. 1
-      horsepower (metric) = 735.5 W. Yes, two different horsepowers.
-    </p>
-
-    <h2>Data sizes — base-10 vs base-2</h2>
-    <p>
-      Historically &ldquo;MB&rdquo; meant 2^20 = 1,048,576 bytes
-      (binary). Now officially:
-    </p>
-    <p>
-      <strong>MB (megabyte) = 10^6 = 1,000,000 bytes</strong> (decimal,
-      used by storage manufacturers).
-    </p>
-    <p>
-      <strong>MiB (mebibyte) = 2^20 = 1,048,576 bytes</strong>
-      (binary, used by OS / RAM).
-    </p>
-    <p>
-      A &ldquo;1 TB&rdquo; hard drive shows as ~931 GiB in your OS.
-      Not a scam — just the decimal-vs-binary mismatch. Same at
-      every scale: KB/KiB, GB/GiB, TB/TiB.
+      <strong>1 beygir gücü (mekanik) = 745,7 W</strong>. 1
+      beygir gücü (metrik) = 735,5 W. Evet, iki farklı beygir gücü.
     </p>
 
-    <h2>Angle, pressure, and other niches</h2>
+    <h2>Veri boyutları — ondalık taban-10 vs ikili taban-2</h2>
     <p>
-      <strong>1 radian = 180/π degrees ≈ 57.296°</strong>. π radians
+      Tarihsel olarak &ldquo;MB&rdquo; 2^20 = 1.048.576 bayt anlamına geliyordu
+      (ikili). Şimdi resmi olarak:
+    </p>
+    <p>
+      <strong>MB (megabayt) = 10^6 = 1.000.000 bayt</strong> (ondalık,
+      depolama üreticileri tarafından kullanılır).
+    </p>
+    <p>
+      <strong>MiB (mebibayt) = 2^20 = 1.048.576 bayt</strong>
+      (ikili, işletim sistemi / RAM tarafından kullanılır).
+    </p>
+    <p>
+      &ldquo;1 TB&rdquo; bir sabit disk, işletim sisteminizde ~931 GiB olarak görünür.
+      Bu bir dolandırıcılık değil — sadece ondalık-ikili uyumsuzluğu. Her
+      ölçekte aynı: KB/KiB, GB/GiB, TB/TiB.
+    </p>
+
+    <h2>Açı, basınç ve diğer özel alanlar</h2>
+    <p>
+      <strong>1 radyan = 180/π derece ≈ 57,296°</strong>. π radyan
       = 180°.
     </p>
     <p>
-      <strong>1 atm = 101,325 Pa = 14.7 psi = 760 mmHg = 1.013 bar</strong>.
-      Tire pressure 32 psi = 220 kPa = 2.2 bar.
+      <strong>1 atm = 101.325 Pa = 14,7 psi = 760 mmHg = 1,013 bar</strong>.
+      Lastik basıncı 32 psi = 220 kPa = 2,2 bar.
     </p>
     <p>
-      <strong>Fuel economy:</strong> mpg (US) × 0.425 = km/L. Or
-      235.21 / mpg_US = L/100km. 30 mpg ≈ 7.8 L/100km.
+      <strong>Yakıt ekonomisi:</strong> mpg (ABD) × 0,425 = km/L. Veya
+      235,21 / mpg_ABD = L/100km. 30 mpg ≈ 7,8 L/100km.
     </p>
     <p>
-      <strong>UK mpg ≠ US mpg.</strong> UK uses Imperial gallons. 30
-      UK mpg = 25 US mpg. Always clarify.
-    </p>
-
-    <h2>Common conversion errors</h2>
-    <p>
-      <strong>1. Applying ratio where offset is needed.</strong>
-      Especially temperatures. 20°C is not &ldquo;20 × 1.8 = 36°F.&rdquo;
-      It&rsquo;s 68°F. You need the +32 offset.
-    </p>
-    <p>
-      <strong>2. Losing track of US vs UK gallons.</strong> 20%
-      difference — big in fuel economy and cooking.
-    </p>
-    <p>
-      <strong>3. Confusing &ldquo;calories&rdquo; with &ldquo;kcal.&rdquo;</strong>
-      A 200-&ldquo;calorie&rdquo; cookie is 200 kcal = 200,000 small
-      calories.
-    </p>
-    <p>
-      <strong>4. Using the wrong &ldquo;ton.&rdquo;</strong> US
-      short ton, UK long ton, metric tonne — up to 12% differences.
-    </p>
-    <p>
-      <strong>5. Rounding too early.</strong> Chain conversions lose
-      precision fast if each step rounds to 2 significant digits.
-      Keep more digits in intermediate steps; round the final
-      answer.
+      <strong>Birleşik Krallık mpg ≠ ABD mpg.</strong> Birleşik Krallık İmparatorluk galonlarını kullanır. 30
+      Birleşik Krallık mpg = 25 ABD mpg. Her zaman netleştirin.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın dönüşüm hataları</h2>
     <p>
-      Convert any unit with the{" "}
-      <a href="/tools/unit-converter">unit converter</a>. Pair with
-      the <a href="/tools/temperature-converter">temperature converter</a>
-      {" "}for the offset-aware temperature conversions, and the{" "}
-      <a href="/tools/currency-converter">currency converter</a> when
-      you need cross-currency values alongside unit math.
+      <strong>1. Ekleme gereken yerde oran uygulamak.</strong>
+      Özellikle sıcaklıklar. 20°C, &ldquo;20 × 1,8 = 36°F&rdquo; değildir.
+      68°F'dir. +32 eklemesine ihtiyacınız var.
+    </p>
+    <p>
+      <strong>2. ABD ve Birleşik Krallık galonlarını karıştırmak.</strong> %20
+      fark — yakıt ekonomisi ve yemek pişirmede büyük.
+    </p>
+    <p>
+      <strong>3. &ldquo;Kalori&rdquo; ile &ldquo;kcal&rdquo;yi karıştırmak.</strong>
+      200 &ldquo;kalorilik&rdquo; bir kurabiye 200 kcal = 200.000 küçük
+      kaloridir.
+    </p>
+    <p>
+      <strong>4. Yanlış &ldquo;ton&rdquo;u kullanmak.</strong> ABD
+      kısa tonu, Birleşik Krallık uzun tonu, metrik ton — %12'ye varan farklar.
+    </p>
+    <p>
+      <strong>5. Çok erken yuvarlamak.</strong> Zincirleme dönüşümler, her adım 2 anlamlı basamağa
+      yuvarlanırsa hassasiyeti hızla kaybeder. Ara adımlarda daha fazla
+      basamak tutun; nihai cevabı yuvarlayın.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      Herhangi bir birimi{" "}
+      <a href="/tools/unit-converter">birim dönüştürücü</a> ile dönüştürün.
+      Ekleme gerektiren sıcaklık dönüşümleri için{" "}
+      <a href="/tools/temperature-converter">sıcaklık dönüştürücü</a>
+      {" "}ile ve birim matematiğinin yanında çapraz para birimi değerlerine
+      ihtiyacınız olduğunda{" "}
+      <a href="/tools/currency-converter">para birimi dönüştürücü</a>
+      ile birlikte kullanın.
     </p>
   </>
 );

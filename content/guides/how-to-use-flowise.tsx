@@ -1,35 +1,35 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>Flowise lets you build LangChain flows by dragging nodes on a canvas instead of writing Python.</p>);
+export const intro: ReactElement = (<p>Flowise, Python yazmak yerine bir tuval üzerinde düğümleri sürükleyerek LangChain akışları oluşturmanızı sağlar.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>Flowise is an open-source visual builder for <a href="/learn/llm">LLM</a> orchestration. You connect nodes &mdash; LLMs, prompts, memory, vector stores, tools &mdash; on a canvas and it emits a working API endpoint. Under the hood it&rsquo;s LangChain JS, so anything LangChain does, Flowise can wire up without code.</p>
-    <h2>What it is</h2>
-    <p>A Node.js app with a React Flow canvas. Every node is a thin wrapper around a LangChain class. The runtime executes the graph when a request hits the chatflow endpoint, and the studio lets you test conversations in a side panel while you build.</p>
-    <h2>Install / set up</h2>
-    <pre>{`# npx quickstart
+    <p>Flowise, <a href="/learn/llm">LLM</a> orkestrasyonu için açık kaynaklı bir görsel oluşturucudur. Bir tuval üzerinde LLM'ler, istemler, bellek, vektör depoları ve araçlar gibi düğümleri birbirine bağlarsınız ve çalışan bir API uç noktası oluşturur. Arkasında LangChain JS vardır, bu nedenle LangChain'in yapabileceği her şeyi Flowise, kod yazmadan birbirine bağlayabilir.</p>
+    <h2>Ne olduğu</h2>
+    <p>React Flow tuvaline sahip bir Node.js uygulamasıdır. Her düğüm, bir LangChain sınıfının etrafında ince bir sarmalayıcıdır. Çalışma zamanı, sohbet akışı uç noktasına bir istek geldiğinde grafiği yürütür ve stüdyo, siz oluştururken bir yan panelde konuşmaları test etmenize olanak tanır.</p>
+    <h2>Kurulum</h2>
+    <pre>{`# npx hızlı başlangıç
 npx flowise start
-# or docker
+# veya docker
 docker run -d -p 3000:3000 \\
   -v ~/.flowise:/root/.flowise \\
   flowiseai/flowise`}</pre>
-    <h2>First run</h2>
-    <p>Open <code>http://localhost:3000</code>, click New Chatflow, and drop a Chat Model node, a Conversation Chain node, and a Buffer Memory node onto the canvas. Connect them, add your OpenAI key in the model node, and hit the purple chat icon to test.</p>
+    <h2>İlk çalıştırma</h2>
+    <p><code>http://localhost:3000</code> adresini açın, Yeni Sohbet Akışı'na tıklayın ve tuval üzerine bir Sohbet Modeli düğümü, bir Konuşma Zinciri düğümü ve bir Arabellek Bellek düğümü bırakın. Bunları bağlayın, model düğümüne OpenAI anahtarınızı ekleyin ve test etmek için mor sohbet simgesine tıklayın.</p>
     <pre>{`$ curl -X POST http://localhost:3000/api/v1/prediction/<flowId> \\
   -H "Content-Type: application/json" \\
   -d '{"question":"hello"}'
-{"text":"Hi! How can I help?"}`}</pre>
-    <h2>Everyday workflows</h2>
+{"text":"Merhaba! Size nasıl yardımcı olabilirim?"}`}</pre>
+    <h2>Günlük iş akışları</h2>
     <ul>
-      <li>Start from a marketplace template (RAG, SQL agent, multi-agent) and customize rather than building from scratch.</li>
-      <li>Use the Credentials vault so API keys aren&rsquo;t baked into exported flows.</li>
-      <li>Embed the generated chat widget in a website with the provided &lt;script&gt; snippet, no backend glue needed.</li>
+      <li>Sıfırdan oluşturmak yerine bir pazar yeri şablonundan (RAG, SQL aracısı, çoklu aracı) başlayın, ardından özelleştirin.</li>
+      <li>API anahtarlarının dışa aktarılan akışlara gömülmemesi için Kimlik Bilgileri kasasını kullanın.</li>
+      <li>Oluşturulan sohbet widget'ını, sağlanan &lt;script&gt; snippet'ı ile bir web sitesine gömün, arka uç yapıştırıcısı gerekmez.</li>
     </ul>
-    <h2>Gotchas and tips</h2>
-    <p>Flows are JSON under the hood but node versions change between Flowise releases. Export flows regularly and test after upgrading &mdash; a renamed input on a node will silently drop the connection and your agent will misbehave at runtime.</p>
-    <p>The canvas abstracts LangChain but doesn&rsquo;t hide its sharp edges. Token windows, <a href="/learn/stream">streaming</a> quirks, and tool-call loops still bite you. Keep the browser devtools open on the server logs tab while iterating &mdash; that&rsquo;s where the real errors surface.</p>
-    <h2>Who it&rsquo;s for</h2>
-    <p>Builders who think visually, prototypers who want to demo an agent before committing to code, and teams pairing a non-engineer PM with a LangChain-fluent dev. Production-grade workloads often graduate to raw code, but Flowise gets you to a working prototype fast.</p>
+    <h2>Tuzaklar ve ipuçları</h2>
+    <p>Akışlar arka planda JSON'dur, ancak düğüm sürümleri Flowise sürümleri arasında değişir. Akışları düzenli olarak dışa aktarın ve bir yükseltmeden sonra test edin &mdash; bir düğümde yeniden adlandırılan bir giriş, bağlantıyı sessizce düşürecek ve aracınız çalışma zamanında yanlış davranacaktır.</p>
+    <p>Tuval, LangChain'i soyutlar ancak keskin kenarlarını gizlemez. Belirteç pencereleri, <a href="/learn/stream">akış</a> tuhaflıkları ve araç çağırma döngüleri yine de sizi zorlayacaktır. Yineleme yaparken tarayıcı geliştirici araçlarını sunucu günlükleri sekmesinde açık tutun &mdash; gerçek hatalar orada ortaya çıkar.</p>
+    <h2>Kimler için olduğu</h2>
+    <p>Görsel düşünen geliştiriciler, kod yazmadan önce bir aracı tanıtmak isteyen prototipçiler ve mühendis olmayan bir ürün yöneticisini LangChain bilgisine sahip bir geliştiriciyle eşleştiren ekipler. Üretim düzeyindeki iş yükleri genellikle ham koda geçer, ancak Flowise sizi hızlı bir şekilde çalışan bir prototipe ulaştırır.</p>
   </>
 );

@@ -3,161 +3,90 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Scheduling across time zones is a small problem that creates a
-      large volume of missed meetings, 3 AM wake-up calls, and
-      &ldquo;wait, was that your morning or ours?&rdquo; Slack threads.
-      Most of the trouble traces to four predictable failure modes:
-      Daylight Saving Time, ambiguous abbreviations, half-hour and 45-minute
-      offsets, and the asymmetric fairness problem of always making one
-      side take the painful slot. This guide walks through the math, the
-      tools, and the team conventions that actually work.
+      Farklı zaman dilimleri arasında planlama yapmak, çok sayıda kaçırılan toplantıya, sabah 3'te gelen uyandırma çağrılarına ve "bekle, bu senin sabahın mıydı yoksa bizim mi?" Slack yazışmalarına yol açan küçük bir sorundur. Sorunların çoğu dört öngörülebilir hata moduna dayanır: Yaz Saati Uygulaması, belirsiz kısaltmalar, yarım saatlik ve 45 dakikalık farklar ve her zaman bir tarafın zorlu saati almasıyla ilgili asimetrik adalet sorunu. Bu rehber, gerçekten işe yarayan matematiği, araçları ve ekip kurallarını adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Always use UTC-anchored times for async announcements</h2>
+    <h2>Eşzamansız duyurular için her zaman UTC tabanlı saatler kullanın</h2>
     <p>
-      Instead of writing &ldquo;meeting at 3 PM,&rdquo; write{" "}
-      <strong>&ldquo;meeting at 3 PM Pacific / 6 PM Eastern / 22:00 UTC
-      / 11 PM London (next day 07:00 Tokyo)&rdquo;</strong>. Three lines
-      cost you fifteen seconds and remove the single biggest cause of
-      missed meetings. Better: link to a permanent world-clock URL
-      (everytimezone.com, timeanddate.com) that shows the moment across
-      all zones live.
+      "Saat 15:00'te toplantı" yazmak yerine{" "}
+      <strong>"Saat 15:00 Pasifik / 18:00 Doğu / 22:00 UTC / 23:00 Londra (ertesi gün 07:00 Tokyo)"</strong> yazın. Üç satır size on beş saniyeye mal olur ve kaçırılan toplantıların en büyük nedenini ortadan kaldırır. Daha iyisi: anı tüm bölgelerde canlı olarak gösteren kalıcı bir dünya saati URL'sine (everytimezone.com, timeanddate.com) bağlantı verin.
     </p>
 
-    <h2>Daylight Saving Time — the silent meeting killer</h2>
+    <h2>Yaz Saati Uygulaması — sessiz toplantı katili</h2>
     <p>
-      DST is the biggest issue in scheduling because different regions
-      switch on different dates:
+      YSU, planlamadaki en büyük sorundur çünkü farklı bölgeler farklı tarihlerde geçiş yapar:
     </p>
     <p>
-      <strong>US</strong> springs forward 2nd Sunday of March, falls back
-      1st Sunday of November.
+      <strong>ABD</strong> Mart ayının ikinci Pazar günü ileri, Kasım ayının ilk Pazar günü geri alır.
     </p>
     <p>
-      <strong>Europe (most of it)</strong> changes on the last Sunday of
-      March and last Sunday of October.
+      <strong>Avrupa (çoğu)</strong> Mart ayının son Pazar günü ve Ekim ayının son Pazar günü değişir.
     </p>
     <p>
-      <strong>Australia</strong> changes in October and April (opposite
-      months, opposite direction from the Northern Hemisphere).
+      <strong>Avustralya</strong> Ekim ve Nisan aylarında değişir (Kuzey Yarımküre'den farklı aylar, ters yön).
     </p>
     <p>
-      <strong>Japan, most of Asia, most of Africa, most of South America,
-      Arizona, Hawaii</strong> don&rsquo;t observe DST at all.
+      <strong>Japonya, Asya'nın çoğu, Afrika'nın çoğu, Güney Amerika'nın çoğu, Arizona, Hawaii</strong> hiç YSU uygulamaz.
     </p>
     <p>
-      The practical consequence: for 2–3 weeks each year in March/April
-      and October/November, the normal offset between any two DST-observing
-      regions is different than usual. A standing 9 AM ET / 2 PM UK
-      meeting becomes 9 AM ET / 1 PM UK for the week the US has sprung
-      forward and the UK hasn&rsquo;t yet. Your calendar tool usually
-      handles this correctly <em>if</em> you scheduled the meeting with a
-      location-aware time zone. If you used &ldquo;UTC+1&rdquo; manually,
-      it breaks.
+      Pratik sonuç: Her yıl Mart/Nisan ve Ekim/Kasım aylarında 2-3 hafta boyunca, YSU uygulayan herhangi iki bölge arasındaki normal saat farkı normalden farklıdır. Sabit bir 09:00 ET / 14:00 İngiltere toplantısı, ABD'nin ileri aldığı ancak İngiltere'nin henüz almadığı hafta için 09:00 ET / 13:00 İngiltere olur. Takvim aracınız bunu genellikle doğru şekilde halleder, <em>eğer</em> toplantıyı konum bilincine sahip bir zaman dilimi ile planladıysanız. "UTC+1"i manuel olarak kullandıysanız, bozulur.
     </p>
 
-    <h2>Time zone abbreviations — ambiguous, avoid them</h2>
+    <h2>Saat dilimi kısaltmaları — belirsiz, bunlardan kaçının</h2>
     <p>
-      &ldquo;CST&rdquo; means Central Standard Time (US, UTC-6) or China
-      Standard Time (UTC+8). &ldquo;BST&rdquo; is British Summer Time or
-      Bangladesh Standard Time. &ldquo;IST&rdquo; is India, Israel, or
-      Ireland. Always disambiguate with a city name (&ldquo;Chicago
-      time&rdquo;) or a numeric offset (&ldquo;UTC-6&rdquo;).
+      "CST", Merkezi Standart Saat (ABD, UTC-6) veya Çin Standart Saati (UTC+8) anlamına gelir. "BST", İngiliz Yaz Saati veya Bangladeş Standart Saati'dir. "IST", Hindistan, İsrail veya İrlanda'dır. Her zaman bir şehir adı ("Şikago saati") veya sayısal bir fark ("UTC-6") ile netleştirin.
     </p>
 
-    <h2>Half-hour and 45-minute offsets catch everyone</h2>
+    <h2>Yarım saatlik ve 45 dakikalık farklar herkesi yakalar</h2>
     <p>
-      <strong>India</strong> is UTC+5:30. <strong>Iran</strong> is
-      UTC+3:30 (and changes half the year). <strong>Newfoundland</strong>{" "}
-      is UTC-3:30. <strong>Nepal</strong> is UTC+5:45. <strong>Myanmar</strong>{" "}
-      is UTC+6:30. Three-quarters of people scheduling across any of
-      these zones eyeball the nearest whole hour and get it wrong.
-      Always use a calendar tool or explicit conversion, never mental
-      math.
+      <strong>Hindistan</strong> UTC+5:30'dur. <strong>İran</strong> UTC+3:30'dur (ve yılın yarısında değişir). <strong>Newfoundland</strong>{" "}
+      UTC-3:30'dur. <strong>Nepal</strong> UTC+5:45'tir. <strong>Myanmar</strong>{" "}
+      UTC+6:30'dur. Bu bölgelerden herhangi biriyle planlama yapan kişilerin dörtte üçü en yakın tam saati tahmin eder ve yanılır. Her zaman bir takvim aracı veya açık dönüşüm kullanın, asla zihinsel matematik yapmayın.
     </p>
 
-    <h2>Fair-rotation for recurring meetings</h2>
+    <h2>Tekrarlanan toplantılar için adil dönüşüm</h2>
     <p>
-      When two teams span a 6+ hour gap, someone is always taking it on
-      the chin. The &ldquo;fairness&rdquo; default is to rotate whose
-      morning / evening it is:
+      İki ekip 6+ saatlik bir farkla ayrıldığında, birisi her zaman zorlanır. "Adalet" varsayılanı, kimin sabahı/akşamı olduğunu dönüşümlü olarak değiştirmektir:
     </p>
     <p>
-      <strong>Rotation A:</strong> Odd-numbered weeks held in side-A&rsquo;s
-      morning, even-numbered weeks in side-B&rsquo;s morning. Fair and
-      predictable.
+      <strong>Dönüşüm A:</strong> Tek numaralı haftalar A tarafının sabahında, çift numaralı haftalar B tarafının sabahında yapılır. Adil ve öngörülebilir.
     </p>
     <p>
-      <strong>Rotation B:</strong> Stagger the meeting — meet every two
-      weeks at one time, alternate weeks at another. Both sides suffer
-      equally; neither suffers every week.
+      <strong>Dönüşüm B:</strong> Toplantıyı kademelendirin — iki haftada bir bir saatte, diğer haftalarda başka bir saatte buluşun. Her iki taraf da eşit derecede zorlanır; hiçbiri her hafta zorlanmaz.
     </p>
     <p>
-      <strong>Async-default for most work:</strong> Reserve synchronous
-      meetings for high-bandwidth discussions. Move status updates,
-      reports, and decisions to written form so time zone becomes
-      irrelevant. This is the biggest productivity unlock for
-      globally-distributed teams.
+      <strong>Çoğu iş için eşzamansız varsayılan:</strong> Senkron toplantıları yüksek bant genişlikli tartışmalar için saklayın. Durum güncellemelerini, raporları ve kararları yazılı forma taşıyın, böylece saat dilimi önemsiz hale gelir. Bu, küresel olarak dağıtılmış ekipler için en büyük üretkenlik artışıdır.
     </p>
 
-    <h2>The 6-hour rule for pain tolerance</h2>
+    <h2>Acı toleransı için 6 saat kuralı</h2>
     <p>
-      Anything under a 6-hour offset can be scheduled in a civilized
-      window for both parties (US East ↔ Europe is 5–6 hours, manageable).
-      Over 8 hours (US West ↔ Europe at 9, US ↔ Asia at 12–15) means
-      someone&rsquo;s always either pre-7AM or post-8PM. At that point
-      async is almost always the better option; daily sync becomes
-      expensive enough that it should be reserved for weekly updates or
-      explicit crisis response.
+      6 saatten az bir fark, her iki taraf için de makul bir zaman diliminde planlanabilir (ABD Doğu ↔ Avrupa 5-6 saattir, yönetilebilir). 8 saatten fazla (ABD Batı ↔ Avrupa 9, ABD ↔ Asya 12-15) birisi her zaman ya sabah 7'den önce ya da akşam 8'den sonradır. Bu noktada eşzamansız neredeyse her zaman daha iyi bir seçenektir; günlük senkron, haftalık güncellemeler veya açık kriz müdahalesi için ayrılması gereken kadar pahalı hale gelir.
     </p>
 
-    <h2>The three most common scheduling bugs</h2>
+    <h2>En yaygın üç planlama hatası</h2>
     <p>
-      <strong>(1) Setting a time zone that doesn&rsquo;t match your
-      physical location.</strong> Digital nomad sets calendar to UTC, flies
-      to Lisbon, invites a US team to a meeting. Everyone interprets &ldquo;10
-      AM&rdquo; differently. Fix: keep your calendar time zone set to where
-      you&rsquo;re physically sitting, update when you travel.
+      <strong>(1) Fiziksel konumunuzla eşleşmeyen bir saat dilimi ayarlamak.</strong> Dijital göçebe takvimini UTC'ye ayarlar, Lizbon'a uçar, bir ABD ekibini toplantıya davet eder. Herkes "10:00"ı farklı yorumlar. Çözüm: takviminizin saat dilimini fiziksel olarak bulunduğunuz yere göre ayarlayın, seyahat ettiğinizde güncelleyin.
     </p>
     <p>
-      <strong>(2) Inviting someone via copy-pasted time.</strong> Calendar
-      apps store meetings as absolute moments (UTC internally) and
-      translate to each participant&rsquo;s local time. Copy-pasting
-      &ldquo;2 PM&rdquo; into an invite field for a person in another
-      zone without the UI knowing what zone you meant is how you end up
-      with meetings at 2 PM in the invitee&rsquo;s zone when you meant 2 PM
-      in yours.
+      <strong>(2) Kopyala-yapıştır zamanı ile birini davet etmek.</strong> Takvim uygulamaları toplantıları mutlak anlar olarak (dahili olarak UTC) saklar ve her katılımcının yerel saatine çevirir. Başka bir bölgedeki bir kişi için bir davet alanına, arayüzün hangi bölgeyi kastettiğinizi bilmeden "14:00" kopyalayıp yapıştırmak, davetlinin bölgesinde saat 14:00'te toplantı yapmanıza yol açar, oysa siz kendi bölgenizde 14:00'ü kastetmişsinizdir.
     </p>
     <p>
-      <strong>(3) Not accounting for holidays in other regions.</strong>
-      US Thanksgiving doesn&rsquo;t exist in Europe. Chinese New Year
-      wipes out most of Asia for a week. Golden Week in Japan is early
-      May. Carnaval in Brazil is late Feb/early March. A globally-aware
-      team checks all relevant regions&rsquo; holidays before locking in
-      a launch date.
+      <strong>(3) Diğer bölgelerdeki tatilleri hesaba katmamak.</strong> ABD Şükran Günü Avrupa'da yoktur. Çin Yeni Yılı, Asya'nın çoğunu bir hafta boyunca etkisiz hale getirir. Japonya'da Altın Hafta Mayıs başıdır. Brezilya'da Karnaval Şubat sonu/Mart başıdır. Küresel bilince sahip bir ekip, bir lansman tarihini kilitlemeden önce ilgili tüm bölgelerin tatillerini kontrol eder.
     </p>
 
-    <h2>The right tool for the job</h2>
+    <h2>İş için doğru araç</h2>
     <p>
-      For one-off conversions, use the{" "}
-      <a href="/tools/time-zone-converter">time zone converter</a>. For
-      recurring meetings, use your calendar&rsquo;s native time-zone
-      support (Google Calendar, Outlook both handle DST correctly if you
-      pick a city-named zone). For broad team scheduling, use
-      everytimezone.com or worldtimebuddy.com to see the whole team&rsquo;s
-      day at a glance.
+      Tek seferlik dönüşümler için{" "}
+      <a href="/tools/time-zone-converter">saat dilimi dönüştürücüyü</a> kullanın. Tekrarlanan toplantılar için takviminizin yerel saat dilimi desteğini kullanın (Google Calendar, Outlook, şehir adı verilmiş bir bölge seçerseniz YSU'yu doğru şekilde halleder). Geniş ekip planlaması için, tüm ekibin gününü bir bakışta görmek üzere everytimezone.com veya worldtimebuddy.com kullanın.
     </p>
     <p>
-      Pair with the{" "}
-      <a href="/tools/meeting-cost-calculator">meeting cost calculator</a>{" "}
-      to decide when a 10-person sync across four time zones is
-      actually worth scheduling vs moving to async, and the{" "}
-      <a href="/tools/meeting-agenda-builder">meeting agenda builder</a>{" "}
-      to keep the rare synchronous window high-leverage.
+      Dört zaman dilimi arasında 10 kişilik bir senkron toplantının gerçekten planlamaya değer mi yoksa eşzamansıza mı geçilmesi gerektiğine karar vermek için{" "}
+      <a href="/tools/meeting-cost-calculator">toplantı maliyeti hesaplayıcı</a> ile ve nadir senkron zaman dilimini yüksek etkili tutmak için{" "}
+      <a href="/tools/meeting-agenda-builder">toplantı gündemi oluşturucu</a> ile birlikte kullanın.
     </p>
   </>
 );

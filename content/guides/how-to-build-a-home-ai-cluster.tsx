@@ -2,171 +2,179 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    A &ldquo;home AI cluster&rdquo; in 2026 isn&rsquo;t a server rack &mdash; it&rsquo;s
-    three to five everyday machines wired well, running a coordinator daemon, and serving
-    a 70B model that none of them could host alone. The hardware decisions are mostly about
-    network, cooling, and how loud you&rsquo;re willing to live with. The software is solved.
+    Bir &ldquo;ev yapay zeka kümesi&rdquo; 2026&rsquo;da bir sunucu rafı değildir &mdash; üç
+    ila beş günlük makinenin iyi kablolanmış, bir koordinatör arka plan programı çalıştıran ve
+    hiçbirinin tek başına barındıramayacağı 70B&rsquo;lik bir modeli sunan halidir. Donanım
+    kararları çoğunlukla ağ, soğutma ve ne kadar gürültüyle yaşamaya razı olduğunuzla ilgilidir.
+    Yazılım kısmı çözülmüştür.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What a home cluster is for (and isn&rsquo;t)</h2>
+    <h2>Bir ev kümesi ne işe yarar (ve yaramaz)</h2>
     <p>
-      Build one if you want any of: code-completion that&rsquo;s genuinely faster than typing,
-      multi-agent workflows running 24/7, on-call summarization of large documents, your own
-      RAG over private data, or a way to share a single GPU across the household&rsquo;s
-      laptops. Don&rsquo;t build one if your needs are casual chat &mdash; you&rsquo;re paying
-      a hardware tax for capacity you won&rsquo;t use, and a $20/month cloud subscription will
-      feel faster.
+      Şunlardan herhangi birini istiyorsanız bir tane kurun: yazmaktan gerçekten daha hızlı olan
+      kod tamamlama, 7/24 çalışan çoklu etmen iş akışları, büyük belgelerin istek üzerine
+      özetlenmesi, özel verileriniz üzerinde kendi RAG&rsquo;ınız veya evdeki dizüstü
+      bilgisayarlar arasında tek bir GPU&rsquo;yu paylaşmanın bir yolu. İhtiyacınız sıradan
+      sohbetse kurmayın &mdash; kullanmayacağınız kapasite için bir donanım vergisi ödüyorsunuz
+      ve aylık 20 dolarlık bir bulut aboneliği daha hızlı hissettirecektir.
     </p>
 
-    <h2>Topology: pick one of four shapes</h2>
+    <h2>Topoloji: dört şekilden birini seçin</h2>
 
-    <h3>1. The single-host (1 machine)</h3>
+    <h3>1. Tek ana bilgisayar (1 makine)</h3>
     <p>
-      One Mac Studio M2/M3/M4 Ultra (64&ndash;192 GB) or one PC with a 4090/5090 + 64&ndash;128 GB
-      RAM. Cheapest, quietest, easiest to keep running, no networking concerns. Caps out
-      at one model loaded at a time and one or two concurrent serious users. The right
-      starting point for most households.
+      Bir Mac Studio M2/M3/M4 Ultra (64&ndash;192 GB) veya 4090/5090 + 64&ndash;128 GB
+      RAM&rsquo;li bir PC. En ucuzu, en sessizi, çalışır durumda tutması en kolayı, ağ
+      sorunu yok. Aynı anda yalnızca bir model yüklenebilir ve bir veya iki eşzamanlı ciddi
+      kullanıcıyla sınırlıdır. Çoğu hane için doğru başlangıç noktası.
     </p>
 
-    <h3>2. The hub-and-spoke (1 GPU host + N clients)</h3>
+    <h3>2. Merkez ve uçlar (1 GPU ana bilgisayarı + N istemci)</h3>
     <p>
-      A serious GPU host runs Ollama, vLLM, or LM Studio in server mode; every laptop and
-      desktop on the LAN points its OpenAI-compatible client at the host. Serves a
-      household of 5&ndash;10 people without breaking a sweat. Doesn&rsquo;t require any
-      pooling magic &mdash; the GPU host carries the entire model. See{" "}
-      <a href="/guides/how-to-share-a-gpu-across-machines">how to share a GPU across
-      machines</a> for the setup.
+      Ciddi bir GPU ana bilgisayarı, Ollama, vLLM veya LM Studio&rsquo;yu sunucu modunda
+      çalıştırır; LAN&rsquo;daki her dizüstü ve masaüstü bilgisayar, OpenAI uyumlu istemcisini
+      ana bilgisayara yönlendirir. 5&ndash;10 kişilik bir haneye sorunsuzca hizmet verir.
+      Herhangi bir birleştirme sihri gerektirmez &mdash; GPU ana bilgisayarı tüm modeli taşır.
+      Kurulum için{" "}
+      <a href="/guides/how-to-share-a-gpu-across-machines">bir GPU&rsquo;yu makineler arasında
+      paylaşma</a> kılavuzuna bakın.
     </p>
 
-    <h3>3. The pod (3&ndash;6 peers, no fixed leader)</h3>
+    <h3>3. Pod (3&ndash;6 eş, sabit lider yok)</h3>
     <p>
-      Hyperspace, exo, or llama.cpp RPC across 3&ndash;6 reasonably-specced machines. No
-      machine has to hold the whole model; layers are sharded by available memory. Resilient
-      to any one member sleeping. The right call when you have several existing machines and
-      don&rsquo;t want to buy a dedicated GPU host. See{" "}
-      <a href="/guides/how-to-combine-laptops-to-run-large-llms">how to combine laptops to
-      run large LLMs</a> and the deeper{" "}
-      <a href="/guides/how-to-set-up-a-hyperspace-pod">hyperspace pod walkthrough</a>.
+      3&ndash;6 makul özellikli makine arasında Hyperspace, exo veya llama.cpp RPC. Hiçbir
+      makinenin tüm modeli tutması gerekmez; katmanlar mevcut belleğe göre parçalanır.
+      Herhangi bir üyenin uyumasına karşı dayanıklıdır. Birkaç mevcut makineniz varsa ve
+      özel bir GPU ana bilgisayarı satın almak istemiyorsanız doğru seçimdir.{" "}
+      <a href="/guides/how-to-combine-laptops-to-run-large-llms">büyük LLM&rsquo;leri çalıştırmak
+      için dizüstü bilgisayarları birleştirme</a> ve daha derin{" "}
+      <a href="/guides/how-to-set-up-a-hyperspace-pod">hyperspace pod kurulumu</a> kılavuzlarına
+      bakın.
     </p>
 
-    <h3>4. The hybrid (1 GPU host + pod for overflow)</h3>
+    <h3>4. Hibrit (1 GPU ana bilgisayarı + taşma için pod)</h3>
     <p>
-      Mac Studio runs the everyday 70B; pod members carry sharded copies of larger or
-      specialized models that the hub doesn&rsquo;t fit. The serving daemon load-balances
-      based on which model the request needs. Worth doing only after the simpler shapes feel
-      saturated.
+      Mac Studio günlük 70B&rsquo;yi çalıştırır; pod üyeleri, merkezin sığmadığı daha büyük
+      veya özelleşmiş modellerin parçalanmış kopyalarını taşır. Sunucu arka plan programı,
+      isteğin hangi modele ihtiyaç duyduğuna göre yük dengelemesi yapar. Yalnızca daha basit
+      şekiller doygun hissettirdiğinde yapmaya değer.
     </p>
 
-    <h2>Hardware shopping list, ordered by impact</h2>
+    <h2>Donanım alışveriş listesi, etkiye göre sıralanmış</h2>
 
-    <h3>Memory beats clock speed</h3>
+    <h3>Bellek, saat hızından daha önemlidir</h3>
     <p>
-      For <a href="/learn/inference">inference</a>, available unified memory or <a href="/learn/vrm-vram">VRAM</a> is the single most predictive number.
-      A 64 GB M2 Max running 70B Q4 is more useful than a 32 GB M3 Max at higher per-core
-      speed: the larger machine actually fits the model. Ranking the options at typical 2026
-      retail:
-    </p>
-    <ul>
-      <li><strong>$1,800&ndash;2,500:</strong> used Mac Studio M2 Max 64 GB or Mac Mini M4 Pro 64 GB.</li>
-      <li><strong>$2,800&ndash;3,800:</strong> Mac Studio M2/M3 Ultra 128 GB. The sweet spot.</li>
-      <li><strong>$4,500+:</strong> Mac Studio M3/M4 Ultra 192 GB. Hosts 70B FP8 or any current Mixtral.</li>
-      <li><strong>$2,000&ndash;3,500 PC:</strong> 4090 or 5090 + 64&ndash;128 GB DDR5. Faster on
-        small models, slower than the bigger Mac on 70B+ via offload.</li>
-      <li><strong>$8,000+:</strong> dual 4090 / 5090 in a single chassis with NVLink. Tensor
-        parallel for 70B at 25+ tokens/sec.</li>
-    </ul>
-
-    <h3>Network is non-negotiable for pods</h3>
-    <p>
-      Wi-Fi 6 works for casual pod use; serious pods want at least 2.5 GbE wired between every
-      member. Components that pay for themselves quickly:
+      <a href="/learn/inference">Çıkarım</a> için, kullanılabilir birleşik bellek veya <a href="/learn/vrm-vram">VRAM</a> en belirleyici sayıdır.
+      64 GB M2 Max ile çalışan 70B Q4, daha yüksek çekirdek başına hıza sahip 32 GB M3
+      Max&rsquo;ten daha kullanışlıdır: daha büyük makine modele gerçekten sığar. 2026
+      tipik perakende fiyatlarında seçeneklerin sıralaması:
     </p>
     <ul>
-      <li><strong>2.5 GbE / 10 GbE switch ($120&ndash;300):</strong> the difference between
-        &ldquo;tokens stutter when someone joins a Zoom&rdquo; and &ldquo;cluster behaves like
-        one machine.&rdquo;</li>
-      <li><strong>USB-C/Thunderbolt ethernet adapters ($30&ndash;60):</strong> for laptops
-        without built-in 2.5 GbE.</li>
-      <li><strong>Cat 6 cable runs:</strong> avoid Cat 5e in 2026; the price is the same and
-        the headroom matters.</li>
+      <li><strong>$1.800&ndash;2.500:</strong> kullanılmış Mac Studio M2 Max 64 GB veya Mac Mini M4 Pro 64 GB.</li>
+      <li><strong>$2.800&ndash;3.800:</strong> Mac Studio M2/M3 Ultra 128 GB. Tatlı nokta.</li>
+      <li><strong>$4.500+:</strong> Mac Studio M3/M4 Ultra 192 GB. 70B FP8 veya herhangi bir güncel Mixtral barındırır.</li>
+      <li><strong>$2.000&ndash;3.500 PC:</strong> 4090 veya 5090 + 64&ndash;128 GB DDR5. Küçük
+        modellerde daha hızlı, 70B+ üzerinde yükleme yoluyla büyük Mac&rsquo;ten daha yavaş.</li>
+      <li><strong>$8.000+:</strong> NVLink ile tek bir kasada çift 4090 / 5090. 70B için
+        25+ token/sn tensör paralelliği.</li>
     </ul>
 
-    <h3>Power, cooling, and noise</h3>
+    <h3>Pod&rsquo;lar için ağ pazarlık konusu değildir</h3>
+    <p>
+      Wi-Fi 6, sıradan pod kullanımı için işe yarar; ciddi pod&rsquo;lar her üye arasında en
+      az 2,5 GbE kablolu bağlantı ister. Kendini hızla amorti eden bileşenler:
+    </p>
     <ul>
-      <li><strong>Plan for 200&ndash;500 W of sustained draw</strong> per active host during
-        inference. A 4090 host pegs at ~450 W, a Mac Studio Ultra at ~150 W, a laptop in a pod
-        at ~40&ndash;80 W.</li>
-      <li><strong>UPS ($150&ndash;300):</strong> a brownout in the middle of a long generation
-        wastes the whole context. A small CyberPower or APC unit covers the GPU host and
-        switch.</li>
-      <li><strong>Closed-room thermal headroom:</strong> running 70B for hours raises room
-        <a href="/learn/temperature-ai">temperature</a> noticeably. A small portable AC or just a doorway open is the cheapest
-        fix.</li>
-      <li><strong>Acoustics:</strong> a desktop GPU at full tilt is ~50 dBA, which is
-        distracting in the same room. Either move the host (a closet with vented door is the
-        classic answer) or pick Mac Silicon, which stays under 35 dBA at full inference.</li>
+      <li><strong>2,5 GbE / 10 GbE anahtar ($120&ndash;300):</strong> &ldquo;birisi Zoom&rsquo;a
+        katıldığında token&rsquo;lar takılıyor&rdquo; ile &ldquo;küme tek bir makine gibi
+        davranıyor&rdquo; arasındaki fark.</li>
+      <li><strong>USB-C/Thunderbolt ethernet adaptörleri ($30&ndash;60):</strong> yerleşik
+        2,5 GbE&rsquo;si olmayan dizüstü bilgisayarlar için.</li>
+      <li><strong>Cat 6 kablo döşemeleri:</strong> 2026&rsquo;da Cat 5e&rsquo;den kaçının;
+        fiyat aynı ve pay önemli.</li>
     </ul>
 
-    <h2>The software stack to install once</h2>
+    <h3>Güç, soğutma ve gürültü</h3>
+    <ul>
+      <li><strong>Çıkarım sırasında aktif ana bilgisayar başına 200&ndash;500 W sürekli çekiş
+        planlayın</strong>. Bir 4090 ana bilgisayarı ~450 W&rsquo;a, bir Mac Studio Ultra ~150
+        W&rsquo;a, bir pod&rsquo;daki dizüstü bilgisayar ~40&ndash;80 W&rsquo;a ulaşır.</li>
+      <li><strong>Kesintisiz güç kaynağı ($150&ndash;300):</strong> uzun bir üretim sırasında
+        oluşacak bir elektrik kesintisi tüm bağlamı boşa harcar. Küçük bir CyberPower veya APC
+        ünitesi GPU ana bilgisayarını ve anahtarı kapsar.</li>
+      <li><strong>Kapalı oda termal payı:</strong> 70B&rsquo;yi saatlerce çalıştırmak oda
+        <a href="/learn/temperature-ai">sıcaklığını</a> belirgin şekilde yükseltir. Küçük bir
+        taşınabilir klima veya sadece kapıyı açık bırakmak en ucuz çözümdür.</li>
+      <li><strong>Akustik:</strong> tam gaz bir masaüstü GPU ~50 dBA&rsquo;dır, bu da aynı
+        odada dikkat dağıtıcıdır. Ya ana bilgisayarı taşıyın (havalandırmalı kapılı bir dolap
+        klasik cevaptır) ya da tam çıkarımda 35 dBA&rsquo;nın altında kalan Mac Silicon&rsquo;u
+        seçin.</li>
+    </ul>
+
+    <h2>Bir kez kurulacak yazılım yığını</h2>
     <ol>
-      <li><strong>Ollama</strong> on the GPU host: easiest model fetch and OpenAI-compatible
-        endpoint. <a href="/guides/how-to-use-ollama">Setup guide</a>.</li>
-      <li><strong>llama.cpp</strong> as backup: more control, better offload tuning, used when
-        Ollama&rsquo;s defaults aren&rsquo;t cutting it. <a href="/guides/how-to-use-llama-cpp">Setup guide</a>.</li>
-      <li><strong>vLLM</strong> when you need throughput for 5+ concurrent users.</li>
-      <li><strong>Hyperspace</strong> when you outgrow the single host and want
-        OpenAI-compatible pod surface with auto-sharding. <a href="/guides/how-to-set-up-a-hyperspace-pod">Setup guide</a>.</li>
-      <li><strong>A reverse proxy</strong> (Caddy or Traefik) if any endpoint needs HTTPS or
-        public exposure.</li>
+      <li><strong>GPU ana bilgisayarında Ollama</strong>: en kolay model getirme ve OpenAI uyumlu
+        uç nokta. <a href="/guides/how-to-use-ollama">Kurulum kılavuzu</a>.</li>
+      <li><strong>Yedek olarak llama.cpp</strong>: daha fazla kontrol, daha iyi yükleme ayarı,
+        Ollama&rsquo;nın varsayılanları yeterli olmadığında kullanılır. <a href="/guides/how-to-use-llama-cpp">Kurulum kılavuzu</a>.</li>
+      <li><strong>5+ eşzamanlı kullanıcı için verim gerektiğinde vLLM</strong>.</li>
+      <li><strong>Tek ana bilgisayarı aştığınızda ve otomatik parçalama ile OpenAI uyumlu
+        pod yüzeyi istediğinizde Hyperspace</strong>. <a href="/guides/how-to-set-up-a-hyperspace-pod">Kurulum kılavuzu</a>.</li>
+      <li><strong>Herhangi bir uç noktanın HTTPS veya genel erişime ihtiyacı varsa bir ters
+        proxy</strong> (Caddy veya Traefik).</li>
     </ol>
 
-    <h2>Models worth keeping local in 2026</h2>
+    <h2>2026&rsquo;da yerel tutmaya değer modeller</h2>
     <p>
-      Curate a small library &mdash; running every benchmark winner is a recipe for filling a
-      drive with stuff you never use. A useful three-model lineup:
+      Küçük bir kütüphane seçin &mdash; her kıyaslama kazananını çalıştırmak, sürücüyü hiç
+      kullanmadığınız şeylerle doldurmanın tarifidir. Kullanışlı bir üç model dizilimi:
     </p>
     <ul>
-      <li><strong>Qwen 2.5 / Qwen 3.5 32B Q4:</strong> code, refactors, long-form reasoning. Best
-        open-weight code model below 70B.</li>
-      <li><strong>Llama 3.3 70B Q4:</strong> general-purpose flagship. Slow on smaller setups, but
-        the quality bar for everything else.</li>
-      <li><strong>Gemma 2 9B FP16:</strong> the &ldquo;answer in 200 ms&rdquo; model for
-        autocomplete and small classifications.</li>
+      <li><strong>Qwen 2.5 / Qwen 3.5 32B Q4:</strong> kod, yeniden düzenlemeler, uzun biçimli
+        akıl yürütme. 70B&rsquo;nin altındaki en iyi açık ağırlıklı kod modeli.</li>
+      <li><strong>Llama 3.3 70B Q4:</strong> genel amaçlı amiral gemisi. Küçük kurulumlarda
+        yavaş, ancak diğer her şey için kalite çıtası.</li>
+      <li><strong>Gemma 2 9B FP16:</strong> otomatik tamamlama ve küçük sınıflandırmalar için
+        &ldquo;200 ms&rsquo;de cevap ver&rdquo; modeli.</li>
     </ul>
     <p>
-      The <a href="/tools/ai-model-compare">AI model compare tool</a> tracks current
-      benchmarks if you want to swap one out.
+      Birini değiştirmek isterseniz <a href="/tools/ai-model-compare">AI model karşılaştırma
+      aracı</a> güncel kıyaslamaları takip eder.
     </p>
 
-    <h2>Realistic timeline and budget</h2>
+    <h2>Gerçekçi zaman çizelgesi ve bütçe</h2>
     <ul>
-      <li><strong>Weekend 1, $0&ndash;3,500:</strong> single host with Ollama running 8B + 32B
-        models. Most of your value-from-AI need will already be covered.</li>
-      <li><strong>Weekend 2, +$200&ndash;500:</strong> wired networking upgrade, expose endpoint
-        to the rest of the household, install on every client. You now have a household AI
-        utility.</li>
-      <li><strong>Weekend 3 (only if needed), +$0:</strong> turn it into a Hyperspace pod or add
-        a second machine. Now you can host 70B without buying a $4,500 box.</li>
+      <li><strong>1. Hafta sonu, $0&ndash;3.500:</strong> Ollama ile 8B + 32B modelleri çalıştıran
+        tek ana bilgisayar. Yapay zekadan elde edeceğiniz değerin çoğu zaten karşılanmış
+        olacak.</li>
+      <li><strong>2. Hafta sonu, +$200&ndash;500:</strong> kablolu ağ yükseltmesi, uç noktayı
+        evin geri kalanına açma, her istemciye kurulum. Artık bir ev yapay zeka yardımcınız
+        var.</li>
+      <li><strong>3. Hafta sonu (yalnızca gerekirse), +$0:</strong> bir Hyperspace pod&rsquo;una
+        dönüştürün veya ikinci bir makine ekleyin. Artık 4.500 dolarlık bir kutu satın almadan
+        70B barındırabilirsiniz.</li>
     </ul>
 
-    <h2>Cost vs cloud, run honestly</h2>
+    <h2>Maliyet vs bulut, dürüstçe hesaplayın</h2>
     <p>
-      Plug actual numbers into the <a href="/tools/ai-cost-estimator">AI cost estimator</a>.
-      The break-even for an individual heavy user against API pricing is roughly:
+      Gerçek sayıları <a href="/tools/ai-cost-estimator">AI maliyet hesaplayıcıya</a> girin.
+      API fiyatlandırmasına karşı bireysel bir yoğun kullanıcı için başabaş noktası kabaca:
     </p>
     <ul>
-      <li>$60/month API spend &approx; payback on a $1,800 used Mac Studio in 2.5 years.</li>
-      <li>$200/month team API spend &approx; payback on a $3,500 Mac Studio Ultra in 18 months.</li>
-      <li>$500/month team API spend &approx; payback on a multi-machine pod within 6 months,
-        with no hardware purchase.</li>
+      <li>Aylık 60$ API harcaması &approx; 1.800$&rsquo;lık kullanılmış bir Mac Studio&rsquo;nun
+        2,5 yılda geri ödenmesi.</li>
+      <li>Aylık 200$ ekip API harcaması &approx; 3.500$&rsquo;lık bir Mac Studio Ultra&rsquo;nun
+        18 ayda geri ödenmesi.</li>
+      <li>Aylık 500$ ekip API harcaması &approx; donanım satın alımı olmadan 6 ay içinde
+        çok makineli bir pod&rsquo;un geri ödenmesi.</li>
     </ul>
     <p>
-      The non-financial wins are usually bigger than the dollar math: privacy on sensitive
-      code or documents, no rate limits, no quota anxiety, and a quiet hum in the closet
-      that just keeps working.
+      Finansal olmayan kazanımlar genellikle dolar hesabından daha büyüktür: hassas kod veya
+      belgelerde gizlilik, hız sınırı yok, kota kaygısı yok ve dolapta çalışmaya devam eden
+      sessiz bir uğultu.
     </p>
   </>
 );

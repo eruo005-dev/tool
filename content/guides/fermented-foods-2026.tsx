@@ -2,39 +2,36 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Fermented foods crossed from health-fad to mainstream in 2025-2026 with broad clinical evidence supporting their
-    role in gut microbiome diversity. Here&rsquo;s the realistic 2026 view &mdash; what helps, what&rsquo;s
-    overhyped.
+    Fermente gıdalar, 2025–2026 yıllarında sağlık modasından ana akıma geçti ve bağırsak mikrobiyom çeşitliliğindeki rollerini destekleyen geniş klinik kanıtlarla desteklendi. İşte 2026'nın gerçekçi tablosu — ne işe yarıyor, ne abartılıyor.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The actual evidence</h2>
+    <h2>Gerçek kanıtlar</h2>
     <p>
-      Stanford&rsquo;s 2021 Sonnenburg study found a 6-week high-fermented-foods diet (6 servings/day) significantly
-      increased microbiome diversity and decreased inflammatory markers. Multiple replications since.
+      Stanford'un 2021 Sonnenburg çalışması, 6 haftalık yüksek fermente gıda diyetinin (günde 6 porsiyon) mikrobiyom çeşitliliğini önemli ölçüde artırdığını ve inflamatuar belirteçleri azalttığını buldu. O zamandan beri birden fazla tekrar çalışması yapıldı.
     </p>
-    <h2>What &ldquo;fermented&rdquo; actually means</h2>
+    <h2>"Fermente" aslında ne anlama geliyor</h2>
     <ul>
-      <li><strong>Live + active cultures:</strong> kimchi, sauerkraut (refrigerated, NOT shelf-stable), yogurt with active cultures, kefir, kombucha (refrigerated), miso, tempeh.</li>
-      <li><strong>Doesn&rsquo;t count:</strong> shelf-stable pickles, pasteurized sauerkraut, supermarket kombucha brands that pasteurize.</li>
+      <li><strong>Canlı + aktif kültürler:</strong> kimchi, lahana turşusu (buzdolabında saklanan, raf ömrü uzun OLAN DEĞİL), aktif kültürlü yoğurt, kefir, kombucha (buzdolabında), miso, tempeh.</li>
+      <li><strong>Sayılmaz:</strong> raf ömrü uzun turşular, pastörize lahana turşusu, pastörize market kombucha markaları.</li>
     </ul>
-    <h2>What helps + what doesn&rsquo;t</h2>
+    <h2>Ne işe yarıyor + ne yaramıyor</h2>
     <ul>
-      <li><strong>Helps:</strong> daily 1-2 servings, varied (rotate 4-5 types weekly).</li>
-      <li><strong>Doesn&rsquo;t help much:</strong> commercial probiotic capsules &mdash; effects are small + transient.</li>
-      <li><strong>Probably wastes money:</strong> &ldquo;gut microbiome test kits&rdquo; &mdash; results aren&rsquo;t actionable.</li>
+      <li><strong>İşe yarar:</strong> günde 1-2 porsiyon, çeşitlendirilmiş (haftada 4-5 tür arasında dönüşümlü).</li>
+      <li><strong>Pek etkili değil:</strong> ticari probiyotik kapsüller — etkileri küçük ve geçici.</li>
+      <li><strong>Muhtemelen para israfı:</strong> "bağırsak mikrobiyom test kitleri" — sonuçlar uygulanabilir değil.</li>
     </ul>
-    <h2>If you&rsquo;re starting</h2>
+    <h2>Yeni başlıyorsanız</h2>
     <ol>
-      <li>Add 1 serving/day for 2 weeks. Some people get bloating; ramp slowly.</li>
-      <li>Vary types &mdash; different bacteria families.</li>
-      <li>Pair with fiber (the fuel for the bacteria you&rsquo;re adding).</li>
-      <li>Don&rsquo;t cook the heat-sensitive ones &mdash; live cultures die above ~115°F.</li>
+      <li>2 hafta boyunca günde 1 porsiyon ekleyin. Bazı kişilerde şişkinlik görülebilir; yavaş başlayın.</li>
+      <li>Türleri çeşitlendirin — farklı bakteri aileleri.</li>
+      <li>Lifle eşleştirin (eklediğiniz bakteriler için yakıt).</li>
+      <li>Isıya duyarlı olanları pişirmeyin — canlı kültürler yaklaşık 46°C'nin üzerinde ölür.</li>
     </ol>
     <p>
-      Pair with <a href="/guides/fiber-target-2026">fiber target 2026</a>.
+      <a href="/guides/fiber-target-2026">2026 lif hedefi</a> ile birlikte uygulayın.
     </p>
   </>
 );

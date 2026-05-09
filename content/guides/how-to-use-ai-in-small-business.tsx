@@ -1,34 +1,34 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>AI won&rsquo;t save your small business on its own &mdash; but used in one clear workflow with one clear metric, it quietly pays for itself inside 30 days.</p>);
+export const intro: ReactElement = (<p>AI, küçük işletmenizi tek başına kurtarmaz &mdash; ancak net bir iş akışı ve net bir metrikle kullanıldığında, 30 gün içinde kendi masrafını sessizce çıkarır.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>Most small-business owners either ignore AI entirely or try to &ldquo;AI everything&rdquo; in a weekend and burn out. Both approaches fail. The teams getting real results pick one high-pain workflow, assign one person to own it, and measure hours saved each week. This guide is for owners and solo founders who want a realistic adoption plan &mdash; not another hype article about agents taking over.</p>
+    <p>Çoğu küçük işletme sahibi ya yapay zekayı tamamen görmezden gelir ya da bir hafta sonu her şeyi yapay zekayla yapmaya çalışıp tükenir. Her iki yaklaşım da başarısız olur. Gerçek sonuçlar alan ekipler, yüksek acılı bir iş akışı seçer, sahiplenecek bir kişi atar ve her hafta kazanılan saatleri ölçer. Bu rehber, gerçekçi bir benimseme planı isteyen işletme sahipleri ve solo kurucular içindir &mdash; ajanların her şeyi devralacağına dair bir hype makalesi değil.</p>
 
-    <h2>Start with one high-pain workflow</h2>
-    <p>Don&rsquo;t roll AI out across your whole company. Pick the single task that bleeds the most hours and has low customer-harm risk if it&rsquo;s 80% right. The three winners for most SMBs are customer support triage (drafting first replies, summarizing tickets), content production (blog drafts, social captions, product descriptions), and sales outreach (cold email variants, meeting recaps, proposal drafts). Win one of these, then move to the next.</p>
+    <h2>Yüksek acılı bir iş akışıyla başlayın</h2>
+    <p>Yapay zekayı tüm şirketinize yaymayın. En çok saat kaybettiren ve %80 doğru olsa bile müşteriye zarar verme riski düşük olan tek bir görevi seçin. Çoğu KOBİ için en iyi üç seçenek müşteri desteği triyajı (ilk yanıtları taslaklama, biletleri özetleme), içerik üretimi (blog taslakları, sosyal medya altyazıları, ürün açıklamaları) ve satış erişimi (soğuk e-posta varyasyonları, toplantı özetleri, teklif taslakları)dır. Bunlardan birini kazanın, ardından diğerine geçin.</p>
 
-    <h2>Three free tiers to test with first</h2>
+    <h2>Önce test edilecek üç ücretsiz katman</h2>
     <ul>
-      <li>ChatGPT free &mdash; broad, fast, best general-purpose starting point.</li>
-      <li>Claude.ai free &mdash; strongest at long-form writing, nuanced tone, and document analysis.</li>
-      <li>Gemini free &mdash; tightly integrated with Google Workspace, handy if your team already lives in Gmail and Docs.</li>
+      <li>ChatGPT ücretsiz &mdash; geniş, hızlı, en iyi genel amaçlı başlangıç noktası.</li>
+      <li>Claude.ai ücretsiz &mdash; uzun metin yazma, nüanslı ton ve belge analizinde en güçlüsü.</li>
+      <li>Gemini ücretsiz &mdash; Google Workspace ile sıkı entegre, ekibiniz zaten Gmail ve Docs'ta yaşıyorsa kullanışlı.</li>
     </ul>
 
-    <h2>What to automate vs keep human</h2>
-    <p>Automate drafting, summarizing, tagging, translating, and formatting &mdash; anything where a human still reviews the output before it reaches a customer. Keep humans firmly in charge of final approval on anything legal, financial, medical, or emotional (refunds, complaints, layoffs, health claims). A safe rule: AI drafts, humans ship.</p>
+    <h2>Neyi otomatikleştirmeli, neyi insana bırakmalı</h2>
+    <p>Taslaklama, özetleme, etiketleme, çeviri ve biçimlendirmeyi otomatikleştirin &mdash; yani bir insanın müşteriye ulaşmadan önce çıktıyı hâlâ gözden geçirdiği her şeyi. İnsanları, yasal, mali, tıbbi veya duygusal (iade, şikayet, işten çıkarma, sağlık talepleri) her şeyde nihai onay konusunda sıkıca yetkili tutun. Güvenli bir kural: Yapay zeka taslak hazırlar, insanlar gönderir.</p>
 
-    <h2>Privacy: read the TOS before pasting anything</h2>
-    <p>Never paste customer names, emails, phone numbers, health details, or payment info into a free consumer tier without checking the terms. Free tiers often use your inputs for model training. For anything touching customer PII, use the paid or business plans (ChatGPT Team, Claude for Work, Gemini Business) which explicitly exclude your data from training. If in doubt, redact the names first.</p>
+    <h2>Gizlilik: Bir şey yapıştırmadan önce Kullanım Koşullarını okuyun</h2>
+    <p>Müşteri adlarını, e-postalarını, telefon numaralarını, sağlık bilgilerini veya ödeme bilgilerini şartları kontrol etmeden asla ücretsiz bir tüketici katmanına yapıştırmayın. Ücretsiz katmanlar genellikle girdilerinizi model eğitimi için kullanır. Müşteri PII'sine dokunan herhangi bir şey için, verilerinizi eğitimin dışında bırakan ücretli veya iş planlarını (ChatGPT Team, Claude for Work, Gemini Business) kullanın. Şüpheniz varsa, önce adları gizleyin.</p>
 
-    <h2>Cost per employee and expected <a href="/learn/roi">ROI</a></h2>
-    <p>Budget roughly $20&ndash;30 per user per month for ChatGPT Team, about $25/month for Claude Pro, and $20/month for Gemini Business. For a 5-person team, that&rsquo;s $100&ndash;150/month all-in. If each person saves even 2 hours a week at a $40/hour loaded cost, you&rsquo;re netting around $1,500/month back. Track hours saved weekly for the first two months &mdash; that&rsquo;s your ROI proof.</p>
+    <h2>Çalışan başına maliyet ve beklenen <a href="/learn/roi">ROI</a></h2>
+    <p>ChatGPT Team için kullanıcı başına aylık yaklaşık $20&ndash;30, Claude Pro için aylık yaklaşık $25 ve Gemini Business için aylık $20 bütçe ayırın. 5 kişilik bir ekip için bu, toplamda aylık $100&ndash;150 demektir. Her kişi haftada sadece 2 saat tasarruf etse ve saatlik yüklü maliyet $40 olsa, ayda yaklaşık $1,500 geri kazanırsınız. İlk iki ay boyunca haftalık kazanılan saatleri takip edin &mdash; ROI kanıtınız budur.</p>
 
-    <h2>Common mistakes</h2>
-    <p>Three mistakes sink most rollouts. First, treating AI as a staff replacement instead of a staff multiplier &mdash; people disengage the moment they sense it. Second, skipping training; assuming everyone can &ldquo;just use ChatGPT&rdquo; leaves 80% of the value on the table. Third, no review workflow &mdash; AI-generated emails going straight to customers with hallucinated facts will cost you more than the tool saves.</p>
+    <h2>Yaygın hatalar</h2>
+    <p>Üç hata çoğu dağıtımı batırır. Birincisi, yapay zekayı bir personel çarpanı yerine personel yedekleyicisi olarak görmek &mdash; insanlar bunu hissettikleri anda bağlantıyı koparır. İkincisi, eğitimi atlamak; herkesin "ChatGPT'yi kullanabileceğini" varsaymak değerin %80'ini masada bırakır. Üçüncüsü, inceleme iş akışının olmaması &mdash; halüsinasyon görmüş gerçeklerle doğrudan müşterilere giden yapay zeka tarafından oluşturulmuş e-postalar, aracın kazandırdığından daha fazlasına mal olur.</p>
 
-    <h2>Bottom line</h2>
-    <p>Pick one workflow, pick one tool, pay for the business tier the moment customer data is involved, and measure hours saved. Small businesses that do these four things see compounding returns. The ones chasing shiny agents and autonomous everything are still paying full price and getting nothing.</p>
+    <h2>Alt satır</h2>
+    <p>Bir iş akışı seçin, bir araç seçin, müşteri verileri söz konusu olduğu anda iş katmanı için ödeme yapın ve kazanılan saatleri ölçün. Bu dört şeyi yapan küçük işletmeler bileşik getiriler görür. Parlak ajanların ve otonom her şeyin peşinden koşanlar hâlâ tam fiyat ödüyor ve hiçbir şey alamıyor.</p>
   </>
 );

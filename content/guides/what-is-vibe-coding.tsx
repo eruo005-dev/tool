@@ -2,49 +2,43 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    &ldquo;<a href="/learn/vibe-coding">Vibe coding</a>&rdquo; is what Andrej Karpathy named the 2025 shift to writing software by describing
-    intent in natural language and letting an AI write, run, and fix the code. By 2026 it&rsquo;s how a lot
-    of indie founders, hobbyists, and even pros prototype.
+    &ldquo;<a href="/learn/vibe-coding">Vibe coding</a>&rdquo;, Andrej Karpathy'nin 2025'te yazılım geliştirmede yaşanan değişimi tanımlamak için kullandığı bir terimdir: niyeti doğal dille ifade edip bir yapay zekanın kodu yazmasını, çalıştırmasını ve düzeltmesini sağlamak. 2026 itibarıyla birçok bağımsız kurucu, hobi geliştirici ve hatta profesyonel bu yöntemle prototip oluşturuyor.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What it actually looks like</h2>
+    <h2>Gerçekte nasıl görünüyor</h2>
     <p>
-      You don&rsquo;t open a file. You open Cursor, Bolt.new, Lovable, v0, or Replit Agent and type
-      &ldquo;build me a calendar app with login&rdquo;. The AI generates code, runs it in a sandbox, shows you
-      the result, and you iterate by saying &ldquo;make the buttons rounded&rdquo; or &ldquo;add timezone support&rdquo;.
-      You barely look at the code.
+      Bir dosya açmıyorsunuz. Cursor, Bolt.new, Lovable, v0 veya Replit Agent'ı açıp &ldquo;bana giriş yapma özelliği olan bir takvim uygulaması yap&rdquo; yazıyorsunuz. Yapay zeka kodu oluşturuyor, bir sanal alanda çalıştırıyor, size sonucu gösteriyor ve siz &ldquo;butonları yuvarlak yap&rdquo; veya &ldquo;saat dilimi desteği ekle&rdquo; diyerek iyileştirme yapıyorsunuz. Koda neredeyse hiç bakmıyorsunuz.
     </p>
 
-    <h2>What it&rsquo;s good for</h2>
+    <h2>Neye iyi geliyor</h2>
     <ul>
-      <li><strong>Prototypes:</strong> validate an idea in an afternoon.</li>
-      <li><strong>Internal tools:</strong> 80% of company internal apps don&rsquo;t need craftsmanship, just to work.</li>
-      <li><strong>Non-developers:</strong> a marketer can ship a landing-page tool without a dev queue.</li>
-      <li><strong>Side projects:</strong> the friction of starting drops to zero.</li>
+      <li><strong>Prototipler:</strong> bir fikri bir öğleden sonrada doğrulayın.</li>
+      <li><strong>İç araçlar:</strong> şirket içi uygulamaların %80'i ustalık gerektirmez, sadece çalışması yeterlidir.</li>
+      <li><strong>Geliştirici olmayanlar:</strong> bir pazarlamacı, geliştirici sırası beklemeden bir açılış sayfası aracı çıkarabilir.</li>
+      <li><strong>Yan projeler:</strong> başlama eşiği sıfıra iner.</li>
     </ul>
 
-    <h2>What it&rsquo;s NOT good for</h2>
+    <h2>Neye iyi gelmiyor</h2>
     <ul>
-      <li><strong>Production at scale:</strong> security, perf, observability, edge cases all need code review.</li>
-      <li><strong>Mission-critical:</strong> medical, financial, anything where bugs really hurt.</li>
-      <li><strong>Long-lived codebases:</strong> AI-generated code accretes inconsistencies.</li>
+      <li><strong>Ölçekte üretim:</strong> güvenlik, performans, gözlemlenebilirlik ve uç durumların tümü kod incelemesi gerektirir.</li>
+      <li><strong>Kritik görevler:</strong> tıp, finans ve hataların gerçekten zarar verebileceği her şey.</li>
+      <li><strong>Uzun ömürlü kod tabanları:</strong> yapay zeka tarafından üretilen kod tutarsızlıkları biriktirir.</li>
     </ul>
 
-    <h2>The 2026 toolchain</h2>
+    <h2>2026 araç zinciri</h2>
     <ul>
-      <li><strong>Bolt.new</strong> &mdash; full-stack, in-browser, fastest to a working app.</li>
-      <li><strong>Lovable</strong> &mdash; opinionated, ships beautiful UIs.</li>
-      <li><strong>v0 (Vercel)</strong> &mdash; UI components + Next.js + deploy.</li>
-      <li><strong>Cursor + Claude Code</strong> &mdash; for vibe coding INTO an existing codebase.</li>
-      <li><strong>Replit Agent</strong> &mdash; build + host in one place.</li>
+      <li><strong>Bolt.new</strong> &mdash; tam yığın, tarayıcı içi, çalışan bir uygulamaya en hızlı yol.</li>
+      <li><strong>Lovable</strong> &mdash; görüş sahibi, güzel arayüzler sunar.</li>
+      <li><strong>v0 (Vercel)</strong> &mdash; UI bileşenleri + Next.js + dağıtım.</li>
+      <li><strong>Cursor + Claude Code</strong> &mdash; mevcut bir kod tabanına vibe coding yapmak için.</li>
+      <li><strong>Replit Agent</strong> &mdash; oluşturma ve barındırma tek bir yerde.</li>
     </ul>
 
     <p>
-      Compare them at <a href="/tools/ai-agent-platform-comparison">the agent platform comparison</a>. For deeper
-      coding tool picks, see <a href="/guides/best-ai-for-coding-2026">best AI for coding 2026</a>.
+      Bunları <a href="/tools/ai-agent-platform-comparison">aracı platform karşılaştırması</a> sayfasında karşılaştırın. Daha derinlemesine kodlama aracı seçimleri için <a href="/guides/best-ai-for-coding-2026">2026'nın en iyi kodlama yapay zekası</a> rehberine bakın.
     </p>
   </>
 );

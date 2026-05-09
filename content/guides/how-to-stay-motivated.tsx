@@ -1,109 +1,80 @@
 export const intro = (
   <>
     <p>
-      Motivation is unreliable. Anyone who waits for it loses. The people who consistently
-      produce — in fitness, business, writing, anything — have figured out how to act without
-      feeling motivated. They&rsquo;ve replaced motivation with systems.
+      Motivasyon güvenilmezdir. Onu bekleyen herkes kaybeder. Sürekli üretenler — spor, iş, yazı, her neyse — motive hissetmeden nasıl hareket edeceklerini çözmüştür. Motivasyonu sistemlerle değiştirmişlerdir.
     </p>
     <p>
-      This guide covers the habits, frames, and mechanics that keep you moving when
-      motivation disappears, which it will. Often. For everyone.
+      Bu rehber, motivasyon kaybolduğunda sizi ayakta tutacak alışkanlıkları, çerçeveleri ve mekanizmaları kapsar. Motivasyon kaybolacaktır. Sık sık. Herkes için.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Stop waiting to feel ready</h2>
+    <h2>1. Hazır hissetmeyi beklemeyi bırakın</h2>
     <p>
-      You won&rsquo;t. Motivation doesn&rsquo;t precede action — it follows action. Start the
-      workout and you&rsquo;ll feel like working out 5 minutes in. Start the writing and
-      you&rsquo;ll hit flow. The hardest moment is the start, not the task itself.
+      Hissetmeyeceksiniz. Motivasyon eylemden önce gelmez — eylemi takip eder. Antrenmana başlayın, 5 dakika içinde egzersiz yapmak isteyeceksiniz. Yazmaya başlayın, akışa geçeceksiniz. En zor an başlangıçtır, görevin kendisi değil.
     </p>
 
-    <h2>2. Lower the activation cost</h2>
+    <h2>2. Başlama maliyetini düşürün</h2>
     <p>
-      The goal isn&rsquo;t to run 5 miles. The goal is to put on running shoes. Once you&rsquo;ve
-      put on shoes, going for a run is easy. Shrink the step so small that it&rsquo;s
-      impossible to avoid. Momentum does the rest.
+      Amaç 5 km koşmak değil. Amaç koşu ayakkabılarını giymek. Ayakkabıları giydiğinizde, koşuya çıkmak kolaydır. Adımı o kadar küçültün ki kaçınmak imkansız olsun. Gerisini momentum halleder.
     </p>
 
-    <h2>3. Build identity, not discipline</h2>
+    <h2>3. Disiplin değil, kimlik inşa edin</h2>
     <p>
-      &ldquo;I&rsquo;m trying to run more&rdquo; is fragile. &ldquo;I&rsquo;m a runner&rdquo; is
-      durable. When the identity shifts, the behavior follows naturally. Runners run. Writers
-      write. Stop framing it as effort; start framing it as who you are.
+      "Daha fazla koşmaya çalışıyorum" kırılgandır. "Ben bir koşucuyum" dayanıklıdır. Kimlik değiştiğinde, davranış doğal olarak onu takip eder. Koşucular koşar. Yazarlar yazar. Bunu çaba olarak değil, kim olduğunuz olarak çerçeveleyin.
     </p>
 
-    <h2>4. Make consistency cheap, perfection expensive</h2>
+    <h2>4. Tutarlılığı ucuz, mükemmelliği pahalı yapın</h2>
     <p>
-      Showing up 5 minutes every day beats doing 2 hours once a week. Lower the minimum
-      acceptable effort so that even on terrible days you still hit it. Five pushups count.
-      One paragraph counts. Zero doesn&rsquo;t count.
+      Her gün 5 dakika göstermek, haftada bir kez 2 saat yapmaktan daha iyidir. Minimum kabul edilebilir çabayı o kadar düşürün ki, kötü günlerde bile bunu başarın. Beş şınav sayılır. Bir paragraf sayılır. Sıfır sayılmaz.
     </p>
 
-    <h2>5. Anchor to a keystone habit</h2>
+    <h2>5. Bir temel alışkanlığa bağlayın</h2>
     <p>
-      Attach new behavior to an existing stable one. After I brew coffee, I write for 20
-      minutes. After I lock the door at work, I go straight to the gym. Existing habits are
-      anchors; new behaviors hitchhike on them. Our{" "}
-      <a href="/guides/how-to-build-good-habits">habits guide</a> covers habit stacking.
+      Yeni davranışı mevcut istikrarlı bir alışkanlığa ekleyin. Kahvemi demledikten sonra 20 dakika yazarım. İşte kapıyı kilitledikten sonra doğruca spor salonuna giderim. Mevcut alışkanlıklar çapadır; yeni davranışlar onlara otostop çeker.{" "}
+      <a href="/guides/how-to-build-good-habits">Alışkanlık rehberimiz</a> alışkanlık istiflemeyi kapsar.
     </p>
 
-    <h2>6. Track progress visibly</h2>
+    <h2>6. İlerlemeyi görünür şekilde takip edin</h2>
     <p>
-      A wall chart with a checkmark for every day you did the thing. Seeing a chain of 40 days
-      creates pressure not to break it. &ldquo;Don&rsquo;t break the chain&rdquo; is simple and
-      works. Progress you can see beats progress you only feel.
+      Yaptığınız her gün için bir onay işareti olan bir duvar çizelgesi. 40 günlük bir zincir görmek, onu kırmamak için baskı yaratır. "Zinciri kırma" basittir ve işe yarar. Görebildiğiniz ilerleme, yalnızca hissettiğiniz ilerlemeyi yener.
     </p>
 
-    <h2>7. Accept days of resistance</h2>
+    <h2>7. Dirençli günleri kabul edin</h2>
     <p>
-      Some days you&rsquo;ll hate it. That&rsquo;s normal. Do it anyway at reduced volume. The
-      goal isn&rsquo;t to feel good — it&rsquo;s to maintain the streak. Motivation will
-      return; the habit keeps you alive until it does.
+      Bazı günler bundan nefret edeceksiniz. Bu normal. Yine de azaltılmış hacimde yapın. Amaç iyi hissetmek değil — seriyi sürdürmek. Motivasyon geri dönecek; alışkanlık, dönene kadar sizi hayatta tutar.
     </p>
 
-    <h2>8. Cut goals you don&rsquo;t actually care about</h2>
+    <h2>8. Gerçekten önemsemediğiniz hedefleri kesin</h2>
     <p>
-      A lot of motivation problems are really goal problems: you&rsquo;re working toward
-      something because you think you should, not because you want to. Honest audit: which of
-      your current goals actually matter to you? Drop the rest.
+      Birçok motivasyon sorunu aslında hedef sorunudur: bir şey için çalışıyorsunuz çünkü yapmanız gerektiğini düşünüyorsunuz, istediğiniz için değil. Dürüst bir denetim: mevcut hedeflerinizden hangileri sizin için gerçekten önemli? Gerisini bırakın.
     </p>
 
-    <h2>9. Use external accountability</h2>
+    <h2>9. Dış hesap verebilirlik kullanın</h2>
     <p>
-      A workout partner. A coach. A friend you text daily. The discomfort of letting someone
-      else down is often stronger than the discomfort of letting yourself down. Use this.
-      It&rsquo;s not weakness; it&rsquo;s engineering.
+      Bir egzersiz partneri. Bir koç. Her gün mesaj attığınız bir arkadaş. Bir başkasını hayal kırıklığına uğratmanın rahatsızlığı, genellikle kendinizi hayal kırıklığına uğratmanın rahatsızlığından daha güçlüdür. Bunu kullanın. Bu zayıflık değil; mühendisliktir.
     </p>
 
-    <h2>10. Take real rest</h2>
+    <h2>10. Gerçekten dinlenin</h2>
     <p>
-      A person can&rsquo;t push hard constantly. After intense work sprints, schedule real
-      rest. People who try to &ldquo;stay motivated&rdquo; 52 weeks a year burn out and quit
-      altogether. Cycles of push and rest produce more output than continuous grinding.
+      Bir insan sürekli olarak zorlayamaz. Yoğun çalışma ataklarından sonra gerçek dinlenme planlayın. Yılda 52 hafta "motive kalmaya" çalışan insanlar tükenir ve tamamen bırakır. İtme ve dinlenme döngüleri, sürekli çalışmaktan daha fazla çıktı üretir.
     </p>
 
-    <h2>11. Revisit the why regularly</h2>
+    <h2>11. Nedeninizi düzenli olarak gözden geçirin</h2>
     <p>
-      Write down why you&rsquo;re doing this. Re-read it when motivation flags. A clear,
-      personal, concrete reason beats abstract ambition. &ldquo;I want to be able to play with
-      my kids without getting winded&rdquo; beats &ldquo;I want to be fit.&rdquo;
+      Bunu neden yaptığınızı yazın. Motivasyon azaldığında tekrar okuyun. Net, kişisel, somut bir neden, soyut hırstan daha iyidir. "Çocuklarımla oynarken nefes nefese kalmamak istiyorum", "Formda olmak istiyorum"dan daha iyidir.
     </p>
 
-    <h2>12. Celebrate micro-wins</h2>
+    <h2>12. Küçük kazanımları kutlayın</h2>
     <p>
-      Finished a hard week? Notice it. Hit a small milestone? Acknowledge it. Humans need
-      markers to sustain long effort. Big payoffs are too far away; small wins create the
-      dopamine that bridges the gap.
+      Zor bir haftayı bitirdiniz mi? Fark edin. Küçük bir dönüm noktasına ulaştınız mı? Kabul edin. İnsanların uzun süreli çabayı sürdürmek için işaretlere ihtiyacı vardır. Büyük ödüller çok uzaktadır; küçük kazanımlar, boşluğu dolduran dopamini yaratır.
     </p>
 
-    <h2>The operating principle</h2>
+    <h2>İşletim prensibi</h2>
     <p>
-      You don&rsquo;t rise to the level of your motivation. You fall to the level of your
-      systems. Build the systems — tiny daily actions, clear identity, visible tracking,
-      accountability, rest — and motivation becomes optional.
+      Motivasyonunuzun seviyesine yükselmezsiniz. Sistemlerinizin seviyesine düşersiniz. Sistemleri inşa edin — küçük günlük eylemler, net kimlik, görünür takip, hesap verebilirlik, dinlenme — ve motivasyon isteğe bağlı hale gelir.
     </p>
   </>
 );

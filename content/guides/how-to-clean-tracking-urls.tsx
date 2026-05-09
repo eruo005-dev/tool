@@ -3,111 +3,110 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Every link passed around the web today arrives pre-loaded with
-      tracking cruft: <code>fbclid</code> from Facebook,
-      <code> gclid</code> from Google Ads,
-      <code> mc_cid</code> from Mailchimp,
-      <code> _ga</code> from cross-domain Google Analytics, and the
-      five <code>utm_*</code> parameters for good measure. None of
-      these change what page you land on; all of them clutter the
-      URL, leak marketing data to whoever you share the link with,
-      and create duplicate-content headaches on your own analytics.
-      Cleaning them up takes a small rule set and a little care &mdash;
-      some parameters are data you control, others are added by
-      third parties downstream. This guide covers the most common
-      tracking parameters and who attaches them, the difference
-      between cleaning URLs you share and canonicalizing URLs on your
-      own site, a safe allow-list vs block-list approach, the
-      privacy case for stripping them, and the corners where
-      cleaning breaks things.
+      Bugün internette dolaşan her bağlantı, önceden yüklenmiş izleme
+      çöpleriyle gelir: Facebook'tan <code>fbclid</code>,
+      Google Ads'den <code> gclid</code>,
+      Mailchimp'ten <code> mc_cid</code>,
+      çapraz alan Google Analytics'ten <code> _ga</code> ve
+      iyi bir önlem olarak beş <code>utm_*</code> parametresi.
+      Bunların hiçbiri hangi sayfaya geldiğinizi değiştirmez; hepsi
+      URL'yi karmaşıklaştırır, bağlantıyı paylaştığınız kişiye
+      pazarlama verilerini sızdırır ve kendi analizlerinizde
+      yinelenen içerik baş ağrıları yaratır.
+      Bunları temizlemek küçük bir kural seti ve biraz özen gerektirir &mdash;
+      bazı parametreler sizin kontrol ettiğiniz verilerdir, diğerleri ise
+      aşağı akışta üçüncü taraflar tarafından eklenir. Bu kılavuz, en yaygın
+      izleme parametrelerini ve bunları kimin eklediğini, paylaştığınız
+      URL'leri temizlemek ile kendi sitenizdeki URL'leri kurallaştırmak
+      arasındaki farkı, güvenli bir izin listesi ve engelleme listesi
+      yaklaşımını, bunları kaldırmanın gizlilik gerekçesini ve
+      temizlemenin sorun çıkardığı köşe durumları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The usual suspects</h2>
+    <h2>Olağan şüpheliler</h2>
     <p>
-      A non-exhaustive tour of the parameters that accumulate on
-      real-world URLs.
+      Gerçek dünya URL'lerinde biriken parametrelerin kapsamlı olmayan bir turu.
     </p>
     <p>
       <strong>utm_source, utm_medium, utm_campaign, utm_term,
-      utm_content</strong> &mdash; the Urchin/Google Analytics
-      parameters you or your marketing team attached. Safe to strip
-      after analytics have fired.
+      utm_content</strong> &mdash; sizin veya pazarlama ekibinizin eklediği
+      Urchin/Google Analytics parametreleri. Analizler tetiklendikten sonra
+      kaldırmak güvenlidir.
     </p>
     <p>
       <strong>gclid, gclsrc, dclid, wbraid, gbraid</strong> &mdash;
-      Google Ads click IDs. Auto-appended by Google Ads when
-      auto-tagging is on. Needed by GA4 to stitch clicks to Ads, but
-      only on arrival &mdash; once captured server-side they are
-      dead weight.
+      Google Ads tıklama kimlikleri. Otomatik etiketleme açıkken Google Ads
+      tarafından otomatik olarak eklenir. Tıklamaları Ads'e bağlamak için
+      GA4 tarafından gereklidir, ancak yalnızca varışta &mdash; sunucu
+      tarafında yakalandıktan sonra ölü ağırlıktır.
     </p>
     <p>
-      <strong>fbclid</strong> &mdash; Facebook click ID, added by
-      Facebook to any outbound link when the user clicks. Used for
-      attribution back to Facebook Ads.
+      <strong>fbclid</strong> &mdash; Facebook tıklama kimliği, kullanıcı
+      tıkladığında Facebook tarafından herhangi bir giden bağlantıya eklenir.
+      Facebook Ads'e atıf için kullanılır.
     </p>
     <p>
-      <strong>msclkid</strong> &mdash; Microsoft/Bing Ads click ID.
+      <strong>msclkid</strong> &mdash; Microsoft/Bing Ads tıklama kimliği.
     </p>
     <p>
-      <strong>ttclid</strong> &mdash; TikTok click ID.
+      <strong>ttclid</strong> &mdash; TikTok tıklama kimliği.
     </p>
     <p>
-      <strong>li_fat_id</strong> &mdash; LinkedIn click ID.
+      <strong>li_fat_id</strong> &mdash; LinkedIn tıklama kimliği.
     </p>
     <p>
-      <strong>twclid</strong> &mdash; X/Twitter click ID.
+      <strong>twclid</strong> &mdash; X/Twitter tıklama kimliği.
     </p>
     <p>
-      <strong>mc_cid, mc_eid</strong> &mdash; Mailchimp campaign ID
-      and encoded subscriber ID. The second can identify a
-      real person back to their list record.
+      <strong>mc_cid, mc_eid</strong> &mdash; Mailchimp kampanya kimliği
+      ve kodlanmış abone kimliği. İkincisi, gerçek bir kişiyi liste
+      kaydına kadar tanımlayabilir.
     </p>
     <p>
-      <strong>_ga, _gl</strong> &mdash; Google Analytics cross-domain
-      linker parameters. Attached when a user clicks a link decorated
-      by the GA linker across your properties.
+      <strong>_ga, _gl</strong> &mdash; Google Analytics çapraz alan
+      bağlayıcı parametreleri. Kullanıcı, GA bağlayıcısı tarafından
+      süslenmiş bir bağlantıya tıkladığında mülkleriniz arasında eklenir.
     </p>
     <p>
-      <strong>yclid</strong> &mdash; Yandex click ID.
+      <strong>yclid</strong> &mdash; Yandex tıklama kimliği.
     </p>
     <p>
-      <strong>oly_anon_id, oly_enc_id</strong> &mdash; Omeda
-      identifiers common on publishing sites.
+      <strong>oly_anon_id, oly_enc_id</strong> &mdash; Yayıncılık
+      sitelerinde yaygın olan Omeda tanımlayıcıları.
     </p>
 
-    <h2>Clean URLs you share vs URLs on your site</h2>
+    <h2>Paylaştığınız URL'leri temizlemek vs sitenizdeki URL'ler</h2>
     <p>
-      Two very different problems sit under the same
-      &ldquo;cleaning&rdquo; umbrella.
+      Aynı &ldquo;temizleme&rdquo; şemsiyesi altında iki çok farklı sorun
+      yatar.
     </p>
     <p>
-      <strong>Shareable URLs.</strong> When a user goes to copy the
-      link from their address bar to send to a friend, they should
-      not carry the referring campaign tags or the click ID the ad
-      network added. The fix is client-side: after analytics fires
-      on page load, rewrite the URL with
-      <code> history.replaceState</code> to a clean version.
+      <strong>Paylaşılabilir URL'ler.</strong> Bir kullanıcı adres
+      çubuğundaki bağlantıyı bir arkadaşına göndermek için kopyalamak
+      istediğinde, yönlendiren kampanya etiketlerini veya reklam ağının
+      eklediği tıklama kimliğini taşımamalıdır. Çözüm istemci tarafındadır:
+      sayfa yüklemesinde analizler tetiklendikten sonra, URL'yi
+      <code> history.replaceState</code> ile temiz bir sürüme yeniden yazın.
     </p>
     <p>
-      <strong>Canonical URLs on your site.</strong> Your pages
-      should have one and only one <a href="/learn/canonical-url">canonical URL</a>, regardless of
-      which tracking variant brought the user in. Set a
-      <code> &lt;link rel=&quot;canonical&quot;&gt;</code> that
-      points at the clean URL and make sure your sitemap, internal
-      links, and OG tags use the same form. This prevents tracking
-      variants from indexing as separate pages.
+      <strong>Sitenizdeki kurallı URL'ler.</strong> Sayfalarınız, kullanıcıyı
+      hangi izleme varyantı getirirse getirsin, yalnızca bir tane <a href="/learn/canonical-url">kurallı URL</a>'ye sahip olmalıdır. Temiz URL'yi
+      işaret eden bir <code> &lt;link rel=&quot;canonical&quot;&gt;</code>
+      ayarlayın ve site haritanızın, dahili bağlantılarınızın ve OG
+      etiketlerinizin aynı formu kullandığından emin olun. Bu, izleme
+      varyantlarının ayrı sayfalar olarak indekslenmesini önler.
     </p>
 
-    <h2>Strip-after-capture pattern</h2>
+    <h2>Yakaladıktan sonra kaldırma deseni</h2>
     <p>
-      Let the tracking tools see the parameters exactly once, then
-      remove them.
+      İzleme araçlarının parametreleri tam olarak bir kez görmesine izin
+      verin, ardından kaldırın.
     </p>
-    <pre>{`// Runs after analytics has read location.search
+    <pre>{`// Analizler location.search'i okuduktan sonra çalışır
 const TRACKING = new Set([
   'utm_source','utm_medium','utm_campaign','utm_term','utm_content',
   'gclid','gclsrc','dclid','wbraid','gbraid',
@@ -123,158 +122,159 @@ for (const [k, v] of url.searchParams) {
 url.search = keep.toString();
 history.replaceState(null, '', url.toString());`}</pre>
     <p>
-      Runs once on load; does not trigger a navigation or break
-      analytics. The address bar now shows the clean URL ready to
-      copy.
+      Yüklemede bir kez çalışır; bir gezinme tetiklemez veya analizleri
+      bozmaz. Adres çubuğu artık kopyalanmaya hazır temiz URL'yi gösterir.
     </p>
 
-    <h2>Allow-list vs block-list</h2>
+    <h2>İzin listesi vs engelleme listesi</h2>
     <p>
-      A block-list (remove these known-bad keys) is what most sites
-      ship. It is forgiving &mdash; unknown parameters survive &mdash;
-      but it needs maintenance as new platforms invent new click IDs.
+      Bir engelleme listesi (bu bilinen kötü anahtarları kaldır) çoğu
+      sitenin kullandığı şeydir. Affedicidir &mdash; bilinmeyen parametreler
+      hayatta kalır &mdash; ancak yeni platformlar yeni tıklama kimlikleri
+      icat ettikçe bakım gerektirir.
     </p>
     <p>
-      An allow-list (keep only these keys) is stricter and
-      self-maintaining. Any parameter not in the allowed set is
-      stripped. Best for sites where the URL carries a small, fixed
-      set of meaningful parameters (search, pagination, a filter or
-      two) and everything else is tracking.
+      Bir izin listesi (yalnızca bu anahtarları tut) daha katıdır ve
+      kendi kendini idame ettirir. İzin verilen kümede olmayan herhangi bir
+      parametre kaldırılır. URL'nin küçük, sabit bir dizi anlamlı parametre
+      (arama, sayfalama, bir filtre veya iki) taşıdığı ve geri kalan her
+      şeyin izleme olduğu siteler için en iyisidir.
     </p>
     <p>
-      Large content sites tend to use block-lists; focused apps and
-      e-commerce tend to use allow-lists.
+      Büyük içerik siteleri engelleme listeleri kullanma eğilimindedir;
+      odaklanmış uygulamalar ve e-ticaret izin listeleri kullanma eğilimindedir.
     </p>
 
-    <h2>Canonical tags do the SEO side</h2>
+    <h2>Kurallı etiketler SEO tarafını halleder</h2>
     <p>
-      Even if you do not rewrite URLs client-side, a correct
-      <code> &lt;link rel=&quot;canonical&quot;&gt;</code> solves
-      most search-engine-side duplication.
+      URL'leri istemci tarafında yeniden yazmasanız bile, doğru bir
+      <code> &lt;link rel=&quot;canonical&quot;&gt;</code> arama motoru
+      tarafındaki çoğu yinelemeyi çözer.
     </p>
     <pre>{`<link rel="canonical" href="https://example.com/pricing" />`}</pre>
     <p>
-      With this in the head, Google understands that
-      <code> /pricing?utm_source=newsletter</code> and
-      <code> /pricing?fbclid=abc123</code> are the same page as
-      <code> /pricing</code>, and consolidates ranking signals onto
-      the clean URL.
+      Bu head'deyken, Google
+      <code> /pricing?utm_source=newsletter</code> ve
+      <code> /pricing?fbclid=abc123</code>'ün
+      <code> /pricing</code> ile aynı sayfa olduğunu anlar ve sıralama
+      sinyallerini temiz URL'de birleştirir.
     </p>
 
-    <h2>Referral spam and junk parameters</h2>
+    <h2>Yönlendirme spam'i ve gereksiz parametreler</h2>
     <p>
-      Beyond legitimate tracking, URLs pick up junk:
+      Meşru izlemenin ötesinde, URL'ler gereksiz şeyler toplar:
     </p>
     <p>
-      <strong>Referral spam</strong> &mdash; bots injecting fake
-      campaigns to appear in your analytics. Symptoms: a UTM source
-      you never set up (&ldquo;semalt.com&rdquo;,
-      &ldquo;buttons-for-website.com&rdquo;), suddenly driving
-      traffic. Filter at the analytics level, not the URL level.
+      <strong>Yönlendirme spam'i</strong> &mdash; analizlerinizde görünmek
+      için sahte kampanyalar enjekte eden botlar. Belirtiler: hiç
+      ayarlamadığınız bir UTM kaynağı (&ldquo;semalt.com&rdquo;,
+      &ldquo;buttons-for-website.com&rdquo;), aniden trafik yönlendiriyor.
+      URL düzeyinde değil, analiz düzeyinde filtreleyin.
     </p>
     <p>
-      <strong>Copy-paste accidents</strong> &mdash;
-      <code> &amp;amp;</code> where <code>&amp;</code> should be,
-      extra question marks, trailing fragments from a doc paste.
-      A strip-and-rebuild via URL() fixes most of it.
-    </p>
-
-    <h2>Bookmarking and archival</h2>
-    <p>
-      A URL a user bookmarks today might be reopened in six months.
-      If the bookmark includes a one-time <code>gclid</code>, the
-      ad network may reject it as expired or replay-attack-flag it.
-      Rewriting to a clean URL ensures bookmarks stay valid
-      long-term.
+      <strong>Kopyala-yapıştır kazaları</strong> &mdash;
+      <code> &amp;amp;</code> olması gereken yerde <code>&amp;</code>,
+      fazladan soru işaretleri, bir doküman yapıştırmasından kalan
+      parçalar. URL() ile bir kaldırma ve yeniden oluşturma çoğunu düzeltir.
     </p>
 
-    <h2>Do not strip everything blindly</h2>
+    <h2>Yer imi ve arşivleme</h2>
     <p>
-      Some query parameters carry real application state, and
-      stripping them breaks the page.
+      Bir kullanıcının bugün yer imine eklediği bir URL altı ay sonra
+      yeniden açılabilir. Yer imi tek kullanımlık bir <code>gclid</code>
+      içeriyorsa, reklam ağı bunu süresi dolmuş olarak reddedebilir veya
+      tekrar saldırı bayrağı koyabilir. Temiz bir URL'ye yeniden yazmak,
+      yer imlerinin uzun vadede geçerli kalmasını sağlar.
+    </p>
+
+    <h2>Her şeyi körü körüne kaldırmayın</h2>
+    <p>
+      Bazı sorgu parametreleri gerçek uygulama durumu taşır ve bunları
+      kaldırmak sayfayı bozar.
     </p>
     <p>
-      <strong>Pagination</strong>:
-      <code> ?page=3</code>. Needed for the content.
+      <strong>Sayfalama</strong>:
+      <code> ?page=3</code>. İçerik için gereklidir.
     </p>
     <p>
-      <strong>Search queries</strong>:
-      <code> ?q=keyboard</code>. The whole point of the URL.
+      <strong>Arama sorguları</strong>:
+      <code> ?q=keyboard</code>. URL'nin tüm amacı.
     </p>
     <p>
-      <strong>Filters and sort order</strong>:
+      <strong>Filtreler ve sıralama düzeni</strong>:
       <code> ?sort=price_asc&amp;in_stock=1</code>.
     </p>
     <p>
-      <strong>Auth/session tokens</strong> passed via URL (rare but
-      happens with magic-link flows). Never strip before the
-      receiving code has consumed them.
+      <strong>URL üzerinden iletilen kimlik doğrulama/oturum belirteçleri</strong>
+      (nadir ancak sihirli bağlantı akışlarında olur). Alıcı kod bunları
+      tüketmeden önce asla kaldırmayın.
     </p>
 
-    <h2>Privacy case for stripping</h2>
+    <h2>Kaldırmanın gizlilik gerekçesi</h2>
     <p>
-      Tracking parameters leak across every system that touches
-      the URL: browser history, proxy logs, referer headers,
-      screenshots, shared clipboards. A <code>mc_eid</code>
-      {" "}can identify an individual subscriber; an
-      <code> fbclid</code> can be rejoined to a Facebook ad
-      audience. Stripping them once they have served analytics
-      is basic hygiene &mdash; Safari, Brave, and Firefox already
-      strip known tracking parameters from outbound links by
-      default, so cleaning proactively puts your URLs in line with
-      where browsers are heading.
+      İzleme parametreleri URL'ye dokunan her sisteme sızar: tarayıcı
+      geçmişi, proxy günlükleri, yönlendiren başlıkları, ekran görüntüleri,
+      paylaşılan panolar. Bir <code>mc_eid</code>
+      {" "}bireysel bir aboneyi tanımlayabilir; bir
+      <code> fbclid</code> bir Facebook reklam kitlesine yeniden
+      katılabilir. Analizlere hizmet ettikten sonra bunları kaldırmak
+      temel hijyendir &mdash; Safari, Brave ve Firefox zaten bilinen
+      izleme parametrelerini giden bağlantılardan varsayılan olarak
+      kaldırır, bu nedenle proaktif olarak temizlemek URL'lerinizi
+      tarayıcıların gittiği yöne uygun hale getirir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Stripping before analytics fires.</strong> Your rewrite
-      runs at page load, but GA4&rsquo;s pageview hit may still be in
-      flight. Run the strip after a
-      <code> gtag(&apos;event&apos;)</code> acknowledgement, or with
-      a short <code>setTimeout</code>, or via
-      <code> requestIdleCallback</code>.
+      <strong>Analizler tetiklenmeden önce kaldırmak.</strong> Yeniden
+      yazmanız sayfa yüklemesinde çalışır, ancak GA4'ün sayfa görüntüleme
+      isteği hala yolda olabilir. Kaldırmayı bir
+      <code> gtag(&apos;event&apos;)</code> onayından sonra veya kısa bir
+      <code>setTimeout</code> ile ya da
+      <code> requestIdleCallback</code> aracılığıyla çalıştırın.
     </p>
     <p>
-      <strong>Forgetting canonical.</strong> Rewriting the address
-      bar only helps humans. Search engines and social crawlers do
-      not run your JavaScript before reading OG tags. Set a
-      canonical link.
+      <strong>Kurallı etiketi unutmak.</strong> Adres çubuğunu yeniden
+      yazmak yalnızca insanlara yardımcı olur. Arama motorları ve sosyal
+      tarayıcılar, OG etiketlerini okumadan önce JavaScript'inizi çalıştırmaz.
+      Bir kurallı bağlantı ayarlayın.
     </p>
     <p>
-      <strong>Stripping parameters you did not add.</strong> If a
-      third-party embed relies on a query parameter your site does
-      not know about, a strict allow-list will break it. Audit
-      embeds before deploying an allow-list.
+      <strong>Sizin eklemediğiniz parametreleri kaldırmak.</strong> Bir
+      üçüncü taraf gömülü içeriği, sitenizin bilmediği bir sorgu
+      parametresine güveniyorsa, katı bir izin listesi onu bozacaktır.
+      Bir izin listesi dağıtmadan önce gömülü içerikleri denetleyin.
     </p>
     <p>
-      <strong>Breaking deep links.</strong> Mobile app deep-link
-      schemes sometimes pass app-specific parameters through the
-      web. An overzealous cleaner can strip the payload the app
-      needs after it launches.
+      <strong>Derin bağlantıları bozmak.</strong> Mobil uygulama derin
+      bağlantı şemaları bazen uygulamaya özel parametreleri web üzerinden
+      iletir. Aşırı hevesli bir temizleyici, uygulamanın başlatıldıktan
+      sonra ihtiyaç duyduğu yükü kaldırabilir.
     </p>
     <p>
-      <strong>Stripping on every navigation.</strong> Run the clean
-      on first load of the page, not on every SPA route change.
-      Internal state you set via router (<code>?tab=billing</code>)
-      is not tracking.
+      <strong>Her gezinmede kaldırmak.</strong> Temizlemeyi sayfanın ilk
+      yüklenmesinde çalıştırın, her SPA rota değişikliğinde değil.
+      Yönlendirici aracılığıyla ayarladığınız dahili durum (<code>?tab=billing</code>)
+      izleme değildir.
     </p>
     <p>
-      <strong>Doing it server-side with a 301.</strong> 301-ing
-      <code> ?utm_source=newsletter</code> to the clean URL works
-      but breaks the analytics hit entirely &mdash; the redirect
-      happens before the JS that reads UTMs runs. Strip
-      client-side after capture.
+      <strong>Bunu sunucu tarafında 301 ile yapmak.</strong>
+      <code> ?utm_source=newsletter</code> için 301 yönlendirmesi yapmak
+      işe yarar ancak analiz isteğini tamamen bozar &mdash; yönlendirme,
+      UTM'leri okuyan JS çalışmadan önce gerçekleşir. Yakaladıktan sonra
+      istemci tarafında kaldırın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Strip tracking parameters from any URL instantly with the{" "}
-      <a href="/tools/url-cleaner">URL cleaner</a>. Pair with the{" "}
-      <a href="/tools/query-string-parser">query string parser</a>
-      {" "}when you want to see every parameter before deciding which
-      to keep, and the{" "}
-      <a href="/tools/url-parser">URL parser</a> for a full
-      protocol/host/path breakdown alongside the query.
+      Herhangi bir URL'den izleme parametrelerini anında{" "}
+      <a href="/tools/url-cleaner">URL temizleyici</a> ile kaldırın.
+      Hangisini tutacağınıza karar vermeden önce her parametreyi görmek
+      istediğinizde{" "}
+      <a href="/tools/query-string-parser">sorgu dizesi ayrıştırıcı</a>
+      {" "}ile eşleştirin ve sorguyla birlikte tam bir
+      protokol/ana bilgisayar/yol dökümü için{" "}
+      <a href="/tools/url-parser">URL ayrıştırıcı</a>'yı kullanın.
     </p>
   </>
 );

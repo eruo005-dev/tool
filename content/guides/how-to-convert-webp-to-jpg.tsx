@@ -3,114 +3,117 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      WebP is great for websites and a nuisance almost everywhere else.
-      You&rsquo;ve probably saved an image from a browser, gone to upload it
-      to a CMS or attach it to an email, and been told the format isn&rsquo;t
-      supported. The fix is a quick conversion to JPG. Here&rsquo;s when to
-      do it, what quality setting to pick, and how to handle the transparency
-      quirk that catches people out.
+      WebP, web siteleri için harikadır ancak neredeyse her yerde baş belasıdır.
+      Muhtemelen bir tarayıcıdan bir resim kaydetmiş, bir CMS'ye yüklemeye veya
+      bir e-postaya eklemeye gitmiş ve formatın desteklenmediğini söyleyen bir
+      uyarı almışsınızdır. Çözüm, hızlı bir JPG dönüşümüdür. İşte bunu ne zaman
+      yapmanız gerektiği, hangi kalite ayarını seçeceğiniz ve insanları
+      yakalayan şeffaflık tuhaflığıyla nasıl başa çıkacağınız.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Why WebP exists</h2>
+    <h2>WebP neden var</h2>
     <p>
-      Google built WebP to shrink web images. At comparable quality, a WebP
-      file is typically 25-35% smaller than the equivalent JPG, which adds up
-      when a page ships 20 images. Chrome, Firefox, Safari, and Edge all
-      handle WebP natively, so most websites serve WebP and save on
-      bandwidth. That&rsquo;s the whole story on the web.
+      Google, WebP'yi web resimlerini küçültmek için geliştirdi. Karşılaştırılabilir
+      kalitede, bir WebP dosyası tipik olarak eşdeğer JPG'den %25-35 daha
+      küçüktür ve bu, bir sayfa 20 resim yüklediğinde önemli bir fark yaratır.
+      Chrome, Firefox, Safari ve Edge'in tümü WebP'yi yerel olarak destekler,
+      bu nedenle çoğu web sitesi WebP sunar ve bant genişliğinden tasarruf
+      sağlar. Web'deki hikayenin tamamı bu.
     </p>
 
-    <h2>Why JPG is still the safe default</h2>
+    <h2>JPG neden hala güvenli varsayılan</h2>
     <p>
-      The moment an image leaves the browser context, WebP support gets
-      patchy. Specific places it breaks:
+      Bir resim tarayıcı bağlamından çıktığı anda, WebP desteği sorunlu hale
+      gelir. Bozulduğu belirli yerler:
     </p>
     <ul>
       <li>
-        <strong>Older CMSs</strong> (some WordPress installs without the right
-        plugin, legacy enterprise tools) — the upload fails or the image
-        won&rsquo;t render.
+        <strong>Eski CMS'ler</strong> (doğru eklentiye sahip olmayan bazı
+        WordPress kurulumları, eski kurumsal araçlar) — yükleme başarısız olur
+        veya resim görüntülenmez.
       </li>
       <li>
-        <strong>Print shops</strong> — almost none of them accept WebP. JPG or
-        TIFF, period.
+        <strong>Matbaalar</strong> — neredeyse hiçbiri WebP kabul etmez. JPG
+        veya TIFF, nokta.
       </li>
       <li>
-        <strong>Some email clients</strong> — Outlook in particular. Ship a
-        WebP as an inline image and half your recipients see a broken icon.
+        <strong>Bazı e-posta istemcileri</strong> — özellikle Outlook. Satır içi
+        bir resim olarak bir WebP gönderirseniz, alıcılarınızın yarısı kırık bir
+        simge görür.
       </li>
       <li>
-        <strong>iMessage photo previews</strong> — WebPs don&rsquo;t generate
-        a preview reliably; JPGs do.
+        <strong>iMessage fotoğraf önizlemeleri</strong> — WebP'ler güvenilir bir
+        şekilde önizleme oluşturmaz; JPG'ler oluşturur.
       </li>
       <li>
-        <strong>Old slideshow and document software</strong> — PowerPoint,
-        older Keynote, most Word versions before 2021.
+        <strong>Eski slayt gösterisi ve belge yazılımları</strong> — PowerPoint,
+        eski Keynote, 2021'den önceki çoğu Word sürümü.
       </li>
     </ul>
     <p>
-      If you&rsquo;re not sure where an image is going, convert to JPG.
-      You&rsquo;ll add 100KB and avoid a dozen possible failures.
+      Bir resmin nereye gideceğinden emin değilseniz, JPG'ye dönüştürün. 100KB
+      ekleyecek ve olası bir düzine hatadan kaçınacaksınız.
     </p>
 
-    <h2>Quality slider guidance</h2>
+    <h2>Kalite kaydırıcı rehberliği</h2>
     <p>
-      JPG quality is on a 0-100 scale. For photographs, <strong>92</strong> is
-      the sweet spot: essentially indistinguishable from the source, reasonable
-      file size. Drop to 85 for general web use, 75 for thumbnails. For
-      screenshots or graphics with text (even though JPG isn&rsquo;t really
-      the right format for those), stay at 95+ or the text edges go fuzzy.
+      JPG kalitesi 0-100 ölçeğindedir. Fotoğraflar için <strong>92</strong>
+      ideal noktadır: kaynaktan esasen ayırt edilemez, makul dosya boyutu. Genel
+      web kullanımı için 85'e, küçük resimler için 75'e düşürün. Metin içeren
+      ekran görüntüleri veya grafikler için (JPG bunlar için gerçekten doğru
+      format olmasa da), 95+ kalın aksi takdirde metin kenarları bulanıklaşır.
     </p>
     <p>
-      Don&rsquo;t crank quality to 100 thinking it&rsquo;s best. 100 disables
-      most JPG compression and bloats the file with barely any visual
-      improvement over 92. 92 is the practical max.
-    </p>
-
-    <h2>The transparency problem</h2>
-    <p>
-      WebP supports transparency (alpha channel). JPG does not. When you
-      convert a WebP that has transparent areas to JPG, those transparent
-      pixels need to become <em>something</em> — and if the converter
-      silently picks black, you end up with a logo on a black square where
-      you expected a clean cutout.
-    </p>
-    <p>
-      The standard fix: flatten to white. Set the background to white before
-      export, so transparent areas become white pixels. That matches most
-      document and email backgrounds, so the image looks clean. If you know
-      the final background (a specific brand color, a dark theme), flatten
-      to that color instead.
-    </p>
-    <p>
-      If you actually need transparency preserved, convert to PNG instead of
-      JPG. Bigger file, but the alpha channel survives.
+      En iyisi olduğunu düşünerek kaliteyi 100'e çıkarmayın. 100, çoğu JPG
+      sıkıştırmasını devre dışı bırakır ve dosyayı 92'ye göre neredeyse hiç
+      görsel iyileştirme olmadan şişirir. 92 pratik maksimumdur.
     </p>
 
-    <h2>Batch conversion</h2>
+    <h2>Şeffaflık sorunu</h2>
     <p>
-      Converting one file at a time is fine for a one-off. If you just
-      downloaded 40 WebP images from a photo dump, drag them all into a
-      batch converter at once. Our{" "}
-      <a href="/tools/webp-to-jpg">WebP to JPG converter</a> handles batches
-      in the browser, and the more general{" "}
-      <a href="/tools/image-format-converter">image format converter</a>
-      {" "}handles any format-to-format combination if you also have a few PNGs
-      or HEICs mixed in.
+      WebP şeffaflığı (alfa kanalı) destekler. JPG desteklemez. Şeffaf alanları
+      olan bir WebP'yi JPG'ye dönüştürdüğünüzde, bu şeffaf piksellerin bir
+      <em>şey</em> haline gelmesi gerekir — ve dönüştürücü sessizce siyahı
+      seçerse, temiz bir kesim beklediğiniz yerde siyah bir kare üzerinde bir
+      logoyla karşılaşırsınız.
+    </p>
+    <p>
+      Standart çözüm: beyaza düzleştirin. Dışa aktarmadan önce arka planı beyaz
+      olarak ayarlayın, böylece şeffaf alanlar beyaz pikseller haline gelir. Bu,
+      çoğu belge ve e-posta arka planıyla eşleşir, böylece resim temiz görünür.
+      Nihai arka planı biliyorsanız (belirli bir marka rengi, koyu bir tema),
+      bunun yerine o renge düzleştirin.
+    </p>
+    <p>
+      Şeffaflığın korunmasına gerçekten ihtiyacınız varsa, JPG yerine PNG'ye
+      dönüştürün. Daha büyük dosya, ancak alfa kanalı hayatta kalır.
     </p>
 
-    <h2>One gotcha on filenames</h2>
+    <h2>Toplu dönüştürme</h2>
     <p>
-      If you&rsquo;re converting images destined for a CMS or a file share,
-      make sure the filename extension actually changes from <code>.webp</code>
-      {" "}to <code>.jpg</code>. Some tools keep the original name, which leaves
-      you with <code>photo.webp</code> that&rsquo;s technically a JPG — some
-      systems infer format from the extension and will reject it. Thirty
-      seconds of rename saves the support ticket.
+      Bir seferde bir dosyayı dönüştürmek, tek seferlik bir işlem için iyidir.
+      Az önce bir fotoğraf dökümünden 40 WebP resmi indirdiyseniz, hepsini bir
+      kerede bir toplu dönüştürücüye sürükleyin.{" "}
+      <a href="/tools/webp-to-jpg">WebP'den JPG'ye dönüştürücümüz</a>{" "}
+      tarayıcıda toplu işlemleri yönetir ve daha genel olan{" "}
+      <a href="/tools/image-format-converter">resim formatı dönüştürücümüz</a>
+      {" "}ayrıca birkaç PNG veya HEIC karışmışsa herhangi bir formattan formata
+      kombinasyonunu yönetir.
+    </p>
+
+    <h2>Dosya adlarıyla ilgili bir tuzak</h2>
+    <p>
+      Bir CMS'ye veya dosya paylaşımına gönderilecek resimleri dönüştürüyorsanız,
+      dosya adı uzantısının gerçekten <code>.webp</code>'den{" "}
+      <code>.jpg</code>'ye değiştiğinden emin olun. Bazı araçlar orijinal adı
+      korur, bu da size teknik olarak bir JPG olan{" "}
+      <code>photo.webp</code> bırakır — bazı sistemler formatı uzantıdan
+      çıkarır ve reddeder. Otuz saniyelik yeniden adlandırma, destek talebini
+      kurtarır.
     </p>
   </>
 );

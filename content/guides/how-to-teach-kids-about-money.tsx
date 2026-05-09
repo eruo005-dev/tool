@@ -1,87 +1,65 @@
 export const intro = (
   <>
     <p>
-      Schools barely teach personal finance. If your kids are going to grow up
-      financially literate, you teach them. The good news: most of it is simple, and
-      it&rsquo;s taught through everyday habits more than formal lessons.
+      Okullar kişisel finansı neredeyse hiç öğretmez. Çocuklarınızın finansal okuryazar olarak büyümesini istiyorsanız, onlara siz öğretmelisiniz. İyi haber: çoğu şey basittir ve resmi derslerden çok günlük alışkanlıklar yoluyla öğrenilir.
     </p>
     <p>
-      This is what actually works at different ages.
+      Farklı yaşlarda gerçekten işe yarayan şeyler bunlar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Ages 3-5: Money is for things</h2>
+    <h2>1. 3-5 Yaş: Para, eşyalar içindir</h2>
     <p>
-      Kids at this age just need to learn money exists and trades for things. Let
-      them pay at the register with actual cash sometimes. Count coins together.
-      Don&rsquo;t overthink it — foundational familiarity is the goal.
+      Bu yaştaki çocuklar sadece paranın var olduğunu ve eşyalarla takas edildiğini öğrenmelidir. Bazen gerçek parayla kasada ödeme yapmalarına izin verin. Birlikte bozuk paraları sayın. Fazla düşünmeyin — temel aşinalık kazanmak hedeftir.
     </p>
 
-    <h2>2. Ages 6-9: Earn, save, spend, give</h2>
+    <h2>2. 6-9 Yaş: Kazan, biriktir, harca, bağış yap</h2>
     <p>
-      Introduce an allowance split across four jars (or envelopes, or Greenlight app
-      buckets). Earning, saving, spending, giving. Concrete, visual, teaches trade-
-      offs early.
+      Dört kavanoza (veya zarf ya da Greenlight uygulama bölmelerine) bölünmüş bir harçlık sistemi tanıtın. Kazanma, biriktirme, harcama, bağış yapma. Somut, görsel ve erken yaşta ödünleşimleri öğretir.
     </p>
 
-    <h2>3. Chores tied to allowance (carefully)</h2>
+    <h2>3. Ev işlerini harçlığa bağlayın (dikkatlice)</h2>
     <p>
-      Some family chores are expected (not paid). Extra jobs earn money. This
-      separates basic family responsibility from earned income. Tying every chore to
-      money teaches a different lesson than you want.
+      Bazı ev işleri beklenir (ücretli değildir). Ekstra işler para kazandırır. Bu, temel aile sorumluluğunu kazanılmış gelirden ayırır. Her ev işini paraya bağlamak, istediğinizden farklı bir ders verir.
     </p>
 
-    <h2>4. Ages 10-12: Compounding and delayed gratification</h2>
+    <h2>4. 10-12 Yaş: Bileşik faiz ve ertelenmiş tatmin</h2>
     <p>
-      Match their savings 1:1 to teach compounding. Show them a basic compound
-      interest calculator. Concepts like &ldquo;Wait 3 months and it doubles&rdquo;
-      click at this age and stick for life.
+      Bileşik faizi öğretmek için biriktirdiklerini birebir eşleştirin. Onlara basit bir bileşik faiz hesaplayıcısı gösterin. "3 ay bekle, ikiye katlansın" gibi kavramlar bu yaşta anlaşılır ve ömür boyu kalıcı olur.
     </p>
 
-    <h2>5. Ages 13-15: Bank accounts and debit cards</h2>
+    <h2>5. 13-15 Yaş: Banka hesapları ve banka kartları</h2>
     <p>
-      Open a checking and savings account. Teach them to balance it. Give them a
-      debit card with agreed rules. Real spending teaches real lessons. Mistakes at
-      $20 are cheap tuition for lessons that would cost thousands later.
+      Bir vadesiz mevduat ve birikim hesabı açın. Hesap bakiyesini dengelemeyi öğretin. Anlaşılan kurallarla birlikte bir banka kartı verin. Gerçek harcamalar gerçek dersler öğretir. 20 dolarlık hatalar, binlerce dolara mal olacak dersler için ucuz bir okul taksitidir.
     </p>
 
-    <h2>6. Teach them to earn early</h2>
+    <h2>6. Erken yaşta kazanmayı öğretin</h2>
     <p>
-      Babysitting, lawn mowing, tutoring younger kids, tech help for grandparents.
-      Earning outside money teaches entrepreneurship and gives real context to
-      saving and spending.
+      Bebek bakıcılığı, çim biçme, küçük çocuklara ders verme, büyükanne ve büyükbabalara teknoloji yardımı. Dışarıdan para kazanmak girişimciliği öğretir ve biriktirme ile harcamaya gerçek bir bağlam kazandırır.
     </p>
 
-    <h2>7. Ages 16-18: Credit and taxes</h2>
+    <h2>7. 16-18 Yaş: Kredi ve vergiler</h2>
     <p>
-      Talk about credit scores, how credit cards work, what interest costs.
-      Walk through a paycheck showing taxes, FICA, and net pay. By 18, they should
-      understand that 30% of their earnings are gone before they see them.
+      Kredi puanları, kredi kartlarının nasıl çalıştığı ve faizin maliyeti hakkında konuşun. Vergileri, FICA'yı ve net maaşı gösteren bir maaş bordrosunu birlikte inceleyin. 18 yaşına geldiklerinde, kazançlarının %30'unun kendilerine ulaşmadan gittiğini anlamalıdırlar.
     </p>
 
-    <h2>8. Avoid being the ATM</h2>
+    <h2>8. ATM olmaktan kaçının</h2>
     <p>
-      If they blow their budget, resist the urge to bail them out every time. A
-      missed concert hurts less at 15 than bankruptcy at 25. Let small consequences
-      teach.
+      Bütçelerini aşarlarsa, her seferinde onları kurtarma dürtüsüne direnin. Kaçırılan bir konser 15 yaşında daha az acıtırken, 25 yaşında iflas etmek çok daha ağırdır. Küçük sonuçların ders vermesine izin verin.
     </p>
 
-    <h2>9. Talk about money openly</h2>
+    <h2>9. Para hakkında açıkça konuşun</h2>
     <p>
-      Not every detail, but general principles. Why you do or don&rsquo;t buy things.
-      Why you save for retirement. Why you chose this house. Kids absorb money
-      culture through conversation more than lectures.
+      Her ayrıntıyı değil, genel ilkeleri paylaşın. Neden bir şeyi alıp almadığınızı, neden emeklilik için biriktirdiğinizi, neden bu evi seçtiğinizi anlatın. Çocuklar para kültürünü derslerden çok sohbetler yoluyla emerler.
     </p>
 
-    <h2>10. Model the behavior</h2>
+    <h2>10. Davranışı modelleyin</h2>
     <p>
-      Your kids will copy how you handle money far more than what you say about it.
-      If you&rsquo;re in constant financial stress, they learn that pattern. Your own
-      habits are the strongest lesson. See{" "}
-      <a href="/guides/how-to-live-below-your-means">live below your means guide</a>.
+      Çocuklarınız, para hakkında söylediklerinizden çok, onu nasıl yönettiğinizi taklit eder. Sürekli mali stres içindeyseniz, bu kalıbı öğrenirler. Kendi alışkanlıklarınız en güçlü derstir.{" "}
+      <a href="/guides/how-to-live-below-your-means">İmkanlarının altında yaşama rehberi</a>'ne göz atın.
     </p>
   </>
 );

@@ -2,74 +2,58 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Running a 70B-parameter model used to require a $30,000 server. In 2026 it runs on a
-    $2,000 desktop, an $1,800 Mac Studio, or three laptops you already own. The key is
-    knowing which compromise to make &mdash; <a href="/learn/quantization">quantization</a>, offloading, or pooling &mdash; and
-    when to stop chasing the next GB and just call the cloud for the prompts that need it.
+    70B parametreli bir modeli çalıştırmak eskiden 30.000 dolarlık bir sunucu gerektiriyordu. 2026'ya gelindiğinde, 2.000 dolarlık bir masaüstü bilgisayarda, 1.800 dolarlık bir Mac Studio'da veya zaten sahip olduğunuz üç dizüstü bilgisayarda çalışıyor. Anahtar, hangi ödünleşimi yapacağınızı bilmek &mdash; <a href="/learn/quantization">niceleme</a>, boşaltma veya havuzlama &mdash; ve bir sonraki GB'ın peşinden koşmayı ne zaman bırakıp ihtiyaç duyan istemler için buluta yönlendireceğinizi anlamaktır.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What &ldquo;70B&rdquo; actually weighs</h2>
+    <h2>"70B"nin aslında ne kadar ağır olduğu</h2>
     <p>
-      Parameter count is the headline number; on-disk size depends on quantization. The same
-      Llama 3.3 70B weights ship in many flavors:
+      Parametre sayısı manşet sayıdır; diskteki boyut nicelemeye bağlıdır. Aynı Llama 3.3 70B ağırlıkları birçok çeşitte gelir:
     </p>
     <table className="my-3 w-full text-left text-sm">
       <thead className="text-xs uppercase tracking-wide text-slate-500">
         <tr>
-          <th className="py-1">Quantization</th>
-          <th className="py-1">File size</th>
-          <th className="py-1">Quality vs FP16</th>
-          <th className="py-1">Min memory needed</th>
+          <th className="py-1">Niceleme</th>
+          <th className="py-1">Dosya boyutu</th>
+          <th className="py-1">FP16'ya göre kalite</th>
+          <th className="py-1">Gerekli minimum bellek</th>
         </tr>
       </thead>
       <tbody>
-        <tr className="border-t border-slate-100"><td className="py-1">FP16 (full)</td><td className="py-1">~140 GB</td><td className="py-1">100%</td><td className="py-1">144 GB total</td></tr>
-        <tr className="border-t border-slate-100"><td className="py-1">Q8_0 (8-bit)</td><td className="py-1">~70 GB</td><td className="py-1">~99.5%</td><td className="py-1">76 GB total</td></tr>
-        <tr className="border-t border-slate-100"><td className="py-1">Q5_K_M (5-bit)</td><td className="py-1">~52 GB</td><td className="py-1">~98%</td><td className="py-1">58 GB total</td></tr>
-        <tr className="border-t border-slate-100"><td className="py-1">Q4_K_M (4-bit)</td><td className="py-1">~42 GB</td><td className="py-1">~96%</td><td className="py-1">48 GB total</td></tr>
-        <tr className="border-t border-slate-100"><td className="py-1">Q3_K_M (3-bit)</td><td className="py-1">~32 GB</td><td className="py-1">~93%</td><td className="py-1">38 GB total</td></tr>
-        <tr className="border-t border-slate-100"><td className="py-1">IQ2_XS (2-bit)</td><td className="py-1">~22 GB</td><td className="py-1">~88%</td><td className="py-1">26 GB total</td></tr>
+        <tr className="border-t border-slate-100"><td className="py-1">FP16 (tam)</td><td className="py-1">~140 GB</td><td className="py-1">%100</td><td className="py-1">144 GB toplam</td></tr>
+        <tr className="border-t border-slate-100"><td className="py-1">Q8_0 (8-bit)</td><td className="py-1">~70 GB</td><td className="py-1">~%99,5</td><td className="py-1">76 GB toplam</td></tr>
+        <tr className="border-t border-slate-100"><td className="py-1">Q5_K_M (5-bit)</td><td className="py-1">~52 GB</td><td className="py-1">~%98</td><td className="py-1">58 GB toplam</td></tr>
+        <tr className="border-t border-slate-100"><td className="py-1">Q4_K_M (4-bit)</td><td className="py-1">~42 GB</td><td className="py-1">~%96</td><td className="py-1">48 GB toplam</td></tr>
+        <tr className="border-t border-slate-100"><td className="py-1">Q3_K_M (3-bit)</td><td className="py-1">~32 GB</td><td className="py-1">~%93</td><td className="py-1">38 GB toplam</td></tr>
+        <tr className="border-t border-slate-100"><td className="py-1">IQ2_XS (2-bit)</td><td className="py-1">~22 GB</td><td className="py-1">~%88</td><td className="py-1">26 GB toplam</td></tr>
       </tbody>
     </table>
     <p>
-      Q4_K_M is the sweet spot for almost everyone &mdash; ~4% quality loss for 3.3&times;
-      less memory. Past Q3 the model starts producing visibly worse code and reasoning. The
-      &ldquo;min memory needed&rdquo; column adds a 6&ndash;8 GB headroom for KV cache at
-      typical context lengths.
+      Q4_K_M neredeyse herkes için en uygun noktadır &mdash; 3,3 kat daha az bellek için ~%4 kalite kaybı. Q3'ün ötesinde model, gözle görülür şekilde daha kötü kod ve akıl yürütme üretmeye başlar. "Gerekli minimum bellek" sütunu, tipik bağlam uzunluklarında KV önbelleği için 6&ndash;8 GB alan ekler.
     </p>
 
-    <h2>Path 1: a single machine with enough unified memory</h2>
+    <h2>Yol 1: Yeterli birleşik belleğe sahip tek bir makine</h2>
     <p>
-      Apple Silicon&rsquo;s unified memory architecture makes Macs the cheapest single-box
-      70B hosts. The relevant configurations:
+      Apple Silicon'un birleşik bellek mimarisi, Mac'leri en ucuz tek kutu 70B ana bilgisayarları yapar. İlgili yapılandırmalar:
     </p>
     <ul>
-      <li><strong>M2 Max MacBook Pro 64 GB</strong> (~$2,800 used): runs 70B Q4 at 6&ndash;9
-        tokens/sec. Battery-friendly. The cheapest portable option.</li>
-      <li><strong>Mac Studio M2 Ultra 128 GB</strong> (~$3,500 refurb): runs 70B Q5 at
-        12&ndash;16 tokens/sec. Sweet spot for serious solo use.</li>
-      <li><strong>Mac Studio M3/M4 Ultra 192 GB</strong> ($4,000+): runs 70B FP8 or Mixtral
-        8x22B at 18&ndash;22 tokens/sec.</li>
+      <li><strong>M2 Max MacBook Pro 64 GB</strong> (~2.800 $ ikinci el): 70B Q4'ü saniyede 6&ndash;9 token ile çalıştırır. Pille dostu. En ucuz taşınabilir seçenek.</li>
+      <li><strong>Mac Studio M2 Ultra 128 GB</strong> (~3.500 $ yenilenmiş): 70B Q5'i saniyede 12&ndash;16 token ile çalıştırır. Ciddi bireysel kullanım için en uygun nokta.</li>
+      <li><strong>Mac Studio M3/M4 Ultra 192 GB</strong> (4.000 $+): 70B FP8 veya Mixtral 8x22B'yi saniyede 18&ndash;22 token ile çalıştırır.</li>
     </ul>
     <p>
-      On the PC side, a single 24 GB RTX 4090 or RTX 5090 won&rsquo;t hold a 70B model in <a href="/learn/vrm-vram">VRAM</a>,
-      but llama.cpp&rsquo;s GGUF offloading will run it by <a href="/learn/stream">streaming</a> layers between RAM and
-      VRAM. Expect 8&ndash;14 tokens/sec on a 4090 + 64 GB DDR5 system. Worth the trade-off
-      because 4090s are excellent at smaller models too.
+      PC tarafında, tek bir 24 GB RTX 4090 veya RTX 5090, <a href="/learn/vrm-vram">VRAM</a>'de bir 70B modelini tutamaz, ancak llama.cpp'nin GGUF boşaltması, çalıştırmak için katmanları RAM ve VRAM arasında <a href="/learn/stream">aktaracaktır</a>. 4090 + 64 GB DDR5 sistemde saniyede 8&ndash;14 token bekleyin. Bu ödünleşmeye değer çünkü 4090'lar daha küçük modeller için de mükemmeldir.
     </p>
 
-    <h2>Path 2: GPU offloading (the underused trick)</h2>
+    <h2>Yol 2: GPU boşaltma (az kullanılan numara)</h2>
     <p>
-      You don&rsquo;t need to fit the entire model in VRAM. llama.cpp&rsquo;s{" "}
-      <code>--n-gpu-layers</code> flag lets you load N <a href="/learn/transformer">transformer</a> layers onto the GPU and
-      keep the rest in CPU RAM. The GPU does fast matrix math on its layers; the CPU does
-      slower math on its layers; they trade activations through the system RAM bus.
+      Tüm modeli VRAM'e sığdırmanız gerekmez. llama.cpp'nin{" "}
+      <code>--n-gpu-layers</code> bayrağı, N <a href="/learn/transformer">dönüştürücü</a> katmanını GPU'ya yüklemenize ve geri kalanını CPU RAM'inde tutmanıza olanak tanır. GPU, katmanlarında hızlı matris matematiği yapar; CPU, katmanlarında daha yavaş matematik yapar; sistem RAM veri yolu üzerinden aktivasyonları değiştirirler.
     </p>
-    <pre className="overflow-x-auto rounded bg-slate-900 p-3 text-xs text-slate-100"><code>{`# 70B Q4_K_M on a 24 GB GPU + 64 GB system RAM
-# 80 layers total in Llama 3.3 70B; 32 fits in 24 GB VRAM
+    <pre className="overflow-x-auto rounded bg-slate-900 p-3 text-xs text-slate-100"><code>{`# 24 GB GPU + 64 GB sistem RAM'inde 70B Q4_K_M
+# Llama 3.3 70B'de toplam 80 katman; 32'si 24 GB VRAM'e sığar
 ./llama-server \\
     -m models/llama-3.3-70b-instruct.Q4_K_M.gguf \\
     -ngl 32 \\
@@ -77,100 +61,65 @@ export const body: ReactElement = (
     --host 0.0.0.0 \\
     --port 8080`}</code></pre>
     <p>
-      Speed scales roughly linearly with layers offloaded: 0 layers on GPU = ~3 tokens/sec
-      pure CPU; 32 layers on a 4090 = ~10 tokens/sec; 80 layers (all on GPU, requires
-      80+ GB VRAM) = ~25 tokens/sec. For most setups, 30&ndash;50% of layers on GPU is the
-      knee of the curve.
+      Hız, boşaltılan katmanlarla kabaca doğrusal olarak ölçeklenir: GPU'da 0 katman = saf CPU'da ~3 token/sn; 4090'da 32 katman = ~10 token/sn; 80 katman (tümü GPU'da, 80+ GB VRAM gerektirir) = ~25 token/sn. Çoğu kurulum için, GPU'daki katmanların %30&ndash;50'si eğrinin dirseğidir.
     </p>
 
-    <h2>Path 3: pooling machines you already own</h2>
+    <h2>Yol 3: Zaten sahip olduğunuz makineleri havuzlama</h2>
     <p>
-      Three 32 GB laptops can hold 70B Q4 between them &mdash; they each store ~26 layers and
-      pipeline tokens through the ring. Two 64 GB Macs and one 32 GB Linux box do the same.
-      A four-machine cluster of mixed hardware easily hosts 70B at Q5 with room for 32k
-      context. The runtimes worth knowing live in{" "}
-      <a href="/guides/how-to-combine-laptops-to-run-large-llms">how to combine laptops to
-      run large LLMs</a>.
+      Üç adet 32 GB dizüstü bilgisayar, aralarında bir 70B Q4 tutabilir &mdash; her biri ~26 katman depolar ve token'ları bir halka üzerinde boru hattına alır. İki adet 64 GB Mac ve bir adet 32 GB Linux kutusu aynısını yapar. Karma donanıma sahip dört makinelik bir küme, 32k bağlam için yer olacak şekilde Q5'te bir 70B'yi rahatça barındırır. Bilinmeye değer çalışma zamanları, <a href="/guides/how-to-combine-laptops-to-run-large-llms">büyük LLM'leri çalıştırmak için dizüstü bilgisayarlar nasıl birleştirilir</a> bölümünde ele alınmıştır.
     </p>
     <p>
-      The advantage of pooling versus buying: you keep the existing machines useful for
-      everything else, and adding more capacity is one invite link, not a $4,000 hardware
-      purchase. The disadvantage: tokens-per-second is bound by the slowest member, and
-      anyone closing their laptop redistributes the model.
+      Satın almaya göre havuzlamanın avantajı: mevcut makineleri diğer her şey için kullanışlı tutarsınız ve daha fazla kapasite eklemek bir davet bağlantısıdır, 4.000 dolarlık bir donanım satın alımı değil. Dezavantajı: saniyedeki token sayısı en yavaş üye tarafından sınırlanır ve dizüstü bilgisayarını kapatan herkes modeli yeniden dağıtır.
     </p>
 
-    <h2>What the speeds actually feel like</h2>
+    <h2>Hızların gerçekte nasıl hissettirdiği</h2>
     <ul>
-      <li><strong>20+ tok/s:</strong> reads as fast as you can. Flagship-cloud-feel.</li>
-      <li><strong>10&ndash;20 tok/s:</strong> totally usable for code and prose. The speed of
-        thinking.</li>
-      <li><strong>5&ndash;10 tok/s:</strong> background-task-OK. Fine for &ldquo;summarize
-        this&rdquo; and async agents; mildly slow for chat.</li>
-      <li><strong>2&ndash;5 tok/s:</strong> noticeable wait. Use it for batch jobs, not
-        interactive sessions.</li>
-      <li><strong>Under 2 tok/s:</strong> something is misconfigured. Almost always GPU
-        offload disabled or swap thrashing.</li>
+      <li><strong>20+ tok/sn:</strong> okuyabildiğiniz kadar hızlı. Amiral gemisi bulut hissi.</li>
+      <li><strong>10&ndash;20 tok/sn:</strong> kod ve düzyazı için tamamen kullanılabilir. Düşünme hızı.</li>
+      <li><strong>5&ndash;10 tok/sn:</strong> arka plan görevleri için iyi. "Bunu özetle" ve eşzamansız aracılar için iyi; sohbet için biraz yavaş.</li>
+      <li><strong>2&ndash;5 tok/sn:</strong> fark edilir bekleme. Toplu işler için kullanın, etkileşimli oturumlar için değil.</li>
+      <li><strong>2 tok/sn'nin altı:</strong> bir şey yanlış yapılandırılmış. Neredeyse her zaman GPU boşaltma devre dışı veya takas çakışması.</li>
     </ul>
 
-    <h2><a href="/learn/context-window">Context window</a>: the silent multiplier</h2>
+    <h2><a href="/learn/context-window">Bağlam penceresi</a>: sessiz çarpan</h2>
     <p>
-      Memory cost grows with the context window because the KV cache stores keys and values
-      for every token in the prompt. Rough sizing:
+      Bellek maliyeti, bağlam penceresiyle birlikte artar çünkü KV önbelleği, istemdeki her belirteç için anahtarları ve değerleri depolar. Kabaca boyutlandırma:
     </p>
     <ul>
-      <li>70B at 4k context: ~2 GB KV cache.</li>
-      <li>70B at 32k context: ~16 GB KV cache.</li>
-      <li>70B at 128k context: ~64 GB KV cache &mdash; bigger than the model.</li>
+      <li>4k bağlamda 70B: ~2 GB KV önbelleği.</li>
+      <li>32k bağlamda 70B: ~16 GB KV önbelleği.</li>
+      <li>128k bağlamda 70B: ~64 GB KV önbelleği &mdash; modelden daha büyük.</li>
     </ul>
     <p>
-      Halving context-window size sometimes lets you bump up one quantization tier. Use the{" "}
-      <a href="/tools/llm-context-window-calculator">LLM context window calculator</a> to
-      plan a configuration before you waste an evening on out-of-memory errors.
+      Bağlam pencerenizi yarıya indirmek bazen bir niceleme kademesi yukarı çıkmanıza izin verir. Bir akşamı bellek yetersiz hatalarıyla harcamadan önce bir yapılandırma planlamak için <a href="/tools/llm-context-window-calculator">LLM bağlam penceresi hesaplayıcısını</a> kullanın.
     </p>
 
-    <h2>The power, heat, and noise reality</h2>
+    <h2>Güç, ısı ve gürültü gerçeği</h2>
     <p>
-      Running 70B at full tilt on a 4090 desktop draws ~450&ndash;550 W and pushes case
-      temperatures hard. A Mac Studio M2 Ultra under the same load draws ~120&ndash;180 W
-      and stays whisper-quiet. If you&rsquo;re running this in a home office with a partner
-      who works on calls in the same room, the Mac is worth a meaningful premium.
+      70B'yi bir 4090 masaüstünde tam gaz çalıştırmak ~450&ndash;550 W çeker ve kasa sıcaklıklarını zorlar. Aynı yük altındaki bir Mac Studio M2 Ultra ~120&ndash;180 W çeker ve fısıltı gibi sessiz kalır. Bunu, eşiniz aynı odada telefondayken bir ev ofisinde çalıştırıyorsanız, Mac önemli bir prim değerindedir.
     </p>
     <p>
-      Pods spread the heat. Two laptops at 30% each are quieter than one desktop at 90%, and
-      they keep their airflow happy because no single fan is pegged.
+      Pod'lar ısıyı dağıtır. Her biri %30'da iki dizüstü bilgisayar, %90'da bir masaüstü bilgisayardan daha sessizdir ve hiçbir fan tepe yapmaz, hava akışlarını mutlu tutar.
     </p>
 
-    <h2>When 70B is the wrong answer</h2>
+    <h2>70B'nin yanlış cevap olduğu zamanlar</h2>
     <p>
-      Run a 70B locally if your workloads include long-context reasoning, complex code
-      review, or multi-step agents that need the quality. Don&rsquo;t bother for:
+      İş yükleriniz uzun bağlamlı akıl yürütme, karmaşık kod incelemesi veya kalite gerektiren çok adımlı aracılar içerdiğinde 70B'yi yerel olarak çalıştırın. Şunlar için uğraşmayın:
     </p>
     <ul>
-      <li>Autocomplete, doc summaries, simple classification &mdash; an 8B model at 80 tok/s
-        is a much better experience.</li>
-      <li>One-off questions &mdash; the 5 cents you&rsquo;d pay a hosted frontier model is
-        cheaper than your time waiting for a local 70B.</li>
-      <li>Anything requiring fresh web data &mdash; pair a smaller local model with a search
-        tool, or fall back to the cloud (a Hyperspace pod can route to either automatically).</li>
+      <li>Otomatik tamamlama, belge özetleri, basit sınıflandırma &mdash; 80 tok/sn'de bir 8B modeli çok daha iyi bir deneyimdir.</li>
+      <li>Tek seferlik sorular &mdash; barındırılan bir sınır modeli için ödeyeceğiniz 5 sent, yerel bir 70B'yi bekleyerek harcadığınız zamandan daha ucuzdur.</li>
+      <li>Güncel web verileri gerektiren herhangi bir şey &mdash; daha küçük bir yerel modeli bir arama aracıyla eşleştirin veya buluta geri dönün (bir Hyperspace pod'u otomatik olarak her ikisine de yönlendirebilir).</li>
     </ul>
 
-    <h2>Three reference builds</h2>
+    <h2>Üç referans yapılandırması</h2>
     <ul>
-      <li><strong>$1,800 cheapest path:</strong> used Mac Studio M2 Max 64 GB + Ollama. Solo use,
-        70B Q4, 6&ndash;8 tok/s.</li>
-      <li><strong>$3,500 sweet spot:</strong> Mac Studio M2 Ultra 128 GB + Ollama or LM Studio.
-        Team-of-3 use, 70B Q5, 12&ndash;16 tok/s.</li>
-      <li><strong>$0 if you have it:</strong> existing 4&ndash;5 laptops on Wi-Fi 6, joined into
-        a Hyperspace pod (<a href="/guides/how-to-set-up-a-hyperspace-pod">setup guide</a>).
-        Team-of-5 use, 70B Q4, 8&ndash;12 tok/s, with a wholesale-priced cloud fallback for
-        when you actually need a frontier model.</li>
+      <li><strong>1.800 $ en ucuz yol:</strong> ikinci el Mac Studio M2 Max 64 GB + Ollama. Tek kullanıcı, 70B Q4, 6&ndash;8 tok/sn.</li>
+      <li><strong>3.500 $ en uygun nokta:</strong> Mac Studio M2 Ultra 128 GB + Ollama veya LM Studio. 3 kişilik ekip kullanımı, 70B Q5, 12&ndash;16 tok/sn.</li>
+      <li><strong>0 $ (zaten varsa):</strong> Wi-Fi 6 üzerinden bir Hyperspace pod'una (<a href="/guides/how-to-set-up-a-hyperspace-pod">kurulum kılavuzu</a>) katılmış 4&ndash;5 mevcut dizüstü bilgisayar. 5 kişilik ekip kullanımı, 70B Q4, 8&ndash;12 tok/sn, gerçekten bir sınır modeline ihtiyacınız olduğunda toptan fiyatlı bulut yedeklemesi ile.</li>
     </ul>
     <p>
-      To plug in your specific cost numbers and compare against cloud APIs, the{" "}
-      <a href="/tools/ai-cost-estimator">AI cost estimator</a> handles the math. To compare
-      open-weight models that fit in your memory budget, the{" "}
-      <a href="/tools/ai-model-compare">AI model compare</a> tool tracks current benchmarks
-      across reasoning, code, and multi-language work.
+      Kendi maliyet rakamlarınızı girmek ve bulut API'leriyle karşılaştırmak için <a href="/tools/ai-cost-estimator">AI maliyet tahmincisi</a> matematiği yapar. Bellek bütçenize uyan açık ağırlıklı modelleri karşılaştırmak için <a href="/tools/ai-model-compare">AI model karşılaştırma</a> aracı, akıl yürütme, kod ve çok dilli çalışma genelinde güncel kıyaslamaları takip eder.
     </p>
   </>
 );

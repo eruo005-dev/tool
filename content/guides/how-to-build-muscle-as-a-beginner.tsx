@@ -1,88 +1,65 @@
 export const intro = (
   <>
     <p>
-      Building muscle is one of the highest-<a href="/learn/roi">ROI</a> things you can do for your
-      health, looks, and longevity. The good news: beginners gain the fastest.
-      The bad news: most beginners waste their first year doing the wrong
-      things. Here&rsquo;s what actually works.
+      Kas yapmak, sağlığınız, görünümünüz ve uzun ömürlülüğünüz için yapabileceğiniz en yüksek <a href="/learn/roi">ROI</a>'li şeylerden biridir. İyi haber: yeni başlayanlar en hızlı ilerler. Kötü haber: çoğu yeni başlayan ilk yıllarını yanlış şeyler yaparak harcar. İşte gerçekten işe yarayanlar.
     </p>
     <p>
-      Consistency with basics &gt; variety with gimmicks.
+      Temellere tutarlılık &gt; gösterişli çeşitlilik.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. <a href="/learn/compound-lifts">Compound lifts</a> are 80% of the results</h2>
+    <h2>1. <a href="/learn/compound-lifts">Bileşik hareketler</a> sonuçların %80'ini sağlar</h2>
     <p>
-      Squats, deadlifts, bench press, overhead press, rows, pull-ups. These
-      multi-joint movements build the most muscle in the least time. Isolation
-      exercises (curls, lateral raises) come after compounds, not instead of.
+      Squat, deadlift, bench press, overhead press, row, pull-up. Bu çok eklemli hareketler en kısa sürede en fazla kası inşa eder. İzolasyon egzersizleri (curl, lateral raise) bileşik hareketlerden sonra gelir, onların yerine değil.
     </p>
 
-    <h2>2. 3-4 days a week is enough</h2>
+    <h2>2. Haftada 3-4 gün yeterlidir</h2>
     <p>
-      Full-body 3x/week or upper-lower split 4x/week. More isn&rsquo;t better
-      for beginners — recovery is where muscle grows, not the gym. A 6-day
-      split is a waste until you&rsquo;ve trained 1-2 years.
+      3x tam vücut veya 4x üst-alt bölünmesi. Yeni başlayanlar için daha fazlası daha iyi değildir — kas büyümesi iyileşme sırasında olur, spor salonunda değil. 1-2 yıldır antrenman yapmıyorsanız, 6 günlük bir bölünme zaman kaybıdır.
     </p>
 
-    <h2>3. Progressive overload — add weight over time</h2>
+    <h2>3. Aşamalı aşırı yük — zamanla ağırlık ekleyin</h2>
     <p>
-      Every week or two, add a small amount (2.5-5 lbs). This is the single
-      mechanism of muscle growth. If the weight on the bar isn&rsquo;t going
-      up over months, neither is muscle.
+      Her hafta veya iki haftada bir, küçük bir miktar (2.5-5 lbs) ekleyin. Kas büyümesi için tek mekanizma budur. Aylar içinde bardaki ağırlık artmıyorsa, kasınız da artmıyordur.
     </p>
 
-    <h2>4. Eat 0.7-1g protein per lb body weight</h2>
+    <h2>4. Vücut ağırlığınızın kg'ı başına 1.6-2.2g protein tüketin</h2>
     <p>
-      Chicken, beef, eggs, fish, Greek yogurt, cottage cheese, whey protein.
-      Most beginners eat half of what they need. Track for 2 weeks to
-      calibrate — it&rsquo;s usually a shock.
+      Tavuk, sığır eti, yumurta, balık, Yunan yoğurdu, süzme peynir, whey proteini. Çoğu yeni başlayan ihtiyaç duyduğunun yarısını yer. Kalibrasyon için 2 hafta takip edin — genellikle şok edicidir.
     </p>
 
-    <h2>5. Caloric surplus to build muscle</h2>
+    <h2>5. Kas yapmak için kalori fazlası</h2>
     <p>
-      You need to eat slightly more than maintenance. 200-300 cal surplus =
-      ~0.5 lb/week gain, ideal ratio of muscle to fat. Trying to build muscle
-      on a deficit is spinning wheels, except for total beginners.
+      Bakımın biraz üzerinde yemelisiniz. 200-300 kalori fazlası = haftada ~0.5 lb kazanç, ideal kas-yağ oranı. Tam bir yeni başlayan değilseniz, açıkla kas yapmaya çalışmak tekerlek döndürmektir.
     </p>
 
-    <h2>6. Sleep 7-9 hours</h2>
+    <h2>6. 7-9 saat uyuyun</h2>
     <p>
-      Growth hormone is released during deep sleep. 5 hours of sleep and you
-      can&rsquo;t recover from training no matter how perfect your program.
-      Non-negotiable. See <a href="/guides/how-to-sleep-better">sleep guide</a>.
+      Büyüme hormonu derin uyku sırasında salgılanır. 5 saat uykuyla, programınız ne kadar mükemmel olursa olsun antrenmandan iyileşemezsiniz. Pazarlık yok. <a href="/guides/how-to-sleep-better">Uyku rehberine</a> bakın.
     </p>
 
-    <h2>7. Track every workout</h2>
+    <h2>7. Her antrenmanı kaydedin</h2>
     <p>
-      Notebook or app. Sets, reps, weight. If you can&rsquo;t see whether
-      you&rsquo;re progressing, you won&rsquo;t progress. Beginners who track
-      gain 2x faster than those who don&rsquo;t.
+      Defter veya uygulama. Setler, tekrarlar, ağırlık. İlerleyip ilerlemediğinizi göremezseniz, ilerlemezsiniz. Takip eden yeni başlayanlar, etmeyenlerden 2 kat daha hızlı ilerler.
     </p>
 
-    <h2>8. Form before ego weight</h2>
+    <h2>8. Ego ağırlığından önce form</h2>
     <p>
-      Half-squats with 225 lbs are useless. Full range of motion with 135 lbs
-      beats half reps with heavier weight every time. Film yourself and
-      compare to a good lifter&rsquo;s form.
+      225 lb'lik yarım squat hiçbir şey ifade etmez. 135 lbs ile tam hareket aralığı, her seferinde daha ağır ağırlıkla kısmi tekrarları yener. Kendinizi filme alın ve iyi bir kaldırıcının formuyla karşılaştırın.
     </p>
 
-    <h2>9. Skip the supplement stack</h2>
+    <h2>9. Takviye yığınını atlayın</h2>
     <p>
-      <a href="/learn/creatine">Creatine</a> (5g/day) and whey protein are worth buying. Everything else —
-      pre-workouts, BCAAs, testosterone boosters, fat burners — is mostly
-      marketing. Save $200/month.
+      <a href="/learn/creatine">Kreatin</a> (günde 5g) ve whey proteini satın almaya değer. Diğer her şey — pre-workout, BCAA'lar, testosteron güçlendiriciler, yağ yakıcılar — çoğunlukla pazarlamadır. Ayda 200$ tasarruf edin.
     </p>
 
-    <h2>10. Expect 2 years for visible results</h2>
+    <h2>10. Görünür sonuçlar için 2 yıl bekleyin</h2>
     <p>
-      Real, &ldquo;clearly lifts&rdquo; muscle takes 1-2 years of consistent
-      training and eating. Influencers on 10 years of training + drugs set
-      unrealistic expectations. Stick with it. See{" "}
-      <a href="/guides/how-to-stretch-properly">stretching guide</a>.
+      Gerçek, "açıkça kaldırıyor" kası, tutarlı antrenman ve beslenmenin 1-2 yılını alır. 10 yıllık antrenmanlı ve ilaç kullanan fenomenler gerçekçi olmayan beklentiler yaratır. Devam edin.{" "}
+      <a href="/guides/how-to-stretch-properly">Esneme rehberine</a> bakın.
     </p>
   </>
 );

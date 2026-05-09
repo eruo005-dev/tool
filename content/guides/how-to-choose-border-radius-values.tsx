@@ -3,254 +3,178 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Border radius is one of the most under-considered design
-      decisions on the web. Pick 4px and your UI feels corporate;
-      pick 16px and it feels friendly; pick 9999px and you&rsquo;re
-      making pills. The shape of corners sets tone before a user
-      reads a single word. This guide covers how to choose radii
-      consistently across a product, the relationship between
-      element size and radius, nested radius rules, advanced values
-      like squircles and superellipses, and the scales used by
-      well-known design systems.
+      Border radius, web üzerinde en az düşünülen tasarım kararlarından biridir. 4 piksel seçin, arayüzünüz kurumsal görünür; 16 piksel seçin, dostane hissettirir; 9999 piksel seçin, hap şekilleri elde edersiniz. Köşelerin şekli, kullanıcı tek bir kelime okumadan önce tonu belirler. Bu rehber, bir ürün genelinde tutarlı yarıçaplar seçmeyi, eleman boyutu ile yarıçap arasındaki ilişkiyi, iç içe yarıçap kurallarını, squircle ve superellipse gibi ileri düzey değerleri ve tanınmış tasarım sistemleri tarafından kullanılan ölçekleri kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What border radius signals</h2>
+    <h2>Border radius neyi ifade eder</h2>
     <p>
-      <strong>0px (sharp):</strong> formal, technical, efficient.
-      Government forms, tabular data, terminal UIs, financial
-      software.
+      <strong>0px (keskin):</strong> resmi, teknik, verimli. Devlet formları, tablo verileri, terminal arayüzleri, finansal yazılımlar.
     </p>
     <p>
-      <strong>2-4px (subtle):</strong> professional, unobtrusive.
-      Classic Bootstrap era; still common in enterprise SaaS.
+      <strong>2–4px (hafif):</strong> profesyonel, göze batmayan. Klasik Bootstrap dönemi; kurumsal SaaS'te hala yaygın.
     </p>
     <p>
-      <strong>6-12px (friendly):</strong> modern consumer apps.
-      Most SaaS in 2024-2026. GitHub, Linear, Stripe, Notion all
-      sit in this range.
+      <strong>6–12px (dostane):</strong> modern tüketici uygulamaları. 2024–2026'da çoğu SaaS. GitHub, Linear, Stripe, Notion bu aralıkta.
     </p>
     <p>
-      <strong>16-24px (soft):</strong> playful, approachable.
-      Consumer products targeting casual users. Duolingo, recent
-      Google products, Spotify.
+      <strong>16–24px (yumuşak):</strong> eğlenceli, yaklaşılabilir. Gündelik kullanıcıları hedefleyen tüketici ürünleri. Duolingo, yeni Google ürünleri, Spotify.
     </p>
     <p>
-      <strong>9999px (pill):</strong> badges, status chips, primary
-      CTA buttons. Reads as &ldquo;distinct action&rdquo; — use
-      sparingly.
+      <strong>9999px (hap):</strong> rozetler, durum çipleri, birincil CTA butonları. "Belirgin eylem" olarak okunur — idareli kullanın.
     </p>
     <p>
-      <strong>50%:</strong> circles — avatars, dot indicators, icon
-      buttons. On a square element, <code>border-radius: 50%</code>
-      produces a circle.
+      <strong>50%:</strong> daireler — avatarlar, nokta göstergeleri, ikon butonları. Kare bir elemanda <code>border-radius: 50%</code> bir daire oluşturur.
     </p>
 
-    <h2>Radius scales — what design systems use</h2>
+    <h2>Yarıçap ölçekleri — tasarım sistemlerinin kullandıkları</h2>
     <p>
-      <strong>Tailwind:</strong> sm (0.125rem / 2px), default (0.25rem
-      / 4px), md (0.375rem / 6px), lg (0.5rem / 8px), xl (0.75rem
-      / 12px), 2xl (1rem / 16px), 3xl (1.5rem / 24px), full (9999px).
-      Good general-purpose scale.
+      <strong>Tailwind:</strong> sm (0.125rem / 2px), default (0.25rem / 4px), md (0.375rem / 6px), lg (0.5rem / 8px), xl (0.75rem / 12px), 2xl (1rem / 16px), 3xl (1.5rem / 24px), full (9999px). İyi bir genel amaçlı ölçek.
     </p>
     <p>
-      <strong>Radix Themes:</strong> 6-step scale (0-6), each with a
-      distinct role and consistent nesting behavior.
+      <strong>Radix Themes:</strong> 6 adımlı ölçek (0–6), her biri belirgin bir role ve tutarlı iç içe geçme davranışına sahip.
     </p>
     <p>
-      <strong>Material Design 3:</strong> tokens based on shape
-      families (none, extra-small, small, medium, large, extra-large,
-      full). Different components default to different radii.
+      <strong>Material Design 3:</strong> şekil ailelerine (none, extra small, small, medium, large, extra large, full) dayalı tokenlar. Farklı bileşenler varsayılan olarak farklı yarıçaplar kullanır.
     </p>
     <p>
-      Don&rsquo;t invent new values per component. Pick 4-6 steps,
-      apply across the whole UI.
+      Bileşen başına yeni değerler icat etmeyin. 4–6 adım seçin, bunları arayüz genelinde uygulayın.
     </p>
 
-    <h2>Element size affects perceived radius</h2>
+    <h2>Eleman boyutu algılanan yarıçapı etkiler</h2>
     <p>
-      A 4px radius on a 32px button looks proportionally different
-      from a 4px radius on a 400px card.
+      32px'lik bir butonda 4px yarıçap, 400px'lik bir kartta 4px yarıçaptan orantısal olarak farklı görünür.
     </p>
     <p>
-      <strong>Rule of thumb:</strong> radius should roughly scale
-      with element size. Small elements get small radii; large cards
-      get larger radii. But not linearly — the relationship is more
-      logarithmic.
+      <strong>Genel kural:</strong> yarıçap, eleman boyutuyla kabaca orantılı olmalıdır. Küçük elemanlar küçük yarıçaplar alır; büyük kartlar daha büyük yarıçaplar alır. Ancak doğrusal değil — ilişki daha logaritmiktir.
     </p>
     <p>
-      <strong>Practical scale:</strong>
+      <strong>Pratik ölçek:</strong>
     </p>
     <p>
-      Inputs and buttons (32-40px tall): 4-8px radius.
+      Giriş alanları ve butonlar (32–40px yükseklik): 4–8px yarıçap.
     </p>
     <p>
-      Cards (100-300px wide): 8-16px radius.
+      Kartlar (100–300px genişlik): 8–16px yarıçap.
     </p>
     <p>
-      Hero sections or full-width panels: 16-24px radius.
+      Hero bölümleri veya tam genişlik paneller: 16–24px yarıçap.
     </p>
     <p>
-      Avatars and icon buttons: 50% (circle).
+      Avatarlar ve ikon butonları: %50 (daire).
     </p>
 
-    <h2>Nested border-radius — the math</h2>
+    <h2>İç içe border radius — matematik</h2>
     <p>
-      When one rounded element sits inside another, the inner radius
-      must be smaller than the outer radius for them to look
-      concentric.
+      Yuvarlatılmış bir eleman başka birinin içinde olduğunda, iç yarıçap dış yarıçaptan daha küçük olmalıdır ki eşmerkezli görünsünler.
     </p>
     <p>
-      <strong>Formula:</strong> inner radius = outer radius − gap.
+      <strong>Formül:</strong> iç yarıçap = dış yarıçap − boşluk.
     </p>
     <p>
-      Example: card has 16px radius and 12px padding. Inner element
-      should have 16 - 12 = 4px radius for aligned curves.
+      Örnek: kartın 16px yarıçapı ve 12px dolgusu var. İç eleman, hizalanmış eğriler için 16 − 12 = 4px yarıçapa sahip olmalıdır.
     </p>
     <p>
-      <strong>Why it matters:</strong> if both use 16px, the inner
-      element&rsquo;s corner sits awkwardly inside the outer corner
-      — the &ldquo;crescent moon&rdquo; look that reads as broken.
+      <strong>Neden önemli:</strong> her ikisi de 16px kullanırsa, iç elemanın köşesi dış köşenin içinde garip bir şekilde durur — "hilal" görünümü oluşturur ve bozuk olarak algılanır.
     </p>
     <p>
-      <strong>Apple&rsquo;s concentric corners:</strong> the Apple
-      design philosophy explicitly applies this rule across hardware
-      and software — iPhone screen corners are mathematically derived
-      to match the device bezel.
+      <strong>Apple'ın eşmerkezli köşeleri:</strong> Apple tasarım felsefesi bu kuralı donanım ve yazılımda açıkça uygular — iPhone ekran köşeleri, cihaz çerçevesiyle eşleşecek şekilde matematiksel olarak türetilir.
     </p>
 
-    <h2>Squircles and superellipses — the next step</h2>
+    <h2>Squircle ve superellipse — sonraki adım</h2>
     <p>
-      Standard <code>border-radius</code> creates a quarter-circle
-      at each corner. Apple-style &ldquo;squircles&rdquo; use a
-      smoother shape (superellipse) that transitions more gradually
-      — the curve spreads across more of the side.
+      Standart <code>border-radius</code> her köşede bir çeyrek daire oluşturur. Apple tarzı "squircle" daha yumuşak bir şekil (superellipse) kullanır ve daha kademeli bir geçişe sahiptir — eğri kenar boyunca daha fazla yayılır.
     </p>
     <p>
-      <strong>CSS native:</strong> not directly supported as a
-      single property. Workarounds:
+      <strong>CSS yerel desteği:</strong> tek bir özellik olarak doğrudan desteklenmez. Geçici çözümler:
     </p>
     <p>
-      <code>border-radius: 20% / 50%;</code> — elliptical corners,
-      gives a slightly different feel than circular.
+      <code>border-radius: 20% / 50%;</code> — eliptik köşeler, daireselden biraz farklı his.
     </p>
     <p>
-      <strong>SVG or Canvas:</strong> draw the shape with
-      <code> M/L/C</code> bezier curves for true superellipses.
+      <strong>SVG veya Canvas:</strong> gerçek superellipse'ler için şekli <code> M/L/C</code> bezier eğrileriyle çizin.
     </p>
     <p>
-      <strong>Modern proposal:</strong> <code>corner-shape:
-      superellipse</code> is under discussion for CSS. Not shipping in
-      browsers yet as of 2026.
+      <strong>Modern öneri:</strong> <code>corner-shape: superellipse</code> CSS için tartışılıyor. 2026 itibarıyla tarayıcılarda henüz yayınlanmadı.
     </p>
     <p>
-      For most UIs, the visual difference between 12px circular
-      radius and a 12px squircle is subtle — viewers perceive
-      smoothness without noticing the math. Only visible at large
-      sizes.
+      Çoğu arayüz için, 12px dairesel yarıçap ile 12px squircle arasındaki görsel fark incedir — izleyiciler matematiği fark etmeden yumuşaklığı algılar. Yalnızca büyük boyutlarda görünür.
     </p>
 
-    <h2>Individual corner control</h2>
+    <h2>Bireysel köşe kontrolü</h2>
     <p>
-      Radius can be set per corner for asymmetric shapes.
+      Asimetrik şekiller için yarıçap köşe başına ayarlanabilir.
     </p>
     <p>
-      <code>border-top-left-radius: 12px; border-top-right-radius:
-      12px; border-bottom-right-radius: 0; border-bottom-left-radius:
-      0;</code>
+      <code>border-top-left-radius: 12px; border-top-right-radius: 12px; border-bottom-right-radius: 0; border-bottom-left-radius: 0;</code>
     </p>
     <p>
-      Shorthand: <code>border-radius: 12px 12px 0 0</code> (TL, TR,
-      BR, BL — clockwise from top-left).
+      Kısa yazım: <code>border-radius: 12px 12px 0 0</code> (ÜS, ÜS, AS, AS — saat yönünde sol üstten başlayarak).
     </p>
     <p>
-      <strong>Common patterns:</strong>
+      <strong>Yaygın desenler:</strong>
     </p>
     <p>
-      Tabs attached to a panel: rounded top corners, sharp bottom.
+      Bir panele bağlı sekmeler: yuvarlatılmış üst köşeler, keskin alt.
     </p>
     <p>
-      Chat bubbles: one sharp corner near the sender (top-left for
-      them, top-right or bottom-right for you) to indicate source.
+      Sohbet balonları: gönderene yakın bir keskin köşe (onlar için sol üst, sizin için sağ üst veya sağ alt) kaynağı belirtmek için.
     </p>
     <p>
-      Cards in a list: rounded only at outer edges (first item top-
-      rounded, last item bottom-rounded, middle items sharp).
+      Listedeki kartlar: yalnızca dış kenarlarda yuvarlatılmış (ilk öğe üst yuvarlak, son öğe alt yuvarlak, ortadaki öğeler keskin).
     </p>
 
-    <h2>Elliptical corners</h2>
+    <h2>Eliptik köşeler</h2>
     <p>
-      Two values separated by a slash create elliptical corners
-      (different x and y radii):
+      Eğik çizgiyle ayrılmış iki değer eliptik köşeler oluşturur (farklı x ve y yarıçapları):
     </p>
     <p>
-      <code>border-radius: 50px / 20px;</code> — wide, short oval
-      corners. Used for &ldquo;blob&rdquo; shapes, banners, or
-      unique card styles.
+      <code>border-radius: 50px / 20px;</code> — geniş, kısa oval köşeler. "Damla" şekilleri, afişler veya benzersiz kart stilleri için kullanılır.
     </p>
     <p>
-      <strong>Use cases:</strong> splashy marketing hero sections,
-      banner cards with distinctive shape. Not for standard UI
-      components — elliptical corners read as decorative, not neutral.
+      <strong>Kullanım durumları:</strong> gösterişli pazarlama hero bölümleri, belirgin şekle sahip afiş kartları. Standart arayüz bileşenleri için değil — eliptik köşeler dekoratif olarak okunur, nötr değil.
     </p>
 
-    <h2>Border radius and performance</h2>
+    <h2>Border radius ve performans</h2>
     <p>
-      <strong>Box-shadow + rounded corners:</strong> expensive to
-      render when stacked densely (many cards). Browsers are
-      optimized for this case but high-end phones still show jank on
-      large lists.
+      <strong>Kutu gölgesi + yuvarlatılmış köşeler:</strong> yoğun şekilde istiflendiğinde (birçok kart) işlemesi pahalıdır. Tarayıcılar bunun için optimize eder ancak üst düzey telefonlar büyük listelerde hala takılma gösterir.
     </p>
     <p>
-      <strong>Rounded corners on images:</strong>
-      <code>overflow: hidden</code> on the container with
-      border-radius is the standard approach. Performant.
+      <strong>Görsellerde yuvarlatılmış köşeler:</strong> border radius'lu bir kapsayıcıda <code>overflow: hidden</code> standart yaklaşımdır. Performanslı.
     </p>
     <p>
-      <strong>Animating border-radius:</strong> acceptable for small
-      changes (a pill growing). Avoid large animated shape morphs —
-      use SVG or a CSS mask instead.
+      <strong>Border radius'u canlandırma:</strong> küçük değişiklikler için kabul edilebilir (büyüyen bir hap). Büyük şekil dönüşümlerini canlandırmaktan kaçının — bunun yerine SVG veya CSS maskesi kullanın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Using too many radius values.</strong> If you have
-      buttons at 4px, 6px, 8px, 10px, and 12px, the inconsistency
-      reads as sloppy. Pick 3-6 values, use them throughout.
+      <strong>Çok fazla yarıçap değeri kullanmak.</strong> Butonlarınız 4px, 6px, 8px, 10px ve 12px'e sahipse, tutarsızlık özensiz olarak algılanır. 3–6 değer seçin, her yerde kullanın.
     </p>
     <p>
-      <strong>Mixing radius styles.</strong> Some components sharp,
-      others very round, with no clear reason — looks like multiple
-      designers fought.
+      <strong>Yarıçap stillerini karıştırmak.</strong> Bazı bileşenler keskin, diğerleri çok yuvarlak, belirgin bir sebep yok — birden fazla çelişen tasarımcı izlenimi verir.
     </p>
     <p>
-      <strong>Non-concentric nested corners.</strong> Child with
-      same radius as parent. Subtract the padding.
+      <strong>Eşmerkezli olmayan iç içe köşeler.</strong> Alt eleman, üst elemanla aynı yarıçapa sahip. Dolguyu çıkarın.
     </p>
     <p>
-      <strong>Pills for every button.</strong> Pill-shaped
-      (<code>border-radius: 9999px</code>) reads as prominent and
-      urgent. Using it for every button removes the emphasis. Save
-      it for primary CTAs.
+      <strong>Her butonda hap şekli.</strong> Hap şekli (<code>border-radius: 9999px</code>) belirgin ve acil olarak okunur. Her butonda kullanmak vurguyu azaltır. Birincil CTA'lar için saklayın.
     </p>
     <p>
-      <strong>Rounding inputs but not their container.</strong>
-      Inputs with 8px radius inside a card with 4px radius — looks
-      wrong. Align corner styles across related components.
+      <strong>Giriş alanlarını yuvarlatmak ama kaplarını yuvarlatmamak.</strong> 4px yarıçaplı bir kartın içinde 8px yarıçaplı giriş alanları — yanlış görünür. İlgili bileşenler arasında köşe stillerini hizalayın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Tune individual corner values with the{" "}
-      <a href="/tools/border-radius-generator">border radius generator</a>.
-      Pair with the{" "}
-      <a href="/tools/box-shadow-generator">box shadow generator</a>
-      {" "}to match shadow softness to corner rounding, and the{" "}
-      <a href="/tools/aspect-ratio-calculator">aspect ratio calculator</a>
-      {" "}when sizing cards to a consistent shape across breakpoints.
+      Bireysel köşe değerlerini{" "}
+      <a href="/tools/border-radius-generator">border radius oluşturucu</a> ile ince ayar yapın.
+      Bunu{" "}
+      <a href="/tools/box-shadow-generator">kutu gölgesi oluşturucu</a> ile eşleştirin
+      {" "}gölge yumuşaklığını köşe yuvarlatma ile uyumlu hale getirmek için ve{" "}
+      <a href="/tools/aspect-ratio-calculator">en boy oranı hesaplayıcı</a>
+      {" "}ile kartları kesme noktaları arasında tutarlı bir şekilde boyutlandırmak için.
     </p>
   </>
 );

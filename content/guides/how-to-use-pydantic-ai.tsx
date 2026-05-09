@@ -2,49 +2,46 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Pydantic AI is a Python agent framework from the team behind
-    Pydantic. It treats <a href="/learn/llm">LLM</a> output like any other untrusted input
-    &mdash; validate it against a schema, retry on failure, and let
-    the type checker catch your mistakes. If you already use Pydantic
-    for FastAPI request bodies, Pydantic AI feels like the obvious
-    extension to agents and tool calls.
+    Pydantic AI, arkasındaki ekip tarafından geliştirilen bir Python ajan çerçevesidir.
+    Pydantic. <a href="/learn/llm">LLM</a> çıktısını diğer güvenilmeyen girdiler gibi ele alır
+    &mdash; bir şemaya göre doğrular, başarısızlıkta yeniden dener ve
+    tip denetleyicisinin hatalarınızı yakalamasına izin verir. Zaten Pydantic kullanıyorsanız
+    FastAPI istek gövdeleri için, Pydantic AI ajanlara ve araç çağrılarına
+    bariz bir uzantı gibi gelir.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What Pydantic AI actually is</h2>
+    <h2>Pydantic AI aslında nedir</h2>
     <p>
-      A thin, typed wrapper around model APIs (OpenAI, Anthropic,
-      Gemini, Groq, Ollama, Bedrock) that forces every response
-      through a Pydantic model. You define an <code>Agent</code> with
-      a <code>result_type</code>, bind tools as decorated Python
-      functions, and the framework handles JSON-schema generation,
-      validation, and retry loops. The result is an object you can
-      <code> .attribute</code> access with full IDE autocomplete
-      instead of <code>response[&quot;choices&quot;][0][...]</code>.
+      Model API'leri (OpenAI, Anthropic, Gemini, Groq, Ollama, Bedrock) etrafında ince, tipli bir sarmalayıcıdır ve her yanıtı
+      bir Pydantic modelinden geçmeye zorlar. Bir <code>Agent</code> tanımlarsınız
+      bir <code>result_type</code> ile, araçları süslenmiş Python işlevleri olarak bağlarsınız
+      ve çerçeve JSON-şeması oluşturma, doğrulama ve yeniden deneme döngülerini halleder. Sonuç, tam IDE otomatik tamamlama ile
+      <code> .attribute</code> erişebileceğiniz bir nesnedir
+      <code>response["choices"][0][...]</code> yerine.
     </p>
     <p>
-      Compared to LangChain it is smaller, more opinionated, and
-      actually typed. Compared to raw API calls it gives you
-      structured output, automatic retries on schema mismatch, and a
-      standard place to hang dependencies (database sessions, API
-      clients) via its <code>deps_type</code> system.
+      LangChain ile karşılaştırıldığında daha küçük, daha görüşlü ve
+      gerçekten tiplidir. Ham API çağrılarına kıyasla size yapılandırılmış çıktı,
+      şema uyuşmazlığında otomatik yeniden denemeler ve bağımlılıkları (veritabanı oturumları, API
+      istemcileri) <code>deps_type</code> sistemi aracılığıyla asmak için standart bir yer verir.
     </p>
 
-    <h2>Installing</h2>
+    <h2>Kurulum</h2>
     <pre>{`pip install pydantic-ai
 
-# or with a specific model provider extra
+# veya belirli bir model sağlayıcı eklentisi ile
 pip install "pydantic-ai[openai]"
 pip install "pydantic-ai[anthropic]"`}</pre>
     <p>
-      Set the provider API key in your environment
+      Sağlayıcı API anahtarını ortamınıza ayarlayın
       (<code>OPENAI_API_KEY</code>,
-      <code> ANTHROPIC_API_KEY</code>, etc.). Python 3.9 or newer.
+      <code> ANTHROPIC_API_KEY</code>, vb.). Python 3.9 veya daha yeni.
     </p>
 
-    <h2>First working example</h2>
+    <h2>İlk çalışan örnek</h2>
     <pre>{`from pydantic import BaseModel
 from pydantic_ai import Agent
 
@@ -57,27 +54,25 @@ class Invoice(BaseModel):
 agent = Agent(
     "openai:gpt-4o-mini",
     result_type=Invoice,
-    system_prompt="Extract invoice fields from the user message.",
+    system_prompt="Kullanıcı mesajından fatura alanlarını çıkar.",
 )
 
 result = agent.run_sync(
-    "Acme Corp billed us 1,249.00 EUR, due 2026-05-15."
+    "Acme Corp bize 1.249,00 EUR fatura kesti, son tarih 2026-05-15."
 )
 print(result.data)
 # Invoice(vendor='Acme Corp', total=1249.0, currency='EUR', due_date='2026-05-15')`}</pre>
     <p>
-      No JSON parsing, no try/except around
-      <code> json.loads</code>, no &ldquo;the model returned prose
-      again.&rdquo; If the model emits invalid JSON or the wrong
-      shape, Pydantic AI retries with the validation error as
-      feedback up to <code>retries=1</code> by default.
+      JSON ayrıştırma yok, <code> json.loads</code> etrafında try/except yok,
+      &ldquo;model yine düz metin döndürdü&rdquo; yok. Model geçersiz JSON veya yanlış
+      şekil yayarsa, Pydantic AI varsayılan olarak <code>retries=1</code>'e kadar
+      doğrulama hatasını geri bildirim olarak kullanarak yeniden dener.
     </p>
 
-    <h2>A real workflow &mdash; tools and dependencies</h2>
+    <h2>Gerçek bir iş akışı &mdash; araçlar ve bağımlılıklar</h2>
     <p>
-      Agents become useful when they can call functions. Register
-      tools with <code>@agent.tool</code>; Pydantic AI derives the
-      JSON schema from the signature.
+      Ajanlar, işlevleri çağırabildiklerinde kullanışlı hale gelir. Araçları
+      <code>@agent.tool</code> ile kaydedin; Pydantic AI JSON şemasını imzadan türetir.
     </p>
     <pre>{`from dataclasses import dataclass
 from pydantic_ai import Agent, RunContext
@@ -89,12 +84,12 @@ class Deps:
 support_agent = Agent(
     "anthropic:claude-sonnet-4",
     deps_type=Deps,
-    system_prompt="You are a support agent. Use tools to look up customers.",
+    system_prompt="Sen bir destek ajanısın. Müşterileri aramak için araçları kullan.",
 )
 
 @support_agent.tool
 async def get_customer(ctx: RunContext[Deps], email: str) -> dict:
-    """Fetch a customer row by email."""
+    """E-posta ile bir müşteri satırını getir."""
     return await ctx.deps.db.fetch_one(
         "SELECT id, plan, mrr FROM customers WHERE email = $1", email
     )
@@ -103,49 +98,47 @@ async def handle_ticket(db, question: str):
     result = await support_agent.run(question, deps=Deps(db=db))
     return result.data`}</pre>
     <p>
-      The <code>RunContext</code> gives tools typed access to the
-      shared deps. No global state, no monkey-patching, no LangChain
-      callback handlers &mdash; just a dataclass you pass in.
+      <code>RunContext</code>, araçlara paylaşılan bağımlılıklara tipli erişim sağlar.
+      Global durum yok, monkey-patching yok, LangChain geri çağırma işleyicileri yok
+      &mdash; sadece içine aktardığınız bir veri sınıfı.
     </p>
 
-    <h2>Gotchas</h2>
+    <h2>Tuzaklar</h2>
     <p>
-      <strong><a href="/learn/stream">Streaming</a> and structured output don&rsquo;t mix
-      cleanly.</strong> If you want token streaming, drop the
-      <code> result_type</code> and stream plain strings, or use
-      <code> run_stream</code> with its partial-validation API and
-      accept that early chunks may not validate.
+      <strong><a href="/learn/stream">Akış</a> ve yapılandırılmış çıktı temiz bir şekilde
+      karışmaz.</strong> Token akışı istiyorsanız,
+      <code> result_type</code>'ı bırakın ve düz dizeleri akışlayın veya
+      kısmi doğrulama API'si ile <code> run_stream</code> kullanın ve
+      erken parçaların doğrulanamayabileceğini kabul edin.
     </p>
     <p>
-      <strong>Retries hide costs.</strong> A validation failure
-      doubles your token bill for that turn. Watch the
-      <code> usage</code> field on results when you&rsquo;re tuning
-      prompts, especially with expensive models.
+      <strong>Yeniden denemeler maliyetleri gizler.</strong> Bir doğrulama hatası,
+      o tur için token faturanızı ikiye katlar. Özellikle pahalı modellerle
+      istemleri ayarlarken sonuçlardaki <code> usage</code> alanını izleyin.
     </p>
     <p>
-      <strong>Tool docstrings are the prompt.</strong> The function
-      docstring and parameter types become the JSON schema the model
-      sees. Sloppy docstrings produce sloppy tool calls. Treat them
-      like API docs.
+      <strong>Araç docstring'leri istemdir.</strong> İşlev docstring'i ve parametre türleri,
+      modelin gördüğü JSON şeması haline gelir. Özensiz docstring'ler özensiz araç çağrıları üretir.
+      Onlara API belgeleri gibi davranın.
     </p>
 
-    <h2>When NOT to use it</h2>
+    <h2>Ne ZAMAN kullanılmamalı</h2>
     <p>
-      Skip Pydantic AI if you need a huge pre-built tool ecosystem
-      (LangChain&rsquo;s integrations are still an order of magnitude
-      bigger), if you&rsquo;re staying in JavaScript/TypeScript, or
-      if you&rsquo;re doing pure RAG over documents &mdash;
-      LlamaIndex handles that with less glue code. For small typed
-      extract-and-tool-call services, though, Pydantic AI is the
-      least-painful option in Python today.
+      Büyük bir önceden oluşturulmuş araç ekosistemine ihtiyacınız varsa Pydantic AI'yı atlayın
+      (LangChain'in entegrasyonları hala bir büyüklük sırası daha büyüktür),
+      JavaScript/TypeScript'te kalıyorsanız veya
+      belgeler üzerinde saf RAG yapıyorsanız &mdash;
+      LlamaIndex bunu daha az bağlantı koduyla halleder. Küçük tipli
+      çıkar-ve-araç-çağrısı hizmetleri için, Pydantic AI bugün Python'daki
+      en az acı veren seçenektir.
     </p>
     <p>
-      Tighten your agent system prompt with the{" "}
-      <a href="/tools/prompt-improver">prompt improver</a>, validate
-      sample JSON payloads against your Pydantic schemas in the{" "}
-      <a href="/tools/json-formatter">JSON formatter</a>, and count
-      prompt tokens before you ship with the{" "}
-      <a href="/tools/ai-token-counter">token counter</a>.
+      Ajan sistem isteminizi{" "}
+      <a href="/tools/prompt-improver">istem iyileştirici</a> ile sıkılaştırın,
+      örnek JSON yüklerini{" "}
+      <a href="/tools/json-formatter">JSON biçimlendirici</a>de Pydantic şemalarınıza karşı doğrulayın ve
+      göndermeden önce istem token'larını{" "}
+      <a href="/tools/ai-token-counter">token sayacı</a> ile sayın.
     </p>
   </>
 );

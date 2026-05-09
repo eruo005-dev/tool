@@ -3,134 +3,133 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      It&rsquo;s 10 PM the night before the final and you need to know
-      exactly what score will save your grade. The panic math
-      (&ldquo;I need a 95? Or a 75?&rdquo;) matters because the answer
-      tells you whether to pull an all-nighter or close the laptop and
-      sleep. This guide walks through the formula, three worked
-      examples, and the edge cases that trip students up — including
-      the one where the required score is above 100%.
+      Finalden bir gece önce saat 22:00 ve notunu kurtarmak için tam olarak
+      hangi puanın gerektiğini bilmen gerekiyor. Panik matematiği
+      (&ldquo;95 mi lazım? Yoksa 75 mi?&rdquo;) önemlidir çünkü cevap,
+      sabaha kadar çalışıp çalışmayacağını ya da dizüstünü kapatıp
+      uyuyacağını söyler. Bu rehber, formülü, üç çözümlü örneği ve
+      öğrencileri zorlayan uç durumları — gerekli puanın %100'ün üzerinde
+      olduğu durum da dahil — adım adım açıklıyor.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The one formula you need</h2>
+    <h2>İhtiyacın olan tek formül</h2>
     <p>
-      To compute the grade needed on a final exam:
+      Final sınavında gereken notu hesaplamak için:
     </p>
     <p>
-      <code>Needed % = (Target − Current earned) / Final weight</code>
+      <code>Gereken % = (Hedef − Mevcut kazanılan) / Final ağırlığı</code>
     </p>
     <p>
-      Where: <strong>Current earned</strong> = the sum of (category
-      percent score × category weight) for every category already graded.
-      <strong>Final weight</strong> = the weight of the final exam as a
-      decimal. <strong>Target</strong> = your goal grade.
-    </p>
-
-    <h2>Worked example 1 — straightforward</h2>
-    <p>
-      Syllabus: Homework 20% (you averaged 85%), Midterm 30% (you got
-      72%), Final 50%. Target: B (80%).
-    </p>
-    <p>
-      Current earned = (0.85 × 20) + (0.72 × 30) = 17 + 21.6 = 38.6.
-      Needed on final = (80 − 38.6) / 0.5 = 41.4 / 0.5 = <strong>82.8%</strong>.
-      You need an 82.8 on the final to end with exactly an 80. Doable —
-      go to bed.
+      Burada: <strong>Mevcut kazanılan</strong> = daha önce notlandırılmış her
+      kategori için (kategori yüzde puanı × kategori ağırlığı) toplamıdır.
+      <strong>Final ağırlığı</strong> = final sınavının ondalık olarak
+      ağırlığıdır. <strong>Hedef</strong> = hedeflediğin nottur.
     </p>
 
-    <h2>Worked example 2 — the &ldquo;it&rsquo;s over&rdquo; scenario</h2>
+    <h2>Çözümlü örnek 1 — basit durum</h2>
     <p>
-      Homework 20% @ 65%. Quizzes 10% @ 50%. Midterm 30% @ 60%. Final 40%.
-      Target: B (80%).
+      Ders izlencesi: Ödev %20 (ortalaman 85), Ara sınav %30 (72 aldın),
+      Final %50. Hedef: B (80).
     </p>
     <p>
-      Current earned = (0.65 × 20) + (0.50 × 10) + (0.60 × 30) = 13 + 5 +
-      18 = 36. Needed on final = (80 − 36) / 0.4 = 110%. You need a 110%
-      on the final. <strong>Mathematically impossible without extra
-      credit.</strong> Reset the target to a C (70%): (70 − 36) / 0.4 =
-      85%. That&rsquo;s achievable. Match effort to what&rsquo;s actually
-      available to you.
+      Mevcut kazanılan = (0,85 × 20) + (0,72 × 30) = 17 + 21,6 = 38,6.
+      Finalde gereken = (80 − 38,6) / 0,5 = 41,4 / 0,5 = <strong>%82,8</strong>.
+      Finalden 82,8 alman, tam olarak 80 ile bitirmen için yeterli. Yapılabilir —
+      yat uyu.
     </p>
 
-    <h2>Worked example 3 — the gift</h2>
+    <h2>Çözümlü örnek 2 — &ldquo;iş bitti&rdquo; senaryosu</h2>
     <p>
-      Homework 15% @ 95%. Labs 20% @ 92%. Midterm 1 20% @ 90%. Midterm 2
-      20% @ 88%. Final 25%. Target: A (90%).
+      Ödev %20 @ %65. Quizler %10 @ %50. Ara sınav %30 @ %60. Final %40.
+      Hedef: B (80).
     </p>
     <p>
-      Current earned = (0.95 × 15) + (0.92 × 20) + (0.90 × 20) + (0.88 ×
-      20) = 14.25 + 18.4 + 18 + 17.6 = 68.25. Needed = (90 − 68.25) /
-      0.25 = <strong>87%</strong>. An 87 on the final gives you an
-      exactly-90 A. You have room. Stop spiraling, review your weak
-      topic for 90 minutes, go to bed.
-    </p>
-
-    <h2>Weight sanity check</h2>
-    <p>
-      Add all your category weights. They should sum to 100%. If they
-      don&rsquo;t, your syllabus has a hidden category — usually
-      participation, attendance, or instructor discretion — and the
-      calculator can&rsquo;t project accurately without it. Email your
-      professor.
+      Mevcut kazanılan = (0,65 × 20) + (0,50 × 10) + (0,60 × 30) = 13 + 5 +
+      18 = 36. Finalde gereken = (80 − 36) / 0,4 = %110. Finalden %110
+      alman gerekiyor. <strong>Ek kredi olmadan matematiksel olarak imkansız.</strong>
+      Hedefi C'ye (70) düşür: (70 − 36) / 0,4 = %85. Bu ulaşılabilir.
+      Çabanı gerçekten yapabileceklerine göre ayarla.
     </p>
 
-    <h2>Letter-grade cutoffs</h2>
+    <h2>Çözümlü örnek 3 — şanslı durum</h2>
     <p>
-      Standard US cutoffs: A 90+, B 80+, C 70+, D 60+. Most schools
-      round 89.5 to A. Some syllabi use 93/83/73/63 (stricter) or
-      88/78/68/58 (looser) — check yours before setting a target.
+      Ödev %15 @ %95. Laboratuvarlar %20 @ %92. Ara sınav 1 %20 @ %90. Ara sınav 2
+      %20 @ %88. Final %25. Hedef: A (90).
     </p>
     <p>
-      &ldquo;A-&rdquo; and &ldquo;B+&rdquo; split points (87, 89, 92) vary
-      by institution. If your syllabus has plus/minus cutoffs, use them
-      directly as your target instead of assuming 90.
-    </p>
-
-    <h2>When the needed score is above 100%</h2>
-    <p>
-      This means you&rsquo;ve already given up the points needed to reach
-      your target. Three options:
-    </p>
-    <p>
-      (1) <strong>Lower the target.</strong> A B is still a good outcome;
-      a B- is acceptable in most cases. Figure out the target you can
-      realistically hit.
-    </p>
-    <p>
-      (2) <strong>Check for extra credit.</strong> Many courses have
-      optional extra-credit worth 1–3% of the grade. 3% of extra credit
-      swings your current-earned by the same 3%, which is sometimes the
-      difference between &ldquo;impossible&rdquo; and &ldquo;needs a
-      95.&rdquo; Always worth asking the professor.
-    </p>
-    <p>
-      (3) <strong>Consider a withdrawal</strong> if your school allows it
-      past the drop deadline. A W doesn&rsquo;t affect GPA (it does
-      affect financial aid and academic progress — check both). Better
-      a W than a D in most cases, as long as you&rsquo;re not at a W cap.
+      Mevcut kazanılan = (0,95 × 15) + (0,92 × 20) + (0,90 × 20) + (0,88 ×
+      20) = 14,25 + 18,4 + 18 + 17,6 = 68,25. Gereken = (90 − 68,25) /
+      0,25 = <strong>%87</strong>. Finalden 87 almak sana tam olarak 90
+      A'sını verir. Rahat ol. Panik yapmayı bırak, zayıf olduğun konuyu 90
+      dakika gözden geçir ve yat.
     </p>
 
-    <h2>Curve effects</h2>
+    <h2>Ağırlık kontrolü</h2>
     <p>
-      If your course is curved, the calculator&rsquo;s answer is a{" "}
-      <em>worst case</em>. A 78% raw score might become an 85% after
-      the curve, but you can&rsquo;t know the curve until finals are
-      graded. Plan for the raw score, treat the curve as a bonus.
+      Tüm kategori ağırlıklarını topla. %100'e ulaşmalılar. Ulaşmıyorsa,
+      ders izlencende gizli bir kategori vardır — genellikle katılım,
+      devam veya eğitmen takdiri — ve hesap makinesi onsuz doğru tahmin
+      yapamaz. Profesörüne e-posta at.
     </p>
 
-    <h2>The 30-second approach on exam night</h2>
+    <h2>Harf notu sınırları</h2>
     <p>
-      Open the <a href="/tools/grade-calculator">grade calculator</a>,
-      enter each category name/weight/score from your syllabus + gradebook,
-      add your target grade. The tool returns the score you need on the
-      final immediately, plus a flag if the target is unreachable. Pair
-      with the <a href="/tools/gpa-calculator">GPA calculator</a> if
-      you&rsquo;re tracking the course&rsquo;s impact on cumulative GPA
-      for scholarship or admission thresholds.
+      Standart ABD sınırları: A 90+, B 80+, C 70+, D 60+. Çoğu okul
+      89,5'i A'ya yuvarlar. Bazı izlenceler 93/83/73/63 (daha katı) veya
+      88/78/68/58 (daha esnek) kullanır — hedef belirlemeden önce kendi
+      izlenceni kontrol et.
+    </p>
+    <p>
+      &ldquo;A-&rdquo; ve &ldquo;B+&rdquo; ayırım noktaları (87, 89, 92)
+      kuruma göre değişir. İzlencende artı/eksi sınırları varsa, 90
+      varsaymak yerine doğrudan onları hedef olarak kullan.
+    </p>
+
+    <h2>Gerekli puan %100'ün üzerinde olduğunda</h2>
+    <p>
+      Bu, hedefine ulaşmak için gereken puanları zaten kaybettiğin anlamına
+      gelir. Üç seçenek:
+    </p>
+    <p>
+      (1) <strong>Hedefi düşür.</strong> B hâlâ iyi bir sonuçtur; B- çoğu
+      durumda kabul edilebilir. Gerçekçi olarak ulaşabileceğin hedefi bul.
+    </p>
+    <p>
+      (2) <strong>Ek krediyi kontrol et.</strong> Birçok derste notun %1-3'ü
+      değerinde isteğe bağlı ek kredi vardır. %3 ek kredi, mevcut
+      kazanılanını da aynı %3 oranında değiştirir; bu bazen
+      &ldquo;imkansız&rdquo; ile &ldquo;95 gerekiyor&rdquo; arasındaki
+      farktır. Profesöre sormak her zaman değer.
+    </p>
+    <p>
+      (3) <strong>Dersten çekilmeyi düşün</strong> okulun buna izin
+      veriyorsa ve ders bırakma tarihi geçmişse. W notu not ortalamasını
+      etkilemez (ancak mali yardım ve akademik ilerlemeyi etkiler —
+      ikisini de kontrol et). Çoğu durumda W, D'den daha iyidir, yeter ki
+      W sınırına ulaşmamış ol.
+    </p>
+
+    <h2>Eğri etkileri</h2>
+    <p>
+      Dersin eğriye tabi ise, hesap makinesinin cevabı bir{" "}
+      <em>en kötü durum</em>dur. %78'lik ham puan, eğriden sonra %85
+      olabilir, ancak finaller notlandırılana kadar eğriyi bilemezsin.
+      Ham puan için plan yap, eğriyi bonus olarak gör.
+    </p>
+
+    <h2>Sınav gecesi için 30 saniyelik yaklaşım</h2>
+    <p>
+      <a href="/tools/grade-calculator">Not hesaplayıcıyı</a> aç,
+      ders izlencenden ve not defterinden her kategori adını/ağırlığını/puanını
+      gir, hedef notunu ekle. Araç, finalde ihtiyacın olan puanı hemen
+      döndürür ve hedef ulaşılamazsa bir uyarı verir. Dersin kümülatif
+      not ortalamasına etkisini burs veya kabul eşikleri için takip
+      ediyorsan <a href="/tools/gpa-calculator">not ortalaması
+      hesaplayıcısıyla</a> birlikte kullan.
     </p>
   </>
 );

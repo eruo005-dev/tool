@@ -1,67 +1,65 @@
 import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
-  <p>v0 by Vercel turns natural-language prompts into production-ready React components using shadcn/ui and Tailwind CSS.</p>
+  <p>v0 by Vercel, doğal dil istemlerini shadcn/ui ve Tailwind CSS kullanarak üretime hazır React bileşenlerine dönüştürür.</p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      v0 is Vercel&rsquo;s generative UI tool. You describe a screen in plain English &mdash; or paste a Figma frame, a
-      screenshot, or a rough sketch &mdash; and it returns a working React component using shadcn/ui primitives and
-      Tailwind classes. It is optimized for Next.js App Router output, so generated code drops into a real project with
-      minimal cleanup. Iteration is chat-based: you refine the output by replying with corrections rather than editing
-      a prompt from scratch.
+      v0, Vercel&rsquo;in üretken UI aracıdır. Bir ekranı düz İngilizce ile tanımlarsınız &mdash; veya bir Figma çerçevesi, bir
+      ekran görüntüsü ya da kaba bir taslak yapıştırırsınız &mdash; ve size shadcn/ui temel bileşenleri ve
+      Tailwind sınıflarını kullanan çalışan bir React bileşeni döndürür. Next.js App Router çıktısı için optimize edilmiştir, bu nedenle oluşturulan kod minimum temizlikle gerçek bir projeye eklenir.
+      Yineleme sohbet tabanlıdır: istemi sıfırdan düzenlemek yerine düzeltmelerle yanıt vererek çıktıyı iyileştirirsiniz.
     </p>
 
-    <h2>What it is</h2>
+    <h2>Ne olduğu</h2>
     <p>
-      v0 is a hosted web app built on top of Vercel&rsquo;s own model (v0-1.5-md) with fallbacks to frontier models for
-      heavier reasoning. The generated code uses TypeScript, React Server Components when sensible, and the shadcn/ui
-      component library under the MIT license. Maintainer: Vercel. It is paid beyond a small free tier, billed by
-      message credits.
+      v0, Vercel&rsquo;in kendi modeli (v0-1.5-md) üzerine inşa edilmiş, daha ağır akıl yürütme için son teknoloji modellere
+      geri dönüşleri olan barındırılan bir web uygulamasıdır. Oluşturulan kod, TypeScript, uygun olduğunda React Server Components ve
+      MIT lisansı altındaki shadcn/ui bileşen kitaplığını kullanır. Bakımcı: Vercel. Küçük bir ücretsiz katmanın ötesinde ücretlidir, mesaj
+      kredileriyle faturalandırılır.
     </p>
 
-    <h2>Install</h2>
-    <p>There is nothing to install locally &mdash; v0 lives at v0.dev. To pull generated components into a project:</p>
+    <h2>Kurulum</h2>
+    <p>Yerel olarak kurulacak bir şey yok &mdash; v0, v0.dev adresinde bulunur. Oluşturulan bileşenleri bir projeye çekmek için:</p>
     <pre>{`npx shadcn@latest add "https://v0.dev/chat/b/<block-id>"
-# or copy/paste from the v0 preview pane`}</pre>
+# veya v0 önizleme bölmesinden kopyala/yapıştır`}</pre>
 
-    <h2>First run</h2>
-    <p>Open v0.dev, sign in with your Vercel account, and type a prompt such as &ldquo;pricing page with three tiers&rdquo;.</p>
-    <pre>{`// v0 returns files like this that you drop into app/
+    <h2>İlk çalıştırma</h2>
+    <p>v0.dev'i açın, Vercel hesabınızla oturum açın ve &ldquo;üç katmanlı fiyatlandırma sayfası&rdquo; gibi bir istem yazın.</p>
+    <pre>{`// v0, app/ klasörüne ekleyeceğiniz bu tür dosyaları döndürür
 export default function Pricing() {
   return (
     <section className="py-24">
-      <h1 className="text-4xl font-bold">Pricing</h1>
-      {/* three Card components follow */}
+      <h1 className="text-4xl font-bold">Fiyatlandırma</h1>
+      {/* ardından üç Card bileşeni gelir */}
     </section>
   )
 }`}</pre>
 
-    <h2>Everyday workflows</h2>
+    <h2>Günlük iş akışları</h2>
     <ul>
-      <li>Paste a screenshot of a competitor&rsquo;s landing page and ask for a branded equivalent.</li>
-      <li>Iterate in chat &mdash; &ldquo;make the hero dark, move the CTA right, add a testimonial row&rdquo;.</li>
-      <li>Click &ldquo;Add to Codebase&rdquo; to ship straight to a connected GitHub repo and open a PR.</li>
+      <li>Bir rakibin açılış sayfasının ekran görüntüsünü yapıştırın ve markalı bir eşdeğerini isteyin.</li>
+      <li>Sohbette yineleme yapın &mdash; &ldquo;hero bölümünü koyu yap, CTA'yı sağa taşı, bir referans satırı ekle&rdquo;.</li>
+      <li>Doğrudan bağlı bir GitHub deposuna göndermek ve bir PR açmak için &ldquo;Kod Tabanına Ekle&rdquo;ye tıklayın.</li>
     </ul>
 
-    <h2>Gotchas and tips</h2>
+    <h2>Tuzaklar ve ipuçları</h2>
     <p>
-      v0 often imports components you have not installed yet. Run the shadcn add command it suggests before hitting
-      save, or the build will break on missing primitives. Generated server components sometimes call client-only hooks
-      &mdash; double-check that &ldquo;use client&rdquo; lives at the top of interactive files.
+      v0 genellikle henüz yüklemediğiniz bileşenleri içe aktarır. Kaydetmeden önce önerdiği shadcn add komutunu çalıştırın,
+      aksi takdirde derleme eksik temel bileşenler nedeniyle bozulur. Oluşturulan sunucu bileşenleri bazen yalnızca istemciye özel hook'ları çağırır
+      &mdash; etkileşimli dosyaların en üstünde &ldquo;use client&rdquo; olduğundan emin olun.
     </p>
     <p>
-      Treat v0 output as a strong first draft, not a final commit. It tends to inline data that should come from your
-      CMS or database, and accessibility attributes are decent but not perfect &mdash; audit tab order and alt text
-      before shipping.
+      v0 çıktısını son bir taahhüt değil, güçlü bir ilk taslak olarak değerlendirin. CMS'nizden veya veritabanınızdan gelmesi gereken verileri satır içine alma eğilimindedir
+      ve erişilebilirlik özellikleri iyi ancak mükemmel değildir &mdash; yayınlamadan önce sekme sırasını ve alt metni denetleyin.
     </p>
 
-    <h2>Who it&rsquo;s for</h2>
+    <h2>Kimler için olduğu</h2>
     <p>
-      Founders and full-stack engineers who already live in the Next.js + Tailwind stack. Tip: keep a design-system
-      reference project pinned as v0 context so every new generation matches your existing tokens.
+      Zaten Next.js + Tailwind yığınında yaşayan kurucular ve full-stack mühendisler. İpucu: Her yeni üretimin mevcut token'larınızla eşleşmesi için
+      v0 bağlamı olarak bir tasarım sistemi referans projesini sabitleyin.
     </p>
   </>
 );

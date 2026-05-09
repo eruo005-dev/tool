@@ -3,157 +3,122 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Alcohol math matters more than most drinkers realize. A &ldquo;glass of wine&rdquo; can
-      mean 125ml at 11% ABV or 250ml at 14.5% — nearly triple the alcohol for the same name.
-      If you want to stay inside health guidelines, track your tolerance, or just know what
-      you&rsquo;re actually drinking, you need a consistent unit. The UK uses &ldquo;units&rdquo;
-      (10ml of pure alcohol), the US uses &ldquo;standard drinks&rdquo; (14g of pure alcohol),
-      and bartenders use neither. This guide gives you the formulas, the thresholds, and the
-      quick mental shortcuts so you can count accurately no matter what&rsquo;s in your glass.
+      Alkol matematiği, çoğu içicinin fark ettiğinden daha önemlidir. Bir &ldquo;kadeh şarap&rdquo; %11 ABV'de 125 ml veya %14.5 ABV'de 250 ml anlamına gelebilir — aynı isim için neredeyse üç kat daha fazla alkol. Sağlık yönergeleri dahilinde kalmak, toleransınızı takip etmek veya gerçekte ne içtiğinizi bilmek istiyorsanız, tutarlı bir birime ihtiyacınız var. Birleşik Krallık &ldquo;birimleri&rdquo; (10 ml saf alkol), ABD &ldquo;standart içkileri&rdquo; (14 g saf alkol) kullanır ve barmenler ikisini de kullanmaz. Bu rehber size formülleri, eşik değerleri ve hızlı zihinsel kestirmeleri sunar, böylece bardağınızda ne olursa olsun doğru sayabilirsiniz.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>1. The UK unit formula</h2>
+    <h2>1. Birleşik Krallık birim formülü</h2>
     <p>
-      One UK unit = 10ml (8g) of pure ethanol. The formula is simple:
+      Bir BK birimi = 10 ml (8 g) saf etanol. Formül basittir:
     </p>
-    <pre>{`units = (ABV% × volume in ml) / 1000`}</pre>
+    <pre>{`birim = (ABV% × hacim ml) / 1000`}</pre>
     <p>
-      A 175ml glass of 13% wine: <code>13 × 175 / 1000 = 2.275 units</code>. A pint (568ml)
-      of 5% lager: <code>5 × 568 / 1000 = 2.84 units</code>. A 25ml shot of 40% spirits:
-      <code> 40 × 25 / 1000 = 1.0 unit</code>. The math is the same for every drink — only
-      the ABV and volume change.
+      175 ml'lik bir kadeh %13 şarap: <code>13 × 175 / 1000 = 2.275 birim</code>. Bir pint (568 ml) %5 bira: <code>5 × 568 / 1000 = 2.84 birim</code>. 25 ml'lik bir tek %40 alkollü içki: <code>40 × 25 / 1000 = 1.0 birim</code>. Matematik her içecek için aynıdır — sadece ABV ve hacim değişir.
     </p>
 
-    <h2>2. The US &ldquo;standard drink&rdquo;</h2>
+    <h2>2. ABD &ldquo;standart içkisi&rdquo;</h2>
     <p>
-      The US defines one standard drink as 14g (17.7ml) of pure alcohol. That&rsquo;s roughly
-      1.75 UK units. The typical US rules of thumb:
+      ABD, bir standart içkiyi 14 g (17.7 ml) saf alkol olarak tanımlar. Bu kabaca 1.75 BK birimine eşittir. Tipik ABD pratik kuralları:
     </p>
     <ul>
-      <li>12 oz (355ml) of 5% beer = 1 standard drink</li>
-      <li>5 oz (148ml) of 12% wine = 1 standard drink</li>
-      <li>1.5 oz (44ml) of 40% spirits = 1 standard drink</li>
+      <li>12 oz (355 ml) %5 bira = 1 standart içki</li>
+      <li>5 oz (148 ml) %12 şarap = 1 standart içki</li>
+      <li>1.5 oz (44 ml) %40 alkollü içki = 1 standart içki</li>
     </ul>
     <p>
-      These are designed to roughly match. In reality, a craft IPA at 7.5% ABV in a 16oz
-      pour is closer to <strong>2 standard drinks</strong>, not one.
+      Bunlar kabaca eşleşecek şekilde tasarlanmıştır. Gerçekte, %7.5 ABV'de 16 oz'luk bir bardaktaki bir craft IPA, bir değil <strong>2 standart içkiye</strong> daha yakındır.
     </p>
 
-    <h2>3. Weekly guidelines</h2>
+    <h2>3. Haftalık yönergeler</h2>
     <p>
-      The UK Chief Medical Officers recommend <strong>no more than 14 units per week</strong>,
-      spread over 3+ days, with several alcohol-free days. The US Dietary Guidelines suggest
-      no more than 2 standard drinks per day for men and 1 for women — roughly 14 and 7 per
-      week respectively. The WHO position is blunter: <em>no level of alcohol is safe</em> for
-      health. These numbers are ceilings, not targets.
+      Birleşik Krallık Baş Tıp Görevlileri, 3+ güne yayılmış ve birkaç alkolsüz gün içeren <strong>haftada en fazla 14 birim</strong> önermektedir. ABD Beslenme Yönergeleri, erkekler için günde en fazla 2 standart içki ve kadınlar için 1 standart içki önermektedir — bu sırasıyla haftada yaklaşık 14 ve 7'ye denk gelir. DSÖ'nün tutumu daha nettir: <em>sağlık için hiçbir alkol seviyesi güvenli değildir</em>. Bu sayılar hedef değil, tavan değerlerdir.
     </p>
 
-    <h2>4. Wine math is where most people lose count</h2>
+    <h2>4. Şarap matematiği çoğu kişinin sayıyı kaybettiği yerdir</h2>
     <p>
-      Wine bottles come in 750ml. At 13% ABV that&rsquo;s <code>13 × 750 / 1000 = 9.75 UK
-      units</code> per bottle, or ~5.5 US standard drinks. A &ldquo;large&rdquo; 250ml
-      restaurant pour of 14% wine is 3.5 units — a quarter of your weekly cap in one glass.
-      New World reds and whites routinely hit 14-15% ABV; older European wines sit closer to
-      11-12%. Always check the label.
+      Şarap şişeleri 750 ml gelir. %13 ABV'de bu, şişe başına <code>13 × 750 / 1000 = 9.75 BK birimi</code> veya ~5.5 ABD standart içkisi demektir. %14 şarabın &ldquo;büyük&rdquo; 250 ml'lik restoran porsiyonu 3.5 birimdir — haftalık limitinizin dörtte biri tek bir bardakta. Yeni Dünya kırmızıları ve beyazları rutin olarak %14-15 ABV'ye ulaşır; eski Avrupa şarapları %11-12'ye daha yakındır. Etiketi her zaman kontrol edin.
     </p>
 
-    <h2>5. Beer math by strength tier</h2>
+    <h2>5. Bira matematiği güç seviyesine göre</h2>
     <p>
-      Beer ABV ranges from ~3% (light lager) to 12%+ (imperial stouts). Quick table for a
-      UK pint (568ml):
+      Bira ABV'si ~%3 (hafif lager) ile %12+ (imperial stout) arasında değişir. Bir BK pinti (568 ml) için hızlı tablo:
     </p>
     <ul>
-      <li>3.5% session bitter: 2.0 units</li>
-      <li>4.5% standard lager: 2.6 units</li>
-      <li>5.5% craft pale ale: 3.1 units</li>
-      <li>7.5% IPA: 4.3 units</li>
-      <li>10% imperial stout: 5.7 units</li>
+      <li>%3.5 session bitter: 2.0 birim</li>
+      <li>%4.5 standart lager: 2.6 birim</li>
+      <li>%5.5 craft pale ale: 3.1 birim</li>
+      <li>%7.5 IPA: 4.3 birim</li>
+      <li>%10 imperial stout: 5.7 birim</li>
     </ul>
     <p>
-      A single strong IPA pint can exceed a full glass of wine. &ldquo;Just one pint&rdquo;
-      isn&rsquo;t a fixed dose.
+      Tek bir sert IPA pinti, bir kadeh şarabı geçebilir. &ldquo;Sadece bir bira&rdquo; sabit bir doz değildir.
     </p>
 
-    <h2>6. Spirits and cocktails</h2>
+    <h2>6. Alkollü içkiler ve kokteyller</h2>
     <p>
-      A UK pub measure is 25ml (some pubs pour 35ml). A US shot is typically 1.5oz (44ml).
-      Most spirits sit at 37-40% ABV. A gin &amp; tonic with a 25ml gin pour is 1 unit; a
-      double is 2. Cocktails often contain 50-90ml of spirits across multiple ingredients —
-      a Long Island Iced Tea can hit <strong>4-5 units in a single glass</strong>. When you
-      can&rsquo;t see the pour, assume more.
+      Bir BK pub ölçüsü 25 ml'dir (bazı publar 35 ml döker). Bir ABD shot'ı tipik olarak 1.5 oz (44 ml)'dir. Çoğu alkollü içki %37-40 ABV'dedir. 25 ml cin dökülen bir cin tonik 1 birimdir; bir duble 2 birimdir. Kokteyller genellikle birden fazla bileşen arasında 50-90 ml alkollü içki içerir — bir Long Island Iced Tea tek bir bardakta <strong>4-5 birime</strong> ulaşabilir. Dökülen miktarı göremediğinizde, daha fazla olduğunu varsayın.
     </p>
 
-    <h2>7. Shortcut mental math</h2>
+    <h2>7. Kestirme zihinsel matematik</h2>
     <p>
-      For fast estimation, memorize these:
+      Hızlı tahmin için bunları ezberleyin:
     </p>
     <ul>
-      <li>Pint of 4% beer = 2.3 units</li>
-      <li>Small (125ml) 12% wine = 1.5 units</li>
-      <li>Medium (175ml) 13% wine = 2.3 units</li>
-      <li>Large (250ml) 14% wine = 3.5 units</li>
-      <li>Single spirit (25ml, 40%) = 1 unit</li>
+      <li>%4 biranın pinti = 2.3 birim</li>
+      <li>Küçük (125 ml) %12 şarap = 1.5 birim</li>
+      <li>Orta (175 ml) %13 şarap = 2.3 birim</li>
+      <li>Büyük (250 ml) %14 şarap = 3.5 birim</li>
+      <li>Tek alkollü içki (25 ml, %40) = 1 birim</li>
     </ul>
     <p>
-      Round up when you&rsquo;re unsure. Underestimating is the default failure mode.
+      Emin olmadığınızda yukarı yuvarlayın. Eksik tahmin etmek varsayılan başarısızlık modudur.
     </p>
 
-    <h2>8. Converting UK units to US drinks</h2>
+    <h2>8. BK birimlerini ABD içkilerine dönüştürme</h2>
     <p>
-      One US standard drink = 1.75 UK units. To convert:
+      Bir ABD standart içkisi = 1.75 BK birimi. Dönüştürmek için:
     </p>
-    <pre>{`US drinks = UK units / 1.75
-UK units = US drinks × 1.75`}</pre>
+    <pre>{`ABD içkileri = BK birimleri / 1.75
+BK birimleri = ABD içkileri × 1.75`}</pre>
     <p>
-      UK weekly cap of 14 units = roughly 8 US standard drinks. US daily cap of 2 drinks =
-      3.5 UK units. Same ethanol, different packaging.
-    </p>
-
-    <h2>9. Time and blood alcohol</h2>
-    <p>
-      Your liver processes about one unit per hour (one US standard drink every ~90
-      minutes). If you drink 4 units in an hour, you&rsquo;re carrying 3 units&rsquo; worth
-      of alcohol into the next hour. Food slows absorption but doesn&rsquo;t reduce the total.
-      Coffee doesn&rsquo;t sober you up — only time does.
+      BK haftalık limiti 14 birim = kabaca 8 ABD standart içkisi. ABD günlük limiti 2 içki = 3.5 BK birimi. Aynı etanol, farklı ambalaj.
     </p>
 
-    <h2>10. Common mistakes</h2>
+    <h2>9. Zaman ve kan alkolü</h2>
+    <p>
+      Karaciğeriniz saatte yaklaşık bir birim işler (her ~90 dakikada bir ABD standart içkisi). Bir saatte 4 birim içerseniz, bir sonraki saate 3 birimlik alkol taşıyorsunuz demektir. Yiyecek emilimi yavaşlatır ancak toplamı azaltmaz. Kahve sizi ayıltmaz — sadece zaman ayıltır.
+    </p>
+
+    <h2>10. Yaygın hatalar</h2>
     <ul>
       <li>
-        <strong>Using &ldquo;glasses&rdquo; instead of ml.</strong> Home pours are 30-50%
-        bigger than restaurant pours. Measure once to calibrate your eye.
+        <strong>ml yerine &ldquo;kadeh&rdquo; kullanmak.</strong> Evdeki dökülen miktarlar restoran porsiyonlarından %30-50 daha fazladır. Gözünüzü kalibre etmek için bir kez ölçün.
       </li>
       <li>
-        <strong>Ignoring ABV creep.</strong> Craft beer and New World wine have drifted
-        stronger over the last decade. A 2015 IPA and a 2026 IPA are not the same drink.
+        <strong>ABV artışını görmezden gelmek.</strong> Craft bira ve Yeni Dünya şarabı son on yılda daha güçlü hale geldi. 2015 IPA'sı ile 2026 IPA'sı aynı içecek değildir.
       </li>
       <li>
-        <strong>Counting cocktails as &ldquo;one drink.&rdquo;</strong> Count the spirits in
-        each cocktail and add them up. A margarita is usually 2 units, not 1.
+        <strong>Kokteylleri &ldquo;tek içki&rdquo; olarak saymak.</strong> Her kokteyldeki alkollü içkileri sayın ve toplayın. Bir margarita genellikle 1 değil, 2 birimdir.
       </li>
       <li>
-        <strong>Forgetting non-drinking days.</strong> The UK guideline is 14 units
-        <em> spread over 3+ days</em>. Ten units on Saturday is not the same as 2 per day.
+        <strong>İçilmeyen günleri unutmak.</strong> BK yönergesi 14 birim <em>3+ güne yayılmış</em> şeklindedir. Cumartesi günü on birim, günde 2 birim ile aynı şey değildir.
       </li>
       <li>
-        <strong>Trusting &ldquo;low-cal&rdquo; labels.</strong> A low-calorie beer can still
-        be 5% ABV. Calorie count and alcohol content are independent.
+        <strong>&ldquo;Düşük kalorili&rdquo; etiketlerine güvenmek.</strong> Düşük kalorili bir bira yine de %5 ABV olabilir. Kalori sayısı ve alkol içeriği bağımsızdır.
       </li>
     </ul>
 
-    <h2>11. Run the numbers</h2>
+    <h2>11. Sayıları hesaplayın</h2>
     <p>
-      Plug in the ABV and volume of your actual drink rather than guessing. Then pair it with
-      your daily calorie math — alcohol is 7 kcal/g, second only to fat.
+      Tahmin etmek yerine gerçek içeceğinizin ABV'sini ve hacmini girin. Ardından bunu günlük kalori hesabınızla eşleştirin — alkol 7 kcal/g'dır, sadece yağdan sonra ikinci sıradadır.
     </p>
     <p>
-      <a href="/tools/alcohol-unit-calculator">Alcohol unit calculator</a>
-      <a href="/tools/caffeine-intake-calculator">Caffeine intake calculator</a>
-      <a href="/tools/calorie-calculator">Calorie calculator</a>
+      <a href="/tools/alcohol-unit-calculator">Alkol birim hesaplayıcı</a>
+      <a href="/tools/caffeine-intake-calculator">Kafein alım hesaplayıcı</a>
+      <a href="/tools/calorie-calculator">Kalori hesaplayıcı</a>
     </p>
   </>
 );

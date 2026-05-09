@@ -2,52 +2,52 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Three categories of AI handle PDFs in 2026: chat with one PDF (ChatGPT, Claude, Gemini),
-    chat with many (NotebookLM, Claude Projects), and structured extraction (DocuPanda,
-    LlamaParse). Pick by how many PDFs and how structured the output needs to be.
+    2026'da PDF'leri işleyen üç yapay zeka kategorisi var: bir PDF ile sohbet (ChatGPT, Claude, Gemini),
+    birçoğuyla sohbet (NotebookLM, Claude Projects) ve yapılandırılmış çıkarım (DocuPanda,
+    LlamaParse). Kaç PDF olduğuna ve çıktının ne kadar yapılandırılmış olması gerektiğine göre seçim yapın.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>By task</h2>
+    <h2>Göreve göre</h2>
     <ul>
-      <li><strong>Chat with 1 PDF:</strong> Claude (1M context fits whole books). Drop a 600-page
-        PDF in claude.ai, ask anything.</li>
-      <li><strong>Chat with up to 50 PDFs:</strong> NotebookLM (free). Best free tool for
-        cross-source synthesis with citations.</li>
-      <li><strong>Long-running PDF research project:</strong> Claude Projects ($20/mo). Persistent
-        context across all sessions.</li>
-      <li><strong>Extract tables / structured data:</strong> DocuPanda, LlamaParse, or Reducto AI.
-        Specialized; better than vanilla Claude for messy tables.</li>
-      <li><strong>OCR scanned PDFs:</strong> Gemini 2.5 Pro (best OCR among LLMs in 2026), or
-        dedicated tools like Mistral OCR.</li>
-      <li><strong>Compare PDFs:</strong> Claude with both files in one prompt. Easy.</li>
-      <li><strong>Sign / fill PDFs:</strong> AI doesn&rsquo;t add value &mdash; use a PDF editor.
-        Try our <a href="/tools/pdf-editor">PDF editor</a> or related tools.</li>
+      <li><strong>1 PDF ile sohbet:</strong> Claude (1M bağlam tüm kitapları sığdırır). 600 sayfalık bir
+        PDF'yi claude.ai'ye bırakın, her şeyi sorun.</li>
+      <li><strong>50 PDF'e kadar sohbet:</strong> NotebookLM (ücretsiz). Atıflarla çapraz kaynak
+        sentezi için en iyi ücretsiz araç.</li>
+      <li><strong>Uzun süreli PDF araştırma projesi:</strong> Claude Projects ($20/ay). Tüm oturumlar arasında
+        kalıcı bağlam.</li>
+      <li><strong>Tabloları / yapılandırılmış verileri çıkarma:</strong> DocuPanda, LlamaParse veya Reducto AI.
+        Uzmanlaşmış; karmaşık tablolar için sade Claude'dan daha iyi.</li>
+      <li><strong>Taranmış PDF'ler için OCR:</strong> Gemini 2.5 Pro (2026'da LLM'ler arasında en iyi OCR) veya
+        Mistral OCR gibi özel araçlar.</li>
+      <li><strong>PDF'leri karşılaştırma:</strong> Her iki dosyayı tek bir istemde Claude ile. Kolay.</li>
+      <li><strong>PDF'leri imzalama / doldurma:</strong> Yapay zeka değer katmaz &mdash; bir PDF düzenleyici kullanın.
+        <a href="/tools/pdf-editor">PDF düzenleyicimizi</a> veya ilgili araçları deneyin.</li>
     </ul>
 
-    <h2>Pricing</h2>
+    <h2>Fiyatlandırma</h2>
     <ul>
-      <li>$0: NotebookLM (free, up to 50 sources, citations).</li>
-      <li>$20: Claude Pro &mdash; biggest single-PDF <a href="/learn/context-window">context window</a>.</li>
-      <li>$0.10-0.50/page: DocuPanda, LlamaParse, Reducto for structured extraction.</li>
+      <li>$0: NotebookLM (ücretsiz, 50 kaynağa kadar, atıflar).</li>
+      <li>$20: Claude Pro &mdash; en büyük tek PDF <a href="/learn/context-window">bağlam penceresi</a>.</li>
+      <li>$0.10-0.50/sayfa: DocuPanda, LlamaParse, Reducto yapılandırılmış çıkarım için.</li>
     </ul>
 
-    <h2>The honest 2026 workflow for PDF research</h2>
+    <h2>PDF araştırması için 2026'nın dürüst iş akışı</h2>
     <p>
-      Drop your PDFs into NotebookLM. Ask broad synthesis questions there. For deep analysis on
-      one specific paper, switch to Claude Projects with that PDF uploaded. Use the audio
-      overview feature in NotebookLM to listen to a summary while commuting. That&rsquo;s the
-      $20/mo workflow that beats most paid PDF tools.
+      PDF'lerinizi NotebookLM'ye bırakın. Orada geniş sentez soruları sorun. Belirli bir makale üzerinde derinlemesine analiz
+      için, o PDF'nin yüklendiği Claude Projects'e geçin. İşe gidip gelirken bir özeti dinlemek için NotebookLM'deki sesli
+      genel bakış özelliğini kullanın. Bu, çoğu ücretli PDF aracını yenen
+      $20/ay'lık iş akışıdır.
     </p>
 
-    <h2>Other useful PDF tools on this site</h2>
+    <h2>Bu sitedeki diğer kullanışlı PDF araçları</h2>
     <ul>
-      <li><a href="/tools/merge-pdf">PDF merger</a> &mdash; combine PDFs in your browser.</li>
-      <li><a href="/tools/pdf-split">PDF splitter</a> &mdash; pull pages.</li>
-      <li><a href="/tools/pdf-compress">PDF compressor</a> &mdash; shrink before sharing.</li>
-      <li><a href="/tools/pdf-to-text">PDF to text</a> &mdash; extract for AI processing.</li>
+      <li><a href="/tools/merge-pdf">PDF birleştirici</a> &mdash; tarayıcınızda PDF'leri birleştirin.</li>
+      <li><a href="/tools/pdf-split">PDF bölücü</a> &mdash; sayfaları çekin.</li>
+      <li><a href="/tools/pdf-compress">PDF sıkıştırıcı</a> &mdash; paylaşmadan önce küçültün.</li>
+      <li><a href="/tools/pdf-to-text">PDF'den metne</a> &mdash; yapay zeka işleme için çıkarın.</li>
     </ul>
   </>
 );

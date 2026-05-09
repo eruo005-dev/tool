@@ -1,213 +1,191 @@
-/* eslint-disable react/no-unescaped-entities */
-
 export const intro = (
   <>
     <p>
-      The most-asked question on AI-strategy threads in 2026:{" "}
-      <em>&ldquo;how much should I expect to pay, and is it worth it?&rdquo;</em> Vendor
-      websites quote ranges from $15K to $500K with no useful signal about which end of
-      that spectrum applies to you. This guide gives you the honest pricing model + <a href="/learn/roi">ROI</a>
-      math + payback expectations.
+      2026'da AI stratejisi başlıklarında en çok sorulan soru:{" "}
+      <em>&ldquo;ne kadar ödemeyi beklemeliyim ve buna değer mi?&rdquo;</em> Satıcı
+      web siteleri 15.000$ ile 500.000$ arasında değişen fiyat aralıklarından bahseder, ancak bu aralığın hangi ucunun size uygulanacağına dair yararlı bir sinyal vermez. Bu rehber size dürüst fiyatlandırma modelini + <a href="/learn/roi">ROI</a>
+      hesaplamasını + geri ödeme beklentilerini verir.
     </p>
     <p>
-      Plug your numbers into our{" "}
-      <a href="/tools/ai-consulting-roi-calculator">AI consulting ROI calculator</a> in
-      another tab as you read.
+      Okurken başka bir sekmede sayılarınızı{" "}
+      <a href="/tools/ai-consulting-roi-calculator">AI danışmanlık ROI hesaplayıcımıza</a> girin.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "models", label: "Pricing models" },
-  { id: "ranges", label: "Realistic cost ranges" },
-  { id: "roi", label: "What ROI to expect" },
-  { id: "timeline", label: "Timeline expectations" },
-  { id: "cheap", label: "Cheapest legitimate options" },
+  { id: "models", label: "Fiyatlandırma modelleri" },
+  { id: "ranges", label: "Gerçekçi maliyet aralıkları" },
+  { id: "roi", label: "Beklenen ROI" },
+  { id: "timeline", label: "Zaman çizelgesi beklentileri" },
+  { id: "cheap", label: "En ucuz meşru seçenekler" },
 ];
 
 export const body = (
   <>
-    <h2 id="models">The four pricing models</h2>
+    <h2 id="models">Dört fiyatlandırma modeli</h2>
     <ul>
       <li>
-        <strong>Fixed-fee project.</strong> One number for a defined scope. Best for
-        well-bounded problems (build a document classifier, integrate Claude into your CRM).
-        Risk: scope creep eats the margin and the consultant pushes back hard on changes.
+        <strong>Sabit ücretli proje.</strong> Tanımlanmış bir kapsam için tek bir rakam.
+        İyi tanımlanmış sorunlar için en iyisidir (bir belge sınıflandırıcı oluşturmak, Claude'u CRM'inize entegre etmek).
+        Risk: kapsam kayması marjı yer ve danışman değişikliklere sert bir şekilde direnir.
       </li>
       <li>
-        <strong>Time &amp; materials with ceiling.</strong> Hourly billing with a hard
-        cap. Best for exploratory work where scope is genuinely uncertain. Risk: ceiling
-        gets hit and you negotiate from a weak position.
+        <strong>Tavanlı zaman ve malzeme.</strong> Sert bir üst sınırı olan saatlik faturalandırma.
+        Kapsamın gerçekten belirsiz olduğu keşif amaçlı çalışmalar için en iyisidir. Risk: tavana ulaşılır ve zayıf bir konumdan müzakere edersiniz.
       </li>
       <li>
-        <strong>Retainer.</strong> Monthly fee for a fractional-CTO-like engagement.
-        Best for ongoing strategy + implementation oversight. Risk: easy to keep paying
-        when you&rsquo;ve plateaued on value.
+        <strong>Retainer.</strong> Kesirli-CTO benzeri bir angajman için aylık ücret.
+        Devam eden strateji + uygulama denetimi için en iyisidir. Risk: değerde platoya ulaştığınızda ödemeye devam etmek kolaydır.
       </li>
       <li>
-        <strong>Outcome-based / equity.</strong> Vendor takes a percentage of measured
-        savings or revenue uplift. Sounds great in theory; in practice the measurement
-        is contentious and most firms don&rsquo;t actually offer this. The few that do
-        charge premium rates to make the math work.
+        <strong>Sonuç bazlı / öz sermaye.</strong> Satıcı, ölçülen tasarrufların veya gelir artışının bir yüzdesini alır.
+        Teoride kulağa hoş gelir; pratikte ölçüm tartışmalıdır ve çoğu firma bunu gerçekten sunmaz. Sunan birkaç firma, matematiği çalıştırmak için prim oranları talep eder.
       </li>
     </ul>
     <p>
-      Default to fixed-fee with milestones for first engagements. Move to T&amp;M or
-      retainer only if you have a track record with the firm.
+      İlk angajmanlar için kilometre taşları olan sabit ücreti tercih edin. Yalnızca firmayla bir geçmişiniz varsa T&amp;M veya retainer'a geçin.
     </p>
 
-    <h2 id="ranges">Realistic cost ranges (USD, 2026)</h2>
+    <h2 id="ranges">Gerçekçi maliyet aralıkları (USD, 2026)</h2>
     <p>
-      These ranges are public-pricing observations from RFPs, vendor proposals, and
-      published case studies — not vendor-marketing &ldquo;starting from&rdquo; prices.
+      Bu aralıklar, RFP'lerden, satıcı tekliflerinden ve yayınlanmış vaka çalışmalarından elde edilen kamuya açık fiyatlandırma gözlemleridir &mdash; satıcı pazarlamasındaki &ldquo;başlangıç&rdquo; fiyatları değil.
     </p>
     <ul>
       <li>
-        <strong>Strategy-only engagements (6–12 weeks):</strong> $25K–$80K. Output: an AI
-        roadmap, prioritized use cases, build-vs-buy recommendations, vendor short-list.
-        No code shipped.
+        <strong>Yalnızca strateji angajmanları (6–12 hafta):</strong> 25.000$–80.000$. Çıktı: bir AI
+        yol haritası, önceliklendirilmiş kullanım durumları, oluşturma-satın alma önerileri, satıcı kısa listesi.
+        Hiçbir kod teslim edilmez.
       </li>
       <li>
-        <strong>Single-use-case implementation (8–16 weeks):</strong> $50K–$200K. Output:
-        production-ready integration of an off-the-shelf model into one specific workflow
-        (customer support, document processing, internal search).
+        <strong>Tek kullanım durumu uygulaması (8–16 hafta):</strong> 50.000$–200.000$. Çıktı:
+        hazır bir modelin belirli bir iş akışına (müşteri desteği, belge işleme, dahili arama) üretime hazır entegrasyonu.
       </li>
       <li>
-        <strong>Custom model <a href="/learn/fine-tuning">fine-tuning</a> + deployment (16–24 weeks):</strong> $150K–$500K.
-        Output: domain-specific fine-tuned model with eval harness, hosted infra, runbooks.
+        <strong>Özel model <a href="/learn/fine-tuning">ince ayarı</a> + dağıtımı (16–24 hafta):</strong> 150.000$–500.000$.
+        Çıktı: değerlendirme koşum takımı, barındırılan altyapı, çalışma kitapları ile alana özgü ince ayarlı model.
       </li>
       <li>
-        <strong>Enterprise transformation programs:</strong> $500K–$5M+. Multi-year. Big
-        consulting firms (Accenture, Deloitte, BCG GAMMA). Mostly out of scope for SMBs.
+        <strong>Kurumsal dönüşüm programları:</strong> 500.000$–5Milyon$+. Çok yıllı. Büyük
+        danışmanlık firmaları (Accenture, Deloitte, BCG GAMMA). Çoğunlukla KOBİ'ler için kapsam dışı.
       </li>
       <li>
-        <strong>Boutique / fractional-AI-leader retainers:</strong> $5K–$25K/month for
-        20–40 hours of senior advisor time. Best entry point for SMBs that want
-        guidance without committing to a big bang.
+        <strong>Butik / kesirli-AI-lideri retainers:</strong> 20–40 saat kıdemli danışman süresi için ayda 5.000$–25.000$.
+        Büyük bir patlamaya taahhüt etmeden rehberlik isteyen KOBİ'ler için en iyi giriş noktası.
       </li>
     </ul>
     <p>
-      What pushes you toward the top of each range: regulated industry (legal, healthcare,
-      finance), large data volumes, custom model requirements, multi-stakeholder
-      organizations. What pulls you toward the bottom: clear use case, willingness to use
-      off-the-shelf APIs, single decision-maker, mid-size data.
+      Sizi her aralığın üst ucuna iten şeyler: düzenlemeye tabi sektör (hukuk, sağlık,
+      finans), büyük veri hacimleri, özel model gereksinimleri, çok paydaşlı
+      kuruluşlar. Sizi alt uca çeken şeyler: net kullanım durumu, hazır API'leri kullanma isteği, tek karar verici, orta ölçekli veri.
     </p>
 
-    <h2 id="roi">What ROI to expect</h2>
+    <h2 id="roi">Beklenen ROI</h2>
     <p>
-      Use our{" "}
-      <a href="/tools/ai-consulting-roi-calculator">ROI calculator</a> for your numbers,
-      but the typical patterns:
+      Sayılarınız için{" "}
+      <a href="/tools/ai-consulting-roi-calculator">ROI hesaplayıcımızı</a> kullanın,
+      ancak tipik modeller:
     </p>
     <ul>
       <li>
-        <strong>Strong-fit engagements:</strong> 3–6 month payback, 3–10× return over 3
-        years. These are projects with clear repeatable workflows (customer support
-        tickets, document processing, internal Q&amp;A).
+        <strong>Güçlü uyumlu angajmanlar:</strong> 3–6 aylık geri ödeme, 3 yılda 3–10× getiri.
+        Bunlar, net tekrarlanabilir iş akışlarına (müşteri destek biletleri, belge işleme, dahili S&amp;C) sahip projelerdir.
       </li>
       <li>
-        <strong>Marginal engagements:</strong> 9–18 month payback. The use case is real
-        but accuracy is harder than expected, integration takes longer, or hours-saved
-        estimates were optimistic.
+        <strong>Sınırda angajmanlar:</strong> 9–18 aylık geri ödeme. Kullanım durumu gerçektir
+        ancak doğruluk beklenenden daha zordur, entegrasyon daha uzun sürer veya kazanılan-saat tahminleri iyimserdi.
       </li>
       <li>
-        <strong>Failed engagements:</strong> negative ROI. The most common cause is
-        wrong-problem-solved — the AI works as built but doesn&rsquo;t move the metric the
-        business cares about.
+        <strong>Başarısız angajmanlar:</strong> negatif ROI. En yaygın neden
+        yanlış-sorunun-çözülmesidir &mdash; AI inşa edildiği gibi çalışır ancak işletmenin önemsediği metriği hareket ettirmez.
       </li>
     </ul>
     <p>
-      Roughly 60% of AI engagements deliver positive ROI by month 12. The 40% that
-      don&rsquo;t share patterns: undefined success criteria, wrong vendor selected,
-      hours-saved estimates that didn&rsquo;t survive contact with reality.
+      AI angajmanlarının kabaca %60'ı 12. ayda pozitif ROI sağlar. Bunu yapmayan
+      %40'ın ortak modelleri: tanımlanmamış başarı kriterleri, yanlış satıcı seçimi,
+      gerçeklikle temas halinde ayakta kalamayan kazanılan-saat tahminleri.
     </p>
 
-    <h2 id="timeline">Timeline expectations</h2>
+    <h2 id="timeline">Zaman çizelgesi beklentileri</h2>
     <p>
-      How long until you see results, by engagement type:
+      Angajman türüne göre sonuçları görene kadar ne kadar süre:
     </p>
     <ul>
       <li>
-        <strong>Quick wins (6–8 weeks):</strong> use-case prioritization, off-the-shelf
-        tool integration, prompt engineering for an existing workflow. You&rsquo;ll have
-        something measurable in production by month 2.
+        <strong>Hızlı kazanımlar (6–8 hafta):</strong> kullanım durumu önceliklendirmesi, hazır
+        araç entegrasyonu, mevcut bir iş akışı için prompt mühendisliği. 2. ayda üretimde ölçülebilir bir şeyiniz olacak.
       </li>
       <li>
-        <strong>Medium projects (3–4 months):</strong> single-workflow automation,
-        retrieval-augmented generation (RAG) pipelines, customer-support AI. Beta in
-        month 2, production by month 4.
+        <strong>Orta düzey projeler (3–4 ay):</strong> tek iş akışı otomasyonu,
+        geri getirme artırılmış üretim (RAG) boru hatları, müşteri desteği AI. 2. ayda beta, 4. ayda üretim.
       </li>
       <li>
-        <strong>Long projects (6–9 months):</strong> custom fine-tuned models, multi-system
-        integrations, regulated-industry deployments. First measurable outcome at month
-        4–5; production at 6–9.
+        <strong>Uzun projeler (6–9 ay):</strong> özel ince ayarlı modeller, çoklu sistem
+        entegrasyonları, düzenlemeye tabi sektör dağıtımları. 4–5. ayda ilk ölçülebilir sonuç; 6–9. ayda üretim.
       </li>
       <li>
-        <strong>Enterprise programs (12–24+ months):</strong> AI-driven transformations
-        spanning multiple departments. Stage-gated; first wins by month 6, full scope at
-        18+.
+        <strong>Kurumsal programlar (12–24+ ay):</strong> Birden çok departmanı kapsayan AI odaklı
+        dönüşümler. Aşamalı; 6. ayda ilk kazanımlar, 18+ ayda tam kapsam.
       </li>
     </ul>
     <p>
-      If a vendor promises &ldquo;production AI in 30 days,&rdquo; either the scope is
-      tiny or they&rsquo;re glossing over the hardening phase. Both are fine — just know
-      which one you&rsquo;re buying.
+      Bir satıcı &ldquo;30 günde üretim AI&rdquo; vaat ediyorsa, ya kapsam çok küçüktür
+      ya da sağlamlaştırma aşamasını geçiştiriyorlardır. Her ikisi de sorun değil &mdash; sadece hangisini satın aldığınızı bilin.
     </p>
 
-    <h2 id="cheap">Cheapest legitimate options</h2>
+    <h2 id="cheap">En ucuz meşru seçenekler</h2>
     <p>
-      For budget-conscious teams, four real paths under $20K:
+      Bütçe bilincine sahip ekipler için, 20.000$'ın altında dört gerçek yol:
     </p>
     <ol>
       <li>
-        <strong>Fractional AI advisor at $5K/month for 3 months.</strong> 20–40 hours of
-        senior strategy time. Total $15K. Output: prioritized roadmap + vendor shortlist
-        + you have someone to call when you get stuck.
+        <strong>3 ay boyunca ayda 5.000$'a kesirli AI danışmanı.</strong> 20–40 saat
+        kıdemli strateji süresi. Toplam 15.000$. Çıktı: önceliklendirilmiş yol haritası + satıcı kısa listesi
+        + takıldığınızda arayabileceğiniz biri.
       </li>
       <li>
-        <strong>Implementation-only contractor.</strong> Hire a freelancer with strong
-        AI eng experience for $100–200/hour, 50–80 hours total. Total $5K–$15K. Best for
-        when you&rsquo;ve already done the strategy yourself.
+        <strong>Yalnızca uygulama yüklenicisi.</strong> Güçlü AI mühendisliği deneyimine sahip bir serbest çalışanı
+        saatte 100–200$'a, toplam 50–80 saat olacak şekilde işe alın. Toplam 5.000$–15.000$.
+        Stratejiyi zaten kendiniz yaptıysanız en iyisidir.
       </li>
       <li>
-        <strong>AI-vendor professional services.</strong> Most major AI vendors
-        (Anthropic, OpenAI, Vertex AI) have professional-services teams that&rsquo;ll do
-        focused integration work. Often cheaper than a generalist consulting firm and
-        comes with deeper product expertise.
+        <strong>AI satıcı profesyonel hizmetleri.</strong> Çoğu büyük AI satıcısının
+        (Anthropic, OpenAI, Vertex AI) odaklanmış entegrasyon çalışması yapacak profesyonel hizmet ekipleri vardır.
+        Genellikle genelci bir danışmanlık firmasından daha ucuzdur ve daha derin ürün uzmanlığıyla gelir.
       </li>
       <li>
-        <strong>Self-serve + community.</strong> Spend the $15K on AI tools + LangChain/
-        LlamaIndex training + a couple of conference tickets for your team. For startups
-        with strong engineers, this often outperforms hiring outside consultants.
+        <strong>Kendi kendine hizmet + topluluk.</strong> 15.000$'ı AI araçları + LangChain/
+        LlamaIndex eğitimi + ekibiniz için birkaç konferans biletine harcayın. Güçlü mühendislere sahip
+        startup'lar için bu, genellikle dışarıdan danışman tutmaktan daha iyi sonuç verir.
       </li>
     </ol>
     <p>
-      The sub-$5K &ldquo;AI consultant&rdquo; you find on Upwork is risky. The good ones
-      cost more; the rest will burn your data and budget without delivering.
+      Upwork'te bulduğunuz 5.000$'ın altındaki &ldquo;AI danışmanı&rdquo; risklidir. İyi olanlar
+      daha pahalıdır; geri kalanı, bir şey teslim etmeden verilerinizi ve bütçenizi yakacaktır.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Run your numbers in the ROI calculator",
+  label: "ROI hesaplayıcıda sayılarınızı çalıştırın",
   targetSlug: "ai-consulting-roi-calculator",
 };
 
 export const faq = [
   {
-    q: "How much does AI consulting actually cost in 2026?",
-    a: "Strategy engagements run $25K-$80K. Single-use-case implementations $50K-$200K. Custom fine-tuning + deployment $150K-$500K. Fractional-AI-leader retainers $5K-$25K/month. Enterprise programs $500K+. Range varies by industry, scope, and whether you go off-the-shelf or custom.",
+    q: "2026'da AI danışmanlığı gerçekte ne kadara mal oluyor?",
+    a: "Strateji angajmanları 25.000$-80.000$ arasındadır. Tek kullanım durumu uygulamaları 50.000$-200.000$. Özel ince ayar + dağıtım 150.000$-500.000$. Kesirli-AI-lideri retainers ayda 5.000$-25.000$. Kurumsal programlar 500.000$+. Aralık, sektöre, kapsama ve hazır veya özel seçeneğe göre değişir.",
   },
   {
-    q: "What's the ROI of working with an AI consultant?",
-    a: "Strong-fit engagements: 3-6 month payback, 3-10× return over 3 years. Marginal: 9-18 months. About 60% of engagements deliver positive ROI by month 12; the other 40% fail mostly due to undefined success criteria or optimistic hours-saved estimates. Use a real ROI calculator before signing.",
+    q: "Bir AI danışmanıyla çalışmanın ROI'si nedir?",
+    a: "Güçlü uyumlu angajmanlar: 3-6 aylık geri ödeme, 3 yılda 3-10× getiri. Sınırda: 9-18 ay. Angajmanların yaklaşık %60'ı 12. ayda pozitif ROI sağlar; diğer %40'ı çoğunlukla tanımlanmamış başarı kriterleri veya iyimser kazanılan-saat tahminleri nedeniyle başarısız olur. İmzalamadan önce gerçek bir ROI hesaplayıcı kullanın.",
   },
   {
-    q: "How long does AI consulting take to show results?",
-    a: "Quick wins (use-case prioritization, off-the-shelf integration): 6-8 weeks. Medium projects (single-workflow automation, RAG pipelines): 3-4 months. Long projects (custom models, multi-system, regulated industries): 6-9 months. Enterprise programs: 12-24+ months. 'Production AI in 30 days' usually means tiny scope or glossing over hardening.",
+    q: "AI danışmanlığının sonuç göstermesi ne kadar sürer?",
+    a: "Hızlı kazanımlar (kullanım durumu önceliklendirmesi, hazır entegrasyon): 6-8 hafta. Orta düzey projeler (tek iş akışı otomasyonu, RAG boru hatları): 3-4 ay. Uzun projeler (özel modeller, çoklu sistem, düzenlemeye tabi sektörler): 6-9 ay. Kurumsal programlar: 12-24+ ay. '30 günde üretim AI' genellikle küçük kapsam veya sağlamlaştırmayı geçiştirme anlamına gelir.",
   },
   {
-    q: "What's the cheapest way to get professional AI help?",
-    a: "Fractional AI advisor ($5K-$15K total for 3 months), implementation-only freelance contractor ($5K-$15K), AI-vendor professional services (often deeper product expertise than generalists), or self-serve with training budget. Avoid the sub-$5K Upwork option — risk usually exceeds value.",
+    q: "Profesyonel AI yardımı almanın en ucuz yolu nedir?",
+    a: "Kesirli AI danışmanı (3 ay için toplam 5.000$-15.000$), yalnızca uygulama serbest çalışan yüklenicisi (5.000$-15.000$), AI satıcı profesyonel hizmetleri (genellikle genelcilerden daha derin ürün uzmanlığı) veya eğitim bütçesiyle kendi kendine hizmet. 5.000$'ın altındaki Upwork seçeneğinden kaçının &mdash; risk genellikle değeri aşar.",
   },
 ];

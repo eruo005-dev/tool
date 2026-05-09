@@ -3,63 +3,61 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A <a href="/learn/robots-txt">robots.txt</a> file is a 1994-vintage plain-text protocol that
-      still controls whether Googlebot, Bingbot, and a zoo of other
-      crawlers touch your site. It lives at exactly one path &mdash;
-      <code> /robots.txt</code> at your root domain &mdash; and a single
-      typo can either leak your staging environment into search
-      results or de-index your entire production site. The syntax
-      looks trivial, but the rules around precedence, wildcards, and
-      the difference between crawling and indexing trip up even
-      experienced SEOs. This guide covers the full directive set
-      (User-agent, Disallow, Allow, Sitemap, Crawl-delay), wildcard
-      and anchor matching, why <code>Noindex</code> was moved out of
-      robots.txt in 2019, and the common patterns that keep staging
-      environments private without breaking production.
+      Bir <a href="/learn/robots-txt">robots.txt</a> dosyası, 1994 yılından kalma düz metin protokolüdür ve
+      hâlâ Googlebot, Bingbot ve diğer birçok tarayıcının sitenize
+      dokunup dokunmayacağını kontrol eder. Tam olarak tek bir yolda bulunur &mdash;
+      <code> /robots.txt</code> kök alan adınızda &mdash; ve tek bir
+      yazım hatası, hazırlık ortamınızı arama sonuçlarına sızdırabilir
+      veya tüm üretim sitenizin dizinden çıkarılmasına neden olabilir. Sözdizimi
+      basit görünür, ancak öncelik, joker karakterler ve
+      tarama ile dizine ekleme arasındaki farkla ilgili kurallar, deneyimli
+      SEO uzmanlarını bile zorlar. Bu kılavuz, tüm yönerge kümesini
+      (User-agent, Disallow, Allow, Sitemap, Crawl-delay), joker karakter
+      ve çapa eşleştirmesini, <code>Noindex</code>'in neden 2019'da
+      robots.txt'den çıkarıldığını ve hazırlık ortamlarını
+      üretimi bozmadan özel tutan yaygın kalıpları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What robots.txt actually controls</h2>
+    <h2>robots.txt aslında neyi kontrol eder</h2>
     <p>
-      Robots.txt tells well-behaved crawlers which URLs they may
-      request. It does not enforce anything &mdash; malicious scrapers
-      ignore it &mdash; and it does not directly stop a page from
-      appearing in search results. A URL blocked in robots.txt can
-      still be indexed if Google discovers it via external links; the
-      search result simply has no snippet because the crawler never
-      read the page body.
+      Robots.txt, iyi huylu tarayıcılara hangi URL'leri isteyebileceklerini
+      söyler. Hiçbir şeyi zorunlu kılmaz &mdash; kötü niyetli kazıyıcılar
+      bunu yok sayar &mdash; ve bir sayfanın arama sonuçlarında görünmesini
+      doğrudan engellemez. robots.txt'de engellenen bir URL, Google tarafından harici bağlantılar aracılığıyla keşfedilirse
+      yine de dizine eklenebilir; arama sonucunda sadece snippet olmaz
+      çünkü tarayıcı sayfa gövdesini hiç okumamıştır.
     </p>
     <p>
-      If you need a page to stay out of the index, use an HTTP
-      <code> X-Robots-Tag: noindex</code> header or a
+      Bir sayfanın dizinde kalmamasını istiyorsanız, bir HTTP
+      <code> X-Robots-Tag: noindex</code> başlığı veya bir
       <code> &lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;</code>
-      tag &mdash; and crucially, leave the URL crawlable so Google can
-      see the directive.
+      etiketi kullanın &mdash; ve kritik olarak, Google'ın yönergeyi görebilmesi için
+      URL'yi taranabilir bırakın.
     </p>
 
-    <h2>File location and format</h2>
+    <h2>Dosya konumu ve biçimi</h2>
     <p>
-      The file must be at <code>https://example.com/robots.txt</code>.
-      Subdomains need their own &mdash;
-      <code> blog.example.com/robots.txt</code> is separate from
-      <code> example.com/robots.txt</code>. The content type should be
-      <code> text/plain</code> and encoding UTF-8. A BOM at the start
-      is tolerated but avoid it.
+      Dosya <code>https://example.com/robots.txt</code> adresinde olmalıdır.
+      Alt alan adlarının kendilerine ait olması gerekir &mdash;
+      <code> blog.example.com/robots.txt</code>,
+      <code> example.com/robots.txt</code>'den ayrıdır. İçerik türü
+      <code> text/plain</code> ve kodlama UTF-8 olmalıdır. Başlangıçta bir BOM
+      tolere edilir, ancak bundan kaçının.
     </p>
     <p>
-      Maximum file size honored by Google is 500 KiB. Anything past
-      that is truncated, and the truncation can land mid-rule. Keep
-      real-world files well under 50 KiB.
+      Google tarafından kabul edilen maksimum dosya boyutu 500 KiB'dir. Bunun
+      ötesindeki her şey kesilir ve kesilme, kuralın ortasında gerçekleşebilir. Gerçek
+      dünya dosyalarını 50 KiB'nin oldukça altında tutun.
     </p>
 
-    <h2>User-agent: targeting specific crawlers</h2>
+    <h2>User-agent: belirli tarayıcıları hedefleme</h2>
     <p>
-      Every rule block starts with one or more <code>User-agent</code>
-      {" "}lines. The value is a substring match against the crawler&rsquo;s
-      product token, case-insensitive.
+      Her kural bloğu, bir veya daha fazla <code>User-agent</code>
+      {" "}satırıyla başlar. Değer, tarayıcının ürün belirtecine karşı büyük/küçük harf duyarsız bir alt dize eşleşmesidir.
     </p>
     <pre>{`User-agent: Googlebot
 Disallow: /admin/
@@ -71,109 +69,105 @@ Crawl-delay: 10
 User-agent: *
 Disallow: /private/`}</pre>
     <p>
-      The <code>*</code> wildcard matches every crawler that has no
-      more specific block. A crawler picks the <strong>single most
-      specific matching group</strong> and obeys only that one &mdash;
-      rules do not merge across groups. If Googlebot matches both its
-      own block and the <code>*</code> block, it follows only the
-      Googlebot block.
+      <code>*</code> joker karakteri, daha spesifik bir bloğu olmayan her
+      tarayıcıyla eşleşir. Bir tarayıcı, <strong>en spesifik eşleşen grubu</strong> seçer
+      ve yalnızca ona uyar &mdash; kurallar
+      gruplar arasında birleşmez. Googlebot, kendi bloğuyla ve <code>*</code>
+      bloğuyla eşleşirse, yalnızca Googlebot bloğunu takip eder.
     </p>
 
-    <h2>Disallow and Allow</h2>
+    <h2>Disallow ve Allow</h2>
     <p>
-      <code>Disallow</code> gives a path prefix the crawler must not
-      request. <code>Allow</code> overrides a broader Disallow for a
-      narrower path. Both are prefix matches starting from the root of
-      the domain.
+      <code>Disallow</code>, tarayıcının istememesi gereken bir yol öneki verir.
+      <code>Allow</code>, daha dar bir yol için daha geniş bir Disallow'u geçersiz kılar. Her ikisi de alan adının
+      kökünden başlayan önek eşleşmeleridir.
     </p>
     <pre>{`User-agent: *
 Disallow: /wp-admin/
 Allow: /wp-admin/admin-ajax.php`}</pre>
     <p>
-      When rules conflict, Google uses the <strong>longest-matching
-      path rule</strong>. Above, a request to
-      <code> /wp-admin/admin-ajax.php</code> matches Allow (28
-      characters) more specifically than Disallow (10 characters), so
-      it is allowed.
+      Kurallar çakıştığında, Google <strong>en uzun eşleşen yol kuralını</strong> kullanır.
+      Yukarıda, <code> /wp-admin/admin-ajax.php</code> isteği, Allow (28
+      karakter) ile Disallow'dan (10 karakter) daha spesifik olarak eşleşir, bu nedenle
+      izin verilir.
     </p>
     <p>
-      A bare <code>Disallow:</code> with no path means &ldquo;nothing
-      is disallowed&rdquo; &mdash; it is the way to open a section
-      back up. <code>Disallow: /</code> blocks the entire site.
+      Yol içermeyen bir <code>Disallow:</code>, "hiçbir şey
+      yasaklanmamıştır" anlamına gelir &mdash; bir bölümü tekrar
+      açmanın yoludur. <code>Disallow: /</code> tüm siteyi engeller.
     </p>
 
-    <h2>Wildcards and end-of-URL anchor</h2>
+    <h2>Joker karakterler ve URL sonu çapası</h2>
     <p>
-      Google, Bing, and most modern crawlers support two pattern
-      characters beyond plain prefix matching:
+      Google, Bing ve çoğu modern tarayıcı, düz önek eşleştirmesinin ötesinde iki kalıp
+      karakterini destekler:
     </p>
     <p>
-      <code>*</code> matches any sequence of characters.
-      <code> $</code> anchors the pattern to the end of the URL.
+      <code>*</code> herhangi bir karakter dizisiyle eşleşir.
+      <code> $</code>, kalıbı URL'nin sonuna sabitler.
     </p>
     <pre>{`User-agent: *
 Disallow: /*?sessionid=
 Disallow: /*.pdf$
 Allow:    /public/*.pdf$`}</pre>
     <p>
-      The first line blocks any URL containing
-      <code> ?sessionid=</code>. The second blocks URLs ending in
-      <code> .pdf</code> &mdash; without <code>$</code>,
-      <code> /file.pdf.html</code> would also match. The Allow line
-      then re-opens PDFs under <code>/public/</code>.
+      İlk satır, <code> ?sessionid=</code> içeren herhangi bir URL'yi engeller.
+      İkincisi, <code> .pdf</code> ile biten URL'leri engeller &mdash; <code>$</code> olmadan,
+      <code> /file.pdf.html</code> da eşleşirdi. Allow satırı
+      daha sonra <code>/public/</code> altındaki PDF'leri yeniden açar.
     </p>
 
-    <h2>Sitemap directive</h2>
+    <h2>Sitemap yönergesi</h2>
     <p>
-      Unlike the rule directives, <code>Sitemap</code> lines are
-      global &mdash; they are not tied to any User-agent group and can
-      appear anywhere in the file. Use absolute URLs.
+      Kural yönergelerinin aksine, <code>Sitemap</code> satırları
+      küreseldir &mdash; herhangi bir User-agent grubuna bağlı değildirler ve
+      dosyada herhangi bir yerde görünebilirler. Mutlak URL'ler kullanın.
     </p>
     <pre>{`Sitemap: https://example.com/sitemap.xml
 Sitemap: https://example.com/sitemap-news.xml`}</pre>
     <p>
-      You can list multiple sitemaps or point to a sitemap index. This
-      is the only directive that actively tells crawlers where to find
-      content &mdash; the rest only tell them where not to go.
+      Birden çok site haritası listeleyebilir veya bir site haritası dizinine işaret edebilirsiniz. Bu,
+      tarayıcılara içeriği nerede bulacaklarını aktif olarak söyleyen tek yönergedir &mdash;
+      geri kalanı yalnızca nereye gitmeyeceklerini söyler.
     </p>
 
-    <h2>Crawl-delay &mdash; limited support</h2>
+    <h2>Crawl-delay &mdash; sınırlı destek</h2>
     <p>
-      <code>Crawl-delay: N</code> asks the crawler to wait N seconds
-      between requests. Bing and Yandex honor it; Google ignores it
-      entirely (use Search Console crawl rate settings instead).
-      Baidu interprets it differently. In practice, scope it to the
-      bots that respect it.
+      <code>Crawl-delay: N</code>, tarayıcıdan istekler arasında N saniye
+      beklemesini ister. Bing ve Yandex buna uyar; Google bunu tamamen
+      yok sayar (bunun yerine Search Console tarama hızı ayarlarını kullanın).
+      Baidu bunu farklı yorumlar. Pratikte, buna saygı duyan botlarla
+      sınırlayın.
     </p>
 
-    <h2>Noindex is no longer supported here</h2>
+    <h2>Noindex artık burada desteklenmiyor</h2>
     <p>
-      Google stopped obeying <code>Noindex:</code> directives in
-      robots.txt on September 1, 2019. If you still have
-      <code> Noindex: /thanks</code> lines, move that control to a
+      Google, 1 Eylül 2019'da robots.txt'deki <code>Noindex:</code>
+      yönergelerine uymayı durdurdu. Hâlâ
+      <code> Noindex: /thanks</code> satırlarınız varsa, bu kontrolü bir
       <code> &lt;meta name=&quot;robots&quot; content=&quot;noindex&quot;&gt;</code>
-      {" "}tag or an <code>X-Robots-Tag</code> header and make sure the
-      URL is crawlable. A page that is both noindex and
-      robots-disallowed is the worst of both worlds: Google cannot see
-      the noindex tag, so it may leave the URL in the index as a
-      snippetless link.
+      {" "}etiketi veya bir <code>X-Robots-Tag</code> başlığına taşıyın ve URL'nin
+      taranabilir olduğundan emin olun. Hem noindex hem de
+      robots-engelli olan bir sayfa, her iki dünyanın da en kötüsüdür: Google
+      noindex etiketini göremez, bu nedenle URL'yi snippetsiz bir bağlantı olarak
+      dizinde bırakabilir.
     </p>
 
-    <h2>Patterns for staging and preview</h2>
+    <h2>Hazırlık ve önizleme için kalıplar</h2>
     <p>
-      For staging subdomains (<code>staging.example.com</code>), serve:
+      Hazırlık alt alan adları (<code>staging.example.com</code>) için şunu sunun:
     </p>
     <pre>{`User-agent: *
 Disallow: /`}</pre>
     <p>
-      Combine with HTTP Basic Auth or IP allowlisting &mdash;
-      robots.txt alone is a courtesy, not a gate. If a competitor or
-      scraper finds the staging URL, they will ignore your robots.txt
-      and crawl it anyway.
+      HTTP Temel Kimlik Doğrulaması veya IP beyaz listesiyle birleştirin &mdash;
+      robots.txt tek başına bir nezakettir, bir geçit değildir. Bir rakip veya
+      kazıyıcı hazırlık URL'sini bulursa, robots.txt'nizi yok sayar
+      ve yine de tarar.
     </p>
     <p>
-      For a production site with a private admin area and a search
-      results page you do not want indexed:
+      Özel bir yönetici alanına ve dizine eklenmesini istemediğiniz bir arama
+      sonuçları sayfasına sahip bir üretim sitesi için:
     </p>
     <pre>{`User-agent: *
 Disallow: /admin/
@@ -184,75 +178,69 @@ Allow: /
 
 Sitemap: https://example.com/sitemap.xml`}</pre>
     <p>
-      The <code>/*?utm_</code> line blocks the duplicate-content URLs
-      that UTM-tagged inbound links create.
+      <code>/*?utm_</code> satırı, UTM etiketli gelen bağlantıların oluşturduğu yinelenen içerik
+      URL'lerini engeller.
     </p>
 
-    <h2>Testing your file</h2>
+    <h2>Dosyanızı test etme</h2>
     <p>
-      Google Search Console has a robots.txt report under Settings
-      that shows the last-fetched copy, any parse errors, and the
-      timestamp. For live testing against specific URLs, use the URL
-      Inspection tool &mdash; it reports whether a given URL is
-      blocked and which rule blocked it.
+      Google Search Console'da Ayarlar altında, son getirilen kopyayı, ayrıştırma
+      hatalarını ve zaman damgasını gösteren bir robots.txt raporu bulunur. Belirli URL'lere karşı canlı test
+      için URL İnceleme aracını kullanın &mdash; belirli bir URL'nin
+      engellenip engellenmediğini ve hangi kuralın onu engellediğini bildirir.
     </p>
     <p>
-      Before deploying, run the full file through a syntax checker
-      that understands Google&rsquo;s precedence rules. A misplaced
-      Allow/Disallow can look harmless but silently block a whole
-      section.
+      Dağıtmadan önce, tüm dosyayı Google'ın öncelik kurallarını anlayan bir sözdizimi
+      denetleyicisinden geçirin. Yanlış yerleştirilmiş bir
+      Allow/Disallow zararsız görünebilir, ancak sessizce tüm bir
+      bölümü engelleyebilir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Blocking CSS and JS.</strong> Google needs to render
-      pages to evaluate them. Disallowing
-      <code> /wp-content/</code> or <code>/static/</code> can hide
-      the styles and scripts Googlebot uses for layout, which hurts
-      rankings. Leave asset directories crawlable.
+      <strong>CSS ve JS'yi engelleme.</strong> Google'ın sayfaları değerlendirmek için
+      işlemesi gerekir.
+      <code> /wp-content/</code> veya <code>/static/</code> dizinlerine izin vermemek, Googlebot'un düzen için kullandığı stilleri ve komut dosyalarını
+      gizleyebilir ve bu da sıralamalara zarar verir. Varlık dizinlerini taranabilir bırakın.
     </p>
     <p>
-      <strong>Using robots.txt to hide sensitive URLs.</strong> The
-      file is public. Listing <code>/admin-secret-backup/</code> in a
-      Disallow line is like putting a giant arrow on it. Use auth, not
-      robots.txt, for security.
+      <strong>Hassas URL'leri gizlemek için robots.txt kullanma.</strong>
+      Dosya herkese açıktır. Bir Disallow satırında <code>/admin-secret-backup/</code> listelemek,
+      üzerine dev bir ok koymak gibidir. Güvenlik için robots.txt değil, kimlik doğrulama kullanın.
     </p>
     <p>
-      <strong>Expecting Disallow to remove pages from the index.</strong>
-      Disallow stops crawling, not indexing. Already-indexed URLs can
-      stay in search results for months as snippetless links. To
-      remove, use noindex (and keep crawlable) until Google processes
-      it, then block.
+      <strong>Disallow'ın sayfaları dizinden kaldırmasını beklemek.</strong>
+      Disallow, taramayı durdurur, dizine eklemeyi değil. Halihazırda dizine eklenmiş URL'ler,
+      aylarca snippetsiz bağlantılar olarak arama sonuçlarında kalabilir. Kaldırmak
+      için, Google işleyene kadar noindex kullanın (ve taranabilir tutun), ardından engelleyin.
     </p>
     <p>
-      <strong>Case-sensitive path mismatch.</strong> Paths are
-      case-sensitive. <code>Disallow: /Admin/</code> does not block
-      <code> /admin/</code>. Match your actual URL casing.
+      <strong>Büyük/küçük harf duyarlı yol uyuşmazlığı.</strong> Yollar
+      büyük/küçük harf duyarlıdır. <code>Disallow: /Admin/</code>,
+      <code> /admin/</code> yolunu engellemez. Gerçek URL büyük/küçük harf kullanımınızla eşleştirin.
     </p>
     <p>
-      <strong>Forgetting subdomain scope.</strong> Uploading
-      <code> robots.txt</code> to the root does nothing for
-      <code> cdn.example.com</code>. Each subdomain that serves HTTP
-      needs its own file.
+      <strong>Alt alan adı kapsamını unutmak.</strong>
+      Köke <code> robots.txt</code> yüklemek,
+      <code> cdn.example.com</code> için hiçbir şey yapmaz. HTTP sunan her alt alan adının
+      kendi dosyasına ihtiyacı vardır.
     </p>
     <p>
-      <strong>Trailing-slash surprises.</strong>
-      <code> Disallow: /foo</code> blocks
+      <strong>Sondaki eğik çizgi sürprizleri.</strong>
+      <code> Disallow: /foo</code>,
       <code> /foo</code>, <code>/foo/</code>,
-      <code> /foobar</code>, and <code>/foo.html</code>. If you meant
-      only the folder, write <code>Disallow: /foo/</code>.
+      <code> /foobar</code> ve <code>/foo.html</code> yollarını engeller. Yalnızca
+      klasörü kastettiyseniz, <code>Disallow: /foo/</code> yazın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Draft and validate a production-ready file with the{" "}
-      <a href="/tools/robots-txt-generator">robots.txt generator</a>.
-      Pair with the{" "}
-      <a href="/tools/sitemap-url-generator">sitemap URL generator</a>
-      {" "}so the <code>Sitemap:</code> line you add actually points at
-      a well-formed file, and the{" "}
-      <a href="/tools/url-parser">URL parser</a> to verify the exact
-      path shape your rules will match against.
+      <a href="/tools/robots-txt-generator">robots.txt oluşturucu</a> ile üretime hazır bir dosya
+      taslağı oluşturun ve doğrulayın.
+      Eklediğiniz <code>Sitemap:</code> satırının iyi biçimlendirilmiş bir dosyayı işaret ettiğinden emin olmak için
+      <a href="/tools/sitemap-url-generator">site haritası URL oluşturucu</a>
+      {" "}ile ve kurallarınızın eşleşeceği tam yol şeklini doğrulamak için
+      <a href="/tools/url-parser">URL ayrıştırıcı</a> ile eşleştirin.
     </p>
   </>
 );

@@ -1,138 +1,100 @@
 export const intro = (
   <>
     <p>
-      Cursor is the AI-native code editor — a VS Code fork rebuilt around an
-      in-editor agent. In April 2026 it&rsquo;s the market leader for
-      editor-based AI coding, reportedly closing a ~$50B valuation round and
-      sitting around $2B ARR. For fast, in-flow coding — not long autonomous
-      jobs — this is the tool most developers have settled on.
+      Cursor, yapay zeka odaklı bir kod düzenleyicidir — bir düzenleyici içi ajan etrafında yeniden inşa edilmiş bir VS Code çatalıdır. Nisan 2026 itibarıyla, düzenleyici tabanlı yapay zeka kodlamada pazar lideridir ve yaklaşık 50 milyar dolar değerleme turunu kapattığı ve yaklaşık 2 milyar dolar yıllık tekrarlayan gelire (ARR) ulaştığı bildirilmektedir. Uzun süreli otonom işler için değil, hızlı ve akış içinde kodlama için çoğu geliştiricinin tercih ettiği araç budur.
     </p>
     <p>
-      This guide gets you from download to a productive setup in under an
-      hour, and then explains the credit-pricing gotcha that burned a lot of
-      people in 2025.
+      Bu kılavuz, sizi indirme işleminden bir saatten kısa sürede üretken bir kuruluma ulaştırır ve ardından 2025'te birçok kişiyi mağdur eden kredi fiyatlandırması tuzağını açıklar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>Step 1 — Install</h2>
+    <h2>Adım 1 — Kurulum</h2>
     <p>
-      Download from <a href="https://cursor.com">cursor.com</a>. macOS, Linux,
-      and Windows builds. If you&rsquo;re coming from VS Code, your extensions
-      and settings will import on first launch — Cursor is a fork, so 95% of
-      what you know carries over.
+      <a href="https://cursor.com">cursor.com</a> adresinden indirin. macOS, Linux ve Windows sürümleri mevcuttur. VS Code'dan geliyorsanız, uzantılarınız ve ayarlarınız ilk açılışta içe aktarılacaktır — Cursor bir çatal olduğu için bildiklerinizin %95'i aynen geçerlidir.
     </p>
 
-    <h2>Step 2 — Sign in</h2>
+    <h2>Adım 2 — Giriş yapın</h2>
     <p>
-      Create an account and pick a plan. Free has limited requests, Pro is the
-      default paid tier, Business/Enterprise add SSO and privacy guarantees.
-      If your employer has strict data-handling rules, confirm &ldquo;Privacy
-      Mode&rdquo; is on before you open source code.
+      Bir hesap oluşturun ve bir plan seçin. Ücretsiz sürümün sınırlı istek hakkı vardır, Pro varsayılan ücretli katmandır, İş/Kurumsal sürümler ise SSO ve gizlilik garantileri ekler. İşvereninizin katı veri işleme kuralları varsa, kaynak kodunu açmadan önce "Gizlilik Modu"nun açık olduğundan emin olun.
     </p>
 
-    <h2>Step 3 — Index your repo</h2>
+    <h2>Adım 3 — Deponuzu dizine ekleyin</h2>
     <p>
-      Open a project folder and Cursor will offer to index it. Accept.
-      Indexing embeds your code so the agent can retrieve relevant files on
-      demand instead of only seeing what&rsquo;s currently open. For monorepos,
-      indexing takes a few minutes the first time and then updates
-      incrementally.
+      Bir proje klasörü açın; Cursor onu dizine eklemeyi teklif edecektir. Kabul edin. Dizine ekleme, kodunuzu gömer, böylece ajan yalnızca o anda açık olanı görmek yerine talep üzerine ilgili dosyaları alabilir. Monorepolar için ilk seferde birkaç dakika sürer ve ardından artımlı olarak güncellenir.
     </p>
 
-    <h2>Step 4 — Learn the three modes</h2>
-    <p>Cursor has three main agent surfaces. Know which one to reach for:</p>
+    <h2>Adım 4 — Üç modu öğrenin</h2>
+    <p>Cursor'un üç ana ajan yüzeyi vardır. Hangisine başvuracağınızı bilin:</p>
     <ul>
       <li>
-        <strong>Inline edit</strong> (<code>⌘K</code> / <code>Ctrl+K</code>) —
-        ask the agent to change the current selection. Best for small edits,
-        renaming, &ldquo;add types here.&rdquo;
+        <strong>Satır içi düzenleme</strong> (<code>⌘K</code> / <code>Ctrl+K</code>) — ajandan mevcut seçimi değiştirmesini isteyin. Küçük düzenlemeler, yeniden adlandırmalar, "buraya tür ekle" gibi işlemler için en iyisidir.
       </li>
       <li>
-        <strong>Chat pane</strong> (<code>⌘L</code> / <code>Ctrl+L</code>) —
-        conversational Q&amp;A over the repo. Best for &ldquo;where is X,&rdquo;
-        &ldquo;explain this function.&rdquo;
+        <strong>Sohbet paneli</strong> (<code>⌘L</code> / <code>Ctrl+L</code>) — depo üzerinde konuşma tarzı soru-cevap. "X nerede", "bu işlevi açıkla" gibi durumlar için en iyisidir.
       </li>
       <li>
-        <strong>Agent mode</strong> — multi-file autonomous edits. Best for
-        &ldquo;add a new endpoint end-to-end,&rdquo; &ldquo;implement this
-        ticket.&rdquo; Approve each change before it writes.
+        <strong>Ajan modu</strong> — çok dosyalı otonom düzenlemeler. "Uçtan uca yeni bir uç nokta ekle", "bu görevi uygula" gibi işlemler için en iyisidir. Her değişikliği yazmadan önce onaylayın.
       </li>
     </ul>
 
-    <h2>Step 5 — Pick models per mode</h2>
+    <h2>Adım 5 — Mod başına model seçin</h2>
     <p>
-      Cursor gives you a model picker. In practice:
+      Cursor size bir model seçici sunar. Pratikte:
     </p>
     <ul>
       <li>
-        <strong>Inline edits:</strong> a fast Sonnet-class model — latency
-        matters, not depth.
+        <strong>Satır içi düzenlemeler:</strong> hızlı bir Sonnet sınıfı model — gecikme süresi önemlidir, derinlik değil.
       </li>
       <li>
-        <strong>Agent mode:</strong> Claude Opus 4.7 or GPT-5 class — quality
-        matters, latency less.
+        <strong>Ajan modu:</strong> Claude Opus 4.7 veya GPT-5 sınıfı — kalite önemlidir, gecikme süresi daha az önemlidir.
       </li>
       <li>
-        <strong>Chat:</strong> whichever handles your codebase best. Test a few;
-        switch by task.
+        <strong>Sohbet:</strong> kod tabanınıza en iyi uyan model. Birkaçını deneyin; göreve göre değiştirin.
       </li>
     </ul>
 
-    <h2>Step 6 — Rules file</h2>
+    <h2>Adım 6 — Kurallar dosyası</h2>
     <p>
-      Create <code>.cursorrules</code> at the repo root. This is Cursor&rsquo;s
-      version of a CLAUDE.md — persistent instructions the agent reads every
-      session. Put style, conventions, and &ldquo;never do this&rdquo; rules
-      here. Short and specific beats long and polite.
+      Depo kökünde <code>.cursorrules</code> oluşturun. Bu, Cursor'un CLAUDE.md versiyonudur — ajanın her oturumda okuduğu kalıcı talimatlar. Stil, kurallar ve "bunu asla yapma" kurallarını buraya koyun. Kısa ve spesifik olmak, uzun ve kibar olmaktan daha iyidir.
     </p>
-    <pre><code>{`- TypeScript strict. No 'any' unless commented.
-- Keep React components under 300 lines; split if larger.
-- Prefer server components; only use 'use client' when needed.
-- Don't modify files under /generated.`}</code></pre>
+    <pre><code>{`- TypeScript katı mod. Yorum yapılmadıkça 'any' yok.
+- React bileşenlerini 300 satırın altında tutun; daha büyükse bölün.
+- Sunucu bileşenlerini tercih edin; yalnızca gerektiğinde 'use client' kullanın.
+- /generated altındaki dosyaları değiştirmeyin.`}</code></pre>
 
-    <h2>Step 7 — The credit-pricing gotcha</h2>
+    <h2>Adım 7 — Kredi fiyatlandırması tuzağı</h2>
     <p>
-      Cursor moved to credit-based pricing in mid-2025. The trap: a single
-      long agent run can burn through your monthly credits in one afternoon
-      (there&rsquo;s a well-circulated story of a team depleting an annual
-      subscription in a day). Protect yourself:
+      Cursor, 2025'in ortalarında kredi tabanlı fiyatlandırmaya geçti. Tuzak: tek bir uzun ajan çalıştırması, aylık kredilerinizi bir öğleden sonrada tüketebilir (bir ekibin yıllık aboneliğini bir günde tükettiğine dair yaygın olarak anlatılan bir hikaye vardır). Kendinizi koruyun:
     </p>
     <ul>
       <li>
-        Set a hard monthly spend cap in the account settings.
+        Hesap ayarlarında sabit bir aylık harcama limiti belirleyin.
       </li>
       <li>
-        Keep agent-mode tasks small. If a task needs hours of autonomy, hand
-        it to Claude Code — see our{" "}
-        <a href="/guides/how-to-set-up-claude-code">Claude Code setup guide</a>.
+        Ajan modu görevlerini küçük tutun. Bir görev saatlerce otonomi gerektiriyorsa, Claude Code'a devredin —{" "}
+        <a href="/guides/how-to-set-up-claude-code">Claude Code kurulum kılavuzumuza</a> bakın.
       </li>
       <li>
-        For routine edits, use inline edit with a cheaper model. Save agent-mode
-        for the hard cases.
+        Rutin düzenlemeler için daha ucuz bir modelle satır içi düzenleme kullanın. Ajan modunu zor durumlar için saklayın.
       </li>
     </ul>
 
-    <h2>Step 8 — Keyboard shortcuts worth memorising</h2>
+    <h2>Adım 8 — Ezberlemeye değer klavye kısayolları</h2>
     <ul>
-      <li><code>⌘K</code> — inline edit.</li>
-      <li><code>⌘L</code> — chat pane.</li>
-      <li><code>⌘I</code> — agent composer.</li>
-      <li><code>⌘⇧L</code> — add current file to chat context.</li>
-      <li><code>@</code> in chat — reference a file, symbol, or doc.</li>
+      <li><code>⌘K</code> — satır içi düzenleme.</li>
+      <li><code>⌘L</code> — sohbet paneli.</li>
+      <li><code>⌘I</code> — ajan bestecisi.</li>
+      <li><code>⌘⇧L</code> — geçerli dosyayı sohbet bağlamına ekle.</li>
+      <li>Sohbette <code>@</code> — bir dosyaya, sembole veya belgeye başvur.</li>
     </ul>
 
-    <h2>The workflow most people converge on</h2>
+    <h2>Çoğu kişinin üzerinde uzlaştığı iş akışı</h2>
     <p>
-      Cursor for the tight in-editor loop — small edits, refactors, quick
-      explanations. Claude Code for anything that needs hours of reasoning or
-      a full repo sweep. ChatGPT (web) for one-off questions you don&rsquo;t
-      want in your editor context. That stack — plus our{" "}
-      <a href="/tools/ai-token-counter">token counter</a> to estimate what
-      everything costs — is the most common setup among shipping developers
-      this year.
+      Sıkı düzenleyici içi döngü için Cursor — küçük düzenlemeler, yeniden düzenlemeler, hızlı açıklamalar. Saatlerce akıl yürütme veya tam bir depo taraması gerektiren her şey için Claude Code. Düzenleyici bağlamınızda istemediğiniz tek seferlik sorular için ChatGPT (web). Bu yığın — artı her şeyin maliyetini tahmin etmek için{" "}
+      <a href="/tools/ai-token-counter">token sayacımız</a> — bu yıl ürün çıkaran geliştiriciler arasında en yaygın kurulumdur.
     </p>
   </>
 );

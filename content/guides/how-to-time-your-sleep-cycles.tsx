@@ -3,238 +3,236 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      You don&rsquo;t sleep in one continuous block &mdash; you cycle through
-      stages roughly every 90 minutes, and waking up in the middle of deep
-      sleep is the difference between &ldquo;ugh&rdquo; and &ldquo;okay,
-      let&rsquo;s go.&rdquo; Timing your alarm to coincide with the end of a
-      cycle rather than the middle is the cheapest way to feel rested without
-      sleeping more. The catch: cycle length is actually 85&ndash;110 minutes
-      depending on the person and the night, so the math is approximate.
-      This guide covers what happens inside a cycle, how to pick a wake time
-      that lands on a cycle boundary, the role of REM and deep sleep, the
-      limits of the 90-minute rule, and what <a href="/learn/sleep-debt">sleep debt</a> really costs.
+      Uykuyu kesintisiz tek bir blok halinde almazsınız &mdash; yaklaşık her 90 dakikada bir
+      evrelerden geçersiniz ve derin uykunun ortasında uyanmak, &ldquo;of&rdquo; ile &ldquo;tamam,
+      hadi gidelim&rdquo; arasındaki farktır. Alarmınızı bir döngünün ortası yerine sonuna denk
+      gelecek şekilde ayarlamak, daha fazla uyumadan dinlenmiş hissetmenin en ucuz yoludur.
+      Ancak işin püf noktası: Döngü uzunluğu kişiye ve geceye bağlı olarak aslında 85&ndash;110
+      dakikadır, bu nedenle hesaplama yaklaşıktır.
+      Bu rehber, bir döngü içinde neler olduğunu, döngü sınırına denk gelen bir uyanma saatinin
+      nasıl seçileceğini, REM ve derin uykunun rolünü, 90 dakika kuralının sınırlarını ve
+      <a href="/learn/sleep-debt"> uyku borcunun</a> gerçek maliyetini kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The four stages of sleep</h2>
+    <h2>Uykunun dört evresi</h2>
     <p>
-      Each cycle moves through:
+      Her döngü şu aşamalardan geçer:
     </p>
     <ul>
       <li>
-        <strong>N1</strong> &mdash; light drift-off, 1&ndash;5 minutes. Easy
-        to wake from; you might not even notice you slept.
+        <strong>N1</strong> &mdash; hafif dalma, 1&ndash;5 dakika. Uyanması
+        kolaydır; uyuduğunuzu fark etmeyebilirsiniz bile.
       </li>
       <li>
-        <strong>N2</strong> &mdash; light sleep, heart rate drops, body
-        <a href="/learn/temperature-ai">temperature</a> falls. ~45% of total sleep time.
+        <strong>N2</strong> &mdash; hafif uyku, kalp atış hızı düşer, vücut
+        <a href="/learn/temperature-ai"> sıcaklığı</a> azalır. Toplam uyku süresinin ~%45'i.
       </li>
       <li>
-        <strong>N3</strong> &mdash; deep (slow-wave) sleep. Physical repair,
-        growth hormone, immune work. Hardest to wake from. ~15&ndash;20% of
-        total sleep, concentrated in the first third of the night.
+        <strong>N3</strong> &mdash; derin (yavaş dalga) uyku. Fiziksel onarım,
+        büyüme hormonu, bağışıklık çalışması. Uyanması en zor evre. Toplam
+        uykunun ~%15&ndash;20'si, gecenin ilk üçte birinde yoğunlaşır.
       </li>
       <li>
-        <strong>REM</strong> &mdash; rapid eye movement, dreams, memory
-        consolidation. ~20&ndash;25% of total sleep, concentrated in the
-        last third of the night.
+        <strong>REM</strong> &mdash; hızlı göz hareketi, rüyalar, hafıza
+        pekiştirme. Toplam uykunun ~%20&ndash;25'i, gecenin son
+        üçte birinde yoğunlaşır.
       </li>
     </ul>
 
-    <h2>A typical night</h2>
-    <pre>{`Bedtime  0 min  N1 -> N2 -> N3 -> N3 -> N2 -> REM    (cycle 1: ~90 min, deep-heavy)
-        90 min  N2 -> N3 -> N2 -> REM                (cycle 2: ~90 min, slightly less deep)
-       180 min  N2 -> N3 -> N2 -> REM                (cycle 3)
-       270 min  N2 -> REM                            (cycle 4: REM-heavy)
-       360 min  N2 -> REM                            (cycle 5: even more REM)
-       450 min  WAKE`}</pre>
+    <h2>Tipik bir gece</h2>
+    <pre>{`Yatma  0 dk  N1 -> N2 -> N3 -> N3 -> N2 -> REM    (döngü 1: ~90 dk, derin-ağırlıklı)
+        90 dk  N2 -> N3 -> N2 -> REM                (döngü 2: ~90 dk, biraz daha az derin)
+       180 dk  N2 -> N3 -> N2 -> REM                (döngü 3)
+       270 dk  N2 -> REM                            (döngü 4: REM-ağırlıklı)
+       360 dk  N2 -> REM                            (döngü 5: daha da fazla REM)
+       450 dk  UYAN`}</pre>
     <p>
-      Early cycles are deep-sleep heavy. Late cycles are REM-heavy. Sleeping
-      only four hours cuts your REM time in half; sleeping only two hours
-      cuts REM to essentially zero.
+      Erken döngüler derin uyku ağırlıklıdır. Geç döngüler REM ağırlıklıdır. Sadece
+      dört saat uyumak REM sürenizi yarıya indirir; sadece iki saat uyumak
+      REM'i neredeyse sıfıra düşürür.
     </p>
 
-    <h2>The wake-at-cycle-end trick</h2>
+    <h2>Döngü sonunda uyanma taktiği</h2>
     <p>
-      If you wake at the end of a cycle (in N1 or late REM), you feel
-      relatively alert. Wake in the middle of N3 and you get sleep inertia
-      &mdash; 15&ndash;60 minutes of fog, grogginess, bad decisions. The
-      &ldquo;<a href="/tools/sleep-calculator">sleep calculator</a>&rdquo; approach: work backward from the time
-      you want to wake up in 90-minute chunks, add ~14 minutes to fall
-      asleep, pick a bedtime.
+      Bir döngünün sonunda (N1 veya geç REM'de) uyanırsanız, nispeten
+      uyanık hissedersiniz. N3'ün ortasında uyanırsanız uyku ataleti
+      yaşarsınız &mdash; 15&ndash;60 dakika süren sis, sersemlik, kötü kararlar.
+      &ldquo;<a href="/tools/sleep-calculator">Uyku hesaplayıcı</a>&rdquo; yaklaşımı: Uyanmak istediğiniz
+      saatten geriye doğru 90 dakikalık parçalar halinde gidin, uykuya dalmak için ~14 dakika
+      ekleyin, bir yatma saati seçin.
     </p>
-    <pre>{`Wake at 6:30 AM? Count back 90-min cycles:
-5 cycles = 7.5 hr  --> bedtime 10:45 PM  (plus 14 min to fall asleep = 10:31)
-4 cycles = 6.0 hr  --> bedtime 12:15 AM
-3 cycles = 4.5 hr  --> bedtime 1:45 AM   (emergency only)`}</pre>
+    <pre>{`Saat 6:30'da mı uyanıyorsunuz? 90 dk'lık döngüleri geri sayın:
+5 döngü = 7,5 saat  --> yatma saati 22:45  (uykuya dalmak için 14 dk ekle = 22:31)
+4 döngü = 6,0 saat  --> yatma saati 00:15
+3 döngü = 4,5 saat  --> yatma saati 01:45   (sadece acil durumda)`}</pre>
     <p>
-      Landing on 4.5 hr of well-timed sleep can feel better than 5 hr that
-      ends mid-deep-sleep. Emphasis on <em>can</em> &mdash; chronic short
-      sleep still racks up debt regardless of timing.
+      İyi zamanlanmış 4,5 saatlik uyku, derin uykunun ortasında biten 5 saatlik uykudan
+      daha iyi hissettirebilir. Vurgu <em>olabilir</em> üzerinde &mdash; kronik kısa
+      uyku, zamanlamadan bağımsız olarak yine de borç biriktirir.
     </p>
 
-    <h2>Why the 90-minute rule is approximate</h2>
+    <h2>90 dakika kuralı neden yaklaşıktır</h2>
     <p>
-      Cycle length varies:
+      Döngü uzunluğu değişir:
     </p>
     <ul>
-      <li>Individuals: 85&ndash;110 minutes</li>
-      <li>Within one night: early cycles shorter, late cycles longer</li>
-      <li>After alcohol or late meals: disrupted, unpredictable</li>
-      <li>After exercise or sleep deprivation: deep-sleep heavy, longer N3 chunks</li>
+      <li>Bireyler: 85&ndash;110 dakika</li>
+      <li>Bir gece içinde: erken döngüler daha kısa, geç döngüler daha uzun</li>
+      <li>Alkol veya geç öğünlerden sonra: bozulmuş, tahmin edilemez</li>
+      <li>Egzersiz veya uyku yoksunluğundan sonra: derin uyku ağırlıklı, daha uzun N3 parçaları</li>
     </ul>
     <p>
-      Your personal cycle is probably 90 plus-or-minus 15 minutes. If the
-      85-minute rule of thumb doesn&rsquo;t help you, try 95 or 100.
+      Kişisel döngünüz muhtemelen 90 artı-eksi 15 dakikadır. 90 dakika
+      kuralı size yardımcı olmuyorsa, 95 veya 100'ü deneyin.
     </p>
 
-    <h2>Fall-asleep time matters too</h2>
+    <h2>Uykuya dalma süresi de önemlidir</h2>
     <p>
-      Most people take 10&ndash;20 minutes to actually fall asleep. If
-      you&rsquo;re in bed scrolling for 45 minutes first, your real cycle
-      start is 45 minutes after bedtime, not at bedtime. Decide when
-      you&rsquo;re actually sleeping, not when you got horizontal.
+      Çoğu insanın gerçekten uykuya dalması 10&ndash;20 dakika sürer. Eğer
+      yatakta 45 dakika kaydırma yapıyorsanız, gerçek döngü başlangıcınız
+      yatma saatinden 45 dakika sonradır, yatma saatinde değil. Ne zaman
+      yattığınıza değil, ne zaman uyuduğunuza karar verin.
     </p>
 
-    <h2>REM and cognitive performance</h2>
+    <h2>REM ve bilişsel performans</h2>
     <p>
-      REM is when memory consolidation, emotional processing, and
-      creative-leap insights happen. Skipping REM through late-night work
-      or short sleeps has specific costs:
+      REM, hafıza pekiştirme, duygusal işleme ve
+      yaratıcı atılım içgörülerinin gerçekleştiği evredir. Geç saatlere kadar çalışma
+      veya kısa uykular yoluyla REM'i atlamanın belirli maliyetleri vardır:
     </p>
     <ul>
-      <li>Emotional reactivity spikes (amygdala +60%)</li>
-      <li>Creative problem-solving drops</li>
-      <li>Learning consolidation suffers</li>
-      <li>Mood lability, lower frustration tolerance</li>
+      <li>Duygusal tepkisellik artar (amigdala +%60)</li>
+      <li>Yaratıcı problem çözme düşer</li>
+      <li>Öğrenme pekiştirmesi zarar görür</li>
+      <li>Ruh hali değişkenliği, düşük hayal kırıklığı toleransı</li>
     </ul>
     <p>
-      Since REM is concentrated in the last third of the night,
-      shortchanging that third hurts disproportionately.
+      REM gecenin son üçte birinde yoğunlaştığı için,
+      o üçte birini kısaltmak orantısız şekilde zarar verir.
     </p>
 
-    <h2>Deep sleep and physical recovery</h2>
+    <h2>Derin uyku ve fiziksel iyileşme</h2>
     <p>
-      N3 is where growth hormone is released, tissue repairs, and the
-      glymphatic system clears metabolic waste from the brain. Cutting the
-      first third of your night (late bedtime) hurts recovery even if you
-      still sleep 8 hours total.
+      N3, büyüme hormonunun salındığı, dokuların onarıldığı ve
+      glimfatik sistemin beyindeki metabolik atıkları temizlediği evredir. Gecenin
+      ilk üçte birini kesmek (geç yatmak), toplamda 8 saat uyusanız bile iyileşmeyi
+      olumsuz etkiler.
     </p>
     <p>
-      Athletes: prioritize early bedtimes on hard training days. You
-      can&rsquo;t make up missed N3 by sleeping later.
-    </p>
-
-    <h2>Sleep debt</h2>
-    <p>
-      Debt accumulates with any night under your personal need (typically
-      7&ndash;9 hours for adults). You can&rsquo;t fully repay it with one
-      weekend sleep-in.
-    </p>
-    <pre>{`Monday-Friday, 6 hr/night:   -10 hr debt by Friday
-Saturday & Sunday, 10 hr:    +2 hr surplus each
-Net:                          still -6 hr behind`}</pre>
-    <p>
-      Studies show reaction time deficits from a 5-day sleep restriction
-      persist for at least a week, even with full nights in between.
+      Sporcular: Zorlu antrenman günlerinde erken yatma saatlerine öncelik verin. Kaçırılan
+      N3'ü daha geç uyuyarak telafi edemezsiniz.
     </p>
 
-    <h2>Chronotype</h2>
+    <h2>Uyku borcu</h2>
     <p>
-      Some people are genetically wired for earlier or later bedtimes. Rough
-      categories:
+      Borç, kişisel ihtiyacınızın (yetişkinler için tipik olarak
+      7&ndash;9 saat) altındaki her gece birikir. Bir hafta sonu uykusuyla tamamen
+      ödeyemezsiniz.
+    </p>
+    <pre>{`Pazartesi-Cuma, 6 saat/gece:   Cuma'ya kadar -10 saat borç
+Cumartesi & Pazar, 10 saat:    her biri +2 saat fazla
+Net:                          hala -6 saat geride`}</pre>
+    <p>
+      Araştırmalar, 5 günlük uyku kısıtlamasından kaynaklanan reaksiyon süresi
+      açıklarının, aradaki tam gecelere rağmen en az bir hafta sürdüğünü göstermektedir.
+    </p>
+
+    <h2>Kronotip</h2>
+    <p>
+      Bazı insanlar genetik olarak daha erken veya daha geç yatma saatlerine yatkındır. Kabaca
+      kategoriler:
     </p>
     <ul>
-      <li>Larks (morning types): peak alertness 7&ndash;10 AM, tired by 10 PM</li>
+      <li>Tarla kuşları (sabahçıllar): en yüksek uyanıklık 7&ndash;10, saat 22'de yorgun</li>
       <li>
-        Third-birds (most people): peak alertness 10 AM&ndash;2 PM, tired by
-        11 PM&ndash;midnight
+        Üçüncü kuşlar (çoğu insan): en yüksek uyanıklık 10&ndash;14, saat
+        23&ndash;00'da yorgun
       </li>
       <li>
-        Owls: peak alertness 6 PM&ndash;1 AM, not tired till 1&ndash;3 AM
+        Baykuşlar: en yüksek uyanıklık 18&ndash;01, saat 01&ndash;03'e kadar yorgun değil
       </li>
     </ul>
     <p>
-      Fighting your chronotype with caffeine and willpower works short-term
-      but raises cardiovascular risk. Align work schedule and bedtime with
-      your type when you can.
+      Kronotipinizle kafein ve irade gücüyle savaşmak kısa vadede işe yarar
+      ancak kardiyovasküler riski artırır. Mümkün olduğunda çalışma programınızı ve yatma
+      saatinizi tipinize göre ayarlayın.
     </p>
 
-    <h2>Naps</h2>
+    <h2>Şekerlemeler</h2>
     <p>
-      Short naps (10&ndash;20 minutes) are N1/N2 only and leave you alert.
-      Longer naps (60&ndash;90 minutes) include N3 and a bit of REM and
-      deliver genuine recovery &mdash; but wake you groggy if the alarm
-      interrupts N3.
+      Kısa şekerlemeler (10&ndash;20 dakika) yalnızca N1/N2'dir ve sizi uyanık bırakır.
+      Daha uzun şekerlemeler (60&ndash;90 dakika) N3 ve biraz REM içerir ve
+      gerçek bir iyileşme sağlar &mdash; ancak alarm N3'ü bölerse sizi sersemlemiş
+      uyandırır.
     </p>
-    <pre>{`Power nap:   10-20 min    (stay in light sleep)
-Full cycle:  90 min       (wake at natural end)
-Avoid:       30-60 min    (wake in deep sleep, groggy)`}</pre>
+    <pre>{`Güç şekerlemesi:   10-20 dk    (hafif uykuda kal)
+Tam döngü:        90 dk       (doğal sonunda uyan)
+Kaçının:          30-60 dk    (derin uykuda uyan, sersem)`}</pre>
 
-    <h2>Sleep trackers: helpful or not</h2>
+    <h2>Uyku takip cihazları: yararlı mı değil mi</h2>
     <p>
-      Consumer sleep trackers are pretty good at bedtime, wake time, and
-      total duration. They&rsquo;re mediocre at distinguishing sleep stages
-      &mdash; the accuracy of the N3/REM classification is coin-flippy.
-      Treat the stage breakdown as entertainment, not diagnosis. The useful
-      signal is trend over weeks.
-    </p>
-
-    <h2>Caffeine and sleep timing</h2>
-    <p>
-      Caffeine has a half-life of 5&ndash;6 hours. A 3 PM coffee is still
-      half there at 9 PM. It doesn&rsquo;t necessarily stop you falling
-      asleep but suppresses deep sleep and fragments the night. Last-cup
-      cutoff 8&ndash;10 hours before bed if you&rsquo;re sensitive.
+      Tüketici uyku takip cihazları yatma saati, uyanma saati ve
+      toplam süre konusunda oldukça iyidir. Uyku evrelerini ayırt etmede
+      vasattırlar &mdash; N3/REM sınıflandırmasının doğruluğu yazı tura atar gibidir.
+      Evre dökümünü eğlence olarak görün, teşhis olarak değil. Yararlı
+      sinyal haftalar içindeki eğilimdir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Kafein ve uyku zamanlaması</h2>
     <p>
-      <strong>Counting bedtime instead of sleep-time.</strong> Account for
-      the 10&ndash;20 minutes it takes to actually fall asleep.
-    </p>
-    <p>
-      <strong>Over-trusting the 90-minute rule.</strong> It&rsquo;s a
-      heuristic. If it doesn&rsquo;t help you, try 100-minute spacing and
-      see.
-    </p>
-    <p>
-      <strong>Using naps to pay back debt.</strong> A 20-minute nap is not
-      equivalent to an hour of missed sleep. Helpful for alertness, not
-      for repair.
-    </p>
-    <p>
-      <strong>Staying up late because REM is last.</strong> REM is in the
-      last third of your <em>personal</em> night. Late bedtimes still cost
-      you deep sleep.
-    </p>
-    <p>
-      <strong>Fixating on timing and ignoring total duration.</strong> 6
-      hours well-timed is still insufficient for most adults. Timing is a
-      tiebreaker, not a substitute.
-    </p>
-    <p>
-      <strong>Light and screens right before bed.</strong> Suppresses
-      melatonin, pushes sleep onset later, messes with cycle timing.
-    </p>
-    <p>
-      <strong>Alcohol as a sleep aid.</strong> Gets you to sleep faster,
-      destroys REM in the second half of the night. Net negative for
-      quality.
+      Kafeinin yarı ömrü 5&ndash;6 saattir. Saat 15'teki bir kahve saat 21'de hala
+      yarı yarıya etkindir. Uykuya dalmanızı mutlaka engellemez
+      ancak derin uykuyu bastırır ve geceyi parçalar. Hassassanız, yatmadan
+      8&ndash;10 saat önce son bardak.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Pick a wake time or bedtime in the{" "}
-      <a href="/tools/sleep-cycle-calculator">sleep cycle calculator</a>{" "}
-      and it works out cycle-aligned alternatives. Pair with the{" "}
-      <a href="/tools/pomodoro-timer">pomodoro timer</a> to structure the
-      day so you actually get to bed on schedule, and the{" "}
-      <a href="/tools/fasting-timer">fasting timer</a> if you&rsquo;re
-      aligning eating windows with your chronotype too.
+      <strong>Yatma saatini uyku saati olarak saymak.</strong> Gerçekten uykuya
+      dalmanın 10&ndash;20 dakika sürdüğünü hesaba katın.
+    </p>
+    <p>
+      <strong>90 dakika kuralına aşırı güvenmek.</strong> Bu bir
+      kestirimdir. Size yardımcı olmuyorsa, 100 dakikalık aralıkları deneyin ve
+      bakın.
+    </p>
+    <p>
+      <strong>Borcu ödemek için şekerleme kullanmak.</strong> 20 dakikalık bir şekerleme,
+      bir saatlik kaçırılan uykuya eşdeğer değildir. Uyanıklık için faydalıdır, onarım
+      için değil.
+    </p>
+    <p>
+      <strong>REM son olduğu için geç saatlere kadar ayakta kalmak.</strong> REM,
+      sizin <em>kişisel</em> gecenizin son üçte birindedir. Geç yatma saatleri yine de
+      derin uykunuzdan çalar.
+    </p>
+    <p>
+      <strong>Zamanlamaya odaklanıp toplam süreyi görmezden gelmek.</strong> İyi
+      zamanlanmış 6 saat, çoğu yetişkin için hala yetersizdir. Zamanlama bir
+      eşitlik bozucudur, bir ikame değildir.
+    </p>
+    <p>
+      <strong>Yatmadan hemen önce ışık ve ekranlar.</strong> Melatonini
+      baskılar, uyku başlangıcını geciktirir, döngü zamanlamasını bozar.
+    </p>
+    <p>
+      <strong>Uyku yardımcısı olarak alkol.</strong> Sizi daha hızlı uyutur,
+      gecenin ikinci yarısında REM'i yok eder. Kalite için net negatif.
+    </p>
+
+    <h2>Sayıları hesaplayın</h2>
+    <p>
+      Bir uyanma veya yatma saati seçin{" "}
+      <a href="/tools/sleep-cycle-calculator">uyku döngüsü hesaplayıcısında</a>{" "}
+      ve döngüye uygun alternatifleri hesaplasın.{" "}
+      <a href="/tools/pomodoro-timer">Pomodoro zamanlayıcı</a> ile günü yapılandırarak
+      gerçekten programa uygun yatmanızı sağlayın ve{" "}
+      <a href="/tools/fasting-timer">oruç zamanlayıcı</a> ile de yeme
+      pencerelerinizi kronotipinize göre ayarlayın.
     </p>
   </>
 );

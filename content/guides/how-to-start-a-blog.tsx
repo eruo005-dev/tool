@@ -1,115 +1,82 @@
 export const intro = (
   <>
     <p>
-      Starting a blog in 2026 sounds anachronistic — the internet has moved on to video and
-      social feeds. But owned writing still compounds: blog posts rank in Google for years,
-      build authority, and create surface area for opportunities. A blog is an asset; a social
-      feed is a performance.
+      2026'da bir blog başlatmak anakronik geliyor — internet videolara ve sosyal akışlara geçti. Ancak kişisel yazılar hâlâ birikim sağlıyor: blog yazıları yıllarca Google'da sıralanır, otorite oluşturur ve fırsatlar için yüzey alanı yaratır. Blog bir varlıktır; sosyal akış ise bir performanstır.
     </p>
     <p>
-      This guide cuts through the noise about perfect platforms and custom themes. Most of the
-      time that goes into &ldquo;setting up&rdquo; a blog would be better spent writing posts.
+      Bu rehber, mükemmel platformlar ve özel temalar hakkındaki karmaşayı ortadan kaldırıyor. Bir blog &ldquo;kurmak&rdquo; için harcanan zamanın çoğu, yazı yazmaya harcansa daha iyi olur.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Pick a niche narrow enough to be memorable</h2>
+    <h2>1. Akılda kalacak kadar dar bir niş seçin</h2>
     <p>
-      &ldquo;A blog about productivity&rdquo; is too broad; thousands exist. &ldquo;A blog about
-      productivity for solo software founders&rdquo; is memorable. Narrow niches attract loyal
-      readers faster than broad ones, and narrow topics are easier to write 50 posts about
-      without repeating yourself.
+      &ldquo;Üretkenlik hakkında bir blog&rdquo; çok geniş; binlercesi var. &ldquo;Yalnız yazılım kurucuları için üretkenlik hakkında bir blog&rdquo; akılda kalıcıdır. Dar nişler, geniş olanlardan daha hızlı sadık okuyucular çeker ve dar konular hakkında kendinizi tekrar etmeden 50 yazı yazmak daha kolaydır.
     </p>
 
-    <h2>2. Write for one specific reader</h2>
+    <h2>2. Belirli bir okuyucu için yazın</h2>
     <p>
-      Imagine one person you&rsquo;d love to read your stuff. Write each post to them. Posts
-      written for a real person sound human and specific; posts written for &ldquo;the
-      audience&rdquo; sound generic and AI-ish. The clearer the reader, the clearer the writing.
+      Yazılarınızı okumasını isteyeceğiniz bir kişi hayal edin. Her yazıyı ona yazın. Gerçek bir kişi için yazılan yazılar insani ve spesifik gelir; &ldquo;izleyici kitlesi&rdquo; için yazılanlar genel ve yapay zeka benzeri gelir. Okuyucu ne kadar netse, yazı da o kadar net olur.
     </p>
 
-    <h2>3. Pick the simplest platform that works</h2>
+    <h2>3. İşe yarayan en basit platformu seçin</h2>
     <p>
-      Ghost, Substack, WordPress, Bear — they all work. The platform doesn&rsquo;t matter much
-      for your first 50 posts. Don&rsquo;t spend a week comparing them. Pick one in 30 minutes
-      and start writing. You can migrate later if you need to.
+      Ghost, Substack, WordPress, Bear — hepsi işe yarar. İlk 50 yazınız için platform pek önemli değil. Bunları karşılaştırarak bir hafta harcamayın. 30 dakika içinde birini seçin ve yazmaya başlayın. Gerekirse daha sonra taşıyabilirsiniz.
     </p>
 
-    <h2>4. Your own domain matters</h2>
+    <h2>4. Kendi alan adınız önemlidir</h2>
     <p>
-      The one platform concession worth making: buy a custom domain from the start. Moving
-      platforms later is easy; changing URLs breaks every backlink you&rsquo;ve ever earned.
-      $15/year on a .com is a better investment than most tools.
+      Yapmaya değer tek platform tavizi: en baştan özel bir alan adı satın alın. Platformları daha sonra taşımak kolaydır; URL'leri değiştirmek, kazandığınız her geri bağlantıyı bozar. Bir .com için yıllık 15$, çoğu araçtan daha iyi bir yatırımdır.
     </p>
 
-    <h2>5. Publish before you&rsquo;re ready</h2>
+    <h2>5. Hazır olmadan yayınlayın</h2>
     <p>
-      The first 5 posts will be bad. Your voice, structure, and taste develop through publishing,
-      not through more drafts sitting in a folder. Publish them anyway. They can be updated or
-      deleted later; the skill built from shipping is permanent.
+      İlk 5 yazı kötü olacak. Sesiniz, yapınız ve zevkiniz yayın yaparak gelişir, bir klasörde bekleyen daha fazla taslakla değil. Yine de yayınlayın. Daha sonra güncellenebilir veya silinebilirler; yayınlamaktan kazanılan beceri kalıcıdır.
     </p>
 
-    <h2>6. Write posts people search for</h2>
+    <h2>6. İnsanların aradığı yazıları yazın</h2>
     <p>
-      &ldquo;How to X&rdquo; and &ldquo;X for Y&rdquo; posts earn search traffic for years.
-      Opinion posts spike and die. A 70/30 mix — mostly evergreen how-to, with opinion sprinkled
-      in — builds a compounding traffic base. Pair with our{" "}
-      <a href="/guides/seo-basics-for-beginners">SEO basics guide</a> to target keywords that
-      actually matter.
+      &ldquo;Nasıl X yapılır&rdquo; ve &ldquo;Y için X&rdquo; yazıları yıllarca arama trafiği kazandırır. Görüş yazıları yükselir ve ölür. %70/30 karışımı — çoğunlukla kalıcı nasıl yapılır, aralara serpiştirilmiş görüşlerle — birikimli bir trafik tabanı oluşturur. Gerçekten önemli anahtar kelimeleri hedeflemek için{" "}
+      <a href="/guides/seo-basics-for-beginners">SEO temelleri rehberimiz</a> ile eşleştirin.
     </p>
 
-    <h2>7. Have a publishing cadence</h2>
+    <h2>7. Bir yayınlama ritminiz olsun</h2>
     <p>
-      Weekly or biweekly. Consistency matters more than frequency — two posts a month for a year
-      beats twenty in January and silence until November. Readers subscribe to rhythm. Pair with
-      our <a href="/guides/how-to-plan-your-week">weekly planning guide</a> to block writing
-      time.
+      Haftalık veya iki haftada bir. Tutarlılık sıklıktan daha önemlidir — bir yıl boyunca ayda iki yazı, Ocak'ta yirmi ve Kasım'a kadar sessizliği yener. Okuyucular ritme abone olur. Yazma zamanı ayırmak için{" "}
+      <a href="/guides/how-to-plan-your-week">haftalık planlama rehberimiz</a> ile eşleştirin.
     </p>
 
-    <h2>8. Write clearly, not cleverly</h2>
+    <h2>8. Zekice değil, net yazın</h2>
     <p>
-      Clear writing is the entire game. Long, jargon-filled, clever-structured posts bounce
-      readers in 10 seconds. Pair with our{" "}
-      <a href="/guides/how-to-write-better">better writing guide</a> — the single biggest
-      compounding skill for any blog.
+      Net yazmak tüm oyundur. Uzun, jargon dolu, zekice yapılandırılmış yazılar okuyucuları 10 saniyede kaçırır. Herhangi bir blog için en büyük birikimli beceri olan{" "}
+      <a href="/guides/how-to-write-better">daha iyi yazma rehberimiz</a> ile eşleştirin.
     </p>
 
-    <h2>9. Add internal links</h2>
+    <h2>9. İç bağlantılar ekleyin</h2>
     <p>
-      As the blog grows, link related posts to each other. Readers read deeper; search engines
-      understand your topical authority better. Most successful blogs are less &ldquo;collection
-      of posts&rdquo; and more &ldquo;web of interconnected pages.&rdquo;
+      Blog büyüdükçe, ilgili yazıları birbirine bağlayın. Okuyucular daha derin okur; arama motorları konusal otoritenizi daha iyi anlar. Başarılı blogların çoğu daha az &ldquo;yazı koleksiyonu&rdquo; ve daha çok &ldquo;birbirine bağlı sayfalar ağıdır.&rdquo;
     </p>
 
-    <h2>10. Capture email from day one</h2>
+    <h2>10. İlk günden e-posta toplayın</h2>
     <p>
-      Social platforms can change the rules overnight (and have, repeatedly). Email is the only
-      channel you truly own. ConvertKit, Beehiiv, or Substack&rsquo;s native email all work. Even
-      with 50 subscribers, that&rsquo;s 50 readers you can reach directly forever.
+      Sosyal platformlar kuralları bir gecede değiştirebilir (ve defalarca değiştirdi). E-posta, gerçekten sahip olduğunuz tek kanaldır. ConvertKit, Beehiiv veya Substack'in yerel e-postası — hepsi işe yarar. 50 aboneyle bile, bu doğrudan sonsuza kadar ulaşabileceğiniz 50 okuyucu demektir.
     </p>
 
-    <h2>11. Ignore traffic until post 25</h2>
+    <h2>11. 25. yazıya kadar trafiği görmezden gelin</h2>
     <p>
-      New blogs have no traffic. Obsessing over analytics before post 25 is demoralizing and
-      counterproductive. Focus entirely on writing better posts. Traffic is a lagging indicator
-      of taste and consistency, not of marketing hacks.
+      Yeni blogların trafiği olmaz. 25. yazıdan önce analitiklere takılmak moral bozucu ve verimsizdir. Tamamen daha iyi yazılar yazmaya odaklanın. Trafik, pazarlama hilelerinin değil, zevk ve tutarlılığın gecikmeli bir göstergesidir.
     </p>
 
-    <h2>12. Promote one level above what&rsquo;s comfortable</h2>
+    <h2>12. Rahatınızın bir seviye üstünde tanıtım yapın</h2>
     <p>
-      &ldquo;Just write, they&rsquo;ll find it&rdquo; is mostly wrong. Share each post in
-      communities where your reader actually hangs out — a relevant subreddit, a Slack group, a
-      Twitter thread. The first 1,000 readers come from doing this; search traffic kicks in
-      later.
+      &ldquo;Sadece yaz, onlar bulur&rdquo; çoğunlukla yanlıştır. Her yazıyı, okuyucunuzun gerçekten takıldığı topluluklarda paylaşın — ilgili bir subreddit, bir Slack grubu, bir Twitter dizisi. İlk 1.000 okuyucu bunu yaparak gelir; arama trafiği daha sonra devreye girer.
     </p>
 
-    <h2>Your first 90 days</h2>
+    <h2>İlk 90 gününüz</h2>
     <p>
-      Buy the domain. Pick a platform in 30 minutes. Write 12 posts, one per week. Share each in
-      2 relevant places. After 90 days, review what resonated and double down on that. That
-      tight loop — write, ship, share, observe — is the whole blog playbook.
+      Alan adını satın alın. 30 dakikada bir platform seçin. Haftada bir olmak üzere 12 yazı yazın. Her birini 2 ilgili yerde paylaşın. 90 gün sonra, neyin ilgi gördüğünü değerlendirin ve ona odaklanın. Bu sıkı döngü — yaz, yayınla, paylaş, gözlemle — tüm blog oyun kitabıdır.
     </p>
   </>
 );

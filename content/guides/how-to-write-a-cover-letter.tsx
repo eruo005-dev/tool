@@ -1,115 +1,79 @@
 export const intro = (
   <>
     <p>
-      Cover letters are easy to write badly and just hard enough to write well that most
-      people don&rsquo;t bother. That&rsquo;s your opportunity. A decent cover letter — even
-      400 crisp words — puts you ahead of 80% of applicants who submit generic boilerplate or
-      skip it entirely.
+      Ön yazıları kötü yazmak kolaydır ve iyi yazmak, çoğu insanın uğraşmayacağı kadar zordur. İşte bu sizin fırsatınız. İyi bir ön yazı — 400 net kelime bile — sizi, genel geçer metinler gönderen veya tamamen atlayan başvuru sahiplerinin %80'inin önüne geçirir.
     </p>
     <p>
-      This guide covers how to write a cover letter that actually gets read, without clichés,
-      without templates, and without the painful intro &ldquo;I am writing to apply
-      for…&rdquo;
+      Bu rehber, klişeler, şablonlar ve acı verici "…başvurusu yapmak için yazıyorum" girişi olmadan, gerçekten okunan bir ön yazının nasıl yazılacağını anlatıyor.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Start with why you care about this job</h2>
+    <h2>1. Bu işi neden önemsediğinle başla</h2>
     <p>
-      Not a list of qualifications. Not &ldquo;I am excited to apply.&rdquo; A genuine
-      sentence about why this specific role at this specific company caught your attention.
-      Specificity here signals real research. &ldquo;I&rsquo;ve used your product X since 2022
-      and was delighted when I saw role Y.&rdquo;
+      Bir nitelik listesi değil. "Başvurmaktan heyecan duyuyorum" değil. Bu belirli pozisyonun ve şirketin dikkatini neden çektiğine dair samimi bir cümle. Buradaki özgüllük, gerçek bir araştırma yapıldığını gösterir. "X ürününüzü 2022'den beri kullanıyorum ve Y pozisyonunu gördüğümde çok memnun oldum."
     </p>
 
-    <h2>2. Keep it under one page</h2>
+    <h2>2. Bir sayfanın altında tut</h2>
     <p>
-      3-4 paragraphs. 300-500 words. Hiring managers spend 60-90 seconds on a cover letter at
-      most. Anything longer is skimmed or skipped. Respect the reader&rsquo;s time and edit
-      aggressively. Shorter is harder and better.
+      3-4 paragraf. 300-500 kelime. İşe alım yöneticileri bir ön yazıya en fazla 60-90 saniye ayırır. Daha uzun olan her şey gözden geçirilir veya atlanır. Okuyucunun zamanına saygı göster ve acımasızca düzenle. Daha kısa olan daha zordur ve daha iyidir.
     </p>
 
-    <h2>3. Lead with your strongest specific result</h2>
+    <h2>3. En güçlü spesifik sonucunla öne çık</h2>
     <p>
-      Not &ldquo;I am a hard worker.&rdquo; But &ldquo;At Acme, I rebuilt the onboarding flow
-      and raised trial-to-paid conversion from 11% to 19%.&rdquo; Concrete numbers and concrete
-      outcomes. Show, don&rsquo;t claim. See our <a href="/guides/how-to-write-a-resume">resume
-      guide</a> for more on this.
+      "Çalışkan biriyim" değil. "Acme'de, kayıt akışını yeniden oluşturdum ve denemeden ücretliye dönüşümü %11'den %19'a çıkardım." Somut sayılar ve somut sonuçlar. Göster, iddia etme. Bununla ilgili daha fazlası için <a href="/guides/how-to-write-a-resume">özgeçmiş rehberimize</a> bakın.
     </p>
 
-    <h2>4. Make it about them, not you</h2>
+    <h2>4. Onlarla ilgili olsun, seninle değil</h2>
     <p>
-      Weak pattern: &ldquo;I want to learn and grow in this role.&rdquo; Strong pattern: &ldquo;Your
-      team is scaling the payments platform, and my work on X/Y/Z at Acme directly addresses
-      the challenges I saw in your engineering blog.&rdquo; Frame yourself as a solution to
-      their problem.
+      Zayıf kalıp: "Bu rolde öğrenmek ve büyümek istiyorum." Güçlü kalıp: "Ekibiniz ödeme platformunu ölçeklendiriyor ve Acme'deki X/Y/Z üzerine çalışmalarım, mühendislik blogunuzda gördüğüm zorlukları doğrudan ele alıyor." Kendini onların sorununa bir çözüm olarak konumlandır.
     </p>
 
-    <h2>5. Address the job posting specifically</h2>
+    <h2>5. İş ilanına özel olarak hitap et</h2>
     <p>
-      Read the posting 3 times. Note the 3-5 key skills or outcomes they emphasize. In the
-      cover letter, explicitly connect your experience to those. Generic letters signal that
-      you applied to 50 roles and spent 2 minutes on this one.
+      İlanı 3 kez oku. Vurguladıkları 3-5 temel beceri veya sonucu not al. Ön yazıda, deneyimini bunlarla açıkça ilişkilendir. Genel yazılar, 50 pozisyona başvurduğunu ve buna 2 dakika ayırdığını gösterir.
     </p>
 
-    <h2>6. Avoid clichés</h2>
+    <h2>6. Klişelerden kaçın</h2>
     <p>
-      &ldquo;I&rsquo;m a team player.&rdquo; &ldquo;Passionate about excellence.&rdquo; &ldquo;Self-starter.&rdquo;
-      These phrases are so overused they carry no signal. Replace every cliché with a
-      specific example of the behavior the cliché was trying to describe.
+      "Takım oyuncusuyum." "Mükemmeliyete tutkulu." "Kendi kendine başlayan." Bu ifadeler o kadar aşırı kullanıldı ki hiçbir anlam taşımıyor. Her klişeyi, klişenin tanımlamaya çalıştığı davranışın belirli bir örneğiyle değiştir.
     </p>
 
-    <h2>7. Write like a human</h2>
+    <h2>7. İnsan gibi yaz</h2>
     <p>
-      Use contractions. Use &ldquo;I.&rdquo; Read it aloud — if it sounds stiff, rewrite.
-      Cover letters that sound like LinkedIn buzzword soup get filed mentally under
-      &ldquo;mass applicant.&rdquo; Human voice stands out. Our{" "}
-      <a href="/guides/how-to-write-better">writing guide</a> has more on this.
+      Kısaltmalar kullan. "Ben" kullan. Yüksek sesle oku — kulağa resmi geliyorsa yeniden yaz. LinkedIn'in anlamsız kelimeleri gibi ses çıkaran ön yazılar, zihinsel olarak "toplu başvuru" dosyasına kaldırılır. İnsan sesi öne çıkar. Bununla ilgili daha fazlası <a href="/guides/how-to-write-better">yazma rehberimizde</a>.
     </p>
 
-    <h2>8. Don&rsquo;t repeat your resume</h2>
+    <h2>8. Özgeçmişini tekrarlama</h2>
     <p>
-      The resume is the resume. The cover letter is the story a resume can&rsquo;t tell —
-      why you care, why you&rsquo;re specifically good for this, the context behind the
-      accomplishments. If your cover letter just restates the resume, it&rsquo;s wasted paper.
+      Özgeçmiş özgeçmiştir. Ön yazı, özgeçmişin anlatamadığı hikayedir — neden önemsediğin, neden özellikle buna uygun olduğun, başarılarının arkasındaki bağlam. Ön yazın sadece özgeçmişi tekrarlıyorsa, boşa harcanmış kağıttır.
     </p>
 
-    <h2>9. Close with a clear next step</h2>
+    <h2>9. Net bir sonraki adımla kapat</h2>
     <p>
-      &ldquo;I&rsquo;d welcome the chance to talk about how my experience with X could help
-      your team with Y.&rdquo; Direct, confident, action-oriented. Don&rsquo;t grovel. Don&rsquo;t
-      use phrases like &ldquo;I hope you will consider me.&rdquo; Confidence (without
-      arrogance) reads well.
+      "X konusundaki deneyimimin, ekibinize Y konusunda nasıl yardımcı olabileceği hakkında konuşma fırsatını memnuniyetle karşılarım." Doğrudan, kendinden emin, eylem odaklı. Yalvarma. "Beni değerlendirmenizi umarım" gibi ifadeler kullanma. Kendine güven (kibir olmadan) iyi okunur.
     </p>
 
-    <h2>10. Proofread ruthlessly</h2>
+    <h2>10. Acımasızca düzelt</h2>
     <p>
-      Typos kill cover letters. Read it 3 times. Read it aloud. Run it through a grammar tool.
-      Get a friend to read it. One typo is survivable; two is damaging; three puts you out of
-      the running at a detail-oriented company.
+      Yazım hataları ön yazıları öldürür. 3 kez oku. Yüksek sesle oku. Bir dil bilgisi aracından geçir. Bir arkadaşına okut. Bir yazım hatası atlatılabilir; ikisi zararlıdır; üçü, detay odaklı bir şirkette sizi yarış dışı bırakır.
     </p>
 
-    <h2>11. Customize every letter</h2>
+    <h2>11. Her mektubu kişiselleştir</h2>
     <p>
-      Yes, for every job. Yes, it takes 30 minutes. Yes, it&rsquo;s worth it. A targeted cover
-      letter to 10 jobs beats a generic one to 100. The <a href="/learn/roi">ROI</a> on customization is enormous for
-      the 1-3 jobs you actually want.
+      Evet, her iş için. Evet, 30 dakika sürer. Evet, buna değer. 10 işe hedeflenmiş bir ön yazı, 100 işe genel bir ön yazıyı yener. Kişiselleştirmenin <a href="/learn/roi">ROI</a>'si, gerçekten istediğiniz 1-3 iş için çok büyüktür.
     </p>
 
-    <h2>12. Know when to skip it</h2>
+    <h2>12. Ne zaman atlayacağını bil</h2>
     <p>
-      If the application says &ldquo;cover letter optional&rdquo; — still write one. If the
-      application has no cover letter field — skip it. Don&rsquo;t email it cold unless
-      asked. Over-sending is a signal of desperation.
+      Başvuruda "ön yazı isteğe bağlı" yazıyorsa — yine de bir tane yaz. Başvuruda ön yazı alanı yoksa — atla. İstenmedikçe soğuk e-posta gönderme. Aşırı gönderme, çaresizlik işaretidir.
     </p>
 
-    <h2>A simple structure</h2>
+    <h2>Basit bir yapı</h2>
     <p>
-      Paragraph 1: Why this specific job caught you. Paragraph 2: A concrete result that shows
-      you can do it. Paragraph 3: How your background maps to their needs. Paragraph 4: Clear
-      close with next step. That&rsquo;s the whole letter.
+      Paragraf 1: Bu belirli iş neden ilgini çekti. Paragraf 2: Bunu yapabileceğini gösteren somut bir sonuç. Paragraf 3: Geçmişinin onların ihtiyaçlarına nasıl uyduğu. Paragraf 4: Sonraki adımla net kapanış. Mektubun tamamı bu.
     </p>
   </>
 );

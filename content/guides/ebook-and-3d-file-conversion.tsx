@@ -3,260 +3,202 @@
 export const intro = (
   <>
     <p>
-      Two niche but high-search-intent conversion areas: ebook formats
-      (PDF ↔ EPUB ↔ MOBI for reading on e-readers) and 3D printing formats
-      (STL ↔ OBJ ↔ 3MF for slicing). Both have specific gotchas free
-      converters often gloss over. This guide covers what to use, when, and
-      what to expect.
+      İki niş ama yüksek arama niyetli dönüşüm alanı: e-kitap formatları (e-okuyucularda okumak için PDF ↔ EPUB ↔ MOBI) ve 3D baskı formatları (dilimleme için STL ↔ OBJ ↔ 3MF). Her ikisinin de ücretsiz dönüştürücülerin genellikle ele almadığı kendine özgü incelikleri vardır. Bu rehber, neyi, ne zaman kullanmanız gerektiğini ve ne bekleyeceğinizi kapsar.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "ebook-overview", label: "Ebook format overview" },
-  { id: "pdf-to-epub", label: "PDF to EPUB for e-readers" },
-  { id: "scientific", label: "Scientific PDFs with math symbols" },
-  { id: "3d-overview", label: "3D printing format overview" },
-  { id: "stl-obj", label: "STL to OBJ for 3D printing" },
-  { id: "3mf", label: "Converting 3MF without losing details" },
+  { id: "ebook-overview", label: "E-kitap formatına genel bakış" },
+  { id: "pdf-to-epub", label: "E-okuyucular için PDF'ten EPUB'a" },
+  { id: "scientific", label: "Matematik sembollü bilimsel PDF'ler" },
+  { id: "3d-overview", label: "3D baskı formatına genel bakış" },
+  { id: "stl-obj", label: "3D baskı için STL'den OBJ'ye" },
+  { id: "3mf", label: "Detay kaybetmeden 3MF dönüşümü" },
 ];
 
 export const body = (
   <>
-    <h2 id="ebook-overview">Ebook format overview</h2>
+    <h2 id="ebook-overview">E-kitap formatına genel bakış</h2>
     <p>
-      The major ebook formats and what each is for:
+      Ana e-kitap formatları ve her birinin ne için iyi olduğu:
     </p>
     <ul>
       <li>
-        <strong>EPUB:</strong> open-standard, reflowable. Adjusts to screen size
-        — text wraps, font scales. Used by Apple Books, Kobo, Adobe Digital
-        Editions, most ebook readers except Kindle.
+        <strong>EPUB:</strong> açık standart, yeniden akıcı. Ekran boyutuna uyum sağlar — metin sarılır, yazı tipi ölçeklenir. Apple Books, Kobo, Adobe Digital Editions ve Kindle dışındaki çoğu e-kitap okuyucu tarafından kullanılır.
       </li>
       <li>
-        <strong>MOBI:</strong> Amazon&rsquo;s older Kindle format. Mostly
-        deprecated in 2026 — Amazon stopped accepting MOBI uploads in late
-        2022. Convert old MOBI to EPUB (or AZW3) for forward compatibility.
+        <strong>MOBI:</strong> Amazon'un eski Kindle formatı. 2026 itibarıyla büyük ölçüde kullanımdan kaldırıldı — Amazon, 2022'nin sonlarında MOBI yüklemelerini kabul etmeyi durdurdu. İleriye dönük uyumluluk için eski MOBI'yi EPUB'a (veya AZW3'e) dönüştürün.
       </li>
       <li>
-        <strong>AZW3 / KF8:</strong> Amazon&rsquo;s current Kindle format.
-        Better typography than MOBI. Newer Kindles support it.
+        <strong>AZW3 / KF8:</strong> Amazon'un mevcut Kindle formatı. MOBI'den daha iyi tipografi. Daha yeni Kindle'lar bunu destekler.
       </li>
       <li>
-        <strong>KFX:</strong> Amazon&rsquo;s newest format. Used by recent
-        Kindles. Partially supported by Calibre + plugins; full support is
-        difficult because the format is proprietary.
+        <strong>KFX:</strong> Amazon'un en yeni formatı. En son Kindle'lar tarafından kullanılır. Calibre + eklentiler tarafından kısmen desteklenir; tam destek, formatın tescilli olması nedeniyle zordur.
       </li>
       <li>
-        <strong>PDF:</strong> not really an ebook format. Fixed-layout means it
-        looks bad on small screens. Avoid for e-readers if you have any other
-        choice.
+        <strong>PDF:</strong> gerçek bir e-kitap formatı değil. Sabit düzen, küçük ekranlarda kötü görünmesine neden olur. Mümkünse e-okuyucular için kaçının.
       </li>
     </ul>
     <p>
-      The universal converter: <strong>Calibre</strong> (free, open-source).
-      Drag in your file, pick output format, get the result. Calibre handles
-      almost every ebook format combination including PDF→EPUB.
+      Evrensel dönüştürücü: <strong>Calibre</strong> (ücretsiz, açık kaynak). Dosyanızı sürükleyin, çıktı formatını seçin, sonucu alın. Calibre, PDF→EPUB dahil hemen hemen her e-kitap formatı kombinasyonunu işler.
     </p>
 
-    <h2 id="pdf-to-epub">Converting PDF to EPUB for e-readers</h2>
+    <h2 id="pdf-to-epub">E-okuyucular için PDF'ten EPUB'a</h2>
     <p>
-      The workflow:
+      İş akışı:
     </p>
     <ol>
       <li>
-        <strong>Install Calibre.</strong> Free, available on Mac, Windows, Linux.
+        <strong>Calibre'yi kurun.</strong> Ücretsiz, Mac, Windows, Linux'ta mevcut.
       </li>
       <li>
-        <strong>Drag the PDF into Calibre.</strong> It appears in your library.
+        <strong>PDF'nizi Calibre'ye sürükleyin.</strong> Kitaplığınızda görünür.
       </li>
       <li>
-        <strong>Click Convert Books.</strong> Select EPUB as the output format.
+        <strong>Kitapları Dönüştür'e tıklayın.</strong> Çıktı formatı olarak EPUB'ı seçin.
       </li>
       <li>
-        <strong>Adjust settings.</strong> The defaults are good. For PDFs with
-        complex layout, try the &ldquo;PDF Input&rdquo; tab and toggle
-        &ldquo;No images&rdquo; if you want text-only.
+        <strong>Ayarları ince ayar yapın.</strong> Varsayılanlar yeterlidir. Karmaşık düzenli PDF'ler için "PDF Girişi" sekmesini deneyin ve yalnızca metin istiyorsanız "Resim yok" seçeneğini açın.
       </li>
       <li>
-        <strong>Click OK.</strong> EPUB lands in your library. Send to your
-        e-reader.
+        <strong>Tamam'a tıklayın.</strong> EPUB kitaplığınıza gelir. E-okuyucunuza gönderin.
       </li>
     </ol>
     <p>
-      Caveats:
+      Uyarılar:
     </p>
     <ul>
       <li>
-        Multi-column PDFs convert poorly. Calibre tries to flatten columns into
-        single-column reflowable text but the order can scramble.
+        Çok sütunlu PDF'ler kötü dönüşür. Calibre, sütunları tek sütunlu yeniden akıcı metne düzleştirmeye çalışır, ancak sıralama karışabilir.
       </li>
       <li>
-        Image-heavy PDFs become large EPUBs. Compress images first if size is
-        a concern.
+        Görsel ağırlıklı PDF'ler büyük EPUB'lar üretir. Boyut sorunsa önce görselleri sıkıştırın.
       </li>
       <li>
-        Forms and interactive elements don&rsquo;t convert.
+        Formlar ve etkileşimli öğeler dönüşmez.
       </li>
       <li>
-        For Kindle, convert PDF → EPUB → AZW3 (Calibre handles all three),
-        then send via Send-to-Kindle email or USB.
+        Kindle için, PDF → EPUB → AZW3'e dönüştürün (Calibre üçünü de halleder), ardından Send to Kindle e-postası veya USB ile gönderin.
       </li>
     </ul>
 
-    <h2 id="scientific">Converting scientific PDFs with math symbols</h2>
+    <h2 id="scientific">Matematik sembollü bilimsel PDF'leri dönüştürme</h2>
     <p>
-      Math notation in PDFs is usually rendered as embedded fonts or images.
-      The conversion challenge:
+      PDF'lerdeki matematik notasyonu genellikle gömülü yazı tipleri veya görseller olarak işlenir. Dönüşüm zorluğu:
     </p>
     <ul>
       <li>
-        <strong>Calibre PDF → EPUB:</strong> preserves math as embedded images
-        (the rendered glyphs). Readable, but you can&rsquo;t edit or re-render.
+        <strong>Calibre PDF → EPUB:</strong> matematiği gömülü görseller (işlenmiş glifler) olarak korur. Okunabilir, ancak düzenleyemez veya yeniden işleyemezsiniz.
       </li>
       <li>
-        <strong>Mathpix Snip:</strong> commercial, but converts math images into
-        editable LaTeX. Best for academics needing to extract equations.
+        <strong>Mathpix Snip:</strong> ticari, ancak matematik görsellerini düzenlenebilir LaTeX'e dönüştürür. Denklem çıkarması gereken akademisyenler için en iyisi.
       </li>
       <li>
-        <strong>arXiv source:</strong> if the paper is on arXiv, download the
-        LaTeX source instead of the PDF. Compile to EPUB with Pandoc:
-        <code>pandoc paper.tex -o paper.epub --mathml</code>. Math renders
-        natively in EPUB readers that support MathML.
+        <strong>arXiv kaynağı:</strong> makale arXiv'deyse, PDF yerine LaTeX kaynağını indirin. Pandoc ile EPUB'a derleyin:
+        <code>pandoc paper.tex -o paper.epub --mathml</code>. Matematik, MathML'yi destekleyen EPUB okuyucularında yerel olarak işlenir.
       </li>
       <li>
-        <strong>Pandoc + custom workflow:</strong> for high-volume scientific
-        document conversion, Pandoc can take Markdown with LaTeX math and
-        produce EPUB / DOCX / PDF preserving the math.
+        <strong>Pandoc + özel iş akışı:</strong> yüksek hacimli bilimsel belge dönüşümü için Pandoc, LaTeX matematik içeren Markdown alabilir ve matematiği koruyarak EPUB / DOCX / PDF üretebilir.
       </li>
     </ul>
     <p>
-      The honest answer: scientific PDF → readable e-reader format works
-      OK for casual reading. For editing or re-rendering math, you need the
-      LaTeX source (or pay Mathpix).
+      Dürüst cevap: bilimsel PDF → okunabilir e-okuyucu formatı, gündelik okuma için iyi çalışır. Matematiği düzenlemek veya yeniden işlemek için LaTeX kaynağına (veya Mathpix için ödeme yapmanız) gerekir.
     </p>
 
-    <h2 id="3d-overview">3D printing format overview</h2>
+    <h2 id="3d-overview">3D baskı formatına genel bakış</h2>
     <ul>
       <li>
-        <strong>STL (Stereolithography):</strong> the universal 3D printing
-        format. Just a triangle mesh — no color, no texture, no metadata. Every
-        slicer accepts it. Default for hobbyist 3D printing.
+        <strong>STL (Stereolitografi):</strong> evrensel 3D baskı formatı. Sadece bir üçgen ağ — renk, doku, meta veri yok. Her dilimleyici kabul eder. Hobi amaçlı 3D baskı için varsayılan.
       </li>
       <li>
-        <strong>OBJ:</strong> mesh + texture coordinates + vertex colors. Used
-        for 3D rendering and game development; sometimes for color 3D printing.
+        <strong>OBJ:</strong> ağ + doku koordinatları + köşe renkleri. 3D işleme ve oyun geliştirme için kullanılır; bazen renkli 3D baskı için.
       </li>
       <li>
-        <strong>3MF (3D Manufacturing Format):</strong> Microsoft + 3D printing
-        consortium format. Includes mesh, color, materials, multi-part assemblies.
-        The modern replacement for STL — but adoption is slower than expected.
+        <strong>3MF (3D Üretim Formatı):</strong> Microsoft + 3D baskı konsorsiyumu formatı. Ağ, renk, malzemeler, çok parçalı montajlar içerir. STL'nin modern halefi — ancak benimsenme beklenenden daha yavaş.
       </li>
       <li>
-        <strong>STEP / IGES:</strong> CAD interchange formats. Parametric
-        models, not just meshes. Used in engineering. Most consumer slicers
-        can&rsquo;t read STEP — convert to STL first.
+        <strong>STEP / IGES:</strong> CAD değişim formatları. Sadece ağlar değil, parametrik modeller. Mühendislikte kullanılır. Çoğu tüketici dilimleyici STEP'i okuyamaz — önce STL'ye dönüştürün.
       </li>
       <li>
-        <strong>G-code:</strong> the slicer&rsquo;s output, the printer&rsquo;s
-        input. Not a CAD format — printer-specific machine instructions.
+        <strong>G-kodu:</strong> dilimleyici çıktısı, yazıcı girişi. Bir CAD formatı değil — yazıcınıza özel makine talimatları.
       </li>
     </ul>
 
-    <h2 id="stl-obj">Converting STL to OBJ for 3D printing</h2>
+    <h2 id="stl-obj">3D baskı için STL'den OBJ'ye</h2>
     <p>
-      Most 3D modeling tools handle this round-trip. The free options:
+      Çoğu 3D modelleme aracı bu gidiş-dönüşü halleder. Ücretsiz seçenekler:
     </p>
     <ul>
       <li>
-        <strong>Blender:</strong> File → Import STL → File → Export OBJ.
-        Preserves geometry, lets you add textures and vertex colors before
-        export.
+        <strong>Blender:</strong> Dosya → STL İçe Aktar → Dosya → OBJ Dışa Aktar. Geometriyi korur, dışa aktarmadan önce doku ve köşe renkleri eklemenizi sağlar.
       </li>
       <li>
-        <strong>MeshLab:</strong> minimal viewer-converter for mesh formats.
-        Drag-and-drop conversion. Smaller install than Blender.
+        <strong>MeshLab:</strong> ağ formatları için minimal görüntüleyici-dönüştürücü. Sürükle-bırak dönüşümü. Blender'dan daha küçük kurulum.
       </li>
       <li>
-        <strong>FreeCAD:</strong> import STL, export to OBJ. Useful if you also
-        need to edit the geometry.
+        <strong>FreeCAD:</strong> STL içe aktar, OBJ dışa aktar. Geometriyi de düzenlemeniz gerekiyorsa kullanışlıdır.
       </li>
       <li>
-        <strong>Online converters:</strong> upload STL, download OBJ. Convenient
-        but uploads your model. Avoid for proprietary or commercial designs.
+        <strong>Çevrimiçi dönüştürücüler:</strong> STL yükleyin, OBJ indirin. Kullanışlı ancak modelinizi yükler. Tescilli veya ticari tasarımlar için kaçının.
       </li>
     </ul>
     <p>
-      The conversion itself is straightforward — both formats represent a
-      triangle mesh, OBJ adds texture coordinates which STL doesn&rsquo;t have.
-      What can go wrong:
+      Dönüşümün kendisi basittir — her iki format da bir üçgen ağı temsil eder, OBJ, STL'de olmayan doku koordinatlarını ekler. Yanlış gidebilecek şeyler:
     </p>
     <ul>
       <li>
-        <strong>Scale mismatch.</strong> STL doesn&rsquo;t encode units. OBJ
-        does. The converter has to guess. Verify the size in the slicer.
+        <strong>Ölçek uyumsuzluğu.</strong> STL birimleri kodlamaz. OBJ kodlar. Dönüştürücü tahmin etmek zorundadır. Dilimleyicinizde boyutu doğrulayın.
       </li>
       <li>
-        <strong>Triangle order.</strong> Some tools reverse winding order
-        which can flip normals. Check with normals visualization in your
-        slicer.
+        <strong>Üçgen sarma.</strong> Bazı araçlar sarma yönünü tersine çevirir, bu da normalleri ters çevirebilir. Dilimleyicinizde bir normaller görselleştirmesi ile kontrol edin.
       </li>
       <li>
-        <strong>Vertex precision.</strong> STL stores vertices as binary
-        floats. OBJ uses ASCII text. Round-trip can introduce tiny precision
-        errors — usually invisible but rarely problematic for ultra-precise
-        prints.
+        <strong>Köşe hassasiyeti.</strong> STL, köşeleri ikili kayan noktalar olarak saklar. OBJ, ASCII metni kullanır. Gidiş-dönüş, küçük hassasiyet hatalarına neden olabilir — genellikle görünmez ancak ultra hassas baskılar için nadiren sorunludur.
       </li>
     </ul>
 
-    <h2 id="3mf">Converting 3MF without losing 3D printing details</h2>
+    <h2 id="3mf">Detay kaybetmeden 3MF dönüşümü</h2>
     <p>
-      3MF carries more information than STL: per-part materials, colors,
-      multi-part assemblies, embedded thumbnails. Converting 3MF → STL throws
-      this away. The strategies:
+      3MF, STL'den daha fazla bilgi taşır: parça başına malzemeler, renkler, çok parçalı montajlar, gömülü küçük resimler. 3MF → STL dönüştürmek bunu atar. Stratejiler:
     </p>
     <ul>
       <li>
-        <strong>If your slicer accepts 3MF:</strong> just use 3MF directly. Cura,
-        PrusaSlicer, Bambu Studio all support it. No conversion needed.
+        <strong>Dilimleyiciniz 3MF kabul ediyorsa:</strong> doğrudan 3MF kullanın. Cura, PrusaSlicer, Bambu Studio'nun tümü destekler. Dönüşüm gerekmez.
       </li>
       <li>
-        <strong>If you must convert to STL:</strong> export each part as a
-        separate STL file. Loses the multi-part assembly metadata but
-        preserves geometry. Re-assemble in the slicer.
+        <strong>STL'ye dönüştürmeniz gerekiyorsa:</strong> her parçayı ayrı bir STL dosyası olarak dışa aktarın. Çok parçalı montaj meta verilerini kaybeder ancak geometriyi korur. Dilimleyicinizde yeniden birleştirin.
       </li>
       <li>
-        <strong>3MF to OBJ:</strong> Blender + the 3MF import addon, then
-        export OBJ. Preserves colors and materials better than STL.
+        <strong>3MF'den OBJ'ye:</strong> Blender + 3MF içe aktarma eklentisi, ardından OBJ dışa aktarın. Renkleri ve malzemeleri STL'den daha iyi korur.
       </li>
       <li>
-        <strong>For sharing:</strong> 3MF is the right modern format. Keep your
-        master in 3MF; export to STL only when targeting old slicers.
+        <strong>Paylaşmak için:</strong> 3MF doğru modern formattır. Ana dosyanızı 3MF'de tutun; yalnızca eski dilimleyicileri hedeflerken STL'ye dışa aktarın.
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Try our SVG to PNG converter",
+  label: "SVG'den PNG'ye dönüştürücümüzü deneyin",
   targetSlug: "svg-to-png",
 };
 
 export const faq = [
   {
-    q: "How do I convert PDF to EPUB for better e-reader reading?",
-    a: "Use Calibre (free, open-source). Drag the PDF in, click Convert Books, select EPUB. Defaults are good. For Kindle, then convert EPUB to AZW3. Multi-column PDFs convert poorly — text order can scramble. Image-heavy PDFs make large EPUBs.",
+    q: "Daha iyi e-okuyucu okuması için PDF'yi EPUB'a nasıl dönüştürebilirim?",
+    a: "Calibre'yi kullanın (ücretsiz, açık kaynak). PDF'nizi sürükleyin, Kitapları Dönüştür'e tıklayın, EPUB'ı seçin. Varsayılanlar yeterlidir. Kindle için, ardından EPUB'ı AZW3'e dönüştürün. Çok sütunlu PDF'ler kötü dönüşür — metin sırası karışabilir. Görsel ağırlıklı PDF'ler büyük EPUB'lar üretir.",
   },
   {
-    q: "How do I convert STL to OBJ files for 3D printing?",
-    a: "Free options: Blender (most powerful, lets you add textures), MeshLab (lightweight viewer-converter), FreeCAD (good if you also need to edit). All preserve geometry. STL doesn't encode units or texture coordinates; verify scale in your slicer after conversion.",
+    q: "3D baskı için STL dosyalarını OBJ'ye nasıl dönüştürebilirim?",
+    a: "Ücretsiz seçenekler: Blender (en güçlüsü, doku eklemenizi sağlar), MeshLab (hafif görüntüleyici-dönüştürücü), FreeCAD (düzenleme de gerekiyorsa iyidir). Hepsi geometriyi korur. STL birimleri veya doku koordinatlarını kodlamaz; dönüşümden sonra dilimleyicinizde ölçeği doğrulayın.",
   },
   {
-    q: "How do I convert 3MF without losing 3D printing details?",
-    a: "If your slicer accepts 3MF (Cura, PrusaSlicer, Bambu Studio all do), use 3MF directly. If you must convert to STL: export each part as separate STL — preserves geometry but loses multi-part assembly. To OBJ: use Blender's 3MF import addon, export OBJ — preserves colors better than STL.",
+    q: "3D baskı detaylarını kaybetmeden 3MF'yi nasıl dönüştürebilirim?",
+    a: "Dilimleyiciniz 3MF kabul ediyorsa (Cura, PrusaSlicer, Bambu Studio'nun tümü destekler), doğrudan 3MF kullanın. STL'ye dönüştürmeniz gerekiyorsa: her parçayı ayrı STL olarak dışa aktarın — geometriyi korur ancak çok parçalı montajı kaybeder. OBJ'ye: Blender'ın 3MF içe aktarma eklentisini kullanın, OBJ dışa aktarın — renkleri STL'den daha iyi korur.",
   },
   {
-    q: "How do I convert scientific PDFs with math symbols to EPUB?",
-    a: "Calibre PDF → EPUB preserves math as rendered images (readable but not editable). For editable LaTeX: Mathpix (paid) extracts equations. If the paper is on arXiv, download LaTeX source instead and use Pandoc with --mathml flag — math renders natively in MathML-supporting readers.",
+    q: "Matematik sembollü bilimsel PDF'leri EPUB'a nasıl dönüştürebilirim?",
+    a: "Calibre PDF → EPUB, matematiği işlenmiş görseller olarak korur (okunabilir ancak düzenlenemez). Düzenlenebilir LaTeX için: Mathpix (ücretli) denklemleri çıkarır. Makale arXiv'deyse, PDF yerine LaTeX kaynağını indirin ve --mathml bayrağıyla Pandoc kullanın — matematik, MathML'yi destekleyen okuyucularda yerel olarak işlenir.",
   },
 ];

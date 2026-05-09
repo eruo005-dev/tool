@@ -2,57 +2,57 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    &ldquo;Eco-friendly&rdquo; packaging is the most greenwashed category in e-commerce &mdash; here&rsquo;s how to pick options that hold up to a customer who actually reads the label.
+    &ldquo;Çevre dostu&rdquo; ambalaj, e-ticarette en çok yeşil aklama yapılan kategoridir &mdash; işte etiketi okuyan bir müşteriyi gerçekten etkileyecek seçenekleri nasıl seçersiniz.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      If you ship physical products, packaging is the most visible part of your sustainability story. It&rsquo;s also where vendors make the most aggressive claims. Separating real options from marketing fluff saves money and keeps you out of greenwashing complaints.
+      Fiziksel ürünler gönderiyorsanız, ambalaj sürdürülebilirlik hikâyenizin en görünür kısmıdır. Aynı zamanda satıcıların en agresif iddiaları ortaya attığı yerdir. Gerçek seçenekleri pazarlama abartılarından ayırmak size para kazandırır ve yeşil aklama şikâyetlerinden uzak tutar.
     </p>
 
-    <h2>What the labels actually mean</h2>
+    <h2>Etiketler aslında ne anlama geliyor</h2>
     <p>
-      Recyclable means the material <em>can</em> be recycled if a facility accepts it &mdash; most curbside programs don&rsquo;t take flexible plastics or contaminated paper. Compostable splits two ways: TUV OK Compost HOME is certified to break down in a backyard bin, while INDUSTRIAL (BPI, ASTM D6400) requires a commercial facility reaching 130&deg;F+, which most Americans don&rsquo;t have access to. Biodegradable, on its own, is nearly meaningless &mdash; no timeframe, no endpoint. Stick to certified claims.
+      Geri dönüştürülebilir, malzemenin bir tesis kabul ederse geri dönüştürülebileceği anlamına gelir &mdash; çoğu kaldırım kenarı programı esnek plastikleri veya kirlenmiş kağıdı almaz. Kompostlanabilir ikiye ayrılır: TUV OK Compost HOME, bir arka bahçe kutusunda parçalanmak üzere sertifikalıdır; ENDÜSTRİYEL (BPI, ASTM D6400), çoğu Amerikalının erişemediği 130°F+ sıcaklığa ulaşan ticari bir tesis gerektirir. Biyobozunur tek başına neredeyse anlamsızdır &mdash; zaman çerçevesi veya bitiş noktası yoktur. Sertifikalı iddialara bağlı kalın.
     </p>
 
-    <h2>Certifications worth naming</h2>
+    <h2>Anılmaya değer sertifikalar</h2>
     <ul>
-      <li>FSC (Forest Stewardship Council) for paper, cardboard, and wood fillers.</li>
-      <li>PCR (post-consumer recycled) percentage &mdash; look for 30%+ on plastic mailers, 100% on paper.</li>
-      <li>TUV OK Compost HOME for anything you call home-compostable.</li>
-      <li>How2Recycle labels so customers know what to do with it.</li>
+      <li>Kağıt, karton ve ahşap dolgu için FSC (Orman Yönetim Konseyi).</li>
+      <li>Tüketici sonrası geri dönüştürülmüş (PCR) yüzdesi &mdash; plastik zarflarda %30+, kağıtta %100 arayın.</li>
+      <li>Evde kompostlanabilir dediğiniz her şey için TUV OK Compost HOME.</li>
+      <li>Müşterilerin ne yapacağını bilmesi için How2Recycle etiketleri.</li>
     </ul>
 
-    <h2>Real options on the market</h2>
+    <h2>Piyasadaki gerçek seçenekler</h2>
     <p>
-      Mushroom packaging (Ecovative, Magical Mushroom Company) replaces molded foam and genuinely composts at home &mdash; expensive but striking. Molded pulp trays (recycled newspaper and cardboard) are cheap, protective, and curbside-recyclable. Paper-only void fill (honeycomb wrap, crinkle paper, shredded kraft) replaces bubble wrap for most non-fragile goods. Water-activated paper tape seals boxes so the whole package goes in the same recycling stream. For mailers, 100% recycled paper or 30%+ PCR poly options from EcoEnclose and No Issue cover most use cases.
+      Mantar ambalajı (Ecovative, Magical Mushroom Company) kalıplanmış köpüğün yerini alır ve evde gerçekten kompostlanır &mdash; pahalı ama etkileyici. Kalıplanmış kağıt hamuru tepsiler (geri dönüştürülmüş gazete ve karton) ucuzdur, koruyucudur ve kaldırım kenarı geri dönüştürülebilir. Düz kağıt boşluk dolgusu (petek sargı, buruşuk kağıt, parçalanmış kraft), kırılgan olmayan çoğu ürün için balonlu naylonun yerini alır. Suyla aktifleşen kağıt bant, kutuları kapatır, böylece tüm paket aynı geri dönüşüm akışına gider. Zarflar için, EcoEnclose ve No Issue'den %100 geri dönüştürülmüş kağıt veya %30+ PCR poli seçenekleri çoğu kullanım durumunu kapsar.
     </p>
 
-    <h2>Cost reality</h2>
+    <h2>Maliyet gerçeği</h2>
     <p>
-      Eco options typically run 20&ndash;50% more per unit than conventional. Mushroom and molded pulp can be 2&ndash;4x for low volumes. You can often offset this with three moves: right-sizing boxes to cut dimensional weight shipping fees, negotiating volume pricing once you commit to a single SKU, and raising your product price $0.50&ndash;$2.00 with a clear note about the upgrade. Customers who care will absorb the cost; customers who don&rsquo;t won&rsquo;t notice.
+      Çevre dostu seçenekler tipik olarak birim başına geleneksel olanlardan %20&ndash;50 daha pahalıdır. Mantar ve kalıplanmış kağıt hamuru, düşük hacimlerde 2&ndash;4 kat daha pahalı olabilir. Bunu genellikle üç hamleyle dengeleyebilirsiniz: boyutsal ağırlık nakliye ücretlerini kesmek için kutuları doğru boyutlandırmak, tek bir SKU'ya bağlandıktan sonra hacim fiyatlandırması pazarlığı yapmak ve yükseltme hakkında net bir notla ürün fiyatınızı 0,50&ndash;2,00 dolar artırmak. Önemseyen müşteriler maliyeti karşılayacaktır; önemsemeyenler fark etmeyecektir.
     </p>
 
-    <h2>The DIY small-shop approach</h2>
+    <h2>Küçük dükkanlar için DIY yaklaşımı</h2>
     <p>
-      If you ship fewer than 50 orders a week, the greenest option is often free: reused boxes from your suppliers, paper fill from your own shredded mail, and water-activated tape. Customers who order handmade goods expect this and usually love it. Add a short printed insert explaining the reused materials so it reads as intentional, not lazy.
+      Haftada 50'den az sipariş gönderiyorsanız, en yeşil seçenek genellikle ücretsizdir: tedarikçilerinizden yeniden kullanılan kutular, kendi parçalanmış postalarınızdan kağıt dolgu ve suyla aktifleşen bant. El yapımı ürünler sipariş eden müşteriler bunu bekler ve genellikle sever. Yeniden kullanılan malzemeleri açıklayan kısa bir basılı ek not ekleyin, böylece kasıtlı olarak okunur, tembel değil.
     </p>
 
-    <h2>Communicating it to customers</h2>
+    <h2>Müşterilerle iletişim</h2>
     <p>
-      People pay a premium for eco packaging only when you tell them why. Add a single line on the product page (&ldquo;Ships in 100% recycled, home-compostable mailers&rdquo;) and a tiny card in the box explaining how to dispose of it. Don&rsquo;t over-claim &mdash; one specific, verifiable sentence outperforms a paragraph of vague green language.
+      İnsanlar, çevre dostu ambalaj için yalnızca nedenini söylediğinizde prim öderler. Ürün sayfanıza tek bir satır ekleyin (&ldquo;%100 geri dönüştürülmüş, evde kompostlanabilir zarflarla gönderilir&rdquo;) ve kutunun içine nasıl imha edileceğini açıklayan küçük bir kart koyun. Aşırı iddiada bulunmayın &mdash; belirli, doğrulanabilir bir cümle, belirsiz yeşil dil içeren bir paragraftan daha iyi performans gösterir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Claiming &ldquo;eco-friendly&rdquo; or &ldquo;green&rdquo; with no certification to back it &mdash; that&rsquo;s textbook greenwashing and the FTC is increasingly willing to act on it. Using PLA bioplastics and calling them compostable when they need industrial heat your customer doesn&rsquo;t have. Assuming recyclable equals recycled &mdash; contamination rates are high and most flexible plastics never get processed. Printing sustainability claims on packaging that itself isn&rsquo;t certified. Using virgin plastic void fill inside a &ldquo;recycled&rdquo; outer box.
+      Bunu destekleyecek hiçbir sertifika olmadan &ldquo;çevre dostu&rdquo; veya &ldquo;yeşil&rdquo; iddiasında bulunmak &mdash; bu ders kitabı yeşil aklamadır ve FTC buna karşı giderek daha fazla harekete geçmeye isteklidir. PLA biyoplastikleri kullanmak ve müşterinizin sahip olmadığı endüstriyel ısı gerektirdiğinde bunlara kompostlanabilir demek. Geri dönüştürülebilirin geri dönüştürülmüşe eşit olduğunu varsaymak &mdash; kirlenme oranları yüksektir ve çoğu esnek plastik asla işlenmez. Sertifikalı olmayan ambalajlara sürdürülebilirlik iddiaları basmak. &ldquo;Geri dönüştürülmüş&rdquo; bir dış kutu içinde işlenmemiş plastik boşluk dolgusu kullanmak.
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Sonuç</h2>
     <p>
-      Pick two or three certified materials, say exactly what they are, and tell customers how to dispose of them. A small shop with FSC kraft boxes, paper void fill, and water-activated tape is genuinely more sustainable &mdash; and more credible &mdash; than a big brand shouting &ldquo;eco&rdquo; on a virgin plastic mailer.
+      İki veya üç sertifikalı malzeme seçin, tam olarak ne olduklarını söyleyin ve müşterilere bunları nasıl imha edeceklerini anlatın. FSC kraft kutuları, kağıt boşluk dolgusu ve suyla aktifleşen bant kullanan küçük bir dükkan, işlenmemiş plastik bir zarf üzerinde &ldquo;eko&rdquo; diye bağıran büyük bir markadan gerçekten daha sürdürülebilir &mdash; ve daha güvenilirdir.
     </p>
   </>
 );

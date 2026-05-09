@@ -2,88 +2,62 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    GPT4All is a desktop client from Nomic AI for running open-source LLMs locally on commodity hardware. It bundles
-    model discovery, chat, and a local document-retrieval feature called LocalDocs into a single free application.
+    GPT4All, Nomic AI tarafından geliştirilen, açık kaynaklı LLM'leri standart donanımda yerel olarak çalıştırmak için kullanılan bir masaüstü istemcisidir. Model keşfi, sohbet ve LocalDocs adlı yerel belge tarama özelliğini tek bir ücretsiz uygulamada birleştirir.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What GPT4All is</h2>
+    <h2>GPT4All Nedir</h2>
     <p>
-      GPT4All started in 2023 as one of the earliest easy-to-use local <a href="/learn/llm">LLM</a> apps and has since matured into a stable
-      cross-platform client. It wraps llama.cpp for <a href="/learn/inference">inference</a>, maintains a curated catalog of GGUF models, and ships
-      LocalDocs &mdash; a RAG feature that indexes folders of PDFs, markdown, code, and office docs into a local
-      vector store. The project is MIT-licensed with commercial use allowed.
+      GPT4All, 2023 yılında yerel <a href="/learn/llm">LLM</a> uygulamaları arasında kullanımı en kolay olanlardan biri olarak başlamış ve o zamandan beri istikrarlı, platformlar arası bir istemci haline gelmiştir. <a href="/learn/inference">Çıkarım</a> için llama.cpp'yi kullanır, küratörlüğünü yaptığı bir GGUF model kataloğunu korur ve LocalDocs'u &mdash; PDF'ler, işaretleme dilleri, kod ve ofis belgelerinden oluşan klasörleri yerel bir vektör deposunda indeksleyen bir RAG özelliği &mdash; sunar. Proje, ticari kullanıma izin veren MIT lisansına sahiptir.
     </p>
     <p>
-      Compared to LM Studio or Jan, GPT4All leans heavier into &ldquo;chat with your files&rdquo; as the default
-      workflow rather than just raw chat.
+      LM Studio veya Jan ile karşılaştırıldığında, GPT4All, yalnızca ham sohbet yerine varsayılan iş akışı olarak &ldquo;dosyalarınızla sohbet&rdquo; özelliğine daha fazla ağırlık verir.
     </p>
 
-    <h2>Installing GPT4All</h2>
+    <h2>GPT4All Kurulumu</h2>
     <p>
-      Grab the installer for macOS, Windows, or Ubuntu from nomic.ai/gpt4all. The installer is a straightforward
-      wizard; on Linux you can also use the provided .run file. First launch prompts you to opt in or out of
-      anonymous telemetry &mdash; decline if you want it fully offline.
+      macOS, Windows veya Ubuntu için yükleyiciyi nomic.ai/gpt4all adresinden edinin. Yükleyici basit bir sihirbazdır; Linux'ta ayrıca sağlanan .run dosyasını da kullanabilirsiniz. İlk çalıştırmada anonim telemetriye katılıp katılmamak için bir seçenek sunulur &mdash; tamamen çevrimdışı kullanmak istiyorsanız reddedin.
     </p>
     <p>
-      Models download into <code>~/Library/Application Support/nomic.ai/GPT4All/</code> on macOS and equivalent
-      paths on Windows and Linux. Point that at an external drive via symlink if disk space is tight.
+      Modeller macOS'ta <code>~/Library/Application Support/nomic.ai/GPT4All/</code> dizinine, Windows ve Linux'ta ise benzer yollara indirilir. Disk alanınız kısıtlıysa, bu yolu sembolik bağlantı ile harici bir sürücüye yönlendirin.
     </p>
 
-    <h2>Picking and downloading a model</h2>
+    <h2>Model Seçme ve İndirme</h2>
     <p>
-      Open the Models tab. GPT4All surfaces a short list of battle-tested GGUF models with size and RAM requirements
-      clearly labeled. Good starting picks:
+      Modeller sekmesini açın. GPT4All, boyut ve RAM gereksinimleri açıkça belirtilmiş, test edilmiş GGUF modellerinden oluşan kısa bir liste sunar. İyi başlangıç seçenekleri:
     </p>
     <ul>
-      <li><code>Llama 3.1 8B Instruct</code> &mdash; general-purpose, needs ~8GB RAM</li>
-      <li><code>Qwen 2.5 Coder 7B</code> &mdash; code assistance, similar memory</li>
-      <li><code>Phi-3 Mini 4K</code> &mdash; runs on 8GB machines with headroom</li>
-      <li><code>Mistral 7B Instruct</code> &mdash; fast and reliable baseline</li>
+      <li><code>Llama 3.1 8B Instruct</code> &mdash; genel amaçlı, yaklaşık 8GB RAM gerektirir</li>
+      <li><code>Qwen 2.5 Coder 7B</code> &mdash; kod yardımı, benzer bellek</li>
+      <li><code>Phi-3 Mini 4K</code> &mdash; 8GB makinelerde boş alanla çalışır</li>
+      <li><code>Mistral 7B Instruct</code> &mdash; hızlı ve güvenilir temel model</li>
     </ul>
     <p>
-      Click Download and watch the progress bar. Switch to the Chats tab and pick the model from the top-right
-      dropdown to start a session.
+      İndir'e tıklayın ve ilerleme çubuğunu izleyin. Sohbetler sekmesine geçin ve bir oturum başlatmak için sağ üstteki açılır menüden modeli seçin.
     </p>
 
-    <h2>Using LocalDocs for private RAG</h2>
+    <h2>Özel RAG için LocalDocs Kullanımı</h2>
     <p>
-      LocalDocs is the killer feature. In the LocalDocs tab, click <code>+ Add Collection</code>, name it, and point
-      it at a folder of documents. GPT4All scans supported file types (PDF, DOCX, TXT, MD, source code), chunks
-      them, and embeds them locally using a built-in Nomic Embed model.
+      LocalDocs, en önemli özelliktir. LocalDocs sekmesinde <code>+ Koleksiyon Ekle</code>'ye tıklayın, bir ad verin ve bir belge klasörünü işaret edin. GPT4All, desteklenen dosya türlerini (PDF, DOCX, TXT, MD, kaynak kodu) tarar, parçalara ayırır ve yerleşik bir Nomic Embed modeli kullanarak bunları yerel olarak gömer.
     </p>
     <p>
-      In a chat thread, toggle the collection on via the database icon. Queries now retrieve relevant chunks from
-      your documents before generating. The sidebar shows citations so you can verify the model did not hallucinate.
-      Nothing leaves your machine.
+      Bir sohbet dizisinde, veritabanı simgesi aracılığıyla koleksiyonu etkinleştirin. Sorgular artık yanıt oluşturmadan önce belgelerinizden ilgili parçaları alır. Kenar çubuğu, modelin halüsinasyon görüp görmediğini doğrulayabilmeniz için alıntıları gösterir. Hiçbir şey makinenizden ayrılmaz.
     </p>
 
-    <h2>API access and configuration</h2>
+    <h2>API Erişimi ve Yapılandırma</h2>
     <p>
-      Open Settings &rarr; Application &rarr; API Server and flip it on. GPT4All exposes an OpenAI-compatible
-      endpoint at <code>http://localhost:4891/v1</code>:
+      Ayarlar &rarr; Uygulama &rarr; API Sunucusu'nu açın ve etkinleştirin. GPT4All, <code>http://localhost:4891/v1</code> adresinde OpenAI uyumlu bir uç nokta sunar:
     </p>
-    <pre>{`curl http://localhost:4891/v1/chat/completions \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "model": "Llama 3.1 8B Instruct",
-    "messages": [{"role": "user", "content": "ping"}]
-  }'`}</pre>
+    <pre>{`curl http://localhost:4891/v1/chat/completions \\\n  -H "Content-Type: application/json" \\\n  -d '{\n    "model": "Llama 3.1 8B Instruct",\n    "messages": [{"role": "user", "content": "ping"}]\n  }'`}</pre>
     <p>
-      Under Settings &rarr; Model, you can tune <a href="/learn/temperature-ai">temperature</a>, top-k, top-p, repeat penalty, and context length per
-      model. If you have an NVIDIA GPU or Apple Silicon, enable GPU in Settings &rarr; Application &mdash; CPU-only
-      is slow on 7B+ models.
+      Ayarlar &rarr; Model altında, model başına <a href="/learn/temperature-ai">sıcaklık</a>, top-k, top-p, tekrar cezası ve bağlam uzunluğunu ayarlayabilirsiniz. NVIDIA GPU'nuz veya Apple Silicon'unuz varsa, Ayarlar &rarr; Uygulama'da GPU'yu etkinleştirin &mdash; yalnızca CPU kullanımı 7B+ modellerde yavaştır.
     </p>
 
-    <h2>When GPT4All is the wrong choice</h2>
+    <h2>GPT4All'ün Yanlış Tercih Olduğu Durumlar</h2>
     <p>
-      GPT4All is great for privacy-focused desktop use and for non-technical teammates who need a no-config &ldquo;
-      chat with my PDFs&rdquo; tool. It is not designed for production serving, multi-user deployment, or rapid
-      model experimentation &mdash; its curated catalog is narrower than LM Studio&rsquo;s Hugging Face browser.
-      For servers, reach for Ollama. For raw breadth of models, LM Studio. For a polished local RAG out of the box,
-      GPT4All is hard to beat.
+      GPT4All, gizlilik odaklı masaüstü kullanımı ve yapılandırma gerektirmeyen &ldquo;PDF'lerimle sohbet&rdquo; aracına ihtiyaç duyan teknik olmayan ekip üyeleri için harikadır. Üretim sunucusu, çok kullanıcılı dağıtım veya hızlı model denemeleri için tasarlanmamıştır &mdash; küratörlü kataloğu, LM Studio'nun Hugging Face tarayıcısından daha dardır. Sunucular için Ollama'ya yönelin. Model çeşitliliği için LM Studio'yu tercih edin. Kutudan çıktığı gibi cilalı bir yerel RAG için GPT4All'ü geçmek zordur.
     </p>
   </>
 );

@@ -2,41 +2,38 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Sociologist Ray Oldenburg coined &ldquo;third place&rdquo; for the spaces between home (first) and work
-    (second). Coffee shops, parks, gyms, libraries. The 2025-2026 cultural conversation rediscovered them as the
-    antidote to remote-work isolation.
+    Sosyolog Ray Oldenburg, ev (birinci) ve iş (ikinci) arasındaki alanlar için &ldquo;üçüncü yer&rdquo; terimini türetti. Kahve dükkanları, parklar, spor salonları, kütüphaneler. 2025-2026 kültürel konuşmaları, bunları uzaktan çalışma yalnızlığının panzehiri olarak yeniden keşfetti.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Why they matter</h2>
+    <h2>Neden önemliler</h2>
     <ul>
-      <li>Loose ties &mdash; the people you see weekly without scheduling &mdash; correlate strongly with happiness.</li>
-      <li>Provide accidental encounters that close friend groups don&rsquo;t.</li>
-      <li>Anchor a neighborhood; you become a regular.</li>
-      <li>Without one, social calendar fills only with effort &mdash; exhausting introverts especially.</li>
+      <li>Gevşek bağlar &mdash; plan yapmadan haftalık gördüğün insanlar &mdash; mutlulukla güçlü bir şekilde ilişkilidir.</li>
+      <li>Yakın arkadaş gruplarının sağlamadığı tesadüfi karşılaşmalar sunar.</li>
+      <li>Bir mahalleyi sabitler; müdavim olursun.</li>
+      <li>Bir tane olmadan, sosyal takvim sadece çabayla dolar &mdash; özellikle içe dönükleri yorar.</li>
     </ul>
-    <h2>What counts</h2>
+    <h2>Neler sayılır</h2>
     <ul>
-      <li>Coffee shop where the staff knows your order.</li>
-      <li>Local gym, climbing wall, dance studio, jiu-jitsu academy.</li>
-      <li>Library &mdash; underrated, free, often has events.</li>
-      <li>Park / trail you walk regularly + hit the same dog walkers.</li>
-      <li>Run club, book club, board game cafe, makerspace.</li>
-      <li>Religious community (for the people who lean that way).</li>
+      <li>Personelin siparişini bildiği kahve dükkanı.</li>
+      <li>Yerel spor salonu, tırmanma duvarı, dans stüdyosu, jiu-jitsu akademisi.</li>
+      <li>Kütüphane &mdash; göz ardı edilir, ücretsizdir, genellikle etkinlikleri vardır.</li>
+      <li>Düzenli yürüdüğün park / patika + aynı köpek gezdiricilerine rastlarsın.</li>
+      <li>Koşu kulübü, kitap kulübü, masa oyunu kafesi, maker alanı.</li>
+      <li>Dini topluluk (o yöne eğilimli insanlar için).</li>
     </ul>
-    <h2>How to actually establish one</h2>
+    <h2>Nasıl gerçekten bir tane oluşturulur</h2>
     <ol>
-      <li>Pick a place you can visit 2&times;/week minimum without strain.</li>
-      <li>Go alone, often, at the same time of day.</li>
-      <li>Become known as a regular &mdash; takes 4-6 weeks of consistent appearances.</li>
-      <li>Be willing to small-talk. Lean toward warmth.</li>
-      <li>Give it 3 months before deciding.</li>
+      <li>Zorlanmadan haftada en az 2&times; ziyaret edebileceğin bir yer seç.</li>
+      <li>Yalnız git, sık sık, günün aynı saatinde.</li>
+      <li>Müdavim olarak tanın &mdash; tutarlı görünmeler 4-6 hafta sürer.</li>
+      <li>Küçük sohbetlere açık ol. Sıcaklığa yönel.</li>
+      <li>Karar vermeden önce 3 ay ver.</li>
     </ol>
     <p>
-      For conversation help see <a href="/guides/how-to-master-small-talk">how to master small talk</a>. For
-      run-club specifics see <a href="/tools/run-club-distance-calculator">run club distance calculator</a>.
+      Sohbet yardımı için <a href="/guides/how-to-master-small-talk">küçük sohbette ustalaşma rehberine</a> bak. Koşu kulübü detayları için <a href="/tools/run-club-distance-calculator">koşu kulübü mesafe hesaplayıcısına</a> bak.
     </p>
   </>
 );

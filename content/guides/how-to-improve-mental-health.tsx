@@ -1,110 +1,80 @@
 export const intro = (
   <>
     <p>
-      Mental health is not a mystery. The things that help most people most of the time
-      are well-known and boring: sleep, exercise, sunlight, connection, and sometimes
-      therapy or medication. The internet sells fancier solutions, but the basics do
-      most of the work.
+      Ruh sağlığı bir gizem değildir. Çoğu insana çoğu zaman en çok yardımcı olan şeyler iyi bilinir ve sıkıcıdır: uyku, egzersiz, güneş ışığı, bağlantı ve bazen terapi veya ilaç. İnternet daha süslü çözümler satar, ancak temel şeyler işin çoğunu halleder.
     </p>
     <p>
-      This guide is about the real levers. It&rsquo;s not a substitute for professional
-      help, but most people haven&rsquo;t actually tried the basics yet.
+      Bu rehber gerçek kaldıraç hakkındadır. Profesyonel yardımın yerini almaz, ancak çoğu insan henüz temel şeyleri gerçekten denememiştir.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Sleep is foundational</h2>
+    <h2>1. Uyku temeldir</h2>
     <p>
-      Chronic sleep deprivation worsens almost every mental health condition. If
-      you&rsquo;re sleeping under 7 hours, fix that first. Consistent bed/wake times,
-      cool dark room, no screens for 30 min before bed. See{" "}
-      <a href="/guides/how-to-sleep-better-every-night">sleep guide</a>.
+      Kronik uyku yoksunluğu neredeyse her ruh sağlığı durumunu kötüleştirir. 7 saatten az uyuyorsanız, önce bunu düzeltin. Tutarlı yatma/kalkma saatleri, serin karanlık oda, yatmadan 30 dakika önce ekran yok. Bkz.{" "}
+      <a href="/guides/how-to-sleep-better-every-night">uyku rehberi</a>.
     </p>
 
-    <h2>2. Move your body daily</h2>
+    <h2>2. Her gün vücudunu hareket ettir</h2>
     <p>
-      Exercise&rsquo;s mental health effect is comparable to mild antidepressants in
-      some studies. 30 min of brisk walking 5 days a week is enough to see it. Lifting
-      helps even more for some. Pick what you&rsquo;ll actually do.
+      Egzersizin ruh sağlığı üzerindeki etkisi, bazı çalışmalarda hafif antidepresanlarla karşılaştırılabilir. Haftada 5 gün 30 dakika tempolu yürüyüş bunu görmek için yeterlidir. Bazıları için ağırlık kaldırmak daha da fazla yardımcı olur. Gerçekten yapacağın bir şey seç.
     </p>
 
-    <h2>3. Sunlight early in the day</h2>
+    <h2>3. Günün erken saatlerinde güneş ışığı</h2>
     <p>
-      15 minutes of morning sunlight sets your <a href="/learn/circadian-rhythm">circadian rhythm</a> and boosts mood. Walk
-      outside after waking, no sunglasses, no phone. Especially critical if you work
-      from home.
+      15 dakika sabah güneş ışığı, <a href="/learn/circadian-rhythm">sirkadiyen ritmini</a> ayarlar ve ruh halini iyileştirir. Uyandıktan sonra dışarıda yürü, güneş gözlüğü yok, telefon yok. Özellikle evden çalışıyorsan kritiktir.
     </p>
 
-    <h2>4. Alcohol is a depressant</h2>
+    <h2>4. Alkol bir depresandır</h2>
     <p>
-      The literal definition. If you&rsquo;re already anxious or down, alcohol makes it
-      worse over time — even if it feels good for 2 hours. Cutting or reducing is often
-      the single biggest lever.
+      Kelimenin tam anlamıyla. Zaten kaygılı veya düşük ruh halindeysen, alkol zamanla durumu daha da kötüleştirir — 2 saat iyi hissettirse bile. Azaltmak veya tamamen kesmek genellikle en büyük kaldıraçtır.
     </p>
 
-    <h2>5. Real connection, not scrolling</h2>
+    <h2>5. Gerçek bağlantı, kaydırarak gezinmek değil</h2>
     <p>
-      Social isolation correlates strongly with depression. Scrolling social media
-      simulates connection without providing it. Call a friend. Have lunch with
-      someone. Not &ldquo;one day.&rdquo; This week.
+      Sosyal izolasyon, depresyonla güçlü bir şekilde bağlantılıdır. Sosyal medyada gezinmek bağlantıyı taklit eder ancak sağlamaz. Bir arkadaşını ara. Biriyle öğle yemeği ye. "Bir gün" değil. Bu hafta.
     </p>
 
-    <h2>6. Talk therapy works</h2>
+    <h2>6. Konuşma terapisi işe yarar</h2>
     <p>
-      CBT and related therapies have strong evidence for anxiety, depression, OCD,
-      trauma. Finding a good therapist takes 2-3 tries on average. Worth the effort.
-      Many people don&rsquo;t need forever — 3-6 months of weekly sessions is common.
+      BDT ve ilgili terapiler, anksiyete, depresyon, OKB, travma için güçlü kanıtlara sahiptir. İyi bir terapist bulmak ortalama 2-3 deneme gerektirir. Çabaya değer. Birçok insanın sonsuza kadar ihtiyacı yoktur — haftalık seanslarla 3-6 ay yaygındır.
     </p>
 
-    <h2>7. Medication is not failure</h2>
+    <h2>7. İlaç başarısızlık değildir</h2>
     <p>
-      For moderate-to-severe depression/anxiety, medication plus therapy works better
-      than either alone. Talk to a psychiatrist, not just your GP, if symptoms are
-      significant. There&rsquo;s no moral hierarchy of treatment.
+      Orta ila şiddetli depresyon/anksiyete için, ilaç artı terapi, ikisinden birinin tek başına yaptığından daha iyi çalışır. Belirtiler önemliyse, sadece aile hekimine değil, bir psikiyatriste görün. Tedavide ahlaki bir hiyerarşi yoktur.
     </p>
 
-    <h2>8. Limit doomscrolling</h2>
+    <h2>8. Kıyamet haberi kaydırmayı sınırla</h2>
     <p>
-      News and social feeds are engineered to trigger anxiety. Small doses can be fine;
-      constant exposure rewires your baseline. Cap app time or move news to one time
-      block a day. See <a href="/guides/how-to-reduce-screen-time">screen time guide</a>.
+      Haberler ve sosyal akışlar kaygıyı tetiklemek için tasarlanmıştır. Küçük dozlar sorun olmayabilir; sürekli maruz kalmak temel seviyeni sıfırlar. Uygulama süresini sınırla veya haberleri günde bir zaman dilimine taşı. Bkz. <a href="/guides/how-to-reduce-screen-time">ekran süresi rehberi</a>.
     </p>
 
-    <h2>9. Nutrition matters more than you think</h2>
+    <h2>9. Beslenme düşündüğünden daha önemlidir</h2>
     <p>
-      Not magic diets. Just: enough protein, vegetables, whole grains, limited
-      ultra-processed food, steady blood sugar. Gut-brain connection is real. Skipping
-      meals often makes anxiety worse.
+      Sihirli diyetler değil. Sadece: yeterli protein, sebze, tam tahıl, sınırlı ultra işlenmiş gıda, sabit kan şekeri. Bağırsak-beyin bağlantısı gerçektir. Öğün atlamak genellikle kaygıyı kötüleştirir.
     </p>
 
-    <h2>10. Build routine</h2>
+    <h2>10. Bir rutin oluştur</h2>
     <p>
-      Structure helps. Same wake, same meals, same workout. In depression especially,
-      the lack of structure deepens the spiral. Even a simple daily rhythm is
-      stabilizing. Meditation helps too — see{" "}
-      <a href="/guides/how-to-meditate-daily">meditation guide</a>.
+      Yapı yardımcı olur. Aynı kalkma saati, aynı öğünler, aynı egzersiz. Özellikle depresyonda, yapı eksikliği sarmalı derinleştirir. Basit bir günlük ritim bile dengeleyicidir. Meditasyon da yardımcı olur — bkz.{" "}
+      <a href="/guides/how-to-meditate-daily">meditasyon rehberi</a>.
     </p>
 
-    <h2>11. Journal one line a day</h2>
+    <h2>11. Günlük tek satırlık bir günlük tut</h2>
     <p>
-      One sentence on how you feel and why. Hard to do in a crisis, easy in normal
-      times. Over months, patterns emerge. Noticing triggers is the first step to
-      managing them.
+      Nasıl hissettiğin ve neden hakkında bir cümle. Krizde zor, normal zamanlarda kolay. Aylar içinde desenler ortaya çıkar. Tetikleyicileri fark etmek, onları yönetmenin ilk adımıdır.
     </p>
 
-    <h2>12. When to get help now</h2>
+    <h2>12. Ne zaman şimdi yardım almalı</h2>
     <p>
-      If you&rsquo;re thinking about self-harm, can&rsquo;t function for weeks, or are
-      losing interest in things you used to care about — don&rsquo;t wait for it to
-      pass on its own. Call your doctor or a crisis line. These are real medical
-      situations that respond to real treatment.
+      Kendine zarar vermeyi düşünüyorsan, haftalardır işlev göremiyorsan veya eskiden önemsediğin şeylere ilgini kaybettiysen — geçmesini bekleme. Doktorunu veya bir kriz hattını ara. Bunlar gerçek tedaviye yanıt veren gerçek tıbbi durumlardır.
     </p>
 
     <p>
-      This is a sensitive topic. If you&rsquo;re struggling personally, reaching out to
-      a mental health professional or a trusted person in your life is the right move.
+      Bu hassas bir konudur. Kişisel olarak zorlanıyorsan, bir ruh sağlığı uzmanına veya hayatında güvendiğin birine ulaşmak doğru harekettir.
     </p>
   </>
 );

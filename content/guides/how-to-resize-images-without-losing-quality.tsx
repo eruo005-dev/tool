@@ -3,277 +3,184 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Resizing an image is simple; resizing without visible quality
-      loss is surprisingly easy to get wrong. Downscale too
-      aggressively and you get blurry results. Upscale naively and
-      you get pixelation. Use the wrong algorithm and straight lines
-      wobble, faces soften, text becomes unreadable. This guide covers
-      the math of resampling, which algorithm to pick for which job,
-      how much you can actually upscale before quality breaks, when
-      to use AI upscaling, and the file-format choices that interact
-      with resize quality.
+      Bir görseli yeniden boyutlandırmak basittir; görünür kalite kaybı olmadan yeniden boyutlandırmak ise şaşırtıcı derecede kolayca yanlış yapılabilir. Çok agresif küçültürseniz bulanık sonuçlar alırsınız. Safça büyütürseniz piksellenme olur. Yanlış algoritmayı kullanırsanız düz çizgiler titrer, yüzler yumuşar, metin okunamaz hale gelir. Bu kılavuz, yeniden örneklemenin matematiğini, hangi iş için hangi algoritmanın seçileceğini, kalite bozulmadan ne kadar büyütme yapılabileceğini, yapay zeka büyütmenin ne zaman kullanılacağını ve yeniden boyutlandırma kalitesiyle etkileşime giren dosya biçimi seçimlerini kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Resize vs. resample vs. compress</h2>
+    <h2>Yeniden boyutlandırma, yeniden örnekleme ve sıkıştırma</h2>
     <p>
-      Three distinct operations often confused for each other:
+      Birbiriyle sıkça karıştırılan üç farklı işlem:
     </p>
     <p>
-      <strong>Resize</strong> changes the pixel dimensions of an image
-      — 4000×3000 → 1600×1200. The image contains less data after.
+      <strong>Yeniden boyutlandırma</strong> bir görselin piksel boyutlarını değiştirir — 4000×3000 → 1600×1200. Görsel sonrasında daha az veri içerir.
     </p>
     <p>
-      <strong>Resample</strong> is the algorithmic step inside a
-      resize: how the new pixels are derived from the old. Different
-      algorithms (nearest-neighbor, bilinear, bicubic, Lanczos) give
-      different visual results.
+      <strong>Yeniden örnekleme</strong>, yeniden boyutlandırma içindeki algoritmik adımdır: yeni piksellerin eskilerden nasıl türetildiği. Farklı algoritmalar (en yakın komşu, çift doğrusal, çift kübik, Lanczos) farklı görsel sonuçlar verir.
     </p>
     <p>
-      <strong>Compress</strong> keeps the same pixel dimensions but
-      reduces file size by encoding pixels more efficiently (JPEG
-      quality, WebP quality, AVIF settings).
+      <strong>Sıkıştırma</strong> aynı piksel boyutlarını korur ancak pikselleri daha verimli kodlayarak dosya boyutunu küçültür (JPEG kalitesi, WebP kalitesi, AVIF ayarları).
     </p>
     <p>
-      Want smaller file, same dimensions? Compress. Want smaller
-      dimensions for a specific layout? Resize. Usually you do both:
-      resize to target dimensions, then compress.
+      Aynı boyutlarda daha küçük dosya mı istiyorsunuz? Sıkıştırın. Belirli bir düzen için daha küçük boyutlar mı istiyorsunuz? Yeniden boyutlandırın. Genellikle ikisini de yaparsınız: hedef boyutlara yeniden boyutlandırın, ardından sıkıştırın.
     </p>
 
-    <h2>Resampling algorithms — ranked for real use</h2>
+    <h2>Yeniden örnekleme algoritmaları — gerçek kullanım için sıralandı</h2>
     <p>
-      <strong>Nearest-neighbor:</strong> picks the nearest source
-      pixel. Fast but pixelated. Use only for pixel art or when
-      hard edges must be preserved.
+      <strong>En yakın komşu:</strong> en yakın kaynak pikseli seçer. Hızlıdır ancak piksellenir. Yalnızca piksel sanatı veya sert kenarların korunması gerektiğinde kullanın.
     </p>
     <p>
-      <strong>Bilinear:</strong> averages 4 neighboring pixels. Smooth
-      but slightly blurry. Faster than bicubic. Acceptable for
-      thumbnails where quality isn&rsquo;t critical.
+      <strong>Çift doğrusal:</strong> 4 komşu pikselin ortalamasını alır. Yumuşaktır ancak hafif bulanıktır. Çift kübikten daha hızlıdır. Kalitenin kritik olmadığı küçük resimler için kabul edilebilir.
     </p>
     <p>
-      <strong>Bicubic:</strong> uses 16 neighbors with a cubic
-      function. Sharper than bilinear, mild ringing around edges.
-      Photoshop&rsquo;s default. Good all-purpose choice.
+      <strong>Çift kübik:</strong> kübik bir fonksiyonla 16 komşu kullanır. Çift doğrusaldan daha keskindir, kenarlarda hafif halkalanma olur. Photoshop&rsquo;un varsayılanıdır. İyi bir genel amaçlı seçimdir.
     </p>
     <p>
-      <strong>Lanczos (Lanczos3 or Lanczos5):</strong> uses a sinc-
-      based kernel with 6 or 10 neighbors. Sharpest non-AI result;
-      preserves fine detail best. Browsers&rsquo; default for large
-      downscales. The best choice for photos shrinking to specific
-      sizes.
+      <strong>Lanczos (Lanczos3 veya Lanczos5):</strong> 6 veya 10 komşulu sinc tabanlı bir çekirdek kullanır. Yapay zeka olmayan en keskin sonuçtur; ince detayları en iyi korur. Büyük küçültmeler için tarayıcıların varsayılanıdır. Belirli boyutlara küçültülen fotoğraflar için en iyi seçimdir.
     </p>
     <p>
-      <strong>Mitchell-Netravali:</strong> a smoother Lanczos
-      alternative; reduces ringing artifacts. Good for large
-      downscales where Lanczos feels too sharp.
+      <strong>Mitchell-Netravali:</strong> daha yumuşak bir Lanczos alternatifidir; halkalanma yapaylıklarını azaltır. Lanczos&rsquo;un çok keskin geldiği büyük küçültmeler için iyidir.
     </p>
     <p>
-      Rule of thumb: Lanczos3 for photos, nearest-neighbor for pixel
-      art, bicubic if nothing better is available.
+      Temel kural: fotoğraflar için Lanczos3, piksel sanatı için en yakın komşu, daha iyisi yoksa çift kübik.
     </p>
 
-    <h2>Downscaling — the safe direction</h2>
+    <h2>Küçültme — güvenli yön</h2>
     <p>
-      Going from larger to smaller (e.g., 4K → 1080p) is lossy but
-      forgiving. You&rsquo;re discarding information the resized
-      image can&rsquo;t display anyway.
+      Büyükten küçüğe gitmek (örneğin, 4K → 1080p) kayıplıdır ancak affedicidir. Yeniden boyutlandırılmış görselin zaten gösteremeyeceği bilgileri atıyorsunuz.
     </p>
     <p>
-      <strong>Do one resize, not multiple.</strong> Resize 4000px →
-      800px directly, not 4000 → 2000 → 1200 → 800. Each resampling
-      pass introduces minor softening.
+      <strong>Bir kez yeniden boyutlandırın, birden fazla değil.</strong> 4000px → 800px&rsquo;i doğrudan yeniden boyutlandırın, 4000 → 2000 → 1200 → 800 şeklinde değil. Her yeniden örnekleme geçişi hafif yumuşamaya neden olur.
     </p>
     <p>
-      <strong>Apply slight sharpening after aggressive
-      downscales.</strong> Dropping from 4000px to 400px softens
-      edges; a 30-50% unsharp mask or a mild radius-1 sharpen
-      restores snap.
+      <strong>Agresif küçültmelerden sonra hafif keskinleştirme uygulayın.</strong> 4000px&rsquo;den 400px&rsquo;e düşürmek kenarları yumuşatır; %30-50&rsquo;lik bir keskin olmayan maske veya hafif yarıçaplı bir keskinleştirme canlılığı geri kazandırır.
     </p>
     <p>
-      <strong>Downscale before JPEG compression, not after.</strong>
-      Compressing a large JPEG then resizing amplifies block
-      artifacts. Resize first, then compress at a reasonable quality.
+      <strong>JPEG sıkıştırmadan önce küçültün, sonra değil.</strong> Büyük bir JPEG&rsquo;i sıkıştırıp ardından yeniden boyutlandırmak blok yapaylıklarını artırır. Önce yeniden boyutlandırın, ardından makul bir kalitede sıkıştırın.
     </p>
 
-    <h2>Upscaling — the dangerous direction</h2>
+    <h2>Büyütme — tehlikeli yön</h2>
     <p>
-      Upscaling invents data that doesn&rsquo;t exist. Traditional
-      algorithms (bicubic, Lanczos) produce blur; they can&rsquo;t
-      add detail that wasn&rsquo;t captured.
+      Büyütme, var olmayan verileri icat eder. Geleneksel algoritmalar (çift kübik, Lanczos) bulanıklık üretir; yakalanmamış detayı ekleyemezler.
     </p>
     <p>
-      <strong>Safe upscale limit with traditional algorithms:</strong>
-      up to ~150-200% of the original size. Beyond that, blur
-      becomes visible at normal viewing distance.
+      <strong>Geleneksel algoritmalarla güvenli büyütme sınırı:</strong> orijinal boyutun yaklaşık %150-200&rsquo;üne kadar. Bunun ötesinde, normal izleme mesafesinde bulanıklık görünür hale gelir.
     </p>
     <p>
-      <strong>AI upscalers</strong> (Topaz Gigapixel, Waifu2x, Real-
-      ESRGAN, Gigapixel AI, Upscayl) hallucinate plausible detail
-      based on trained models. A 2x or 4x AI upscale of a reasonably
-      sharp source can look genuinely sharp. Beware: AI upscalers can
-      &ldquo;make up&rdquo; features — faces may look subtly wrong,
-      text can become nonsense.
+      <strong>Yapay zeka büyütücüler</strong> (Topaz Gigapixel, Waifu2x, Real-ESRGAN, Gigapixel AI, Upscayl) eğitilmiş modellere dayanarak makul detaylar hayal eder. Makul derecede keskin bir kaynağın 2x veya 4x yapay zeka büyütmesi gerçekten keskin görünebilir. Dikkat: yapay zeka büyütücüler özellikleri &ldquo;uydur&rdquo;abilir — yüzler hafifçe yanlış görünebilir, metin anlamsız hale gelebilir.
     </p>
     <p>
-      <strong>Don&rsquo;t upscale for critical uses.</strong> Print,
-      archival, legal, forensic. If the source is 800px and you need
-      2000px for print, you need a higher-res source, not a better
-      upscaler.
+      <strong>Kritik kullanımlar için büyütme yapmayın.</strong> Baskı, arşiv, hukuki, adli. Kaynak 800px ise ve baskı için 2000px&rsquo;e ihtiyacınız varsa, daha iyi bir büyütücüye değil, daha yüksek çözünürlüklü bir kaynağa ihtiyacınız vardır.
     </p>
 
-    <h2>Dimensions and format — picking targets</h2>
+    <h2>Boyutlar ve biçim — hedef seçimi</h2>
     <p>
-      <strong>For the web:</strong>
+      <strong>Web için:</strong>
     </p>
     <p>
-      Hero images: 1600-2000px wide at 72 DPI.
+      Kahraman görselleri: 72 DPI&rsquo;da 1600-2000px genişlik.
     </p>
     <p>
-      Body images: 1000-1200px wide.
+      İçerik görselleri: 1000-1200px genişlik.
     </p>
     <p>
-      Thumbnails: 400-600px wide.
+      Küçük resimler: 400-600px genişlik.
     </p>
     <p>
-      Avatars: 200-400px square.
+      Avatarlar: 200-400px kare.
     </p>
     <p>
-      Serve 2x density versions for retina (so 2400px for a 1200px
-      CSS pixel width), lazy-loaded via <code>srcset</code>.
+      Retina için 2x yoğunluklu sürümler sunun (1200px CSS piksel genişliği için 2400px), <code>srcset</code> ile tembel yükleme yapın.
     </p>
     <p>
-      <strong>For print:</strong> 300 DPI at the final print size.
-      An A4 print at 300 DPI needs 2480×3508 pixels minimum.
+      <strong>Baskı için:</strong> nihai baskı boyutunda 300 DPI. 300 DPI&rsquo;da bir A4 baskı minimum 2480×3508 piksel gerektirir.
     </p>
     <p>
-      <strong>For social:</strong> platform-specific specs change
-      yearly. 1080×1080 for Instagram square, 1080×1920 for Stories,
-      1200×630 for OG images, 1500×500 for Twitter/X headers.
+      <strong>Sosyal medya için:</strong> platforma özel özellikler yıllık değişir. Instagram kare için 1080×1080, Hikayeler için 1080×1920, OG görselleri için 1200×630, Twitter/X başlıkları için 1500×500.
     </p>
 
-    <h2>Format choice interacts with resize</h2>
+    <h2>Biçim seçimi yeniden boyutlandırmayla etkileşir</h2>
     <p>
-      <strong>PNG:</strong> lossless, good for graphics with sharp
-      edges (logos, UI), bad for photos (large files). Resizes
-      cleanly.
+      <strong>PNG:</strong> kayıpsızdır, keskin kenarlı grafikler (logolar, arayüz) için iyidir, fotoğraflar için kötüdür (büyük dosyalar). Temiz bir şekilde yeniden boyutlandırılır.
     </p>
     <p>
-      <strong>JPEG:</strong> lossy, great for photos, poor for sharp
-      edges. Re-encoding after resize is necessary and slightly
-      lossy. Keep quality at 80-85 for web; lower causes visible
-      artifacts.
+      <strong>JPEG:</strong> kayıplıdır, fotoğraflar için harikadır, keskin kenarlar için kötüdür. Yeniden boyutlandırmadan sonra yeniden kodlama gereklidir ve hafif kayıplıdır. Web için kaliteyi 80-85&rsquo;te tutun; daha düşüğü görünür yapaylıklara neden olur.
     </p>
     <p>
-      <strong>WebP:</strong> 25-35% smaller than JPEG at equivalent
-      quality; supports transparency; widely supported in 2026.
-      Prefer for web photos unless legacy compatibility is critical.
+      <strong>WebP:</strong> eşdeğer kalitede JPEG&rsquo;den %25-35 daha küçüktür; saydamlığı destekler; 2026&rsquo;da yaygın olarak desteklenir. Eski uyumluluk kritik değilse web fotoğrafları için tercih edin.
     </p>
     <p>
-      <strong>AVIF:</strong> 30-50% smaller than JPEG; better
-      quality; slow to encode. Best for hero images you generate
-      once.
+      <strong>AVIF:</strong> JPEG&rsquo;den %30-50 daha küçüktür; daha iyi kalite; kodlaması yavaştır. Bir kez oluşturduğunuz kahraman görselleri için en iyisidir.
     </p>
     <p>
-      <strong>SVG:</strong> vector, resizes infinitely without
-      quality loss. Use for icons, logos, illustrations. Not for
-      photos.
+      <strong>SVG:</strong> vektördür, kalite kaybı olmadan sonsuz yeniden boyutlandırılır. Simgeler, logolar, illüstrasyonlar için kullanın. Fotoğraflar için değil.
     </p>
 
-    <h2>Maintaining aspect ratio</h2>
+    <h2>En boy oranını koruma</h2>
     <p>
-      <strong>Always resize proportionally unless deliberately
-      stretching.</strong> Constraining width to 1200 and letting
-      height auto-calculate keeps the image natural.
+      <strong>Kasıtlı olarak germiyorsanız her zaman orantılı olarak yeniden boyutlandırın.</strong> Genişliği 1200 ile sınırlamak ve yüksekliğin otomatik hesaplanmasına izin vermek görseli doğal tutar.
     </p>
     <p>
-      <strong>For fixed-frame targets</strong> (like a 1:1 square
-      from a 4:3 photo), pick: crop (lose content), fit (letterbox
-      with padding), or fill (crop + zoom to fill).
+      <strong>Sabit çerçeveli hedefler için</strong> (4:3 bir fotoğraftan 1:1 kare gibi), seçenekler: kırp (içerik kaybı), sığdır (dolgu ile posta kutusu) veya doldur (doldurmak için kırp + yakınlaştır).
     </p>
     <p>
-      &ldquo;Smart crop&rdquo; tools detect subjects and center the
-      crop on them. Useful for bulk thumbnails.
+      &ldquo;Akıllı kırp&rdquo; araçları nesneleri algılar ve kırpmayı onlara ortalar. Toplu küçük resimler için kullanışlıdır.
     </p>
 
-    <h2>Metadata and EXIF</h2>
+    <h2>Meta veri ve EXIF</h2>
     <p>
-      Most resizers strip EXIF by default, which removes camera
-      info, GPS, original date. Usually desirable for web.
+      Çoğu yeniden boyutlandırıcı varsayılan olarak EXIF&rsquo;i kaldırır, bu da kamera bilgilerini, GPS&rsquo;i, orijinal tarihi siler. Genellikle web için istenir.
     </p>
     <p>
-      If you need to preserve EXIF (photography archives, legal
-      records), use a resizer that supports it. ImageMagick with
-      <code>-auto-orient</code> applies rotation from EXIF without
-      breaking it.
+      EXIF&rsquo;i korumanız gerekiyorsa (fotoğraf arşivleri, yasal kayıtlar), bunu destekleyen bir yeniden boyutlandırıcı kullanın. <code>-auto-orient</code> ile ImageMagick, EXIF&rsquo;i bozmadan döndürmeyi uygular.
     </p>
     <p>
-      <strong>GPS coordinates in photos</strong> are a privacy leak
-      — always strip before publishing photos taken on a mobile
-      device.
+      <strong>Fotoğraflardaki GPS koordinatları</strong> bir gizlilik sızıntısıdır — mobil cihazda çekilmiş fotoğrafları yayınlamadan önce her zaman kaldırın.
     </p>
 
-    <h2>Batch resizing</h2>
+    <h2>Toplu yeniden boyutlandırma</h2>
     <p>
-      For 10+ images, command-line or scripted tools save time.
+      10+ görsel için komut satırı veya betik araçları zaman kazandırır.
     </p>
     <p>
-      <strong>ImageMagick:</strong> <code>magick mogrify -resize
-      1200x1200 -quality 85 -format webp *.jpg</code>. Industry
-      standard, scriptable, Lanczos by default for downscales.
+      <strong>ImageMagick:</strong> <code>magick mogrify -resize 1200x1200 -quality 85 -format webp *.jpg</code>. Endüstri standardı, betiklenebilir, küçültmeler için varsayılan olarak Lanczos.
     </p>
     <p>
-      <strong>Sharp (Node.js):</strong> fast, WebP/AVIF-ready, great
-      for server-side pipelines.
+      <strong>Sharp (Node.js):</strong> hızlıdır, WebP/AVIF hazırdır, sunucu tarafı iş akışları için harikadır.
     </p>
     <p>
-      <strong>cwebp</strong> and <strong>avifenc:</strong> format-
-      specific tools with excellent compression tuning.
+      <strong>cwebp</strong> ve <strong>avifenc:</strong> mükemmel sıkıştırma ayarlarına sahip biçime özel araçlar.
     </p>
     <p>
-      <strong>Squoosh.app:</strong> browser-based batch-free tool
-      from Google with a great UI for comparing quality/size trade-
-      offs.
+      <strong>Squoosh.app:</strong> Google&rsquo;dan tarayıcı tabanlı, toplu olmayan araç; kalite/boyut ödünleşimlerini karşılaştırmak için harika bir arayüze sahiptir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Resizing by CSS, not by actual pixels.</strong>
-      Serving a 4000px image to display at 400px wastes bandwidth
-      (10-15× more data) and hurts page speed.
+      <strong>Gerçek piksellerle değil, CSS ile yeniden boyutlandırma.</strong> 400px&rsquo;de görüntülemek için 4000px&rsquo;lik bir görsel sunmak bant genişliğini boşa harcar (10-15× daha fazla veri) ve sayfa hızını düşürür.
     </p>
     <p>
-      <strong>Upscaling before a resize.</strong> Drop source, then
-      upscale, then downscale is always worse than just downscaling
-      the original.
+      <strong>Yeniden boyutlandırmadan önce büyütme.</strong> Kaynağı düşürmek, ardından büyütmek, sonra küçültmek, orijinali küçültmekten her zaman daha kötüdür.
     </p>
     <p>
-      <strong>Saving JPEG quality too low.</strong> 60 or below
-      introduces visible blocks, color banding, and edge halos.
-      80-85 is the usual sweet spot.
+      <strong>JPEG kalitesini çok düşük kaydetme.</strong> 60 veya altı, görünür bloklar, renk bantlaşması ve kenar halkaları oluşturur. 80-85 genellikle ideal noktadır.
     </p>
     <p>
-      <strong>Forgetting retina/HiDPI.</strong> A 1200×800 image
-      looks soft on retina. Serve @2x or @3x via srcset.
+      <strong>Retina/HiDPI&rsquo;yi unutmak.</strong> 1200×800&rsquo;lik bir görsel retinada yumuşak görünür. srcset aracılığıyla @2x veya @3x sunun.
     </p>
     <p>
-      <strong>Ignoring the color space.</strong> sRGB is the web
-      standard. Images in Adobe RGB or ProPhoto will look muted or
-      wrong on web browsers.
+      <strong>Renk uzayını göz ardı etmek.</strong> sRGB web standardıdır. Adobe RGB veya ProPhoto&rsquo;daki görseller web tarayıcılarında soluk veya yanlış görünecektir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Resize any image in-browser with the{" "}
-      <a href="/tools/image-resizer">image resizer</a>. Pair with the{" "}
-      <a href="/tools/image-compressor">image compressor</a> to trim
-      file size after resizing, and the{" "}
-      <a href="/tools/image-format-converter">image format converter</a>
-      {" "}to output the right format for your use case (WebP for web,
-      PNG for graphics, JPEG for legacy).
+      Herhangi bir görseli tarayıcıda{" "}
+      <a href="/tools/image-resizer">görsel yeniden boyutlandırıcı</a> ile yeniden boyutlandırın. Yeniden boyutlandırmadan sonra dosya boyutunu küçültmek için{" "}
+      <a href="/tools/image-compressor">görsel sıkıştırıcı</a> ile eşleştirin ve kullanım durumunuz için doğru biçimi (web için WebP, grafikler için PNG, eski sistemler için JPEG) çıktılamak için{" "}
+      <a href="/tools/image-format-converter">görsel biçim dönüştürücü</a>
+      {" "}kullanın.
     </p>
   </>
 );

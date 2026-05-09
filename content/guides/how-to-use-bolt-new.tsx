@@ -2,82 +2,75 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Bolt.new by StackBlitz is an in-browser, full-stack AI builder. You
-    type what you want, and a WebContainer boots a real Node runtime
-    right inside your tab &mdash; no server round-trips for the shell, no
-    local install, no Docker. The result is a shocking time-to-running-app
-    for prototypes and marketing demos.
+    StackBlitz tarafından geliştirilen Bolt.new, tarayıcı içinde çalışan, tam yığın bir yapay zeka
+    oluşturucusudur. Ne istediğinizi yazarsınız ve bir WebContainer, sekmenizin içinde gerçek bir Node
+    çalışma zamanı başlatır &mdash; kabuk için sunucu gidiş-dönüşü, yerel kurulum veya Docker
+    gerekmez. Sonuç, prototipler ve pazarlama demoları için şaşırtıcı derecede hızlı bir
+    çalıştırma süresidir.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What Bolt.new actually is</h2>
+    <h2>Bolt.new aslında nedir</h2>
     <p>
-      Bolt.new is StackBlitz&rsquo;s AI product, built on the same
-      WebContainer technology that powers their IDE. The agent edits
-      files, runs <code>npm install</code>, launches dev servers, and
-      lets you deploy to Netlify in one click &mdash; all client-side.
-      You&rsquo;re not SSH-ing to a VM like Replit; the Node process is
-      literally running in your browser tab via WebAssembly.
+      Bolt.new, StackBlitz'in IDE'sine güç veren aynı WebContainer teknolojisi üzerine inşa edilmiş
+      yapay zeka ürünüdür. Aracı, dosyaları düzenler, <code>npm install</code> komutunu çalıştırır,
+      geliştirme sunucularını başlatır ve tek tıkla Netlify'a dağıtmanıza olanak tanır &mdash;
+      tamamen istemci tarafında. Replit'teki gibi bir VM'ye SSH ile bağlanmazsınız; Node işlemi
+      tam anlamıyla tarayıcı sekmenizde WebAssembly aracılığıyla çalışır.
     </p>
 
-    <h2>Setting it up</h2>
+    <h2>Kurulum</h2>
     <p>
-      Go to <a href="https://bolt.new">bolt.new</a> and sign in with
-      GitHub or Google. The free tier gives you a daily token allowance;
-      Pro plans start around $20/mo with more tokens and private
-      projects. No CLI needed.
+      <a href="https://bolt.new">bolt.new</a> adresine gidin ve GitHub veya Google ile oturum açın.
+      Ücretsiz katman size günlük bir token kotası verir; Pro planlar, daha fazla token ve özel
+      projelerle ayda yaklaşık 20 dolardan başlar. CLI gerekmez.
     </p>
-    <pre>{`# Optional: open any public GitHub repo in Bolt by prepending the domain.
-https://bolt.new/github.com/<owner>/<repo>
+    <pre>{`# İsteğe bağlı: alana ön ek ekleyerek herhangi bir herkese açık GitHub deposunu Bolt'ta açın.
+https://bolt.new/github.com/<sahip>/<depo>
 
-# Or start from a prompt on the home page.`}</pre>
+# Veya ana sayfadaki bir istemden başlayın.`}</pre>
 
-    <h2>Your first session</h2>
+    <h2>İlk oturumunuz</h2>
     <p>
-      A good first prompt is concrete and bounded: &ldquo;A Vite + React
-      todo app with drag-and-drop reordering, localStorage persistence,
-      and a dark-mode toggle.&rdquo; Bolt lays out the plan, creates
-      files, runs the dev server, and shows the preview in the right
-      pane. Iterate by chat (&ldquo;add a filter for completed
-      items&rdquo;) or edit code directly. When you&rsquo;re happy,
-      click <strong>Deploy</strong>.
+      İyi bir ilk istem somut ve sınırlıdır: &ldquo;Sürükle-bırak yeniden sıralama, localStorage
+      kalıcılığı ve karanlık mod geçişi olan bir Vite + React yapılacaklar uygulaması.&rdquo; Bolt
+      planı ortaya koyar, dosyaları oluşturur, geliştirme sunucusunu çalıştırır ve önizlemeyi sağ
+      bölmede gösterir. Sohbet yoluyla yineleyin (&ldquo;tamamlanan öğeler için bir filtre
+      ekle&rdquo;) veya kodu doğrudan düzenleyin. İşiniz bittiğinde <strong>Dağıt</strong>
+      düğmesine tıklayın.
     </p>
 
-    <h2>A realistic workflow</h2>
+    <h2>Gerçekçi bir iş akışı</h2>
     <p>
-      Bolt is strongest as a prototype factory. Keep prompts
-      incremental, commit to GitHub frequently (Bolt has a connector),
-      and pull the repo locally once the app outgrows browser-only
-      convenience. For UI-heavy generation, pair it with{" "}
-      <a href="/guides/how-to-use-v0-by-vercel">v0</a> for
-      component-level work and paste into Bolt for wiring. The feedback
-      loop &mdash; type, see, adjust &mdash; is what makes it special;
-      lean into that instead of writing one giant spec.
+      Bolt, bir prototip fabrikası olarak en güçlüdür. İstemleri aşamalı tutun, sık sık GitHub'a
+      commit yapın (Bolt'un bir bağlayıcısı vardır) ve uygulama tarayıcıya özel kolaylığı aştığında
+      depoyu yerel olarak çekin. UI ağırlıklı üretim için, bileşen düzeyinde çalışmak üzere{" "}
+      <a href="/guides/how-to-use-v0-by-vercel">v0</a> ile eşleştirin ve kablolama için Bolt'a
+      yapıştırın. Geri bildirim döngüsü &mdash; yaz, gör, ayarla &mdash; onu özel kılan şeydir;
+      devasa bir şartname yazmak yerine bundan yararlanın.
     </p>
 
-    <h2>Gotchas and limits</h2>
+    <h2>Tuzaklar ve sınırlamalar</h2>
     <p>
-      Tokens are the budget. An aggressive &ldquo;rewrite the
-      app&rdquo; prompt can burn thousands at once &mdash; scope your
-      asks. WebContainer is incredible but it&rsquo;s not a full Linux;
-      native binaries, Puppeteer, Docker, Rust toolchains &mdash; none
-      of it works. Stick to Node, pure-JS packages, and static
-      frontends. Mobile browsers struggle with longer sessions; use a
-      laptop. Generated code tends to be a bit sprawling &mdash; plan a
-      refactor pass before you treat it as production.
+      Tokenlar bütçedir. Agresif bir &ldquo;uygulamayı yeniden yaz&rdquo; istemi bir anda binlerce
+      token yakabilir &mdash; isteklerinizi kapsamlandırın. WebContainer inanılmazdır ancak tam bir
+      Linux değildir; yerel ikili dosyalar, Puppeteer, Docker, Rust araç zincirleri &mdash; hiçbiri
+      çalışmaz. Node, saf JS paketleri ve statik ön yüzlere bağlı kalın. Mobil tarayıcılar daha uzun
+      oturumlarda zorlanır; bir dizüstü bilgisayar kullanın. Oluşturulan kod biraz dağınık olma
+      eğilimindedir &mdash; prodüksiyon olarak ele almadan önce bir yeniden düzenleme geçişi
+      planlayın.
     </p>
 
-    <h2>When NOT to use it</h2>
+    <h2>NE ZAMAN kullanılmamalı</h2>
     <p>
-      Don&rsquo;t use Bolt for Python, Go, Rust, or anything that needs
-      a real OS &mdash; the WebContainer can&rsquo;t run them. Don&rsquo;t
-      use it for large existing codebases &mdash; import works but the
-      agent&rsquo;s context is shallower than what you&rsquo;d get in
-      Cursor or Claude Code. And skip it if offline work matters; the
-      whole thing is a live browser session. For a hosted experience
-      with a full VM, see <a href="/guides/how-to-use-replit-agent">Replit Agent</a>.
+      Python, Go, Rust veya gerçek bir işletim sistemi gerektiren herhangi bir şey için Bolt'u
+      kullanmayın &mdash; WebContainer bunları çalıştıramaz. Büyük mevcut kod tabanları için
+      kullanmayın &mdash; içe aktarma çalışır ancak aracının bağlamı, Cursor veya Claude Code'da
+      alacağınızdan daha sığdır. Çevrimdışı çalışma önemliyse de atlayın; her şey canlı bir
+      tarayıcı oturumudur. Tam VM'li barındırılan bir deneyim için <a href="/guides/how-to-use-replit-agent">Replit Agent</a>'a
+      bakın.
     </p>
   </>
 );

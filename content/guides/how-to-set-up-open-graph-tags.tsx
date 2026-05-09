@@ -3,314 +3,218 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Open Graph tags control how your links look when shared — a
-      single headline, a single image, a blurb. Good OG setup turns
-      a URL paste into a little ad. Bad OG setup turns it into a
-      bare link that nobody clicks. OG is the reason a well-set-up
-      blog post shared to LinkedIn looks professional and a
-      poorly-configured one looks broken. This guide covers the
-      full OG spec (what each tag does, which are required), image
-      specifications for every major platform, the type-specific
-      variants (article, product, video), how to test your setup
-      with each platform&rsquo;s debugger, and the quirks of
-      LinkedIn, Discord, Slack, and iMessage parsing that trip
-      everyone up.
+      Open Graph etiketleri, bağlantılarınızın paylaşıldığında nasıl görüneceğini kontrol eder — tek bir başlık, tek bir görsel, kısa bir açıklama. İyi bir OG kurulumu, bir URL yapıştırmasını küçük bir reklama dönüştürür. Kötü bir OG kurulumu ise onu kimsenin tıklamadığı çıplak bir bağlantı haline getirir. OG, iyi yapılandırılmış bir blog yazısının LinkedIn'de paylaşıldığında profesyonel görünmesinin, kötü yapılandırılmış birinin ise bozuk görünmesinin nedenidir. Bu kılavuz, tam OG spesifikasyonunu (her etiketin ne işe yaradığı, hangilerinin zorunlu olduğu), her büyük platform için görsel gereksinimlerini, türe özgü varyantları (makale, ürün, video), kurulumunuzu her platformun hata ayıklayıcısıyla nasıl test edeceğinizi ve herkesin takıldığı LinkedIn, Discord, Slack ve iMessage ayrıştırma tuhaflıklarını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What Open Graph is</h2>
+    <h2>Open Graph Nedir</h2>
     <p>
-      Open Graph is a protocol Facebook introduced in 2010 to let
-      web pages declare their own metadata for rich previews. Now
-      used by every major social and messaging platform — Facebook,
-      Instagram (via Facebook), LinkedIn, Slack, Discord, iMessage,
-      WhatsApp, Telegram, Signal.
+      Open Graph, Facebook'un 2010 yılında web sayfalarının zengin önizlemeler için kendi meta verilerini bildirmesine izin vermek amacıyla tanıttığı bir protokoldür. Artık tüm büyük sosyal ve mesajlaşma platformları tarafından kullanılmaktadır — Facebook, Instagram (Facebook üzerinden), LinkedIn, Slack, Discord, iMessage, WhatsApp, Telegram, Signal.
     </p>
     <p>
-      OG tags live in <code>&lt;head&gt;</code> as meta tags with
-      <code>property=&quot;og:*&quot;</code>:
+      OG etiketleri, <code>&lt;head&gt;</code> içinde <code>property=&quot;og:*&quot;</code> ile meta etiketler olarak bulunur:
     </p>
     <p>
-      <code>&lt;meta property=&quot;og:title&quot; content=&quot;Page Title&quot;&gt;</code>
+      <code>&lt;meta property=&quot;og:title&quot; content=&quot;Sayfa Başlığı&quot;&gt;</code>
       <br />
-      <code>&lt;meta property=&quot;og:description&quot; content=&quot;Description&quot;&gt;</code>
+      <code>&lt;meta property=&quot;og:description&quot; content=&quot;Açıklama&quot;&gt;</code>
       <br />
-      <code>&lt;meta property=&quot;og:image&quot; content=&quot;https://example.com/img.jpg&quot;&gt;</code>
+      <code>&lt;meta property=&quot;og:image&quot; content=&quot;https://ornek.com/resim.jpg&quot;&gt;</code>
       <br />
-      <code>&lt;meta property=&quot;og:url&quot; content=&quot;https://example.com/page&quot;&gt;</code>
+      <code>&lt;meta property=&quot;og:url&quot; content=&quot;https://ornek.com/sayfa&quot;&gt;</code>
       <br />
       <code>&lt;meta property=&quot;og:type&quot; content=&quot;article&quot;&gt;</code>
     </p>
     <p>
-      Note: OG uses <code>property=</code>, not <code>name=</code>.
-      Required for Facebook&rsquo;s parser.
+      Not: OG, <code>name=</code> değil <code>property=</code> kullanır. Facebook'un ayrıştırıcısı için zorunludur.
     </p>
 
-    <h2>Required tags</h2>
+    <h2>Zorunlu Etiketler</h2>
     <p>
-      <strong>og:title</strong> — headline for the preview card.
-      Differs from <code>&lt;title&gt;</code> in that it&rsquo;s
-      specifically for sharing (can be shorter/punchier). If
-      missing, falls back to <code>&lt;title&gt;</code>.
+      <strong>og:title</strong> — önizleme kartı için başlık. <code>&lt;title&gt;</code>'den farkı, özellikle paylaşım için olmasıdır (daha kısa/çarpıcı olabilir). Eksikse, <code>&lt;title&gt;</code>'e geri döner.
     </p>
     <p>
-      <strong>og:url</strong> — <a href="/learn/canonical-url">canonical URL</a> for this resource.
-      Shared preview links to this URL, not the current one.
-      Useful when multiple URLs lead to the same content.
+      <strong>og:url</strong> — bu kaynağın <a href="/learn/canonical-url">kurallı URL'si</a>. Paylaşılan önizleme, mevcut URL'ye değil, bu URL'ye bağlanır. Birden çok URL aynı içeriğe yönlendirdiğinde kullanışlıdır.
     </p>
     <p>
-      <strong>og:image</strong> — preview image. Single most
-      impactful OG tag for <a href="/learn/ctr">CTR</a>.
+      <strong>og:image</strong> — önizleme görseli. <a href="/learn/ctr">TO</a> için en etkili tek OG etiketi.
     </p>
     <p>
-      <strong>og:type</strong> — content category. Defaults to{" "}
-      <code>website</code> if absent.
+      <strong>og:type</strong> — içerik kategorisi. Yoksa varsayılan olarak <code>website</code> olur.
     </p>
     <p>
-      <strong>og:description</strong> — blurb under the title.
-      Optional but heavily used; skipping it leaves the preview
-      sparse.
+      <strong>og:description</strong> — başlığın altındaki kısa açıklama. İsteğe bağlıdır ancak yoğun olarak kullanılır; atlanması önizlemeyi zayıf bırakır.
     </p>
 
-    <h2>og:image specs</h2>
+    <h2>og:image Özellikleri</h2>
     <p>
-      <strong>Recommended size:</strong> 1200&times;630 pixels (1.91:1
-      aspect). Works for all platforms. Facebook displays as
-      1200&times;630; Twitter crops to 2:1 (centered); LinkedIn
-      crops to 1200&times;627; Slack keeps 1200&times;630.
+      <strong>Önerilen boyut:</strong> 1200&times;630 piksel (1.91:1 en-boy oranı). Tüm platformlarda çalışır. Facebook 1200&times;630 olarak görüntüler; Twitter 2:1'e (ortalanmış) kırpar; LinkedIn 1200&times;627'ye kırpar; Slack 1200&times;630'u korur.
     </p>
     <p>
-      <strong>Minimum size:</strong> 600&times;315. Below that,
-      Facebook and LinkedIn sometimes refuse to render it as a
-      large card, fall back to a small thumbnail.
+      <strong>Minimum boyut:</strong> 600&times;315. Bunun altında, Facebook ve LinkedIn bazen büyük kart olarak işlemeyi reddeder, küçük bir küçük resme geri döner.
     </p>
     <p>
-      <strong>File size:</strong> under 8MB for Facebook, under 5MB
-      for most others. Practically, under 300KB is smart for load
-      speed.
+      <strong>Dosya boyutu:</strong> Facebook için 8MB'ın altında, diğerleri için 5MB'ın altında. Pratikte, yükleme hızı için 300KB'ın altında olması akıllıcadır.
     </p>
     <p>
-      <strong>Format:</strong> PNG, JPG, or WebP. Avoid SVG — most
-      parsers don&rsquo;t render it.
+      <strong>Biçim:</strong> PNG, JPG veya WebP. SVG'den kaçının — çoğu ayrıştırıcı onu işlemez.
     </p>
     <p>
-      <strong>Text on image:</strong> include the title again as
-      image text. Users scan faster visually, and if the title
-      renders below, the reinforcement raises click-through.
+      <strong>Görsel üzerinde metin:</strong> başlığı görsel metni olarak tekrar ekleyin. Kullanıcılar görsel olarak daha hızlı tarar ve başlık aşağıda işlenirse, pekiştirme tıklama oranını artırır.
     </p>
     <p>
-      <strong>Safe zone:</strong> keep critical content in the
-      center 1000&times;500 area. Different platforms crop
-      differently around the edges.
+      <strong>Güvenli bölge:</strong> kritik içeriği merkez 1000&times;500 alanında tutun. Farklı platformlar kenarlarda farklı şekilde kırpar.
     </p>
 
-    <h2>Optional-but-useful tags</h2>
+    <h2>İsteğe Bağlı Ama Kullanışlı Etiketler</h2>
     <p>
-      <strong>og:image:alt</strong> — alt text for the image.
-      Accessibility + small SEO bump.
+      <strong>og:image:alt</strong> — görsel için alternatif metin. Erişilebilirlik + küçük bir SEO artışı.
     </p>
     <p>
-      <strong>og:image:width, og:image:height</strong> — explicit
-      dimensions. Lets some parsers render faster, prevents
-      fallback to small cards.
+      <strong>og:image:width, og:image:height</strong> — açık boyutlar. Bazı ayrıştırıcıların daha hızlı işlemesine izin verir, küçük kartlara geri dönmeyi önler.
     </p>
     <p>
-      <strong>og:image:type</strong> — MIME type. Rarely needed.
+      <strong>og:image:type</strong> — MIME türü. Nadiren gerekir.
     </p>
     <p>
-      <strong>og:locale</strong> — <code>en_US</code>,{" "}
-      <code>fr_FR</code>, etc. Defaults to <code>en_US</code>.
+      <strong>og:locale</strong> — <code>en_US</code>, <code>fr_FR</code> vb. Varsayılan <code>en_US</code>'dir.
     </p>
     <p>
-      <strong>og:locale:alternate</strong> — list of other
-      available locales. Useful for multilingual sites.
+      <strong>og:locale:alternate</strong> — mevcut diğer yerel ayarların listesi. Çok dilli siteler için kullanışlıdır.
     </p>
     <p>
-      <strong>og:site_name</strong> — your brand name. Rendered
-      above or below the card depending on platform.
+      <strong>og:site_name</strong> — marka adınız. Platforma bağlı olarak kartın üstünde veya altında işlenir.
     </p>
 
-    <h2>Article-specific tags</h2>
+    <h2>Makaleye Özgü Etiketler</h2>
     <p>
-      When <code>og:type=&quot;article&quot;</code>, add these for
-      richer previews:
+      <code>og:type=&quot;article&quot;</code> olduğunda, daha zengin önizlemeler için bunları ekleyin:
     </p>
     <p>
       <code>article:published_time</code> (ISO 8601)
       <br />
       <code>article:modified_time</code>
       <br />
-      <code>article:author</code> (URL to author page)
+      <code>article:author</code> (yazar sayfasının URL'si)
       <br />
-      <code>article:section</code> (topic category)
+      <code>article:section</code> (konu kategorisi)
       <br />
-      <code>article:tag</code> (one per tag; repeatable)
+      <code>article:tag</code> (etiket başına bir tane; tekrarlanabilir)
     </p>
 
-    <h2>Product-specific tags</h2>
+    <h2>Ürüne Özgü Etiketler</h2>
     <p>
-      When <code>og:type=&quot;product&quot;</code>:
+      <code>og:type=&quot;product&quot;</code> olduğunda:
     </p>
     <p>
-      <code>product:price:amount</code>, <code>product:price:currency</code>,{" "}
-      <code>product:availability</code> (<code>in stock</code>,{" "}
-      <code>out of stock</code>, <code>preorder</code>),{" "}
-      <code>product:condition</code> (<code>new</code>,{" "}
-      <code>used</code>, <code>refurbished</code>).
+      <code>product:price:amount</code>, <code>product:price:currency</code>, <code>product:availability</code> (<code>in stock</code>, <code>out of stock</code>, <code>preorder</code>), <code>product:condition</code> (<code>new</code>, <code>used</code>, <code>refurbished</code>).
     </p>
     <p>
-      These feed into Facebook Shop integrations and commerce
-      previews.
+      Bunlar, Facebook Shop entegrasyonlarına ve ticaret önizlemelerine beslenir.
     </p>
 
-    <h2>Video-specific tags</h2>
+    <h2>Videoya Özgü Etiketler</h2>
     <p>
-      For video embeds in OG previews:
+      OG önizlemelerinde video yerleştirmeleri için:
     </p>
     <p>
-      <code>og:video</code> (URL to player)
+      <code>og:video</code> (oynatıcının URL'si)
       <br />
-      <code>og:video:type</code> (<code>video/mp4</code>,{" "}
-      <code>text/html</code> for embeds)
+      <code>og:video:type</code> (<code>video/mp4</code>, yerleştirmeler için <code>text/html</code>)
       <br />
       <code>og:video:width</code>, <code>og:video:height</code>
     </p>
     <p>
-      Only Facebook fully plays OG videos in the feed. Twitter
-      uses its own video tags. Most platforms fall back to the
-      image.
+      Yalnızca Facebook, OG videolarını akışta tam olarak oynatır. Twitter kendi video etiketlerini kullanır. Çoğu platform görsele geri döner.
     </p>
 
-    <h2>Twitter Card compatibility</h2>
+    <h2>Twitter Kart Uyumluluğu</h2>
     <p>
-      X reads <code>twitter:*</code> tags, falling back to OG.
-      Minimal Twitter tag set:
+      X, <code>twitter:*</code> etiketlerini okur, OG'ye geri döner. Minimum Twitter etiket seti:
     </p>
     <p>
       <code>&lt;meta name=&quot;twitter:card&quot; content=&quot;summary_large_image&quot;&gt;</code>
       <br />
-      <code>&lt;meta name=&quot;twitter:site&quot; content=&quot;@yourbrand&quot;&gt;</code>
+      <code>&lt;meta name=&quot;twitter:site&quot; content=&quot;@markaniz&quot;&gt;</code>
     </p>
     <p>
-      <code>summary_large_image</code> uses the big 2:1 preview.{" "}
-      <code>summary</code> uses a small square thumbnail.
+      <code>summary_large_image</code> büyük 2:1 önizlemeyi kullanır. <code>summary</code> küçük bir kare küçük resim kullanır.
     </p>
     <p>
-      If your OG is complete, this is all you need on the Twitter
-      side.
+      OG'niz tamamlanmışsa, Twitter tarafında ihtiyacınız olan tek şey budur.
     </p>
 
-    <h2>Platform quirks</h2>
+    <h2>Platform Tuhaflıkları</h2>
     <p>
-      <strong>LinkedIn:</strong> caches aggressively. Once LinkedIn
-      has your card, changes don&rsquo;t appear for days. Use the
-      Post Inspector tool to force a refresh.
+      <strong>LinkedIn:</strong> agresif bir şekilde önbelleğe alır. LinkedIn kartınızı bir kez aldığında, değişiklikler günlerce görünmez. Yenilemeyi zorlamak için Post Inspector aracını kullanın.
     </p>
     <p>
-      <strong>Slack:</strong> renders quickly but strict about
-      dimensions. Include explicit <code>og:image:width</code> and
-      <code>og:image:height</code>.
+      <strong>Slack:</strong> hızlı işler ancak boyutlar konusunda katıdır. Açık <code>og:image:width</code> ve <code>og:image:height</code> ekleyin.
     </p>
     <p>
-      <strong>Discord:</strong> aggressive caching by channel.
-      Clearing requires server-admin tools. Re-post in a different
-      channel to test changes.
+      <strong>Discord:</strong> kanala göre agresif önbelleğe alma. Temizlemek için sunucu yöneticisi araçları gerekir. Değişiklikleri test etmek için farklı bir kanalda yeniden paylaşın.
     </p>
     <p>
-      <strong>iMessage:</strong> Apple does its own parsing with
-      lots of fallbacks. Usually works out of the box but fragile
-      with dynamic content.
+      <strong>iMessage:</strong> Apple, birçok geri dönüşle kendi ayrıştırmasını yapar. Genellikle kutudan çıktığı gibi çalışır ancak dinamik içerikle kırılgandır.
     </p>
     <p>
-      <strong>WhatsApp:</strong> caches for the duration of a
-      conversation. Small previews only.
+      <strong>WhatsApp:</strong> bir konuşma süresince önbelleğe alır. Yalnızca küçük önizlemeler.
     </p>
     <p>
-      <strong>Bluesky, Mastodon:</strong> both respect OG. Bluesky
-      supports larger images (up to 4MB).
+      <strong>Bluesky, Mastodon:</strong> her ikisi de OG'ye saygı duyar. Bluesky daha büyük görselleri (4MB'a kadar) destekler.
     </p>
 
-    <h2>Dynamic OG images</h2>
+    <h2>Dinamik OG Görselleri</h2>
     <p>
-      Modern frameworks (Next.js, Vercel Edge, Cloudflare Workers)
-      can generate OG images per page — title overlay, author photo,
-      gradient background. Vercel&rsquo;s <code>@vercel/og</code>{" "}
-      ships images as SVG-rendered-to-PNG at request time.
+      Modern çerçeveler (Next.js, Vercel Edge, Cloudflare Workers) sayfa başına OG görselleri oluşturabilir — başlık katmanı, yazar fotoğrafı, gradyan arka plan. Vercel'in <code>@vercel/og</code>'si, istek anında SVG'den PNG'ye işlenmiş görseller gönderir.
     </p>
     <p>
-      Benefits: every page gets a unique, branded preview. Cost:
-      one edge-function invocation per first share. Cache headers
-      amortize this.
+      Faydaları: her sayfa benzersiz, markalı bir önizleme alır. Maliyeti: ilk paylaşım başına bir kenar işlevi çağrısı. Önbellek başlıkları bunu amorti eder.
     </p>
 
-    <h2>Testing before shipping</h2>
+    <h2>Yayınlamadan Önce Test Etme</h2>
     <p>
-      <strong>Facebook Sharing Debugger:</strong>{" "}
-      <code>developers.facebook.com/tools/debug</code>. Paste URL,
-      see what Facebook sees. &ldquo;Scrape Again&rdquo; forces a
-      re-fetch.
+      <strong>Facebook Paylaşım Hata Ayıklayıcısı:</strong> <code>developers.facebook.com/tools/debug</code>. URL'yi yapıştırın, Facebook'un ne gördüğünü görün. "Scrape Again" yeniden getirmeyi zorlar.
     </p>
     <p>
-      <strong>LinkedIn Post Inspector:</strong>{" "}
-      <code>linkedin.com/post-inspector</code>. Required after any
-      OG change — LinkedIn caches for ~7 days otherwise.
+      <strong>LinkedIn Post Inspector:</strong> <code>linkedin.com/post-inspector</code>. Herhangi bir OG değişikliğinden sonra gereklidir — aksi takdirde LinkedIn ~7 gün önbelleğe alır.
     </p>
     <p>
-      <strong>Twitter Card Validator:</strong> deprecated but X
-      still renders OG; use Facebook debugger as proxy.
+      <strong>Twitter Kart Doğrulayıcı:</strong> kullanımdan kaldırıldı ancak X hala OG'yi işler; vekil olarak Facebook hata ayıklayıcısını kullanın.
     </p>
     <p>
-      <strong>Manual test:</strong> DM a link to yourself on each
-      platform. Screenshot the preview. Compare to your intent.
+      <strong>Manuel test:</strong> her platformda kendinize bir bağlantı DM olarak gönderin. Önizlemenin ekran görüntüsünü alın. Niyetinizle karşılaştırın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın Hatalar</h2>
     <p>
-      <strong>Using relative URLs</strong> for{" "}
-      <code>og:image</code> or <code>og:url</code>. Must be
-      absolute with protocol (<code>https://</code>).
+      <strong>Göreli URL'ler kullanmak</strong> <code>og:image</code> veya <code>og:url</code> için. Protokolle (<code>https://</code>) mutlak olmalıdır.
     </p>
     <p>
-      <strong>Shipping OG tags set by JavaScript.</strong> Most
-      parsers don&rsquo;t run JS. <a href="/learn/ssr">SSR</a> or prerender.
+      <strong>JavaScript tarafından ayarlanan OG etiketlerini yayınlamak.</strong> Çoğu ayrıştırıcı JS çalıştırmaz. <a href="/learn/ssr">SSR</a> veya ön işleme.
     </p>
     <p>
-      <strong>Wrong image dimensions.</strong> 800&times;800 square
-      images get cropped to strips on most platforms. Use 1.91:1.
+      <strong>Yanlış görsel boyutları.</strong> 800&times;800 kare görseller çoğu platformda şeritler halinde kırpılır. 1.91:1 kullanın.
     </p>
     <p>
-      <strong>Identical OG tags across pages.</strong> Every page
-      needs unique <code>og:title</code>,{" "}
-      <code>og:description</code>,{" "}
-      <code>og:image</code>. Auto-generating from page content is
-      standard practice.
+      <strong>Sayfalar arasında aynı OG etiketleri.</strong> Her sayfanın benzersiz <code>og:title</code>, <code>og:description</code>, <code>og:image</code>'a ihtiyacı vardır. Sayfa içeriğinden otomatik oluşturma standart uygulamadır.
     </p>
     <p>
-      <strong>Skipping og:url.</strong> Canonicalization suffers.
-      When links re-share, they lose attribution.
+      <strong>og:url'yi atlamak.</strong> Kurallaştırma zarar görür. Bağlantılar yeniden paylaşıldığında, atıf kaybederler.
     </p>
     <p>
-      <strong>Using property= and name= interchangeably.</strong>{" "}
-      OG wants <code>property=</code>. Twitter wants{" "}
-      <code>name=</code>. They&rsquo;re different.
+      <strong>property= ve name='i birbirinin yerine kullanmak.</strong> OG, <code>property=</code> ister. Twitter, <code>name=</code> ister. Farklıdırlar.
     </p>
     <p>
-      <strong>Large og:image files.</strong> 4MB OG images slow
-      previews on mobile carriers. Keep under 300KB when possible.
+      <strong>Büyük og:image dosyaları.</strong> 4MB OG görselleri, mobil operatörlerde önizlemeleri yavaşlatır. Mümkün olduğunda 300KB'ın altında tutun.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları Çalıştırın</h2>
     <p>
-      Generate a complete OG tag block with the{" "}
-      <a href="/tools/open-graph-generator">Open Graph generator</a>.
-      Pair with the{" "}
-      <a href="/tools/meta-tag-generator">meta tag generator</a> for
-      the broader SEO meta stack, and the{" "}
-      <a href="/tools/image-resizer">image resizer</a> to get your
-      OG image to exactly 1200&times;630.
+      <a href="/tools/open-graph-generator">Open Graph oluşturucu</a> ile tam bir OG etiket bloğu oluşturun. Daha geniş SEO meta yığını için <a href="/tools/meta-tag-generator">meta etiket oluşturucu</a> ve OG görselinizi tam olarak 1200&times;630'a getirmek için <a href="/tools/image-resizer">görsel yeniden boyutlandırıcı</a> ile eşleştirin.
     </p>
   </>
 );

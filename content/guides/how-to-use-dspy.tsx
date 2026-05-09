@@ -2,56 +2,49 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    DSPy is Stanford&rsquo;s framework for <em>programming</em>
-    {" "}language models instead of prompting them. You declare what
-    inputs and outputs you want; DSPy&rsquo;s optimizers compile
-    prompts (and sometimes fine-tunes) from labeled examples.
-    It&rsquo;s a mental shift: stop hand-crafting prompt strings,
-    start writing typed signatures and letting a compiler tune the
-    demonstrations for you.
+    DSPy, Stanford&rsquo;un dil modellerini doğrudan prompt yazmak yerine <em>programlamak</em>
+    {" "}için geliştirdiği bir çerçevedir. Hangi girdileri ve çıktıları istediğinizi bildirirsiniz; DSPy&rsquo;nin
+    optimize edicileri, etiketli örneklerden promptları (ve bazen ince ayarları) derler.
+    Bu bir zihniyet değişimidir: prompt dizelerini elle yazmayı bırakın, yazılı imzalar yazmaya başlayın
+    ve bir derleyicinin sizin için gösterimleri ayarlamasına izin verin.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What DSPy actually is</h2>
+    <h2>DSPy aslında nedir</h2>
     <p>
-      DSPy has three pieces. <strong>Signatures</strong> declare the
-      input-output contract of a call (&ldquo;question, context
-      &rarr; answer&rdquo;). <strong>Modules</strong> wrap signatures
-      with a strategy (<code>Predict</code>,
-      <code> ChainOfThought</code>, <code>ReAct</code>,
-      <code> ProgramOfThought</code>). <strong>Optimizers</strong>
-      (teleprompters like <code>BootstrapFewShot</code>,
-      <code> MIPROv2</code>, <code>BootstrapFinetune</code>) take a
-      small training set plus a metric and search for the
-      demonstrations or instructions that maximize the metric on your
-      model.
+      DSPy üç parçadan oluşur. <strong>İmzalar</strong> bir çağrının girdi-çıktı sözleşmesini bildirir
+      (&ldquo;soru, bağlam &rarr; cevap&rdquo;). <strong>Modüller</strong> imzaları bir stratejiyle sarar
+      (<code>Predict</code>, <code>ChainOfThought</code>, <code>ReAct</code>,
+      <code>ProgramOfThought</code>). <strong>Optimize Ediciler</strong>
+      (<code>BootstrapFewShot</code>, <code>MIPROv2</code>, <code>BootstrapFinetune</code> gibi teleprompterlar)
+      küçük bir eğitim seti ve bir metrik alır ve modelinizde metriği en üst düzeye çıkaran
+      gösterimleri veya talimatları arar.
     </p>
     <p>
-      The result: the same Python code can target GPT-4o, Claude,
-      Llama, or a local model, and each gets its own tuned prompt.
-      You never hand-edit a prompt string.
+      Sonuç: aynı Python kodu GPT-4o, Claude, Llama veya yerel bir modeli hedefleyebilir
+      ve her biri kendi ayarlanmış promptunu alır. Asla bir prompt dizesini elle düzenlemezsiniz.
     </p>
 
-    <h2>Installing</h2>
+    <h2>Kurulum</h2>
     <pre>{`pip install -U dspy
 
-# If you want evaluation datasets or <a href="/learn/fine-tuning">fine-tuning</a> helpers:
+# Değerlendirme veri kümeleri veya <a href="/learn/fine-tuning">ince ayar</a> yardımcıları istiyorsanız:
 pip install "dspy[anthropic]" datasets`}</pre>
     <p>
-      Python 3.9+. DSPy uses LiteLLM under the hood so any model
-      LiteLLM supports works out of the box.
+      Python 3.9+. DSPy arka planda LiteLLM kullanır, bu nedenle LiteLLM&rsquo;in desteklediği herhangi bir model
+      kutudan çıktığı gibi çalışır.
     </p>
 
-    <h2>First working example</h2>
+    <h2>İlk çalışan örnek</h2>
     <pre>{`import dspy
 
 lm = dspy.LM("openai/gpt-4o-mini")
 dspy.configure(lm=lm)
 
 class Classify(dspy.Signature):
-    """Classify the sentiment of a product review."""
+    """Bir ürün yorumunun duyarlılığını sınıflandır."""
     review: str = dspy.InputField()
     sentiment: str = dspy.OutputField(desc="positive, negative, or neutral")
     confidence: float = dspy.OutputField(desc="0.0 to 1.0")
@@ -62,17 +55,15 @@ out = classify(review="Battery lasts two days, screen is gorgeous.")
 print(out.sentiment, out.confidence)
 # positive 0.92`}</pre>
     <p>
-      No prompt written. DSPy builds one from the signature
-      docstring, field names, and field descriptions. Swap
-      <code> dspy.Predict</code> for <code>dspy.ChainOfThought</code>
-      {" "}to get a reasoning field for free.
+      Hiç prompt yazılmadı. DSPy, imza docstring&rsquo;inden, alan adlarından ve alan açıklamalarından bir tane oluşturur.
+      <code> dspy.Predict</code> yerine <code>dspy.ChainOfThought</code> kullanarak
+      {" "}ücretsiz bir akıl yürütme alanı elde edin.
     </p>
 
-    <h2>A real workflow &mdash; compile with an optimizer</h2>
+    <h2>Gerçek bir iş akışı &mdash; bir optimize ediciyle derleme</h2>
     <p>
-      The power of DSPy is compiling a module against a metric.
-      Here&rsquo;s a RAG program optimized with
-      <code> BootstrapFewShot</code>:
+      DSPy&rsquo;nin gücü, bir modülü bir metriğe karşı derlemektir.
+      İşte <code>BootstrapFewShot</code> ile optimize edilmiş bir RAG programı:
     </p>
     <pre>{`import dspy
 
@@ -85,7 +76,7 @@ class RAG(dspy.Module):
         context = self.retrieve(question, k=5)
         return self.generate(context=context, question=question)
 
-# Training data: a handful of (question, gold_answer) pairs.
+# Eğitim verileri: bir avuç (soru, doğru_cevap) çifti.
 trainset = [
     dspy.Example(question=q, answer=a).with_inputs("question")
     for q, a in load_my_qa_pairs()
@@ -99,65 +90,20 @@ compiled_rag = optimizer.compile(RAG(retriever=my_retriever), trainset=trainset)
 
 compiled_rag.save("compiled_rag.json")`}</pre>
     <p>
-      The compiler runs your program on the training set, keeps the
-      traces where <code>exact_match</code> passes, and bakes them in
-      as few-shot demonstrations. Switching models later? Re-run
-      <code> compile</code>; the demos that work best for Claude
-      aren&rsquo;t the demos that work best for GPT-4o.
+      Derleyici, programınızı eğitim setinde çalıştırır, <code>exact_match</code>&rsquo;in başarılı olduğu
+      izleri tutar ve bunları az örnekli gösterimler olarak ekler. Daha sonra model değiştirmek mi istiyorsunuz?
+      <code> compile</code>&rsquo;ı yeniden çalıştırın; Claude için en iyi çalışan gösterimler,
+      GPT-4o için en iyi çalışan gösterimler değildir.
     </p>
 
-    <h2>Evaluation</h2>
+    <h2>Değerlendirme</h2>
     <pre>{`evaluator = dspy.Evaluate(devset=devset, num_threads=8, display_progress=True)
 score = evaluator(compiled_rag, metric=exact_match)`}</pre>
     <p>
-      DSPy treats eval as a first-class citizen. If you&rsquo;re not
-      evaluating numerically, you&rsquo;re just hand-waving at
-      prompts.
+      DSPy, değerlendirmeyi birinci sınıf bir vatandaş olarak ele alır. Sayısal olarak değerlendirmiyorsanız,
+      promptlarla sadece el sallıyorsunuz demektir.
     </p>
 
-    <h2>Gotchas</h2>
+    <h2>Dikkat edilmesi gerekenler</h2>
     <p>
-      <strong>You need labeled data.</strong> Optimizers are only as
-      good as your training set and metric. 20&ndash;50 good examples
-      beat 500 noisy ones every time.
-    </p>
-    <p>
-      <strong>Compilation calls your model a lot.</strong>
-      <code> BootstrapFewShot</code> can make hundreds of calls
-      searching for good demos; <code>MIPROv2</code> makes more. Use
-      a cheap model for the teacher pass when possible
-      (<code>teacher_settings={`{ "lm": cheap_lm }`}</code>).
-    </p>
-    <p>
-      <strong>Saved programs include the model choice.</strong> A
-      compiled program optimized for one model may under-perform
-      with another. Treat the JSON artifact as model-specific.
-    </p>
-    <p>
-      <strong>Signatures are strict contracts.</strong> If the model
-      returns malformed fields, DSPy raises. Use
-      <code> dspy.Suggest</code> or <code>dspy.Assert</code> for
-      self-repair loops.
-    </p>
-
-    <h2>When NOT to use it</h2>
-    <p>
-      Skip DSPy for one-off extraction scripts, demos, or anything
-      you won&rsquo;t evaluate numerically &mdash; the optimizer
-      machinery is overkill. Skip it if you need tight <a href="/learn/stream">streaming</a> UX
-      (DSPy&rsquo;s sweet spot is batch-style reasoning and RAG).
-      Reach for DSPy when you&rsquo;re shipping a classifier,
-      extractor, or RAG system you&rsquo;ll iterate on for months
-      and care about measurable quality gains.
-    </p>
-    <p>
-      Tighten signature instructions with the{" "}
-      <a href="/tools/prompt-improver">prompt improver</a>, inspect
-      compiled program JSON with the{" "}
-      <a href="/tools/json-formatter">JSON formatter</a>, and budget
-      optimizer runs with the{" "}
-      <a href="/tools/ai-token-counter">token counter</a> before you
-      kick off an overnight compile.
-    </p>
-  </>
-);
+      <strong>Etiketli veriye ihtiyacınız var.</strong> Optimize

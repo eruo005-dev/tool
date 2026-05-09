@@ -1,110 +1,82 @@
 export const intro = (
   <>
     <p>
-      Living below your means is the one habit that separates people who stay broke from people
-      who build wealth — regardless of income. High earners who spend everything stay poor
-      forever. Modest earners who save 20% build real wealth by 50.
+      İmkanlarının altında yaşamak, her zaman beş parasız olan insanlarla servet biriktiren insanları ayıran tek alışkanlıktır — gelir seviyesinden bağımsız olarak. Her şeyi harcayan yüksek kazançlılar sonsuza kadar fakir kalır. %20 tasarruf eden mütevazı kazançlılar 50 yaşına kadar gerçek bir servet biriktirir.
     </p>
     <p>
-      This guide covers the mechanics of spending less than you earn, building a margin, and
-      using that margin to buy freedom rather than stuff.
+      Bu rehber, kazandığından az harcama mekaniğini, bir marj oluşturmayı ve bu marjı eşyalar yerine özgürlük satın almak için kullanmayı kapsar.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Know your actual income and spending</h2>
+    <h2>1. Gerçek gelirini ve giderlerini bil</h2>
     <p>
-      Most people don&rsquo;t. Pull 3 months of bank statements. Average your monthly take-home.
-      Categorize your spending. The gap between what you think you spend and what you actually
-      spend is usually 20-40%. Start with our{" "}
-      <a href="/guides/how-to-make-a-monthly-budget">budget guide</a>.
+      Çoğu insan bilmez. 3 aylık banka hesap özetini çıkar. Aylık net gelirinin ortalamasını al. Harcamalarını kategorilere ayır. Harcadığını sandığınla gerçekte harcadığın arasındaki fark genellikle %20-40'tır.{" "}
+      <a href="/guides/how-to-make-a-monthly-budget">Aylık bütçe rehberimizle başlayın</a>.
     </p>
 
-    <h2>2. Pay yourself first</h2>
+    <h2>2. Önce kendine öde</h2>
     <p>
-      The moment your paycheck hits, transfer savings out — before rent, before groceries,
-      before anything. Automate it. If you wait until the end of the month, there&rsquo;s
-      nothing left. Savings isn&rsquo;t what you have left over; it&rsquo;s what you remove
-      first.
+      Maaşın hesabına yattığı an, tasarrufu — kira, market, hiçbir şeyden önce — taşı. Otomatikleştir. Ay sonuna kadar beklersen, hiçbir şey kalmaz. Tasarruf kalandan değil; ilk ayırdığın şeydir.
     </p>
 
-    <h2>3. Aim for at least a 20% savings rate</h2>
+    <h2>3. En az %20 tasarruf oranını hedefle</h2>
     <p>
-      Below 10% = working forever. 10-20% = retiring late but retiring. 20-30% = solid middle
-      path. 40%+ = early retirement possible. The savings rate — not the absolute amount —
-      determines how long you must work.
+      %10'un altı = sonsuza kadar çalışmak. %10-20 = geç ama mümkün emeklilik. %20-30 = sağlam orta yol. %40+ = erken emeklilik mümkün. Tasarruf oranın — mutlak miktar değil — ne kadar süre çalışman gerektiğini belirler.
     </p>
 
-    <h2>4. Fix the big three</h2>
+    <h2>4. Büyük üçlüyü düzelt</h2>
     <p>
-      Housing, transportation, food are 60-70% of most budgets. A $100/month savings on any of
-      these beats 50 small cutbacks. Don&rsquo;t buy more house than you need. Don&rsquo;t
-      finance new cars. Eat at home. These three choices set your trajectory for decades.
+      Konut, ulaşım ve yiyecek çoğu bütçenin %60-70'ini oluşturur. Bunlardan herhangi birinde ayda 100 TL tasarruf etmek, 50 küçük kısıntıdan daha iyidir. İhtiyacından fazla ev alma. Yeni arabaları finanse etme. Evde ye. Bu üç seçim, on yıllar boyunca gidişatını belirler.
     </p>
 
-    <h2>5. Treat raises as savings opportunities</h2>
+    <h2>5. Zamları tasarruf fırsatı olarak gör</h2>
     <p>
-      When income goes up, lifestyle quietly follows — a phenomenon called <a href="/learn/lifestyle-creep">lifestyle creep</a>.
-      Combat it by routing raises directly to savings before they hit checking. Our{" "}
-      <a href="/guides/how-to-avoid-lifestyle-creep">lifestyle creep guide</a> goes deeper.
+      Gelir arttığında, yaşam tarzı sessizce onu takip eder — buna <a href="/learn/lifestyle-creep">yaşam tarzı sürüklenmesi</a> denir. Zamları, vadesiz hesabına geçmeden önce doğrudan tasarrufa yönlendirerek bununla savaş.{" "}
+      <a href="/guides/how-to-avoid-lifestyle-creep">Yaşam tarzı sürüklenmesi rehberimiz</a> daha derinlemesine inceler.
     </p>
 
-    <h2>6. Track your net worth monthly</h2>
+    <h2>6. Net değerini aylık takip et</h2>
     <p>
-      Assets minus liabilities. Check it the first of every month. Seeing the number go up is
-      wildly motivating. Seeing it stagnate forces you to examine what&rsquo;s wrong. What gets
-      measured gets managed.
+      Varlıklar eksi borçlar. Her ayın ilk günü kontrol et. Sayının yükseldiğini görmek inanılmaz motive edicidir. Durağanlaştığını görmek, neyin yanlış olduğunu sorgulamaya zorlar. Ölçülen şey yönetilir.
     </p>
 
-    <h2>7. Buy quality, buy less</h2>
+    <h2>7. Kaliteli al, az al</h2>
     <p>
-      Cheap things wear out and get replaced. Quality items last decades. Fewer, better items
-      cost less over time and clutter life less. This applies to clothes, tools, furniture, and
-      kitchen equipment. Avoid fast fashion and flimsy gadgets.
+      Ucuz şeyler yıpranır ve değiştirilir. Kaliteli ürünler on yıllarca dayanır. Daha az, daha iyi şeyler zamanla daha ucuza gelir ve hayatı daha az dağınık yapar. Bu, kıyafetler, aletler, mobilyalar ve mutfak ekipmanları için geçerlidir. Hızlı modadan ve tek kullanımlık cihazlardan kaçının.
     </p>
 
-    <h2>8. Implement the 48-hour rule</h2>
+    <h2>8. 48 saat kuralını kullan</h2>
     <p>
-      For any non-essential purchase over $50, wait 48 hours. Most urges fade. The stuff you
-      still want after two days is usually worth buying. Cart abandonment is a superpower, not a
-      failure.
+      50 TL'nin üzerindeki zorunlu olmayan herhangi bir satın alma için 48 saat bekleyin. Çoğu dürtü kaybolur. İki gün sonra hala istediğin şey genellikle satın almaya değerdir. Sepeti terk etmek bir süper güçtür, başarısızlık değil.
     </p>
 
-    <h2>9. Unsubscribe from shopping triggers</h2>
+    <h2>9. Alışveriş tetikleyicilerinden çık</h2>
     <p>
-      Unsubscribe from all retailer emails. Unfollow haul channels. Delete shopping apps from
-      your phone. You can&rsquo;t impulse-buy what you don&rsquo;t see. Every marketing message
-      is engineered to push you to spend.
+      Tüm perakende e-postalarından çıkın. Alışveriş kanallarını takipten çıkın. Telefonunuzdan alışveriş uygulamalarını silin. Görmediğiniz bir şeyi dürtüsel olarak satın alamazsınız. Her pazarlama mesajı sizi harcamaya teşvik etmek için tasarlanmıştır.
     </p>
 
-    <h2>10. Audit recurring subscriptions quarterly</h2>
+    <h2>10. Yinelenen abonelikleri üç ayda bir denetle</h2>
     <p>
-      <a href="/learn/stream">Streaming</a>, apps, memberships, cloud storage — these silently add up. Most people are
-      paying for 3-5 subscriptions they don&rsquo;t use. List everything recurring, cancel what
-      you don&rsquo;t touch weekly. Easy $50-150/month win.
+      <a href="/learn/stream">Dijital yayın</a>, uygulamalar, üyelikler, bulut depolama — bunlar sessizce birikir. Çoğu insan kullanmadığı 3-5 abonelik için ödeme yapar. Yinelenen her şeyi listeleyin, haftalık kullanmadıklarınızı iptal edin. Ayda kolayca 50-150 TL kazanç.
     </p>
 
-    <h2>11. Frame spending in hours of your life</h2>
+    <h2>11. Harcamayı hayatının saatleri olarak düşün</h2>
     <p>
-      A $300 gadget at $25/hour after-tax income = 12 hours of your life. Is it worth 12 hours?
-      Often no. This mental re-frame kills a lot of marginal purchases automatically.
+      Saat başına 25 TL vergi sonrası gelirde 300 TL'lik bir alet = hayatının 12 saati. 12 saate değer mi? Genellikle değil. Bu zihinsel çerçeve değişimi, birçok marjinal satın almayı otomatik olarak öldürür.
     </p>
 
-    <h2>12. Invest the margin</h2>
+    <h2>12. Marjı yatır</h2>
     <p>
-      Saving isn&rsquo;t the end — it&rsquo;s how you buy assets that generate income. Route
-      savings to an index fund monthly via our{" "}
-      <a href="/guides/how-to-start-investing-with-100-dollars">investing guide</a>. Over 30
-      years, a 20% savings rate compounded in the market changes your entire life.
+      Tasarruf son değil — gelir getiren varlıklar satın almanın yoludur. Aylık tasarrufları doğrudan bir endeks fonuna yönlendirin{" "}
+      <a href="/guides/how-to-start-investing-with-100-dollars">yatırım rehberimizle</a>. 30 yıl boyunca, piyasada biriken %20'lik bir tasarruf oranı her şeyi değiştirir.
     </p>
 
-    <h2>Your starter plan</h2>
+    <h2>Başlangıç planın</h2>
     <p>
-      Track 3 months of spending. Set a 20% savings goal. Automate the transfer on payday.
-      Audit subscriptions. Apply the 48-hour rule. Reroute your next raise to savings. Do this
-      for a year. You&rsquo;ll have more margin than you thought possible.
+      3 ay boyunca harcamalarını takip et. %20 tasarruf hedefi belirle. Maaş gününde otomatik transfer ayarla. Abonelikleri denetle. 48 saat kuralını kullan. Bir sonraki zamını tasarrufa yönlendir. Bunu bir yıl boyunca yap. Mümkün olduğunu düşündüğünden daha fazla marjın olacak.
     </p>
   </>
 );

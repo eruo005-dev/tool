@@ -3,273 +3,196 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Most small businesses that fail are profitable on paper — they
-      run out of cash. Profit and cash flow are different numbers,
-      and the gap between them kills more companies than any other
-      single cause. A proper cash flow forecast shows, month by month,
-      whether you can pay bills, meet payroll, and fund growth. This
-      guide walks through building a 13-week forecast, the categories
-      that matter most, and the handful of signals that tell you
-      cash is about to be tight.
+      Başarısız olan küçük işletmelerin çoğu kağıt üzerinde kârlıdır — nakitleri biter. Kâr ve nakit akışı farklı rakamlardır ve aralarındaki uçurum, şirketleri diğer tüm tek nedenlerden daha fazla öldürür. Düzgün bir nakit akışı tahmini, ay ay faturaları ödeyip ödeyemeyeceğinizi, maaş bordrosunu karşılayıp karşılayamayacağınızı ve büyümeyi finanse edip edemeyeceğinizi gösterir. Bu kılavuz, 13 haftalık bir tahmin oluşturmayı, en önemli kategorileri ve nakitin daralacağını söyleyen bir avuç sinyali adım adım anlatır.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Cash flow vs profit — why they diverge</h2>
+    <h2>Nakit akışı ve kâr — neden ayrışırlar</h2>
     <p>
-      <strong>Profit</strong> is the income statement: revenue minus
-      expenses, recognized when earned.
+      <strong>Kâr</strong> gelir tablosudur: gelir eksi giderler, kazanıldığında muhasebeleştirilir.
     </p>
     <p>
-      <strong>Cash flow</strong> is the bank account: money in, money
-      out, on the dates it actually moves.
+      <strong>Nakit akışı</strong> banka hesabıdır: para girişi, para çıkışı, paranın fiilen hareket ettiği tarihlerde.
     </p>
     <p>
-      An agency invoices $50k in January (revenue recorded). Client
-      pays in March. Rent, payroll, and SaaS still hit in January
-      and February. On paper January was profitable; in reality the
-      bank account dropped $70k before any cash arrived.
+      Bir ajans Ocak ayında 50 bin dolar fatura keser (gelir kaydedilir). Müşteri Mart ayında öder. Kira, maaş bordrosu ve SaaS hizmetleri yine de Ocak ve Şubat aylarında tahsil edilir. Kağıt üzerinde Ocak kârlıydı; gerçekte ise herhangi bir nakit gelmeden önce banka hesabı 70 bin dolar düştü.
     </p>
     <p>
-      The three accounting things that cause the gap:
+      Farka neden olan üç muhasebe kalemi:
     </p>
     <p>
-      <strong>Accounts receivable (AR).</strong> Revenue billed but
-      not yet collected. Money you&rsquo;re owed is not cash.
+      <strong>Alacak hesapları (AR).</strong> Faturalanmış ancak henüz tahsil edilmemiş gelir. Size borçlu olunan para nakit değildir.
     </p>
     <p>
-      <strong>Inventory.</strong> Stock you paid for but haven&rsquo;t
-      sold. Cash out, no revenue yet.
+      <strong>Envanter.</strong> Ödediğiniz ancak henüz satmadığınız stok. Nakit çıkışı var, henüz gelir yok.
     </p>
     <p>
-      <strong>Capital expenditures.</strong> Equipment, leasehold
-      improvements — expensed over years on the P&amp;L, but the cash
-      went out in month one.
+      <strong>Sermaye harcamaları.</strong> Ekipman, kiralık alan iyileştirmeleri — gelir tablosunda yıllara yayılarak giderleştirilir, ancak nakit ilk ayda çıkmıştır.
     </p>
 
-    <h2>The 13-week rolling forecast (the standard)</h2>
+    <h2>13 haftalık döner tahmin (standart)</h2>
     <p>
-      13 weeks is the CFO-standard horizon: long enough to see the
-      next payroll cycle, quarterly tax, and big AR collections;
-      short enough that predictions are still realistic.
+      13 hafta, CFO standardı ufuktur: bir sonraki maaş bordrosu döngüsünü, üç aylık vergiyi ve büyük alacak tahsilatlarını görecek kadar uzun; tahminlerin hâlâ gerçekçi kalacağı kadar kısa.
     </p>
     <p>
-      Structure:
+      Yapı:
     </p>
     <p>
-      <strong>Row 1: Opening cash balance.</strong> Closing cash from
-      the prior week.
+      <strong>Satır 1: Açılış nakit bakiyesi.</strong> Önceki haftanın kapanış nakdi.
     </p>
     <p>
-      <strong>Rows 2-N: Cash inflows.</strong> AR collections from
-      specific customers, new sales forecast by week, other income
-      (refunds, grants, tax return).
+      <strong>Satır 2-N: Nakit girişleri.</strong> Belirli müşterilerden alacak tahsilatları, haftalık yeni satış tahmini, diğer gelirler (iadeler, hibeler, vergi iadesi).
     </p>
     <p>
-      <strong>Rows N-M: Cash outflows.</strong> Payroll dates, rent,
-      recurring software (by date due), AP payments to vendors,
-      quarterly taxes, debt service.
+      <strong>Satır N-M: Nakit çıkışları.</strong> Maaş bordrosu tarihleri, kira, yinelenen yazılımlar (vade tarihine göre), tedarikçilere borç hesapları ödemeleri, üç aylık vergiler, borç servisi.
     </p>
     <p>
-      <strong>Closing cash balance.</strong> Opening + inflows −
-      outflows. This becomes next week&rsquo;s opening cash.
+      <strong>Kapanış nakit bakiyesi.</strong> Açılış + girişler − çıkışlar. Bu, gelecek haftanın açılış nakdi olur.
     </p>
     <p>
-      Update every Monday. Takes 30 minutes once built. The discipline
-      of updating is the value — forces you to notice when forecasts
-      drift.
+      Her Pazartesi güncelleyin. Bir kez oluşturulduktan sonra 30 dakika sürer. Güncelleme disiplini değeri oluşturur — tahminler kaydığında fark etmenizi sağlar.
     </p>
 
-    <h2>Categorize cash flows the right way</h2>
+    <h2>Nakit akışlarını doğru şekilde kategorize edin</h2>
     <p>
-      Accounting standards split cash flow into three categories —
-      helpful for spotting what&rsquo;s really happening:
+      Muhasebe standartları nakit akışını üç kategoriye ayırır — gerçekte ne olduğunu görmek için faydalıdır:
     </p>
     <p>
-      <strong>Operating cash flow.</strong> The day-to-day business:
-      customer payments in, operating expenses out. Healthy business
-      = positive operating cash flow.
+      <strong>İşletme nakit akışı.</strong> Günlük iş: müşteri ödemeleri girer, işletme giderleri çıkar. Sağlıklı işletme = pozitif işletme nakit akışı.
     </p>
     <p>
-      <strong>Investing cash flow.</strong> Equipment purchases,
-      acquisitions, sales of assets. Usually negative for growing
-      companies (spending on future capacity).
+      <strong>Yatırım nakit akışı.</strong> Ekipman alımları, satın almalar, varlık satışları. Büyüyen şirketler için genellikle negatiftir (gelecekteki kapasiteye harcama).
     </p>
     <p>
-      <strong>Financing cash flow.</strong> Loans in/out, equity
-      raised, dividends or distributions paid.
+      <strong>Finansman nakit akışı.</strong> Kredi giriş/çıkışları, öz sermaye toplama, ödenen temettüler veya dağıtımlar.
     </p>
     <p>
-      A business with positive operating cash flow but collapsing
-      total cash is funding growth from the balance sheet. A business
-      with negative operating cash flow and positive financing cash
-      flow is living on the last round — dangerous.
+      İşletme nakit akışı pozitif ancak toplam nakdi çöken bir işletme, büyümeyi bilançodan finanse ediyordur. İşletme nakit akışı negatif ve finansman nakit akışı pozitif olan bir işletme ise son turla yaşıyordur — tehlikeli.
     </p>
 
-    <h2>Step 1 — forecast AR collections realistically</h2>
+    <h2>Adım 1 — alacak tahsilatlarını gerçekçi tahmin edin</h2>
     <p>
-      The #1 source of cash forecast error is assuming invoices are
-      paid on the due date. They&rsquo;re often not.
+      Nakit akışı tahmin hatasının 1 numaralı kaynağı, faturaların vade tarihinde ödendiğini varsaymaktır. Genellikle ödenmezler.
     </p>
     <p>
-      Track your actual <strong>DSO (days sales outstanding)</strong> =
-      (AR balance / revenue per day). If DSO is 45 days but you
-      invoice on Net-30, your AR forecast should assume payment 15
-      days late, not on day 30.
+      Gerçek <strong>DSO'nuzu (günlük satış bakiyesi)</strong> takip edin = (Alacak bakiyesi / günlük gelir). DSO 45 günse ancak Net-30 fatura kesiyorsanız, alacak tahmininiz ödemenin 30. günde değil, 15 gün gecikmeli yapılacağını varsaymalıdır.
     </p>
     <p>
-      Customer-level adjustment: big customers with long AP cycles
-      pay in 60–90 days. Assume that. Small customers often pay
-      faster. Build an aging profile into the forecast, not an
-      average.
+      Müşteri bazında ayarlama: uzun borç hesapları döngüsü olan büyük müşteriler 60–90 günde öder. Bunu varsayın. Küçük müşteriler genellikle daha hızlı öder. Tahmine bir ortalama değil, bir yaşlandırma profili ekleyin.
     </p>
 
-    <h2>Step 2 — commit to payment timing, don&rsquo;t estimate</h2>
+    <h2>Adım 2 — ödeme zamanlamasına bağlanın, tahmin etmeyin</h2>
     <p>
-      Most outflows are known with certainty once you have the data:
+      Çoğu çıkış, verilere sahip olduğunuzda kesin olarak bilinir:
     </p>
     <p>
-      <strong>Payroll</strong> — fixed dates and amounts. Include
-      employer taxes (add ~8–12% to gross payroll).
+      <strong>Maaş bordrosu</strong> — sabit tarihler ve tutarlar. İşveren vergilerini dahil edin (brüt maaş bordrosuna ~%8–12 ekleyin).
     </p>
     <p>
-      <strong>Rent</strong> — 1st or last of the month, fixed.
+      <strong>Kira</strong> — ayın 1'i veya sonu, sabit.
     </p>
     <p>
-      <strong>Software subscriptions</strong> — renewal dates are
-      knowable; pull them from your credit card statement and list by
-      date.
+      <strong>Yazılım abonelikleri</strong> — yenileme tarihleri bilinebilir; kredi kartı ekstrenizden çekin ve tarihe göre listeleyin.
     </p>
     <p>
-      <strong>Quarterly estimated taxes</strong> — April 15, June 15,
-      September 15, January 15. Easy to forget; massive impact when
-      they hit.
+      <strong>Üç aylık tahmini vergiler</strong> — 15 Nisan, 15 Haziran, 15 Eylül, 15 Ocak. Unutması kolay; geldiklerinde büyük etki yaratır.
     </p>
     <p>
-      <strong>Annual costs</strong> — insurance, domain renewals,
-      accountant fee for year-end. List them in the month due.
+      <strong>Yıllık maliyetler</strong> — sigorta, alan adı yenilemeleri, yıl sonu için muhasebeci ücreti. Vadesi gelen ayda listeleyin.
     </p>
 
-    <h2>Step 3 — add a sales forecast with honesty discount</h2>
+    <h2>Adım 3 — dürüstlük indirimiyle satış tahmini ekleyin</h2>
     <p>
-      Revenue forecasts are where optimism creeps in. Discount
-      discipline:
+      Gelir tahminleri, iyimserliğin sızdığı yerdir. İndirim disiplini:
     </p>
     <p>
-      <strong>Signed contracts with clear delivery date:</strong>{" "}
-      100% of expected value in the right week.
+      <strong>Net teslim tarihi olan imzalı sözleşmeler:</strong>{" "}
+      Beklenen değerin %100'ü doğru haftada.
     </p>
     <p>
-      <strong>Verbal commitment or LOI:</strong> 60% of value,
-      pushed a month out from when the customer said.
+      <strong>Sözlü taahhüt veya niyet mektubu:</strong> Değerin %60'ı, müşterinin söylediğinden bir ay öteye atılmış.
     </p>
     <p>
-      <strong>Strong pipeline opportunity:</strong> 30% of value, 2
-      months out.
+      <strong>Güçlü fırsat hattı fırsatı:</strong> Değerin %30'u, 2 ay sonrası.
     </p>
     <p>
-      <strong>Top-of-funnel inquiries:</strong> don&rsquo;t include
-      in the forecast at all.
+      <strong>Huninin tepesindeki sorgulamalar:</strong> tahmine hiç dahil etmeyin.
     </p>
     <p>
-      Every founder overestimates conversion speed. The honest
-      discount on sales forecasts is usually 30–50%, not the 10% we
-      want to apply.
+      Her kurucu, dönüşüm hızını abartır. Satış tahminlerindeki dürüst indirim genellikle %30–50'dir, uygulamak istediğimiz %10 değil.
     </p>
 
-    <h2>Signal #1: The minimum balance watchtower</h2>
+    <h2>Sinyal #1: Minimum bakiye gözetleme kulesi</h2>
     <p>
-      What&rsquo;s the minimum cash balance across all 13 weeks? If
-      it dips below 30 days of operating expenses, you&rsquo;re
-      entering stress.
+      13 hafta boyunca minimum nakit bakiyesi nedir? 30 günlük işletme giderinin altına düşerse, strese giriyorsunuz demektir.
     </p>
     <p>
-      Below 2 weeks of operating expenses: emergency mode. Start
-      accelerating collections (call AR aging report customers),
-      delay non-critical payments, open the line of credit if you
-      have one.
+      2 haftalık işletme giderinin altında: acil durum modu. Tahsilatları hızlandırmaya başlayın (alacak yaşlandırma raporu müşterilerini arayın), kritik olmayan ödemeleri geciktirin, varsa kredi limitinizi açın.
     </p>
     <p>
-      Target: maintain a minimum cash buffer of at least 60 days of
-      operating expenses. 3–6 months is comfortable. &lt;30 days is
-      a warning state.
+      Hedef: en az 60 günlük işletme gideri olan bir minimum nakit tamponu bulundurun. 3–6 ay rahattır. &lt;30 gün uyarı durumudur.
     </p>
 
-    <h2>Signal #2: Growing AR aging buckets</h2>
+    <h2>Sinyal #2: Büyüyen alacak yaşlandırma kovaları</h2>
     <p>
-      Pull the AR aging report monthly. It splits what you&rsquo;re
-      owed by how overdue:
+      Alacak yaşlandırma raporunu aylık olarak çekin. Size borçlu olunanı ne kadar geciktiğine göre ayırır:
     </p>
     <p>
-      <strong>Current</strong> — not yet due.
+      <strong>Güncel</strong> — henüz vadesi gelmemiş.
     </p>
     <p>
-      <strong>1–30 days late</strong> — usually normal.
+      <strong>1–30 gün gecikmiş</strong> — genellikle normal.
     </p>
     <p>
-      <strong>31–60 days late</strong> — investigate. Call customer.
+      <strong>31–60 gün gecikmiş</strong> — araştırın. Müşteriyi arayın.
     </p>
     <p>
-      <strong>61–90 days late</strong> — escalate, consider collection
-      calls or holding deliveries.
+      <strong>61–90 gün gecikmiş</strong> — durumu yükseltin, tahsilat aramalarını veya teslimatları bekletmeyi düşünün.
     </p>
     <p>
-      <strong>90+ days late</strong> — unlikely to collect, write
-      off or send to collections.
+      <strong>90+ gün gecikmiş</strong> — tahsil edilmesi olası değil, silin veya tahsilata gönderin.
     </p>
     <p>
-      If the &gt;60-day bucket is growing as a percentage of total AR,
-      your working capital is deteriorating even if top-line revenue
-      is fine.
+      &gt;60 günlük kova, toplam alacakların yüzdesi olarak büyüyorsa, üst satır geliriniz iyi olsa bile işletme sermayeniz kötüleşiyordur.
     </p>
 
-    <h2>Signal #3: AP terms being stretched</h2>
+    <h2>Sinyal #3: Borç hesapları koşullarının esnetilmesi</h2>
     <p>
-      The inverse of AR: if you&rsquo;re paying vendors later than
-      your terms (stretching Net-30 to Net-45 or 60), you&rsquo;re
-      using vendor credit to fund operations — a rough early
-      indicator of tight cash. Unsustainable and relationship-damaging.
+      Alacak hesaplarının tersi: tedarikçilere koşullarınızdan daha geç ödeme yapıyorsanız (Net-30'u Net-45 veya 60'a esnetmek), operasyonları finanse etmek için tedarikçi kredisi kullanıyorsunuz demektir — nakit darlığının kaba bir erken göstergesi. Sürdürülemez ve ilişkilere zarar verir.
     </p>
     <p>
-      If you find yourself doing this regularly, the cash problem
-      is structural and needs a fix (raise, cost reduction, faster
-      collections, terms renegotiation) — not just better timing.
+      Bunu düzenli olarak yaptığınızı fark ederseniz, nakit sorunu yapısaldır ve bir düzeltme gerektirir (fon toplama, maliyet düşürme, daha hızlı tahsilat, koşul yeniden müzakere) — sadece daha iyi zamanlama değil.
     </p>
 
-    <h2>What to cut when cash is tight</h2>
+    <h2>Nakit daraldığında ne kesilir</h2>
     <p>
-      Order of cuts, from easiest to hardest:
+      Kesintilerin sırası, en kolaydan en zora:
     </p>
     <p>
-      <strong>(1) Discretionary</strong> — marketing experiments,
-      travel, catered lunches, new software, hiring pauses.
+      <strong>(1) İsteğe bağlı</strong> — pazarlama deneyleri, seyahat, ikramlı öğle yemekleri, yeni yazılımlar, işe alım duraklamaları.
     </p>
     <p>
-      <strong>(2) Deferrable</strong> — negotiate longer payment
-      terms with vendors, delay capital purchases, downgrade software
-      tiers.
+      <strong>(2) Ertelenebilir</strong> — tedarikçilerle daha uzun ödeme koşulları müzakere edin, sermaye alımlarını geciktirin, yazılım kademelerini düşürün.
     </p>
     <p>
-      <strong>(3) Headcount reductions</strong> — last resort but
-      highest leverage. Better done once decisively than gradually.
+      <strong>(3) Personel azaltımları</strong> — son çare ancak en yüksek kaldıraç. Kademeli olarak değil, bir kez kararlı bir şekilde yapmak daha iyidir.
     </p>
     <p>
-      Don&rsquo;t cut things that drive cash in the door (sales
-      people, top performers, existing customer support). Those are
-      your revenue. Cut what doesn&rsquo;t drive collections.
+      Nakit getiren şeyleri kesmeyin (satış elemanları, en iyi performans gösterenler, mevcut müşteri desteği). Bunlar sizin gelirinizdir. Tahsilat sağlamayan şeyleri kesin.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Enter monthly inflows and outflows into the{" "}
-      <a href="/tools/cash-flow-calculator">cash flow calculator</a>
-      {" "}to see your position across months and quarters. Pair with
-      the <a href="/tools/startup-runway-calculator">startup runway
-      calculator</a> for months-to-zero view, and the{" "}
-      <a href="/tools/budget-calculator">budget calculator</a> for the
-      same view on personal household cash flow.
+      Aylık giriş ve çıkışları{" "}
+      <a href="/tools/cash-flow-calculator">nakit akışı hesaplayıcısına</a>
+      {" "}girerek aylar ve çeyrekler boyunca durumunuzu görün.{" "}
+      <a href="/tools/startup-runway-calculator">startup pist hesaplayıcısı</a>
+      {" "}ile sıfıra kadar olan aylar görünümü ve{" "}
+      <a href="/tools/budget-calculator">bütçe hesaplayıcısı</a>
+      {" "}ile kişisel hane nakit akışı için aynı görünüm için eşleştirin.
     </p>
   </>
 );

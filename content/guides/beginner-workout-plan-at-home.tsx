@@ -1,110 +1,80 @@
 export const intro = (
   <>
     <p>
-      You don&rsquo;t need a gym, equipment, or an hour a day. You need consistency, basic
-      movements, and progressive overload. Most of the strength and health benefits of
-      exercise come from the first few weeks of regular training — and you can get all of it
-      at home with your body weight.
+      Bir spor salonuna, ekipmana veya günde bir saate ihtiyacınız yok. Tutarlılığa, temel hareketlere ve aşamalı yüklenmeye ihtiyacınız var. Egzersizin güç ve sağlık faydalarının çoğu, düzenli antrenmanın ilk birkaç haftasında gelir — ve bunların hepsini evde kendi vücut ağırlığınızla elde edebilirsiniz.
     </p>
     <p>
-      This guide lays out a beginner home workout plan that works for almost anyone: no
-      equipment, 20-30 minutes, 3-4 days a week. Start this week.
+      Bu rehber, neredeyse herkes için işe yarayan bir başlangıç seviyesi ev egzersiz planı sunar: ekipman yok, 20-30 dakika, haftada 3-4 gün. Bu hafta başlayın.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Commit to frequency over intensity</h2>
+    <h2>1. Sıklığı yoğunluğa tercih edin</h2>
     <p>
-      Three 20-minute sessions per week beat one 60-minute session. Your body adapts to
-      frequency. Decide now: which three days? Monday/Wednesday/Friday is the classic. Put it
-      on the calendar. Don&rsquo;t miss twice in a row.
+      Haftada üç 20 dakikalık seans, bir 60 dakikalık seansı yener. Vücudunuz sıklığa uyum sağlar. Şimdi karar verin: hangi üç gün? Pazartesi/Çarşamba/Cuma klasiktir. Takvime koyun. Üst üste iki kez kaçırmayın.
     </p>
 
-    <h2>2. Master five basic movements</h2>
+    <h2>2. Beş temel hareketi öğrenin</h2>
     <p>
-      Squats, pushups, rows (inverted or band), hip hinges, planks. These cover every major
-      muscle group and teach movement patterns you&rsquo;ll use for life. Master form before
-      you add reps. Most injuries come from bad form, not too much load.
+      Squat, şınav, row (ters veya bantlı), kalça menteşesi, plank. Bunlar her büyük kas grubunu kapsar ve hayatınız boyunca kullanacağınız hareket kalıplarını öğretir. Tekrar eklemeden önce formda ustalaşın. Çoğu sakatlık çok fazla yükten değil, kötü formdan gelir.
     </p>
 
-    <h2>3. A simple starter routine</h2>
+    <h2>3. Basit bir başlangıç rutini</h2>
     <p>
-      3 rounds: 10 bodyweight squats, 8 pushups (on knees if needed), 10 glute bridges, 8
-      reverse lunges per leg, 30-second plank. 60 seconds rest between rounds. Total time:
-      20 minutes. Doable for nearly anyone.
+      3 tur: 10 vücut ağırlığı squat, 8 şınav (gerekirse dizlerinizin üzerinde), 10 glute bridge, bacak başına 8 ters lunge, 30 saniye plank. Turlar arasında 60 saniye dinlenme. Toplam süre: 20 dakika. Neredeyse herkes için yapılabilir.
     </p>
 
-    <h2>4. Progressive overload — add a little each week</h2>
+    <h2>4. Aşamalı yüklenme — her hafta biraz ekleyin</h2>
     <p>
-      Week 1: 3 rounds of 8. Week 2: 3 rounds of 10. Week 3: 4 rounds of 10. Week 4: 4 rounds
-      of 12. When bodyweight gets easy, add harder variations (pushups to decline pushups,
-      squats to jump squats). Progress is the whole point.
+      1. Hafta: 8'den 3 tur. 2. Hafta: 10'dan 3 tur. 3. Hafta: 10'dan 4 tur. 4. Hafta: 12'den 4 tur. Vücut ağırlığı kolaylaştığında, daha zor varyasyonlar ekleyin (şınavdan decline şınavlara, squattan jump squat'a). İlerleme asıl amaçtır.
     </p>
 
-    <h2>5. Warm up — briefly</h2>
+    <h2>5. Isının — kısaca</h2>
     <p>
-      5 minutes is enough. Jumping jacks, leg swings, arm circles, bodyweight squats. Elevates
-      heart rate, preps joints, reduces injury. Don&rsquo;t skip this; don&rsquo;t turn it into
-      a full workout either.
+      5 dakika yeterlidir. Jumping jack, bacak sallama, kol çemberi, vücut ağırlığı squat. Kalp atış hızını yükseltir, eklemleri hazırlar, sakatlık riskini azaltır. Bunu atlamayın; tam bir antrenmana dönüştürmeyin de.
     </p>
 
-    <h2>6. Pay attention to form</h2>
+    <h2>6. Forma dikkat edin</h2>
     <p>
-      Film yourself doing one rep of each exercise. Compare to instructional videos. Adjust.
-      Bad form with a clean body is unfortunate; bad form with load is how people get hurt.
-      Form over everything for the first 8 weeks.
+      Her egzersizin bir tekrarını yaparken kendinizi filme çekin. Eğitim videolarıyla karşılaştırın. Ayarlayın. Temiz bir vücutla kötü form talihsizliktir; yükle kötü form insanların sakatlanma şeklidir. İlk 8 hafta boyunca form her şeyin üstündedir.
     </p>
 
-    <h2>7. Track your workouts</h2>
+    <h2>7. Antrenmanlarınızı takip edin</h2>
     <p>
-      Notebook or phone notes. Record sets, reps, and any notes on how it felt. Tracking
-      forces progression — without it, you&rsquo;ll stall unconsciously. Comparing this week to
-      last week is how you see progress.
+      Defter veya telefon notları. Setleri, tekrarları ve nasıl hissettirdiğine dair notları kaydedin. Takip, ilerlemeyi zorlar — onsuz, farkında olmadan duracaksınız. Bu haftayı geçen haftayla karşılaştırmak, ilerlemeyi görme şeklinizdir.
     </p>
 
-    <h2>8. Don&rsquo;t obsess over cardio</h2>
+    <h2>8. Kardiyo takıntısı yapmayın</h2>
     <p>
-      A brisk 20-30 minute walk most days covers the cardio benefits for general health. You
-      don&rsquo;t need hours of running or HIIT. If you enjoy running, see our{" "}
-      <a href="/guides/how-to-start-running">running guide</a>. If you don&rsquo;t, walking is
-      enough.
+      Çoğu gün 20-30 dakikalık tempolu bir yürüyüş, genel sağlık için kardiyo faydalarını karşılar. Saatlerce koşmaya veya HIIT'e ihtiyacınız yok. Koşmayı seviyorsanız,{" "}
+      <a href="/guides/how-to-start-running">koşu rehberimize</a> bakın. Sevmiyorsanız, yürümek yeterlidir.
     </p>
 
-    <h2>9. Sleep and protein matter more than the workout</h2>
+    <h2>9. Uyku ve protein antrenmandan daha önemlidir</h2>
     <p>
-      You grow stronger during recovery, not during the workout. Aim for 7-8 hours of sleep
-      (see <a href="/guides/how-to-sleep-better">sleep guide</a>). Eat ~1g of protein per
-      pound of goal body weight. Train hard, recover well.
+      Antrenman sırasında değil, toparlanma sırasında güçlenirsiniz. 7-8 saat uyku hedefleyin (bkz. <a href="/guides/how-to-sleep-better">uyku rehberi</a>). Hedef vücut ağırlığınızın kilosu başına yaklaşık 2 gram protein tüketin. Sıkı antrenman yapın, iyi toparlanın.
     </p>
 
-    <h2>10. Expect slow visible progress</h2>
+    <h2>10. Yavaş görünür ilerleme bekleyin</h2>
     <p>
-      Strength gains come fast (weeks 2-8). Visible body changes are slower (3-6 months). Skin
-      and body-composition changes are even slower. Measure by consistency, not mirror. The
-      mirror lies over short windows.
+      Güç kazanımları hızlı gelir (2-8. haftalar). Görünür vücut değişiklikleri daha yavaştır (3-6 ay). Cilt ve vücut kompozisyonu değişiklikleri daha da yavaştır. Tutarlılıkla ölçün, aynayla değil. Ayna kısa vadede yalan söyler.
     </p>
 
-    <h2>11. Push through the first 4 weeks</h2>
+    <h2>11. İlk 4 haftayı atlatın</h2>
     <p>
-      The first month is the hardest. Your body complains, motivation wavers, nothing visible
-      has changed. Weeks 5-8 is when momentum flips. Energy goes up, workouts feel easier,
-      motivation self-sustains. Most people quit before they reach this flip.
+      İlk ay en zorudur. Vücudunuz şikayet eder, motivasyon sallanır, görünür hiçbir şey değişmemiştir. 5-8. haftalar momentumun tersine döndüğü zamandır. Enerji artar, antrenmanlar daha kolay hissettirir, motivasyon kendi kendini sürdürür. Çoğu insan bu dönüşe ulaşamadan bırakır.
     </p>
 
-    <h2>12. Build a longer-term program</h2>
+    <h2>12. Daha uzun vadeli bir program oluşturun</h2>
     <p>
-      After 8-12 weeks, consider adding minimal equipment (a pull-up bar, resistance bands, or
-      kettlebells). Or start going to a gym now that you&rsquo;ve built the habit. The home
-      plan is an on-ramp, not a final destination.
+      8-12 hafta sonra, minimum ekipman eklemeyi düşünün (bir barfiks barı, direnç bantları veya kettlebell). Veya alışkanlığı edindiğinize göre bir spor salonuna gitmeye başlayın. Ev planı bir giriş rampasıdır, nihai bir hedef değil.
     </p>
 
-    <h2>Your first session</h2>
+    <h2>İlk seansınız</h2>
     <p>
-      Do the starter routine above tonight. Don&rsquo;t wait for Monday. Not tomorrow —
-      tonight. Put the book down, do 20 minutes, be back. The smallest, earliest start beats
-      the perfect plan next week.
+      Yukarıdaki başlangıç rutinini bu gece yapın. Pazartesiyi beklemeyin. Yarını değil — bu gece. Kitabı bırakın, 20 dakika yapın, geri dönün. En küçük, en erken başlangıç, gelecek haftaki mükemmel planı yener.
     </p>
   </>
 );

@@ -3,218 +3,224 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Runway — the number of months before you run out of cash — is
-      the single most important number at an early-stage startup.
-      Everything else (hiring, marketing, product scope, fundraising
-      timing) is downstream of it. This guide walks through the
-      correct way to calculate runway, the levers that actually
-      extend it, and the &ldquo;18-month rule&rdquo; that separates
-      startups that survive from ones that fold during a fundraise.
+      Runway — kasadaki paranın bitmesine kalan ay sayısı — erken aşama bir
+      girişim için en önemli rakamdır. İşe alım, pazarlama, ürün kapsamı,
+      fon toplama zamanlaması gibi her şey buna bağlıdır. Bu rehber, runway'i
+      doğru hesaplama yöntemini, onu uzatan gerçek kaldıraçları ve fon
+      toplama sürecinde hayatta kalan girişimleri batanlardan ayıran
+      &ldquo;18 ay kuralını&rdquo; adım adım anlatır.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The formula — but with the right burn</h2>
+    <h2>Formül — ama doğru yakımla</h2>
     <p>
-      <strong>Runway (months) = Cash on hand / Net monthly burn</strong>
+      <strong>Runway (ay) = Eldeki nakit / Net aylık yakım</strong>
     </p>
     <p>
-      Where <strong>net monthly burn</strong> = (Monthly cash out −
-      Monthly cash in). Cash-in is revenue collected, not revenue
-      booked. An enterprise deal signed in March that bills in June
-      doesn&rsquo;t help April&rsquo;s runway.
+      Burada <strong>net aylık yakım</strong> = (Aylık nakit çıkışı −
+      Aylık nakit girişi). Nakit girişi, tahsil edilen gelirdir, fatura
+      edilen gelir değil. Mart ayında imzalanıp Haziran'da faturalanan bir
+      kurumsal anlaşma, Nisan ayının runway'ine yardımcı olmaz.
     </p>
     <p>
-      Example: $2.0M in the bank, $250k/month expenses, $50k/month
-      collected revenue. Net burn = $200k. Runway = 2,000 / 200 =
-      <strong> 10 months</strong>.
+      Örnek: Bankada 2,0 milyon dolar, aylık 250 bin dolar gider, aylık
+      tahsil edilen gelir 50 bin dolar. Net yakım = 200 bin dolar. Runway =
+      2.000 / 200 = <strong>10 ay</strong>.
     </p>
     <p>
-      Critical: use the <strong>trailing 3-month average burn</strong>,
-      not last month&rsquo;s number. Single months are too noisy —
-      one-time AWS spikes, delayed invoices, or timing of payroll can
-      distort a single month by 30%.
-    </p>
-
-    <h2>Gross burn vs net burn</h2>
-    <p>
-      <strong>Gross burn</strong> = monthly cash out (all expenses
-      regardless of revenue).
-    </p>
-    <p>
-      <strong>Net burn</strong> = gross burn − revenue.
-    </p>
-    <p>
-      Net burn is the right number for runway. But track both,
-      because revenue can evaporate (customer churns, enterprise
-      deal delays, seasonality). Knowing gross burn tells you
-      worst-case runway if revenue goes to zero — a scenario you
-      should always plan for.
+      Kritik: Geçen ayın rakamını değil, <strong>son 3 aylık ortalama
+      yakımı</strong> kullanın. Tek aylar çok gürültülüdür — bir kerelik
+      AWS artışları, geciken faturalar veya maaş ödeme zamanlaması tek bir
+      ayı %30 oranında saptırabilir.
     </p>
 
-    <h2>The 18-month rule</h2>
+    <h2>Brüt yakım ve net yakım</h2>
     <p>
-      Common VC guidance: after closing a round, you should have
-      <strong> 18–24 months</strong> of runway. Why?
+      <strong>Brüt yakım</strong> = aylık nakit çıkışı (gelir ne olursa
+      olsun tüm giderler).
     </p>
     <p>
-      Fundraising takes 3–6 months (from starting to close). Good
-      milestones take 6–9 months to hit. Investors want to see 6+
-      months of execution data before writing a check. Total:
-      minimum 15–18 months from one round to the next.
+      <strong>Net yakım</strong> = brüt yakım − gelir.
     </p>
     <p>
-      At 12 months of runway, you&rsquo;re already starting to raise.
-      At 9 months, you&rsquo;re in &ldquo;raising now&rdquo; mode and
-      any delay compounds risk. At 6 months, you&rsquo;re in distress
-      — your leverage with investors has collapsed, and you&rsquo;ll
-      take worse terms.
-    </p>
-    <p>
-      <strong>Rule of thumb:</strong> start the next fundraise when
-      runway hits 9 months. Close the round before it hits 6.
+      Runway için doğru rakam net yakımdır. Ancak ikisini de takip edin,
+      çünkü gelir buharlaşabilir (müşteri kaybı, kurumsal anlaşma
+      gecikmeleri, mevsimsellik). Brüt yakımı bilmek, gelir sıfıra düşerse
+      size en kötü durum runway'ini söyler — her zaman planlamanız gereken
+      bir senaryo.
     </p>
 
-    <h2>The 4 levers to extend runway</h2>
+    <h2>18 ay kuralı</h2>
     <p>
-      <strong>(1) Cut expenses.</strong> Immediate, controllable.
-      Non-essential software, travel, marketing experiments,
-      contractors. A 20% expense cut on $250k burn = $50k/month saved
-      = 2.5 additional months of runway per $500k in the bank.
+      Yaygın VC tavsiyesi: Bir turu kapattıktan sonra <strong>18–24
+      aylık</strong> runway'iniz olmalıdır. Neden?
     </p>
     <p>
-      <strong>(2) Grow revenue.</strong> Higher leverage than cuts but
-      slower to move. Revenue directly subtracts from net burn.
-      Caveat: if growing revenue requires hiring or ad spend, net
-      impact may be negative for 3–6 months.
+      Fon toplama 3–6 ay sürer (başlangıçtan kapanışa). İyi kilometre
+      taşlarına ulaşmak 6–9 ay alır. Yatırımcılar çek yazmadan önce 6+
+      aylık icra verisi görmek ister. Toplam: bir turdan diğerine minimum
+      15–18 ay.
     </p>
     <p>
-      <strong>(3) Raise more capital.</strong> Equity, debt, venture
-      debt, revenue-based financing, convertible note extensions.
-      Each has different cost and dilution profiles. Venture debt
-      typically adds 6–12 months of runway for 2–4% interest +
-      warrants.
+      12 aylık runway'de zaten fon toplamaya başlıyorsunuzdur. 9 ayda
+      &ldquo;şimdi topluyorum&rdquo; modundasınızdır ve her gecikme riski
+      artırır. 6 ayda sıkıntıdasınızdır — yatırımcılar karşısındaki
+      pazarlık gücünüz kaybolur ve daha kötü şartlar kabul edersiniz.
     </p>
     <p>
-      <strong>(4) Slow cash outflows (not the same as expense cuts).</strong>
-      Negotiate payment terms (Net-60 instead of Net-30), delay
-      non-critical payments, move annual subscriptions to monthly,
-      defer bonus or founder comp. Doesn&rsquo;t reduce total spend,
-      just shifts timing. Useful for bridging 60–90 days.
+      <strong>Pratik kural:</strong> Bir sonraki fon toplamaya runway 9
+      aya düştüğünde başlayın. Turu 6 aya düşmeden kapatın.
     </p>
 
-    <h2>Headcount: the #1 lever</h2>
+    <h2>Runway'i uzatan 4 kaldıraç</h2>
     <p>
-      People are usually 60–80% of a startup&rsquo;s burn. A 10%
-      payroll reduction moves runway more than cutting every
-      software subscription you have. The math most founders
-      resist:
+      <strong>(1) Giderleri kısın.</strong> Anında, kontrol edilebilir.
+      Zorunlu olmayan yazılımlar, seyahat, pazarlama deneyleri,
+      taşeronlar. 250 bin dolarlık yakımda %20 gider kesintisi = ayda
+      50 bin dolar tasarruf = bankadaki her 500 bin dolar için 2,5 ek ay
+      runway.
     </p>
     <p>
-      Average loaded cost per engineer at a seed-stage startup:
-      $180–220k (salary + benefits + equipment + overhead). Removing
-      one engineer = ~$18k/month = 3 months of runway on a $500k cash
-      base.
+      <strong>(2) Geliri büyütün.</strong> Kesintilerden daha yüksek
+      kaldıraç ancak hareket etmesi daha yavaş. Gelir doğrudan net
+      yakımdan düşer. Uyarı: Gelir büyütmek işe alım veya reklam harcaması
+      gerektiriyorsa, net etki 3–6 ay boyunca negatif olabilir.
     </p>
     <p>
-      <strong>Painful but often correct:</strong> one round of cuts
-      early, done with candor and fair severance, beats a slow
-      starvation where the best people leave voluntarily and you end
-      up with a weaker team and the same cash problem.
-    </p>
-
-    <h2>The hidden runway killers</h2>
-    <p>
-      <strong>Committed but unpaid expenses.</strong> Annual contracts
-      billed quarterly, pending invoices, accrued vacation payouts.
-      These don&rsquo;t show in &ldquo;cash on hand&rdquo; but will
-      hit it. Subtract known committed outflows from cash when
-      calculating real runway.
+      <strong>(3) Daha fazla sermaye toplayın.</strong> Öz sermaye, borç,
+      girişim borcu, gelire dayalı finansman, dönüştürülebilir senet
+      uzantıları. Her birinin farklı maliyet ve seyreltme profilleri
+      vardır. Girişim borcu tipik olarak %2–4 faiz + varant karşılığında
+      6–12 ay ek runway sağlar.
     </p>
     <p>
-      <strong>Payment terms from customers slipping.</strong> If Net-30
-      invoices start getting paid at 60 days, your AR grows and your
-      cash-in drops. Track DSO (days sales outstanding) monthly.
-    </p>
-    <p>
-      <strong>One-time costs you forgot.</strong> Legal for fundraise,
-      tax bill, office move, severance for a cut, accrued bonuses.
-      Build a 12-month projection with these line items, not an
-      &ldquo;average month × 12&rdquo; calculation.
+      <strong>(4) Nakit çıkışlarını yavaşlatın (gider kesintisiyle aynı
+      şey değil).</strong> Ödeme koşullarını müzakere edin (Net-30 yerine
+      Net-60), kritik olmayan ödemeleri erteleyin, yıllık abonelikleri
+      aylığa çevirin, ikramiye veya kurucu maaşını erteleyin. Toplam
+      harcamayı azaltmaz, sadece zamanlamasını kaydırır. 60–90 günlük
+      köprülemeler için kullanışlıdır.
     </p>
 
-    <h2>Scenario-plan 3 versions of runway</h2>
+    <h2>Çalışan sayısı: 1 numaralı kaldıraç</h2>
     <p>
-      Don&rsquo;t calculate one runway number. Calculate three:
+      İnsanlar genellikle bir girişimin yakımının %60–80'ini oluşturur.
+      Maaş bordrosunda %10'luk bir azalma, sahip olduğunuz tüm yazılım
+      aboneliklerini kesmekten daha fazla runway kazandırır. Çoğu kurucunun
+      direndiği matematik:
     </p>
     <p>
-      <strong>Base case</strong> — current burn, current revenue
-      trajectory.
+      Tohum aşaması bir girişimde mühendis başına ortalama toplam maliyet:
+      180–220 bin dolar (maaş + yan haklar + ekipman + genel gider). Bir
+      mühendisi çıkarmak = ayda ~18 bin dolar = 500 bin dolar nakit
+      tabanında 3 aylık runway.
     </p>
     <p>
-      <strong>Downside</strong> — if revenue dropped 30%, biggest
-      customer churned, or a pilot failed.
-    </p>
-    <p>
-      <strong>Upside</strong> — if pipeline converts as expected,
-      marketing channel scales.
-    </p>
-    <p>
-      Make decisions against the downside case. Plan spending against
-      the base case. Celebrate the upside if it happens.
-    </p>
-
-    <h2>The cash-conversion trap</h2>
-    <p>
-      Startups that hit hockey-stick growth sometimes run out of cash
-      anyway — because growth requires working capital (inventory,
-      ad spend upfront, new hires ramping before closing deals).
-    </p>
-    <p>
-      Rough rule: if your sales cycle is longer than 30 days or you
-      carry inventory, growing 50% YoY can require 20–40% of that
-      growth in incremental working capital. Plan cash for <em>the
-      growth you forecast</em>, not the revenue the growth produces.
+      <strong>Acı verici ama genellikle doğru olan:</strong> dürüstlük ve
+      adil kıdem tazminatıyla erken yapılan bir kesinti turu, en iyi
+      insanların gönüllü olarak ayrıldığı ve daha zayıf bir ekiple aynı
+      nakit sorunuyla baş başa kaldığınız yavaş bir açlıktan daha iyidir.
     </p>
 
-    <h2>When the runway is too short: honest options</h2>
+    <h2>Gizli runway katilleri</h2>
     <p>
-      If runway is &lt; 6 months and you can&rsquo;t raise:
+      <strong>Taahhüt edilmiş ancak ödenmemiş giderler.</strong> Üç ayda
+      bir faturalanan yıllık sözleşmeler, bekleyen faturalar, tahakkuk
+      etmiş izin ödemeleri. Bunlar &ldquo;eldeki nakit&rdquo; içinde
+      görünmez ancak onu etkileyecektir. Gerçek runway'i hesaplarken
+      bilinen taahhüt edilmiş çıkışları nakitten düşün.
     </p>
     <p>
-      <strong>Bridge round</strong> from existing investors — a SAFE
-      or convertible at the previous round&rsquo;s terms. Less painful
-      than a down round.
+      <strong>Müşterilerden gelen ödeme koşullarının kayması.</strong>
+      Net-30 faturaları 60 günde ödenmeye başlarsa, alacaklarınız büyür ve
+      nakit girişiniz düşer. DSO'yu (günlük satış bakiyesi) aylık takip
+      edin.
     </p>
     <p>
-      <strong>Revenue-focused pivot</strong> — drop the long-term
-      vision work and focus on services or paid pilots that close
-      cash this quarter.
-    </p>
-    <p>
-      <strong>Acqui-hire discussions</strong> early, before you
-      desperately need the exit. An acqui-hire negotiated from 6
-      months out is a different conversation than one from 2 months
-      out.
-    </p>
-    <p>
-      <strong>Voluntary wind-down</strong> while you can still pay
-      severance and final taxes. Honest to employees, protects your
-      reputation for next time. Better than a messy collapse.
+      <strong>Unuttuğunuz bir kerelik maliyetler.</strong> Fon toplama
+      avukatlık ücreti, vergi faturası, ofis taşıma, bir kesinti için
+      kıdem tazminatı, tahakkuk etmiş ikramiyeler. &ldquo;Ortalama ay ×
+      12&rdquo; hesaplaması değil, bu kalemleri içeren 12 aylık bir
+      projeksiyon oluşturun.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Runway'in 3 versiyonunu senaryolaştırın</h2>
     <p>
-      Enter cash, monthly burn, and monthly revenue into the{" "}
-      <a href="/tools/startup-runway-calculator">startup runway
-      calculator</a> for months of runway and projected zero-date.
-      Pair with the <a href="/tools/break-even-calculator">break-even
-      calculator</a> to see whether you&rsquo;ll reach profitability
-      before running out, and the{" "}
-      <a href="/tools/cash-flow-calculator">cash flow calculator</a>
-      {" "}for the month-by-month view including one-time items.
+      Tek bir runway rakamı hesaplamayın. Üçünü hesaplayın:
+    </p>
+    <p>
+      <strong>Temel senaryo</strong> — mevcut yakım, mevcut gelir
+      gidişatı.
+    </p>
+    <p>
+      <strong>Kötü senaryo</strong> — gelir %30 düşerse, en büyük müşteri
+      kaybedilirse veya bir pilot başarısız olursa.
+    </p>
+    <p>
+      <strong>İyi senaryo</strong> — potansiyel müşteri hattı beklendiği
+      gibi dönüşürse, pazarlama kanalı ölçeklenirse.
+    </p>
+    <p>
+      Kararları kötü senaryoya göre alın. Harcamaları temel senaryoya göre
+      planlayın. İyi senaryo gerçekleşirse kutlayın.
+    </p>
+
+    <h2>Nakit dönüşüm tuzağı</h2>
+    <p>
+      Hokey sopası büyümesi yakalayan girişimler bazen yine de nakit
+      sıkıntısı çeker — çünkü büyüme işletme sermayesi gerektirir (stok,
+      peşin reklam harcaması, anlaşmaları kapatmadan önce yeni işe
+      alınanların rampası).
+    </p>
+    <p>
+      Kabaca kural: Satış döngünüz 30 günden uzunsa veya stok taşıyorsanız,
+      yıllık %50 büyümek, bu büyümenin %20–40'ı kadar ek işletme sermayesi
+      gerektirebilir. Büyümenin ürettiği gelir için değil, <em>tahmin
+      ettiğiniz büyüme</em> için nakit planlayın.
+    </p>
+
+    <h2>Runway çok kısa olduğunda: dürüst seçenekler</h2>
+    <p>
+      Runway 6 aydan azsa ve fon toplayamıyorsanız:
+    </p>
+    <p>
+      <strong>Mevcut yatırımcılardan köprü turu</strong> — bir SAFE veya
+      önceki tur şartlarında dönüştürülebilir borç. Düşük değerleme
+      turundan daha az acı vericidir.
+    </p>
+    <p>
+      <strong>Gelir odaklı pivot</strong> — uzun vadeli vizyon çalışmasını
+      bırakın ve bu çeyrekte nakit getiren hizmetlere veya ücretli
+      pilotlara odaklanın.
+    </p>
+    <p>
+      <strong>Satın alma-yönetici görüşmelerine</strong> erken başlayın,
+      çıkışa çaresizce ihtiyaç duymadan önce. 6 ay kala müzakere edilen
+      bir satın alma-yönetici anlaşması, 2 ay kala yapılandan farklı bir
+      konuşmadır.
+    </p>
+    <p>
+      <strong>Gönüllü tasfiye</strong> — kıdem tazminatı ve son vergileri
+      hâlâ ödeyebilecekken. Çalışanlara karşı dürüsttür, bir sonraki
+      girişiminiz için itibarınızı korur. Dağınık bir çöküşten daha
+      iyidir.
+    </p>
+
+    <h2>Rakamları çalıştırın</h2>
+    <p>
+      Nakit, aylık yakım ve aylık geliri{" "}
+      <a href="/tools/startup-runway-calculator">girişim runway
+      hesaplayıcısına</a> girerek ay cinsinden runway'i ve tahmini sıfır
+      noktası tarihini görün.{" "}
+      <a href="/tools/break-even-calculator">Başabaş noktası
+      hesaplayıcısıyla</a> paranız bitmeden kârlılığa ulaşıp
+      ulaşamayacağınızı ve{" "}
+      <a href="/tools/cash-flow-calculator">nakit akışı
+      hesaplayıcısıyla</a> bir kerelik kalemler dahil ay bazlı görünümü
+      kontrol edin.
     </p>
   </>
 );

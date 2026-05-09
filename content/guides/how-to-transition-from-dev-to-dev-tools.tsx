@@ -3,141 +3,146 @@
 export const intro = (
   <>
     <p>
-      The transition from regular software development to building developer tools is
-      common, well-trodden, and faster than most people think — usually 6–12 months
-      from decision to first dev-tools-titled role. The path is mostly about positioning
-      what you already do.
+      Normal yazılım geliştirmeden geliştirici araçları oluşturmaya geçiş yaygındır,
+      sıkça denenmiştir ve çoğu kişinin düşündüğünden daha hızlıdır — genellikle karar
+      anından ilk "geliştirici araçları" unvanlı role 6–12 ay. Bu yol, büyük ölçüde
+      halihazırda yaptıklarınızı doğru konumlandırmakla ilgilidir.
     </p>
     <p>
-      This guide is the practical playbook: how to translate your CRUD/SaaS experience
-      into dev-tools positioning, the skills you actually need to add (vs the ones
-      you&rsquo;ll discover you already have), and how to switch back if it&rsquo;s not
-      a fit.
+      Bu rehber pratik bir oyun kitabıdır: CRUD/SaaS deneyiminizi geliştirici araçları
+      pozisyonuna nasıl dönüştüreceğiniz, gerçekten eklemeniz gereken beceriler (zaten
+      sahip olduklarınızın aksine) ve uygun olmazsa nasıl geri döneceğiniz.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "translate", label: "Translate your existing experience" },
-  { id: "gaps", label: "What new skills to add" },
-  { id: "transition-roles", label: "Roles that make the transition easy" },
-  { id: "back-to-product", label: "Switching back to regular dev" },
+  { id: "translate", label: "Mevcut deneyiminizi tercüme edin" },
+  { id: "gaps", label: "Hangi yeni becerileri eklemelisiniz" },
+  { id: "transition-roles", label: "Geçişi kolaylaştıran roller" },
+  { id: "back-to-product", label: "Normal geliştirmeye geri dönmek" },
 ];
 
 export const body = (
   <>
-    <h2 id="translate">Translate your existing experience</h2>
+    <h2 id="translate">Mevcut deneyiminizi tercüme edin</h2>
     <p>
-      Most CRUD-app developers undersell their dev-tools experience. Think about your
-      last 2 years:
+      Çoğu CRUD uygulaması geliştiricisi, geliştirici araçları deneyimlerini
+      küçümser. Son 2 yılınızı düşünün:
     </p>
     <ul>
-      <li>Built or maintained CI/CD pipelines? That&rsquo;s dev tools.</li>
-      <li>Wrote internal scripts that other devs use? Dev tools.</li>
-      <li>Owned the test framework, observability stack, or deploy process? Dev tools.</li>
-      <li>Built or improved your team&rsquo;s linting, formatting, or release tooling? Dev tools.</li>
-      <li>Created internal libraries or SDKs? Dev tools.</li>
+      <li>CI/CD hatları oluşturdunuz veya bakımını yaptınız mı? Bu bir geliştirici aracıdır.</li>
+      <li>Diğer geliştiricilerin kullandığı dahili betikler yazdınız mı? Geliştirici aracı.</li>
+      <li>Test framework'ü, gözlemlenebilirlik yığını veya dağıtım sürecinin sahibi miydiniz? Geliştirici aracı.</li>
+      <li>Ekibinizin linting, biçimlendirme veya sürüm araçlarını oluşturdunuz veya iyileştirdiniz mi? Geliştirici aracı.</li>
+      <li>Dahili kütüphaneler veya SDK'lar oluşturdunuz mu? Geliştirici aracı.</li>
     </ul>
     <p>
-      These are dev-tools experience. The transition isn&rsquo;t starting from zero —
-      it&rsquo;s repositioning. Take 30 minutes, list every internal tool / library /
-      pipeline / script you&rsquo;ve owned, and rewrite your resume bullets to surface
-      that work. You&rsquo;ll look 2 years more experienced than you did before.
+      Bunlar geliştirici araçları deneyimidir. Geçiş sıfırdan başlamak değil —
+      yeniden konumlandırmaktır. 30 dakika ayırın, sahibi olduğunuz her dahili aracı /
+      kütüphaneyi / hattı / betiği listeleyin ve özgeçmişinizdeki maddeleri bu çalışmayı
+      öne çıkaracak şekilde yeniden yazın. Kendinizi daha önce olduğunuzdan 2 yıl daha
+      deneyimli göstereceksiniz.
     </p>
 
-    <h2 id="gaps">What new skills to actually add</h2>
+    <h2 id="gaps">Hangi yeni becerileri gerçekten eklemelisiniz</h2>
     <p>
-      The genuinely new skills to learn (not the ones you already have):
+      Gerçekten yeni öğrenilmesi gereken beceriler (zaten sahip olduklarınız değil):
     </p>
     <ol>
       <li>
-        <strong>Public API design.</strong> Internal libraries can be sloppy. Public
-        SDKs and CLIs need versioning, deprecation policy, error semantics. Read{" "}
-        <code>github.com/golang/go/wiki/CodeReviewComments</code> and{" "}
-        <code>aip.dev</code> (Google&rsquo;s API style guide) for the principles.
+        <strong>Genel API tasarımı.</strong> Dahili kütüphaneler özensiz olabilir. Genel
+        SDK'lar ve CLI'lar sürümleme, kullanımdan kaldırma politikası, hata semantiği
+        gerektirir. İlkeler için{" "}
+        <code>github.com/golang/go/wiki/CodeReviewComments</code> ve{" "}
+        <code>aip.dev</code> (Google'ın API stil kılavuzu) adreslerini okuyun.
       </li>
       <li>
-        <strong>Observability for dev tools.</strong> Different from app observability
-        because you&rsquo;re instrumenting your customers&rsquo; build/runtime
-        environments. Sentry SDK source code is a great teacher.
+        <strong>Geliştirici araçları için gözlemlenebilirlik.</strong> Uygulama
+        gözlemlenebilirliğinden farklıdır çünkü müşterilerinizin derleme/çalışma
+        zamanı ortamlarını enstrümente ediyorsunuz. Sentry SDK kaynak kodu harika bir
+        öğretmendir.
       </li>
       <li>
-        <strong>Cross-platform CLI distribution.</strong> brew, apt, scoop, npm, cargo,
-        Docker, GitHub releases. Each has gotchas. The CLI you write spends more time in
-        package-manager registries than you expect.
+        <strong>Platformlar arası CLI dağıtımı.</strong> brew, apt, scoop, npm, cargo,
+        Docker, GitHub sürümleri. Her birinin püf noktaları vardır. Yazdığınız CLI,
+        paket yöneticisi kayıtlarında beklediğinizden daha fazla zaman geçirir.
       </li>
       <li>
-        <strong>Documentation as a first-class artifact.</strong> Dev tools succeed or
-        fail on docs. Read Stripe docs, Twilio docs, Anthropic API docs to internalize
-        the bar.
+        <strong>Birinci sınıf bir yapıt olarak dokümantasyon.</strong> Geliştirici
+        araçları dokümanlarla başarılı olur veya başarısız olur. Çıtayı içselleştirmek
+        için Stripe dokümanlarını, Twilio dokümanlarını, Anthropic API dokümanlarını
+        okuyun.
       </li>
       <li>
-        <strong>Empathy for &ldquo;not me&rdquo; developers.</strong> The hardest
-        transition: your tool will be used by people whose stack, team size, and skill
-        level differ from yours. Customer interviews + dogfooding are the only fix.
+        <strong>"Ben olmayan" geliştiriciler için empati.</strong> En zor geçiş:
+        aracınız, yığını, ekip büyüklüğü ve beceri seviyesi sizinkinden farklı olan
+        kişiler tarafından kullanılacak. Müşteri görüşmeleri + dogfooding tek çözümdür.
       </li>
     </ol>
 
-    <h2 id="transition-roles">Roles that make the transition easy</h2>
+    <h2 id="transition-roles">Geçişi kolaylaştıran roller</h2>
     <p>
-      Three roles that bridge regular development and dev tools cleanly:
+      Normal geliştirme ile geliştirici araçları arasında temiz bir köprü kuran üç rol:
     </p>
     <ul>
       <li>
-        <strong>Platform engineer / SRE adjacent:</strong> own internal developer
-        platforms. Most companies have these now; the title varies.
+        <strong>Platform mühendisi / SRE benzeri:</strong> dahili geliştirici
+        platformlarının sahibi. Çoğu şirkette artık bunlar var; unvan değişiyor.
       </li>
       <li>
-        <strong>DevX / Developer Experience:</strong> the explicit dev-tools role at
-        bigger companies. DPE (Developer Productivity Engineering) is the sister title.
+        <strong>DevX / Geliştirici Deneyimi:</strong> büyük şirketlerde açık bir
+        geliştirici araçları rolü. DPE (Geliştirici Üretkenlik Mühendisliği) kardeş
+        unvandır.
       </li>
       <li>
-        <strong>Open-source maintainer (with employer backing):</strong> some companies
-        explicitly hire to staff OSS projects (Stripe, Cloudflare, Anthropic, GitHub
-        itself).
+        <strong>Açık kaynak bakımcısı (işveren desteğiyle):</strong> bazı şirketler
+        açık kaynak projelerini personellendirmek için açıkça işe alım yapar (Stripe,
+        Cloudflare, Anthropic, GitHub'ın kendisi).
       </li>
     </ul>
     <p>
-      The fastest path is often <em>internal</em>: ask your current employer for a 6-month
-      rotation onto the platform/devx team, build your portfolio there, then apply
-      externally with the title in hand.
+      En hızlı yol genellikle <em>dahili</em>dir: mevcut işvereninizden platform/devx
+      ekibinde 6 aylık bir rotasyon isteyin, portföyünüzü orada oluşturun, ardından
+      unvan elinizdeyken harici başvuru yapın.
     </p>
 
-    <h2 id="back-to-product">Switching back to regular dev</h2>
+    <h2 id="back-to-product">Normal geliştirmeye geri dönmek</h2>
     <p>
-      Skill transferability is high in both directions. Dev-tools experience translates
-      well to:
+      Beceri aktarılabilirliği her iki yönde de yüksektir. Geliştirici araçları
+      deneyimi şu alanlara iyi uyum sağlar:
     </p>
     <ul>
-      <li><strong>Senior product engineering</strong> — strong opinions on testing, deploy, operability.</li>
-      <li><strong>Backend / infrastructure</strong> — natural overlap.</li>
-      <li><strong>Tech lead / staff engineering</strong> — system thinking is the dev-tools default.</li>
+      <li><strong>Kıdemli ürün mühendisliği</strong> — test, dağıtım, işletilebilirlik konusunda güçlü görüşler.</li>
+      <li><strong>Backend / altyapı</strong> — doğal örtüşme.</li>
+      <li><strong>Teknik lider / personel mühendisliği</strong> — sistem düşüncesi, geliştirici araçlarının varsayılanıdır.</li>
     </ul>
     <p>
-      The only switch that&rsquo;s genuinely harder: <strong>dev tools → frontend product
-      engineering at consumer companies</strong>. The frontend bar at top consumer
-      companies is high and dev-tools work doesn&rsquo;t exercise it daily. Solvable with
-      6 months of focused frontend work, but it&rsquo;s a real gap.
+      Gerçekten daha zor olan tek geçiş: <strong>geliştirici araçları → tüketici
+      şirketlerinde frontend ürün mühendisliği</strong>. En iyi tüketici şirketlerinde
+      frontend çıtası yüksektir ve geliştirici araçları çalışması bunu günlük olarak
+      çalıştırmaz. 6 aylık odaklı frontend çalışmasıyla çözülebilir, ancak gerçek bir
+      boşluktur.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Estimate dev-tools salaries by role + region",
+  label: "Role ve bölgeye göre geliştirici araçları maaşlarını tahmin edin",
   targetSlug: "dev-tool-salary-estimator",
 };
 
 export const faq = [
   {
-    q: "How do I transition from regular development to developer tools?",
-    a: "Start by repositioning what you already do — CI/CD work, internal scripts, observability, SDKs all count. Add 5 new skills: public API design, dev-tool observability, cross-platform CLI distribution, docs-as-product, empathy for non-you developers. Use an internal rotation onto a platform/DevX team to build the portfolio.",
+    q: "Normal geliştirmeden geliştirici araçlarına nasıl geçiş yapabilirim?",
+    a: "Halihazırda yaptıklarınızı yeniden konumlandırarak başlayın — CI/CD çalışması, dahili betikler, gözlemlenebilirlik, SDK'ların hepsi sayılır. 5 yeni beceri ekleyin: genel API tasarımı, geliştirici aracı gözlemlenebilirliği, platformlar arası CLI dağıtımı, ürün olarak dokümantasyon, siz olmayan geliştiriciler için empati. Portföy oluşturmak için bir platform/DevX ekibine dahili rotasyon kullanın.",
   },
   {
-    q: "From CRUD apps to dev tools: what's the realistic timeline?",
-    a: "6-12 months from decision to first dev-tools-titled role. Faster if you have CI/CD or internal-tools experience to surface. Slower if you've only done UI/CRUD work — plan to ship one OSS dev tool side project to demonstrate the pivot before applying externally.",
+    q: "CRUD uygulamalarından geliştirici araçlarına: gerçekçi zaman çizelgesi nedir?",
+    a: "Karar anından ilk 'geliştirici araçları' unvanlı role 6-12 ay. CI/CD veya dahili araç deneyiminiz varsa daha hızlı. Yalnızca UI/CRUD çalışması yaptıysanız daha yavaş — harici başvuru yapmadan önce pivotu göstermek için bir yan proje olarak bir OSS geliştirici aracı yayınlamayı planlayın.",
   },
   {
-    q: "Can I switch back to regular development if dev tools isn't a fit?",
-    a: "Yes — skill transferability is high. Dev-tools experience translates well to senior product, backend, infra, and tech-lead roles. The only hard switch back is to frontend product engineering at consumer companies, where the daily-frontend muscle weakens. Plan for 6 months of catch-up if going that direction.",
+    q: "Geliştirici araçları uygun değilse normal geliştirmeye geri dönebilir miyim?",
+    a: "Evet — beceri aktarılabilirliği yüksektir. Geliştirici araçları deneyimi, kıdemli ürün, backend, altyapı ve teknik lider rollerine iyi uyum sağlar. Geri dönüşü zor olan tek alan, tüketici şirketlerinde frontend ürün mühendisliğidir; burada günlük frontend kası zayıflar. Bu yöne gidiyorsanız 6 aylık bir toparlanma süresi planlayın.",
   },
 ];

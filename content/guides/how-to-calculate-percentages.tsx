@@ -3,103 +3,68 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Percentages trip people up because there are five different questions
-      they can answer, and the formula changes slightly for each one.
-      &ldquo;What&rsquo;s 15% of 80?&rdquo; is a different beast from &ldquo;80
-      is what percent of 320?&rdquo; or &ldquo;if the sale price is $60 at 25%
-      off, what was the original?&rdquo; Here are the five formulas you
-      actually need, each with a worked example and a mental-math shortcut.
+      Yüzdeler insanların kafasını karıştırır çünkü cevaplayabilecekleri beş farklı soru vardır ve formül her biri için biraz değişir.
+      "80'in %15'i kaçtır?" sorusu, "320'nin yüzde kaçı 80'dir?" veya "İndirimli fiyat %25 indirimden sonra 60 TL ise, orijinal fiyat neydi?" sorularından farklıdır. İşte gerçekten ihtiyacınız olan, her biri çözümlü bir örnek ve zihinsel matematik kısayolu içeren beş formül.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>1. X% of Y</h2>
+    <h2>1. Y'nin X%'i</h2>
     <p>
-      Formula: <code>(X / 100) &times; Y</code>. The most common version.
-      Example: 15% of 80 is <code>0.15 &times; 80 = 12</code>.
+      Formül: <code>(X / 100) &times; Y</code>. En yaygın versiyon.
+      Örnek: 80'in %15'i <code>0.15 &times; 80 = 12</code>'dir.
     </p>
     <p>
-      Mental-math shortcut: get 10% by moving the decimal one place left (10%
-      of 80 is 8), then scale. 15% is 10% plus half of 10% (8 + 4 = 12). 20%
-      is double 10% (16). 5% is half of 10% (4). Almost any round percentage
-      collapses to this pattern.
+      Zihinsel matematik kısayolu: Ondalık işaretini bir basamak sola kaydırarak %10'u bulun (80'in %10'u 8'dir), ardından ölçeklendirin. %15, %10 artı %10'un yarısıdır (8 + 4 = 12). %20, %10'un iki katıdır (16). %5, %10'un yarısıdır (4). Hemen hemen her yuvarlak yüzde bu kalıba indirgenebilir.
     </p>
 
-    <h2>2. A is what % of B</h2>
+    <h2>2. A, B'nin yüzde kaçıdır</h2>
     <p>
-      Formula: <code>(A / B) &times; 100</code>. Example: 24 is what percent
-      of 80? <code>(24 / 80) &times; 100 = 30%</code>.
+      Formül: <code>(A / B) &times; 100</code>. Örnek: 24, 80'in yüzde kaçıdır? <code>(24 / 80) &times; 100 = %30</code>.
     </p>
     <p>
-      The thing to remember: A goes on top, B on the bottom. &ldquo;A of B&rdquo;
-      maps directly to &ldquo;A over B.&rdquo; If you&rsquo;re ever unsure
-      which number is the denominator, it&rsquo;s the one after &ldquo;of.&rdquo;
+      Unutmayın: A üstte, B alttadır. "A, B'nin yüzde kaçıdır" doğrudan "A bölü B"ye çevrilir. Hangi sayının payda olduğundan emin değilseniz, "nin/nın"dan sonra gelen sayıdır.
     </p>
 
-    <h2>3. Percent change</h2>
+    <h2>3. Yüzde değişimi</h2>
     <p>
-      Formula: <code>((new - old) / old) &times; 100</code>. Example: price
-      went from $50 to $65. Change:{" "}
-      <code>((65 - 50) / 50) &times; 100 = 30% increase</code>. Price went
-      from $50 to $40: <code>((40 - 50) / 50) &times; 100 = -20%</code>, a 20%
-      decrease.
+      Formül: <code>((yeni - eski) / eski) &times; 100</code>. Örnek: fiyat 50 TL'den 65 TL'ye çıkıyor. Değişim:{" "}
+      <code>((65 - 50) / 50) &times; 100 = %30 artış</code>. Fiyat 50 TL'den 40 TL'ye düşüyor: <code>((40 - 50) / 50) &times; 100 = -%20</code>, %20 azalış.
     </p>
     <p>
-      The common mistake: dividing by the <em>new</em> value. Always divide
-      by the original. A stock that drops 50% then rises 50% is not back to
-      even — it&rsquo;s still down 25%, because the 50% rise is off a smaller
-      base.
+      Yaygın hata: <em>yeni</em> değere bölmek. Her zaman orijinal değere bölün. %50 düşüp ardından %50 yükselen bir hisse senedi başa baş noktasına gelmez — hala %25 aşağıdadır, çünkü %50'lik yükseliş daha küçük bir tabana uygulanır.
     </p>
 
-    <h2>4. Reverse percent (finding the original)</h2>
+    <h2>4. Ters yüzde (orijinali bulma)</h2>
     <p>
-      This one catches people. The shirt is $60 after a 25% discount — what
-      was the original price? The wrong move: take $60 and add 25%, which
-      gives you $75. That&rsquo;s incorrect, because 25% of $80 is $20 (the
-      actual discount), not $15. The right formula:{" "}
-      <code>original = discounted / (1 - discount %)</code>. So{" "}
-      <code>60 / (1 - 0.25) = 60 / 0.75 = $80</code>.
+      Çoğu insanın takıldığı yer burasıdır. Bir tişört %25 indirimden sonra 60 TL'dir — orijinal fiyat neydi? Yanlış hareket: 60 TL alıp %25 ekleyerek size 75 TL vermek. Bu yanlıştır çünkü 80 TL'nin %25'i (gerçek indirim) 20 TL'dir, 15 TL değil. Doğru formül:{" "}
+      <code>orijinal = indirimli / (1 - indirim %)</code>. Yani{" "}
+      <code>60 / (1 - 0.25) = 60 / 0.75 = 80 TL</code>.
     </p>
     <p>
-      Same pattern works for tax. Receipt shows $107 total at 7% tax — the
-      pre-tax price is <code>107 / 1.07 = $100</code>.
+      Aynı kalıp vergi için de geçerlidir. Bir fiş %7 vergiyle toplam 107 TL gösteriyorsa — vergi öncesi fiyat <code>107 / 1.07 = 100 TL</code>'dir.
     </p>
 
-    <h2>5. Tip math shortcut</h2>
+    <h2>5. Bahşiş matematiği kısayolu</h2>
     <p>
-      Restaurant math is just 10% plus half of 10%. Bill is $42?{" "}
-      <strong>10% is $4.20</strong>, half of that is $2.10, so 15% is $6.30,
-      20% is $8.40. For 18%, take 20% and trim a touch. No mental long
-      division required.
+      Restoran matematiği sadece %10 artı %10'un yarısıdır. Hesap 42 TL mi?{" "}
+      <strong>%10'u 4.20 TL'dir</strong>, bunun yarısı 2.10 TL'dir, yani %15'i 6.30 TL, %20'si 8.40 TL'dir. %18 için, %20 alın ve biraz kesin. Zihinsel uzun bölme işlemi gerekmez.
     </p>
     <p>
-      For groups, our <a href="/tools/tip-calculator">tip calculator</a> does
-      the split-by-person math including tax. For everything else — discounts,
-      margins, grade averages — the{" "}
-      <a href="/tools/percentage-calculator">percentage calculator</a> handles
-      all five formulas above.
+      Gruplar için, <a href="/tools/tip-calculator">bahşiş hesaplayıcımız</a> vergi dahil kişi başına bölmeyi halleder. Diğer her şey için — indirimler, marjlar, not ortalamaları —{" "}
+      <a href="/tools/percentage-calculator">yüzde hesaplayıcı</a> yukarıdaki beş formülün tamamını kapsar.
     </p>
 
-    <h2>When you can&rsquo;t trust your head</h2>
+    <h2>Kafanıza ne zaman güvenmemeli</h2>
     <p>
-      Three situations where a calculator beats mental math every time:
-      anything compounding (interest, investment growth, population), anything
-      over long chains (a 10% discount plus a 20% discount is <em>not</em> 30%
-      — it&rsquo;s 28%, because the second discount applies to the already-
-      reduced price), and anything where the answer ends up on paperwork.
-      For a coffee tip, do it in your head. For a mortgage calculation, use
-      the tool.
+      Hesaplayıcının zihinsel matematiği her zaman yendiği üç durum: bileşik olan her şey (faiz, yatırım büyümesi, nüfus), uzun zincirler içeren her şey (%10 indirim artı %20 indirim <em>%30 değildir</em> — %28'dir, çünkü ikinci indirim zaten indirimli bir fiyata uygulanır) ve cevabın kağıt üzerinde olduğu her şey. Bir kahve bahşişi için kafanızda yapın. Bir ipotek hesaplaması için aracı kullanın.
     </p>
 
-    <h2>A sanity check that works every time</h2>
+    <h2>Her zaman işe yarayan bir sağlama</h2>
     <p>
-      Before committing to any percentage answer, ask: is this roughly in the
-      right neighborhood? 15% of 80 should be noticeably less than half (40).
-      30% change on 50 should be around 15. If your calculator spits out 150,
-      you fat-fingered a decimal. This three-second gut check catches 90% of
-      the errors that actually cost money.
+      Herhangi bir yüzde cevabına karar vermeden önce kendinize sorun: bu kabaca doğru aralıkta mı? 80'in %15'i, yarısından (40) belirgin şekilde az olmalıdır. 50 üzerinde %30'luk bir değişim 15 civarında olmalıdır. Hesaplayıcınız size 150 veriyorsa, ondalık işaretini yanlış yerleştirmişsinizdir. Bu üç saniyelik içgüdüsel kontrol, gerçekten paraya mal olan hataların %90'ını yakalar.
     </p>
   </>
 );

@@ -1,89 +1,93 @@
 export const intro = (
   <>
     <p>
-      &ldquo;Passive income&rdquo; is one of the most abused terms online. Real passive
-      income takes a lot of up-front work, ongoing maintenance, or significant capital
-      — sometimes all three. But genuine passive streams do exist, and they compound
-      beautifully over years.
+      &ldquo;Pasif gelir&rdquo; çevrimiçi ortamda en çok suistimal edilen terimlerden biridir. Gerçek pasif
+      gelir, çok fazla ön çalışma, sürekli bakım veya önemli miktarda sermaye gerektirir
+      — bazen her üçünü de. Ancak gerçek pasif akışlar mevcuttur ve yıllar içinde
+      güzel bir şekilde birikir.
     </p>
     <p>
-      This guide is the real options, not the guru mythology.
+      Bu rehber, gerçek seçenekleri sunar, guru mitolojisini değil.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Index fund investing</h2>
+    <h2>1. Endeks fonu yatırımı</h2>
     <p>
-      The most genuinely passive income source that exists. Put money in VTI, VOO, or
-      similar. Dividends + compounding grow the pot. Not fast — but measurably
-      passive once set up. See <a href="/guides/how-to-start-investing-with-100-dollars">
-      investing guide</a>.
+      Var olan en gerçek pasif gelir kaynağı. Parayı VTI, VOO veya benzerlerine koyun.
+      Temettüler + bileşik getiri, birikimi büyütür. Hızlı değil — ancak bir kez
+      kurulduğunda ölçülebilir şekilde pasiftir. Bkz. <a href="/guides/how-to-start-investing-with-100-dollars">
+      yatırım rehberi</a>.
     </p>
 
-    <h2>2. Dividend stocks</h2>
+    <h2>2. Temettü hisseleri</h2>
     <p>
-      Similar to index funds but focused on high-dividend companies. Real cash flow
-      each quarter. Requires capital to be meaningful ($100k+ to replace a modest
-      salary). Safer and simpler than rental property for most people.
+      Endeks fonlarına benzer ancak yüksek temettü ödeyen şirketlere odaklanır. Her
+      çeyrekte gerçek nakit akışı. Anlamlı olması için sermaye gerekir (mütevazı bir
+      maaşı karşılamak için 100 bin dolar+). Çoğu insan için kiralık mülkten daha
+      güvenli ve basittir.
     </p>
 
-    <h2>3. High-yield savings account</h2>
+    <h2>3. Yüksek getirili tasarruf hesabı</h2>
     <p>
-      Not glamorous, but 4-5% <a href="/learn/apy">APY</a> in 2026 generates real income on emergency funds.
-      $50k earns $2,000+/year for doing literally nothing. Starts small and grows.
+      Gösterişli değil, ancak 2026'da %4-5 <a href="/learn/apy">APY</a> acil durum fonlarında gerçek gelir
+      sağlar. 50 bin dolar, hiçbir şey yapmadan yılda 2.000 dolar+ kazandırır.
+      Küçük başlar ve büyür.
     </p>
 
-    <h2>4. Real estate (with caveats)</h2>
+    <h2>4. Gayrimenkul (uyarılarla birlikte)</h2>
     <p>
-      Rental property generates cash flow but is only passive if you hire a property
-      manager — which eats 8-12% of rent. Without one, you&rsquo;re a landlord, which
-      is a part-time job. REITs are actually passive real estate exposure.
+      Kiralık mülk nakit akışı sağlar ancak yalnızca bir mülk yöneticisi tutarsanız
+      pasiftir — ki bu da kiranın %8-12'sini yer. Bir yönetici olmadan, bir ev sahibi
+      olursunuz, bu da yarı zamanlı bir iştir. GYO'lar aslında pasif gayrimenkul
+      maruziyetidir.
     </p>
 
-    <h2>5. Digital products</h2>
+    <h2>5. Dijital ürünler</h2>
     <p>
-      Courses, ebooks, templates, stock photos, printables. Upfront work is large;
-      maintenance is small. Top earners make 6-7 figures. Most make $50/month because
-      the market is saturated. Differentiation and marketing are the hard parts, not
-      creation.
+      Kurslar, e-kitaplar, şablonlar, stok fotoğraflar, çıktılar. Ön çalışma büyüktür;
+      bakım küçüktür. En çok kazananlar 6-7 haneli rakamlar kazanır. Çoğu kişi ayda
+      50 dolar kazanır çünkü pazar doymuştur. Farklılaşma ve pazarlama, yaratımın
+      kendisinden daha zor kısımlardır.
     </p>
 
-    <h2>6. YouTube or blog ad revenue</h2>
+    <h2>6. YouTube veya blog reklam geliri</h2>
     <p>
-      Fully passive after a video/post is published, but building to meaningful
-      revenue takes 2-3 years of consistent output. If you enjoy making the content,
-      the payoff is substantial; if you don&rsquo;t, you&rsquo;ll quit before it pays.
+      Bir video/gönderi yayınlandıktan sonra tamamen pasiftir, ancak anlamlı bir
+      gelire ulaşmak 2-3 yıllık tutarlı çıktı gerektirir. İçerik oluşturmaktan
+      hoşlanıyorsanız, getirisi büyüktür; hoşlanmıyorsanız, karşılığını vermeden
+      bırakırsınız.
     </p>
 
-    <h2>7. Affiliate marketing</h2>
+    <h2>7. Satış ortaklığı pazarlaması</h2>
     <p>
-      Link from your content to products you recommend, earn commissions. Works when
-      paired with a blog, YouTube, or email list. Takes time to build the audience;
-      once you have it, the income is relatively hands-off.
+      İçeriğinizden önerdiğiniz ürünlere bağlantı verin, komisyon kazanın. Bir blog,
+      YouTube veya e-posta listesiyle birlikte çalışır. Kitle oluşturmak zaman alır;
+      bir kez sahip olduğunuzda, gelir nispeten müdahale gerektirmez.
     </p>
 
-    <h2>8. License your photography or music</h2>
+    <h2>8. Fotoğraf veya müziğinizi lisanslayın</h2>
     <p>
-      Shutterstock, Adobe Stock for photos; music licensing platforms for audio. Upload
-      once, get paid small amounts many times. Requires volume to matter — top sellers
-      have thousands of assets.
+      Fotoğraflar için Shutterstock, Adobe Stock; ses için müzik lisans platformları.
+      Bir kez yükleyin, birçok kez küçük miktarlar alın. Anlamlı olması için hacim
+      gerekir — en çok satanların binlerce varlığı vardır.
     </p>
 
-    <h2>9. Software-as-a-service</h2>
+    <h2>9. Hizmet olarak yazılım</h2>
     <p>
-      Build a small SaaS, charge monthly. Once the product is stable, revenue compounds
-      with customer growth. Hard to start; excellent long-term leverage. Requires
-      coding skills or a co-founder who codes.
+      Küçük bir SaaS kurun, aylık ücret alın. Ürün istikrarlı hale geldiğinde, gelir
+      müşteri büyümesiyle birikir. Başlaması zordur; mükemmel uzun vadeli kaldıraç
+      sağlar. Kodlama becerileri veya kod yazan bir ortak kurucu gerektirir.
     </p>
 
-    <h2>10. Beware of &ldquo;passive&rdquo; traps</h2>
+    <h2>10. &ldquo;Pasif&rdquo; tuzaklarına dikkat edin</h2>
     <p>
-      Dropshipping, print-on-demand, crypto staking, turnkey rentals, course arbitrage —
-      marketed as passive, almost never actually are. If someone is selling you a path
-      to passive income, they&rsquo;re usually the one earning. See{" "}
-      <a href="/guides/best-side-hustles-for-beginners">side hustles guide</a>.
+      Dropshipping, baskılı ürün, kripto stake etme, anahtar teslim kiralama, kurs
+      arbitrajı — pasif olarak pazarlanır, neredeyse hiçbir zaman öyle değildir. Birisi
+      size pasif gelire giden bir yol satıyorsa, genellikle kazanan odur. Bkz.{" "}
+      <a href="/guides/best-side-hustles-for-beginners">yan iş rehberi</a>.
     </p>
   </>
 );

@@ -3,176 +3,175 @@
 export const intro = (
   <>
     <p>
-      &ldquo;How do I track recruiting metrics without buying analytics software?&rdquo; is
-      mostly a vocabulary problem. The 4 metrics that actually drive hiring decisions all
-      fit in a single Google Sheet, can be updated in 10 minutes a week, and tell you more
-      than the dashboards built into paid ATSes.
+      &ldquo;Analitik yazılımı satın almadan işe alım metriklerini nasıl takip ederim?&rdquo; sorusu
+      çoğunlukla bir kelime dağarcığı sorunudur. İşe alım kararlarını gerçekten yönlendiren 4 metrik,
+      tek bir Google Sheet'e sığar, haftada 10 dakikada güncellenebilir ve ücretli ATS'lerdeki
+      panolardan daha fazlasını söyler.
     </p>
     <p>
-      This guide is the spreadsheet template + the formulas + which numbers matter for a
-      small team. Plus a candidate-database structure that doubles as a CRM, all on free
-      Google Sheets.
+      Bu rehber, küçük bir ekip için hangi sayıların önemli olduğunu gösteren e-tablo şablonu +
+      formüller + sayılardan oluşur. Ayrıca, tümü ücretsiz Google Sheets'te, bir CRM olarak da işlev
+      gören bir aday veritabanı yapısı içerir.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "metrics", label: "The 4 metrics that matter" },
-  { id: "template", label: "The spreadsheet template" },
-  { id: "candidate-db", label: "Candidate database (CRM lite)" },
-  { id: "automation", label: "Cheap automation" },
-  { id: "review", label: "Weekly review checklist" },
+  { id: "metrics", label: "Önemli olan 4 metrik" },
+  { id: "template", label: "E-tablo şablonu" },
+  { id: "candidate-db", label: "Aday veritabanı (CRM hafif)" },
+  { id: "automation", label: "Ucuz otomasyon" },
+  { id: "review", label: "Haftalık gözden geçirme kontrol listesi" },
 ];
 
 export const body = (
   <>
-    <h2 id="metrics">The 4 metrics that matter</h2>
+    <h2 id="metrics">Önemli olan 4 metrik</h2>
     <p>
-      Recruiting analytics tools surface 30+ metrics. For a 5-to-20-req team only four
-      drive decisions:
+      İşe alım analitik araçları 30'dan fazla metrik sunar. 5-20 pozisyonlu bir ekip için yalnızca
+      dört tanesi kararları yönlendirir:
     </p>
     <ol>
       <li>
-        <strong>Source quality (applicants → hires by source):</strong> tells you which
-        boards or referral channels to double down on. Most companies waste hours posting
-        on platforms that produce zero hires for years.
+        <strong>Kaynak kalitesi (kaynağa göre başvuranlar → işe alınanlar):</strong> hangi
+        platformlara veya yönlendirme kanallarına ağırlık vermeniz gerektiğini söyler. Çoğu şirket,
+        yıllarca hiç işe alım yapmayan platformlarda saatler harcar.
       </li>
       <li>
-        <strong>Stage conversion rates:</strong> phone-to-onsite %, onsite-to-offer %,
-        offer-accept %. A drop in any one tells you where your process is broken.
+        <strong>Aşama dönüşüm oranları:</strong> telefon-görüşme %, görüşme-teklif %,
+        teklif-kabul %. Herhangi birindeki düşüş, sürecinizin nerede bozulduğunu gösterir.
       </li>
       <li>
-        <strong>Days-in-stage:</strong> the diagnostic for &ldquo;why are candidates
-        ghosting?&rdquo; Usually because someone sat on them for 9 days mid-pipeline.
+        <strong>Aşamada geçen gün:</strong> &ldquo;adaylar neden kayboluyor?&rdquo; sorusunun
+        teşhisidir. Genellikle birinin onları pipeline'da 9 gün bekletmesinden kaynaklanır.
       </li>
       <li>
-        <strong>Time-to-hire (sourced → offer accepted):</strong> the only top-line metric
-        that matters. SHRM 2024 median: 44 days. If you&rsquo;re above 60, something is
-        broken.
+        <strong>İşe alım süresi (kaynak bulma → teklif kabulü):</strong> önemli olan tek üst düzey
+        metriktir. SHRM 2024 medyanı: 44 gün. 60'ın üzerindeyseniz, bir şey bozuk demektir.
       </li>
     </ol>
     <p>
-      That&rsquo;s it. Cost-per-hire, applicant volume, candidate satisfaction scores —
-      noise unless you&rsquo;re a 50+ person team.
+      Hepsi bu kadar. İşe alım başına maliyet, başvuru hacmi, aday memnuniyet puanları — 50+
+      kişilik bir ekip değilseniz gürültüden ibarettir.
     </p>
 
-    <h2 id="template">The spreadsheet template</h2>
+    <h2 id="template">E-tablo şablonu</h2>
     <p>
-      Build it yourself in Google Sheets in 30 minutes. Two tabs:
+      30 dakikada Google Sheets'te kendiniz oluşturun. İki sekme:
     </p>
 
-    <h3>Tab 1: Candidates</h3>
-    <p>Columns:</p>
+    <h3>Sekme 1: Adaylar</h3>
+    <p>Sütunlar:</p>
     <ul>
-      <li><code>Name</code></li>
-      <li><code>Role</code></li>
-      <li><code>Source</code> (LinkedIn, referral, Indeed, etc.)</li>
-      <li><code>Sourced date</code></li>
-      <li><code>Current stage</code> (Sourced / Phone / Onsite / Offer / Hired / Rejected)</li>
-      <li><code>Stage entered date</code></li>
-      <li><code>Days in stage</code> (formula: <code>=TODAY() - F2</code>)</li>
-      <li><code>Outcome</code> (Hired / Rejected / Withdrew / Active)</li>
-      <li><code>Notes</code></li>
+      <li><code>İsim</code></li>
+      <li><code>Rol</code></li>
+      <li><code>Kaynak</code> (LinkedIn, yönlendirme, Indeed vb.)</li>
+      <li><code>Kaynak bulma tarihi</code></li>
+      <li><code>Mevcut aşama</code> (Kaynak bulundu / Telefon / Görüşme / Teklif / İşe alındı / Reddedildi)</li>
+      <li><code>Aşamaya giriş tarihi</code></li>
+      <li><code>Aşamada geçen gün</code> (formül: <code>=BUGÜN() - F2</code>)</li>
+      <li><code>Sonuç</code> (İşe alındı / Reddedildi / Çekildi / Aktif)</li>
+      <li><code>Notlar</code></li>
     </ul>
     <p>
-      The export from our{" "}
-      <a href="/tools/recruiting-pipeline-tracker">recruiting pipeline tracker</a>{" "}
-      matches this exactly — paste the CSV in and you&rsquo;re live.
+      {" "}
+      <a href="/tools/recruiting-pipeline-tracker">İşe alım pipeline takip aracımızdan</a>{" "}
+      dışa aktarma tam olarak bununla eşleşir — CSV'yi yapıştırın ve kullanmaya başlayın.
     </p>
 
-    <h3>Tab 2: Metrics dashboard</h3>
-    <p>Formulas (assuming the Candidates tab is named &ldquo;Candidates&rdquo;):</p>
-    <pre><code>{`Source quality (per source):
-  =COUNTIFS(Candidates!C:C, "LinkedIn", Candidates!H:H, "Hired") /
-   COUNTIF(Candidates!C:C, "LinkedIn")
+    <h3>Sekme 2: Metrik panosu</h3>
+    <p>Formüller (Adaylar sekmesinin adının &ldquo;Adaylar&rdquo; olduğu varsayılarak):</p>
+    <pre><code>{`Kaynak kalitesi (kaynak başına):
+  =EĞERSAY(Adaylar!C:C, "LinkedIn", Adaylar!H:H, "İşe alındı") /
+   EĞERSAY(Adaylar!C:C, "LinkedIn")
 
-Phone-to-onsite conversion:
-  =COUNTIFS(Candidates!E:E, "Onsite") /
-   (COUNTIFS(Candidates!E:E, "Onsite") + COUNTIFS(Candidates!E:E, "Phone"))
+Telefon-görüşme dönüşümü:
+  =EĞERSAY(Adaylar!E:E, "Görüşme") /
+   (EĞERSAY(Adaylar!E:E, "Görüşme") + EĞERSAY(Adaylar!E:E, "Telefon"))
 
-Average days-in-stage by stage:
-  =AVERAGEIFS(Candidates!G:G, Candidates!E:E, "Phone")
+Aşamaya göre ortalama aşamada geçen gün:
+  =ORTALAMAEĞER(Adaylar!G:G, Adaylar!E:E, "Telefon")
 
-Time-to-hire (avg):
-  Add a "Hired date" column, then =AVERAGE(Hired_date - Sourced_date)`}</code></pre>
+İşe alım süresi (ortalama):
+  "İşe alınma tarihi" sütunu ekleyin, ardından =ORTALAMA(İşe_alınma_tarihi - Kaynak_bulma_tarihi)`}</code></pre>
     <p>
-      Update once a week. Keeps you honest about which sources work and where the funnel
-      leaks.
+      Haftada bir güncelleyin. Hangi kaynakların işe yaradığı ve huninin nerede sızdırdığı
+      konusunda sizi dürüst tutar.
     </p>
 
-    <h2 id="candidate-db">Candidate database — the free CRM-lite</h2>
+    <h2 id="candidate-db">Aday veritabanı — ücretsiz CRM hafif</h2>
     <p>
-      Building a candidate database is just adding more columns to the candidates tab and
-      using filters. Recommended additions:
+      Bir aday veritabanı oluşturmak, adaylar sekmesine daha fazla sütun eklemek ve filtreleri
+      kullanmaktan ibarettir. Önerilen eklemeler:
     </p>
     <ul>
-      <li><code>Skills tags</code> (comma-separated; filter with <code>regex</code>)</li>
-      <li><code>Years of experience</code></li>
-      <li><code>Salary expectation</code></li>
-      <li><code>Available date</code></li>
-      <li><code>Last contact date</code></li>
-      <li><code>Reach-out cadence</code> (every 60 days, 90 days, etc.)</li>
+      <li><code>Beceri etiketleri</code> (virgülle ayrılmış; <code>regex</code> ile filtreleyin)</li>
+      <li><code>Deneyim yılı</code></li>
+      <li><code>Maaş beklentisi</code></li>
+      <li><code>Müsaitlik tarihi</code></li>
+      <li><code>Son iletişim tarihi</code></li>
+      <li><code>Ulaşma sıklığı</code> (her 60 günde bir, 90 günde bir vb.)</li>
     </ul>
     <p>
-      For 100–500 candidates this is fine. Above that, search performance degrades and
-      you&rsquo;ll want a real database (Notion, Airtable, or eventually a CRM). Most
-      small teams never get there.
+      100–500 aday için bu yeterlidir. Bunun üzerinde arama performansı düşer ve
+      gerçek bir veritabanına (Notion, Airtable veya sonunda bir CRM) ihtiyacınız olur. Çoğu
+      küçük ekip bu noktaya asla ulaşmaz.
     </p>
 
-    <h2 id="automation">Cheap automation</h2>
+    <h2 id="automation">Ucuz otomasyon</h2>
     <p>
-      Free things that save 30 minutes per week:
+      Haftada 30 dakika kazandıran ücretsiz şeyler:
     </p>
     <ul>
       <li>
-        <strong>Google Forms → Sheets:</strong> application form auto-populates the
-        Candidates tab.
+        <strong>Google Forms → Sheets:</strong> başvuru formu, Adaylar sekmesini otomatik olarak
+        doldurur.
       </li>
       <li>
-        <strong>Conditional formatting:</strong> highlight rows where days-in-stage &gt; 7,
-        so stale candidates jump out visually.
+        <strong>Koşullu biçimlendirme:</strong> aşamada geçen gün &gt; 7 olan satırları vurgulayın,
+        böylece eski adaylar görsel olarak öne çıkar.
       </li>
       <li>
-        <strong>Apps Script for follow-ups:</strong> a 20-line script that sends a
-        candidate-status email when stage changes. Runs free on Google Workspace personal.
+        <strong>Takip için Apps Script:</strong> aşama değiştiğinde aday durumu e-postası gönderen
+        20 satırlık bir kod. Google Workspace kişisel sürümünde ücretsiz çalışır.
       </li>
       <li>
-        <strong>Slack webhook for new applications:</strong> Forms → Apps Script →
-        webhook → posts to a #hiring channel.
+        <strong>Yeni başvurular için Slack webhook'u:</strong> Forms → Apps Script →
+        webhook → #is-alimi kanalına gönderi.
       </li>
     </ul>
 
-    <h2 id="review">Weekly review checklist (10 minutes)</h2>
-    <p>Run every Monday morning:</p>
+    <h2 id="review">Haftalık gözden geçirme kontrol listesi (10 dakika)</h2>
+    <p>Her Pazartesi sabahı uygulayın:</p>
     <ol>
-      <li>Sort by &ldquo;Days in stage&rdquo; descending. Anything &gt;7 days needs an action.</li>
-      <li>Phone-to-onsite conversion this week vs last. Big drop → screening calls aren't filtering well.</li>
-      <li>Source breakdown of new candidates. Two sources hot? Lean in. None? Refresh job postings.</li>
-      <li>Time-to-hire average for last 5 closed reqs. Above 50 days → review where the friction is.</li>
+      <li>&ldquo;Aşamada geçen gün&rdquo;e göre azalan sıralayın. &gt;7 gün olan her şey bir işlem gerektirir.</li>
+      <li>Bu hafta ve geçen hafta telefon-görüşme dönüşümü. Büyük düşüş → tarama görüşmeleri iyi filtrelemiyor.</li>
+      <li>Yeni adayların kaynak dağılımı. İki kaynak sıcak mı? Onlara yüklenin. Hiçbiri yok mu? İş ilanlarını yenileyin.</li>
+      <li>Son 5 kapatılan pozisyon için ortalama işe alım süresi. 50 günün üzerinde → sürtüşmenin nerede olduğunu inceleyin.</li>
     </ol>
   </>
 );
 
 export const cta = {
-  label: "Pipeline tracker — exports straight to your spreadsheet",
+  label: "Pipeline takip aracı — doğrudan e-tablonuza dışa aktarır",
   targetSlug: "recruiting-pipeline-tracker",
 };
 
 export const faq = [
   {
-    q: "What's the simplest recruiting metric to track?",
-    a: "Time-to-hire — the days between sourcing a candidate and them accepting an offer. Single number, comparable across roles, easy to compute in a spreadsheet. SHRM's 2024 median is 44 days for context.",
+    q: "Takip edilmesi en basit işe alım metriği nedir?",
+    a: "İşe alım süresi — bir adayın kaynak bulunması ile teklifi kabul etmesi arasındaki gün sayısı. Tek bir sayı, roller arasında karşılaştırılabilir, e-tabloda hesaplaması kolay. Bağlam için SHRM'in 2024 medyanı 44 gündür.",
   },
   {
-    q: "Can a Google Sheet really replace recruiting analytics software?",
-    a: "For a 5-20 req team, yes. The 4 metrics that drive decisions (source quality, stage conversion, days-in-stage, time-to-hire) all fit in one sheet. Above ~50 reqs the manual update overhead starts to hurt.",
+    q: "Bir Google Sheet gerçekten işe alım analitik yazılımının yerini alabilir mi?",
+    a: "5-20 pozisyonlu bir ekip için evet. Kararları yönlendiren 4 metrik (kaynak kalitesi, aşama dönüşümü, aşamada geçen gün, işe alım süresi) tek bir sayfaya sığar. ~50 pozisyonun üzerinde manuel güncelleme yükü can sıkmaya başlar.",
   },
   {
-    q: "Should I track cost-per-hire?",
-    a: "Only if you're spending real money on hiring (paid job boards, agency fees, sourcing tools). For a small team running on free tools, the time cost is the real cost — measure hours-per-hire instead.",
+    q: "İşe alım başına maliyeti takip etmeli miyim?",
+    a: "Yalnızca işe alıma gerçek para harcıyorsanız (ücretli iş ilanı siteleri, ajans ücretleri, kaynak bulma araçları). Ücretsiz araçlar kullanan küçük bir ekip için asıl maliyet zaman maliyetidir — bunun yerine işe alım başına saat ölçün.",
   },
   {
-    q: "What's the ideal phone-to-onsite conversion rate?",
-    a: "Industry-wide it's roughly 25-40%. Below 20% means your screening criteria might be too loose (anyone passes phone) or your job description is attracting the wrong candidates. Above 50% means you might be screening too hard pre-onsite.",
+    q: "İdeal telefon-görüşme dönüşüm oranı nedir?",
+    a: "Sektör genelinde kabaca %25-40'tır. %20'nin altı, tarama kriterlerinizin çok gevşek olduğu (herkes telefonu geçiyor) veya iş tanımınızın yanlış adayları çektiği anlamına gelebilir. %50'nin üzeri, görüşme öncesi çok sıkı tarama yapıyor olabileceğiniz anlamına gelir.",
   },
 ];

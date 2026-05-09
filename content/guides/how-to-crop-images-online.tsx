@@ -3,122 +3,78 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Cropping is the most-used and least-thought-about image edit on the
-      planet. People reach for it to &ldquo;make the image smaller,&rdquo;
-      which is usually the wrong goal — that&rsquo;s what resize is for.
-      Cropping is about changing what&rsquo;s <em>in</em> the frame, not how
-      many pixels are in the frame. Use it right and your photos land
-      better on every platform. Use it wrong and you ship a stretched
-      profile picture or a LinkedIn banner with your shoulders cut off.
+      Kırpma, gezegendeki en çok kullanılan ve en az düşünülen görüntü düzenleme işlemidir. İnsanlar genellikle "görüntüyü küçültmek" için buna başvurur; bu genellikle yanlış bir hedeftir — bunun için yeniden boyutlandırma vardır. Kırpma, çerçevede kaç piksel olduğunu değil, çerçevenin <em>içinde</em> ne olduğunu değiştirmekle ilgilidir. Doğru kullanırsanız fotoğraflarınız her platformda daha iyi görünür. Yanlış kullanırsanız, uzatılmış bir profil resmi veya omuzlarınızın kesildiği bir LinkedIn banner'ı gönderirsiniz.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Crop vs resize — different goals</h2>
+    <h2>Kırpma ve yeniden boyutlandırma — farklı hedefler</h2>
     <p>
-      Resizing keeps the whole image and changes the pixel count. Cropping
-      keeps the pixel density and changes what&rsquo;s shown. If a banner
-      needs to be 1584&times;396 and your photo is 3000&times;3000, you
-      crop first to get the right aspect ratio, then resize to the exact
-      pixel dimensions. Doing only one of the two is how you end up with a
-      squished face. Our <a href="/tools/image-cropper">image cropper</a>
-      {" "}handles the crop; the{" "}
-      <a href="/tools/image-resizer">image resizer</a> handles the second
-      step.
+      Yeniden boyutlandırma, görüntünün tamamını korur ve piksel sayısını değiştirir. Kırpma, piksel yoğunluğunu korur ve gösterilen şeyi değiştirir. Bir banner 1584&times;396 olmalıysa ve fotoğrafınız 3000&times;3000 ise, önce doğru en boy oranını elde etmek için kırpma yapar, ardından tam piksel boyutlarına yeniden boyutlandırırsınız. İkisinden yalnızca birini yapmak, ezilmiş bir yüzle sonuçlanmanın yoludur. <a href="/tools/image-cropper">Görüntü kırpma aracımız</a> kırpmayı halleder; <a href="/tools/image-resizer">görüntü yeniden boyutlandırma aracımız</a> ise ikinci adımı halleder.
     </p>
 
-    <h2>Aspect ratios worth memorizing</h2>
+    <h2>Ezberlemeye değer en boy oranları</h2>
     <p>
-      You don&rsquo;t need to remember exact pixel counts — just the aspect
-      ratios. Every platform will fit your image once the ratio is right.
+      Tam piksel sayılarını hatırlamanıza gerek yok — sadece en boy oranlarını bilmeniz yeterli. Oran doğru olduğunda her platform görüntünüzü sığdıracaktır.
     </p>
     <ul>
       <li>
-        <strong>1:1 square</strong> — Instagram feed, most profile pictures,
-        podcast art, album covers.
+        <strong>1:1 kare</strong> — Instagram akışı, çoğu profil resmi, podcast sanatı, albüm kapakları.
       </li>
       <li>
-        <strong>4:5 portrait</strong> — Instagram portrait posts (takes the
-        most screen real estate in feed), LinkedIn image posts.
+        <strong>4:5 dikey</strong> — Instagram dikey gönderileri (akışta en fazla ekran alanını kaplar), LinkedIn görsel gönderileri.
       </li>
       <li>
-        <strong>16:9 landscape</strong> — YouTube thumbnails, most blog
-        headers, presentation slides, Twitter/X inline images.
+        <strong>16:9 yatay</strong> — YouTube küçük resimleri, çoğu blog başlığı, sunum slaytları, Twitter/X satır içi görselleri.
       </li>
       <li>
-        <strong>9:16 vertical</strong> — Stories, Reels, TikTok, Shorts.
-        Anything full-screen on a phone in portrait orientation.
+        <strong>9:16 dikey</strong> — Hikayeler, Reels, TikTok, Shorts. Telefonda dikey modda tam ekran olan her şey.
       </li>
       <li>
-        <strong>3:2 or 2:3</strong> — classic photography ratios, standard
-        print sizes (4&times;6, 6&times;9).
+        <strong>3:2 veya 2:3</strong> — klasik fotoğrafçılık oranları, standart baskı boyutları (4&times;6, 6&times;9).
       </li>
     </ul>
     <p>
-      For any given post, figure out the ratio first, then crop. It saves
-      reshooting.
+      Herhangi bir gönderi için önce oranı belirleyin, ardından kırpın. Bu, yeniden çekim yapmaktan kurtarır.
     </p>
 
-    <h2>Rule of thirds, briefly</h2>
+    <h2>Üçte bir kuralı, kısaca</h2>
     <p>
-      Mentally divide the frame into nine equal rectangles with two
-      horizontal and two vertical lines. Interesting things — eyes, a
-      horizon, a focal subject — should sit near the intersections of those
-      lines, not dead center. When you&rsquo;re cropping, this is the single
-      most useful guide. If your subject is planted in the center and the
-      background is boring, nudge the crop so the subject lands on a third
-      line. The image suddenly breathes.
+      Çerçeveyi zihinsel olarak iki yatay ve iki dikey çizgiyle dokuz eşit dikdörtgene bölün. İlginç şeyler — gözler, bir ufuk, odak noktası bir konu — tam ortada değil, bu çizgilerin kesişim noktalarının yakınında olmalıdır. Kırpma yaparken, bu en kullanışlı kılavuzdur. Konunuz tam ortadaysa ve arka plan sıkıcıysa, kırpmayı konu üçte bir çizgisine gelecek şekilde ayarlayın. Görüntü aniden nefes alır.
     </p>
     <p>
-      Most cropping tools have a rule-of-thirds overlay. Turn it on.
+      Çoğu kırpma aracında üçte bir kuralı katmanı bulunur. Açın.
     </p>
 
-    <h2>Cropping profile pictures</h2>
+    <h2>Profil resimlerini kırpma</h2>
     <p>
-      A profile picture is almost always shown as a circle over a square
-      crop. So: crop square, but imagine the corners are going to be
-      chopped off. Keep the face comfortably within a centered circle,
-      never right up against the edges. Specific platforms:
+      Bir profil resmi neredeyse her zaman kare bir kırpmanın üzerinde bir daire olarak gösterilir. Yani: kare kırpın, ancak köşelerin kesileceğini hayal edin. Yüzü, asla kenarlara çok yakın olmayacak şekilde, ortalanmış bir dairenin içinde rahatça tutun. Belirli platformlar:
     </p>
     <ul>
       <li>
-        <strong>LinkedIn</strong> — head and top of shoulders, tighter than
-        you&rsquo;d think. A distant full-body shot reads as unprofessional.
+        <strong>LinkedIn</strong> — baş ve omuzların üst kısmı, düşündüğünüzden daha yakın. Uzaktan çekilmiş tam vücut bir fotoğraf profesyonellikten uzak görünür.
       </li>
       <li>
-        <strong>Twitter/X</strong> — similar to LinkedIn, maybe slightly
-        tighter. The image often shows at tiny sizes in feeds.
+        <strong>Twitter/X</strong> — LinkedIn'e benzer, belki biraz daha yakın. Görsel, akışlarda genellikle küçük boyutlarda görünür.
       </li>
       <li>
-        <strong>Instagram</strong> — more latitude, but head should still be
-        the dominant element.
+        <strong>Instagram</strong> — daha fazla esneklik, ancak baş yine de baskın öğe olmalıdır.
       </li>
     </ul>
 
-    <h2>The one-minute test</h2>
+    <h2>Bir dakikalık test</h2>
     <p>
-      Before saving, zoom to 50% and ask: does the image still work if I
-      crop tighter? If the answer is no, you&rsquo;re probably already at
-      the right crop. If the answer is yes, try it — tighter crops almost
-      always look stronger than loose ones. A photo with negative space that
-      doesn&rsquo;t add anything is a photo with wasted pixels.
+      Kaydetmeden önce, %50 yakınlaştırın ve şunu sorun: Daha sıkı kırparsam görüntü hala işe yarar mı? Cevap hayırsa, muhtemelen doğru kırpmadasınız. Cevap evetse, deneyin — daha sıkı kırpmalar neredeyse her zaman gevşek olanlardan daha güçlü görünür. Hiçbir şey katmayan boş alana sahip bir fotoğraf, boşa harcanmış piksellere sahip bir fotoğraftır.
     </p>
     <p>
-      The inverse is also worth asking: does anything important live near
-      the edges where a platform might crop further? Most social platforms
-      aggressively crop preview thumbnails. Keep the actual subject at
-      least 10% in from every edge.
+      Tersini de sormaya değer: Kenarlara yakın, bir platformun daha fazla kırpabileceği önemli bir şey var mı? Çoğu sosyal platform, önizleme küçük resimlerini agresif bir şekilde kırpar. Gerçek konuyu her kenardan en az %10 içeride tutun.
     </p>
 
-    <h2>Keep the original</h2>
+    <h2>Orijinali saklayın</h2>
     <p>
-      Cropping is destructive — once you save and close, those pixels are
-      gone. Always keep the uncropped original somewhere, especially for
-      professional photos. Platforms change their aspect ratio requirements
-      every couple of years, and re-cropping from the original beats trying
-      to rescue a previously-cropped file.
+      Kırpma yıkıcıdır — kaydedip kapattığınızda, bu pikseller gider. Özellikle profesyonel fotoğraflar için, kırpılmamış orijinali her zaman bir yerde saklayın. Platformlar en boy oranı gereksinimlerini birkaç yılda bir değiştirir ve orijinalden yeniden kırpmak, önceden kırpılmış bir dosyayı kurtarmaya çalışmaktan daha iyidir.
     </p>
   </>
 );

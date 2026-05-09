@@ -2,52 +2,52 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    A DIY solar kit is cheaper than you think &mdash; and more work than the YouTube videos admit. Here&rsquo;s how to size, spec, and install one without wasting money on the wrong parts.
+    Bir DIY güneş enerjisi kiti, düşündüğünüzden daha ucuzdur &mdash; ve YouTube videolarının itiraf ettiğinden daha fazla iş gerektirir. İşte yanlış parçalara para harcamadan bir kiti nasıl boyutlandıracağınız, özelliklerini belirleyeceğiniz ve kuracağınız.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      Solar is no longer niche. A 400W kit that cost $2,000 in 2016 is $500 today, and lithium batteries have dropped 80% in a decade. The catch: most beginner kits are undersized, mismatched, or shipped with wire too thin for the run. Plan the system first, buy parts second.
+      Güneş enerjisi artık niş bir alan değil. 2016'da 2.000 dolara mal olan 400W'lık bir kit bugün 500 dolar ve lityum bataryalar on yılda %80 düştü. İşin püf noktası: çoğu başlangıç kiti eksik boyutlandırılmış, uyumsuz veya mesafe için çok ince kabloyla gönderiliyor. Önce sistemi planlayın, sonra parçaları satın alın.
     </p>
 
-    <h2>Match the kit to your use case</h2>
+    <h2>Kiti kullanım amacınıza göre eşleştirin</h2>
     <p>
-      Start with what you actually want to power. A 100W panel plus a small battery runs a laptop, phones, and LED lights &mdash; fine for weekend camping. A 400W kit with a 100Ah LiFePO4 battery covers a small RV or van build (fridge, lights, fans, device charging). A 1,000W array with 200&ndash;400Ah of storage runs a tiny cabin with a small fridge and water pump. For whole-house backup during outages, you&rsquo;re looking at 5,000W+ of panels and a 10&ndash;20kWh battery bank.
+      Gerçekte neye güç vermek istediğinizle başlayın. 100W'lık bir panel ve küçük bir batarya, bir dizüstü bilgisayar, telefonlar ve LED ışıklarını çalıştırır &mdash; hafta sonu kampı için yeterlidir. 100Ah LiFePO4 bataryalı 400W'lık bir kit, küçük bir karavan veya minibüs dönüşümünü (buzdolabı, ışıklar, fanlar, cihaz şarjı) kapsar. 200&ndash;400Ah depolamalı 1.000W'lık bir dizi, küçük bir buzdolabı ve su pompası olan küçük bir kabini çalıştırır. Kesintiler sırasında tüm ev yedeklemesi için 5.000W+ panele ve 10&ndash;20kWh batarya bankasına bakıyorsunuz.
     </p>
 
-    <h2>Core components, explained</h2>
+    <h2>Temel bileşenler, açıklamalı</h2>
     <ul>
-      <li><strong>Panels:</strong> monocrystalline is the default &mdash; more efficient per square foot than polycrystalline and prices are nearly identical now.</li>
-      <li><strong>Charge controller:</strong> MPPT (maximum power point tracking) extracts 15&ndash;30% more energy than cheaper PWM units. Worth the extra $50&ndash;150 on anything above 200W.</li>
-      <li><strong>Battery bank:</strong> LiFePO4 is the clear winner &mdash; 10+ year lifespan, 80%+ usable depth of discharge, no venting needed. Lead-acid is cheaper upfront but costs more per usable kWh over time.</li>
-      <li><strong>Inverter:</strong> pure sine wave only. Modified sine wave trashes sensitive electronics and makes some motors hum loudly.</li>
+      <li><strong>Paneller:</strong> monokristal varsayılandır &mdash; metrekare başına polikristalden daha verimlidir ve fiyatlar artık neredeyse aynıdır.</li>
+      <li><strong>Şarj kontrol cihazı:</strong> MPPT (maksimum güç noktası takibi), daha ucuz PWM ünitelerinden %15&ndash;30 daha fazla enerji çıkarır. 200W'ın üzerindeki her şey için ekstra 50&ndash;150 dolara değer.</li>
+      <li><strong>Batarya bankası:</strong> LiFePO4 açık ara kazanandır &mdash; 10+ yıl ömür, %80+ kullanılabilir deşarj derinliği, havalandırma gerektirmez. Kurşun-asit başlangıçta daha ucuzdur ancak zamanla kullanılabilir kWh başına daha pahalıya mal olur.</li>
+      <li><strong>İnvertör:</strong> yalnızca saf sinüs dalgası. Modifiye sinüs dalgası hassas elektronikleri bozar ve bazı motorların yüksek sesle uğuldamasına neden olur.</li>
     </ul>
 
-    <h2>Realistic cost ranges</h2>
+    <h2>Gerçekçi maliyet aralıkları</h2>
     <p>
-      A complete 400W kit with battery and inverter runs $400&ndash;800 if you shop smart. A 1,000W cabin setup lands around $1,000&ndash;2,000 including a decent LiFePO4 bank. A 5,000W whole-house backup system with 10kWh of storage is $5,000&ndash;15,000 depending on battery brand and inverter quality. Grid-tie systems add meter, interconnect, and usually a licensed installer &mdash; budget accordingly.
+      Batarya ve invertörlü komple bir 400W kiti, akıllı alışveriş yaparsanız 400&ndash;800 dolara mal olur. 1.000W'lık bir kabin kurulumu, iyi bir LiFePO4 bankası dahil olmak üzere yaklaşık 1.000&ndash;2.000 dolara denk gelir. 10kWh depolamalı 5.000W'lık tüm ev yedekleme sistemi, batarya markası ve invertör kalitesine bağlı olarak 5.000&ndash;15.000 dolar arasındadır. Şebeke bağlantılı sistemler sayaç, ara bağlantı ve genellikle lisanslı bir kurulumcu ekler &mdash; buna göre bütçe yapın.
     </p>
 
-    <h2>Installation complexity</h2>
+    <h2>Kurulum karmaşıklığı</h2>
     <p>
-      Portable ground deployments are plug-and-play &mdash; unfold, connect, charge. Permanent roof mounts need flashing, sealing, and structural consideration. Ground mounts avoid roof penetration but eat yard space. Grid-tie almost always requires permits, an electrical inspection, and utility approval. Off-grid in a detached structure is usually unpermitted, but check your county code before assuming.
+      Taşınabilir zemin kurulumları tak-çalıştırdır &mdash; aç, bağla, şarj et. Kalıcı çatı montajları flaş, sızdırmazlık ve yapısal değerlendirme gerektirir. Zemin montajları çatı delinmesini önler ancak bahçe alanı kaplar. Şebeke bağlantısı neredeyse her zaman izin, elektrik denetimi ve kamu hizmeti onayı gerektirir. Müstakil bir yapıda şebekeden bağımsız sistem genellikle izinsizdir, ancak varsaymadan önce ilçe yönetmeliğinizi kontrol edin.
     </p>
 
-    <h2>Wire sizing is where amateurs lose money</h2>
+    <h2>Kablo boyutlandırması amatörlerin para kaybettiği yerdir</h2>
     <p>
-      Long DC runs lose voltage fast. A 30-foot run at 12V carrying 30A needs 6 AWG cable minimum; push it further with 8 AWG and you&rsquo;ll dump 10&ndash;15% of your harvest as heat. Use a voltage drop calculator before buying wire, and buy tinned marine cable if the install is anywhere humid.
+      Uzun DC hatları voltajı hızla düşürür. 30A taşıyan 12V'de 30 metrelik bir hat minimum 6 AWG kablo gerektirir; 8 AWG ile daha ileri giderseniz, hasadınızın %10&ndash;15'ini ısı olarak kaybedersiniz. Kablo satın almadan önce bir voltaj düşümü hesaplayıcısı kullanın ve kurulum nemli bir yerdeyse kalaylı deniz kablosu satın alın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Undersizing the battery is the #1 regret &mdash; panels recharge the bank, but the bank is what actually runs your loads overnight. Reversing polarity on MC4 connectors fries charge controllers instantly. Running wire that&rsquo;s too thin for the distance silently kills performance. Skipping a proper fuse between battery and inverter is a fire waiting to happen.
+      Bataryayı eksik boyutlandırmak 1 numaralı pişmanlıktır &mdash; paneller bankayı şarj eder, ancak gece boyunca yüklerinizi asıl çalıştıran bankadır. MC4 konektörlerinde polariteyi ters çevirmek şarj kontrol cihazlarını anında yakar. Mesafe için çok ince kablo çekmek performansı sessizce öldürür. Batarya ile invertör arasında uygun bir sigortayı atlamak, olmayı bekleyen bir yangındır.
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Sonuç</h2>
     <p>
-      Size for your actual loads plus 30% headroom, buy MPPT and LiFePO4 even if the PWM/lead-acid combo is cheaper, and fuse everything. Use our <a href="/tools/solar-panel-payback-calculator">solar panel payback calculator</a> to see how many years until your kit pays for itself.
+      Gerçek yüklerinize artı %30 marjla boyutlandırın, PWM/kurşun-asit kombinasyonu daha ucuz olsa bile MPPT ve LiFePO4 satın alın ve her şeyi sigortalayın. Kitinizin kendini kaç yılda amorti edeceğini görmek için <a href="/tools/solar-panel-payback-calculator">güneş paneli geri ödeme hesaplayıcımızı</a> kullanın.
     </p>
   </>
 );

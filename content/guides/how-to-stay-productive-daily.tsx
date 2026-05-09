@@ -1,117 +1,81 @@
 export const intro = (
   <>
     <p>
-      Productivity isn&rsquo;t grit. It&rsquo;s a handful of small habits that make the default
-      behavior the right one. The people who stay productive day after day don&rsquo;t have more
-      willpower than you — they&rsquo;ve set up their week so it takes less willpower to do the
-      work.
+      Verimlilik, dişe diş mücadele etmek değildir. Varsayılan davranışı doğru olan haline getiren bir avuç küçük alışkanlıktır. Gün be gün üretken kalan insanlar sizden daha fazla iradeye sahip değildir; onlar haftalarını, işi yapmak için daha az irade gerekecek şekilde düzenlemişlerdir.
     </p>
     <p>
-      These nine habits, run together, will carry you through the ugly Tuesdays when you&rsquo;re
-      tired and the inspired Fridays when you&rsquo;re on a roll. None of them require apps,
-      subscriptions, or waking up at 4 a.m.
+      Birlikte uygulanan bu dokuz alışkanlık, yorgun olduğunuz çirkin Salı günlerinde ve işlerin yolunda gittiği ilham dolu Cumalarda size rehberlik edecek. Hiçbiri uygulama, abonelik veya sabah 4'te uyanmayı gerektirmez.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Pick tomorrow&rsquo;s top task tonight</h2>
+    <h2>1. Yarının en önemli görevini bu gece seçin</h2>
     <p>
-      Before you stop working for the day, write down the single most important thing you&rsquo;ll
-      do first thing tomorrow. Not a list — one item. This saves you from the worst productivity
-      trap: waking up and deciding what&rsquo;s important while you&rsquo;re groggy and
-      overwhelmed.
+      Gün için çalışmayı bırakmadan önce, yarın ilk iş olarak yapacağınız en önemli tek şeyi yazın. Bir liste değil, tek bir madde. Bu sizi en kötü verimlilik tuzağından kurtarır: sersemlemiş ve bunalmış haldeyken uyanıp neyin önemli olduğuna karar vermek.
     </p>
 
-    <h2>2. Protect the first 90 minutes</h2>
+    <h2>2. İlk 90 dakikayı koruyun</h2>
     <p>
-      Your best cognitive work happens early. Don&rsquo;t spend it on email, Slack, or social
-      feeds. Open the one important task from last night and do it first, before anything else.
-      If you work a job where mornings aren&rsquo;t yours, pick another 90-minute block and
-      defend it the same way.
+      En iyi bilişsel çalışmanız erken saatlerde gerçekleşir. Bunu e-posta, Slack veya sosyal medya akışlarına harcamayın. Dün geceden kalan önemli görevi açın ve her şeyden önce onu yapın. Sabahları size ait olmayan bir işte çalışıyorsanız, başka bir 90 dakikalık blok seçin ve aynı şekilde koruyun.
     </p>
 
-    <h2>3. Use a focus timer, not a to-do list, for hard work</h2>
+    <h2>3. Zor işler için yapılacaklar listesi değil, odak zamanlayıcısı kullanın</h2>
     <p>
-      A list asks &ldquo;what&rsquo;s next?&rdquo;, which invites decision fatigue. A timer asks
-      &ldquo;can you focus for 25 more minutes?&rdquo;, which is almost always a yes. Open our{" "}
-      <a href="/tools/pomodoro-timer">pomodoro timer</a>, pick one task, and go. The list can
-      wait until the round is over.
+      Bir liste "sırada ne var?" diye sorar ve bu karar yorgunluğuna davetiye çıkarır. Bir zamanlayıcı "25 dakika daha odaklanabilir misin?" diye sorar ve bu neredeyse her zaman evettir.{" "}
+      <a href="/tools/pomodoro-timer">Pomodoro zamanlayıcımızı</a> açın, bir görev seçin ve başlayın. Liste, tur bitene kadar bekleyebilir.
     </p>
 
-    <h2>4. Batch shallow work</h2>
+    <h2>4. Sığ işleri gruplayın</h2>
     <p>
-      Email, messages, invoices, admin — these don&rsquo;t need your best hours. Batch them into
-      a single block, twice a day, and let them sit between blocks. You&rsquo;ll answer the same
-      messages in half the time because you&rsquo;re not context-switching.
+      E-posta, mesajlar, faturalar, idari işler... Bunlar en iyi saatlerinizi gerektirmez. Onları günde iki kez tek bir blokta toplayın ve bloklar arasında bekletin. Aynı mesajları yarı sürede yanıtlarsınız çünkü bağlam değiştirmiyorsunuzdur.
     </p>
 
-    <h2>5. One tab rule for deep work</h2>
+    <h2>5. Derin çalışma için tek sekme kuralı</h2>
     <p>
-      When you&rsquo;re doing focused work, only the thing you&rsquo;re working on is open. Every
-      other tab is a potential exit. You don&rsquo;t need self-control if you never see the
-      temptation.
+      Odaklanmış çalışma yaparken, yalnızca üzerinde çalıştığınız şey açıktır. Diğer her sekme potansiyel bir çıkıştır. Cazibeyi hiç görmezseniz, öz denetime ihtiyacınız olmaz.
     </p>
 
-    <h2>6. End the day with a 5-minute review</h2>
+    <h2>6. Günü 5 dakikalık bir değerlendirme ile bitirin</h2>
     <p>
-      Before you close the laptop, spend five minutes: what got done, what didn&rsquo;t, and
-      what&rsquo;s tomorrow&rsquo;s top task. This is how habit #1 gets seeded. It&rsquo;s also
-      the simplest &ldquo;clock out&rdquo; signal — your brain stops looping on work once the
-      ritual is complete.
+      Dizüstü bilgisayarı kapatmadan önce beş dakika ayırın: ne yapıldı, ne yapılmadı ve yarının en önemli görevi ne. 1. alışkanlık böyle tohumlanır. Aynı zamanda en basit "mesai bitişi" sinyalidir; ritüel tamamlandığında beyniniz işle ilgili döngüyü durdurur.
     </p>
 
-    <h2>7. Sleep is a productivity tool</h2>
+    <h2>7. Uyku bir verimlilik aracıdır</h2>
     <p>
-      A tired brain is not a productive brain. Seven hours of sleep outperforms seven hours at
-      the desk with five hours of sleep. If you&rsquo;re cutting sleep to get more done, you
-      have the direction of causation wrong.
+      Yorgun bir beyin üretken bir beyin değildir. Yedi saat uyku, beş saat uykuyla masada geçirilen yedi saatten daha iyidir. Daha fazla iş yapmak için uykudan kısıyorsanız, nedensellik yönünü yanlış anlamışsınız demektir.
     </p>
 
-    <h2>8. Move in the middle of the day</h2>
+    <h2>8. Günün ortasında hareket edin</h2>
     <p>
-      Twenty minutes of walking between deep work blocks resets your focus for free. It also
-      prevents the afternoon slump better than caffeine. No earbuds, no phone, just walk.
+      Derin çalışma blokları arasında yirmi dakikalık bir yürüyüş, odağınızı ücretsiz olarak sıfırlar. Ayrıca öğleden sonraki düşüşü kafeinden daha iyi önler. Kulaklık yok, telefon yok, sadece yürüyün.
     </p>
 
-    <h2>9. Track the streak, not the output</h2>
+    <h2>9. Çıktıyı değil, seriyi takip edin</h2>
     <p>
-      Motivation is unreliable; streaks are self-reinforcing. Keep a simple count of days you
-      did deep work — the number, not the hours. You&rsquo;ll be surprised how much you
-      don&rsquo;t want to break a 20-day streak. This is the same mechanic behind our{" "}
-      <a href="/tools/pomodoro-timer">focus timer&rsquo;s round counter</a>.
+      Motivasyon güvenilmezdir; seriler kendini pekiştirir. Derin çalışma yaptığınız günlerin basit bir sayısını tutun; saatleri değil, sayıyı. 20 günlük bir seriyi bozmak istemeyeceğinize şaşıracaksınız. Bu,{" "}
+      <a href="/tools/pomodoro-timer">odak zamanlayıcımızın tur sayacının</a> arkasındaki aynı mekanizmadır.
     </p>
 
-    <h2>Putting it together: a realistic day</h2>
+    <h2>Bir araya getirmek: gerçekçi bir gün</h2>
     <p>
-      You don&rsquo;t do all nine habits at once. A good day uses four or five. A realistic
-      workday: arrive, open last night&rsquo;s top task, run three focus rounds before touching
-      messages, walk at lunch, batch shallow work after, close with a 5-minute review. That&rsquo;s
-      it. On the days you can&rsquo;t pull it off, you still have the scaffolding — and
-      tomorrow you try again.
+      Dokuz alışkanlığın hepsini aynı anda yapmazsınız. İyi bir gün dört veya beşini kullanır. Gerçekçi bir iş günü: varın, dün geceden en önemli görevi açın, mesajlara dokunmadan önce üç odak turu yapın, öğle yemeğinde yürüyün, öğleden sonra sığ işleri gruplayın, 5 dakikalık bir değerlendirme ile kapatın. İşte bu kadar. Bunu başaramadığınız günlerde bile, iskeletiniz vardır ve yarın tekrar denersiniz.
     </p>
 
-    <h2>What to skip</h2>
+    <h2>Neyi atlamalı</h2>
     <p>
-      Ignore productivity content that tells you to wake up at 5 a.m., track 14 metrics, or
-      meditate for an hour. The most productive people I&rsquo;ve worked with do boring, small
-      things every day. The fancy stuff rarely survives contact with real life.
+      Size sabah 5'te uyanmanızı, 14 metrik takip etmenizi veya bir saat meditasyon yapmanızı söyleyen verimlilik içeriklerini görmezden gelin. Birlikte çalıştığım en üretken insanlar her gün sıkıcı, küçük şeyler yaparlar. Süslü şeyler nadiren gerçek hayatla temasta hayatta kalır.
     </p>
 
-    <h2>One week, one habit</h2>
+    <h2>Bir hafta, bir alışkanlık</h2>
     <p>
-      Pick one habit from this list and try it for seven days. I&rsquo;d start with #1 (tonight&rsquo;s
-      most important task) — it&rsquo;s the keystone. Once it&rsquo;s automatic, add #3 (the
-      focus timer) or #6 (the end-of-day review). You&rsquo;re not building a productivity system;
-      you&rsquo;re stacking small habits until they carry you without effort. That&rsquo;s what
-      actually lasts.
+      Bu listeden bir alışkanlık seçin ve yedi gün boyunca deneyin. 1. alışkanlıkla (bu geceki en önemli görev) başlardım; o kilit taşıdır. Otomatikleştiğinde, 3. alışkanlığı (odak zamanlayıcısı) veya 6. alışkanlığı (gün sonu değerlendirmesi) ekleyin. Bir verimlilik sistemi kurmuyorsunuz; sizi zahmetsizce taşıyana kadar küçük alışkanlıkları üst üste koyuyorsunuz. Asıl kalıcı olan budur.
     </p>
 
     <p>
-      For more on making habits stick at all, our guide to{" "}
-      <a href="/guides/how-to-save-money-fast">saving money fast</a> uses the same
-      small-habits-beat-big-overhauls principle applied to finances.
+      Alışkanlıkların kalıcı olması hakkında daha fazlası için,{" "}
+      <a href="/guides/how-to-save-money-fast">hızlı para biriktirme</a> rehberimiz, finansal konulara uygulanan aynı küçük-alışkanlıklar-büyük-değişimlerden-daha-iyidir ilkesini kullanır.
     </p>
   </>
 );

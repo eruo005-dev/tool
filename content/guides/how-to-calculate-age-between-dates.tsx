@@ -3,270 +3,185 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Calculating age between two dates sounds simple — subtract the
-      years — but the edge cases matter. Leap years, inclusive versus
-      exclusive counts, whether &ldquo;23 years old&rdquo; means
-      completed years or the current year of life, legal age
-      jurisdictions that differ by purpose, pregnancy counted in
-      weeks versus months. This guide walks through the math, the
-      conventions you&rsquo;ll run into, and where the gotchas
-      actually bite.
+      İki tarih arasındaki yaşı hesaplamak kulağa basit gelir — yılları çıkarırsın — ama uç durumlar önemlidir. Artık yıllar, dahil eden ve hariç tutan sayma, "23 yaşında"nın tamamlanmış yıllar mı yoksa içinde yaşadığın yıl mı olduğu, amaca ve yargı yetkisine göre değişen yasal yaşlar, haftalara karşı aylarla ölçülen gebelik. Bu rehber, matematiği, karşılaşacağın kuralları ve tuzakların gerçekten nerede can yaktığını adım adım anlatır.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The Y/M/D decomposition</h2>
+    <h2>Yıl/Ay/Gün ayrıştırması</h2>
     <p>
-      The standard way to express age between two dates: years,
-      months, days — the largest unit first, carrying down from each
-      level.
+      İki tarih arasındaki yaşı ifade etmenin standart yolu: yıllar, aylar, günler — en büyük birimden başlayarak, her seviyede ödünç alarak.
     </p>
     <p>
-      Algorithm:
+      Algoritma:
     </p>
     <p>
-      1. Years = endYear − startYear. If end&rsquo;s (month, day) is
-      earlier in the year than start&rsquo;s, subtract 1 (the last
-      birthday hasn&rsquo;t happened yet).
+      1. Yıllar = bitişYılı − başlangıçYılı. Bitiş (ay, gün) başlangıçtan yıl içinde daha erken ise (son doğum günü henüz gerçekleşmediyse) 1 çıkar.
     </p>
     <p>
-      2. Months = endMonth − startMonth (mod 12 if negative), adjusting
-      year if needed.
+      2. Aylar = bitişAyı − başlangıçAyı (negatifse mod 12), gerekirse yıl ayarlanır.
     </p>
     <p>
-      3. Days = endDay − startDay. If negative, borrow from the
-      previous month&rsquo;s day count (and decrement months by 1).
+      3. Günler = bitişGünü − başlangıçGünü. Negatifse, önceki ayın gün sayısından ödünç al (ve ayları 1 azalt).
     </p>
     <p>
-      Example: start 1990-03-15, end 2026-04-23 →
-      Years = 36, Months = 1, Days = 8. (March 15 1990 → March 15
-      2026 = 36 years; + 1 month + 8 days to reach April 23 2026.)
+      Örnek: başlangıç 1990-03-15, bitiş 2026-04-23 → Yıllar = 36, Aylar = 1, Günler = 8. (15 Mart 1990 → 15 Mart 2026 = 36 yıl; + 1 ay + 8 gün 23 Nisan 2026'ya ulaşır.)
     </p>
 
-    <h2>Leap years — the February 29 trap</h2>
+    <h2>Artık yıllar — 29 Şubat tuzağı</h2>
     <p>
-      Leap year: divisible by 4, except century years unless divisible
-      by 400. So 2000 was a leap year, 1900 was not, 2100 will not be.
+      Artık yıl: 4'e bölünebilir, ancak 400'e bölünmedikçe yüzyıl yılları hariç. Yani 2000 artık yıldı, 1900 değildi, 2100 olmayacak.
     </p>
     <p>
-      Someone born February 29, 2000: when exactly do they turn 25?
-      Legally (most jurisdictions) on March 1, 2025 (non-leap
-      years). In leap years (2024, 2028), they turn on the 29th.
-      Software that doesn&rsquo;t handle this returns
-      &ldquo;March 1&rdquo; or crashes on Feb 29 inputs.
+      29 Şubat 2000'de doğan biri: tam olarak ne zaman 25 yaşına girer? Yasal olarak (çoğu yargı yetkisinde) 1 Mart 2025'te (artık olmayan yıllar). Artık yıllarda (2024, 2028) 29'unda kutlarlar. Bunu işlemeyen yazılımlar "1 Mart" döndürür veya 29 Şubat girişinde çöker.
     </p>
     <p>
-      Day-count math across leap years: if spans include Feb 29,
-      that day counts normally — ~365.25 days per year average.
+      Artık yıllar boyunca gün sayma matematiği: eğer aralık 29 Şubat'ı içeriyorsa, bu gün normal sayılır — yılda ortalama ~365.25 gün.
     </p>
 
-    <h2>Inclusive vs exclusive day count</h2>
+    <h2>Dahil eden ve hariç tutan gün sayma</h2>
     <p>
-      Asked &ldquo;how many days from March 15 to March 20&rdquo;,
-      two valid answers:
+      "15 Mart'tan 20 Mart'a kaç gün" sorusunun iki geçerli cevabı vardır:
     </p>
     <p>
-      <strong>Exclusive:</strong> 20 − 15 = 5 days. Used in most date
-      math (duration between two timestamps).
+      <strong>Hariç tutan:</strong> 20 − 15 = 5 gün. Çoğu tarih matematiğinde kullanılır (iki zaman damgası arasındaki süre).
     </p>
     <p>
-      <strong>Inclusive:</strong> 20 − 15 + 1 = 6 days. Used when
-      counting calendar days a person is present or active (hotel
-      stays, hospital admissions, &ldquo;trip lasted X days&rdquo;).
+      <strong>Dahil eden:</strong> 20 − 15 + 1 = 6 gün. Bir kişinin mevcut veya aktif olduğu takvim günlerini sayarken kullanılır (otel konaklamaları, hastane yatışları, "gezi X gün sürdü").
     </p>
     <p>
-      Ambiguous in conversation; context determines convention. Legal
-      and medical often prefer inclusive; financial/duration math
-      prefers exclusive.
+      Konuşmada belirsiz; bağlam kuralı belirler. Yasal ve tıbbi genellikle dahil edeni tercih eder; finansal/süre matematiği hariç tutanı tercih eder.
     </p>
 
-    <h2>Age in years — completed vs current year of life</h2>
+    <h2>Yıl cinsinden yaş — tamamlanmış vs yaşanmış yıl</h2>
     <p>
-      In Western countries: &ldquo;23 years old&rdquo; = completed 23
-      years since birth. You turn 24 on your 24th birthday.
+      Batı ülkelerinde: "23 yaşında" = doğumdan bu yana 23 tamamlanmış yıl. 24. doğum gününde 24 olursun.
     </p>
     <p>
-      In traditional Korean / East Asian age counting (being phased
-      out but historically used): you&rsquo;re 1 at birth and gain a
-      year each New Year. A baby born December 31 becomes &ldquo;2
-      years old&rdquo; the next day. South Korea officially
-      standardized on Western counting in 2023 but cultural usage
-      lingers.
+      Geleneksel Kore / Doğu Asya yaş sayma (aşamalı olarak kaldırılıyor ancak tarihsel olarak kullanılıyor): doğumda 1'sin ve her Yeni Yıl'da bir yaş alırsın. 31 Aralık'ta doğan bir bebek ertesi gün "2 yaşında" olur. Güney Kore 2023'te resmen Batı sayma sistemine geçti, ancak kültürel kullanım devam ediyor.
     </p>
     <p>
-      In Chinese traditional counting (&ldquo;virtual age&rdquo;,
-      xūsuì): similar to Korean — 1 at birth, +1 at each lunar new
-      year.
+      Çin geleneksel sayma ("nominal yaş", xūsuì): Kore'ye benzer — doğumda 1, her ay yeni yılında +1.
     </p>
     <p>
-      Computation-wise: always use completed years for software and
-      legal contexts unless explicitly told otherwise.
+      Hesaplama açısından: aksi açıkça belirtilmedikçe yazılım ve yasal bağlamlarda her zaman tamamlanmış yılları kullan.
     </p>
 
-    <h2>Pregnancy — weeks and months conventions</h2>
+    <h2>Gebelik — hafta ve ay kuralları</h2>
     <p>
-      Pregnancy is counted in weeks from the last menstrual period
-      (LMP), not conception. A &ldquo;9-month&rdquo; pregnancy is
-      actually 40 weeks = ~10 lunar months or ~9 calendar months.
+      Gebelik, son adet döneminden (LMP) itibaren haftalarla sayılır, gebe kalmadan değil. "9 aylık" bir gebelik aslında 40 haftadır = ~10 kameri ay veya ~9 takvim ayı.
     </p>
     <p>
-      Trimesters:
+      Trimesterler:
     </p>
     <p>
-      <strong>First:</strong> weeks 1–12.
+      <strong>Birinci:</strong> 1–12. haftalar.
     </p>
     <p>
-      <strong>Second:</strong> weeks 13–27.
+      <strong>İkinci:</strong> 13–27. haftalar.
     </p>
     <p>
-      <strong>Third:</strong> weeks 28–40.
+      <strong>Üçüncü:</strong> 28–40. haftalar.
     </p>
     <p>
-      Due date = LMP + 280 days (40 weeks). Naegele&rsquo;s rule:
-      LMP + 1 year − 3 months + 7 days.
+      Tahmini doğum tarihi = LMP + 280 gün (40 hafta). Naegele kuralı: LMP + 1 yıl − 3 ay + 7 gün.
     </p>
     <p>
-      After birth, baby age is in weeks for the first ~3 months, then
-      months until ~2 years, then years. Developmental milestones are
-      tied to these conventions.
+      Doğumdan sonra, bebek yaşı ilk ~3 ay haftalarla, sonra ~2 yaşına kadar aylarla, sonra yıllarla ifade edilir. Gelişimsel kilometre taşları bu kuralları takip eder.
     </p>
 
-    <h2>Legal age — varies by purpose and jurisdiction</h2>
+    <h2>Yasal yaş — amaca ve yargı yetkisine göre değişir</h2>
     <p>
-      One person, multiple &ldquo;legal ages&rdquo;:
+      Bir kişinin birden çok "yasal yaşı" vardır:
     </p>
     <p>
-      <strong>Drinking (US):</strong> 21 (federal minimum).
+      <strong>İçki (ABD):</strong> 21 (federal asgari).
     </p>
     <p>
-      <strong>Drinking (UK / most of EU):</strong> 18 (some countries
-      16 for beer/wine).
+      <strong>İçki (BK / AB'nin çoğu):</strong> 18 (bazı ülkelerde bira/şarap için 16).
     </p>
     <p>
-      <strong>Driving (US):</strong> 16 typical (varies by state,
-      some 14 or 15 with restrictions).
+      <strong>Araba kullanma (ABD):</strong> 16 tipik (eyalete göre değişir, bazıları 14 veya 15 kısıtlamalarla).
     </p>
     <p>
-      <strong>Driving (EU):</strong> 18 typical, 17 with
-      accompaniment in some countries.
+      <strong>Araba kullanma (AB):</strong> 18 tipik, bazı ülkelerde denetimle 17.
     </p>
     <p>
-      <strong>Voting:</strong> 18 nearly everywhere; 16 in Austria,
-      Scotland (some elections), Brazil (optional).
+      <strong>Oy kullanma:</strong> neredeyse her yerde 18; Avusturya, İskoçya (bazı seçimler), Brezilya'da (isteğe bağlı) 16.
     </p>
     <p>
-      <strong>Contract signing (majority):</strong> 18 in most
-      Western jurisdictions, 21 in a few.
+      <strong>Sözleşme imzalama (reşit olma yaşı):</strong> çoğu Batı yargı yetkisinde 18, birkaçında 21.
     </p>
     <p>
-      <strong>Criminal responsibility:</strong> varies widely — 10
-      (UK), 12 (many EU), 14 (Germany, Japan, China).
+      <strong>Cezai sorumluluk:</strong> büyük farklılık gösterir — 10 (BK), 12 (birçok AB ülkesi), 14 (Almanya, Japonya, Çin).
     </p>
     <p>
-      <strong>Retirement age:</strong> 65–67 standard in OECD,
-      rising; varies by country and birth year.
+      <strong>Emeklilik yaşı:</strong> OECD'de standart 65–67, yükseliyor; ülkeye ve doğum yılına göre değişir.
     </p>
 
-    <h2>Biological vs chronological age</h2>
+    <h2>Biyolojik ve kronolojik yaş</h2>
     <p>
-      <strong>Chronological:</strong> time since birth. What a
-      birthday measures.
+      <strong>Kronolojik:</strong> doğumdan bu yana geçen süre. Bir doğum gününün ölçtüğü şey.
     </p>
     <p>
-      <strong>Biological age:</strong> a measure of physiological
-      aging, typically derived from biomarkers (DNA methylation
-      &ldquo;epigenetic clocks&rdquo; like Horvath, PhenoAge,
-      GrimAge). Can differ from chronological by 10+ years.
+      <strong>Biyolojik yaş:</strong> tipik olarak biyobelirteçlerden (DNA metilasyonu "epigenetik saatler" Horvath, PhenoAge, GrimAge gibi) türetilen fizyolojik yaşlanma ölçüsü. Kronolojik yaştan 10+ yıl farklı olabilir.
     </p>
     <p>
-      Biological age is the variable research has tied to mortality
-      and disease risk. Chronological just correlates with it on
-      average. For medical decisions, biological is increasingly
-      relevant — for legal ones, chronological is what matters.
+      Biyolojik yaş, araştırmaların mortalite ve hastalık riskiyle ilişkilendirdiği değişkendir. Kronolojik yaş yalnızca ortalama olarak onunla ilişkilidir. Tıbbi kararlar için biyolojik yaş giderek daha önemli hale gelir — yasal kararlar için kronolojik yaş önemlidir.
     </p>
 
-    <h2>Pet age conversions — beyond &ldquo;dog years&rdquo;</h2>
+    <h2>Evcil hayvan yaşı dönüşümleri — "köpek yılları"nın ötesinde</h2>
     <p>
-      The old &ldquo;dog years = human years × 7&rdquo; rule is
-      wrong. Better approximation (AVMA and research-based):
+      Eski "köpek yılı = insan yılı × 7" kuralı yanlıştır. Daha iyi yaklaşım (AVMA ve araştırmaya dayalı):
     </p>
     <p>
-      <strong>Dogs:</strong> Year 1 ≈ 15 human years. Year 2 ≈ +9
-      (total 24). After that +4–5 per dog year. Large breeds age
-      faster than small.
+      <strong>Köpekler:</strong> 1. yıl ≈ 15 insan yılı. 2. yıl ≈ +9 (toplam 24). Sonraki her köpek yılı ≈ +4–5. Büyük ırklar küçüklerden daha hızlı yaşlanır.
     </p>
     <p>
-      Newer epigenetic model: human_age = 16 × ln(dog_age) + 31. A
-      10-year-old dog ≈ 68 human years by this model.
+      Daha yeni epigenetik model: insan_yaşı = 16 × ln(köpek_yaşı) + 31. Bu modele göre 10 yaşındaki bir köpek ≈ 68 insan yılı.
     </p>
     <p>
-      <strong>Cats:</strong> Year 1 ≈ 15 human years, Year 2 ≈ +9
-      (total 24), then +4 per year. A 10-year-old cat ≈ 56 human
-      years.
+      <strong>Kediler:</strong> 1. yıl ≈ 15 insan yılı, 2. yıl ≈ +9 (toplam 24), ardından yılda +4. 10 yaşındaki bir kedi ≈ 56 insan yılı.
     </p>
 
-    <h2>Business-date arithmetic</h2>
+    <h2>İş günü aritmetiği</h2>
     <p>
-      If the question is about working days (not calendar days),
-      skip weekends and holidays:
+      Soru iş günleriyle ilgiliyse (takvim günleri değil), hafta sonlarını ve tatilleri atla:
     </p>
     <p>
-      <strong>Weekends:</strong> ~5/7 of all days are weekdays. 30
-      calendar days ≈ 21–22 working days.
+      <strong>Hafta sonları:</strong> tüm günlerin ~5/7'si hafta içidir. 30 takvim günü ≈ 21–22 iş günü.
     </p>
     <p>
-      <strong>Holidays:</strong> US has ~10 federal; UK has 8 bank
-      holidays; each country differs. Annual holidays per country
-      vary from ~6 (US) to ~15 (Japan).
+      <strong>Tatiller:</strong> ABD'de ~10 federal tatil; BK'de 8 banka tatili; her ülke farklıdır. Ülke başına yıllık tatil sayısı ~6 (ABD) ile ~15 (Japonya) arasında değişir.
     </p>
     <p>
-      When giving deadlines in business contexts, be explicit:
-      &ldquo;10 business days&rdquo; vs &ldquo;2 weeks&rdquo; can
-      differ by 4+ calendar days.
+      İş bağlamlarında son tarihler verirken açık ol: "10 iş günü" ile "2 hafta" 4+ takvim günü fark edebilir.
     </p>
 
-    <h2>Time zones — when the dates differ by zone</h2>
+    <h2>Saat dilimleri — tarihlerin konuma göre farklılık gösterdiği durumlar</h2>
     <p>
-      &ldquo;Born November 30&rdquo; in Tokyo = &ldquo;November 29&rdquo;
-      in New York. When calculating age across time zones, pick a
-      convention: birth date in birth locale (most common), or UTC
-      (rarely needed outside software). Be consistent to avoid
-      off-by-one bugs.
+      Tokyo'da "30 Kasım'da doğdu" = New York'ta "29 Kasım". Saat dilimleri arasında yaş hesaplarken bir kural seç: doğum yerindeki doğum tarihi (en yaygın) veya UTC (yazılım dışında nadiren gerekli). Birer birer hatalardan kaçınmak için tutarlı ol.
     </p>
 
-    <h2>Common calculation errors</h2>
+    <h2>Yaygın hesaplama hataları</h2>
     <p>
-      <strong>Error 1:</strong> Forgetting to subtract a year when
-      the end date&rsquo;s birthday hasn&rsquo;t occurred yet.
-      Someone born June 15 1990, on April 23 2026, is 35 — not 36,
-      because June 15 2026 hasn&rsquo;t happened.
+      <strong>Hata 1:</strong> Bitiş tarihinin doğum günü henüz gerçekleşmediğinde bir yıl çıkarmayı unutmak. 15 Haziran 1990 doğumlu biri 23 Nisan 2026'da 35'tir — 36 değil, çünkü 15 Haziran 2026 henüz gelmedi.
     </p>
     <p>
-      <strong>Error 2:</strong> Using 365.25 or 365 days per year
-      uniformly. Accurate for rough age estimates, loses precision on
-      exact day counts.
+      <strong>Hata 2:</strong> Yıl başına 365.25 veya 365 günü tekdüze kullanmak. Kaba yaş tahminleri için iyi, kesin gün sayımları için hassasiyeti kaybeder.
     </p>
     <p>
-      <strong>Error 3:</strong> Off-by-one in inclusive counts.
-      &ldquo;From Monday to Friday&rdquo; — 4 days (exclusive) or 5
-      (inclusive)?
+      <strong>Hata 3:</strong> Dahil eden saymada birer birer hata. "Pazartesiden Cumaya" — 4 gün (hariç tutan) veya 5 (dahil eden)?
     </p>
     <p>
-      <strong>Error 4:</strong> Software using 32-bit date types
-      silently wraps around 2038 or fails before 1970. Use proper
-      date libraries.
+      <strong>Hata 4:</strong> 32 bit tarih türleri kullanan yazılımın 2038'de sessizce sarması veya 1970'ten önce başarısız olması. Uygun tarih kütüphaneleri kullan.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştır</h2>
     <p>
-      Compute age between two dates down to days with the{" "}
-      <a href="/tools/age-calculator">age calculator</a>. Pair with
-      the <a href="/tools/countdown-timer">countdown timer</a> for
-      counting down to a future date, and the{" "}
-      <a href="/tools/pregnancy-calculator">pregnancy calculator</a>
-      {" "}if you&rsquo;re working with LMP-based pregnancy math.
+      İki tarih arasındaki yaşı günlere kadar hesaplamak için <a href="/tools/age-calculator">yaş hesaplayıcıyı</a> kullan. Gelecek bir tarih için geri sayım için <a href="/tools/countdown-timer">geri sayım zamanlayıcısı</a> ve LMP tabanlı gebelik matematiğiyle çalışıyorsan <a href="/tools/pregnancy-calculator">gebelik hesaplayıcısı</a> ile eşleştir.
     </p>
   </>
 );

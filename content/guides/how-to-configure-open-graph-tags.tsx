@@ -3,183 +3,111 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Open Graph is the metadata protocol Facebook introduced in 2010 that controls how a URL
-      previews when someone shares it. LinkedIn, Twitter (via Twitter Cards), Slack, Discord,
-      iMessage, and most chat platforms all read Open Graph tags. Get them right and your link
-      shares with a polished card&mdash;big image, punchy title, focused description&mdash;that
-      pulls clicks. Get them wrong and your link shares as a plain URL or, worse, with a
-      stretched thumbnail cropped from a random decorative element. The tags themselves are
-      simple <code>&lt;meta&gt;</code> elements, but the image dimensions, caching behavior,
-      fallback chains, and platform-specific quirks catch everyone the first time. This guide
-      covers the core og:* properties, the 1200x630 image standard, Twitter Card variants,
-      debugging workflows, and the tags that genuinely matter versus the ones that are just
-      noise.
+      Open Graph, Facebook'un 2010 yılında tanıttığı, bir URL paylaşıldığında nasıl önizleneceğini kontrol eden meta veri protokolüdür. LinkedIn, Twitter (Twitter Kartları aracılığıyla), Slack, Discord, iMessage ve çoğu sohbet platformu Open Graph etiketlerini okur. Bunları doğru ayarlarsanız, bağlantınız cilalı bir kartla (büyük resim, çarpıcı başlık, odaklanmış açıklama) paylaşılır ve tıklama alır. Yanlış ayarlarsanız, bağlantınız düz bir URL olarak veya daha kötüsü, rastgele bir dekoratif öğeden kırpılmış uzatılmış bir küçük resimle paylaşılır. Etiketlerin kendisi basit <code>&lt;meta&gt;</code> öğeleridir, ancak resim boyutları, önbelleğe alma davranışı, geri dönüş zincirleri ve platforma özgü tuhaflıklar herkesi ilk seferde yakalar. Bu kılavuz, temel og:* özelliklerini, 1200x630 resim standardını, Twitter Kartı varyantlarını, hata ayıklama iş akışlarını ve gerçekten önemli olan etiketler ile sadece gürültü olanları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The four tags you always need</h2>
+    <h2>Her zaman ihtiyacınız olan dört etiket</h2>
     <p>
-      Four Open Graph tags cover 95 percent of link-sharing behavior:
-      <code>og:title</code>, <code>og:description</code>, <code>og:image</code>, and
-      <code>og:url</code>. Every indexable page should have all four. Many platforms fall back
-      to the HTML <code>&lt;title&gt;</code> tag when <code>og:title</code> is missing, and to
-      the <a href="/learn/meta-description">meta description</a> when <code>og:description</code> is missing, but relying on the
-      fallback means you lose the ability to write shorter, punchier copy tuned for social
-      sharing as opposed to search results.
+      Dört Open Graph etiketi, bağlantı paylaşma davranışının yüzde 95'ini kapsar:
+      <code>og:title</code>, <code>og:description</code>, <code>og:image</code> ve
+      <code>og:url</code>. Dizine eklenebilir her sayfada bu dördü de bulunmalıdır. Birçok platform, <code>og:title</code> eksik olduğunda HTML <code>&lt;title&gt;</code> etiketine ve <code>og:description</code> eksik olduğunda <a href="/learn/meta-description">meta açıklamaya</a> geri döner, ancak geri dönüşe güvenmek, arama sonuçlarının aksine sosyal paylaşım için uyarlanmış daha kısa, daha etkili metin yazma yeteneğinizi kaybetmeniz anlamına gelir.
     </p>
-    <pre>{`<meta property="og:title" content="Free JSON Formatter" />
-<meta property="og:description" content="Format, validate, and minify JSON instantly. No login." />
-<meta property="og:image" content="https://example.com/og/json-formatter.png" />
-<meta property="og:url" content="https://example.com/tools/json-formatter" />`}</pre>
+    <pre>{`<meta property="og:title" content="Ücretsiz JSON Biçimlendirici" />
+<meta property="og:description" content="JSON'u anında biçimlendirin, doğrulayın ve küçültün. Giriş gerektirmez." />
+<meta property="og:image" content="https://ornek.com/og/json-formatter.png" />
+<meta property="og:url" content="https://ornek.com/araclar/json-formatter" />`}</pre>
 
-    <h2>og:type and og:site_name</h2>
+    <h2>og:type ve og:site_name</h2>
     <p>
-      <code>og:type</code> tells the platform what kind of content the page represents:
+      <code>og:type</code>, platforma sayfanın ne tür bir içerik temsil ettiğini söyler:
       <code>website</code>, <code>article</code>, <code>video.movie</code>, <code>music.song</code>,
-      <code>book</code>, or <code>profile</code>. Most pages use <code>website</code>;
-      content-focused pages use <code>article</code>, which enables additional properties like
-      <code>article:published_time</code> and <code>article:author</code>. <code>og:site_name</code>
-      is the human-readable name of your site, shown above the preview card on some
-      platforms. Both are secondary to the four core tags but add polish.
+      <code>book</code> veya <code>profile</code>. Çoğu sayfa <code>website</code> kullanır;
+      içerik odaklı sayfalar, <code>article:published_time</code> ve <code>article:author</code> gibi ek özellikleri etkinleştiren <code>article</code> kullanır. <code>og:site_name</code>, sitenizin insan tarafından okunabilir adıdır ve bazı platformlarda önizleme kartının üzerinde gösterilir. Her ikisi de dört temel etikete göre ikincildir ancak cilalılık katar.
     </p>
 
-    <h2>og:image dimensions and format</h2>
+    <h2>og:image boyutları ve biçimi</h2>
     <p>
-      The recommended <code>og:image</code> is 1200 pixels by 630 pixels, aspect ratio 1.91:1.
-      This is the size Facebook, LinkedIn, Slack, and Twitter (when using summary_large_image)
-      all render comfortably. Minimum supported is 600 by 315 pixels. Images smaller than that
-      show as thumbnails next to the title rather than as a hero card. Maximum file size is
-      generally 8 MB, but keep it under 500 KB for fast rendering. PNG and JPEG are both
-      supported. GIF works on some platforms. WebP works on most modern platforms but fails on
-      some older scraper implementations.
+      Önerilen <code>og:image</code> boyutu 1200 piksel x 630 piksel, en boy oranı 1.91:1'dir. Bu, Facebook, LinkedIn, Slack ve Twitter'ın (summary_large_image kullanırken) rahatça işlediği boyuttur. Desteklenen minimum boyut 600 x 315 pikseldir. Bundan küçük resimler, kahraman kartı yerine başlığın yanında küçük resim olarak gösterilir. Maksimum dosya boyutu genellikle 8 MB'dir, ancak hızlı işleme için 500 KB'ın altında tutun. PNG ve JPEG'in her ikisi de desteklenir. GIF bazı platformlarda çalışır. WebP çoğu modern platformda çalışır ancak bazı eski kazıyıcı uygulamalarında başarısız olur.
     </p>
-    <pre>{`Recommended:   1200 x 630 px (1.91:1)
-Minimum:       600 x 315 px
-Max file size: ~8 MB (platform limit)
-Target size:   < 500 KB for fast render
-Formats:       PNG, JPEG (safest); WebP (most modern)`}</pre>
+    <pre>{`Önerilen:     1200 x 630 piksel (1.91:1)
+Minimum:       600 x 315 piksel
+Maks. dosya:  ~8 MB (platform sınırı)
+Hedef boyut:  < 500 KB (hızlı işleme için)
+Biçimler:     PNG, JPEG (en güvenli); WebP (çoğu modern)`}</pre>
 
-    <h2>Specifying image dimensions explicitly</h2>
+    <h2>Resim boyutlarını açıkça belirtme</h2>
     <p>
-      Add <code>og:image:width</code> and <code>og:image:height</code> to help platforms lay
-      out the preview before the image downloads. This matters because many scrapers have a
-      short timeout: if they cannot determine the dimensions quickly, they skip the image and
-      fall back to a text-only card.
+      Platformların resim indirilmeden önce önizlemeyi düzenlemesine yardımcı olmak için <code>og:image:width</code> ve <code>og:image:height</code> ekleyin. Bu önemlidir çünkü birçok kazıyıcının kısa bir zaman aşımı vardır: boyutları hızlıca belirleyemezlerse, resmi atlarlar ve yalnızca metin içeren bir karta geri dönerler.
     </p>
-    <pre>{`<meta property="og:image" content="https://example.com/og/home.png" />
+    <pre>{`<meta property="og:image" content="https://ornek.com/og/anasayfa.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Dashboard showing JSON validation results" />`}</pre>
+<meta property="og:image:alt" content="JSON doğrulama sonuçlarını gösteren gösterge paneli" />`}</pre>
 
-    <h2>Twitter Card tags</h2>
+    <h2>Twitter Kartı etiketleri</h2>
     <p>
-      Twitter reads both Open Graph and Twitter-specific meta tags, preferring Twitter-specific
-      ones when both are present. The two main card types are <code>summary</code> (small
-      square image) and <code>summary_large_image</code> (full-width 1.91:1 card, similar to
-      Facebook). Include <code>twitter:card</code>, optionally <code>twitter:site</code> (your
-      site&rsquo;s Twitter handle), and <code>twitter:creator</code> (the article
-      author&rsquo;s handle). If you already have og:image and og:description, Twitter uses
-      those unless you override with twitter:image and twitter:description.
+      Twitter, hem Open Graph hem de Twitter'a özgü meta etiketlerini okur ve her ikisi de mevcut olduğunda Twitter'a özgü olanları tercih eder. İki ana kart türü <code>summary</code> (küçük kare resim) ve <code>summary_large_image</code> (Facebook'a benzer tam genişlikte 1.91:1 kart). <code>twitter:card</code>, isteğe bağlı olarak <code>twitter:site</code> (sitenizin Twitter kullanıcı adı) ve <code>twitter:creator</code> (makale yazarının kullanıcı adı) ekleyin. Zaten og:image ve og:description'ınız varsa, twitter:image ve twitter:description ile geçersiz kılmadığınız sürece Twitter bunları kullanır.
     </p>
     <pre>{`<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:site" content="@yoursite" />
-<meta name="twitter:creator" content="@author" />`}</pre>
+<meta name="twitter:site" content="@siteniz" />
+<meta name="twitter:creator" content="@yazar" />`}</pre>
 
-    <h2>Absolute URLs are required</h2>
+    <h2>Mutlak URL'ler gereklidir</h2>
     <p>
-      The <code>og:image</code> and <code>og:url</code> values must be absolute URLs, not
-      relative paths. Scrapers fetch these URLs independently, usually without the context of
-      the referring page, so a relative path like <code>/images/hero.png</code> resolves to
-      the scraper&rsquo;s own domain and fails. Use <code>https://</code> not <code>http://</code>
-      for all values, and do not use protocol-relative <code>//example.com/hero.png</code>
-      because some older scrapers cannot parse it.
+      <code>og:image</code> ve <code>og:url</code> değerleri, göreli yollar değil, mutlak URL'ler olmalıdır. Kazıyıcılar bu URL'leri genellikle yönlendiren sayfanın bağlamı olmadan bağımsız olarak getirir, bu nedenle <code>/images/hero.png</code> gibi göreli bir yol, kazıyıcının kendi alan adına çözümlenir ve başarısız olur. Tüm değerler için <code>https://</code> kullanın, <code>http://</code> değil ve protokol-göreli <code>//ornek.com/hero.png</code> kullanmayın çünkü bazı eski kazıyıcılar bunu ayrıştıramaz.
     </p>
 
-    <h2>Caching and the Facebook debugger</h2>
+    <h2>Önbelleğe alma ve Facebook hata ayıklayıcısı</h2>
     <p>
-      Facebook, LinkedIn, and most platforms cache scraped metadata for days or weeks. If you
-      update og tags and share the URL again, you will see the old preview until the cache
-      expires. Facebook&rsquo;s Sharing Debugger at developers.facebook.com/tools/debug/ shows
-      exactly what Facebook sees and lets you force a refresh with &ldquo;Scrape Again.&rdquo;
-      LinkedIn has a similar Post Inspector tool. Twitter&rsquo;s Card Validator existed but has
-      been deprecated; to force a Twitter refresh, append a dummy query parameter to the URL.
-      Test every new page in at least one debugger before announcing a launch.
+      Facebook, LinkedIn ve çoğu platform, kazınmış meta verileri günler veya haftalar boyunca önbelleğe alır. og etiketlerini güncellerseniz ve URL'yi tekrar paylaşırsanız, önbellek süresi dolana kadar eski önizlemeyi görürsünüz. Facebook'un developers.facebook.com/tools/debug/ adresindeki Paylaşım Hata Ayıklayıcısı, Facebook'un tam olarak ne gördüğünü gösterir ve "Yeniden Kazı" ile yenilemeye zorlamanıza olanak tanır. LinkedIn'in benzer bir Gönderi Denetçisi aracı vardır. Twitter'ın Kart Doğrulayıcısı mevcuttu ancak kullanımdan kaldırıldı; Twitter yenilemesini zorlamak için URL'ye sahte bir sorgu parametresi ekleyin. Bir lansmanı duyurmadan önce her yeni sayfayı en az bir hata ayıklayıcıda test edin.
     </p>
 
-    <h2>Localization with og:locale</h2>
+    <h2>og:locale ile yerelleştirme</h2>
     <p>
-      <code>og:locale</code> specifies the language and region (like <code>en_US</code>,
-      <code>fr_FR</code>, <code>pt_BR</code>). For multi-language sites,
-      <code>og:locale:alternate</code> lists additional supported locales. Localized share
-      previews are rare outside Facebook, but the tags signal correct language to downstream
-      translation tools and accessibility software.
+      <code>og:locale</code>, dili ve bölgeyi belirtir (<code>en_US</code>, <code>fr_FR</code>, <code>pt_BR</code> gibi). Çok dilli siteler için <code>og:locale:alternate</code>, desteklenen ek yerel ayarları listeler. Yerelleştirilmiş paylaşım önizlemeleri Facebook dışında nadirdir, ancak etiketler, aşağı akış çeviri araçlarına ve erişilebilirlik yazılımlarına doğru dili işaret eder.
     </p>
 
-    <h2>Article-specific properties</h2>
+    <h2>Makaleye özgü özellikler</h2>
     <p>
-      When <code>og:type</code> is <code>article</code>, add <code>article:published_time</code>
-      (ISO 8601 datetime), <code>article:modified_time</code>, <code>article:author</code>
-      (a URL or name), <code>article:section</code>, and <code>article:tag</code>. These
-      surface in some rich shares on LinkedIn and Facebook and help downstream tools like
-      Pocket and Instapaper categorize content.
+      <code>og:type</code> <code>article</code> olduğunda, <code>article:published_time</code> (ISO 8601 tarih-saat), <code>article:modified_time</code>, <code>article:author</code> (bir URL veya ad), <code>article:section</code> ve <code>article:tag</code> ekleyin. Bunlar, LinkedIn ve Facebook'taki bazı zengin paylaşımlarda görünür ve Pocket ile Instapaper gibi aşağı akış araçlarının içeriği kategorize etmesine yardımcı olur.
     </p>
 
-    <h2>Dynamic og:image generation</h2>
+    <h2>Dinamik og:image oluşturma</h2>
     <p>
-      Many sites generate og images on demand using serverless functions or edge workers:
-      Vercel OG, Cloudinary, or a homegrown Puppeteer job. The generator takes the page title
-      and a template and produces a 1200x630 PNG with branded typography. This scales well for
-      thousands of pages without designing each image manually. Cache the output aggressively
-      because every social share will fetch it. A stale cache of a good image is better than a
-      cache miss during a viral moment.
+      Birçok site, sunucusuz işlevler veya uç çalışanlar kullanarak og resimlerini anında oluşturur: Vercel OG, Cloudinary veya ev yapımı bir Puppeteer işi. Oluşturucu, sayfa başlığını ve bir şablonu alır ve markalı tipografiye sahip 1200x630 PNG üretir. Bu, her resmi manuel olarak tasarlamadan binlerce sayfa için iyi ölçeklenir. Çıktıyı agresif bir şekilde önbelleğe alın çünkü her sosyal paylaşım onu getirecektir. İyi bir resmin bayat önbelleği, viral bir an sırasında önbellek isabetsizliğinden daha iyidir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Relative image URLs.</strong> Scrapers cannot resolve relative paths. Always use
-      absolute <code>https://</code> URLs for og:image and og:url.
+      <strong>Göreli resim URL'leri.</strong> Kazıyıcılar göreli yolları çözümleyemez. og:image ve og:url için her zaman mutlak <code>https://</code> URL'leri kullanın.
     </p>
     <p>
-      <strong>Wrong aspect ratio.</strong> Images that are not near 1.91:1 get cropped
-      unpredictably&mdash;often cutting off the title text or your logo. Design for 1200x630
-      and let platforms scale down.
+      <strong>Yanlış en boy oranı.</strong> 1.91:1'e yakın olmayan resimler tahmin edilemez bir şekilde kırpılır&mdash;genellikle başlık metnini veya logonuzu keser. 1200x630 için tasarlayın ve platformların küçültmesine izin verin.
     </p>
     <p>
-      <strong>Forgetting og:url.</strong> Without og:url, some platforms use the URL the user
-      pasted, which may include UTM parameters or tracking IDs that vary per share. Set og:url
-      to the <a href="/learn/canonical-url">canonical URL</a>.
+      <strong>og:url'yi unutmak.</strong> og:url olmadan, bazı platformlar kullanıcının yapıştırdığı URL'yi kullanır; bu URL, paylaşım başına değişen UTM parametreleri veya izleme kimlikleri içerebilir. og:url'yi <a href="/learn/canonical-url">kurallı URL'ye</a> ayarlayın.
     </p>
     <p>
-      <strong>Not testing in the debugger.</strong> CMS previews do not match real scrapers.
-      Always test with Facebook Sharing Debugger and a real share on at least two platforms
-      before launch.
+      <strong>Hata ayıklayıcıda test etmemek.</strong> CMS önizlemeleri gerçek kazıyıcılarla eşleşmez. Lansmandan önce her zaman Facebook Paylaşım Hata Ayıklayıcısı ve en az iki platformda gerçek bir paylaşımla test edin.
     </p>
     <p>
-      <strong>Caching issues after updates.</strong> Platforms cache for days. Use the
-      Facebook Debugger&rsquo;s force-refresh button to update the cache for a specific URL.
+      <strong>Güncellemelerden sonra önbellek sorunları.</strong> Platformlar günlerce önbelleğe alır. Belirli bir URL için önbelleği güncellemek üzere Facebook Hata Ayıklayıcısı'nın zorla yenileme düğmesini kullanın.
     </p>
     <p>
-      <strong>Text too small on the og image.</strong> The image renders at small sizes on
-      mobile. Headlines below 40 pixels tall in the source usually become unreadable on a
-      phone. Design at actual render size.
+      <strong>og resminde çok küçük metin.</strong> Resim mobilde küçük boyutlarda işlenir. Kaynakta 40 pikselden kısa olan başlıklar genellikle telefonda okunamaz hale gelir. Gerçek işleme boyutunda tasarlayın.
     </p>
     <p>
-      <strong>Mixing property and name attributes.</strong> <code>og:*</code> tags use
-      <code>property=</code>; <code>twitter:*</code> tags use <code>name=</code>. Mix them up
-      and some scrapers ignore the tags entirely.
+      <strong>property ve name niteliklerini karıştırmak.</strong> <code>og:*</code> etiketleri <code>property=</code> kullanır; <code>twitter:*</code> etiketleri <code>name=</code> kullanır. Bunları karıştırırsanız, bazı kazıyıcılar etiketleri tamamen yok sayar.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Build a complete og tag set in seconds with the{" "}
-      <a href="/tools/open-graph-generator">Open Graph generator</a>. Pair with the{" "}
-      <a href="/tools/meta-tag-generator">meta tag generator</a> for the broader set of head
-      tags (charset, viewport, canonical) and the{" "}
-      <a href="/tools/schema-markup-generator">schema markup generator</a> to add <a href="/learn/json-ld">JSON-LD</a> that
-      unlocks rich snippets in search as well as polished cards on social.
+      Saniyeler içinde eksiksiz bir og etiket seti oluşturun:{" "}
+      <a href="/tools/open-graph-generator">Open Graph oluşturucu</a>. Daha geniş baş etiketleri seti (karakter seti, görüntü alanı, kurallı) için <a href="/tools/meta-tag-generator">meta etiket oluşturucu</a> ve aramada zengin snippet'lerin yanı sıra sosyal medyada cilalı kartların kilidini açan <a href="/learn/json-ld">JSON-LD</a> eklemek için <a href="/tools/schema-markup-generator">şema işaretleme oluşturucu</a> ile eşleştirin.
     </p>
   </>
 );

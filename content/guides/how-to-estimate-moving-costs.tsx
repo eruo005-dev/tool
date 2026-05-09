@@ -3,235 +3,204 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Moving always costs more than you think. The obvious line item is the truck or mover,
-      but the hidden costs &mdash; packing supplies, insurance, utility transfers, cleaning,
-      time off work, deposits, and moving tips &mdash; can easily double the sticker price.
-      A local DIY move can run $500-1,500. A long-distance full-service move can run
-      $3,000-12,000. Interstate moves of a whole house routinely hit $10,000+. This guide
-      breaks down each cost category, compares DIY, hybrid, and full-service options, and
-      gives you a methodology for getting accurate estimates that don&rsquo;t balloon on
-      move day.
+      Taşınmak her zaman düşündüğünüzden daha pahalıya mal olur. En bariz kalem kamyon veya taşıyıcı ücretidir, ancak gizli maliyetler &mdash; ambalaj malzemeleri, sigorta, fatura devirleri, temizlik, işten izin, depozitolar ve taşıma bahşişleri &mdash; etiket fiyatını kolayca ikiye katlayabilir. Yerel bir DIY taşınma 500–1.500 $ arasında olabilir. Uzun mesafeli, tam hizmetli bir taşınma 3.000–12.000 $ arasında olabilir. Eyaletler arası tüm bir evi taşımak genellikle 10.000 $'ı bulur. Bu rehber her maliyet kategorisini ayrıntılı olarak ele alır, DIY, hibrit ve tam hizmet seçeneklerini karşılaştırır ve taşınma günü şişmeyecek doğru tahminler almanız için bir yöntem sunar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>1. The three move types</h2>
+    <h2>1. Üç taşınma türü</h2>
     <ul>
       <li>
-        <strong>DIY</strong>: you rent the truck, pack, load, drive, unload. Cheapest, most
-        time-intensive, most physically demanding.
+        <strong>DIY</strong>: Kamyonu siz kiralar, paketler, yükler, sürer ve boşaltırsınız. En ucuz, en çok zaman alan ve en fazla fiziksel efor gerektiren.
       </li>
       <li>
-        <strong>Hybrid (&ldquo;you pack, they drive&rdquo;)</strong>: portable container
-        services (PODS, U-Pack) or hired labor for loading only. Middle option.
+        <strong>Hibrit (&ldquo;siz paketleyin, onlar sürsün&rdquo;)</strong>: Taşınabilir konteyner hizmetleri (PODS, U-Pack) veya sadece yükleme için kiralanan işçi. Orta seçenek.
       </li>
       <li>
-        <strong>Full-service</strong>: professional movers pack, load, transport, unload,
-        sometimes unpack. Easiest, most expensive.
+        <strong>Tam hizmet</strong>: Profesyonel taşıyıcılar paketler, yükler, taşır, boşaltır ve bazen açar. En kolay, en pahalı.
       </li>
     </ul>
 
-    <h2>2. DIY local move cost breakdown</h2>
+    <h2>2. DIY yerel taşınma maliyet dökümü</h2>
     <p>
-      Typical 2-bedroom local DIY move (under 50 miles):
+      Tipik 2 yatak odalı yerel DIY taşınma (50 milden az):
     </p>
     <ul>
-      <li>Truck rental (U-Haul 17&rsquo;, 1 day): $80-150</li>
-      <li>Mileage: $0.70-1.20/mile (often included short-range)</li>
-      <li>Fuel: $60-120 depending on truck size and distance</li>
-      <li>Truck insurance: $25-60</li>
-      <li>Packing supplies: $100-300</li>
-      <li>Moving blankets/dolly rental: $30-60</li>
-      <li>Friends and pizza: $50-100</li>
-      <li>Cleaning supplies or cleaning service for old place: $0-200</li>
+      <li>Kamyon kiralama (U-Haul 17&rsquo;, 1 gün): 80–150 $</li>
+      <li>Kilometre: Mil başına 0,70–1,20 $ (kısa mesafede genellikle dahildir)</li>
+      <li>Yakıt: Kamyon boyutu ve mesafeye bağlı olarak 60–120 $</li>
+      <li>Kamyon sigortası: 25–60 $</li>
+      <li>Ambalaj malzemeleri: 100–300 $</li>
+      <li>Taşıma battaniyesi/el arabası kiralama: 30–60 $</li>
+      <li>Arkadaşlar ve pizza: 50–100 $</li>
+      <li>Eski yer için temizlik malzemeleri veya temizlik hizmeti: 0–200 $</li>
     </ul>
     <p>
-      Total: <strong>$350-1,000</strong>. Add $200-500 if you hire loaders for 2-3 hours.
+      Toplam: <strong>350–1.000 $</strong>. 2–3 saat için yükleyici kiralarsanız 200–500 $ ekleyin.
     </p>
 
-    <h2>3. Full-service local move</h2>
+    <h2>3. Tam hizmet yerel taşınma</h2>
     <p>
-      Professional movers charge hourly for local moves, typically $100-200/hour for 2-3
-      movers with a truck. A 2-bedroom typically takes 4-6 hours. Expect:
+      Profesyonel taşıyıcılar yerel taşınmalar için saatlik ücret alır, genellikle 2–3 taşıyıcı ve bir kamyon için saatte 100–200 $. 2 yatak odalı bir ev genellikle 4–6 saat sürer. Beklenen:
     </p>
     <ul>
-      <li>Labor: $500-1,200</li>
-      <li>Truck fee / travel fee: $50-150</li>
-      <li>Packing service (optional): $200-500 per room</li>
-      <li>Packing supplies if they provide: $50-150</li>
-      <li>Tip: 15-20% of labor cost</li>
+      <li>İşçilik: 500–1.200 $</li>
+      <li>Kamyon ücreti / seyahat masrafı: 50–150 $</li>
+      <li>Paketleme hizmeti (isteğe bağlı): Oda başına 200–500 $</li>
+      <li>Sağlanan ambalaj malzemeleri: 50–150 $</li>
+      <li>Bahşiş: İşçilik maliyetinin %15–20'si</li>
     </ul>
     <p>
-      Total: <strong>$700-2,500</strong> for a 2BR local move.
+      Toplam: 2 yatak odalı yerel taşınma için <strong>700–2.500 $</strong>.
     </p>
 
-    <h2>4. Long-distance moves: weight and distance</h2>
+    <h2>4. Uzun mesafeli taşınmalar: ağırlık ve mesafe</h2>
     <p>
-      Interstate moves are priced by weight of goods plus distance. Key formula:
+      Eyaletler arası taşınmalar, eşyalarınızın ağırlığı artı mesafeye göre fiyatlandırılır. Temel formül:
     </p>
-    <pre>{`interstate cost ≈ weight (lbs) × rate per lb × distance factor + services`}</pre>
+    <pre>{`eyaletler arası maliyet ≈ ağırlık (lbs) × lb başına oran × mesafe faktörü + hizmetler`}</pre>
     <p>
-      A typical 2-bedroom home (5,000-7,000 lbs) moving 1,000 miles runs $3,000-6,000.
-      3-bedroom (8,000-10,000 lbs) across country: $6,000-12,000. 4+ bedroom: $10,000-$20,000.
-      The single biggest variable cost you can control: <strong>declutter before the
-      weight inventory</strong>.
+      1.000 mil taşınan tipik 2 yatak odalı bir ev (5.000–7.000 lbs) 3.000–6.000 $'a mal olur. Kıtalararası 3 yatak odalı (8.000–10.000 lbs): 6.000–12.000 $. 4+ yatak odalı: 10.000–20.000 $. Kontrol edebileceğiniz en büyük değişken maliyet: <strong>ağırlık envanterinden önce eşyaları ayıklamak</strong>.
     </p>
 
-    <h2>5. Declutter: the highest-leverage prep</h2>
+    <h2>5. Eşya ayıklama: en yüksek kaldıraçlı hazırlık</h2>
     <p>
-      Every pound you move costs money twice &mdash; the move, and later when you discard it
-      anyway. Sell, donate, or toss:
+      Taşıdığınız her kilo size iki kez maliyet çıkarır &mdash; taşınma sırasında ve daha sonra yine de atarken. Satın, bağışlayın veya atın:
     </p>
     <ul>
-      <li>Furniture you haven&rsquo;t used in a year</li>
-      <li>Anything you won&rsquo;t miss: old electronics, duplicate kitchenware, outgrown clothes</li>
-      <li>Books you&rsquo;re not re-reading (books are heavy)</li>
-      <li>Gym equipment that&rsquo;s been a clothes rack</li>
+      <li>Bir yıldır kullanmadığınız mobilyalar</li>
+      <li>Özlemeyeceğiniz her şey: eski elektronikler, yedek mutfak aletleri, küçülen kıyafetler</li>
+      <li>Tekrar okumayacağınız kitaplar (kitaplar ağırdır)</li>
+      <li>Askılığa dönüşmüş spor ekipmanları</li>
     </ul>
     <p>
-      Reducing move weight by 2,000 lbs can save $1,000-2,000 on a long-distance move.
+      Taşıma ağırlığını 2.000 lbs azaltmak, uzun mesafeli bir taşınmada 1.000–2.000 $ tasarruf sağlayabilir.
     </p>
 
-    <h2>6. Packing supply budget</h2>
+    <h2>6. Ambalaj malzemesi bütçesi</h2>
     <p>
-      Typical 2-bedroom needs:
+      Tipik 2 yatak odalı ihtiyaçlar:
     </p>
     <ul>
-      <li>30-50 boxes (small, medium, large mix): $80-200</li>
-      <li>Tape (6-10 rolls): $25-50</li>
-      <li>Bubble wrap: $25-50</li>
-      <li>Packing paper (5 lb bundle): $20-40</li>
-      <li>Markers, labels: $10-20</li>
-      <li>Wardrobe boxes (3-5): $40-100</li>
-      <li>Mattress bags, dish packs: $30-80</li>
+      <li>30–50 kutu (küçük, orta, büyük karışık): 80–200 $</li>
+      <li>Bant (6–10 rulo): 25–50 $</li>
+      <li>Balonlu naylon: 25–50 $</li>
+      <li>Paket kağıdı (5 lb paket): 20–40 $</li>
+      <li>Kalemler, etiketler: 10–20 $</li>
+      <li>Elbise kutuları (3–5): 40–100 $</li>
+      <li>Yatak poşetleri, tabak kutuları: 30–80 $</li>
     </ul>
     <p>
-      Total new: $200-500. Save 50-70% by asking liquor stores for boxes, sourcing from
-      local Buy Nothing groups, or using Home Depot&rsquo;s moving supply program.
+      Yeni toplam: 200–500 $. İçki dükkanlarından kutu isteyerek, yerel Buy Nothing gruplarından temin ederek veya Home Depot&rsquo;un taşıma malzemeleri programını kullanarak %50–70 tasarruf edin.
     </p>
 
-    <h2>7. Moving insurance</h2>
+    <h2>7. Taşıma sigortası</h2>
     <p>
-      By federal law, interstate movers offer two tiers:
+      Federal yasaya göre, eyaletler arası taşıyıcılar iki seviye sunar:
     </p>
     <ul>
-      <li>Released value (free, 60 cents per pound): if they break your $3,000 TV, you get $6 per pound = maybe $30</li>
-      <li>Full value protection (2-5% of declared value): actual replacement</li>
+      <li>Serbest bırakılan değer (ücretsiz, pound başına 60 sent): 3.000 $'lık TV'nizi kırarlarsa, pound başına 6 $ = belki 30 $ alırsınız</li>
+      <li>Tam değer koruması (beyan edilen değerin %2–5'i): gerçek değiştirme</li>
     </ul>
     <p>
-      Full value on a $40,000 house of goods costs $800-2,000. Third-party movers insurance
-      via your home or renters policy can be cheaper. Never decline coverage on a long-haul
-      move — one bad accident can cost $5,000+ in damaged goods.
+      40.000 $'lık ev eşyası için tam değer 800–2.000 $'a mal olur. Ev veya kiracı sigortanız aracılığıyla üçüncü taraf taşıyıcı sigortası daha ucuz olabilir. Uzun mesafeli bir taşınmada asla teminatı reddetmeyin &mdash; tek bir kötü kaza 5.000 $'ın üzerinde hasarlı eşyaya neden olabilir.
     </p>
 
-    <h2>8. Hidden fees in full-service moves</h2>
+    <h2>8. Tam hizmet taşınmalarda gizli ücretler</h2>
     <ul>
-      <li>Long carry fee: if truck can&rsquo;t park within 75 feet of door</li>
-      <li>Stair fee: per flight above the first</li>
-      <li>Elevator fee: if elevator must be reserved or used</li>
-      <li>Shuttle fee: if a smaller truck is needed for narrow streets</li>
-      <li>Piano/safe/hot tub fee: specialty items</li>
-      <li>Storage in transit (SIT): $100-300/month if delivery is delayed</li>
-      <li>Packing materials (if not quoted): $200-600</li>
+      <li>Uzun taşıma ücreti: kamyon kapıya 75 feet içinde park edemezse</li>
+      <li>Merdiven ücreti: birinci katın üzerindeki her kat için</li>
+      <li>Asansör ücreti: asansör rezerve edilmeli veya kullanılmalıysa</li>
+      <li>Servis ücreti: dar sokaklar daha küçük bir kamyon gerektiriyorsa</li>
+      <li>Piyano/kasa/sıcak küvet ücreti: özel eşyalar</li>
+      <li>Transit depolama (SIT): teslimat gecikirse ayda 100–300 $</li>
+      <li>Ambalaj malzemeleri (teklife dahil değilse): 200–600 $</li>
     </ul>
     <p>
-      Ask specifically about all of these in the quote. Reputable movers will list them
-      up front; shady ones surprise you on delivery day with a higher bill to release goods.
+      Teklifte bunların hepsini özellikle sorun. Saygın taşıyıcılar bunları peşinen listeler; şaibeli olanlar, eşyalarınızı teslim etmek için daha yüksek bir faturayla teslimat günü sizi şaşırtır.
     </p>
 
-    <h2>9. Getting accurate estimates</h2>
+    <h2>9. Doğru tahminler almak</h2>
     <p>
-      Three types of estimates:
+      Üç tür tahmin:
     </p>
     <ul>
       <li>
-        <strong>Non-binding</strong>: rough guess; final bill can be higher. Avoid.
+        <strong>Bağlayıcı olmayan</strong>: kaba tahmin; nihai fatura daha yüksek olabilir. Kaçının.
       </li>
       <li>
-        <strong>Binding</strong>: fixed price based on inventory, no matter the actual weight.
+        <strong>Bağlayıcı</strong>: envantere dayalı sabit fiyat, gerçek ağırlıktan bağımsız.
       </li>
       <li>
-        <strong>Binding not-to-exceed</strong>: caps the price; if actual weight is less,
-        you pay less. Best option.
+        <strong>Bağlayıcı aşmamak kaydıyla</strong>: fiyatı sınırlar; gerçek ağırlık daha azsa, daha az ödersiniz. En iyi seçenek.
       </li>
     </ul>
     <p>
-      Always get 3+ quotes with in-home (virtual or physical) inventory surveys. Avoid
-      anyone quoting by phone alone — that&rsquo;s the classic hostage-freight scam setup.
+      Her zaman ev içi (sanal veya fiziksel) envanter incelemeleriyle 3+ teklif alın. Telefon üzerinden teklif verenlerden kaçının &mdash; bu klasik rehine-yük dolandırıcılığı düzeneğidir.
     </p>
 
-    <h2>10. Ancillary moving costs</h2>
+    <h2>10. Yan taşınma maliyetleri</h2>
     <ul>
-      <li>Security deposit on new place: 1-2 months rent</li>
-      <li>First + last month (common in tight markets)</li>
-      <li>Pet fees, cleaning fees, key fees</li>
-      <li>Utility transfer / deposit fees: $50-300 per utility</li>
-      <li>Internet install: $0-200</li>
-      <li>New driver&rsquo;s license, registration (across states): $50-400</li>
-      <li>New plates, safety inspections: $50-200</li>
-      <li>Restocking essentials in new kitchen/bathroom: $200-500</li>
+      <li>Yeni yer için güvence depozitosu: 1–2 aylık kira</li>
+      <li>İlk + son ay (sıkı piyasalarda yaygın)</li>
+      <li>Evcil hayvan ücretleri, temizlik ücretleri, anahtar ücretleri</li>
+      <li>Fatura devir/depozito ücretleri: fatura başına 50–300 $</li>
+      <li>İnternet kurulumu: 0–200 $</li>
+      <li>Yeni ehliyet, tescil (eyaletler arası): 50–400 $</li>
+      <li>Yeni plakalar, güvenlik muayeneleri: 50–200 $</li>
+      <li>Yeni mutfak/banyo temel ihtiyaçlarını stoklama: 200–500 $</li>
     </ul>
     <p>
-      These aren&rsquo;t technically &ldquo;moving&rdquo; but they hit in the same month and
-      blow budgets. Add $1,000-3,000 in ancillaries for a cross-country move.
+      Bunlar teknik olarak &ldquo;taşınma&rdquo; değildir ancak aynı aya denk gelir ve bütçeleri altüst eder. Kıtalararası bir taşınma için yan giderlere 1.000–3.000 $ ekleyin.
     </p>
 
-    <h2>11. Time off work</h2>
+    <h2>11. İşten izin</h2>
     <p>
-      Moving typically requires 1-3 days of PTO, plus some amount of remote-work disruption.
-      For an hourly worker, that&rsquo;s real income. For salaried, it&rsquo;s vacation days
-      you&rsquo;re burning. Include this in the total move cost comparison between DIY
-      (more days) and full-service (fewer days).
+      Taşınma tipik olarak 1–3 gün ücretli izin ve biraz uzaktan çalışma aksaması gerektirir. Saatlik bir işçi için bu gerçek gelirdir. Maaşlı için, yakılan tatil günleridir. Bunu DIY (daha fazla gün) ve tam hizmet (daha az gün) arasındaki toplam taşınma maliyeti karşılaştırmasına dahil edin.
     </p>
 
-    <h2>12. Interstate and international scam flags</h2>
+    <h2>12. Eyaletler arası ve uluslararası dolandırıcılık kırmızı bayrakları</h2>
     <ul>
-      <li>Lowball estimate over the phone</li>
-      <li>Required large deposit up front</li>
-      <li>No physical address or DOT number listed</li>
-      <li>Demand for cash only</li>
-      <li>Refusal to provide binding estimates</li>
-      <li>Reviews mention hostage freight (holding goods for extra payment)</li>
+      <li>Telefon üzerinden düşük teklif</li>
+      <li>Peşin büyük depozito talep etmek</li>
+      <li>Listelenmiş fiziksel adres veya DOT numarası yok</li>
+      <li>Sadece nakit talep etmek</li>
+      <li>Bağlayıcı tahmin vermeyi reddetmek</li>
+      <li>Rehine yüklerinden (ek ödeme için eşyaları tutma) bahseden yorumlar</li>
     </ul>
     <p>
-      Always verify the company&rsquo;s USDOT and MC numbers at <em>fmcsa.dot.gov</em>. For
-      international moves, check the AMSA member list.
+      Şirketin USDOT ve MC numaralarını her zaman <em>fmcsa.dot.gov</em> adresinde doğrulayın. Uluslararası taşınmalar için AMSA üye listesini kontrol edin.
     </p>
 
-    <h2>13. Common mistakes</h2>
+    <h2>13. Yaygın hatalar</h2>
     <ul>
       <li>
-        <strong>Estimating off weight you haven&rsquo;t decluttered.</strong> Every pound
-        kept costs twice.
+        <strong>Ayıklamadığınız bir ağırlık üzerinden tahmin almak.</strong> Tutulan her kilo iki katına mal olur.
       </li>
       <li>
-        <strong>Taking the cheapest quote.</strong> Usually the scammer.
+        <strong>En ucuz teklifi almak.</strong> Genellikle bir dolandırıcılık.
       </li>
       <li>
-        <strong>Skipping insurance.</strong> 60 cents/pound coverage won&rsquo;t replace
-        anything worth owning.
+        <strong>Sigortayı atlamak.</strong> Pound başına 60 sentlik teminat, sahip olmaya değer hiçbir şeyin yerini koymaz.
       </li>
       <li>
-        <strong>Forgetting ancillary costs.</strong> Deposits and setup fees pile up to
-        $1-3k.
+        <strong>Yan maliyetleri unutmak.</strong> Depozitolar ve kurulum ücretleri 1–3 bin $'a kadar çıkar.
       </li>
       <li>
-        <strong>Booking late.</strong> Summer moves (May-August) book out and cost 20-30%
-        more. Book 6-8 weeks ahead.
+        <strong>Çok geç rezervasyon yapmak.</strong> Yaz taşınmaları (Mayıs–Ağustos) dolar ve %20–30 daha pahalı olur. 6–8 hafta önceden rezervasyon yapın.
       </li>
     </ul>
 
-    <h2>14. Run the numbers</h2>
+    <h2>14. Rakamları hesaplayın</h2>
     <p>
-      Plug in your home size, distance, and service level to get an estimated all-in cost,
-      then compare against your rent-to-income and relocation budget.
+      Ev boyutunuzu, mesafenizi ve hizmet seviyenizi girerek tahmini tüm maliyeti alın, ardından bunu kira-gelir oranınız ve taşınma bütçenizle karşılaştırın.
     </p>
     <p>
-      <a href="/tools/moving-cost-calculator">Moving cost calculator</a>
-      <a href="/tools/apartment-affordability-calculator">Apartment affordability calculator</a>
-      <a href="/tools/trip-cost-calculator">Trip cost calculator</a>
+      <a href="/tools/moving-cost-calculator">Taşınma maliyeti hesaplayıcı</a>
+      <a href="/tools/apartment-affordability-calculator">Daire satın alınabilirlik hesaplayıcı</a>
+      <a href="/tools/trip-cost-calculator">Seyahat maliyeti hesaplayıcı</a>
     </p>
   </>
 );

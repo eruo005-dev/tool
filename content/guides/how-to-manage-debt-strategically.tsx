@@ -2,81 +2,54 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Paying off debt is half math, half psychology. The math says attack the highest interest rate first. The
-    psychology says you need small wins to stay motivated for three years. The right strategy is whichever
-    one you&rsquo;ll actually stick with &mdash; but that choice gets easier once you understand the tradeoffs,
-    the tools, and the traps that quietly extend debt by years.
+    Borç ödemek yarı matematik, yarı psikolojidir. Matematik, en yüksek faiz oranına ilk önce saldırmanı söyler.
+    Psikoloji ise üç yıl boyunca motive kalmak için küçük kazanımlara ihtiyacın olduğunu söyler. Doğru strateji, hangisine gerçekten bağlı kalacağındır {`>`} ancak bu seçim, ödünleşimleri, araçları ve borcu sessizce yıllarca uzatan tuzakları anladığında daha kolay hale gelir.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      Not financial advice. Consult a licensed advisor. Debt decisions interact with credit, taxes, and
-      retirement accounts in ways that are highly personal &mdash; a CPA or certified credit counselor can
-      save you more than this article ever will.
+      Finansal tavsiye değildir. Lisanslı bir danışmana danışın. Borç kararları, kredi, vergiler ve emeklilik hesaplarıyla son derece kişisel şekillerde etkileşime girer {`>`} bir CPA veya sertifikalı kredi danışmanı, bu makalenin asla yapamayacağından daha fazlasını kurtarabilir.
     </p>
 
-    <h2>Snowball vs avalanche</h2>
+    <h2>Kartopu vs çığ</h2>
     <p>
-      The two dominant philosophies: snowball pays off the smallest balance first for motivation, regardless
-      of interest rate. Avalanche pays off the highest-interest debt first for pure mathematical efficiency.
-      Avalanche wins the spreadsheet by a few hundred to a few thousand dollars on a typical payoff. Snowball
-      wins the behavioral game for people who&rsquo;ve tried and failed before. If your debts are roughly
-      similar in interest rate, snowball is basically free. If you&rsquo;re carrying a 24% credit card next
-      to a 4% student loan, avalanche is worth the discipline.
+      İki baskın felsefe: kartopu, faiz oranından bağımsız olarak motivasyon için en küçük bakiyeyi ilk önce öder. Çığ, saf matematiksel verimlilik için en yüksek faizli borcu ilk önce öder. Çığ, tipik bir ödemede birkaç yüz ila birkaç bin dolar arasında bir farkla elektronik tabloyu kazanır. Kartopu, daha önce deneyip başarısız olmuş kişiler için davranışsal oyunu kazanır. Borçlarınızın faiz oranları kabaca benzer ise, kartopu neredeyse ücretsizdir. %24'lük bir kredi kartının yanında %4'lük bir öğrenci kredisi taşıyorsanız, çığ disipline değerdir.
     </p>
 
-    <h2>Attack high-interest debt first</h2>
+    <h2>Önce yüksek faizli borca saldırın</h2>
     <p>
-      Credit cards at 18&ndash;24% <a href="/learn/apr">APR</a> and payday loans at 300%+ are financial emergencies. Every month they
-      sit, they compound against you faster than almost any asset can appreciate. Before you invest beyond a
-      401(k) match, before you save aggressively for a house down payment, kill anything above 10% APR. A
-      guaranteed 24% return by paying off a credit card is better than any stock pick.
+      %18-24 <a href="/learn/apr">APR</a>'li kredi kartları ve %300+ maaş günü kredileri finansal acil durumlardır. Her ay oturduklarında, neredeyse herhangi bir varlığın değer kazanabileceğinden daha hızlı bir şekilde size karşı bileşik faiz uygularlar. Bir 401(k) eşleşmesinin ötesinde yatırım yapmadan önce, bir ev peşinatı için agresif bir şekilde biriktirmeden önce, %10 APR'nin üzerindeki her şeyi öldürün. Bir kredi kartını ödeyerek garantili %24 getiri, herhangi bir hisse senedi seçiminden daha iyidir.
     </p>
 
-    <h2>Balance transfers and consolidation</h2>
+    <h2>Bakiye transferleri ve konsolidasyon</h2>
     <ul>
-      <li>0% balance transfer offers sound free but charge a 3&ndash;5% transfer fee up front.</li>
-      <li>The 0% window ends &mdash; typically at 15, 18, or 21 months &mdash; and the rate jumps to 20%+.</li>
-      <li>Debt consolidation loans can lower your blended rate, but watch for origination fees of 1&ndash;8%.</li>
-      <li>Consolidation only works if you stop adding new debt to the freshly cleared cards.</li>
-      <li>A home equity loan is cheaper but turns unsecured debt into debt secured by your house.</li>
+      <li>%0 bakiye transfer teklifleri ücretsiz görünür ancak peşin olarak %3-5 transfer ücreti alır.</li>
+      <li>%0 penceresi sona erer {`>`} tipik olarak 15, 18 veya 21 ayda {`>`} ve oran %20+'ya fırlar.</li>
+      <li>Borç konsolidasyon kredileri, karma oranınızı düşürebilir, ancak %1-8 arası başlangıç ücretlerine dikkat edin.</li>
+      <li>Konsolidasyon yalnızca yeni temizlenen kartlara yeni borç eklemeyi bırakırsanız işe yarar.</li>
+      <li>Bir ev kredisi daha ucuzdur ancak teminatsız borcu, evinizle güvence altına alınmış borca dönüştürür.</li>
     </ul>
 
-    <h2>Negotiating and settlement</h2>
+    <h2>Müzakere ve uzlaşma</h2>
     <p>
-      If you&rsquo;re already behind 3+ months, creditors will often settle for 30&ndash;50 cents on the
-      dollar because they&rsquo;d rather collect something than charge off the whole balance. Call the
-      creditor directly before engaging a debt-settlement company &mdash; most of those charge 20&ndash;25%
-      of the savings and tank your credit for years. Settled debt is taxable as forgiven income unless you
-      qualify for insolvency.
+      Zaten 3+ ay gerideyseniz, alacaklılar genellikle dolar başına 30-50 sente uzlaşır çünkü tüm bakiyeyi silmektense bir şey tahsil etmeyi tercih ederler. Bir borç-uzlaşma şirketiyle anlaşmadan önce doğrudan alacaklıyı arayın {`>`} bunların çoğu tasarrufların %20-25'ini alır ve kredinizi yıllarca mahveder. Uzlaşılmış borç, iflas muafiyeti için uygun değilseniz, affedilmiş gelir olarak vergilendirilir.
     </p>
 
-    <h2>Bankruptcy as last resort</h2>
+    <h2>Son çare olarak iflas</h2>
     <p>
-      Chapter 7 liquidates dischargeable debts in about four months but stays on your credit report for ten
-      years. Chapter 13 restructures debt into a 3&ndash;5 year payment plan and is used when you have
-      assets to protect or income too high for Chapter 7. Student loans are rarely discharged. Bankruptcy is
-      a legitimate tool, not a moral failure &mdash; but see a bankruptcy attorney, not a TV ad.
+      Bölüm 7, yaklaşık dört ay içinde silinebilir borçları tasfiye eder ancak kredi raporunuzda on yıl kalır. Bölüm 13, borcu 3-5 yıllık bir ödeme planına yeniden yapılandırır ve koruyacak varlıklarınız olduğunda veya Bölüm 7 için geliriniz çok yüksek olduğunda kullanılır. Öğrenci kredileri nadiren silinir. İflas meşru bir araçtır, ahlaki bir başarısızlık değil {`>`} ancak bir TV reklamına değil, bir iflas avukatına görünün.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Paying only the minimum forever &mdash; a $5,000 credit card balance at 22% and 2% minimums takes
-      about 30 years to pay off. Closing paid-off cards &mdash; you just killed your credit utilization
-      ratio and potentially 30&ndash;80 points of your score. Missing a single payment by 30 days can drop
-      your score 80&ndash;110 points and stay on file for seven years. Raiding a 401(k) to pay debt triggers
-      income tax plus a 10% early-withdrawal penalty and permanently shrinks retirement compounding &mdash;
-      almost always a bad trade.
+      Sonsuza kadar yalnızca minimumu ödemek {`>`} %22 faizli ve %2 minimum ödemeli 5.000$'lık bir kredi kartı bakiyesinin ödenmesi yaklaşık 30 yıl sürer. Ödenmiş kartları kapatmak {`>`} kredi kullanım oranınızı ve potansiyel olarak puanınızın 30-80 puanını öldürdünüz. 30 gün içinde tek bir ödemeyi kaçırmak, puanınızı 80-110 puan düşürebilir ve yedi yıl boyunca dosyada kalabilir. Borcu ödemek için bir 401(k)'ye el koymak, gelir vergisi artı %10 erken çekme cezası tetikler ve emeklilik bileşik faizini kalıcı olarak küçültür {`>`} neredeyse her zaman kötü bir takastır.
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Alt satır</h2>
     <p>
-      Pick snowball or avalanche, automate every payment, and kill high-interest balances before anything
-      else. Use the free <a href="/tools/debt-payoff-calculator">debt-payoff-calculator</a> to see the exact
-      month you&rsquo;ll be free and how much interest you save by adding $100 extra. Debt is a math problem
-      with an emotional component &mdash; solve both, and you&rsquo;ll be out faster than you think.
+      Kartopu veya çığ seçin, her ödemeyi otomatikleştirin ve yüksek faizli bakiyeleri her şeyden önce öldürün. Özgür olacağınız kesin ayı ve 100$ fazladan ekleyerek ne kadar faiz tasarrufu yapacağınızı görmek için ücretsiz <a href="/tools/debt-payoff-calculator">borç-ödeme-hesaplayıcıyı</a> kullanın. Borç, duygusal bir bileşeni olan bir matematik problemidir {`>`} ikisini de çözün ve düşündüğünüzden daha hızlı kurtulacaksınız.
     </p>
   </>
 );

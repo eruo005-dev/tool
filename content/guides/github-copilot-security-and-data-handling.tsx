@@ -3,153 +3,151 @@
 export const intro = (
   <>
     <p>
-      Code is sensitive. The biggest concern teams raise about GitHub Copilot is data
-      handling: where does your code go, who sees it, does it train future models,
-      and what happens when a suggestion turns out to be wrong? This guide walks the
-      practical answers.
+      Kod hassastır. Ekiplerin GitHub Copilot hakkında dile getirdiği en büyük endişe veri
+      işlemedir: kodunuz nereye gidiyor, kim görüyor, gelecekteki modelleri eğitiyor mu
+      ve bir öneri yanlış çıktığında ne oluyor? Bu kılavuz pratik
+      yanıtları adım adım açıklıyor.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "code-safety", label: "Is your code safe with Copilot?" },
-  { id: "internet", label: "Does Copilot need an internet connection?" },
-  { id: "training-data", label: "What code does Copilot learn from?" },
-  { id: "broken-code", label: "What if Copilot writes code that breaks?" },
+  { id: "code-safety", label: "Kodunuz Copilot ile güvende mi?" },
+  { id: "internet", label: "Copilot'un internet bağlantısına ihtiyacı var mı?" },
+  { id: "training-data", label: "Copilot hangi koddan öğreniyor?" },
+  { id: "broken-code", label: "Copilot bozuk kod yazarsa ne olur?" },
 ];
 
 export const body = (
   <>
-    <h2 id="code-safety">GitHub Copilot security: is your code safe?</h2>
+    <h2 id="code-safety">GitHub Copilot güvenliği: kodunuz güvende mi?</h2>
     <p>
-      Three different concerns get conflated:
+      Genellikle birbirine karıştırılan üç farklı endişe vardır:
     </p>
     <ul>
       <li>
-        <strong>Code transmission for <a href="/learn/inference">inference</a>.</strong> Yes, your prompt context
-        (the code around your cursor) is sent to GitHub&rsquo;s servers for the model
-        to generate suggestions. Encrypted in transit. Required for the service to
-        work.
+        <strong><a href="/learn/inference">Çıkarım</a> için kod iletimi.</strong> Evet, istem bağlamınız
+        (imlecinizin etrafındaki kod), modelin öneriler üretebilmesi için GitHub'ın
+        sunucularına gönderilir. Aktarım sırasında şifrelenir. Hizmetin çalışması için
+        gereklidir.
       </li>
       <li>
-        <strong>Training on your code.</strong> Business + Enterprise tiers
-        explicitly opt out of using your code for training. Individual tier:
-        check current settings — historically opt-in or opt-out has shifted.
+        <strong>Kodunuzun eğitim için kullanılması.</strong> İş + Kurumsal katmanlar
+        kodunuzu eğitim için kullanmamayı açıkça tercih eder. Bireysel katman:
+        mevcut ayarları kontrol edin — geçmişte katılım zorunlu veya isteğe bağlı
+        olarak değişiklik göstermiştir.
       </li>
       <li>
-        <strong>Code retention.</strong> GitHub retains prompt-and-suggestion data
-        for limited periods (varies by tier; Business + Enterprise have stricter
-        deletion). For high-sensitivity codebases, the Enterprise tier&rsquo;s
-        zero-retention mode is the right pick.
+        <strong>Kod saklama.</strong> GitHub, istem ve öneri verilerini
+        sınırlı sürelerle saklar (katmana göre değişir; İş + Kurumsal daha sıkı
+        silme politikalarına sahiptir). Yüksek hassasiyetli kod tabanları için Kurumsal katmanın
+        sıfır saklama modu doğru seçimdir.
       </li>
     </ul>
     <p>
-      For most teams: Business or Enterprise tier addresses the realistic concerns.
-      Self-hosted alternatives (Codeium, Tabnine self-hosted, Continue with local
-      models) exist if your security regime requires fully air-gapped operation.
+      Çoğu ekip için: İş veya Kurumsal katmanı gerçekçi endişeleri giderir.
+      Güvenlik rejiminiz tamamen hava boşluklu çalışma gerektiriyorsa, kendi kendine barındırılan
+      alternatifler (Codeium, Tabnine self-hosted, Continue yerel modellerle) mevcuttur.
     </p>
 
-    <h2 id="internet">Does Copilot need an internet connection?</h2>
+    <h2 id="internet">Copilot'un internet bağlantısına ihtiyacı var mı?</h2>
     <p>
-      Yes. Inference happens on GitHub&rsquo;s servers; your editor sends the prompt
-      and receives the completion. Without internet, suggestions don&rsquo;t appear.
-      You&rsquo;ll see a status indicator showing connection state.
+      Evet. Çıkarım GitHub'ın sunucularında gerçekleşir; düzenleyiciniz istemi gönderir
+      ve tamamlamayı alır. İnternet olmadan öneriler görünmez.
+      Bağlantı durumunu gösteren bir durum göstergesi görürsünüz.
     </p>
     <p>
-      Local-only alternatives:
+      Yalnızca yerel alternatifler:
     </p>
     <ul>
-      <li><strong>Continue.dev</strong> with a local Ollama model.</li>
-      <li><strong>Tabnine self-hosted</strong> (paid).</li>
-      <li><strong>Cursor</strong> with a local model.</li>
+      <li><strong>Continue.dev</strong> yerel bir Ollama modeli ile.</li>
+      <li><strong>Tabnine self-hosted</strong> (ücretli).</li>
+      <li><strong>Cursor</strong> yerel bir model ile.</li>
     </ul>
     <p>
-      These run on your machine but require a beefy GPU + significant disk space for
-      the model weights. Quality is generally below GPT-4-class; closing fast as open
-      models improve.
+      Bunlar makinenizde çalışır ancak model ağırlıkları için güçlü bir GPU ve önemli miktarda disk alanı gerektirir.
+      Kalite genellikle GPT-4 sınıfının altındadır; açık modeller geliştikçe hızla kapanmaktadır.
     </p>
 
-    <h2 id="training-data">What code does GitHub Copilot learn from?</h2>
+    <h2 id="training-data">GitHub Copilot hangi koddan öğreniyor?</h2>
     <p>
-      The base Copilot model was trained on public code on GitHub through a cutoff
-      date in early 2024 (specific cutoffs vary by underlying model). The training
-      data includes permissive-license code (MIT, Apache 2.0, BSD) plus some
-      copyleft code (GPL).
+      Temel Copilot modeli, 2024 başındaki bir kesme tarihine kadar GitHub'daki herkese açık kod üzerinde eğitildi (belirli kesme tarihleri temel alınan modele göre değişir). Eğitim
+      verileri, izinli lisanslı kodu (MIT, Apache 2.0, BSD) ve ayrıca bazı
+      copyleft kodlarını (GPL) içerir.
     </p>
     <p>
-      The copyright + license question is genuinely contested:
+      Telif hakkı + lisans sorusu gerçekten tartışmalıdır:
     </p>
     <ul>
       <li>
-        Class-action lawsuits filed in 2022-2024 around copyright + DMCA. Most
-        substantive claims either dismissed or reduced; a few proceeding through
-        2026 courts.
+        2022-2024 yıllarında telif hakkı + DMCA ile ilgili toplu dava açıldı. Çoğu
+      maddi iddia reddedildi veya daraltıldı; birkaçı 2026
+      mahkemelerinde devam ediyor.
       </li>
       <li>
-        GitHub provides IP indemnification for Business + Enterprise customers —
-        if Copilot output triggers a copyright claim, GitHub defends.
+        GitHub, İş + Kurumsal müşterileri için fikri mülkiyet tazminatı sağlar —
+        Copilot çıktısı bir telif hakkı iddiasını tetiklerse, GitHub savunmayı üstlenir.
       </li>
       <li>
-        Practical advice: don&rsquo;t use Copilot output for code you&rsquo;ll
-        copyright-register without independent review. For typical commercial
-        software, the indemnification + your editing makes this a non-issue.
+        Pratik tavsiye: bağımsız inceleme yapmadan telif hakkı tescil ettireceğiniz
+        kod için Copilot çıktısını kullanmayın. Tipik ticari
+        yazılımlar için tazminat + sizin düzenlemeniz bunu sorun olmaktan çıkarır.
       </li>
     </ul>
 
-    <h2 id="broken-code">What happens if Copilot writes code that breaks your app?</h2>
+    <h2 id="broken-code">Copilot uygulamanızı bozan bir kod yazarsa ne olur?</h2>
     <p>
-      You&rsquo;re responsible for the code you ship — Copilot or no Copilot. The
-      practical implications:
+      Gönderdiğiniz koddan siz sorumlusunuz — Copilot olsun ya da olmasın. Pratik
+      sonuçlar:
     </p>
     <ul>
       <li>
-        <strong>Liability for production outages:</strong> with you. Same as any code
-        from any source. Copilot suggestions don&rsquo;t come with a warranty.
+        <strong>Üretim kesintilerinin sorumluluğu:</strong> sizdedir. Herhangi bir
+        kaynaktan gelen herhangi bir kodla aynı. Copilot önerileri garantiyle gelmez.
       </li>
       <li>
-        <strong>Code review still required.</strong> Treat Copilot suggestions like
-        a junior dev&rsquo;s PR — review before merging, run tests, verify edge
-        cases.
+        <strong>Kod incelemesi hala gereklidir.</strong> Copilot önerilerine, bir
+        kıdemsiz geliştiricinin çekme isteği gibi davranın — birleştirmeden önce inceleyin, testleri çalıştırın, uç
+        durumları doğrulayın.
       </li>
       <li>
-        <strong>Test coverage matters more.</strong> AI-generated code can be subtly
-        wrong in ways human-written code rarely is (e.g. confidently wrong about
-        an API). Tests catch these.
+        <strong>Test kapsamı daha önemlidir.</strong> Yapay zeka tarafından oluşturulan kod, insan yazımı kodun nadiren olduğu kadar
+        ince bir şekilde yanlış olabilir (örneğin, bir API hakkında kendinden emin bir şekilde yanlış olmak). Testler bunları yakalar.
       </li>
       <li>
-        <strong>Audit trails.</strong> If you adopt Copilot in regulated environments,
-        keep records of which suggestions were accepted vs modified vs rejected.
-        Helps with future incident analysis.
+        <strong>Denetim izleri.</strong> Copilot'u düzenlenmiş ortamlarda benimsiyorsanız,
+        hangi önerilerin kabul edildiğine, değiştirildiğine veya reddedildiğine dair kayıtlar tutun.
+        Gelecekteki olay analizine yardımcı olur.
       </li>
     </ul>
     <p>
-      Code-quality research (GitClear 2024) shows AI-assisted code has more churn
-      and slightly more duplication than hand-written code. Counter the tendency
-      with strong code review + test culture.
+      Kod kalitesi araştırması (GitClear 2024), yapay zeka destekli kodun el yazımı koda göre daha fazla değişiklik
+      ve biraz daha fazla tekrar içerdiğini göstermektedir. Bu eğilimi
+      güçlü kod incelemesi + test kültürü ile dengeleyin.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Run Copilot ROI for your team",
+  label: "Ekibiniz için Copilot ROI'sini hesaplayın",
   targetSlug: "github-copilot-roi-calculator",
 };
 
 export const faq = [
   {
-    q: "GitHub Copilot security: is my code safe?",
-    a: "Code is sent to GitHub for inference (encrypted in transit). Business + Enterprise opt out of training-data use; Individual tier varies. Business + Enterprise have stricter retention. For high-sensitivity codebases, Enterprise zero-retention mode or self-hosted alternatives (Codeium, Tabnine, Continue with local models).",
+    q: "GitHub Copilot güvenliği: kodum güvende mi?",
+    a: "Kod, çıkarım için GitHub'a gönderilir (aktarım sırasında şifrelenir). İş + Kurumsal, eğitim verisi kullanımını devre dışı bırakır; Bireysel katman değişir. İş + Kurumsal daha sıkı saklama politikalarına sahiptir. Yüksek hassasiyetli kod tabanları için Kurumsal sıfır saklama modu veya kendi kendine barındırılan alternatifler (Codeium, Tabnine, Continue yerel modellerle).",
   },
   {
-    q: "Does GitHub Copilot require an internet connection?",
-    a: "Yes. Inference happens on GitHub's servers. Local-only alternatives (Continue.dev with Ollama, Tabnine self-hosted, Cursor with local models) require beefy GPU + significant disk space for weights. Quality is below GPT-4-class but improving.",
+    q: "GitHub Copilot internet bağlantısı gerektiriyor mu?",
+    a: "Evet. Çıkarım GitHub'ın sunucularında gerçekleşir. Yalnızca yerel alternatifler (Continue.dev Ollama ile, Tabnine self-hosted, Cursor yerel modellerle) güçlü GPU + ağırlıklar için önemli disk alanı gerektirir. Kalite GPT-4 sınıfının altındadır ancak gelişmektedir.",
   },
   {
-    q: "What code does GitHub Copilot learn from?",
-    a: "Public code on GitHub through early-2024 cutoff. Includes permissive-license + some copyleft. Class-action lawsuits 2022-2024 mostly dismissed or reduced; some proceeding. Business + Enterprise customers get IP indemnification — GitHub defends if output triggers a claim.",
+    q: "GitHub Copilot hangi koddan öğreniyor?",
+    a: "2024 başındaki kesme tarihine kadar GitHub'daki herkese açık kod. İzinli lisanslı + bazı copyleft içerir. 2022-2024 toplu davaları çoğunlukla reddedildi veya daraltıldı; bazıları devam ediyor. İş + Kurumsal müşterileri fikri mülkiyet tazminatı alır — çıktı bir iddiayı tetiklerse GitHub savunur.",
   },
   {
-    q: "What if Copilot writes code that breaks my app?",
-    a: "You're responsible for code you ship — Copilot or otherwise. Same review process. Tests matter more (AI code can be confidently wrong about APIs in ways human code rarely is). Track audit trails in regulated environments.",
+    q: "Copilot uygulamamı bozan bir kod yazarsa ne olur?",
+    a: "Gönderdiğiniz koddan siz sorumlusunuz — Copilot veya başka bir araç. Aynı inceleme süreci. Testler daha önemlidir (yapay zeka kodu, insan kodunun nadiren olduğu kadar API'ler hakkında kendinden emin bir şekilde yanlış olabilir). Düzenlenmiş ortamlarda denetim izlerini takip edin.",
   },
 ];

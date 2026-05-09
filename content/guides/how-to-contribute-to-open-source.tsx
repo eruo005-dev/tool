@@ -1,87 +1,65 @@
 export const intro = (
   <>
     <p>
-      Open source contributions are one of the highest-<a href="/learn/roi">ROI</a> things a developer
-      can do: free learning, public proof of skill, direct pathway to job
-      offers. But most beginners freeze at &ldquo;which project&rdquo; and
-      &ldquo;is my code good enough.&rdquo; Here&rsquo;s the practical path.
+      Açık kaynak katkıları, bir geliştiricinin yapabileceği en yüksek <a href="/learn/roi">ROI</a> faaliyetlerinden biridir: ücretsiz öğrenme, halka açık beceri kanıtı, iş tekliflerine doğrudan yol. Ancak çoğu yeni başlayan, "hangi proje" ve "kodum yeterince iyi mi" konularında takılıp kalır. İşte pratik yol.
     </p>
     <p>
-      Start small, be useful, build reputation.
+      Küçük başlayın, faydalı olun, itibar kazanın.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Use the software you want to contribute to</h2>
+    <h2>1. Katkıda bulunmak istediğiniz yazılımı kullanın</h2>
     <p>
-      Start with tools you already use daily. You&rsquo;ll notice bugs and
-      missing features organically. Contributing to software you don&rsquo;t
-      use is a grind; contributing to tools you love is fun.
+      Her gün kullandığınız araçlarla başlayın. Doğal olarak hataları ve eksik özellikleri fark edeceksiniz. Kullanmadığınız bir yazılıma katkıda bulunmak angaryadır; sevdiğiniz araçlara katkıda bulunmak eğlencelidir.
     </p>
 
-    <h2>2. Start with documentation</h2>
+    <h2>2. Dokümantasyonla başlayın</h2>
     <p>
-      Typos, missing examples, outdated guides. Doc PRs are welcomed everywhere,
-      get merged fast, build familiarity with the repo and contribution workflow.
-      Everyone started here. No shame.
+      Yazım hataları, eksik örnekler, güncel olmayan kılavuzlar. Dokümantasyon PR'ları her yerde memnuniyetle karşılanır, hızlıca birleştirilir ve size repo ile katkı iş akışını öğretir. Herkes buradan başladı. Utanılacak bir şey yok.
     </p>
 
-    <h2>3. Filter issues by &ldquo;good first issue&rdquo;</h2>
+    <h2>3. Sorunları "good first issue" etiketine göre filtreleyin</h2>
     <p>
-      Most major repos label beginner-friendly tickets. Search GitHub for{" "}
-      <code>label:&ldquo;good first issue&rdquo;</code> in your favorite language.
-      These are pre-vetted for newcomers and have extra maintainer patience.
+      Çoğu büyük repo, yeni başlayanlar için uygun görevleri etiketler. En sevdiğiniz dilde GitHub'da <code>label:"good first issue"</code> araması yapın. Bunlar yeni gelenler için önceden incelenmiştir ve bakımcılar ekstra sabır gösterir.
     </p>
 
-    <h2>4. Read the CONTRIBUTING.md first</h2>
+    <h2>4. Önce CONTRIBUTING.md dosyasını okuyun</h2>
     <p>
-      Every major project has contribution guidelines. Read them before opening
-      a PR. Following them shows respect and saves back-and-forth on formatting,
-      tests, commit messages.
+      Her büyük projenin katkı yönergeleri vardır. PR açmadan önce bunları okuyun. Bunlara uymak saygı gösterir ve biçimlendirme, testler, commit mesajları konusunda gereksiz gidiş-gelişleri önler.
     </p>
 
-    <h2>5. Comment on an issue before coding</h2>
+    <h2>5. Kodlamadan önce bir soruna yorum yapın</h2>
     <p>
-      Say &ldquo;I&rsquo;d like to work on this.&rdquo; Get a thumbs up from a
-      maintainer. Prevents wasted work on tickets already assigned, already
-      fixed, or out of scope.
+      "Bunun üzerinde çalışmak istiyorum" deyin. Bir bakımcının onayını alın. Bu, halihazırda atanmış, düzeltilmiş veya kapsam dışı olan sorunlar için boşa çaba harcanmasını önler.
     </p>
 
-    <h2>6. Small, focused PRs</h2>
+    <h2>6. Küçük, odaklı PR'lar</h2>
     <p>
-      One PR per issue. Don&rsquo;t bundle unrelated changes. Large PRs scare
-      reviewers and take months to merge. Small PRs are easy to review, easy
-      to merge, and build your contribution count fast.
+      Sorun başına bir PR. İlgisiz değişiklikleri bir araya getirmeyin. Büyük PR'lar incelemecileri korkutur ve birleşmesi aylar sürer. Küçük PR'ların incelenmesi ve birleştirilmesi kolaydır ve katkı sayınızı hızla artırır.
     </p>
 
-    <h2>7. Tests are table stakes</h2>
+    <h2>7. Testler tartışılmaz</h2>
     <p>
-      If the project has tests, add tests for your change. A PR with tests gets
-      merged 10x faster than one without. Shows you understand the value of
-      test coverage, not just writing code.
+      Projede testler varsa, değişikliğiniz için testler ekleyin. Test içeren bir PR, içermeyene göre 10 kat daha hızlı birleştirilir. Bu, yalnızca kodu değil, test kapsamının değerini de anladığınızı gösterir.
     </p>
 
-    <h2>8. Be receptive to feedback</h2>
+    <h2>8. Geri bildirime açık olun</h2>
     <p>
-      Maintainers will critique your code. It&rsquo;s not personal. Say thank
-      you, make the changes, push the updates. The maintainers who give tough
-      feedback often become the strongest references later.
+      Bakımcılar kodunuzu eleştirecektir. Kişisel değildir. Teşekkür edin, değişiklikleri yapın, güncellemeleri gönderin. Sert geri bildirim veren bakımcılar genellikle daha sonra en güçlü referanslarınız olur.
     </p>
 
-    <h2>9. Pick projects with active maintainers</h2>
+    <h2>9. Aktif bakımcıları olan projeleri seçin</h2>
     <p>
-      A PR that sits open for 6 months helps no one. Before putting in effort,
-      check recent commit activity and average PR merge time. Active &gt; famous.
+      6 ay boyunca açık kalan bir PR kimseye fayda sağlamaz. Çaba harcamadan önce, son commit etkinliğini ve ortalama PR birleştirme süresini kontrol edin. Aktif &gt; ünlü.
     </p>
 
-    <h2>10. Consistency &gt; one-off contributions</h2>
+    <h2>10. Tutarlılık &gt; tek seferlik katkılar</h2>
     <p>
-      Ten contributions over a year to the same repo &gt; one contribution each
-      to ten repos. Becoming a known contributor to a well-known project is a
-      career accelerator. See{" "}
-      <a href="/guides/how-to-build-a-developer-portfolio">portfolio guide</a>.
+      Bir yıl boyunca aynı repoya on katkı &gt; on farklı repoya birer katkı. Tanınmış bir projede bilinen bir katkıcı olmak kariyerinizi hızlandırır.{" "}
+      <a href="/guides/how-to-build-a-developer-portfolio">Portföy rehberine bakın</a>.
     </p>
   </>
 );

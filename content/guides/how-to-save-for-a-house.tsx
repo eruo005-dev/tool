@@ -1,86 +1,87 @@
 export const intro = (
   <>
     <p>
-      Saving for a house is the biggest financial project most people undertake. The
-      math is daunting — median home prices in major US metros need $60-120k down for
-      a 10-20% down payment. But a focused savings plan makes it doable in 3-7 years.
+      Bir ev için para biriktirmek, çoğu insanın üstlendiği en büyük finansal projedir.
+      Matematik göz korkutucudur — büyük ABD metropollerindeki medyan ev fiyatları, %10-20 peşinat
+      için 60-120 bin dolar gerektiriyor. Ancak odaklanmış bir birikim planı, bunu 3-7 yıl içinde
+      yapılabilir kılar.
     </p>
     <p>
-      This guide is the concrete steps to actually get there.
+      Bu rehber, oraya gerçekten ulaşmak için somut adımları içerir.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Pick the target first</h2>
+    <h2>1. Önce hedefi belirleyin</h2>
     <p>
-      What home, what neighborhood, what price? Without a target, &ldquo;saving for a
-      house&rdquo; is vague. Browse Zillow. Walk the neighborhoods. Pin down a specific
-      $X target. The savings math only works if you know the number.
+      Hangi ev, hangi mahalle, hangi fiyat? Bir hedef olmadan, &ldquo;ev için biriktirmek&rdquo;
+      belirsizdir. Zillow'da gezinin. Mahalleleri dolaşın. Belirli bir $X hedefi belirleyin.
+      Birikim matematiği ancak sayıyı biliyorsanız işe yarar.
     </p>
 
-    <h2>2. How much down payment</h2>
+    <h2>2. Ne kadar peşinat</h2>
     <p>
-      Conventional: 20% down avoids PMI. FHA: 3.5% down, higher monthly cost (mortgage
-      insurance). First-time buyer programs sometimes reach 0-5% down. Decide which
-      route fits, then target that number.
+      Konvansiyonel: %20 peşinat, PMI'dan kaçınır. FHA: %3,5 peşinat, daha yüksek aylık maliyet
+      (ipotek sigortası). İlk kez ev alacak programları bazen %0-5 peşinata kadar ulaşır. Hangi
+      yolun uygun olduğuna karar verin, ardından o sayıyı hedefleyin.
     </p>
 
-    <h2>3. Don&rsquo;t forget closing costs</h2>
+    <h2>3. Kapanış masraflarını unutmayın</h2>
     <p>
-      Another 2-5% of purchase price. Plus a reserve of 3-6 months of housing
-      expenses. Your real target is roughly 25-30% of home price saved, not just the
-      sticker down payment.
+      Satın alma fiyatının ek %2-5'i. Ayrıca 3-6 aylık konut giderlerini kapsayan bir yedek.
+      Gerçek hedefiniz, ev fiyatının kabaca %25-30'unu biriktirmektir, sadece etiketteki peşinat
+      değil.
     </p>
 
-    <h2>4. Open a separate high-yield savings</h2>
+    <h2>4. Ayrı bir yüksek getirili tasarruf hesabı açın</h2>
     <p>
-      Named &ldquo;House Fund.&rdquo; Separate from emergency fund. At 4-5% <a href="/learn/apy">APY</a>, your
-      money works for you while you save. Mixing funds makes it too easy to spend.
+      Adı &ldquo;Ev Fonu.&rdquo; Acil durum fonundan ayrı. %4-5 <a href="/learn/apy">APY</a> ile
+      paranız siz biriktirirken sizin için çalışır. Fonları karıştırmak harcamayı çok kolaylaştırır.
     </p>
 
-    <h2>5. Automate aggressively</h2>
+    <h2>5. Agresif bir şekilde otomatikleştirin</h2>
     <p>
-      Direct deposit 20-30% of each paycheck straight into the House Fund. Treat it
-      like rent — non-negotiable. Willpower-based saving fails over years.
+      Her maaş çekinin %20-30'unu doğrudan Ev Fonu'na yatırın. Bunu kira gibi düşünün —
+      pazarlık konusu değil. İrade gücüne dayalı birikim yıllar içinde başarısız olur.
     </p>
 
-    <h2>6. Cut the top 3 biggest categories</h2>
+    <h2>6. En büyük 3 kategoriyi kesin</h2>
     <p>
-      Housing (downsize, get a roommate), food (cook more), transportation (keep an
-      old car). Small cuts don&rsquo;t move the needle for a $100k goal. Big cuts do.
-      See <a href="/guides/how-to-save-money-fast">savings guide</a>.
+      Konut (küçülün, oda arkadaşı bulun), yiyecek (daha çok yemek yapın), ulaşım (eski bir
+      araba kullanın). Küçük kesintiler 100 bin dolarlık bir hedef için fark yaratmaz. Büyük
+      kesintiler yaratır. Bkz. <a href="/guides/how-to-save-money-fast">tasarruf rehberi</a>.
     </p>
 
-    <h2>7. Windfalls go 100% to the House Fund</h2>
+    <h2>7. Beklenmedik gelirlerin %100'ü Ev Fonu'na gitsin</h2>
     <p>
-      Tax refunds, bonuses, gifts, side hustle income. No lifestyle inflation. Every
-      windfall is a month off the timeline. This alone can cut your save-time by 1-2
-      years.
+      Vergi iadeleri, ikramiyeler, hediyeler, ek iş geliri. Yaşam tarzı enflasyonu yok. Her
+      beklenmedik gelir, zaman çizelgesinden bir ay eksiltir. Bu tek başına birikim sürenizi 1-2 yıl
+      kısaltabilir.
     </p>
 
-    <h2>8. Don&rsquo;t invest short-term savings</h2>
+    <h2>8. Kısa vadeli birikimleri yatırıma yönlendirmeyin</h2>
     <p>
-      If you&rsquo;ll buy within 3-5 years, stocks are too risky. A 20% drawdown the
-      year you plan to buy is devastating. High-yield savings or short-term treasuries
-      (T-bills) are the right place.
+      3-5 yıl içinde satın alacaksanız, hisse senetleri çok risklidir. Satın almayı planladığınız
+      yıl %20'lik bir düşüş yıkıcıdır. Yüksek getirili tasarruf veya kısa vadeli hazine bonoları
+      (T-bonoları) doğru yerdir.
     </p>
 
-    <h2>9. Increase income, not just cut spending</h2>
+    <h2>9. Sadece harcamaları kısmayın, geliri artırın</h2>
     <p>
-      You can only cut expenses so far. Raises, job changes, side hustles, overtime.
-      Income growth compounds with savings rate. See our{" "}
-      <a href="/guides/how-to-increase-your-income">income guide</a> and{" "}
-      <a href="/guides/how-to-negotiate-salary">salary negotiation guide</a>.
+      Harcamaları ancak bu kadar kısabilirsiniz. Zamlar, iş değişiklikleri, ek işler, fazla mesai.
+      Gelir artışı, birikim oranıyla birleşir. Bkz.{" "}
+      <a href="/guides/how-to-increase-your-income">gelir rehberi</a> ve{" "}
+      <a href="/guides/how-to-negotiate-salary">maaş pazarlığı rehberi</a>.
     </p>
 
-    <h2>10. Watch for buyer&rsquo;s remorse signals</h2>
+    <h2>10. Alıcı pişmanlığı sinyallerine dikkat edin</h2>
     <p>
-      You&rsquo;re not obligated to buy when you hit your number. If rates spike, the
-      market crashes, or your life plans change (new job, new city, new relationship),
-      sometimes the right move is to wait. A house is a huge decision — don&rsquo;t let
-      sunk-cost momentum force a bad one.
+      Hedefinize ulaştığınızda satın almak zorunda değilsiniz. Faizler fırlarsa, piyasa çökerse
+      veya hayat planlarınız değişirse (yeni iş, yeni şehir, yeni ilişki), bazen doğru hamle
+      beklemektir. Ev büyük bir karardır — batık maliyet momentumunun kötü bir kararı
+      zorlamasına izin vermeyin.
     </p>
   </>
 );

@@ -2,85 +2,81 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    The 2021 NFT boom is over. Most JPEGs that sold for six figures are now worth zero or near-zero, and
-    the floor prices of once-iconic collections have collapsed 80&ndash;95%. That does not mean NFTs are dead,
-    but it does mean that any honest evaluation has to start with the brutal truth: you are speculating on
-    an illiquid digital asset, not investing in the traditional sense. This guide walks through real due
-    diligence for the NFTs that still matter.
+    2021 NFT balonu sona erdi. Altı haneli rakamlara satılan JPEG'lerin çoğu artık sıfır veya sıfıra yakın değerde ve
+    bir zamanlar ikonik olan koleksiyonların taban fiyatları %80-95 oranında çöktü. Bu, NFT'lerin öldüğü anlamına gelmez,
+    ancak dürüst herhangi bir değerlendirmenin acı gerçekle başlaması gerektiği anlamına gelir: geleneksel anlamda yatırım yapmıyor,
+    likit olmayan bir dijital varlık üzerinde spekülasyon yapıyorsunuz. Bu rehber, hala önemli olan NFT'ler için gerçek durum tespiti adımlarını anlatıyor.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      Not financial advice. Consult a licensed advisor. NFT investing is high-risk speculation, and the
-      expected return for the average buyer is negative once you include gas fees, platform fees, and the
-      reality that most collections trend toward zero. Treat anything below as a framework for evaluating
-      risk, not a strategy for reliably making money.
+      Yatırım tavsiyesi değildir. Lisanslı bir danışmana danışın. NFT yatırımı yüksek riskli bir spekülasyondur ve
+      gaz ücretleri, platform ücretleri ve çoğu koleksiyonun sıfıra doğru gitme gerçeği dahil edildiğinde ortalama alıcı için beklenen getiri negatiftir.
+      Aşağıdakilerin tümünü, güvenilir bir şekilde para kazanma stratejisi değil, riski değerlendirmek için bir çerçeve olarak ele alın.
     </p>
 
-    <h2>Where real use cases still exist</h2>
+    <h2>Gerçek kullanım alanlarının hala var olduğu yerler</h2>
     <p>
-      Despite the collapse, a handful of categories have survived with genuine utility. Membership-access
-      NFTs (think Flyfish Club, Friends With Benefits) function as transferable club passes. Creator royalty
-      NFTs let musicians and artists sell direct to fans and retain a cut of secondary sales, at least on
-      marketplaces that enforce royalties. Gaming assets with in-game function &mdash; skins, land parcels,
-      breeding rights &mdash; still trade actively where the underlying game has players. Domain names
-      (ENS, Unstoppable Domains) remain a small but steady category.
+      Çöküşe rağmen, bir avuç kategori gerçek fayda sağlayarak ayakta kaldı. Üyelik erişimli
+      NFT'ler (Flyfish Club, Friends With Benefits gibi) devredilebilir kulüp kartları olarak işlev görür. Yaratıcı telif hakkı
+      NFT'leri, müzisyenlerin ve sanatçıların doğrudan hayranlarına satış yapmasına ve en azından telif haklarını uygulayan pazaryerlerinde
+      ikincil satışlardan bir pay almasına olanak tanır. Oyun içi işlevi olan oyun varlıkları &mdash; kostümler, arazi parselleri,
+      üreme hakları &mdash; temel oyunun oyuncuları olduğu sürece hala aktif olarak işlem görür. Alan adları
+      (ENS, Unstoppable Domains) küçük ama istikrarlı bir kategori olmaya devam ediyor.
     </p>
 
-    <h2>What to check before buying</h2>
+    <h2>Satın almadan önce kontrol edilmesi gerekenler</h2>
     <ul>
-      <li>Trading volume over the last 30 and 90 days &mdash; not the all-time total, which flatters dead collections.</li>
-      <li>Floor price trend on a 6-month chart. A steady decline is usually terminal.</li>
-      <li>Holder concentration. If the top 10 wallets hold 40%+ of supply, one whale can crash the floor.</li>
-      <li>Whether the team is doxxed (real names, real track record) or anonymous.</li>
-      <li>Roadmap execution &mdash; did they actually ship what they promised, or is it all &ldquo;coming soon&rdquo;?</li>
-      <li>Unique holder count vs total supply. Low unique holders mean wash trading is likely.</li>
+      <li>Son 30 ve 90 gündeki işlem hacmi &mdash; ölü koleksiyonları pohpohlayan tüm zamanların toplamı değil.</li>
+      <li>6 aylık grafikte taban fiyat eğilimi. Sürekli bir düşüş genellikle terminaldir.</li>
+      <li>Sahiplik yoğunluğu. İlk 10 cüzdan arzın %40'ından fazlasını elinde tutuyorsa, tek bir balina taban fiyatını çökertebilir.</li>
+      <li>Ekibin kimliğinin açık olup olmadığı (gerçek isimler, gerçek geçmiş) veya anonim olup olmadığı.</li>
+      <li>Yol haritası uygulaması &mdash; söz verdiklerini gerçekten teslim ettiler mi, yoksa hepsi &ldquo;çok yakında&rdquo; mı?</li>
+      <li>Toplam arza karşı benzersiz sahip sayısı. Düşük benzersiz sahip sayısı, yıkama ticareti olasılığını gösterir.</li>
     </ul>
 
-    <h2>Due-diligence tools</h2>
+    <h2>Durum tespiti araçları</h2>
     <p>
-      DappRadar gives you collection-level volume and holder stats. NFTPriceFloor tracks floor history and
-      flags rug pulls. OpenSea analytics shows top holders and listing pressure. For deeper wallet analysis,
-      Nansen labels smart-money wallets so you can see who&rsquo;s buying and who&rsquo;s exiting. Etherscan
-      lets you verify contract ownership, mint authority, and whether royalties are enforceable on-chain.
+      DappRadar, koleksiyon düzeyinde hacim ve sahip istatistikleri sağlar. NFTPriceFloor, taban geçmişini takip eder ve
+      rug pull'ları işaretler. OpenSea analitiği, en büyük sahipleri ve liste baskısını gösterir. Daha derin cüzdan analizi için
+      Nansen, akıllı para cüzdanlarını etiketleyerek kimin alıp kimin çıktığını görmenizi sağlar. Etherscan
+      ile sözleşme sahipliğini, basım yetkisini ve telif haklarının zincir üzerinde uygulanabilir olup olmadığını doğrulayabilirsiniz.
     </p>
 
-    <h2>Red flags</h2>
+    <h2>Kırmızı bayraklar</h2>
     <p>
-      A celebrity mint almost always ends badly &mdash; the celebrity gets paid, the fans get rugged. Watch
-      for &ldquo;utility&rdquo; that doesn&rsquo;t actually exist yet (promised airdrops, staking, games
-      that are perpetually in development). Floor-sweeping bots that pump volume in coordinated bursts are
-      a manipulation signal, not demand. Beware collections with hidden team wallets holding large chunks
-      of supply that can be dumped on retail. If the Discord is all price chatter and no actual community,
-      you are the exit liquidity.
+      Bir ünlü basımı neredeyse her zaman kötü biter &mdash; ünlü parasını alır, hayranlar kazıklanır. Henüz gerçekten var olmayan
+      &ldquo;fayda&rdquo;lara dikkat edin (vadedilen airdrop'lar, stake etme, sürekli geliştirme aşamasında olan oyunlar).
+      Koordineli patlamalarla hacmi şişiren taban süpürme botları, talep değil manipülasyon sinyalidir. Perakendeye boşaltılabilecek
+      büyük miktarda arzı elinde tutan gizli ekip cüzdanlarına sahip koleksiyonlardan sakının. Discord tamamen fiyat muhabbeti ve
+      gerçek bir topluluk değilse, siz çıkış likiditesisiniz.
     </p>
 
-    <h2>Gas, fees, and taxes</h2>
+    <h2>Gaz, ücretler ve vergiler</h2>
     <p>
-      Gas fees on Ethereum can easily eat 2&ndash;10% of a small trade, and marketplace fees add another
-      2&ndash;2.5%. Round-tripping an NFT often costs more than the potential upside for sub-$1,000 positions.
-      Worse, the IRS treats NFTs as property: every sale, trade, or even swap into another token is a
-      taxable event, and if the NFT is classified as a collectible you may face up to 28% long-term capital
-      gains instead of the usual 15&ndash;20%. Keep meticulous cost-basis records.
+      Ethereum'daki gaz ücretleri küçük bir işlemin %2-10'unu kolayca yiyebilir ve pazar yeri ücretleri ek %2-2,5 ekler.
+      Bir NFT'yi döndürmek, 1.000 doların altındaki pozisyonlar için genellikle potansiyel kazançtan daha pahalıya mal olur.
+      Daha da kötüsü, IRS NFT'leri mülk olarak kabul eder: her satış, takas ve hatta başka bir token ile değişim vergiye tabi bir olaydır
+      ve NFT koleksiyon ürünü olarak sınıflandırılırsa, normal %15-20 yerine %28'e kadar uzun vadeli sermaye kazancı vergisiyle
+      karşılaşabilirsiniz. Maliyet esası kayıtlarını titizlikle tutun.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Buying the floor of a trending collection at peak hype and watching it bleed for six months. Ignoring
-      royalty-bypass marketplaces that silently kill the creator economics you bought into. Treating an
-      illiquid asset as if you can exit at &ldquo;floor&rdquo; &mdash; the real exit price is the highest
-      bid, which is often 20&ndash;40% below floor. Using leverage or NFT-collateralized loans &mdash; forced
-      liquidations in a thin market are devastating.
+      Zirve heyecanında trend olan bir koleksiyonun tabanını satın almak ve altı ay boyunca kan kaybını izlemek. İçine girdiğiniz
+      yaratıcı ekonomisini sessizce öldüren telif hakkı atlama pazaryerlerini görmezden gelmek. Likit olmayan bir varlığa
+      &ldquo;taban&rdquo; fiyattan çıkabiliyormuş gibi davranmak &mdash; gerçek çıkış fiyatı, genellikle tabanın %20-40 altında olan
+      en yüksek tekliftir. Kaldıraç veya NFT teminatlı krediler kullanmak &mdash; ince bir piyasada zorunlu tasfiyeler yıkıcıdır.
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Alt satır</h2>
     <p>
-      NFT investing is high-risk speculation dressed up as art collecting. A small position in something you
-      genuinely value &mdash; a membership, a game you play, a creator you support &mdash; can make sense.
-      Treating NFTs as a portfolio allocation alongside stocks and bonds does not. Size the bet accordingly,
-      expect it to go to zero, and consult a licensed advisor before any purchase large enough to matter.
+      NFT yatırımı, sanat koleksiyonculuğu kılığına girmiş yüksek riskli bir spekülasyondur. Gerçekten değer verdiğiniz bir şeye
+      &mdash; bir üyelik, oynadığınız bir oyun, desteklediğiniz bir yaratıcı &mdash; küçük bir pozisyon almak mantıklı olabilir.
+      NFT'leri hisse senetleri ve tahvillerin yanında bir portföy dağılımı olarak görmek mantıklı değildir. Bahsi buna göre ayarlayın,
+      sıfıra gitmesini bekleyin ve önemli olacak kadar büyük herhangi bir satın alma işleminden önce lisanslı bir danışmana danışın.
     </p>
   </>
 );

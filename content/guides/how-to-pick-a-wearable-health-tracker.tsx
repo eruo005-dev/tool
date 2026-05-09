@@ -1,41 +1,41 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>The right wearable is the one that matches your metrics, your battery tolerance, and your willingness to pay a monthly subscription for your own heart data.</p>);
+export const intro: ReactElement = (<p>Doğru giyilebilir cihaz, metriklerinizle, pil toleransınızla ve kendi kalp verileriniz için aylık abonelik ödeme isteğinizle eşleşen cihazdır.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>Wearables have quietly become a $50-to-$800 category with wildly different value propositions. Marketing blurs the lines: an Apple Watch, a Garmin, a Fitbit, and a Whoop look similar but solve very different problems. This guide helps busy owners, founders, and anyone who just wants a tracker that actually sticks on their wrist for more than a month figure out what they&rsquo;re really buying.</p>
+    <p>Giyilebilir cihazlar, çok farklı değer önerileriyle sessizce 50 ila 800 dolarlık bir kategori haline geldi. Pazarlama çizgileri bulanıklaştırıyor: Bir Apple Watch, Garmin, Fitbit ve Whoop benzer görünüyor ancak çok farklı sorunları çözüyor. Bu rehber, meşgul sahiplere, kuruculara ve sadece bileklerinde bir aydan fazla kalan bir takip cihazı isteyen herkese gerçekte ne satın aldıklarını anlamalarında yardımcı oluyor.</p>
 
-    <h2>Decide what you actually want tracked</h2>
-    <p>Start with the metrics, not the brand. Almost every device handles steps, heart rate, and sleep. Past that, choices narrow: SpO2 (blood oxygen), ECG (heart rhythm), skin <a href="/learn/temperature-ai">temperature</a>, stress/<a href="/learn/hrv">HRV</a>, menstrual cycle tracking, and GPS for outdoor sports. Pay for the sensors you&rsquo;ll look at weekly &mdash; skip the ones you won&rsquo;t.</p>
+    <h2>Gerçekten neyi takip etmek istediğinize karar verin</h2>
+    <p>Markayla değil, metriklerle başlayın. Hemen hemen her cihaz adım, kalp atış hızı ve uykuyu işler. Bunun ötesinde seçenekler daralır: SpO2 (kan oksijeni), EKG (kalp ritmi), cilt <a href="/learn/temperature-ai">sıcaklığı</a>, stres/<a href="/learn/hrv">HRV</a>, adet döngüsü takibi ve açık hava sporları için GPS. Haftalık olarak bakacağınız sensörler için ödeme yapın &mdash; bakmayacaklarınızı atlayın.</p>
 
-    <h2>The four main positions</h2>
+    <h2>Dört ana konum</h2>
     <ul>
-      <li>Apple Watch: best smartwatch + notifications + Apple ecosystem; ECG, fall detection, crash detection; 18-36 hour battery.</li>
-      <li>Garmin: best for athletes and outdoor users; deep training metrics, built-in GPS, 7-14 day battery on most models.</li>
-      <li>Fitbit (now Google): friendliest UI for casual users, strong sleep tracking, subscription for advanced insights.</li>
-      <li>Whoop / Oura: no screen (Whoop) or ring form factor (Oura); focus on recovery, strain, and sleep; subscription-required business model.</li>
+      <li>Apple Watch: en iyi akıllı saat + bildirimler + Apple ekosistemi; EKG, düşme algılama, çarpışma algılama; 18-36 saat pil.</li>
+      <li>Garmin: sporcular ve açık hava kullanıcıları için en iyisi; derin antrenman metrikleri, yerleşik GPS, çoğu modelde 7-14 gün pil.</li>
+      <li>Fitbit (artık Google): sıradan kullanıcılar için en kullanıcı dostu arayüz, güçlü uyku takibi, gelişmiş içgörüler için abonelik.</li>
+      <li>Whoop / Oura: ekransız (Whoop) veya yüzük form faktörü (Oura); iyileşme, efor ve uykuya odaklanma; abonelik gerektiren iş modeli.</li>
     </ul>
 
-    <h2>Battery life matters more than people admit</h2>
-    <p>A tracker that&rsquo;s off your wrist charging is a tracker that isn&rsquo;t tracking. Apple Watch users lose roughly one night of sleep data per week to charging cycles. Garmin users charge once a week or less. Oura rings last about a week, Whoop about 4&ndash;5 days. If consistent sleep or recovery data matters to you, multi-day battery isn&rsquo;t a luxury &mdash; it&rsquo;s the feature.</p>
+    <h2>Pil ömrü, insanların kabul ettiğinden daha önemlidir</h2>
+    <p>Bileğinizden çıkarıp şarj ettiğiniz bir takip cihazı, takip etmeyen bir cihazdır. Apple Watch kullanıcıları, şarj döngüleri nedeniyle haftada yaklaşık bir gece uyku verisini kaybeder. Garmin kullanıcıları haftada bir veya daha az şarj eder. Oura yüzükleri yaklaşık bir hafta, Whoop ise yaklaşık 4-5 gün dayanır. Sizin için tutarlı uyku veya iyileşme verileri önemliyse, çok günlük pil bir lüks değil &mdash; bir özelliktir.</p>
 
-    <h2>Subscription traps</h2>
-    <p>Whoop has no upfront hardware cost but requires a membership ($20&ndash;30/month, billed annually). Oura sells the ring outright but gates most insights behind Oura Membership ($5.99/month). Fitbit Premium ($9.99/month) unlocks the good sleep and stress content. Over three years, a &ldquo;free&rdquo; Whoop costs about $720 and an Oura about $520 in subscription alone &mdash; often more than an Apple Watch bought outright.</p>
+    <h2>Abonelik tuzakları</h2>
+    <p>Whoop'un önceden donanım maliyeti yoktur ancak üyelik gerektirir (ayda 20-30 dolar, yıllık faturalandırılır). Oura yüzüğü doğrudan satar ancak çoğu içgörüyü Oura Membership (ayda 5,99 dolar) arkasına kilitler. Fitbit Premium (ayda 9,99 dolar) iyi uyku ve stres içeriğinin kilidini açar. Üç yıl içinde, "ücretsiz" bir Whoop yalnızca abonelikte yaklaşık 720 dolara ve bir Oura yaklaşık 520 dolara mal olur &mdash; genellikle doğrudan satın alınan bir Apple Watch'tan daha fazla.</p>
 
-    <h2>Medical-grade vs consumer-grade accuracy</h2>
-    <p>No consumer wearable is a medical device, even the ones with FDA clearance for specific features (like Apple Watch ECG for atrial fibrillation). Heart-rate readings during high-intensity interval workouts drift 5&ndash;15% on most wrist sensors. SpO2 readings are directional, not diagnostic. Sleep staging is an educated estimate. Use trends, not single data points, and never replace a doctor&rsquo;s test.</p>
+    <h2>Tıbbi sınıf vs tüketici sınıfı doğruluk</h2>
+    <p>Hiçbir tüketici giyilebilir cihazı, belirli özellikler için FDA onayına sahip olanlar bile (atrial fibrilasyon için Apple Watch EKG gibi) tıbbi bir cihaz değildir. Yüksek yoğunluklu aralıklı antrenmanlar sırasında kalp atış hızı okumaları çoğu bilek sensöründe %5-15 oranında sapar. SpO2 okumaları yönlendiricidir, tanısal değildir. Uyku evrelemesi eğitimli bir tahmindir. Tek veri noktalarını değil, eğilimleri kullanın ve asla bir doktor testinin yerini tutmayın.</p>
 
-    <h2>Who owns your heart data?</h2>
-    <p>Read the privacy policy &mdash; seriously. Apple and Garmin store most health data on-device or encrypted such that they can&rsquo;t read it. Fitbit data now flows into Google&rsquo;s broader account ecosystem. Whoop and Oura retain aggregated data for research and product improvement. If you&rsquo;d be uncomfortable with your employer&rsquo;s insurance company knowing your resting heart rate trend, pick a vendor whose business model isn&rsquo;t data.</p>
+    <h2>Kalp verilerinizin sahibi kim?</h2>
+    <p>Gizlilik politikasını okuyun &mdash; cidden. Apple ve Garmin, çoğu sağlık verisini cihazda veya okuyamayacakları şekilde şifrelenmiş olarak saklar. Fitbit verileri artık Google'ın daha geniş hesap ekosistemine akıyor. Whoop ve Oura, araştırma ve ürün iyileştirme için toplu verileri saklar. İşvereninizin sigorta şirketinin dinlenme kalp atış hızı trendinizi bilmesi sizi rahatsız ediyorsa, iş modeli veri olmayan bir satıcı seçin.</p>
 
-    <h2>$50 vs $500 &mdash; what actually changes</h2>
-    <p>At $50 (Xiaomi Mi Band, basic Amazfit) you get steps, heart rate, basic sleep, and a 2-week battery &mdash; surprisingly solid for most users. At $150&ndash;250 you add real GPS, SpO2, and a better screen. At $400&ndash;500 you get ECG, premium sensors, stronger build quality, and the ecosystem play. The accuracy jump from $50 to $500 is real but smaller than the price gap suggests.</p>
+    <h2>50 dolar vs 500 dolar &mdash; gerçekte ne değişiyor</h2>
+    <p>50 dolarda (Xiaomi Mi Band, temel Amazfit) adım, kalp atış hızı, temel uyku ve 2 haftalık pil alırsınız &mdash; çoğu kullanıcı için şaşırtıcı derecede sağlam. 150-250 dolarda gerçek GPS, SpO2 ve daha iyi bir ekran eklersiniz. 400-500 dolarda EKG, premium sensörler, daha güçlü yapı kalitesi ve ekosistem oyununu alırsınız. 50 dolardan 500 dolara doğruluk sıçraması gerçektir ancak fiyat farkının önerdiğinden daha küçüktür.</p>
 
-    <h2>Common mistakes</h2>
-    <p>Buying on hype (latest Apple Watch for someone who sleeps with it and charges it at 3pm daily), ignoring subscription cost, or picking a device with sensors you don&rsquo;t use. The other one: obsessing over the data. Wearables work when they quietly nudge behavior over months &mdash; not when you&rsquo;re refreshing HRV at 7am.</p>
+    <h2>Yaygın hatalar</h2>
+    <p>Heyecana kapılarak satın almak (onunla uyuyan ve her gün saat 15:00'te şarj eden biri için en yeni Apple Watch), abonelik maliyetini görmezden gelmek veya kullanmadığınız sensörlere sahip bir cihaz seçmek. Diğeri: verilere takıntılı olmak. Giyilebilir cihazlar, aylar boyunca davranışı sessizce dürtüklediklerinde işe yarar &mdash; sabah 7'de HRV'yi yenilediğinizde değil.</p>
 
-    <h2>Bottom line</h2>
-    <p>Start with the metrics you&rsquo;ll actually act on, weigh battery against features honestly, include three years of subscription in the price, and remember no wrist is a cardiologist. The best tracker is the one still on your wrist six months from now.</p>
+    <h2>Sonuç</h2>
+    <p>Gerçekten harekete geçeceğiniz metriklerle başlayın, pili özelliklere karşı dürüstçe tartın, fiyata üç yıllık aboneliği dahil edin ve hiçbir bileğin kardiyolog olmadığını unutmayın. En iyi takip cihazı, altı ay sonra hala bileğinizde olan cihazdır.</p>
   </>
 );

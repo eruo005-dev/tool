@@ -2,55 +2,54 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    GLP-1 receptor agonists &mdash; Ozempic, Wegovy, Mounjaro, Zepbound, Trulicity &mdash; reshape diabetes care
-    and weight loss in 2026. Here&rsquo;s a non-medical, fact-first overview of what they are, how they work, and
-    what the cultural conversation often gets wrong. Not medical advice; talk to your doctor.
+    GLP-1 reseptör agonistleri &mdash; Ozempic, Wegovy, Mounjaro, Zepbound, Trulicity &mdash; 2026'da diyabet bakımını
+    ve kilo kaybını yeniden şekillendiriyor. İşte tıbbi olmayan, gerçeklere dayalı bir genel bakış: ne oldukları, nasıl çalıştıkları ve
+    kültürel tartışmaların sıklıkla yanlış anladığı noktalar. Tıbbi tavsiye değildir; doktorunuzla konuşun.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What they are</h2>
+    <h2>Ne oldukları</h2>
     <p>
-      Glucagon-like peptide-1 (GLP-1) is a natural gut hormone released after eating. GLP-1 agonists are synthetic
-      versions taken weekly (or daily, in older formulations) that mimic this hormone. They were originally
-      developed for type-2 diabetes; the weight-loss effect was a discovered side effect that became the headline.
+      Glukagon benzeri peptid-1 (GLP-1), yemekten sonra salınan doğal bir bağırsak hormonudur. GLP-1 agonistleri, bu hormonu taklit eden
+      haftalık (veya eski formülasyonlarda günlük) alınan sentetik versiyonlardır. Başlangıçta tip-2 diyabet için geliştirilmişlerdir;
+      kilo kaybı etkisi, keşfedilen ve manşetlere taşınan bir yan etkiydi.
     </p>
 
-    <h2>The current lineup</h2>
+    <h2>Mevcut ilaçlar</h2>
     <ul>
-      <li><strong>Semaglutide (Ozempic, Wegovy, Rybelsus)</strong> &mdash; weekly injection (Ozempic / Wegovy) or daily oral (Rybelsus).</li>
-      <li><strong>Tirzepatide (Mounjaro, Zepbound)</strong> &mdash; weekly. GLP-1 + GIP dual agonist; modestly more potent.</li>
-      <li><strong>Liraglutide (Saxenda, Victoza)</strong> &mdash; daily injection; older.</li>
-      <li><strong>Retatrutide</strong> &mdash; triple agonist, late-stage trials in 2026, expected to be even more potent.</li>
+      <li><strong>Semaglutid (Ozempic, Wegovy, Rybelsus)</strong> &mdash; haftalık enjeksiyon (Ozempic / Wegovy) veya günlük ağızdan (Rybelsus).</li>
+      <li><strong>Tirzepatid (Mounjaro, Zepbound)</strong> &mdash; haftalık. GLP-1 + GIP ikili agonisti; biraz daha güçlü.</li>
+      <li><strong>Liraglutid (Saxenda, Victoza)</strong> &mdash; günlük enjeksiyon; daha eski.</li>
+      <li><strong>Retatrutid</strong> &mdash; üçlü agonist, 2026'da son aşama denemelerde, daha da güçlü olması bekleniyor.</li>
     </ul>
 
-    <h2>How weight loss works</h2>
+    <h2>Kilo kaybı nasıl çalışır</h2>
     <p>
-      Slowed gastric emptying + reduced appetite signaling. People feel full sooner and stay full longer. Average
-      weight loss in trials: ~15% of body weight on semaglutide, ~22% on tirzepatide. Compare to behavioral-only
-      programs at 5-7%.
+      Yavaşlayan mide boşalması + azalan iştah sinyalleri. İnsanlar kendilerini daha çabuk tok hisseder ve daha uzun süre tok kalır. Denemelerde
+      ortalama kilo kaybı: semaglutid ile vücut ağırlığının ~%15'i, tirzepatid ile ~%22'si. Sadece davranışsal programlarla karşılaştırıldığında %5-7.
     </p>
 
-    <h2>Trade-offs</h2>
+    <h2>Ödünleşimler</h2>
     <ul>
-      <li><strong>Side effects:</strong> nausea, constipation, fatigue (early weeks). Most resolve.</li>
-      <li><strong>Muscle loss:</strong> ~25-40% of weight lost can be lean mass without strength training. Lift weights.</li>
-      <li><strong>Stop = regain:</strong> most people regain 60-80% of weight within a year of stopping. They&rsquo;re generally a long-term medication.</li>
-      <li><strong>Cost:</strong> $900-1,500/month US retail; insurance coverage is uneven. Compounded versions cheaper but less reliable.</li>
+      <li><strong>Yan etkiler:</strong> mide bulantısı, kabızlık, yorgunluk (ilk haftalar). Çoğu geçer.</li>
+      <li><strong>Kas kaybı:</strong> Kaybedilen kilonun ~%25-40'ı kuvvet antrenmanı yapılmazsa yağsız kütle olabilir. Ağırlık kaldırın.</li>
+      <li><strong>Bırakınca geri alma:</strong> çoğu kişi bıraktıktan sonraki bir yıl içinde kilonun %60-80'ini geri alır. Bunlar genellikle uzun süreli bir ilaçtır.</li>
+      <li><strong>Maliyet:</strong> ABD perakende fiyatı ayda 900-1.500 dolar; sigorta kapsamı eşitsizdir. Birleşik versiyonlar daha ucuz ancak daha az güvenilirdir.</li>
     </ul>
 
-    <h2>What gets oversimplified</h2>
+    <h2>Sık sık basitleştirilenler</h2>
     <ul>
-      <li>It&rsquo;s not a &ldquo;quick fix&rdquo; &mdash; without diet + strength training, results are inferior and easier to lose.</li>
-      <li>It&rsquo;s not just for the obese &mdash; doctors prescribe at lower BMIs for cardiometabolic risk in 2026.</li>
-      <li>The cultural &ldquo;Ozempic face&rdquo; is real (subcutaneous fat loss) but reversible with hydration + protein + lifting.</li>
+      <li>Bu bir &ldquo;hızlı çözüm&rdquo; değildir &mdash; diyet + kuvvet antrenmanı olmadan sonuçlar daha düşüktür ve kaybetmesi daha kolaydır.</li>
+      <li>Sadece obezler için değildir &mdash; doktorlar 2026'da kardiyometabolik risk için daha düşük BMI'larda reçete eder.</li>
+      <li>Kültürel &ldquo;Ozempic yüzü&rdquo; gerçektir (deri altı yağ kaybı) ancak sıvı alımı + protein + ağırlık kaldırma ile tersine çevrilebilir.</li>
     </ul>
 
     <p>
-      For longevity-style fitness practices to layer alongside, see{" "}
-      <a href="/tools/zone-2-heart-rate-calculator">zone 2 heart rate calculator</a> and{" "}
-      <a href="/tools/vo2-max-estimator">VO2 max estimator</a>. <em>This page is informational, not medical advice.</em>
+      Bununla birlikte uygulanabilecek uzun ömür odaklı fitness pratikleri için bkz.{" "}
+      <a href="/tools/zone-2-heart-rate-calculator">bölge 2 kalp atış hızı hesaplayıcısı</a> ve{" "}
+      <a href="/tools/vo2-max-estimator">VO2 maks tahmincisi</a>. <em>Bu sayfa bilgilendirme amaçlıdır, tıbbi tavsiye değildir.</em>
     </p>
   </>
 );

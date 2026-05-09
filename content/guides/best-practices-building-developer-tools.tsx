@@ -3,293 +3,219 @@
 export const intro = (
   <>
     <p>
-      A grab bag of the practical patterns that successful dev tools share: best
-      practices for CI/CD pipeline tools, IDEs and editors used to build tools,
-      what companies actually pay for, testing approaches, documentation
-      standards, success metrics, and the frameworks/libraries that show up
-      repeatedly in shipped code.
+      Başarılı geliştirici araçlarının paylaştığı pratik kalıplardan oluşan bir derleme: CI/CD boru hattı araçları için en iyi uygulamalar, araç geliştirmede kullanılan IDE'ler ve editörler, şirketlerin gerçekte neye para ödediği, test yaklaşımları, dokümantasyon standartları, başarı metrikleri ve yayınlanmış kodlarda sürekli karşımıza çıkan framework'ler/kütüphaneler.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "ci-cd", label: "Best practices for CI/CD pipeline tools" },
-  { id: "ides", label: "IDEs + editors for building tools" },
-  { id: "what-companies-pay-for", label: "What companies pay for in dev tools" },
-  { id: "testing", label: "Testing developer tools properly" },
-  { id: "docs", label: "Documentation best practices" },
-  { id: "metrics", label: "Measuring success" },
-  { id: "tools-for-tools", label: "Best frameworks + libraries" },
+  { id: "ci-cd", label: "CI/CD boru hattı araçları için en iyi uygulamalar" },
+  { id: "ides", label: "Araç geliştirmek için IDE'ler + editörler" },
+  { id: "what-companies-pay-for", label: "Şirketlerin geliştirici araçlarına ödediği bedeller" },
+  { id: "testing", label: "Geliştirici araçlarını doğru şekilde test etme" },
+  { id: "docs", label: "Dokümantasyonda en iyi uygulamalar" },
+  { id: "metrics", label: "Başarıyı ölçme" },
+  { id: "tools-for-tools", label: "En iyi framework'ler + kütüphaneler" },
 ];
 
 export const body = (
   <>
-    <h2 id="ci-cd">Best practices for CI/CD pipeline tools</h2>
+    <h2 id="ci-cd">CI/CD boru hattı araçları için en iyi uygulamalar</h2>
     <p>
-      If you&rsquo;re building tooling that lives inside CI/CD pipelines (GitHub
-      Actions, GitLab CI, Buildkite plugins, custom CLIs run in CI):
+      CI/CD boru hatları içinde çalışan araçlar (GitHub Actions, GitLab CI, Buildkite eklentileri, CI'da çalıştırılan özel CLI'lar) geliştiriyorsanız:
     </p>
     <ul>
       <li>
-        <strong>Idempotent operations.</strong> CI flakes happen. Your tool needs
-        to be safe to retry. Anything destructive should require explicit
-        confirmation or a state-check.
+        <strong>Idempotent işlemler.</strong> CI hataları olur. Aracınız tekrar denenebilir olmalı. Yıkıcı herhangi bir işlem açık onay veya durum kontrolü gerektirmelidir.
       </li>
       <li>
-        <strong>Cache awareness.</strong> Take advantage of CI caches; document
-        cache keys clearly. Provide a --no-cache flag for debugging.
+        <strong>Önbellek farkındalığı.</strong> CI önbelleklerinden yararlanın; önbellek anahtarlarını net bir şekilde belgeleyin. Hata ayıklama için bir --no-cache bayrağı sağlayın.
       </li>
       <li>
-        <strong>Fast failure modes.</strong> Fail in seconds when the input is
-        wrong, not in minutes after running half the pipeline. Pre-flight checks
-        before expensive operations.
+        <strong>Hızlı hata modları.</strong> Girdi yanlış olduğunda boru hattının yarısını çalıştırdıktan sonra dakikalar içinde değil, saniyeler içinde başarısız olun. Pahalı işlemlerden önce ön kontroller yapın.
       </li>
       <li>
-        <strong>Structured output.</strong> JSON or GitHub Actions annotation
-        format. Plain text logs are useful but the structured channel makes your
-        tool composable with other CI tooling.
+        <strong>Yapılandırılmış çıktı.</strong> JSON veya GitHub Actions açıklama formatı. Düz metin günlükleri kullanışlıdır ancak yapılandırılmış kanal, aracınızı diğer CI araçlarıyla birleştirilebilir kılar.
       </li>
       <li>
-        <strong>Secret-handling discipline.</strong> Never echo secrets; redact in
-        logs; document which env vars matter; fail loudly when required secrets
-        are missing.
+        <strong>Sır yönetimi disiplini.</strong> Sırları asla yankılamayın; günlüklerde karartın; hangi ortam değişkenlerinin önemli olduğunu belgeleyin; gerekli sırlar eksik olduğunda yüksek sesle başarısız olun.
       </li>
       <li>
-        <strong>Parallelism support.</strong> CI runs are expensive. Tools that
-        parallelize internally (or document how to shard) save users real money.
+        <strong>Paralellik desteği.</strong> CI çalıştırmaları pahalıdır. Dahili olarak paralelleştiren (veya nasıl parçalanacağını belgeleyen) araçlar kullanıcılara gerçek para kazandırır.
       </li>
     </ul>
 
-    <h2 id="ides">Best IDEs and editors for building developer tools</h2>
+    <h2 id="ides">Geliştirici araçları oluşturmak için en iyi IDE'ler ve editörler</h2>
     <p>
-      What working dev-tool engineers actually use in 2026:
+      2026'da çalışan dev-tool mühendislerinin gerçekte kullandıkları:
     </p>
     <ul>
       <li>
-        <strong>VSCode + Cursor.</strong> The dominant choice. Plugin ecosystem,
-        AI integration, decent debug experience. Cursor specifically has eaten a
-        lot of share among dev-tool builders for the AI-native workflow.
+        <strong>VSCode + Cursor.</strong> Baskın seçim. Eklenti ekosistemi, AI entegrasyonu, iyi hata ayıklama deneyimi. Cursor özellikle AI-native iş akışı için dev-tool geliştiricileri arasında çok fazla pay aldı.
       </li>
       <li>
-        <strong>JetBrains (GoLand, IntelliJ, RustRover).</strong> Heavier, but
-        stronger refactoring and deep language understanding. Worth it for
-        large codebases or when working in Java/Kotlin/Go/Rust.
+        <strong>JetBrains (GoLand, IntelliJ, RustRover).</strong> Daha ağır, ancak daha güçlü yeniden düzenleme ve derin dil anlayışı. Büyük kod tabanları veya Java/Kotlin/Go/Rust ile çalışırken buna değer.
       </li>
       <li>
-        <strong>Neovim.</strong> Niche but devoted. Lua-driven, infinitely
-        configurable. Steeper learning curve; payoff is compounded productivity
-        for those who invest. LazyVim and AstroVim presets cut the setup time
-        significantly.
+        <strong>Neovim.</strong> Niş ama sadık. Lua odaklı, sonsuz yapılandırılabilir. Daha dik öğrenme eğrisi; yatırım yapanlar için bileşik üretkenlik artışı sağlar. LazyVim ve AstroVim ön ayarları kurulum süresini önemli ölçüde azaltır.
       </li>
       <li>
-        <strong>Helix.</strong> Modern modal editor. Lower-config than Vim; the
-        rising third-place editor in 2026.
+        <strong>Helix.</strong> Modern modal editör. Vim'den daha az yapılandırma gerektirir; 2026'da yükselen üçüncü sıradaki editör.
       </li>
       <li>
-        <strong>Zed.</strong> Newer entrant. Multiplayer-first design, very fast.
-        Worth watching; not yet dominant.
+        <strong>Zed.</strong> Daha yeni giren. Çok oyunculu öncelikli tasarım, çok hızlı. İzlemeye değer; henüz baskın değil.
       </li>
     </ul>
     <p>
-      Pick one and go deep. The compounding effect of muscle memory on a single
-      editor outpaces marginal feature gains from switching.
+      Birini seçin ve derinlemesine öğrenin. Tek bir editörde kas hafızasının birleşik etkisi, geçiş yapmaktan elde edilecek marjinal özellik kazanımlarını geride bırakır.
     </p>
 
-    <h2 id="what-companies-pay-for">What companies pay for in developer tools</h2>
+    <h2 id="what-companies-pay-for">Şirketlerin geliştirici araçlarına ödediği bedeller</h2>
     <p>
-      The buyer&rsquo;s perspective. What turns a tool from &ldquo;nice idea&rdquo;
-      into a budget line:
+      Alıcının bakış açısı. Bir aracı "güzel fikir"den bütçe kalemine dönüştüren şeyler:
     </p>
     <ul>
       <li>
-        <strong>Compliance + audit trails.</strong> SOC 2, HIPAA, GDPR, SSO,
-        audit logs. Companies pay for these even when the underlying functionality
-        is mediocre.
+        <strong>Uyumluluk + denetim izleri.</strong> SOC 2, HIPAA, GDPR, SSO, denetim günlükleri. Şirketler, temel işlevsellik vasat olsa bile bunlar için ödeme yapar.
       </li>
       <li>
-        <strong>Reliability + SLAs.</strong> Tools that companies depend on need
-        99.9%+ uptime contracts. The SLA is what justifies the price for
-        infrastructure-adjacent tools.
+        <strong>Güvenilirlik + SLA'lar.</strong> Şirketlerin bağımlı olduğu araçların %99,9+ çalışma süresi sözleşmelerine ihtiyacı vardır. SLA, altyapıya yakın araçlar için fiyatı haklı çıkaran şeydir.
       </li>
       <li>
-        <strong>Time savings × team size.</strong> A tool that saves each engineer
-        2 hours/week × 50 engineers × $80/hour = $416K/year. A $50K/year
-        subscription is easy to justify.
+        <strong>Zaman tasarrufu × ekip büyüklüğü.</strong> Her mühendise haftada 2 saat × 50 mühendis × 80$/saat = 416.000$/yıl kazandıran bir araç. Yıllık 50.000$'lık bir aboneliği haklı çıkarmak kolaydır.
       </li>
       <li>
-        <strong>Integration with existing systems.</strong> SAML/SSO, SCIM
-        provisioning, the company&rsquo;s observability stack, the company&rsquo;s
-        CI. Tools that integrate cleanly close deals; tools that require
-        replacing existing infrastructure don&rsquo;t.
+        <strong>Mevcut sistemlerle entegrasyon.</strong> SAML/SSO, SCIM sağlama, şirketin gözlemlenebilirlik yığını, şirketin CI'sı. Temiz entegre olan araçlar anlaşmaları kapatır; mevcut altyapıyı değiştirmeyi gerektiren araçlar kapatamaz.
       </li>
       <li>
-        <strong>Support response.</strong> Enterprise customers want a Slack
-        Connect channel and 4-hour response. The tool&rsquo;s technical quality
-        matters less than the speed of debugging help.
+        <strong>Destek yanıtı.</strong> Kurumsal müşteriler bir Slack Connect kanalı ve 4 saatlik yanıt süresi ister. Aracın teknik kalitesi, hata ayıklama yardımının hızından daha az önemlidir.
       </li>
       <li>
-        <strong>Predictable pricing.</strong> Per-seat or fixed-rate. Companies
-        hate usage-based bills they can&rsquo;t predict. Even if usage-based is
-        cheaper, predictable pricing wins enterprise deals.
+        <strong>Tahmin edilebilir fiyatlandırma.</strong> Koltuk başına veya sabit ücret. Şirketler tahmin edemedikleri kullanım tabanlı faturalardan nefret eder. Kullanım tabanlı daha ucuz olsa bile, tahmin edilebilir fiyatlandırma kurumsal anlaşmaları kazanır.
       </li>
     </ul>
 
-    <h2 id="testing">Testing developer tools properly</h2>
+    <h2 id="testing">Geliştirici araçlarını doğru şekilde test etme</h2>
     <p>
-      Dev-tool testing has its own patterns:
+      Dev-tool test etmenin kendine özgü kalıpları vardır:
     </p>
     <ul>
       <li>
-        <strong>Snapshot tests for output.</strong> CLI output, generated code,
-        documentation — all benefit from snapshot tests that catch surprise
-        output changes.
+        <strong>Çıktı için anlık görüntü testleri.</strong> CLI çıktısı, oluşturulan kod, dokümantasyon — tümü, sürpriz çıktı değişikliklerini yakalayan anlık görüntü testlerinden yararlanır.
       </li>
       <li>
-        <strong>Cross-platform CI matrix.</strong> Linux, macOS, Windows. Bash 3
-        and Bash 5. Different shells. Catch the platform-specific bugs in CI
-        instead of customer reports.
+        <strong>Platformlar arası CI matrisi.</strong> Linux, macOS, Windows. Bash 3 ve Bash 5. Farklı kabuklar. Platforma özgü hataları müşteri raporlarında değil, CI'da yakalayın.
       </li>
       <li>
-        <strong>Integration tests against real artifacts.</strong> Real Docker
-        images, real Kubernetes clusters (in CI), real databases. Mocks lie about
-        edge cases.
+        <strong>Gerçek yapıtlara karşı entegrasyon testleri.</strong> Gerçek Docker imajları, gerçek Kubernetes kümeleri (CI'da), gerçek veritabanları. Sahtekarlar (mocks) uç durumlar hakkında yalan söyler.
       </li>
       <li>
-        <strong>Performance regression tests.</strong> Build time, startup time,
-        memory. Set thresholds in CI; fail when crossed.
+        <strong>Performans regresyon testleri.</strong> Derleme süresi, başlangıç süresi, bellek. CI'da eşikler belirleyin; aşıldığında başarısız olsun.
       </li>
       <li>
-        <strong>Backwards-compatibility tests.</strong> If your tool has stable
-        APIs, run last release&rsquo;s test suite against current code as a
-        pre-merge check.
+        <strong>Geriye dönük uyumluluk testleri.</strong> Aracınızın kararlı API'leri varsa, birleştirme öncesi kontrol olarak son sürümün test paketini mevcut kod üzerinde çalıştırın.
       </li>
     </ul>
 
-    <h2 id="docs">Documentation best practices for developer tools</h2>
+    <h2 id="docs">Geliştirici araçları için dokümantasyonda en iyi uygulamalar</h2>
     <p>
-      Stripe + Anthropic + Cloudflare set the bar:
+      Stripe + Anthropic + Cloudflare çıtayı belirliyor:
     </p>
     <ul>
       <li>
-        <strong>Quickstart in the first 60 seconds.</strong> Install + first
-        useful output. Anything more verbose loses readers.
+        <strong>İlk 60 saniyede hızlı başlangıç.</strong> Kurulum + ilk kullanışlı çıktı. Daha ayrıntılı olan her şey okuyucuları kaybeder.
       </li>
       <li>
-        <strong>Real, runnable examples.</strong> Copy-paste-runnable. Test them
-        in CI so they don&rsquo;t bit-rot.
+        <strong>Gerçek, çalıştırılabilir örnekler.</strong> Kopyala-yapıştır-çalıştır. CI'da test edin ki bayatlamasınlar.
       </li>
       <li>
-        <strong>Concept docs separate from API reference.</strong> Conceptual
-        docs explain why; reference docs explain what. Mixing them confuses
-        readers.
+        <strong>Kavramsal dokümanların API referansından ayrı olması.</strong> Kavramsal dokümanlar nedenini açıklar; referans dokümanlar ne olduğunu açıklar. Karıştırmak okuyucuların kafasını karıştırır.
       </li>
       <li>
-        <strong>Search that works.</strong> Algolia DocSearch (free for OSS) is
-        the standard. Without good search, the rest of the docs don&rsquo;t
-        matter.
+        <strong>Çalışan arama.</strong> Algolia DocSearch (OSS için ücretsiz) standarttır. İyi bir arama olmadan, dokümanların geri kalanı bir anlam ifade etmez.
       </li>
       <li>
-        <strong>Versioning.</strong> Old releases need their old docs. Don&rsquo;t
-        force users on v1.5 to read v3.0 docs.
+        <strong>Sürümleme.</strong> Eski sürümlerin eski dokümanlarına ihtiyacı vardır. v1.5 kullanıcılarını v3.0 dokümanlarını okumaya zorlamayın.
       </li>
       <li>
-        <strong>Cookbook section.</strong> Common scenarios with full
-        end-to-end examples. The most-used part of the docs after Quickstart.
+        <strong>Yemek kitabı bölümü.</strong> Uçtan uca tam örneklerle yaygın senaryolar. Hızlı Başlangıç'tan sonra dokümanların en çok kullanılan kısmı.
       </li>
     </ul>
 
-    <h2 id="metrics">Measuring success of a developer tool</h2>
+    <h2 id="metrics">Bir geliştirici aracının başarısını ölçme</h2>
     <p>
-      The metrics that predict sustained success (not vanity):
+      Sürdürülebilir başarıyı öngören metrikler (gösteriş amaçlı olmayanlar):
     </p>
     <ul>
       <li>
-        <strong>30-day retention</strong> of trial users — covered in the{" "}
-        <a href="/guides/how-to-get-developers-to-adopt-your-tools">adoption
-        guide</a>.
+        <strong>Deneme kullanıcılarının 30 günlük tutunma oranı</strong> —{" "}
+        <a href="/guides/how-to-get-developers-to-adopt-your-tools">benimseme kılavuzunda</a> ele alınmıştır.
       </li>
       <li>
-        <strong>Daily / weekly active users</strong> — for tools that should be
-        habitual.
+        <strong>Günlük / haftalık aktif kullanıcılar</strong> — alışkanlık haline gelmesi gereken araçlar için.
       </li>
       <li>
-        <strong>Time-to-first-value</strong> — install to first useful output.
-        Sub-5-minutes is the bar.
+        <strong>İlk değere ulaşma süresi</strong> — kurulumdan ilk kullanışlı çıktıya kadar. 5 dakikanın altı çıtadır.
       </li>
       <li>
-        <strong>Net Promoter Score (NPS) within developer audience.</strong> Above
-        40 is strong; above 60 is rare. NPS for dev tools comes from
-        in-product surveys, not email blasts.
+        <strong>Geliştirici kitlesi içinde Net Tavsiye Skoru (NPS).</strong> 40'ın üzeri güçlüdür; 60'ın üzeri nadirdir. Dev araçları için NPS, ürün içi anketlerden gelir, e-posta patlamalarından değil.
       </li>
       <li>
-        <strong>Documentation traffic patterns.</strong> Which pages get the most
-        traffic? Where do users land vs leave? Reveals doc gaps.
+        <strong>Dokümantasyon trafik kalıpları.</strong> Hangi sayfalar en çok trafik alıyor? Kullanıcılar nereye geliyor vs nereden ayrılıyor? Doküman boşluklarını ortaya çıkarır.
       </li>
     </ul>
     <p>
-      What to ignore: GitHub stars (vanity), Twitter mentions (noise), one-time
-      HN front-page (correlates with nothing long-term).
+      Göz ardı edilecekler: GitHub yıldızları (gösteriş), Twitter bahsetmeleri (gürültü), bir kerelik HN ön sayfası (uzun vadede hiçbir şeyle ilişkili değildir).
     </p>
 
-    <h2 id="tools-for-tools">Best frameworks + libraries for building developer tools</h2>
+    <h2 id="tools-for-tools">Geliştirici araçları oluşturmak için en iyi framework'ler + kütüphaneler</h2>
     <ul>
       <li>
-        <strong>CLI frameworks:</strong> Cobra (Go), Click + Typer (Python),
-        Clap (Rust), Yargs / Commander (Node). Pick the one for your language;
-        all are mature.
+        <strong>CLI framework'leri:</strong> Cobra (Go), Click + Typer (Python), Clap (Rust), Yargs / Commander (Node). Dilinize uygun olanı seçin; hepsi olgundur.
       </li>
       <li>
-        <strong>TUI frameworks:</strong> Charm Bubbletea (Go), Textual
-        (Python), Ratatui (Rust), Ink (Node). All produce delightful UIs;
-        Bubbletea + Charm ecosystem is the most prolific in 2026.
+        <strong>TUI framework'leri:</strong> Charm Bubbletea (Go), Textual (Python), Ratatui (Rust), Ink (Node). Hepsi keyifli arayüzler üretir; Bubbletea + Charm ekosistemi 2026'da en üretken olanıdır.
       </li>
       <li>
-        <strong>Output formatting:</strong> tabwriter (Go), Rich (Python),
-        Tabled (Rust). Don&rsquo;t hand-roll table layout.
+        <strong>Çıktı biçimlendirme:</strong> tabwriter (Go), Rich (Python), Tabled (Rust). Tablo düzenini elle yapmayın.
       </li>
       <li>
-        <strong>Config + serialization:</strong> Viper (Go), Pydantic Settings
-        (Python), Serde (Rust), Zod (TS). Don&rsquo;t parse YAML by hand.
+        <strong>Yapılandırma + serileştirme:</strong> Viper (Go), Pydantic Settings (Python), Serde (Rust), Zod (TS). YAML'yi elle ayrıştırmayın.
       </li>
       <li>
-        <strong>Error wrapping + display:</strong> Cobra has built-ins; thiserror
-        + miette in Rust; pretty-printed errors in TS via better-error-stack.
+        <strong>Hata sarma + görüntüleme:</strong> Cobra'da yerleşikler vardır; Rust'ta thiserror + miette; TS'de better-error-stack ile güzel yazdırılmış hatalar.
       </li>
       <li>
-        <strong>Distribution:</strong> goreleaser (Go), cargo-dist (Rust),
-        nfpm (multi-format packages), chocolatey + scoop (Windows), homebrew
-        formulas. Pick the right one for your distribution targets; goreleaser
-        + cargo-dist are the closest to &ldquo;one config covers all
-        platforms.&rdquo;
+        <strong>Dağıtım:</strong> goreleaser (Go), cargo-dist (Rust), nfpm (çok formatlı paketler), chocolatey + scoop (Windows), homebrew formülleri. Dağıtım hedefleriniz için doğru olanı seçin; goreleaser + cargo-dist, "tek yapılandırma tüm platformları kapsar"a en yakın olanlardır.
       </li>
     </ul>
   </>
 );
 
 export const cta = {
-  label: "Run the CLI DX checklist on your tool",
+  label: "Aracınızda CLI Kullanıcı Deneyimi kontrol listesini çalıştırın",
   targetSlug: "cli-dx-checklist",
 };
 
 export const faq = [
   {
-    q: "What are best practices for building CI/CD pipeline tools?",
-    a: "Idempotent operations (CI flakes; tools must be retry-safe), cache awareness, fast failure modes (pre-flight checks before expensive ops), structured output (JSON/GHA annotations), secret-handling discipline (never echo, redact, fail loud on missing), parallelism support (CI runs are expensive — sharding saves real money).",
+    q: "CI/CD boru hattı araçları oluşturmak için en iyi uygulamalar nelerdir?",
+    a: "Idempotent işlemler (CI hataları olur; araçlar tekrar denenebilir olmalı), önbellek farkındalığı, hızlı hata modları (pahalı işlemlerden önce ön kontroller), yapılandırılmış çıktı (JSON/GHA açıklamaları), sır yönetimi disiplini (asla yankılama, karartma, eksikte yüksek sesle başarısız ol), paralellik desteği (CI çalıştırmaları pahalıdır — parçalama gerçek para kazandırır).",
   },
   {
-    q: "What IDEs are best for building developer tools?",
-    a: "VSCode/Cursor dominate (plugins, AI integration). JetBrains (GoLand, IntelliJ, RustRover) for stronger refactoring and large codebases. Neovim for compounded productivity once invested. Helix and Zed are rising. Pick one and go deep — muscle memory beats marginal feature gains.",
+    q: "Geliştirici araçları oluşturmak için en iyi IDE'ler hangileridir?",
+    a: "VSCode/Cursor baskındır (eklentiler, AI entegrasyonu). JetBrains (GoLand, IntelliJ, RustRover) daha güçlü yeniden düzenleme ve büyük kod tabanları için. Neovim, yatırım yapıldığında bileşik üretkenlik için. Helix ve Zed yükseliyor. Birini seçin ve derinlemesine öğrenin — kas hafızası marjinal özellik kazanımlarını yener.",
   },
   {
-    q: "What do companies pay for in developer tools?",
-    a: "Compliance + audit trails (SOC 2, HIPAA, SSO, audit logs), reliability + SLAs, time-saved × team size math, integration with existing systems (SAML, SCIM, observability), support response (Slack Connect + 4-hour response), predictable pricing (per-seat beats unpredictable usage-based for enterprise).",
+    q: "Şirketler geliştirici araçlarında neye para ödüyor?",
+    a: "Uyumluluk + denetim izleri (SOC 2, HIPAA, SSO, denetim günlükleri), güvenilirlik + SLA'lar, zaman tasarrufu × ekip büyüklüğü matematiği, mevcut sistemlerle entegrasyon (SAML, SCIM, gözlemlenebilirlik), destek yanıtı (Slack Connect + 4 saatlik yanıt), tahmin edilebilir fiyatlandırma (koltuk başına, kurumsal için öngörülemeyen kullanım tabanlıyı yener).",
   },
   {
-    q: "How do I test developer tools properly?",
-    a: "Snapshot tests for CLI output and generated code, cross-platform CI matrix (Linux/macOS/Windows + multiple shells), integration tests against real artifacts (real containers, clusters, databases), performance regression tests with thresholds, backwards-compat tests running last release's suite against current code.",
+    q: "Geliştirici araçlarını nasıl doğru şekilde test ederim?",
+    a: "CLI çıktısı ve oluşturulan kod için anlık görüntü testleri, platformlar arası CI matrisi (Linux/macOS/Windows + birden çok kabuk), gerçek yapıtlara karşı entegrasyon testleri (gerçek konteynerler, kümeler, veritabanları), eşiklerle performans regresyon testleri, son sürümün paketini mevcut kod üzerinde çalıştıran geriye dönük uyumluluk testleri.",
   },
   {
-    q: "How do I measure success of a developer tool?",
-    a: "30-day retention of trial users (the most predictive), DAU/WAU for habitual tools, time-to-first-value (sub-5-min is the bar), in-product NPS (40+ strong, 60+ rare), documentation traffic patterns. Ignore GitHub stars, Twitter mentions, and HN front-page hits — none predict long-term sustained usage.",
+    q: "Bir geliştirici aracının başarısını nasıl ölçerim?",
+    a: "Deneme kullanıcılarının 30 günlük tutunma oranı (en öngörücü olan), alışkanlık araçları için GAK/HAK, ilk değere ulaşma süresi (5 dakikanın altı çıtadır), ürün içi NPS (40+ güçlü, 60+ nadir), dokümantasyon trafik kalıpları. GitHub yıldızlarını, Twitter bahsetmelerini ve HN ön sayfa isabetlerini görmezden gelin — hiçbiri uzun vadeli sürdürülebilir kullanımı öngörmez.",
   },
 ];

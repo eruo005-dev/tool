@@ -3,98 +3,58 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      You have a 120-page PDF and you only need chapter 4. Or a 30-page contract
-      where pages 12-13 are the only signed ones and the rest is draft. Or a report
-      that&rsquo;s too big to email. Splitting a PDF is usually faster than it looks,
-      but only if you know which mode you want and what you&rsquo;re about to lose in
-      the process. Here&rsquo;s what actually matters.
+      120 sayfalık bir PDF'iniz var ve sadece 4. bölüme ihtiyacınız var. Ya da 30 sayfalık bir sözleşme, sadece 12-13. sayfaları imzalı, gerisi taslak. Veya e-postayla gönderilemeyecek kadar büyük bir rapor. Bir PDF'i bölmek genellikle göründüğünden daha hızlıdır, ancak yalnızca hangi modu istediğinizi ve bu süreçte neyi kaybedeceğinizi biliyorsanız. İşte gerçekten önemli olan şeyler.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The three reasons people split PDFs</h2>
+    <h2>İnsanların PDF bölmesinin üç nedeni</h2>
     <p>
-      First, extracting one section out of a larger document — a chapter from a
-      textbook, an appendix from a report, a statement month from a yearly bundle.
-      Second, separating signed pages from drafts, so the countersigned version
-      ships clean without the negotiation history. Third, cutting a file down to
-      get under an email attachment limit (Gmail&rsquo;s 25MB is the usual wall).
+      Birincisi, daha büyük bir belgeden bir bölümü çıkarmak — bir ders kitabından bir bölüm, bir rapordan bir ek, yıllık bir paketten bir ayın hesap özeti. İkincisi, imzalı sayfaları taslaklardan ayırmak, böylece karşı imzalı versiyon müzakere geçmişi olmadan temiz bir şekilde gönderilir. Üçüncüsü, bir dosyayı e-posta eki sınırının altına indirmek için küçültmek (Gmail'in 25MB'ı genellikle engeldir).
     </p>
     <p>
-      Each of these wants a slightly different split mode, which is where people
-      trip up.
+      Bunların her biri biraz farklı bir bölme modu ister, işte insanların takıldığı nokta da burasıdır.
     </p>
 
-    <h2>Page ranges vs one-per-page</h2>
+    <h2>Sayfa aralıkları ve sayfa başına bir</h2>
     <p>
-      Most splitters offer two modes. <strong>Page range</strong> extracts specific
-      pages (e.g., 12-13, or 40-62) as one new PDF — this is what you want 90% of
-      the time. <strong>One-per-page</strong> explodes the file into N separate PDFs,
-      one per page, which is almost always overkill unless you&rsquo;re re-ordering
-      an entire document or feeding pages into a scanning workflow.
+      Çoğu bölücü iki mod sunar. <strong>Sayfa aralığı</strong>, belirli sayfaları (örneğin, 12-13 veya 40-62) tek bir yeni PDF olarak çıkarır — bu, zamanın %90'ında istediğiniz şeydir. <strong>Sayfa başına bir</strong>, dosyayı her sayfa için bir tane olmak üzere N ayrı PDF'ye ayırır; bu, tüm bir belgeyi yeniden sıralamadığınız veya sayfaları bir tarama iş akışına beslemediğiniz sürece neredeyse her zaman aşırıya kaçmaktır.
     </p>
     <p>
-      Our <a href="/tools/pdf-split">PDF split tool</a> does both in the browser, so
-      the file never leaves your device. If you&rsquo;re just pulling one section,
-      type the range and move on.
+      <a href="/tools/pdf-split">PDF bölme aracımız</a> her ikisini de tarayıcıda yapar, böylece dosya cihazınızdan asla ayrılmaz. Yalnızca bir bölüm alıyorsanız, aralığı yazın ve devam edin.
     </p>
 
-    <h2>What splitting preserves</h2>
+    <h2>Bölmenin koruduğu şeyler</h2>
     <p>
-      The page content, embedded fonts, images, and text layer (important for
-      searchability) all survive cleanly. Annotations and highlights on the pages
-      you keep come with them. Internal links that happen to point within the
-      range you kept will still work.
+      Sayfa içeriği, gömülü yazı tipleri, resimler ve metin katmanı (aranabilirlik için önemlidir) temiz bir şekilde korunur. Sakladığınız sayfalardaki açıklamalar ve vurgulamalar da onlarla birlikte gelir. Sakladığınız aralık içinde kalan dahili bağlantılar hala çalışacaktır.
     </p>
 
-    <h2>What you lose</h2>
+    <h2>Kaybettikleriniz</h2>
     <p>
-      Global bookmarks — the sidebar table-of-contents that lets you jump to
-      chapters — usually get stripped or reduced to only the ones that fall inside
-      your range. Internal links that point to pages you cut will turn into dead
-      links. Digital signatures on the original file are invalidated the moment you
-      split, which is expected; the signed bytes no longer match.
+      Genel yer imleri — bölümlere atlamanızı sağlayan kenar çubuğu içindekiler tablosu — genellikle silinir veya yalnızca aralığınızın içinde kalanlara indirgenir. Kestiğiniz sayfalara işaret eden dahili bağlantılar ölü bağlantılara dönüşecektir. Orijinal dosyadaki dijital imzalar, böldüğünüz anda geçersiz hale gelir; bu beklenen bir durumdur, imzalı baytlar artık eşleşmez.
     </p>
     <p>
-      If bookmarks matter (textbook, long report you&rsquo;ll keep referencing),
-      decide before splitting whether you care. If you do, keep the full file and
-      extract a range only when sharing.
+      Yer imleri sizin için önemliyse (ders kitabı, sık sık başvuracağınız uzun rapor), bölmeden önce bunu umursayıp umursamadığınıza karar verin. Umursuyorsanız, tam dosyayı saklayın ve yalnızca paylaşırken bir aralık çıkarın.
     </p>
 
-    <h2>Splitting by bookmark (structured splits)</h2>
+    <h2>Yer imine göre bölme (yapılandırılmış bölmeler)</h2>
     <p>
-      A common pro workflow: a book or report with proper bookmarks, and you want
-      to split it so each chapter becomes its own file. Basic splitters don&rsquo;t
-      do this — they only understand page numbers. For bookmark-aware splits, you
-      either need a desktop tool (PDFsam Basic is free and surprisingly good at
-      this) or you script it with something like <code>pdftk</code> or{" "}
-      <code>qpdf</code>.
+      Yaygın bir profesyonel iş akışı: düzgün yer imlerine sahip bir kitap veya rapor ve her bölümün kendi dosyası olacak şekilde bölmek istiyorsunuz. Temel bölücüler bunu yapmaz — yalnızca sayfa numaralarını anlarlar. Yer imine duyarlı bölmeler için, bir masaüstü aracına (PDFsam Basic ücretsizdir ve bunda şaşırtıcı derecede iyidir) ihtiyacınız vardır veya <code>pdftk</code> veya <code>qpdf</code> gibi bir şeyle komut dosyası oluşturursunuz.
     </p>
     <p>
-      For most people, this is worth knowing exists but not worth the setup.
-      If you split twice a year, a browser tool with page ranges is fine.
+      Çoğu insan için, bunun var olduğunu bilmek faydalıdır ancak kurulumuna değmez. Yılda iki kez bölme yapıyorsanız, sayfa aralıkları olan bir tarayıcı aracı yeterlidir.
     </p>
 
-    <h2>Splitting for email size</h2>
+    <h2>E-posta boyutu için bölme</h2>
     <p>
-      If your goal is &ldquo;fit under 25MB,&rdquo; splitting is the second-best
-      answer. The first: compress the file. Scanned PDFs are often 80-90% air —
-      a compressor can easily halve them. Try that first. If the file is genuinely
-      too large even after compression (long scanned contracts, image-heavy
-      portfolios), split into two roughly equal parts and send as a pair with
-      clear names: <code>report-part-1-of-2.pdf</code>.
+      Amacınız "25MB'ın altına sığdırmak" ise, bölme ikinci en iyi cevaptır. Birincisi: dosyayı sıkıştırın. Taranmış PDF'ler genellikle %80-90 havadır — bir sıkıştırıcı onları kolayca yarıya indirebilir. Önce bunu deneyin. Dosya sıkıştırmadan sonra bile gerçekten çok büyükse (uzun taranmış sözleşmeler, resim ağırlıklı portföyler), kabaca iki eşit parçaya bölün ve net adlarla bir çift olarak gönderin: <code>rapor-bolum-1-2.pdf</code>.
     </p>
 
-    <h2>A quick workflow for one-off splits</h2>
+    <h2>Tek seferlik bölmeler için hızlı bir iş akışı</h2>
     <p>
-      Open the PDF, note the page range you actually need, drop it into a splitter,
-      enter the range, and save with a filename that reflects the contents —{" "}
-      <code>contract-signature-pages.pdf</code> beats{" "}
-      <code>document(2)-split.pdf</code> every time. Spot-check the first and last
-      page of the output before you close the source file. Forty-five seconds,
-      and you&rsquo;ve got exactly the subset you needed.
+      PDF'i açın, gerçekten ihtiyacınız olan sayfa aralığını not edin, bir bölücüye sürükleyin, aralığı girin ve içeriği yansıtan bir dosya adıyla kaydedin — <code>sozlesme-imza-sayfalari.pdf</code>, <code>belge(2)-bolunmus.pdf</code>'i her zaman yener. Kaynak dosyayı kapatmadan önce çıktının ilk ve son sayfasını kontrol edin. Kırk beş saniye ve ihtiyacınız olan alt kümeye tam olarak sahipsiniz.
     </p>
   </>
 );

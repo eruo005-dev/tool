@@ -1,103 +1,74 @@
 export const intro = (
   <>
     <p>
-      Boundaries aren&rsquo;t rules you impose on other people — they&rsquo;re limits
-      you set on what you&rsquo;ll participate in. Done well, they reduce resentment,
-      preserve relationships, and give you back hours of your week. Done badly, they
-      look like ultimatums.
+      Sınırlar, başkalarına dayattığınız kurallar değildir — onlar, sizin neye katılacağınıza dair koyduğunuz limitlerdir. Doğru uygulandığında, kırgınlığı azaltır, ilişkileri korur ve haftanızdan saatler kazandırır. Yanlış uygulandığında ise ültimatom gibi görünür.
     </p>
     <p>
-      This guide is how to actually set and hold them without becoming a jerk or a
-      doormat.
+      Bu rehber, bir pislik ya da paspas olmadan sınırları nasıl koyacağınızı ve koruyacağınızı anlatır.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Boundaries are about you, not them</h2>
+    <h2>1. Sınırlar onlarla değil, sizinle ilgilidir</h2>
     <p>
-      &ldquo;Stop calling me after 9pm&rdquo; is a demand. &ldquo;I don&rsquo;t answer
-      the phone after 9pm&rdquo; is a boundary. The first is controlling them; the
-      second is managing yourself. You can only enforce the second.
+      "Akşam 9'dan sonra beni arama" bir taleptir. "Akşam 9'dan sonra telefonu açmam" ise bir sınırdır. Birincisi onları kontrol etmektir; ikincisi kendinizi yönetmektir. Sadece ikincisini uygulayabilirsiniz.
     </p>
 
-    <h2>2. Know what you&rsquo;re protecting</h2>
+    <h2>2. Neyi koruduğunuzu bilin</h2>
     <p>
-      Time, energy, emotional bandwidth, physical space, money, mental health. Each
-      boundary protects one of these. If you don&rsquo;t know what the cost is,
-      you&rsquo;ll give in every time it&rsquo;s tested.
+      Zaman, enerji, duygusal kapasite, fiziksel alan, para, zihinsel sağlık. Her sınır bunlardan birini korur. Bedelin ne olduğunu bilmezseniz, her test edildiğinde pes edersiniz.
     </p>
 
-    <h2>3. Start small</h2>
+    <h2>3. Küçük başlayın</h2>
     <p>
-      You don&rsquo;t need to announce a sweeping new policy. Start with one small,
-      low-stakes boundary. &ldquo;I can&rsquo;t take calls during lunch.&rdquo; Holds
-      become easier with reps.
+      Büyük bir politika değişikliği duyurmanıza gerek yok. Küçük, düşük riskli bir sınırla başlayın. "Öğle yemeği sırasında aramalara cevap veremiyorum." Tekrarlarla sınır koymak kolaylaşır.
     </p>
 
-    <h2>4. Be direct, not apologetic</h2>
+    <h2>4. Doğrudan olun, özür diler gibi değil</h2>
     <p>
-      &ldquo;No, I can&rsquo;t take that on this week&rdquo; is complete. Avoid
-      over-explaining — it invites negotiation. &ldquo;Unfortunately&rdquo; and
-      &ldquo;I&rsquo;m so sorry but&rdquo; can stay, but keep them short.
+      "Hayır, bu hafta bunu üstlenemem" yeterlidir. Aşırı açıklama yapmaktan kaçının — bu pazarlığa davetiye çıkarır. "Maalesef" ve "Çok üzgünüm ama" kalabilir, ancak kısa tutun.
     </p>
 
-    <h2>5. You don&rsquo;t owe lengthy explanations</h2>
+    <h2>5. Uzun açıklamalar borçlu değilsiniz</h2>
     <p>
-      &ldquo;I&rsquo;m not available that weekend&rdquo; is a full sentence. Your time
-      is yours. The instinct to justify every no keeps you trapped. &ldquo;No&rdquo; is
-      a complete answer.
+      "O hafta sonu müsait değilim" tam bir cümledir. Zamanınız size aittir. Her hayırı haklı çıkarma içgüdüsü sizi hapseder. "Hayır" tam bir cevaptır.
     </p>
 
-    <h2>6. Expect pushback</h2>
+    <h2>6. Tepki bekleyin</h2>
     <p>
-      People who benefited from you not having boundaries will resist. This is normal
-      and not a sign you&rsquo;re wrong. Hold the line gently the first few times —
-      they&rsquo;ll adjust.
+      Sınırlarınızın olmamasından fayda sağlayan insanlar direnecektir. Bu normaldir ve yanlış olduğunuzun işareti değildir. İlk birkaç seferde çizgiyi nazikçe koruyun — alışacaklardır.
     </p>
 
-    <h2>7. Consequences, not threats</h2>
+    <h2>7. Sonuçlar, tehditler değil</h2>
     <p>
-      &ldquo;If you keep doing X, I won&rsquo;t keep attending Y&rdquo; — then
-      actually don&rsquo;t attend Y when they do X. Empty threats train people to
-      ignore you. Consequences train people to take you seriously.
+      "Eğer X'i yapmaya devam edersen, Y'ye katılmam" — ve sonra X'i yaptıklarında gerçekten Y'ye katılmayın. Boş tehditler insanları sizi görmezden gelmeye alıştırır. Sonuçlar insanları sizi ciddiye almaya alıştırır.
     </p>
 
-    <h2>8. Guilt is part of the process</h2>
+    <h2>8. Suçluluk sürecin bir parçasıdır</h2>
     <p>
-      Setting your first real boundaries feels bad. That guilt is not a signal
-      you&rsquo;re wrong — it&rsquo;s the ache of an old pattern dying. It fades with
-      practice.
+      İlk gerçek sınırlarınızı koymak kötü hissettirir. Bu suçluluk yanlış olduğunuzun işareti değildir — eski bir kalıbın ölüm sancısıdır. Pratikle kaybolur.
     </p>
 
-    <h2>9. Work boundaries count too</h2>
+    <h2>9. İş sınırları da önemlidir</h2>
     <p>
-      No emails on weekends. Don&rsquo;t answer slack after 7pm. Block your calendar
-      for lunch. Managers respect people who protect their energy — surprising but
-      true. See <a href="/guides/how-to-work-remotely">remote work guide</a>.
+      Hafta sonları e-posta yok. Akşam 7'den sonra Slack'e cevap vermeyin. Öğle yemeği için takviminizi bloke edin. Yöneticiler enerjisini koruyan insanlara saygı duyar — şaşırtıcı ama gerçek. Bkz. <a href="/guides/how-to-work-remotely">uzaktan çalışma rehberi</a>.
     </p>
 
-    <h2>10. Family is hardest</h2>
+    <h2>10. Aile en zorudur</h2>
     <p>
-      Longest-running patterns, most resistance. Boundaries with family may require
-      the most patience and sometimes therapy. Progress is slow; it&rsquo;s still
-      worth it. Consider professional support.
+      En uzun süreli kalıplar, en fazla direnç. Aileyle sınırlar en çok sabır ve bazen terapi gerektirebilir. İlerleme yavaştır; yine de buna değer. Profesyonel destek almayı düşünün.
     </p>
 
-    <h2>11. Saying yes becomes more meaningful</h2>
+    <h2>11. Evet demek daha anlamlı hale gelir</h2>
     <p>
-      When you&rsquo;re capable of saying no, your yes becomes real. People-pleasers
-      agree to everything — their yes means nothing. Your yes, once boundaried, is
-      valued.
+      Hayır diyebildiğinizde, evetiniz gerçek olur. İnsanları memnun etmeye çalışanlar her şeye evet der — evetleri hiçbir şey ifade etmez. Sınırlı evetiniz değerlidir.
     </p>
 
-    <h2>12. Re-set them periodically</h2>
+    <h2>12. Zamanla yeniden belirleyin</h2>
     <p>
-      Life changes. New jobs, new relationships, new kids. Boundaries that worked 2
-      years ago may need resetting. It&rsquo;s not a one-time thing. See{" "}
-      <a href="/guides/how-to-improve-mental-health">mental health guide</a> for the
-      broader frame.
+      Hayat değişir. Yeni işler, yeni ilişkiler, yeni çocuklar. 2 yıl önce işe yarayan sınırlar yeniden ayarlanmayı gerektirebilir. Bu tek seferlik bir şey değildir. Daha geniş çerçeve için <a href="/guides/how-to-improve-mental-health">zihinsel sağlık rehberine</a> bakın.
     </p>
   </>
 );

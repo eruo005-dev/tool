@@ -3,193 +3,181 @@
 export const intro = (
   <>
     <p>
-      Building a working recruiting pipeline with zero subscription cost is a
-      45-minute setup. The Reddit thread for &ldquo;how do you organize hiring without
-      a real ATS&rdquo; gets answers ranging from &ldquo;literally just emails&rdquo;
-      to &ldquo;I built a Notion empire with 12 databases.&rdquo; Both are wrong for
-      different reasons. Here&rsquo;s the practical middle.
+      Sıfır abonelik ücretiyle çalışan bir işe alım hattı kurmak 45 dakikalık bir işlemdir. 
+      Reddit'te "gerçek bir ATS olmadan işe alımı nasıl organize ediyorsunuz?" sorusuna 
+      "tamamen e-postalarla"dan "12 veritabanlı bir Notion imparatorluğu kurdum"a kadar 
+      yanıtlar gelir. İkisi de farklı nedenlerle yanlıştır. İşte pratik orta yol.
     </p>
     <p>
-      This guide is the step-by-step build: which tools, how to wire them, what to
-      automate, and the screening-questions trick that filters out the bottom 60% of
-      applications before you waste a minute.
+      Bu rehber adım adım kurulumu anlatır: hangi araçlar, nasıl bağlanır, ne otomatikleştirilir 
+      ve bir dakikanızı harcamadan başvuruların alt %60'ını eleyen eleme sorusu taktiği.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "stages", label: "Define your stages" },
-  { id: "tools", label: "Wire up the tools" },
-  { id: "screening", label: "Screening questions" },
-  { id: "remote", label: "Remote / distributed teams" },
-  { id: "outreach", label: "Outreach + follow-up automation" },
+  { id: "stages", label: "Aşamalarınızı tanımlayın" },
+  { id: "tools", label: "Araçları bağlayın" },
+  { id: "screening", label: "Eleme soruları" },
+  { id: "remote", label: "Uzaktan / dağıtık ekipler" },
+  { id: "outreach", label: "Aday bulma + takip otomasyonu" },
 ];
 
 export const body = (
   <>
-    <h2 id="stages">Step 1: define your hiring stages</h2>
+    <h2 id="stages">Adım 1: işe alım aşamalarınızı tanımlayın</h2>
     <p>
-      Standard 6-stage funnel that most small teams use:
+      Çoğu küçük ekibin kullandığı standart 6 aşamalı huni:
     </p>
     <ol>
-      <li><strong>Sourced / Applied</strong> — candidate is in the system but not contacted.</li>
-      <li><strong>Phone screen</strong> — recruiter or hiring manager 30-min call.</li>
-      <li><strong>Interview</strong> — technical / panel / multi-round.</li>
-      <li><strong>Offer</strong> — offer extended; awaiting decision.</li>
-      <li><strong>Hired</strong> — terminal positive.</li>
-      <li><strong>Rejected</strong> — terminal negative.</li>
+      <li><strong>Kaynak / Başvuru</strong> — aday sistemde ama iletişime geçilmedi.</li>
+      <li><strong>Telefon ön görüşmesi</strong> — işe alımcı veya yönetici ile 30 dk'lık görüşme.</li>
+      <li><strong>Mülakat</strong> — teknik / panel / çok turlu.</li>
+      <li><strong>Teklif</strong> — teklif yapıldı; karar bekleniyor.</li>
+      <li><strong>İşe alındı</strong> — olumlu sonuç.</li>
+      <li><strong>Reddedildi</strong> — olumsuz sonuç.</li>
     </ol>
     <p>
-      Resist the urge to add 4 sub-stages. Most pipeline pain comes from over-stage-ing
-      (every recruiting tool encourages this because it makes the dashboards look fancier).
-      6 stages is enough to see what&rsquo;s working.
+      4 alt aşama ekleme isteğine direnin. Boru hattı sorunlarının çoğu aşamaları fazla detaylandırmaktan kaynaklanır 
+      (her işe alım aracı bunu teşvik eder çünkü panoları daha havalı gösterir). 
+      Neyin işe yaradığını görmek için 6 aşama yeterlidir.
     </p>
 
-    <h2 id="tools">Step 2: wire up the tools</h2>
+    <h2 id="tools">Adım 2: araçları bağlayın</h2>
     <p>
-      The minimum viable free pipeline:
+      Minimum uygulanabilir ücretsiz boru hattı:
     </p>
     <ul>
       <li>
-        <strong>Pipeline tracker:</strong>{" "}
-        <a href="/tools/recruiting-pipeline-tracker">our recruiting pipeline tracker</a>{" "}
-        with the 6 stages above. Or Trello with the same column structure.
+        <strong>Boru hattı takipçisi:</strong>{" "}
+        <a href="/tools/recruiting-pipeline-tracker">işe alım boru hattı takipçimiz</a>{" "}
+        yukarıdaki 6 aşamayla. Veya aynı sütun yapısına sahip Trello.
       </li>
       <li>
-        <strong>Application form:</strong> Tally free (unlimited responses, way better than
-        Google Forms for application use cases) or a simple page on your website with the
-        application going to a shared inbox.
+        <strong>Başvuru formu:</strong> Tally ücretsiz (sınırsız yanıt, başvuru kullanım durumları için 
+        Google Forms'tan çok daha iyi) veya başvuruların ortak bir gelen kutusuna gittiği web sitenizde basit bir sayfa.
       </li>
       <li>
-        <strong>Inbox:</strong> Gmail, with a shared label like &ldquo;hiring&rdquo;
-        across the team.
+        <strong>Gelen kutusu:</strong> Gmail, ekip genelinde "işe alım" gibi ortak bir etiketle.
       </li>
       <li>
-        <strong>Calendar:</strong> Calendly free for screen calls; Google Calendar for
-        team coordination.
+        <strong>Takvim:</strong> Ön görüşmeler için Calendly ücretsiz; ekip koordinasyonu için Google Takvim.
       </li>
       <li>
-        <strong>Notes / candidate context:</strong> the notes field in the pipeline
-        tracker, or a single Google Doc per role with all interview-round notes.
+        <strong>Notlar / aday bağlamı:</strong> boru hattı takipçisindeki not alanı veya tüm mülakat turlarının notlarını içeren rol başına tek bir Google Dokümanı.
       </li>
     </ul>
     <p>
-      Setup time: 30–45 minutes. Ongoing maintenance: ~10 min/week if you stay disciplined
-      about logging.
+      Kurulum süresi: 30–45 dakika. Sürekli bakım: Kayıt tutmada disiplinli olursanız haftada ~10 dk.
     </p>
 
-    <h2 id="screening">Step 3: screening questions that reduce applications</h2>
+    <h2 id="screening">Adım 3: başvuruları azaltan eleme soruları</h2>
     <p>
-      The least-talked-about hack in small-business hiring: <strong>add 1–3 screening
-      questions to your application form</strong>. They filter out spray-applications and
-      give you faster signal:
+      Küçük işletme işe alımında en az konuşulan taktik: <strong>başvuru formunuza 1–3 eleme sorusu ekleyin</strong>. 
+      Rastgele başvuruları eler ve size daha hızlı sinyal verir:
     </p>
     <ul>
       <li>
-        <strong>&ldquo;In 2–3 sentences, why are you interested in this specific role?&rdquo;</strong> —
-        kills generic apps. People who haven&rsquo;t read the JD won&rsquo;t bother.
+        <strong>"Bu belirli role neden ilgi duyduğunuzu 2–3 cümleyle açıklayın."</strong> — 
+        Genel başvuruları öldürür. İş tanımını okumayanlar uğraşmaz.
       </li>
       <li>
-        <strong>One concrete experience question.</strong> &ldquo;Describe one project
-        where you used [key skill from JD]&rdquo; — separates real experience from
-        keyword-padded resumes.
+        <strong>Bir somut deneyim sorusu.</strong> "İş tanımındaki ana beceriyi kullandığınız bir projeyi anlatın" — 
+        gerçek deneyimi anahtar kelime dolu özgeçmişlerden ayırır.
       </li>
       <li>
-        <strong>Salary expectations + location.</strong> Filters out compensation /
-        geography mismatches before you spend time on phone screen.
+        <strong>Maaş beklentisi + konum.</strong> Telefon ön görüşmesine zaman harcamadan önce 
+        ücret/coğrafya uyumsuzluklarını eler.
       </li>
     </ul>
     <p>
-      Tally and Google Forms both let you add these. Time cost to the candidate: 90
-      seconds. Time saved for you: 5–10 hours/month at typical volumes.
+      Tally ve Google Forms bunları eklemenize izin verir. Adaya maliyeti: 90 saniye. 
+      Size kazandırdığı zaman: tipik hacimlerde ayda 5–10 saat.
     </p>
 
-    <h2 id="remote">Step 4: remote / distributed hiring teams</h2>
+    <h2 id="remote">Adım 4: uzaktan / dağıtık işe alım ekipleri</h2>
     <p>
-      Coordinating multiple interviewers across time zones is where free tools strain.
-      Practical setup:
+      Birden çok görüşmecinin farklı zaman dilimlerinde koordinasyonu, ücretsiz araçların zorlandığı yerdir. 
+      Pratik kurulum:
     </p>
     <ul>
       <li>
-        <strong>Shared pipeline:</strong> if multiple recruiters need to see the same
-        board, our localStorage tracker won&rsquo;t cut it. Use Trello with team access,
-        or a shared Google Sheet — both free for small teams.
+        <strong>Paylaşılan boru hattı:</strong> birden çok işe alımcının aynı panoyu görmesi gerekiyorsa, 
+        localStorage takipçimiz yeterli olmaz. Ekip erişimli Trello veya paylaşılan bir Google E-Tablo kullanın 
+        — her ikisi de küçük ekipler için ücretsizdir.
       </li>
       <li>
-        <strong>Slack channel per role:</strong> #hiring-eng-2026, etc. Pin the JD,
-        pipeline link, and current shortlist. Reduces the &ldquo;status update?&rdquo;
-        emails.
+        <strong>Rol başına Slack kanalı:</strong> #hiring-eng-2026 vb. İş tanımını, boru hattı bağlantısını 
+        ve güncel kısa listeyi sabitleyin. "Durum güncellemesi?" e-postalarını azaltır.
       </li>
       <li>
-        <strong>Async interview feedback:</strong> shared Google Doc per candidate with
-        sections for each interviewer&rsquo;s notes. Replaces Greenhouse&rsquo;s
-        scorecard feature for free.
+        <strong>Eşzamansız mülakat geri bildirimi:</strong> her görüşmecinin notları için bölümler içeren 
+        aday başına paylaşılan Google Dokümanı. Greenhouse'un puan kartı özelliğini ücretsiz olarak değiştirir.
       </li>
       <li>
-        <strong>Time-zone-aware Calendly:</strong> free Calendly handles candidate time
-        zones; you set your availability in your local zone.
+        <strong>Saat dilimi farkında Calendly:</strong> ücretsiz Calendly aday saat dilimlerini halleder; 
+        siz kendi yerel saatinizde müsaitliğinizi ayarlarsınız.
       </li>
     </ul>
 
-    <h2 id="outreach">Step 5: outreach + follow-up automation</h2>
+    <h2 id="outreach">Adım 5: aday bulma + takip otomasyonu</h2>
     <p>
-      Free tools that automate the boring parts:
+      Sıkıcı kısımları otomatikleştiren ücretsiz araçlar:
     </p>
     <ul>
       <li>
-        <strong>Gmail templates:</strong> for &ldquo;thanks for applying&rdquo;,
-        &ldquo;here&rsquo;s a calendar link&rdquo;, and rejection emails. Settings →
-        General → Templates.
+        <strong>Gmail şablonları:</strong> "başvurunuz için teşekkürler", "takvim bağlantısı" 
+        ve ret e-postaları için. Ayarlar → Genel → Şablonlar.
       </li>
       <li>
-        <strong>Boomerang free / Mixmax free:</strong> schedule send for follow-ups.
+        <strong>Boomerang ücretsiz / Mixmax ücretsiz:</strong> takipler için zamanlanmış gönderme.
       </li>
       <li>
-        <strong>Apps Script for stage emails:</strong> 20 lines of Google Apps Script can
-        send a candidate-status email when their row in the spreadsheet changes stage.
-        Free on Google Workspace.
+        <strong>Aşama e-postaları için Apps Script:</strong> 20 satır Google Apps Script, 
+        adayın e-tablodaki satırı aşama değiştirdiğinde aday durum e-postası gönderebilir. 
+        Google Workspace'te ücretsiz.
       </li>
       <li>
-        <strong>Calendly auto-confirmation:</strong> built-in, free. Add a 1-hour-before
-        reminder via your Google Calendar (manual setting, free).
+        <strong>Calendly otomatik onay:</strong> yerleşik, ücretsiz. Google Takviminiz aracılığıyla 
+        1 saat önce hatırlatıcı ekleyin (manuel ayar, ücretsiz).
       </li>
     </ul>
     <p>
-      The follow-up patterns that move candidates through the pipeline:
+      Adayları boru hattında ilerleten takip kalıpları:
     </p>
     <ul>
-      <li>Confirm the application within 48 hours.</li>
-      <li>Schedule the screen within 5 days.</li>
-      <li>Decision after onsite within 5 days.</li>
-      <li>Reject within 7 days of the latest stage.</li>
+      <li>Başvuruyu 48 saat içinde onaylayın.</li>
+      <li>Ön görüşmeyi 5 gün içinde planlayın.</li>
+      <li>Yerinde görüşmeden sonraki 5 gün içinde karar verin.</li>
+      <li>Son aşamadan itibaren 7 gün içinde reddedin.</li>
     </ul>
     <p>
-      Most candidate ghosting happens because someone broke one of these timelines. Free
-      tools can&rsquo;t enforce them — discipline does. Good news: discipline is free.
+      Adayların çoğu, bu zaman çizelgelerinden birinin ihlal edilmesi nedeniyle kaybolur. 
+      Ücretsiz araçlar bunları zorunlu kılamaz — disiplin sağlar. İyi haber: disiplin ücretsizdir.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Start your free pipeline now",
+  label: "Ücretsiz boru hattınıza şimdi başlayın",
   targetSlug: "recruiting-pipeline-tracker",
 };
 
 export const faq = [
   {
-    q: "How long does it take to set up a free recruiting pipeline?",
-    a: "30-45 minutes for the initial setup (pipeline tool + application form + Calendly + inbox label). Then ~10 min/week of maintenance.",
+    q: "Ücretsiz bir işe alım boru hattı kurmak ne kadar sürer?",
+    a: "İlk kurulum için 30-45 dakika (boru hattı aracı + başvuru formu + Calendly + gelen kutusu etiketi). Ardından haftada ~10 dk bakım.",
   },
   {
-    q: "Do screening questions actually reduce candidate volume?",
-    a: "Yes — typically 30-50% fewer applications when you add 1-3 short questions, and the remaining applications are higher quality. Time saved on screening calls more than makes up for the slightly lower top-of-funnel volume.",
+    q: "Eleme soruları gerçekten aday hacmini azaltır mı?",
+    a: "Evet — 1-3 kısa soru eklediğinizde genellikle %30-50 daha az başvuru olur ve kalan başvurular daha kalitelidir. Eleme görüşmelerinde kazanılan zaman, huninin tepesindeki hafif düşük hacimden fazlasını telafi eder.",
   },
   {
-    q: "Can a free pipeline handle remote / distributed teams?",
-    a: "For small teams (2-3 recruiters), yes — Trello free + Slack channel + shared Google Doc covers the coordination needs. Above that you'll want real-time collaboration features, which is when paid ATSes start to be worth it.",
+    q: "Ücretsiz bir boru hattı uzaktan / dağıtık ekipleri yönetebilir mi?",
+    a: "Küçük ekipler (2-3 işe alımcı) için evet — Trello ücretsiz + Slack kanalı + paylaşılan Google Dokümanı koordinasyon ihtiyaçlarını karşılar. Bunun üzerinde gerçek zamanlı işbirliği özelliklerine ihtiyacınız olur, bu da ücretli ATS'lerin değerli olmaya başladığı noktadır.",
   },
   {
-    q: "What's the most common mistake building a free pipeline?",
-    a: "Adding too many stages. 6 standard stages (Sourced, Phone, Interview, Offer, Hired, Rejected) is enough; every additional sub-stage adds maintenance overhead and rarely produces better insight at small scale.",
+    q: "Ücretsiz bir boru hattı kurarken en yaygın hata nedir?",
+    a: "Çok fazla aşama eklemek. 6 standart aşama (Kaynak, Telefon, Mülakat, Teklif, İşe Alındı, Reddedildi) yeterlidir; her ek alt aşama bakım yükü getirir ve küçük ölçekte nadiren daha iyi içgörü sağlar.",
   },
 ];

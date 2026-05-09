@@ -1,91 +1,90 @@
 export const intro = (
   <>
     <p>
-      Grammar isn&rsquo;t pedantry — it&rsquo;s clarity. Readers should glide
-      through your sentences, not stop to figure them out. Good grammar makes
-      you look sharper, get promoted faster, and persuade people better.
-      Here&rsquo;s how to improve without buying a stack of textbooks.
+      Dil bilgisi bilgiçlik değildir — netliktir. Okuyucular cümlelerinizde
+      takılıp kalmamalı, akıp gitmelidir. İyi dil bilgisi sizi daha keskin
+      gösterir, daha hızlı terfi ettirir ve insanları daha iyi ikna eder.
+      İşte bir yığın ders kitabı satın almadan nasıl gelişeceğiniz.
     </p>
     <p>
-      Focus on the handful of errors that actually matter.
+      Gerçekten önemli olan bir avuç hataya odaklanın.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Learn the top 10 common mistakes</h2>
+    <h2>1. En yaygın 10 hatayı öğrenin</h2>
     <p>
-      Its/it&rsquo;s, your/you&rsquo;re, their/they&rsquo;re/there, then/than,
-      affect/effect, who/whom, apostrophe misuse, comma splices, dangling
-      modifiers, subject-verb agreement. These are 90% of grammar errors.
-      Master these 10 first.
+      Its/it's, your/you're, their/they're/there, then/than,
+      affect/effect, who/whom, kesme işareti yanlış kullanımı, virgül bağlamaları, sarkık
+      niteleyiciler, özne-yüklem uyumu. Bunlar dil bilgisi hatalarının %90'ını oluşturur.
+      Önce bu 10'u öğrenin.
     </p>
 
-    <h2>2. Read widely</h2>
+    <h2>2. Bol bol okuyun</h2>
     <p>
-      Nothing teaches grammar like reading well-edited writing. Books,
-      long-form journalism (The New Yorker, The Atlantic, The Economist). You
-      absorb patterns subconsciously. Text messages and Reddit comments do
-      the opposite.
+      Dil bilgisini, iyi düzenlenmiş yazıları okumaktan daha iyi öğreten bir şey yoktur. Kitaplar,
+      uzun metrajlı gazetecilik (The New Yorker, The Atlantic, The Economist). Kalıpları
+      bilinçaltınızda emersiniz. Kısa mesajlar ve Reddit yorumları tam tersini yapar.
     </p>
 
-    <h2>3. Write every day</h2>
+    <h2>3. Her gün yazın</h2>
     <p>
-      Grammar is a skill; skills require practice. Journal, blog, post,
-      write emails carefully. Volume + attention beats rule-memorization
-      every time. See <a href="/guides/how-to-read-more-books">reading guide</a>.
+      Dil bilgisi bir beceridir; beceriler pratik gerektirir. Günlük tutun, blog yazın, paylaşım yapın,
+      e-postaları özenle yazın. Hacim + dikkat, kural ezberlemeyi her zaman
+      yener. Bkz. <a href="/guides/how-to-read-more-books">okuma rehberi</a>.
     </p>
 
-    <h2>4. Use Grammarly or similar tools</h2>
+    <h2>4. Grammarly veya benzer araçları kullanın</h2>
     <p>
-      Free tier catches most common mistakes. Over time it teaches you — you
-      stop making the errors it flags. Not a crutch if you read the
-      corrections instead of just accepting them.
+      Ücretsiz sürüm en yaygın hataların çoğunu yakalar. Zamanla size öğretir — işaretlediği
+      hataları yapmayı bırakırsınız. Düzeltmeleri sadece kabul etmek yerine okursanız
+      bir koltuk değneği değildir.
     </p>
 
-    <h2>5. Read your writing out loud</h2>
+    <h2>5. Yazdıklarınızı sesli okuyun</h2>
     <p>
-      If a sentence is awkward when spoken, it&rsquo;s awkward when read. Your
-      ear catches run-ons, missing words, and weird constructions that your
-      eye misses. Best single editing trick.
+      Bir cümle konuşulduğunda kulağa garip geliyorsa, okunduğunda da garip gelir. Kulağınız,
+      gözünüzün kaçırdığı akışı bozan ifadeleri, eksik kelimeleri ve tuhaf yapıları
+      yakalar. En iyi tek düzenleme numarası.
     </p>
 
-    <h2>6. Shorter sentences are almost always better</h2>
+    <h2>6. Kısa cümleler neredeyse her zaman daha iyidir</h2>
     <p>
-      Long sentences are where grammar goes to die. Breaking one 40-word
-      sentence into three 13-word ones usually fixes most grammar problems and
-      improves clarity.
+      Uzun cümleler dil bilgisinin öldüğü yerlerdir. 40 kelimelik bir cümleyi
+      13 kelimelik üç cümleye bölmek genellikle çoğu dil bilgisi sorununu çözer ve
+      netliği artırır.
     </p>
 
-    <h2>7. Active voice over passive</h2>
+    <h2>7. Edilgen yerine etken çatı</h2>
     <p>
-      &ldquo;Errors were made&rdquo; &lt; &ldquo;I made errors.&rdquo; Active
-      voice is direct, clear, honest. Passive voice often hides the subject
-      and reads limp. Not always wrong, but almost always weaker.
+      "Hatalar yapıldı" &lt; "Hatalar yaptım." Etken
+      çatı doğrudan, net ve dürüsttür. Edilgen çatı genellikle özneyi gizler
+      ve cansız okunur. Her zaman yanlış değildir, ancak neredeyse her zaman daha zayıftır.
     </p>
 
-    <h2>8. Cut adverbs ruthlessly</h2>
+    <h2>8. Zarfları acımasızca kesin</h2>
     <p>
-      &ldquo;Very,&rdquo; &ldquo;really,&rdquo; &ldquo;quite,&rdquo;
-      &ldquo;just&rdquo; — remove them and sentences get stronger. &ldquo;Very
-      tired&rdquo; is weak; &ldquo;exhausted&rdquo; is strong. Strunk and
-      White were right.
+      "Çok," "gerçekten," "oldukça,"
+      "sadece" — bunları kaldırın ve cümleler güçlenir. "Çok
+      yorgun" zayıftır; "bitkin" güçlüdür. Strunk ve White
+      haklıydı.
     </p>
 
-    <h2>9. Study a specific style guide</h2>
+    <h2>9. Belirli bir stil kılavuzu çalışın</h2>
     <p>
-      AP, Chicago, or MLA depending on your field. Pick one and learn the
-      basics. Consistency in your own writing matters more than which you
-      pick. Professional writers know their guide.
+      Alanınıza bağlı olarak AP, Chicago veya MLA. Birini seçin ve
+      temelleri öğrenin. Kendi yazınızda tutarlılık, hangisini seçtiğinizden daha önemlidir.
+      Profesyonel yazarlar kılavuzlarını bilir.
     </p>
 
-    <h2>10. Good writing is rewriting</h2>
+    <h2>10. İyi yazı, yeniden yazmaktır</h2>
     <p>
-      First drafts have errors. Second drafts catch most. Read and edit at
-      least twice before sending anything important. The writers you admire
-      are just better editors than average. See{" "}
-      <a href="/guides/how-to-write-professional-emails">email guide</a>.
+      İlk taslaklarda hatalar vardır. İkinci taslak çoğunu yakalar. Önemli bir şey göndermeden önce
+      en az iki kez okuyun ve düzenleyin. Hayran olduğunuz yazarlar
+      sadece ortalamadan daha iyi editörlerdir. Bkz.{" "}
+      <a href="/guides/how-to-write-professional-emails">e-posta rehberi</a>.
     </p>
   </>
 );

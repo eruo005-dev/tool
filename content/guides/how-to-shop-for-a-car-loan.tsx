@@ -3,222 +3,146 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      The single biggest financial lever in buying a car isn&rsquo;t
-      the sticker price — it&rsquo;s how you finance it. A difference
-      of 3 percentage points in <a href="/learn/apr">APR</a> on a $30,000 loan over 5 years
-      costs $2,500 in extra interest, more than most negotiated price
-      reductions at the dealership. This guide walks through how to
-      shop the loan separately from the car, the numbers that
-      actually matter, and the four dealer tactics that cost
-      buyers thousands.
+      Araba satın alırken en büyük finansal kaldıraç, etiket fiyatı değil — onu nasıl finanse ettiğinizdir. 30.000$'lık bir kredide 5 yıl boyunca <a href="/learn/apr">APR</a>'de 3 puanlık bir fark, fazladan 2.500$ faiz anlamına gelir; bu, bayide pazarlıkla indirilen fiyatların çoğundan daha fazladır. Bu rehber, krediyi arabadan ayrı olarak nasıl araştıracağınızı, gerçekten önemli olan rakamları ve alıcılara binlerce dolara mal olan dört bayi taktiğini anlatıyor.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Step 1 — get pre-approved before walking into a dealer</h2>
+    <h2>Adım 1 — bayiye girmeden önce ön onay alın</h2>
     <p>
-      The most important single move: secure a pre-approval from your
-      bank, credit union, or an online lender <em>before</em> visiting
-      a dealership. Reasons:
+      En önemli tek hamle: bayiyi ziyaret etmeden <em>önce</em> bankanızdan, kredi birliğinizden veya çevrimiçi bir borç verenden ön onay almak. Nedenleri:
     </p>
     <p>
-      <strong>Price negotiation uncoupled from financing.</strong>
-      When you walk in with financing in hand, the price of the car
-      is a clean negotiation. When dealers are offering financing,
-      they can give on one and take on the other.
+      <strong>Finansmandan ayrılmış fiyat pazarlığı.</strong>
+      Elinizde finansmanla girdiğinizde, arabanın fiyatı net bir pazarlık konusudur. Bayiler finansman sunduğunda, birinden verip diğerinden alabilirler.
     </p>
     <p>
-      <strong>Benchmark rate.</strong> You now know your actual rate
-      floor. Dealer finance can beat it (sometimes they do via
-      manufacturer incentives) — but you won&rsquo;t know without a
-      comparison.
+      <strong>Referans oranı.</strong> Artık gerçek oran tabanınızı biliyorsunuz. Bayi finansmanı bunu geçebilir (bazen üretici teşvikleriyle yaparlar) — ancak bir karşılaştırma yapmadan bilemezsiniz.
     </p>
     <p>
-      <strong>Leverage.</strong> Walking in with &ldquo;I&rsquo;m
-      pre-approved at 6.2%&rdquo; lets you push back if they quote
-      8.5% and say it&rsquo;s &ldquo;the best they can do.&rdquo;
+      <strong>Pazarlık gücü.</strong> "%6,2'den ön onaylıyım" diyerek içeri girmek, %8,5 teklif edip "yapabileceklerinin en iyisi bu" dediklerinde geri çevirmenizi sağlar.
     </p>
     <p>
-      Check rates at: your primary bank, local credit unions (often
-      the best rates), online lenders like LightStream, LendingClub,
-      Capital One Auto. Get 2–3 quotes in a 14-day window; credit
-      bureaus treat shopping as one inquiry if done in that window.
+      Oranları şuradan kontrol edin: ana bankanız, yerel kredi birlikleri (genellikle en iyi oranlar), LightStream, LendingClub, Capital One Auto gibi çevrimiçi borç verenler. 14 günlük bir sürede 2-3 teklif alın; kredi büroları, bu süre içinde yapılan araştırmayı tek bir sorgulama olarak kabul eder.
     </p>
 
-    <h2>Step 2 — know the 4 numbers that matter</h2>
+    <h2>Adım 2 — önemli olan 4 rakamı bilin</h2>
     <p>
-      <strong>APR (annual percentage rate)</strong> — the real cost of
-      the loan. This is what to compare across offers, not monthly
-      payment.
+      <strong>APR (yıllık yüzde oranı)</strong> — kredinin gerçek maliyeti. Teklifleri karşılaştırırken aylık ödemeye değil, buna bakın.
     </p>
     <p>
-      <strong>Term (loan length in months)</strong> — 36, 48, 60, 72,
-      or 84 months. Longer = lower monthly payment = more total
-      interest. Much more total interest.
+      <strong>Vade (ay cinsinden kredi süresi)</strong> — 36, 48, 60, 72 veya 84 ay. Daha uzun = daha düşük aylık ödeme = daha fazla toplam faiz. Çok daha fazla toplam faiz.
     </p>
     <p>
-      <strong>Down payment</strong> — more down means less loan, less
-      interest, and lower risk of being underwater (owing more than
-      the car is worth) if the car depreciates faster than you pay
-      off.
+      <strong>Peşinat</strong> — daha fazla peşinat, daha az kredi, daha az faiz ve arabanın ödemesini yaptığınızdan daha hızlı değer kaybetmesi durumunda su altında kalma (arabanın değerinden fazla borçlanma) riskinin daha düşük olması anlamına gelir.
     </p>
     <p>
-      <strong>Total cost of loan</strong> = monthly payment × number
-      of months + down payment. This is the number that tells you
-      what the car actually cost. Dealers don&rsquo;t show this; you
-      have to calculate it.
+      <strong>Kredinin toplam maliyeti</strong> = aylık ödeme × ay sayısı + peşinat. Bu, arabanın gerçek maliyetini gösteren rakamdır. Bayiler bunu göstermez; sizin hesaplamanız gerekir.
     </p>
 
-    <h2>The term-length trap</h2>
+    <h2>Vade süresi tuzağı</h2>
     <p>
-      Most dealers push longer terms because monthly payment looks
-      smaller. The math on $30,000 at 7% APR:
+      Çoğu bayi daha uzun vadeleri iter çünkü aylık ödeme daha küçük görünür. %7 APR ile 30.000$'ın matematiği:
     </p>
     <p>
-      <strong>48 months:</strong> $719/mo, total interest ~$4,500.
+      <strong>48 ay:</strong> 719$/ay, toplam faiz ~4.500$.
     </p>
     <p>
-      <strong>60 months:</strong> $594/mo, total interest ~$5,650.
+      <strong>60 ay:</strong> 594$/ay, toplam faiz ~5.650$.
     </p>
     <p>
-      <strong>72 months:</strong> $512/mo, total interest ~$6,860.
+      <strong>72 ay:</strong> 512$/ay, toplam faiz ~6.860$.
     </p>
     <p>
-      <strong>84 months:</strong> $453/mo, total interest ~$8,070.
+      <strong>84 ay:</strong> 453$/ay, toplam faiz ~8.070$.
     </p>
     <p>
-      The 84-month loan costs $3,570 more in interest than the
-      48-month loan for the same car. Plus: you&rsquo;re underwater
-      for longer (owing more than the car&rsquo;s depreciated value),
-      meaning if you total it or need to sell, you&rsquo;re on the
-      hook for the gap.
+      84 aylık kredi, aynı araba için 48 aylık krediden 3.570$ daha fazla faize mal olur. Ayrıca: daha uzun süre su altında kalırsınız (arabanın amorti edilmiş değerinden fazla borçlanırsınız), yani arabayı pert ederseniz veya satmanız gerekirse, farkı siz ödersiniz.
     </p>
     <p>
-      <strong>Rule of thumb:</strong> buy a car you can finance in 48
-      months or less. If the 48-month payment is too much, the car
-      is too expensive for your budget, regardless of what the
-      72-month payment looks like.
+      <strong>Genel kural:</strong> 48 ay veya daha kısa sürede finanse edebileceğiniz bir araba satın alın. 48 aylık ödeme çok fazlaysa, 72 aylık ödeme nasıl görünürse görünsün, araba bütçeniz için çok pahalıdır.
     </p>
 
-    <h2>The down payment rule (20% ideally)</h2>
+    <h2>Peşinat kuralı (ideal olarak %20)</h2>
     <p>
-      Standard guidance: put down at least 20% of the car&rsquo;s
-      price. Why:
+      Standart tavsiye: arabanın fiyatının en az %20'sini peşinat olarak yatırın. Neden:
     </p>
     <p>
-      New cars depreciate 10–20% in the first year. If you put 0%
-      down and financed the whole price, you&rsquo;re instantly
-      underwater — owing more than the car is worth. Gap insurance
-      helps; avoiding the situation is better.
+      Yeni arabalar ilk yılda %10-20 değer kaybeder. %0 peşinat yatırıp tüm fiyatı finanse ederseniz, anında su altında kalırsınız — arabanın değerinden fazla borçlanırsınız. Açık sigortası yardımcı olur; durumdan kaçınmak daha iyidir.
     </p>
     <p>
-      A 20% down payment keeps you roughly even with depreciation,
-      reducing risk and typically getting a better rate (lenders
-      price lower-LTV loans at lower APRs).
+      %20 peşinat, sizi kabaca amortismanla başa baş tutar, riski azaltır ve tipik olarak daha iyi bir oran almanızı sağlar (borç verenler düşük LTV'li kredilere daha düşük APR'ler uygular).
     </p>
     <p>
-      Trade-ins count toward down payment. So does selling your
-      current car privately (usually $1,000–3,000 more than trade-in
-      value).
+      Takaslar peşinata dahil edilir. Mevcut arabanızı özel olarak satmak da (genellikle takas değerinden 1.000-3.000$ daha fazla) aynı işi görür.
     </p>
 
-    <h2>The 20/4/10 rule — a sanity check</h2>
+    <h2>20/4/10 kuralı — bir sağlamlık kontrolü</h2>
     <p>
-      Pop-finance rule that works as a guardrail:
+      Bir korkuluk görevi gören popüler finans kuralı:
     </p>
     <p>
-      <strong>20%</strong> down payment minimum.
+      <strong>%20</strong> minimum peşinat.
     </p>
     <p>
-      <strong>4 years</strong> maximum loan term.
+      <strong>4 yıl</strong> maksimum kredi vadesi.
     </p>
     <p>
-      <strong>10%</strong> of monthly gross income maximum for total
-      car costs (payment + insurance + fuel + maintenance).
+      <strong>%10</strong> aylık brüt gelirin maksimum toplam araba maliyeti (ödeme + sigorta + yakıt + bakım).
     </p>
     <p>
-      If the car you want doesn&rsquo;t fit the 20/4/10 rule with
-      your income, it&rsquo;s unaffordable at your stage, not just
-      &ldquo;tight.&rdquo;
+      İstediğiniz araba, gelirinizle 20/4/10 kuralına uymuyorsa, sadece "sıkışık" değil, mevcut durumunuzda satın alınamaz demektir.
     </p>
 
-    <h2>4 dealer finance tactics to recognize</h2>
+    <h2>Tanımanız gereken 4 bayi finansman taktiği</h2>
     <p>
-      <strong>Tactic 1: &ldquo;Focus on the monthly payment.&rdquo;</strong>
-      Dealers extend term to hit a target monthly number while the
-      total price, interest, and term all move silently. Always
-      negotiate price first, then financing separately. Don&rsquo;t
-      tell them your target monthly payment.
+      <strong>Taktik 1: "Aylık ödemeye odaklanın."</strong>
+      Bayiler, toplam fiyat, faiz ve vade sessizce değişirken hedef aylık rakama ulaşmak için vadeyi uzatır. Önce fiyatı, sonra finansmanı ayrı ayrı pazarlık edin. Onlara hedef aylık ödemenizi söylemeyin.
     </p>
     <p>
-      <strong>Tactic 2: Rate markup.</strong> Dealers get the
-      wholesale rate from their lender, then mark it up before
-      offering to you — the markup is their profit. A dealer quoting
-      8.5% when your credit qualifies for 6.5% is pocketing the 2%
-      spread. A pre-approval from your bank exposes this.
+      <strong>Taktik 2: Oran karı.</strong>
+      Bayiler, borç verenlerinden toptan oranı alır, ardından size teklif etmeden önce kar marjı ekler — bu kar onların kârıdır. Krediniz %6,5'e uygunken %8,5 teklif eden bir bayi, %2'lik farkı cebine atıyordur. Bankanızdan bir ön onay bunu ortaya çıkarır.
     </p>
     <p>
-      <strong>Tactic 3: Product packing.</strong> Extended warranty,
-      gap insurance, paint protection, tire-and-wheel coverage, VIN
-      etching — hundreds to thousands in add-ons, often rolled into
-      financing so you don&rsquo;t notice. Ask for itemization;
-      decline anything you didn&rsquo;t ask for.
+      <strong>Taktik 3: Ürün paketleme.</strong>
+      Genişletilmiş garanti, açık sigortası, boya koruması, lastik ve jant kapsamı, VIN kazıma — yüzlerce ila binlerce dolarlık eklentiler, genellikle fark etmeyesiniz diye finansmana dahil edilir. Döküm isteyin; istemediğiniz hiçbir şeyi reddedin.
     </p>
     <p>
-      <strong>Tactic 4: Trade-in manipulation.</strong> If your
-      trade-in is worth $8k but they offer $10k with the caveat that
-      the new car is overpriced by $2k, they&rsquo;ve moved the
-      numbers around without changing anything. Get the KBB
-      private-party value on your current car <em>before</em>
-      negotiating.
+      <strong>Taktik 4: Takas manipülasyonu.</strong>
+      Takasınız 8 bin dolar değerindeyse ancak yeni arabanın 2 bin dolar fazla fiyatlandırıldığı uyarısıyla 10 bin dolar teklif ederlerse, hiçbir şeyi değiştirmeden rakamları oynatmış olurlar. Pazarlığa başlamadan <em>önce</em> mevcut arabanızın KBB özel satış değerini öğrenin.
     </p>
 
-    <h2>New vs used — margin math</h2>
+    <h2>Yeni vs ikinci el — marj matematiği</h2>
     <p>
-      New cars depreciate fastest in years 1–3. A 2–3 year old
-      certified pre-owned car has taken the worst depreciation hit
-      already. Typical total cost of ownership difference (3 years):
+      Yeni arabalar en hızlı 1-3. yıllarda değer kaybeder. 2-3 yaşında sertifikalı ikinci el bir araba, en kötü amortisman darbesini zaten almıştır. Tipik toplam sahip olma maliyeti farkı (3 yıl):
     </p>
     <p>
-      New car, $35k: depreciates to $22k. Cost of ownership: $13k
-      depreciation + interest + insurance + maintenance.
+      Yeni araba, 35 bin dolar: 22 bin dolara değer kaybeder. Sahip olma maliyeti: 13 bin dolar amortisman + faiz + sigorta + bakım.
     </p>
     <p>
-      Same car, 3 years old at purchase, $22k: depreciates to $15k
-      over your 3-year ownership. Cost: $7k depreciation + similar
-      interest + insurance + slightly higher maintenance.
+      Aynı araba, satın alındığında 3 yaşında, 22 bin dolar: 3 yıllık sahipliğinizde 15 bin dolara değer kaybeder. Maliyet: 7 bin dolar amortisman + benzer faiz + sigorta + biraz daha yüksek bakım.
     </p>
     <p>
-      Used is typically $3–6k cheaper over 3 years for the same
-      driving utility. Tradeoffs: slightly shorter warranty, older
-      tech, but often the better value.
+      İkinci el, aynı sürüş faydası için 3 yılda tipik olarak 3-6 bin dolar daha ucuzdur. Ödünleşimler: biraz daha kısa garanti, daha eski teknoloji, ancak genellikle daha iyi değer.
     </p>
 
-    <h2>Pre-pay vs invest the difference</h2>
+    <h2>Erken ödeme vs farkı yatırma</h2>
     <p>
-      If your loan APR is below 6%, investing extra cash in a
-      broad-market index fund (historical ~7% real return) has
-      slightly better expected value than paying down the loan. Above
-      7% APR, paying down the loan is a guaranteed return and beats
-      market expectations.
+      Kredi APR'niz %6'nın altındaysa, fazla parayı geniş bir endeks fonuna yatırmak (tarihsel ~%7 reel getiri), krediyi ödemekten biraz daha iyi beklenen değere sahiptir. %7 APR'nin üzerinde, krediyi ödemek garantili bir getiridir ve piyasa beklentilerini geçer.
     </p>
     <p>
-      The psychological argument for paying off anyway: guaranteed,
-      zero-risk, clears mental overhead. Many people prefer it even
-      when math slightly favors investing.
+      Yine de ödemenin psikolojik argümanı: garantili, sıfır riskli, zihinsel yükü temizler. Birçok kişi, matematik hafifçe yatırımı desteklese bile bunu tercih eder.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları hesaplayın</h2>
     <p>
-      Enter vehicle price, down payment, APR, and term into the{" "}
-      <a href="/tools/car-loan-calculator">car loan calculator</a> for
-      monthly payment and total interest. Pair with the{" "}
-      <a href="/tools/loan-calculator">general loan calculator</a> to
-      compare offers across lenders, and the{" "}
-      <a href="/tools/fuel-cost-calculator">fuel cost calculator</a>
-      {" "}to round out total cost of ownership against your budget.
+      Araç fiyatı, peşinat, APR ve vadeyi aylık ödeme ve toplam faiz için{" "}
+      <a href="/tools/car-loan-calculator">araba kredisi hesaplayıcısına</a> girin. Borç verenler arasındaki teklifleri karşılaştırmak için{" "}
+      <a href="/tools/loan-calculator">genel kredi hesaplayıcısı</a> ile ve bütçenize karşı toplam sahip olma maliyetini tamamlamak için{" "}
+      <a href="/tools/fuel-cost-calculator">yakıt maliyeti hesaplayıcısı</a>
+      {" "}ile birlikte kullanın.
     </p>
   </>
 );

@@ -3,178 +3,102 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Marketing <a href="/learn/roi">ROI</a> is the arithmetic of whether a campaign made money
-      or lost money — a surprisingly contested number, because what
-      counts as &ldquo;cost&rdquo; and what counts as &ldquo;return&rdquo;
-      can be defined a dozen ways. This guide walks through the base
-      formula, the three most common ways teams calculate it, why
-      attribution ruins everything, and how to report an ROI number
-      that&rsquo;s honest enough to survive a CFO&rsquo;s questions.
+      Pazarlama <a href="/learn/roi">ROI</a>'si, bir kampanyanın para kazandırıp kazandırmadığının aritmetiğidir — şaşırtıcı derecede tartışmalı bir rakamdır, çünkü "maliyet" ve "getiri" olarak kabul edilenler bir düzine farklı şekilde tanımlanabilir. Bu rehber, temel formülü, ekiplerin bunu hesapladığı en yaygın üç yöntemi, neden ilişkilendirmenin her şeyi mahvettiğini ve bir CFO'nun sorularına karşı duracak kadar dürüst bir ROI rakamını nasıl raporlayacağınızı adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The base formula</h2>
+    <h2>Temel formül</h2>
     <p>
-      <code>ROI = (Gain − Cost) / Cost × 100%</code>
+      <code>ROI = (Kazanç − Maliyet) / Maliyet × 100%</code>
     </p>
     <p>
-      Spend $10k on a campaign, generate $40k in attributable revenue:
-      ROI = ($40k − $10k) / $10k × 100% = <strong>300%</strong>. For
-      every dollar spent, you got three dollars in profit back on top
-      of recovering your spend.
+      Bir kampanyaya 10 bin dolar harcayın, 40 bin dolar atfedilebilir gelir elde edin:
+      ROI = (40 bin $ − 10 bin $) / 10 bin $ × 100% = <strong>%300</strong>. Harcanan her dolar için, harcamanızı geri kazanmanın üzerine üç dolar kâr elde ettiniz.
     </p>
 
-    <h2>Marketing ROI vs ROAS — don&rsquo;t confuse them</h2>
+    <h2>Pazarlama ROI'si ve ROAS — bunları karıştırmayın</h2>
     <p>
-      <strong>ROAS (Return on Ad Spend)</strong> is revenue ÷ ad spend. The
-      same campaign above: $40k / $10k = 4.0x ROAS. ROAS ignores profit
-      margin. If your gross margin is 20%, that $40k of revenue
-      actually generated $8k in gross profit — and you spent $10k to
-      get it. ROAS says you&rsquo;re winning; true ROI says you&rsquo;re
-      losing money.
+      <strong>ROAS (Reklam Harcaması Getirisi)</strong> gelir ÷ reklam harcamasıdır. Aynı kampanya yukarıdaki gibi: 40 bin $ / 10 bin $ = 4,0x ROAS. ROAS, kâr marjını göz ardı eder. Brüt marjınız %20 ise, 40 bin dolarlık bu gelir aslında 8 bin dolar brüt kâr sağlamıştır — ve siz bunu elde etmek için 10 bin dolar harcadınız. ROAS kazandığınızı söyler; gerçek ROI ise para kaybettiğinizi söyler.
     </p>
     <p>
-      <code>Actual ROI = (Revenue × Gross margin − Marketing cost) / Marketing cost</code>.
-      Always do the margin step when reporting ROI to anyone above the
-      marketing team, or you&rsquo;ll get caught lighting money on fire
-      while the dashboard says everything&rsquo;s great.
+      <code>Gerçek ROI = (Gelir × Brüt marj − Pazarlama maliyeti) / Pazarlama maliyeti</code>. Pazarlama ekibinin üzerindeki herhangi birine ROI raporlarken her zaman marj adımını yapın, aksi takdirde gösterge paneli her şeyin harika olduğunu söylerken aslında parayı ateşe atarken yakalanırsınız.
     </p>
 
-    <h2>Three common flavors of Marketing ROI</h2>
+    <h2>Pazarlama ROI'sinin üç yaygın çeşidi</h2>
     <p>
-      <strong>(1) Revenue ROI.</strong> (Revenue − Marketing cost) ÷
-      Marketing cost. Ignores margin. Inflated. Marketing teams often
-      report this. Fine internally, misleading externally.
+      <strong>(1) Gelir ROI'si.</strong> (Gelir − Pazarlama maliyeti) ÷ Pazarlama maliyeti. Marjı göz ardı eder. Şişirilmiştir. Pazarlama ekipleri genellikle bunu raporlar. Dahili olarak sorun yok, harici olarak yanıltıcıdır.
     </p>
     <p>
-      <strong>(2) Gross-profit ROI.</strong> (Revenue × Gross margin −
-      Marketing cost) ÷ Marketing cost. The honest version. CFOs expect
-      this.
+      <strong>(2) Brüt kâr ROI'si.</strong> (Gelir × Brüt marj − Pazarlama maliyeti) ÷ Pazarlama maliyeti. Dürüst versiyon. CFO'lar bunu bekler.
     </p>
     <p>
-      <strong>(3) Contribution-margin ROI.</strong> Accounts for all
-      variable costs (gross margin + customer service + shipping +
-      payment processing). Used in unit-economics-focused companies and
-      venture-backed growth modeling.
+      <strong>(3) Katkı marjı ROI'si.</strong> Tüm değişken maliyetleri (brüt marj + müşteri hizmetleri + nakliye + ödeme işleme) hesaba katar. Birim ekonomi odaklı şirketlerde ve girişim sermayesi destekli büyüme modellemelerinde kullanılır.
     </p>
 
-    <h2>The time-horizon problem</h2>
+    <h2>Zaman ufku sorunu</h2>
     <p>
-      Acquisition marketing pays off over the customer&rsquo;s lifetime,
-      not on first purchase. A SaaS business that spends $1,000 to
-      acquire a customer who pays $100/month for 36 months shouldn&rsquo;t
-      report a negative ROI after month one. Use{" "}
-      <strong>payback period</strong> and <strong>LTV:CAC ratio</strong>{" "}
-      alongside ROI:
+      Edinme pazarlaması, müşterinin ilk satın almasında değil, ömür boyu değeri üzerinden kendini amorti eder. Ayda 100 dolar ödeyen bir müşteriyi 36 ay boyunca edinmek için 1.000 dolar harcayan bir SaaS işletmesi, birinci aydan sonra negatif ROI raporlamamalıdır. ROI'nin yanında{" "}
+      <strong>geri ödeme süresi</strong> ve <strong>LTV:CAC oranı</strong> kullanın:
     </p>
     <p>
-      <strong>LTV</strong> (lifetime value) = average customer revenue ×
-      average margin × average lifespan.{" "}
-      <strong>CAC</strong> (customer acquisition cost) = marketing spend
-      ÷ customers acquired. LTV:CAC ratio of 3:1 or higher is the SaaS
-      benchmark. Under 2:1 usually means unit economics are broken.
+      <strong>LTV</strong> (ömür boyu değer) = ortalama müşteri geliri × ortalama marj × ortalama ömür.{" "}
+      <strong>CAC</strong> (müşteri edinme maliyeti) = pazarlama harcaması ÷ edinilen müşteri sayısı. LTV:CAC oranının 3:1 veya daha yüksek olması SaaS referans değeridir. 2:1'in altı genellikle birim ekonominin bozuk olduğu anlamına gelir.
     </p>
     <p>
-      Annualize it when comparing campaigns: see the{" "}
-      <a href="/tools/roi-calculator">ROI calculator</a> for
-      single-period ROI and annualized ROI (CAGR) side-by-side.
+      Kampanyaları karşılaştırırken yıllıklandırın: tek dönemli ROI ve yıllıklandırılmış ROI'yi (Bileşik Yıllık Büyüme Oranı) yan yana görmek için{" "}
+      <a href="/tools/roi-calculator">ROI hesaplayıcı</a>'ya bakın.
     </p>
 
-    <h2>Attribution — where ROI claims go to die</h2>
+    <h2>İlişkilendirme — ROI iddialarının öldüğü yer</h2>
     <p>
-      Attribution is the question &ldquo;which campaign caused this
-      purchase?&rdquo; Most conversions involve 3–8 touchpoints — a
-      Google ad, a retargeting display, an email, an organic search,
-      a podcast mention — and attribution models assign credit
-      differently:
+      İlişkilendirme, "hangi kampanya bu satın almaya neden oldu?" sorusudur. Çoğu dönüşüm 3–8 temas noktası içerir — bir Google reklamı, bir yeniden hedefleme görseli, bir e-posta, bir organik arama, bir podcast bahsi — ve ilişkilendirme modelleri krediyi farklı şekilde dağıtır:
     </p>
     <p>
-      <strong>Last-click:</strong> 100% credit to the final touchpoint.
-      Favors bottom-funnel campaigns. The iOS 14.5 tracking changes
-      broke this model for most mobile apps.
+      <strong>Son tıklama:</strong> Kredinin %100'ü son temas noktasına gider. Alt huni kampanyalarını kayırır. iOS 14.5 izleme değişiklikleri bu modeli çoğu mobil uygulama için bozdu.
     </p>
     <p>
-      <strong>First-click:</strong> 100% credit to the first touchpoint.
-      Favors top-funnel brand campaigns. Rarely used alone.
+      <strong>İlk tıklama:</strong> Kredinin %100'ü ilk temas noktasına gider. Üst huni marka kampanyalarını kayırır. Nadiren tek başına kullanılır.
     </p>
     <p>
-      <strong>Linear:</strong> Equal credit across all touchpoints.
-      Simple and defensible, but treats a brand-awareness impression the
-      same as a checkout-page retargeting ad.
+      <strong>Doğrusal:</strong> Tüm temas noktalarına eşit kredi dağıtır. Basit ve savunulabilir, ancak bir marka bilinirliği gösterimini, bir ödeme sayfası yeniden hedefleme reklamıyla aynı şekilde ele alır.
     </p>
     <p>
-      <strong>Data-driven / algorithmic:</strong> GA4&rsquo;s default,
-      and similar models in HubSpot and Salesforce. Uses your own
-      historical conversion paths to assign weights. Usually the most
-      defensible, but requires enough data volume (thousands of
-      conversions) to produce a meaningful model.
+      <strong>Veri odaklı / algoritmik:</strong> GA4'ün varsayılanı ve HubSpot ile Salesforce'taki benzer modeller. Kendi geçmiş dönüşüm yollarınızı kullanarak ağırlıklar atar. Genellikle en savunulabilir olanıdır, ancak anlamlı bir model üretmek için yeterli veri hacmi (binlerce dönüşüm) gerektirir.
     </p>
     <p>
-      The honest version of ROI always names the attribution model
-      alongside the number. &ldquo;Campaign ROI: 240% (last-click)&rdquo;
-      is truthful. &ldquo;Campaign ROI: 240%&rdquo; alone is a number
-      someone will disagree with the second it shows up in the
-      monthly review.
+      ROI'nin dürüst versiyonu, her zaman ilişkilendirme modelini rakamın yanında belirtir. "Kampanya ROI'si: %240 (son tıklama)" doğrudur. Sadece "Kampanya ROI'si: %240" demek, aylık değerlendirmede ortaya çıktığı anda birinin itiraz edeceği bir rakamdır.
     </p>
 
-    <h2>Incrementality — the harder question</h2>
+    <h2>Artımsallık — daha zor soru</h2>
     <p>
-      Even with perfect attribution, some of the conversions you paid
-      for would have happened anyway. This is the <em>incrementality</em>{" "}
-      problem. The only reliable way to measure it is holdout tests:
-      withhold advertising from a random 10% of your audience, compare
-      conversion rates, and the delta is your true incremental
-      contribution.
+      Mükemmel ilişkilendirme olsa bile, ödediğiniz dönüşümlerin bir kısmı zaten gerçekleşecekti. Bu <em>artımsallık</em> sorunudur. Bunu ölçmenin tek güvenilir yolu, ayrılmış testlerdir: kitlenizin rastgele %10'una reklam göstermeyin, dönüşüm oranlarını karşılaştırın ve fark, gerçek artımsal katkınızdır.
     </p>
     <p>
-      Most teams skip this because it feels like losing conversions on
-      purpose. The ones that run holdouts routinely find that 20–50%
-      of &ldquo;attributed&rdquo; conversions are non-incremental. If
-      you haven&rsquo;t run a holdout test, your reported ROI is
-      optimistic by an unknown amount.
+      Çoğu ekip bunu, kasıtlı olarak dönüşüm kaybetmek gibi hissettirdiği için atlar. Ayrılmış testler yapanlar, rutin olarak "atfedilen" dönüşümlerin %20-50'sinin artımsal olmadığını bulur. Bir ayrılmış test yapmadıysanız, raporladığınız ROI bilinmeyen bir miktarda iyimserdir.
     </p>
 
-    <h2>A campaign-level ROI worked example</h2>
+    <h2>Kampanya düzeyinde ROI çalışma örneği</h2>
     <p>
-      LinkedIn ads for an enterprise SaaS. Spend: $15,000. Attributed
-      revenue (last-click, GA): $180,000 in first-year contract value.
-      Gross margin: 75%. Ad-ops labor (10% of media cost allocated):
-      $1,500.
+      Kurumsal bir SaaS için LinkedIn reklamları. Harcama: 15.000 dolar. Atfedilen gelir (son tıklama, GA): İlk yıl sözleşme değeri olarak 180.000 dolar. Brüt marj: %75. Reklam operasyonları işçiliği (medya maliyetinin %10'u tahsis edilmiş): 1.500 dolar.
     </p>
     <p>
-      Full cost: $15,000 + $1,500 = $16,500. Gross profit from attributed
-      revenue: $180,000 × 0.75 = $135,000. ROI = ($135,000 − $16,500) /
-      $16,500 = <strong>718%</strong> on a gross-profit basis.
+      Toplam maliyet: 15.000 $ + 1.500 $ = 16.500 $. Atfedilen gelirden brüt kâr: 180.000 $ × 0,75 = 135.000 $. ROI = (135.000 $ − 16.500 $) / 16.500 $ = brüt kâr bazında <strong>%718</strong>.
     </p>
     <p>
-      Now discount for attribution model risk. If an incrementality test
-      would show 60% of those conversions were non-incremental,
-      real-world ROI = ($135,000 × 0.40 − $16,500) / $16,500 = 227%. Still
-      profitable, but dramatically different, and only one is going to
-      be defensible six months later.
+      Şimdi ilişkilendirme modeli riski için indirim yapın. Bir artımsallık testi, bu dönüşümlerin %60'ının artımsal olmadığını gösterseydi, gerçek dünya ROI'si = (135.000 $ × 0,40 − 16.500 $) / 16.500 $ = %227. Hâlâ kârlı, ancak çarpıcı biçimde farklı ve yalnızca biri altı ay sonra savunulabilir olacak.
     </p>
 
-    <h2>The shortcut for small campaigns</h2>
+    <h2>Küçük kampanyalar için kısayol</h2>
     <p>
-      For campaigns under $10k in spend and under 100 conversions, skip
-      the attribution modeling. Just look at spend and revenue from
-      matching time periods, accept last-click attribution as
-      good-enough, and calculate gross-profit ROI. The variance is too
-      high for precision modeling to beat back-of-envelope at that
-      scale.
+      Harcaması 10 bin doların altında ve 100 dönüşümün altındaki kampanyalar için ilişkilendirme modellemesini atlayın. Sadece eşleşen zaman dilimlerindeki harcama ve gelire bakın, son tıklama ilişkilendirmesini yeterince iyi kabul edin ve brüt kâr ROI'sini hesaplayın. Bu ölçekte varyans, hassas modellemenin kabataslak hesaplamayı yenmesi için çok yüksektir.
     </p>
     <p>
-      For the core math, use the{" "}
-      <a href="/tools/roi-calculator">ROI calculator</a> (handles both
-      simple and annualized). Pair with the{" "}
-      <a href="/tools/break-even-calculator">break-even calculator</a>{" "}
-      when deciding whether a campaign cost is recoverable, and the{" "}
-      <a href="/tools/profit-margin-calculator">profit margin
-      calculator</a> to convert revenue inputs to the gross-profit
-      version of ROI.
+      Temel matematik için <a href="/tools/roi-calculator">ROI hesaplayıcı</a>'yı kullanın (hem basit hem de yıllıklandırılmışı işler). Bir kampanya maliyetinin geri kazanılabilir olup olmadığına karar verirken{" "}
+      <a href="/tools/break-even-calculator">başabaş hesaplayıcı</a> ile eşleştirin ve gelir girdilerini ROI'nin brüt kâr versiyonuna dönüştürmek için{" "}
+      <a href="/tools/profit-margin-calculator">kâr marjı hesaplayıcı</a>'yı kullanın.
     </p>
   </>
 );

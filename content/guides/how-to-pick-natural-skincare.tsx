@@ -2,96 +2,93 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    &ldquo;Natural&rdquo; is a marketing word, not a safety label. The
-    skincare aisle is full of $60 creams with pennies worth of active
-    ingredient. Here&rsquo;s how to cut through the noise.
+    &ldquo;Doğal&rdquo; bir pazarlama kelimesidir, bir güvenlik etiketi değil. Cilt bakımı
+    reyonları, kuruşluk aktif bileşenler içeren 60 dolarlık kremlerle dolu. İşte
+    gürültüyü nasıl aşacağınız.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      Clean beauty is a billion-dollar category built on fear marketing. The
-      truth: &ldquo;natural&rdquo; doesn&rsquo;t mean safe (poison ivy is
-      natural), &ldquo;chemical-free&rdquo; is a lie (water is a chemical),
-      and most of the dermatology community works with molecules the clean
-      beauty crowd wants you to avoid. Focus on evidence, not labels.
+      Temiz güzellik, korku pazarlaması üzerine kurulu milyar dolarlık bir kategoridir.
+      Gerçek: &ldquo;doğal&rdquo; güvenli anlamına gelmez (zehirli sarmaşık doğaldır),
+      &ldquo;kimyasal içermez&rdquo; bir yalandır (su bir kimyasaldır) ve
+      dermatoloji camiasının çoğu, temiz güzellik kitlesinin kaçınmanızı istediği
+      moleküllerle çalışır. Etiketlere değil, kanıtlara odaklanın.
     </p>
 
-    <h2>&ldquo;Natural&rdquo; is unregulated</h2>
+    <h2>&ldquo;Doğal&rdquo; düzenlenmemiştir</h2>
     <p>
-      There is no legal definition of &ldquo;natural&rdquo; or
-      &ldquo;clean&rdquo; in most markets, including the US. A brand can
-      slap either word on anything. Meanwhile, plant extracts can absolutely
-      cause irritation and allergies &mdash; essential oils are common
-      offenders. Judge a product by the ingredient list and concentration,
-      not the font on the box.
+      ABD dahil çoğu pazarda, &ldquo;doğal&rdquo; veya &ldquo;temiz&rdquo; kelimelerinin yasal bir tanımı
+      yoktur. Bir marka bu kelimeleri herhangi bir şeye yapıştırabilir. Bu arada, bitki
+      özleri kesinlikle tahrişe ve alerjiye neden olabilir &mdash; esansiyel yağlar yaygın
+      suçlulardır. Bir ürünü, kutusundaki yazı tipine değil, içerik listesine ve
+      konsantrasyonuna göre değerlendirin.
     </p>
 
-    <h2>Ingredients that actually work</h2>
+    <h2>Gerçekten işe yarayan bileşenler</h2>
     <ul>
-      <li>Retinol and retinoids &mdash; the gold standard for aging and cell turnover.</li>
-      <li>Niacinamide &mdash; reduces redness, strengthens barrier, 2&ndash;5% is the useful range.</li>
-      <li>Vitamin C (L-ascorbic acid 10&ndash;20%) &mdash; brightening and antioxidant.</li>
-      <li>Salicylic acid &mdash; unclogs pores, great for acne-prone skin.</li>
-      <li>Azelaic acid &mdash; calms redness and treats acne, rosacea-friendly.</li>
-      <li>Hyaluronic acid &mdash; hydration, plays well with everything.</li>
-      <li>Broad-spectrum SPF &mdash; the single highest-<a href="/learn/roi">ROI</a> product in skincare.</li>
+      <li>Retinol ve retinoidler &mdash; yaşlanma ve hücre yenilenmesi için altın standart.</li>
+      <li>Niasinamid &mdash; kızarıklığı azaltır, bariyeri güçlendirir, %2&ndash;5 ideal aralıktır.</li>
+      <li>C vitamini (L-askorbik asit %10&ndash;20) &mdash; aydınlatıcı ve antioksidan.</li>
+      <li>Salisilik asit &mdash; gözenekleri açar, akneye eğilimli ciltler için harikadır.</li>
+      <li>Azelaik asit &mdash; kızarıklığı yatıştırır ve akneyi tedavi eder, rozasea için uygundur.</li>
+      <li>Hyaluronik asit &mdash; nemlendirir, her şeyle uyumludur.</li>
+      <li>Geniş spektrumlu SPF &mdash; cilt bakımında en yüksek <a href="/learn/roi">ROI</a>'ye sahip ürün.</li>
     </ul>
 
-    <h2>Marketing vs actual formulation</h2>
+    <h2>Pazarlama vs gerçek formülasyon</h2>
     <p>
-      A product that lists vitamin C as the 15th ingredient contains
-      essentially no vitamin C. Brands routinely advertise hero ingredients
-      present at cosmetically irrelevant concentrations. When concentration
-      matters (retinol, vitamin C, niacinamide, acids), look for brands that
-      disclose percentages. If they won&rsquo;t tell you, assume the number
-      is low.
+      C vitaminini 15. bileşen olarak listeleyen bir ürün, esasen hiç C vitamini
+      içermez. Markalar, kozmetik olarak önemsiz konsantrasyonlarda bulunan kahraman
+      bileşenleri düzenli olarak reklam eder. Konsantrasyonun önemli olduğu yerlerde
+      (retinol, C vitamini, niasinamid, asitler), yüzdeleri açıklayan markaları arayın.
+      Size söylemezlerse, sayının düşük olduğunu varsayın.
     </p>
 
-    <h2>Patch test before you commit</h2>
+    <h2>Kullanmadan önce yama testi yapın</h2>
     <p>
-      Apply a small amount on the inner forearm for 3&ndash;5 consecutive
-      nights before putting anything on your face &mdash; especially actives
-      like retinol, acids, or new essential-oil-heavy products. Your face is
-      not the place to discover you&rsquo;re allergic to an ingredient.
+      Yüzünüze herhangi bir şey sürmeden önce &mdash; özellikle retinol,
+      asitler veya yeni esansiyel yağ ağırlıklı ürünler gibi aktifler &mdash; ön kolunuzun
+      iç kısmına 3&ndash;5 gece boyunca küçük bir miktar uygulayın. Yüzünüz, bir bileşene
+      alerjiniz olduğunu keşfedeceğiniz yer değildir.
     </p>
 
-    <h2>Match ingredients to concerns</h2>
+    <h2>Bileşenleri sorunlarla eşleştirin</h2>
     <ul>
-      <li>Acne &mdash; salicylic acid, azelaic acid, benzoyl peroxide, adapalene (OTC retinoid).</li>
-      <li>Aging and fine lines &mdash; retinol at night, SPF during the day. That&rsquo;s 80% of the answer.</li>
-      <li>Dullness and tone &mdash; vitamin C in the morning, gentle chemical exfoliation (AHAs) a couple nights per week.</li>
-      <li>Dehydration &mdash; hyaluronic acid on damp skin, then a moisturizer to lock it in.</li>
-      <li>Redness and sensitivity &mdash; niacinamide, azelaic acid, ceramides; skip fragrance and essential oils.</li>
+      <li>Akne &mdash; salisilik asit, azelaik asit, benzoil peroksit, adapalen (reçetesiz retinoid).</li>
+      <li>Yaşlanma ve ince çizgiler &mdash; gece retinol, gündüz SPF. Cevabın %80'i budur.</li>
+      <li>Matlık ve eşit olmayan ton &mdash; sabah C vitamini, haftada birkaç gece nazik bir kimyasal peeling (AHA'lar).</li>
+      <li>Dehidrasyon &mdash; nemli cilde hyaluronik asit, ardından kilitlemek için bir nemlendirici.</li>
+      <li>Kızarıklık ve hassasiyet &mdash; niasinamid, azelaik asit, seramidler; parfüm ve esansiyel yağlardan kaçının.</li>
     </ul>
 
-    <h2>OTC vs prescription</h2>
+    <h2>Reçetesiz vs reçeteli</h2>
     <p>
-      Over-the-counter products work for mild to moderate concerns.
-      Prescription tretinoin is meaningfully stronger than OTC retinol and
-      works faster for aging and acne. For stubborn acne, hormonal acne,
-      melasma, or rosacea, a dermatologist visit often beats a year of
-      self-experimenting with $80 serums.
+      Reçetesiz ürünler hafif ila orta şiddetteki sorunlar için işe yarar. Reçeteli
+      tretinoin, reçetesiz retinolden önemli ölçüde daha güçlüdür ve yaşlanma ve
+      akne için daha hızlı çalışır. İnatçı akne, hormonal akne, melazma veya rozasea
+      için, bir dermatolog ziyareti genellikle 80 dolarlık serumlarla bir yıllık
+      kendi kendine deney yapmaktan daha iyidir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Stacking too many actives at once (retinol + acid + vitamin C nightly
-      is a recipe for a destroyed barrier). Assuming expensive means
-      effective &mdash; the most-studied ingredients are cheap and widely
-      available. Chasing trends on social media instead of a simple routine.
-      Skipping SPF &mdash; the single biggest mistake in skincare, full stop.
-      And quitting retinol after two weeks because &ldquo;it&rsquo;s not
-      working&rdquo; &mdash; it takes 8&ndash;12 weeks.
+      Aynı anda çok fazla aktif katmanlamak (her gece retinol + asit + C vitamini,
+      mahvolmuş bir bariyer için bir reçetedir). Pahalının etkili olduğunu varsaymak
+      &mdash; en çok araştırılan bileşenler ucuzdur ve yaygın olarak bulunur. Basit bir
+      rutin yerine sosyal medya trendlerini kovalamak. SPF'yi atlamak &mdash; cilt
+      bakımındaki en büyük hata. Ve &ldquo;işe yaramıyor&rdquo; diye iki hafta sonra retinolden
+      vazgeçmek &mdash; 8&ndash;12 hafta sürer.
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Alt satır</h2>
     <p>
-      Keep it simple: gentle cleanser, one or two evidence-based actives,
-      moisturizer, and daily SPF. Ignore the &ldquo;clean&rdquo; label and
-      read the ingredient list. See a dermatologist for anything persistent.
-      Not medical advice. Talk to your healthcare provider.
+      Basit tutun: nazik temizleyici, bir veya iki kanıta dayalı aktif, nemlendirici
+      ve günlük SPF. &ldquo;Temiz&rdquo; etiketini görmezden gelin ve içerik listesini okuyun.
+      Kalıcı herhangi bir şey için bir dermatoloğa görünün. Tıbbi tavsiye değildir.
+      Sağlık uzmanınızla konuşun.
     </p>
   </>
 );

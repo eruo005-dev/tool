@@ -3,120 +3,75 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A 4MB hero image on your landing page is the fastest way to lose mobile visitors.
-      Google&rsquo;s own data shows bounce rate climbing sharply once page weight crosses
-      2MB on 3G &mdash; and an unoptimized iPhone photo alone often weighs more than
-      that. The fix is image compression, which sounds simple but hides real tradeoffs:
-      lossy versus lossless, JPEG quality sliders, WebP adoption, PNG optimization, EXIF
-      stripping, and the difference between &ldquo;looks fine&rdquo; and &ldquo;ships
-      fast.&rdquo; This guide covers how each compression mode actually works, the
-      target file sizes for different page contexts, why mobile and desktop need
-      different settings, and the small details that separate professional compression
-      from the default export.
+      Açılış sayfanızdaki 4 MB'lık bir kahraman görseli, mobil ziyaretçileri kaybetmenin en hızlı yoludur. Google'ın kendi verileri, 3G'de sayfa ağırlığı 2 MB'ı aştığında hemen çıkma oranlarının keskin bir şekilde arttığını gösteriyor ve optimize edilmemiş tek bir iPhone fotoğrafı genellikle bundan daha ağırdır. Çözüm, kulağa basit gelen ancak gerçek ödünleşmeleri gizleyen görsel sıkıştırmadır: kayıplı vs kayıpsız, JPEG kalite kaydırıcıları, WebP benimsemesi, PNG optimizasyonu, EXIF kaldırma ve "iyi görünüyor" ile "hızlı yükleniyor" arasındaki fark. Bu kılavuz, her sıkıştırma modunun nasıl çalıştığını, farklı sayfa bağlamları için hedef dosya boyutlarını, mobil ve masaüstünün neden farklı ayarlara ihtiyaç duyduğunu ve profesyonel sıkıştırmayı varsayılan bir dışa aktarmadan ayıran küçük ayrıntıları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Lossy vs lossless</h2>
+    <h2>Kayıplı vs kayıpsız</h2>
     <p>
-      <strong>Lossy compression</strong> discards information the human eye is unlikely
-      to notice &mdash; subtle color gradations, high-frequency details, imperceptible
-      hues &mdash; to achieve dramatic size reductions. JPEG, WebP (lossy mode), and
-      AVIF are lossy. A typical 12MP photo drops from ~10MB raw to 1&ndash;3MB at high
-      quality, 200&ndash;500KB at mid quality.
+      <strong>Kayıplı sıkıştırma</strong>, insan gözünün fark etmesi muhtemel olmayan bilgileri atarak önemli boyut küçültmeleri sağlar — ince renk geçişleri, yüksek frekanslı ayrıntılar, algılanamayan tonlar. JPEG, WebP (kayıplı mod) ve AVIF kayıplıdır. Tipik bir 12 MP fotoğraf, yüksek kalitede ~10 MB RAW'dan 1-3 MB'a veya orta kalitede 200-500 KB'a düşer.
     </p>
     <p>
-      <strong>Lossless compression</strong> keeps every pixel intact; it just encodes
-      them more efficiently. PNG, WebP (lossless mode), TIFF, and FLIF are lossless.
-      Size reductions are smaller &mdash; typically 10&ndash;40% &mdash; but the output
-      is pixel-identical to the input. Use lossless for screenshots, diagrams, and
-      anything with text, hard edges, or transparency.
+      <strong>Kayıpsız sıkıştırma</strong> her pikseli tam olarak korur; sadece onları daha verimli bir şekilde kodlar. PNG, WebP (kayıpsız mod), TIFF ve FLIF kayıpsızdır. Boyut küçültmeleri daha küçüktür — tipik olarak %10-40 — ancak çıktı, girdiyle piksel olarak aynıdır. Ekran görüntüleri, diyagramlar ve keskin kenarlı veya saydamlığı olan her şey için kayıpsız kullanın.
     </p>
 
-    <h2>JPEG quality: what the slider actually does</h2>
+    <h2>JPEG kalitesi: kaydırıcının gerçekte yaptığı şey</h2>
     <p>
-      JPEG quality is a number from 0 to 100 that controls how aggressively the DCT
-      coefficients get quantized. It&rsquo;s not a linear scale. The sweet spot for web
-      photos is 75&ndash;85. Below 60 you start seeing visible block artifacts in flat
-      areas like sky gradients. Above 90 you&rsquo;re adding file size with almost no
-      perceptible quality gain.
+      JPEG kalitesi, DCT katsayılarının ne kadar agresif bir şekilde nicelendiğini kontrol eden 0 ile 100 arasında bir sayıdır. Doğrusal bir ölçek değildir. Web fotoğrafları için en uygun nokta 75-85'tir. 60'ın altında, gökyüzü gradyanları gibi düz alanlarda görünür blok yapıları görmeye başlarsınız. 90'ın üzerinde, neredeyse hiç algılanabilir kalite kazancı olmadan dosya boyutunu şişiriyorsunuzdur.
     </p>
-    <pre>{`Quality  Typical 1920x1080 photo size
-100      1.8 MB    (wasteful)
+    <pre>{`Kalite  Tipik 1920x1080 fotoğraf boyutu
+100      1.8 MB    (israf)
 95       900 KB
-85       430 KB    (recommended for photos)
-75       280 KB    (web default)
+85       430 KB    (fotoğraflar için önerilen)
+75       280 KB    (web varsayılanı)
 60       170 KB
-50       140 KB    (visible artifacts)
-30       90 KB     (clearly degraded)`}</pre>
+50       140 KB    (görünür yapılar)
+30       90 KB     (belirgin şekilde bozulmuş)`}</pre>
     <p>
-      Save once from the source at quality 85. Never re-save a JPEG at high quality
-      expecting to recover detail &mdash; once it&rsquo;s gone, it&rsquo;s gone, and
-      each re-encode introduces additional loss (&ldquo;generation loss&rdquo;).
+      Kaynaktan kalite 85'te bir kez kaydedin. Ayrıntıyı kurtarmayı umarak bir JPEG'i yüksek kalitede asla yeniden kaydetmeyin — bir kez gitti mi, gitti ve her yeniden kodlama daha fazla kayıp ekler ("nesil kaybı").
     </p>
 
-    <h2>WebP: the modern default</h2>
+    <h2>WebP: modern varsayılan</h2>
     <p>
-      WebP beats JPEG at the same visual quality by roughly 25&ndash;35% file size, and
-      adds transparency support. It&rsquo;s been supported by all major browsers since
-      2020, so there&rsquo;s no practical reason not to ship it. A 430KB JPEG at quality
-      85 is typically a 290KB WebP at the same visual fidelity.
+      WebP, aynı görsel kalitede JPEG'den kabaca %25-35 daha küçük dosya boyutuna sahiptir ve saydamlık desteği ekler. 2020'den beri tüm büyük tarayıcılar tarafından desteklenmektedir, bu nedenle göndermemek için pratik bir neden yoktur. Kalite 85'teki 430 KB'lık bir JPEG, aynı görsel doğrulukta tipik olarak 290 KB'lık bir WebP'dir.
     </p>
     <p>
-      The usual pattern: serve WebP with a JPEG fallback using{" "}
-      <code>&lt;picture&gt;</code>, or let a CDN handle content negotiation via the{" "}
-      <code>Accept</code> header. AVIF is even smaller (~50% of JPEG) but has slower
-      encoding and lower tooling support &mdash; use it for your largest images only.
+      Olağan desen: <code>&lt;picture&gt;</code> aracılığıyla bir JPEG yedeği ile WebP sunun veya bir CDN'nin <code>Accept</code> başlığı aracılığıyla içerik anlaşmasını yönetmesine izin verin. AVIF daha da küçüktür (JPEG'in ~%50'si) ancak daha yavaş kodlamaya ve daha düşük araç desteğine sahiptir — yalnızca en büyük görselleriniz için kullanın.
     </p>
 
-    <h2>PNG optimization</h2>
+    <h2>PNG optimizasyonu</h2>
     <p>
-      PNG is lossless, which means &ldquo;compression&rdquo; means finding a better
-      encoding, not discarding data. Key knobs: <strong>color palette reduction</strong>{" "}
-      (PNG-24 truecolor to PNG-8 palette can cut size by 70% if the image has fewer than
-      256 distinct colors &mdash; icons and diagrams often do),{" "}
-      <strong>filter and compression level</strong> (zlib levels 0&ndash;9; 9 is
-      slowest and smallest), and <strong>chunk stripping</strong> (removing metadata
-      chunks like <code>tEXt</code> and <code>iTXt</code>).
+      PNG kayıpsızdır, bu nedenle "sıkıştırma", verileri atmak değil, daha iyi bir kodlama bulmak anlamına gelir. Temel ayarlar: <strong>renk paleti azaltma</strong> (görüntüde 256'dan az farklı renk varsa PNG-24 gerçek renkten PNG-8 paletine geçmek boyutu %70 oranında azaltabilir — simgeler ve diyagramlar genellikle böyledir), <strong>filtre ve sıkıştırma seviyesi</strong> (zlib seviyeleri 0-9; 9 en yavaş ve en küçüktür) ve <strong>öbek kaldırma</strong> (<code>tEXt</code> ve <code>iTXt</code> gibi meta veri öbeklerini kaldırma).
     </p>
     <p>
-      Tools like pngquant and oxipng can reduce a typical PNG screenshot by 40&ndash;70%
-      with no visible change. For photographic content, always prefer JPEG or WebP over
-      PNG &mdash; PNG-on-photos is 5&ndash;10x the file size of JPEG for the same
-      perceived quality.
+      pngquant ve oxipng gibi araçlar, tipik bir PNG ekran görüntüsünü görünür bir değişiklik olmadan %40-70 oranında azaltabilir. Fotoğraf içeriği için her zaman JPEG veya WebP'yi PNG'ye tercih edin — fotoğraflarda PNG, aynı algılanan kalite için JPEG'in dosya boyutunun 5-10 katıdır.
     </p>
 
-    <h2>Target sizes by context</h2>
-    <pre>{`Context             Target size       Format
-Hero image          150-400 KB        WebP or JPEG q80
-Blog inline photo   80-200 KB         WebP or JPEG q80
-Thumbnail           15-40 KB          WebP
-Product grid        50-120 KB         WebP
-Social share (og)   200-400 KB        JPEG q85, 1200x630
-Email newsletter    max 100 KB each   JPEG q75
-Favicon             < 10 KB total     PNG or ICO
-Mobile app icon     40-80 KB          PNG-8`}</pre>
+    <h2>Bağlama göre hedef boyutlar</h2>
+    <pre>{`Bağlam               Hedef boyut         Biçim
+Kahraman görseli     150-400 KB          WebP veya JPEG q80
+Blog içi fotoğraf    80-200 KB           WebP veya JPEG q80
+Küçük resim          15-40 KB            WebP
+Ürün ızgarası        50-120 KB           WebP
+Sosyal medya paylaşımı 200-400 KB        JPEG q85, 1200x630
+E-posta bülteni      maks. 100 KB her biri JPEG q75
+Favicon               < 10 KB toplam     PNG veya ICO
+Mobil uygulama simgesi 40-80 KB          PNG-8`}</pre>
     <p>
-      These are photo-realistic targets. Flat illustrations in SVG ship at 2&ndash;10KB
-      and should almost always be used over raster for logos, icons, and diagrams.
+      Bunlar fotogerçekçi hedeflerdir. SVG'deki düz illüstrasyonlar 2-10 KB'dir ve logolar, simgeler ve diyagramlar için neredeyse her zaman raster üzerinde kullanılmalıdır.
     </p>
 
-    <h2>Resolution before compression</h2>
+    <h2>Sıkıştırmadan önce çözünürlük</h2>
     <p>
-      Compressing a 6000&times;4000 image to 200KB damages it more than resizing first to
-      1920&times;1280 and compressing. The compressor has fewer pixels to work with, so
-      the per-pixel bitrate is higher. Always resize to the display dimension (or 2x for
-      Retina) before compressing. A 400px-wide card thumbnail doesn&rsquo;t need a
-      4000px source.
+      6000x4000'lik bir görüntüyü 200 KB'a sıkıştırmak, önce onu 1920x1280'e yeniden boyutlandırıp ardından sıkıştırmaktan daha fazla hasar verir. Sıkıştırıcının çalışması için daha az piksel vardır, bu nedenle piksel başına bit daha yüksektir. Sıkıştırmadan önce her zaman görüntüleme boyutuna (veya Retina için 2x) yeniden boyutlandırın. 400 piksel genişliğindeki bir kart küçük resmi, 4000 piksellik bir kaynağa ihtiyaç duymaz.
     </p>
 
-    <h2>Mobile vs desktop</h2>
+    <h2>Mobil vs masaüstü</h2>
     <p>
-      A desktop visitor on fiber can absorb a 500KB hero image without noticing. A
-      mobile visitor on a rural 4G tower feels every extra 100KB. Use responsive images
-      with <code>srcset</code> to serve smaller files to smaller screens:
+      Fiber üzerindeki bir masaüstü ziyaretçisi, 500 KB'lık bir kahraman görselini fark etmeden işleyebilir. Kırsal bir 4G kulesindeki bir mobil ziyaretçi, her ek 100 KB'ı hisseder. Daha küçük ekranlara daha küçük dosyalar sunmak için <code>srcset</code> ile duyarlı görseller kullanın:
     </p>
     <pre>{`<img
   src="hero-1280.webp"
@@ -128,80 +83,50 @@ Mobile app icon     40-80 KB          PNG-8`}</pre>
   alt="..."
   loading="lazy">`}</pre>
     <p>
-      This serves a 60KB 640-wide file to phones and a 350KB 1920-wide file to desktops
-      from the same markup. The <code>loading=&quot;lazy&quot;</code> attribute defers
-      offscreen images until scroll.
+      Bu, aynı işaretlemeden telefonlara 60 KB 640 genişliğinde bir dosya ve masaüstlerine 350 KB 1920 genişliğinde bir dosya sunar. <code>loading=&quot;lazy&quot;</code> özelliği, ekran dışı görselleri kaydırma yapılana kadar erteler.
     </p>
 
-    <h2>EXIF stripping</h2>
+    <h2>EXIF kaldırma</h2>
     <p>
-      Photos from phones and cameras carry EXIF metadata: GPS coordinates, camera
-      model, lens, exposure settings, sometimes the photographer&rsquo;s name. This
-      adds 5&ndash;50KB per image and, more importantly, can leak location data you
-      didn&rsquo;t intend to publish &mdash; a photo of your kid&rsquo;s birthday
-      party can geotag your home address. Strip EXIF on any image going to the
-      public web unless you have a specific reason to keep it (photojournalism,
-      stock photography attribution).
+      Telefonlardan ve kameralardan gelen fotoğraflar EXIF meta verileri taşır: GPS koordinatları, kamera modeli, lens, pozlama ayarları, bazen fotoğrafçının adı. Bu, görsel başına 5-50 KB ekler ve daha da önemlisi, yayınlamayı asla amaçlamadığınız konum verilerini sızdırabilir — çocuğunuzun doğum günü partisinin bir fotoğrafı ev adresinizi coğrafi olarak etiketleyebilir. Bunu tutmak için belirli bir nedeniniz yoksa (foto muhabirliği, stok fotoğraf atıfı), genel web'e giden herhangi bir görselde EXIF'i kaldırın.
     </p>
 
-    <h2>Progressive JPEG</h2>
+    <h2>Aşamalı JPEG</h2>
     <p>
-      A progressive JPEG loads in layered passes &mdash; blurry preview, then sharper,
-      then final &mdash; instead of top-to-bottom. On slow connections the user sees
-      something meaningful fast. File size is nearly identical to baseline JPEG (often
-      slightly smaller). Most encoders have a &ldquo;progressive&rdquo; or
-      &ldquo;interlaced&rdquo; checkbox; turn it on.
+      Aşamalı bir JPEG, yukarıdan aşağıya yerine katmanlı geçişlerle yüklenir — bulanık önizleme, ardından daha keskin, ardından son. Yavaş bağlantılarda, kullanıcı hızlı bir şekilde anlamlı bir şey görür. Dosya boyutu, temel JPEG ile neredeyse aynıdır (genellikle biraz daha küçüktür). Çoğu kodlayıcının bir "aşamalı" veya "geçmeli" onay kutusu vardır; onu açın.
     </p>
 
-    <h2>Batch compression</h2>
+    <h2>Toplu sıkıştırma</h2>
     <p>
-      For an existing site with hundreds of uncompressed images, run a one-time batch
-      pass with tools like <code>sharp</code>, <code>imagemin</code>, or{" "}
-      <code>squoosh-cli</code>. A reasonable pipeline: resize to max 1920 wide, convert
-      to WebP at quality 80, write both WebP and a JPEG fallback, strip EXIF. For a
-      marketing site, you&rsquo;ll typically cut total image weight by 60&ndash;80%.
+      Yüzlerce sıkıştırılmamış görsele sahip mevcut bir site için, <code>sharp</code>, <code>imagemin</code> veya <code>squoosh-cli</code> gibi araçlarla tek seferlik bir toplu işlem çalıştırın. Makul bir işlem hattı: maksimum 1920 genişliğe yeniden boyutlandırın, kalite 80'de WebP'ye dönüştürün, hem WebP hem de bir JPEG yedeği yazın, EXIF'i kaldırın. Bir pazarlama sitesi için, tipik olarak toplam görsel ağırlığını %60-80 oranında azaltırsınız.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Saving the same JPEG multiple times.</strong> Each re-encode loses quality.
-      Keep a lossless master (PNG or original) and re-export JPEG from that every time.
+      <strong>Aynı JPEG'i birden çok kez kaydetmek.</strong> Her yeniden kodlama kalite kaybına neden olur. Kayıpsız bir ana kopya (PNG veya orijinal) saklayın ve JPEG'i her seferinde ondan yeniden dışa aktarın.
     </p>
     <p>
-      <strong>Using PNG for photographs.</strong> PNG is 5&ndash;10x larger than JPEG
-      for photos at no perceived quality benefit. Use PNG only for screenshots,
-      diagrams, transparency, or images with sharp text.
+      <strong>Fotoğraflar için PNG kullanmak.</strong> PNG, fotoğraflar için JPEG'den 5-10 kat daha büyüktür ve algılanabilir bir kalite avantajı yoktur. PNG'yi yalnızca ekran görüntüleri, diyagramlar, saydamlık veya keskin metin içeren görseller için kullanın.
     </p>
     <p>
-      <strong>Compressing a 6000px source to 200KB.</strong> Resize first. The
-      per-pixel quality is far higher when you compress a 1920px image to 200KB than
-      when you squeeze 24 million pixels into the same budget.
+      <strong>6000 piksellik bir kaynağı 200 KB'a sıkıştırmak.</strong> Önce yeniden boyutlandırın. 1920 piksellik bir görüntüyü 200 KB'a sıkıştırırken piksel başına kalite, 24 milyon pikseli aynı bütçeye sıkıştırmaktan çok daha yüksektir.
     </p>
     <p>
-      <strong>Forgetting to set quality explicitly.</strong> Default JPEG quality varies
-      wildly across tools &mdash; 75 in some, 95 in others. Set it.
+      <strong>Kaliteyi açıkça ayarlamayı unutmak.</strong> Varsayılan JPEG kalitesi araçlar arasında büyük farklılık gösterir — bazıları 75'e, diğerleri 95'e varsayılan olarak ayarlanır. Ayarlayın.
     </p>
     <p>
-      <strong>Leaving EXIF metadata on public photos.</strong> GPS coordinates, device
-      model, and timestamps go out with every upload unless you strip them.
+      <strong>Herkese açık fotoğraflarda EXIF meta verilerini bırakmak.</strong> GPS koordinatları, cihaz modeli ve zaman damgaları, onları kaldırmadığınız sürece her yüklemede sızar.
     </p>
     <p>
-      <strong>Shipping one size for all screens.</strong> A 1920px hero image is
-      overkill on a 375px phone and wastes bandwidth. Use <code>srcset</code>.
+      <strong>Tüm ekranlar için tek bir boyut sunmak.</strong> 1920 piksellik bir kahraman görseli, 375 piksellik bir telefonda aşırıya kaçar ve bant genişliğini boşa harcar. <code>srcset</code> kullanın.
     </p>
     <p>
-      <strong>Skipping WebP because of &ldquo;browser support.&rdquo;</strong> WebP has
-      99%+ global support as of 2024. It&rsquo;s safe to ship.
+      <strong>"Tarayıcı desteği" nedeniyle WebP'yi atlamak.</strong> WebP, 2024 itibarıyla %99+ küresel desteğe sahiptir. Göndermek güvenlidir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Compress photos without a desktop app using the{" "}
-      <a href="/tools/image-compressor">image compressor</a>. Pair with the{" "}
-      <a href="/tools/image-resizer">image resizer</a> to scale dimensions before
-      compression for dramatic size gains, and the{" "}
-      <a href="/tools/exif-remover">EXIF remover</a> to strip location and device
-      metadata before publishing.
+      Bir masaüstü uygulaması olmadan fotoğrafları <a href="/tools/image-compressor">görsel sıkıştırıcı</a> ile sıkıştırın. Sıkıştırmadan önce boyutları önemli ölçüde küçültmek için <a href="/tools/image-resizer">görsel yeniden boyutlandırıcı</a> ile eşleştirin ve yayınlamadan önce konum ve cihaz meta verilerini temizlemek için <a href="/tools/exif-remover">EXIF kaldırıcı</a> kullanın.
     </p>
   </>
 );

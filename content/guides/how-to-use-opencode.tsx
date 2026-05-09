@@ -2,72 +2,66 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    OpenCode is an open-source terminal AI coding agent from the sst team. It runs in your shell,
-    reads and edits files in your repo, runs commands, and brings its own TUI so you can keep
-    coding without leaving the terminal.
+    OpenCode, sst ekibinden açık kaynaklı bir terminal AI kodlama ajanıdır. Kabuğunuzda çalışır,
+    deponuzdaki dosyaları okur ve düzenler, komutları çalıştırır ve kendi TUI'sini getirir, böylece
+    terminalden ayrılmadan kodlamaya devam edebilirsiniz.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What OpenCode actually is</h2>
+    <h2>OpenCode aslında nedir</h2>
     <p>
-      OpenCode is a standalone, model-agnostic agent. It is not a VS Code extension and it is not a
-      wrapper around someone else&rsquo;s CLI. You point it at a directory, give it a task, and it
-      plans, edits files, and executes shell commands inside that working tree. It supports
-      Anthropic, OpenAI, Google, and local providers via their own keys or a gateway, so you pay
-      the model vendor directly instead of a middleman.
+      OpenCode, bağımsız, modelden bağımsız bir ajandır. Bir VS Code eklentisi değildir ve
+      başka birinin CLI'sının etrafına sarılmış bir araç değildir. Bir dizini hedef alırsınız, ona bir görev verirsiniz ve o
+      planlar, dosyaları düzenler ve bu çalışma ağacı içinde kabuk komutlarını yürütür. Anthropic,
+      OpenAI, Google ve yerel sağlayıcıları kendi anahtarları veya bir ağ geçidi aracılığıyla destekler, böylece
+      model satıcısına doğrudan ödeme yaparsınız, bir aracıya değil.
     </p>
 
-    <h2>Installing</h2>
+    <h2>Kurulum</h2>
     <pre>{`# macOS / Linux
 curl -fsSL https://opencode.ai/install | bash
 
-# or via npm
+# veya npm ile
 npm install -g opencode-ai`}</pre>
     <p>
-      After install, run <code>opencode auth login</code> and pick a provider. Anthropic and
-      OpenRouter are the two most common paths; OpenRouter is useful if you want to flip between
-      Claude, GPT, and Gemini without juggling three billing dashboards.
+      Kurulumdan sonra <code>opencode auth login</code> komutunu çalıştırın ve bir sağlayıcı seçin. Anthropic ve
+      OpenRouter en yaygın iki yoldur; OpenRouter, üç fatura panosu arasında geçiş yapmadan
+      Claude, GPT ve Gemini arasında geçiş yapmak istiyorsanız kullanışlıdır.
     </p>
 
-    <h2>A first session</h2>
+    <h2>İlk oturum</h2>
     <pre>{`cd ~/code/my-app
 opencode`}</pre>
     <p>
-      That drops you into the TUI. Type your request in plain English &mdash; &ldquo;add a health
-      check endpoint at /healthz that returns 200 and the git sha&rdquo; &mdash; and OpenCode will
-      read relevant files, propose edits, and ask before running shell commands. Use <code>/model</code>{" "}
-      to switch models mid-session and <code>/init</code> to have it generate an <code>AGENTS.md</code>{" "}
-      that captures your build/test commands so future sessions boot faster.
+      Bu sizi TUI'ye atar. İsteğinizi düz İngilizce ile yazın &mdash; &ldquo;/healthz adresinde 200 ve git sha'sını döndüren bir sağlık
+      kontrol uç noktası ekle&rdquo; &mdash; ve OpenCode ilgili dosyaları okuyacak, düzenlemeler önerecek ve kabuk komutlarını çalıştırmadan önce soracaktır. Oturum ortasında modelleri değiştirmek için <code>/model</code>{" "}
+      ve gelecekteki oturumların daha hızlı başlaması için derleme/test komutlarınızı yakalayan bir <code>AGENTS.md</code>{" "}
+      oluşturması için <code>/init</code> kullanın.
     </p>
 
-    <h2>Configuration that matters</h2>
+    <h2>Önemli yapılandırma</h2>
     <p>
-      Drop an <code>opencode.json</code> at the repo root to pin the default model, register <a href="/learn/mcp">MCP</a>
-      servers, and declare allowed shell commands. The biggest win is the permission config: set{" "}
-      <code>permission.edit</code> to <code>ask</code> for a new codebase and <code>allow</code>{" "}
-      once you trust the loop. Also add an <code>AGENTS.md</code> &mdash; OpenCode reads it
-      automatically and it is how you teach the agent &ldquo;always run pnpm typecheck before you
-      claim you&rsquo;re done.&rdquo;
+      Varsayılan modeli sabitlemek, <a href="/learn/mcp">MCP</a> sunucularını kaydetmek ve izin verilen kabuk komutlarını bildirmek için depo köküne bir <code>opencode.json</code> dosyası bırakın. En büyük kazanç, izin yapılandırmasıdır: yeni bir kod tabanı için{" "}
+      <code>permission.edit</code> değerini <code>ask</code> olarak ayarlayın ve döngüye güvendiğinizde{" "}
+      <code>allow</code> yapın. Ayrıca bir <code>AGENTS.md</code> ekleyin &mdash; OpenCode onu otomatik olarak okur ve ajana &ldquo;işin bittiğini iddia etmeden önce her zaman pnpm typecheck çalıştır&rdquo; demeyi öğretme şeklinizdir.
     </p>
 
-    <h2>Where OpenCode shines</h2>
+    <h2>OpenCode'un parladığı yerler</h2>
     <p>
-      Multi-file refactors where you want the agent to grep the repo, edit five files, run tests,
-      and iterate until green &mdash; all without leaving tmux. The TUI&rsquo;s diff view is
-      genuinely good, and because it is provider-agnostic you can keep your existing API keys. It
-      also plays well with SSH sessions on a remote dev box, which is something most editor-bound
-      agents handle poorly.
+      Ajanın depoyu grep ile taramasını, beş dosyayı düzenlemesini, testleri çalıştırmasını ve yeşil olana kadar yineleme yapmasını istediğiniz çok dosyalı yeniden düzenlemeler &mdash; tüm bunlar tmux'tan ayrılmadan. TUI'nin fark görünümü
+      gerçekten iyidir ve sağlayıcıdan bağımsız olduğu için mevcut API anahtarlarınızı kullanmaya devam edebilirsiniz. Ayrıca
+      uzak bir geliştirme kutusundaki SSH oturumlarıyla da iyi çalışır, bu da çoğu düzenleyiciye bağlı
+      ajanın kötü idare ettiği bir şeydir.
     </p>
 
-    <h2>When not to reach for it</h2>
+    <h2>Ne zaman kullanmamalısınız</h2>
     <p>
-      If your workflow is &ldquo;autocomplete while I type&rdquo; you want Copilot or Cursor
-      Tab, not OpenCode. And if you hate the idea of an agent running shell commands on your
-      machine, set permissions to <code>ask</code> everywhere or pick a reviewer-style tool
-      instead. Finally, bills get real &mdash; a single big refactor can burn a few dollars of
-      Claude Sonnet tokens, so keep an eye on the provider dashboard for the first week.
+      İş akışınız &ldquo;yazarken otomatik tamamlama&rdquo; ise Copilot veya Cursor
+      Tab istersiniz, OpenCode değil. Ve ajanın makinenizde kabuk komutları çalıştırması fikrinden nefret ediyorsanız, izinleri her yerde <code>ask</code> olarak ayarlayın veya bunun yerine bir inceleyici tarzı araç
+      seçin. Son olarak, faturalar gerçek olabilir &mdash; tek bir büyük yeniden düzenleme, birkaç dolar
+      Claude Sonnet token'ı yakabilir, bu nedenle ilk hafta sağlayıcı panosunu takip edin.
     </p>
   </>
 );

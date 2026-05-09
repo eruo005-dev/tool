@@ -3,196 +3,163 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Query strings are the piece of a URL after the
-      <code> ?</code> &mdash; a
-      <code> &amp;</code>-separated list of key-value pairs that
-      carries search terms, filters, pagination, campaign tags, and
-      session hints. The syntax looks like a one-week project
-      someone never finished: no standard for repeated keys, no
-      official way to express arrays or nested objects, and three
-      subtly different encoding rules between URLs, HTML forms, and
-      application/x-www-form-urlencoded. This guide covers the
-      modern <code>URLSearchParams</code> API, the encoding rules
-      that actually apply, how repeated keys and bracket notation
-      handle arrays, the PHP-style nested-key hack, URL length
-      limits across servers and CDNs, and how Unicode and emoji flow
-      through the whole pipeline.
+      Sorgu dizeleri, URL'nin <code>?</code> işaretinden sonra gelen kısmıdır &mdash;
+      arama terimlerini, filtreleri, sayfalamayı, kampanya etiketlerini ve
+      oturum ipuçlarını taşıyan, <code>&amp;</code> ile ayrılmış anahtar-değer
+      çiftlerinden oluşan bir listedir. Sözdizimi, birinin bitirmeyi unuttuğu bir haftalık projeye benzer: tekrarlanan anahtarlar için standart yok, dizi veya iç içe nesneleri ifade etmenin resmi bir yolu yok ve URL'ler, HTML formları ve
+      application/x-www-form-urlencoded arasında üç farklı kodlama kuralı bulunur. Bu kılavuz, modern <code>URLSearchParams</code> API'sini, gerçekte geçerli olan kodlama kurallarını, tekrarlanan anahtarlar ve köşeli parantez notasyonunun dizileri nasıl ele aldığını, PHP tarzı iç içe anahtar hack'ini, sunucular ve CDN'ler arasındaki URL uzunluğu sınırlarını ve Unicode ile emojilerin tüm boru hattından nasıl geçtiğini kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Anatomy of a query string</h2>
+    <h2>Bir sorgu dizesinin anatomisi</h2>
     <p>
-      In the URL
-      <code> https://example.com/search?q=hello&amp;page=2</code>, the
-      query string is <code>q=hello&amp;page=2</code> &mdash;
-      everything after <code>?</code> and before <code>#</code>.
-      Pairs are joined with <code>&amp;</code>; keys and values are
-      separated by <code>=</code>.
+      <code> https://example.com/search?q=hello&amp;page=2</code> URL'sinde,
+      sorgu dizesi <code>q=hello&amp;page=2</code> &mdash;
+      <code>?</code>'den sonra ve <code>#</code>'den önceki her şeydir.
+      Çiftler <code>&amp;</code> ile birleştirilir; anahtarlar ve değerler
+      <code>=</code> ile ayrılır.
     </p>
     <p>
-      The spec that defines how URLs work is RFC 3986. How query
-      strings are <strong>used</strong> for data &mdash; repeated
-      keys, brackets, booleans &mdash; is convention, not
-      standardization.
+      URL'lerin nasıl çalıştığını tanımlayan standart RFC 3986'dır. Sorgu
+      dizelerinin veri için <strong>nasıl kullanıldığı</strong> &mdash; tekrarlanan
+      anahtarlar, köşeli parantezler, boolean'lar &mdash; standartlaştırma değil, gelenektir.
     </p>
 
-    <h2>URLSearchParams &mdash; the modern API</h2>
+    <h2>URLSearchParams &mdash; modern API</h2>
     <p>
-      Every evergreen browser and Node 10+ has
-      <code> URLSearchParams</code> for parsing and building.
+      Tüm güncel tarayıcılar ve Node 10+, ayrıştırma ve oluşturma için
+      <code> URLSearchParams</code>'a sahiptir.
     </p>
     <pre>{`const params = new URLSearchParams('q=hello&page=2&tag=red&tag=blue');
 
 params.get('q');        // 'hello'
-params.get('tag');      // 'red'  (first match)
+params.get('tag');      // 'red'  (ilk eşleşme)
 params.getAll('tag');   // ['red', 'blue']
 params.has('page');     // true
-params.keys();          // iterator
+params.keys();          // yineleyici
 [...params.entries()];  // [['q','hello'],['page','2'],['tag','red'],['tag','blue']]`}</pre>
     <p>
-      The constructor accepts a string, an object, or an array of
-      pairs. It automatically URL-decodes values, so
-      <code> ?q=hello%20world</code> gives you the string
-      <code> &ldquo;hello world&rdquo;</code>.
+      Yapıcı, bir dize, bir nesne veya bir çift dizisi kabul eder. Değerleri otomatik olarak URL'den çözer, bu nedenle
+      <code> ?q=hello%20world</code> size <code> &ldquo;hello world&rdquo;</code> dizesini verir.
     </p>
 
-    <h2>Encoding rules in query strings</h2>
+    <h2>Sorgu dizelerinde kodlama kuralları</h2>
     <p>
-      Three character classes need encoding in query values:
+      Sorgu değerlerinde kodlanması gereken üç karakter sınıfı vardır:
     </p>
     <p>
-      <strong>Reserved sub-delims</strong>:
-      <code> ! $ &amp; &apos; ( ) * + , ; =</code>. Most importantly,
-      <code> &amp;</code> and <code>=</code> are the structural
-      separators &mdash; a literal <code>&amp;</code> in a value
-      must be <code>%26</code>, a literal <code>=</code> must be
-      <code> %3D</code>.
+      <strong>Ayrılmış alt sınırlayıcılar</strong>:
+      <code> ! $ &amp; &apos; ( ) * + , ; =</code>. En önemlisi,
+      <code> &amp;</code> ve <code>=</code> yapısal ayırıcılardır &mdash; bir değerdeki gerçek <code>&amp;</code> karakteri
+      <code>%26</code>, gerçek <code>=</code> karakteri ise
+      <code> %3D</code> olmalıdır.
     </p>
     <p>
-      <strong>Space</strong>: encoded as <code>+</code> in the
-      <code> application/x-www-form-urlencoded</code> variant (used
-      by HTML form submissions and URLSearchParams output), or as
-      <code> %20</code> in strict RFC 3986 encoding. Both decode
-      back to space in every major parser, but mixing them in one
-      URL looks sloppy.
+      <strong>Boşluk</strong>: <code> application/x-www-form-urlencoded</code> varyantında (HTML form gönderimleri ve URLSearchParams çıktısı tarafından kullanılır) <code>+</code> olarak kodlanır veya katı RFC 3986 kodlamasında
+      <code> %20</code> olarak kodlanır. Her ikisi de tüm büyük ayrıştırıcılarda boşluğa dönüşür, ancak aynı URL'de karıştırmak özensiz görünür.
     </p>
     <p>
-      <strong>Non-ASCII</strong>: encoded as UTF-8 bytes, each byte
-      as <code>%XX</code>. Emoji &ldquo;&#128512;&rdquo; (U+1F600) is
-      four UTF-8 bytes (<code>F0 9F 98 80</code>) and encodes as
-      <code> %F0%9F%98%80</code>.
+      <strong>ASCII olmayan</strong>: UTF-8 baytları olarak kodlanır, her bayt
+      <code>%XX</code> şeklindedir. &ldquo;&#128512;&rdquo; (U+1F600) emojisi
+      dört UTF-8 baytıdır (<code>F0 9F 98 80</code>) ve
+      <code> %F0%9F%98%80</code> olarak kodlanır.
     </p>
 
-    <h2>Repeated keys &mdash; the array convention</h2>
+    <h2>Tekrarlanan anahtarlar &mdash; dizi geleneği</h2>
     <p>
-      The spec says nothing about repeating a key. In practice,
-      three conventions are common:
+      Standart, bir anahtarın tekrarlanması hakkında hiçbir şey söylemez. Pratikte,
+      üç gelenek yaygındır:
     </p>
     <p>
-      <strong>Plain repetition</strong>:
-      <code> ?tag=red&amp;tag=blue&amp;tag=green</code>. Read with
-      <code> getAll(&apos;tag&apos;)</code>. This is the approach
-      <code> URLSearchParams</code> expects and most modern servers
-      handle natively.
+      <strong>Düz tekrarlama</strong>:
+      <code> ?tag=red&amp;tag=blue&amp;tag=green</code>.
+      <code> getAll(&apos;tag&apos;)</code> ile okunur. Bu,
+      <code> URLSearchParams</code>'ın beklediği ve çoğu modern sunucunun
+      yerel olarak işlediği yaklaşımdır.
     </p>
     <p>
-      <strong>Bracket notation</strong> (PHP, Rails):
-      <code> ?tag[]=red&amp;tag[]=blue</code>. Bracket characters
-      themselves need encoding: <code>tag%5B%5D=red</code>. PHP
-      parses this into the array
-      <code> $_GET[&apos;tag&apos;]</code>. Not understood by
-      <code> URLSearchParams</code> &mdash; it returns the raw key
-      <code> &ldquo;tag[]&rdquo;</code>.
+      <strong>Köşeli parantez notasyonu</strong> (PHP, Rails):
+      <code> ?tag[]=red&amp;tag[]=blue</code>. Köşeli parantez karakterlerinin
+      kendilerinin kodlanması gerekir: <code>tag%5B%5D=red</code>. PHP
+      bunu <code> $_GET[&apos;tag&apos;]</code> dizisine ayrıştırır.
+      <code> URLSearchParams</code> tarafından anlaşılmaz &mdash; ham anahtarı
+      <code> &ldquo;tag[]&rdquo;</code> olarak döndürür.
     </p>
     <p>
-      <strong>Comma-separated</strong>:
-      <code> ?tag=red,blue,green</code>. Simplest for logs, needs
-      manual splitting, breaks if a value contains a comma.
+      <strong>Virgülle ayrılmış</strong>:
+      <code> ?tag=red,blue,green</code>. Günlükler için en basit, manuel
+      bölme gerektirir, değer virgül içeriyorsa bozulur.
     </p>
     <p>
-      Pick one convention per API and document it. Mixing
-      <code> tag</code> and <code>tag[]</code> is the kind of bug
-      that gets found during a midnight deploy.
+      API başına bir gelenek seçin ve belgeleyin.
+      <code> tag</code> ve <code>tag[]</code>'yi karıştırmak, gece yarısı dağıtımı sırasında bulunan türden bir hatadır.
     </p>
 
-    <h2>Nested keys &mdash; PHP-style</h2>
+    <h2>İç içe anahtarlar &mdash; PHP tarzı</h2>
     <p>
-      Bracket notation also expresses nested objects:
+      Köşeli parantez notasyonu ayrıca iç içe nesneleri ifade eder:
     </p>
     <pre>{`?user[name]=jay&user[role]=admin&user[prefs][theme]=dark
 
-// Decodes (in PHP / qs library) to:
+// (PHP / qs kütüphanesinde) Şuna çözülür:
 // { user: { name: 'jay', role: 'admin', prefs: { theme: 'dark' } } }`}</pre>
     <p>
-      The <code>qs</code> npm library is the most common
-      implementation outside PHP. It supports nesting, arrays, and
-      various array-format options. Express uses it for
-      <code> req.query</code> by default.
+      <code>qs</code> npm kütüphanesi, PHP dışındaki en yaygın
+      uygulamadır. İç içe geçmeyi, dizileri ve çeşitli dizi biçimi seçeneklerini destekler. Express, varsayılan olarak
+      <code> req.query</code> için bunu kullanır.
     </p>
     <p>
-      <code>URLSearchParams</code> does not understand nesting at
-      all; it sees the whole bracket-y string as a flat key. If you
-      are on a modern API, strongly consider pushing complex
-      structures to the request body as JSON instead of serializing
-      them into the query string.
+      <code>URLSearchParams</code> iç içe geçmeyi hiç anlamaz; tüm köşeli parantezli dizeyi düz bir anahtar olarak görür. Modern bir API üzerindeyseniz, karmaşık yapıları sorgu dizesine serileştirmek yerine istek gövdesine JSON olarak koymayı şiddetle düşünün.
     </p>
 
-    <h2>URL length limits</h2>
+    <h2>URL uzunluğu sınırları</h2>
     <p>
-      There is no official URL length limit in the HTTP spec, but
-      practical ceilings matter.
+      HTTP spesifikasyonunda resmi bir URL uzunluğu sınırı yoktur, ancak
+      pratik tavanlar önemlidir.
     </p>
     <p>
-      <strong>Browsers</strong>: Chrome, Firefox, Safari all handle
-      URLs up to around 32,000 characters reliably; older IE capped
-      at 2,083.
+      <strong>Tarayıcılar</strong>: Chrome, Firefox, Safari'nin tümü
+      yaklaşık 32.000 karaktere kadar olan URL'leri güvenilir bir şekilde işler; eski IE 2.083 ile sınırlıydı.
     </p>
     <p>
-      <strong>Web servers</strong>: Apache 8 KiB by default
+      <strong>Web sunucuları</strong>: Apache varsayılan olarak 8 KiB
       (<code>LimitRequestLine</code>), Nginx 8 KiB
       (<code>large_client_header_buffers</code>), IIS 16 KiB.
     </p>
     <p>
-      <strong>CDNs and load balancers</strong>: Cloudflare 16 KiB,
-      AWS ALB 16 KiB headers (including request line).
+      <strong>CDN'ler ve yük dengeleyiciler</strong>: Cloudflare 16 KiB,
+      AWS ALB 16 KiB başlıklar (istek satırı dahil).
     </p>
     <p>
-      Keep query strings under 2 KiB to be safe across all
-      infrastructure. If you are anywhere close, move the data to
-      a POST body.
+      Tüm altyapıda güvenli olmak için sorgu dizelerini 2 KiB'nin altında tutun. Bu sınıra yaklaşıyorsanız, verileri bir POST gövdesine taşıyın.
     </p>
 
-    <h2>Boolean conventions</h2>
+    <h2>Boolean gelenekleri</h2>
     <p>
-      Booleans in URLs are entirely convention. Pick a pattern:
+      URL'lerdeki boolean'lar tamamen gelenektir. Bir desen seçin:
     </p>
     <p>
-      <strong>Presence only</strong>:
-      <code> ?includeArchived</code> means true, absence means
-      false. Compact, but easy to confuse with a key that has an
-      empty value.
+      <strong>Sadece varlık</strong>:
+      <code> ?includeArchived</code> true anlamına gelir, yokluğu false anlamına gelir.
+      Kompakt, ancak boş değere sahip bir anahtarla karıştırılması kolaydır.
     </p>
     <p>
-      <strong>Explicit value</strong>:
-      <code> ?includeArchived=true</code>. Requires server to
-      coerce the string &ldquo;true&rdquo; &mdash; and remember
-      that &ldquo;false&rdquo;, &ldquo;no&rdquo;, and
-      &ldquo;0&rdquo; are all truthy strings in most languages.
+      <strong>Açık değer</strong>:
+      <code> ?includeArchived=true</code>. Sunucunun &ldquo;true&rdquo; dizesini zorlamasını gerektirir &mdash; ve
+      &ldquo;false&rdquo;, &ldquo;no&rdquo; ve
+      &ldquo;0&rdquo;'ın çoğu dilde doğruluk değeri olan dizeler olduğunu unutmayın.
     </p>
     <p>
       <strong>0/1</strong>:
-      <code> ?archived=1</code>. Unambiguous, concise, common in
-      older APIs.
+      <code> ?archived=1</code>. Net, özlü, eski API'lerde yaygın.
     </p>
 
-    <h2>Building query strings safely</h2>
+    <h2>Sorgu dizelerini güvenli bir şekilde oluşturma</h2>
     <p>
-      Never concatenate strings with <code>&amp;</code> and
-      <code> =</code>. Always use <code>URLSearchParams</code> or a
-      URL-building library.
+      Dizeleri asla <code>&amp;</code> ve <code>=</code> ile birleştirmeyin. Her zaman <code>URLSearchParams</code> veya bir URL oluşturma kütüphanesi kullanın.
     </p>
     <pre>{`const url = new URL('https://example.com/search');
 url.searchParams.set('q', 'hello & goodbye');
@@ -201,68 +168,57 @@ url.searchParams.append('tag', 'blue');
 console.log(url.toString());
 // https://example.com/search?q=hello+%26+goodbye&tag=red&tag=blue`}</pre>
     <p>
-      Notice the <code>&amp;</code> inside the value was correctly
-      encoded to <code>%26</code>, and the space became
-      <code> +</code>. Trying to do this by hand is where bugs live.
+      Değerin içindeki <code>&amp;</code>'nin doğru bir şekilde <code>%26</code> olarak kodlandığını ve boşluğun
+      <code> +</code> olduğunu fark edin. Bunu elle yapmaya çalışmak, hataların yaşadığı yerdir.
     </p>
 
-    <h2>Unicode, normalization, and collation</h2>
+    <h2>Unicode, normalleştirme ve harmanlama</h2>
     <p>
-      Two equal-looking strings can have different byte sequences.
-      &ldquo;caf&eacute;&rdquo; can be one composed character
-      (U+00E9) or &ldquo;e&rdquo; + combining acute (U+0065 U+0301).
-      Both encode to valid but different query strings. Normalize
-      input with <code>string.normalize(&apos;NFC&apos;)</code>
-      before comparing or using as a database key.
+      Eşit görünen iki dize, farklı bayt dizilerine sahip olabilir.
+      &ldquo;caf&eacute;&rdquo; tek bir birleşik karakter (U+00E9) veya &ldquo;e&rdquo; + birleştirici vurgu (U+0065 U+0301) olabilir.
+      Her ikisi de geçerli ancak farklı sorgu dizelerine kodlanır. Karşılaştırmadan veya veritabanı anahtarı olarak kullanmadan önce girdiyi
+      <code>string.normalize(&apos;NFC&apos;)</code> ile normalleştirin.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Splitting by <code>&amp;</code> and <code>=</code> manually.</strong>
-      {" "}It works until a value contains the literal character.
-      Use <code>URLSearchParams</code>.
+      <strong><code>&amp;</code> ve <code>=</code> ile manuel olarak bölmek.</strong>
+      {" "}Bir değer gerçek karakteri içerene kadar çalışır.
+      <code>URLSearchParams</code> kullanın.
     </p>
     <p>
-      <strong>Double encoding.</strong> Running
-      <code> encodeURIComponent</code> over a string that is already
-      encoded turns <code>%20</code> into <code>%2520</code>. Track
-      encoded-vs-decoded state carefully through your code.
+      <strong>Çift kodlama.</strong> Zaten kodlanmış bir dize üzerinde
+      <code> encodeURIComponent</code> çalıştırmak, <code>%20</code>'yi <code>%2520</code>'ye dönüştürür. Kodlanmış ve çözülmüş durumu kodunuzda dikkatlice takip edin.
     </p>
     <p>
-      <strong>Assuming key order is significant.</strong> Order is
-      preserved by most parsers but not guaranteed by any spec. Do
-      not rely on it for caching keys, signatures, or equality
-      checks &mdash; sort keys first.
+      <strong>Anahtar sırasının önemli olduğunu varsaymak.</strong> Sıra
+      çoğu ayrıştırıcı tarafından korunur, ancak hiçbir spesifikasyon tarafından garanti edilmez. Önbellek anahtarları, imzalar veya eşitlik kontrolleri için buna güvenmeyin &mdash; önce anahtarları sıralayın.
     </p>
     <p>
-      <strong>Using <code>.get()</code> when there might be multiple values.</strong>
-      {" "}<code>get()</code> returns only the first occurrence.
-      <code> getAll()</code> returns every one. Use whichever
-      matches your convention.
+      <strong>Birden çok değer olabileceğinde <code>.get()</code> kullanmak.</strong>
+      {" "}<code>get()</code> yalnızca ilk oluşumu döndürür.
+      <code> getAll()</code> her birini döndürür. Geleneğinize uygun olanı kullanın.
     </p>
     <p>
-      <strong>Mixing <code>+</code> and <code>%20</code>.</strong>
-      They both decode to space but look inconsistent. Pick one
-      (URLSearchParams always emits <code>+</code>; strict encoders
-      emit <code>%20</code>) and stick with it.
+      <strong><code>+</code> ve <code>%20</code>'yi karıştırmak.</strong>
+      Her ikisi de boşluğa çözülür ancak tutarsız görünür. Birini seçin
+      (URLSearchParams her zaman <code>+</code> yayar; katı kodlayıcılar
+      <code>%20</code> yayar) ve ona bağlı kalın.
     </p>
     <p>
-      <strong>Putting sensitive data in query strings.</strong>
-      Query strings are logged by servers, proxies, and browser
-      history. Tokens, passwords, and PII should go in headers or
-      POST bodies, never in URLs.
+      <strong>Hassas verileri sorgu dizelerine koymak.</strong>
+      Sorgu dizeleri sunucular, proxy'ler ve tarayıcı geçmişi tarafından günlüğe kaydedilir. Token'lar, parolalar ve PII, başlıklara veya POST gövdelerine, asla URL'lere konulmalıdır.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Break any URL into its parameters with the{" "}
-      <a href="/tools/query-string-parser">query string parser</a>.
-      Pair with the{" "}
-      <a href="/tools/url-parser">URL parser</a> for the full
-      protocol/host/path breakdown around it, and the{" "}
-      <a href="/tools/url-encoder-decoder">URL encoder/decoder</a>
-      {" "}when a single value is misbehaving and you need to see
-      exactly what got encoded.
+      Herhangi bir URL'yi parametrelerine ayırmak için{" "}
+      <a href="/tools/query-string-parser">sorgu dizesi ayrıştırıcısını</a> kullanın.
+      Etrafındaki tam protokol/ana bilgisayar/yol dökümü için{" "}
+      <a href="/tools/url-parser">URL ayrıştırıcısı</a> ile eşleştirin ve
+      tek bir değer yanlış davrandığında ve tam olarak neyin kodlandığını görmeniz gerektiğinde{" "}
+      <a href="/tools/url-encoder-decoder">URL kodlayıcı/kod çözücüyü</a>
+      {" "}kullanın.
     </p>
   </>
 );

@@ -1,45 +1,45 @@
 import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
-  <p>Lion&rsquo;s Mane, Reishi, Cordyceps, Chaga &mdash; the functional mushroom aisle has exploded, and most of what&rsquo;s on the shelf is expensive filler. Here&rsquo;s how to tell the real extracts from the grain-heavy powder sold at a 400% markup.</p>
+  <p>Aslan Yelesi, Reishi, Cordyceps, Chaga &mdash; fonksiyonel mantar reyonu patladı ve raftakilerin çoğu pahalı dolgu maddesi. İşte gerçek ekstraktları %400 kâr marjıyla satılan tahıl ağırlıklı tozdan nasıl ayırt edeceğiniz.</p>
 );
 
 export const body: ReactElement = (
   <>
-    <p>Functional mushrooms are non-psychoactive fungi taken for potential cognitive, immune, sleep, or endurance benefits. To be clear up front: these are not psilocybin mushrooms, and this is not medical advice. Consult a professional before starting any supplement, especially if you take prescription medication.</p>
+    <p>Fonksiyonel mantarlar, potansiyel bilişsel, bağışıklık, uyku veya dayanıklılık faydaları için alınan psikoaktif olmayan mantarlardır. Baştan açık olalım: bunlar psilosibin mantarları değildir ve bu tıbbi tavsiye değildir. Özellikle reçeteli ilaç kullanıyorsanız, herhangi bir takviyeye başlamadan önce bir profesyonele danışın.</p>
 
-    <h2>What the evidence actually says</h2>
-    <p>The research base is small but growing. Lion&rsquo;s Mane has preliminary human data suggesting mild cognitive and mood effects in older adults. Reishi is studied for sleep quality and stress response. Cordyceps shows small endurance and <a href="/learn/vo2-max">VO2 max</a> improvements in trained populations. Chaga and Turkey Tail have immune-modulation research, with Turkey Tail&rsquo;s PSK compound used as an adjunct cancer therapy in Japan. None of these are wonder drugs. The effect sizes in studies are modest, and many trials are small, short, or industry-funded.</p>
+    <h2>Kanıtlar aslında ne söylüyor</h2>
+    <p>Araştırma tabanı küçük ama büyüyor. Aslan Yelesi'nin yaşlı yetişkinlerde hafif bilişsel ve ruh hali etkileri olduğunu gösteren ön insan verileri var. Reishi, uyku kalitesi ve stres tepkisi üzerine çalışılıyor. Cordyceps, antrenmanlı popülasyonlarda küçük dayanıklılık ve <a href="/learn/vo2-max">VO2 max</a> iyileştirmeleri gösteriyor. Chaga ve Hindi Kuyruğu, bağışıklık düzenleme araştırmalarına sahip; Hindi Kuyruğu'nun PSK bileşiği Japonya'da adjuvan kanser tedavisi olarak kullanılıyor. Bunların hiçbiri mucize ilaç değil. Çalışmalardaki etki büyüklükleri mütevazı ve birçok deneme küçük, kısa süreli veya endüstri tarafından finanse ediliyor.</p>
 
-    <h2>Product quality is the whole game</h2>
-    <p>Most of the difference between a useless jar and an effective one comes down to extraction. Look for these markers:</p>
+    <h2>Ürün kalitesi her şeydir</h2>
+    <p>İşe yaramaz bir kavanoz ile etkili bir kavanoz arasındaki farkın çoğu ekstraksiyona bağlıdır. Şu işaretlere bakın:</p>
     <ul>
-      <li>Fruiting body extract, not mycelium-on-grain.</li>
-      <li>Beta-glucans listed at 30% minimum on the label, measured by a validated assay.</li>
-      <li>Dual extraction (hot water plus alcohol) for full spectrum compounds.</li>
-      <li>Third-party lab testing for heavy metals and beta-glucan content, with certificates of analysis available.</li>
-      <li>Clear dosage in milligrams per serving &mdash; not a &ldquo;proprietary blend&rdquo; that hides how much of each mushroom is inside.</li>
+      <li>Tahıl üzerinde miselyum değil, meyve gövdesi ekstraktı.</li>
+      <li>Etikette geçerli bir testle ölçülmüş minimum %30 beta-glukan listelenmiş olması.</li>
+      <li>Tam spektrumlu bileşikler için çift ekstraksiyon (sıcak su artı alkol).</li>
+      <li>Ağır metaller ve beta-glukan içeriği için analiz sertifikalarıyla birlikte üçüncü taraf laboratuvar testi.</li>
+      <li>Porsiyon başına miligram cinsinden net dozaj &mdash; içinde her bir mantardan ne kadar olduğunu gizleyen bir &ldquo;özel karışım&rdquo; değil.</li>
     </ul>
 
-    <h2>Price reality</h2>
-    <p>A full stack of four to five single-species extracts runs $30 to $80 per month. Anything cheaper from a big-box store is almost certainly grain-heavy mycelium powder with minimal active compounds. Anything vastly more expensive is usually branding markup. Capsules cost more per gram than bulk powder, so if you don&rsquo;t mind the taste, powder is the value play.</p>
+    <h2>Fiyat gerçeği</h2>
+    <p>Dört ila beş tek tür ekstrakttan oluşan tam bir set ayda 30 ila 80 dolar arasındadır. Büyük mağazalardan daha ucuz olan her şey neredeyse kesinlikle minimum aktif bileşen içeren tahıl ağırlıklı miselyum tozudur. Çok daha pahalı olan her şey genellikle marka kâr marjıdır. Kapsüller gram başına toz halinden daha pahalıdır, bu nedenle tadı umursamıyorsanız, toz daha iyi değerdir.</p>
 
-    <h2>Common frauds to avoid</h2>
+    <h2>Kaçınılması gereken yaygın dolandırıcılıklar</h2>
     <ul>
-      <li>Powders where the first ingredient is &ldquo;organic brown rice&rdquo; or &ldquo;oat fiber&rdquo; &mdash; that&rsquo;s the grain the mycelium grew on, sold as mushroom.</li>
-      <li>No beta-glucan percentage on the label.</li>
-      <li>Proprietary blends with no per-mushroom milligram disclosure.</li>
-      <li>Coffee and chocolate blends where the mushroom dose is a rounding error.</li>
-      <li>Any product claiming to cure cancer, Alzheimer&rsquo;s, or depression.</li>
+      <li>İlk içeriğinin &ldquo;organik esmer pirinç&rdquo; veya &ldquo;yulaf lifi&rdquo; olduğu tozlar &mdash; bu, miselyumun üzerinde büyüdüğü ve mantar olarak satılan tahıldır.</li>
+      <li>Etikette beta-glukan yüzdesi olmaması.</li>
+      <li>Mantar başına miligram açıklaması olmayan özel karışımlar.</li>
+      <li>Mantar dozunun yuvarlama hatası olduğu kahve ve çikolata karışımları.</li>
+      <li>Kanseri, Alzheimer'ı veya depresyonu tedavi ettiğini iddia eden herhangi bir ürün.</li>
     </ul>
 
-    <h2>Interactions and safety</h2>
-    <p>Functional mushrooms aren&rsquo;t inert. Reishi and Chaga can thin the blood and should be avoided with warfarin or before surgery. Turkey Tail and others can interact with immunosuppressants used after organ transplants or for autoimmune disease. Cordyceps may affect blood sugar and interact with diabetes medication. Pregnant or nursing people should skip them entirely &mdash; there&rsquo;s not enough safety data. Start with one mushroom at a time so you can actually tell what&rsquo;s doing what.</p>
+    <h2>Etkileşimler ve güvenlik</h2>
+    <p>Fonksiyonel mantarlar etkisiz değildir. Reishi ve Chaga kanı inceltebilir ve warfarin ile veya ameliyattan önce kaçınılmalıdır. Hindi Kuyruğu ve diğerleri, organ nakillerinden sonra veya otoimmün hastalık için kullanılan bağışıklık baskılayıcılarla etkileşime girebilir. Cordyceps kan şekerini etkileyebilir ve diyabet ilaçlarıyla etkileşime girebilir. Hamile veya emziren kişiler bunlardan tamamen kaçınmalıdır &mdash; yeterli güvenlik verisi yoktur. Hangisinin ne yaptığını gerçekten anlayabilmek için her seferinde bir mantarla başlayın.</p>
 
-    <h2>Common mistakes</h2>
-    <p>Buying a five-in-one blend so you can&rsquo;t tell which mushroom (if any) is working. Taking Reishi in the morning and wondering why you&rsquo;re drowsy. Expecting a week of Lion&rsquo;s Mane to fix brain fog that&rsquo;s actually caused by four hours of sleep. Ignoring the bloodwork and doctor conversations that would catch a real underlying issue. And paying premium prices for grain powder because the label has a nice forest photo.</p>
+    <h2>Yaygın hatalar</h2>
+    <p>Hangi mantarın (varsa) işe yaradığını anlayamamanız için beşi bir arada bir karışım satın almak. Reishi'yi sabah alıp neden uykulu olduğunuzu merak etmek. Aslan Yelesi'nin bir haftada, aslında dört saat uykudan kaynaklanan beyin bulanıklığını düzelteceğini beklemek. Gerçek bir altta yatan sorunu yakalayacak kan tahlillerini ve doktor görüşmelerini görmezden gelmek. Ve etiketinde güzel bir orman fotoğrafı olduğu için tahıl tozuna yüksek fiyat ödemek.</p>
 
-    <h2>Bottom line</h2>
-    <p>Functional mushrooms can be a reasonable addition to a health stack if you buy high-extract, third-party-tested products and keep your expectations calibrated to the modest evidence base. They are not a replacement for sleep, exercise, or medical care. Not medical advice. Consult a professional before adding them to your routine, especially alongside prescription medication.</p>
+    <h2>Sonuç</h2>
+    <p>Fonksiyonel mantarlar, yüksek ekstraktlı, üçüncü taraf testli ürünler satın alırsanız ve beklentilerinizi mütevazı kanıt tabanına göre ayarlarsanız, bir sağlık rutinine makul bir katkı olabilir. Uyku, egzersiz veya tıbbi bakımın yerini tutmazlar. Tıbbi tavsiye değildir. Özellikle reçeteli ilaçlarla birlikte rutininize eklemeden önce bir profesyonele danışın.</p>
   </>
 );

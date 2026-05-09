@@ -3,167 +3,167 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Alt text is the short written description of an image that screen readers announce to blind and low-vision users, that browsers display when an image fails to load, and that search engines use to understand your visual content. Good alt text is specific, short, and written for the context the image lives in; bad alt text is either missing, stuffed with keywords, or bizarrely literal. Getting this right is the single biggest accessibility improvement most websites can make, and it compounds because every image on every page benefits. This guide covers the purpose of alt, when to describe versus caption, the special case of decorative images, length guidance, and how alt text interacts with SEO.
+      Alt metin, bir görselin kısa yazılı açıklamasıdır; ekran okuyucular bunu kör ve az gören kullanıcılara bildirir, tarayıcılar görsel yüklenemediğinde görüntüler ve arama motorları görsel içeriğinizi anlamak için kullanır. İyi bir alt metin spesifik, kısa ve görselin bulunduğu bağlama göre yazılır; kötü alt metin ise ya eksiktir, anahtar kelimelerle doludur ya da tuhaf bir şekilde gerçekçidir. Bunu doğru yapmak, çoğu web sitesinin yapabileceği en büyük erişilebilirlik iyileştirmesidir ve her sayfadaki her görsel bundan faydalandığı için etkisi katlanarak artar. Bu kılavuz, alt metnin amacını, ne zaman tanımlama ne zaman altyazı kullanılacağını, dekoratif görsellerin özel durumunu, uzunluk yönergelerini ve alt metnin SEO ile nasıl etkileşime girdiğini kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Who actually reads alt text</h2>
+    <h2>Alt metni kimler okur</h2>
     <p>
-      Four real audiences consume alt text, not one:
+      Alt metni tüketen dört gerçek kitle vardır, bir değil:
     </p>
     <ul>
-      <li><strong>Screen reader users</strong> &mdash; the original and most important audience. The reader announces alt text as part of the page&rsquo;s reading order.</li>
-      <li><strong>Users on slow or broken connections</strong> &mdash; when an image fails to load, the browser shows alt text where the image would have been.</li>
-      <li><strong>Search engines</strong> &mdash; alt text is one of the signals Google uses to understand image content and page topic.</li>
-      <li><strong>Voice assistants and AI agents</strong> &mdash; when summarizing a page, they lean heavily on alt to describe imagery.</li>
+      <li><strong>Ekran okuyucu kullanıcıları</strong> &mdash; orijinal ve en önemli kitle. Okuyucu, alt metni sayfanın okuma sırasının bir parçası olarak bildirir.</li>
+      <li><strong>Yavaş veya bozuk bağlantıdaki kullanıcılar</strong> &mdash; bir görsel yüklenemediğinde, tarayıcı görselin olması gereken yerde alt metni gösterir.</li>
+      <li><strong>Arama motorları</strong> &mdash; alt metin, Google'ın görsel içeriğini ve sayfa konusunu anlamak için kullandığı sinyallerden biridir.</li>
+      <li><strong>Sesli asistanlar ve yapay zeka ajanları</strong> &mdash; bir sayfayı özetlerken, görselleri tanımlamak için büyük ölçüde alt metne güvenirler.</li>
     </ul>
     <p>
-      Good alt text serves all four at once. You&rsquo;re not writing for a machine or for a specific user group; you&rsquo;re writing for whoever can&rsquo;t see the pixels.
+      İyi alt metin aynı anda dört kitleye de hizmet eder. Bir makine veya belirli bir kullanıcı grubu için yazmıyorsunuz; pikselleri göremeyen herkes için yazıyorsunuz.
     </p>
 
-    <h2>Describe, don&rsquo;t caption</h2>
+    <h2>Tanımlayın, altyazı yapmayın</h2>
     <p>
-      A caption is editorial commentary shown to sighted readers: &ldquo;Our founder Jay at the 2026 launch event.&rdquo; Alt text is a functional description: &ldquo;A man in a blue blazer holding a microphone on a small stage with a purple banner behind him.&rdquo;
+      Altyazı, gören okuyuculara gösterilen editoryal bir yorumdur: &ldquo;Kurucumuz Jay, 2026 lansman etkinliğinde.&rdquo; Alt metin ise işlevsel bir tanımlamadır: &ldquo;Mavi bir blazer ceket giymiş, arkasında mor bir pankart olan küçük bir sahnede mikrofon tutan bir adam.&rdquo;
     </p>
     <p>
-      The test: if the image disappeared, would the alt text convey what the image added to the page? If yes, it&rsquo;s good alt. If the alt just says &ldquo;Jay at launch&rdquo; and you&rsquo;d lose the informational value, it&rsquo;s captioning, not describing.
+      Test: Görsel kaybolursa, alt metin görselin sayfaya kattığı şeyi aktarabiliyor mu? Cevap evetse, iyi bir alt metindir. Alt metin sadece &ldquo;Jay lansmanda&rdquo; diyorsa ve bilgi değerini kaybediyorsanız, bu altyazı yapmaktır, tanımlama değil.
     </p>
     <p>
-      When the image truly is just illustrating the caption, you can repeat the caption as alt &mdash; but usually a fuller description is better.
-    </p>
-
-    <h2>Length: short but not too short</h2>
-    <p>
-      Screen readers stop offering shortcut-navigation when alt gets long; users can&rsquo;t skip a rambling description. The pragmatic range is 80 to 150 characters. Longer descriptions (up to 250) are fine for complex images like charts or infographics where the content <em>is</em> the information.
-    </p>
-    <p>
-      Target: one sentence that a screen reader announces in a single breath. If you need more, consider whether a longer text alternative (a paragraph elsewhere on the page, or an <code>aria-describedby</code> reference) is better than stuffing alt.
+      Görsel gerçekten sadece altyazıyı gösteriyorsa, altyazıyı alt metin olarak tekrarlayabilirsiniz &mdash; ancak genellikle daha kapsamlı bir tanımlama daha iyidir.
     </p>
 
-    <h2>Decorative images: empty alt</h2>
+    <h2>Uzunluk: kısa ama çok kısa değil</h2>
     <p>
-      Not every image carries information. Decorative images &mdash; background textures, purely aesthetic flourishes, an emoji-like icon beside a label that already names the concept &mdash; should have an explicitly empty alt attribute:
+      Ekran okuyucular, alt metin uzadığında kısayol navigasyonu sunmayı bırakır; kullanıcılar uzun bir tanımlamayı atlayamaz. Pratik aralık 80 ila 150 karakterdir. Grafikler veya infografikler gibi içeriğin <em>bilginin kendisi</em> olduğu karmaşık görseller için daha uzun tanımlamalar (250 karaktere kadar) uygundur.
+    </p>
+    <p>
+      Hedef: Ekran okuyucunun tek bir nefeste okuyacağı bir cümle. Daha fazlasına ihtiyacınız varsa, daha uzun bir metin alternatifinin (sayfada başka bir yerde bir paragraf veya bir <code>aria-describedby</code> referansı) alt metni doldurmaktan daha iyi olup olmadığını düşünün.
+    </p>
+
+    <h2>Dekoratif görseller: boş alt metin</h2>
+    <p>
+      Her görsel bilgi taşımaz. Dekoratif görseller &mdash; arka plan dokuları, tamamen estetik süslemeler, konsepti zaten adlandıran bir etiketin yanındaki emoji benzeri bir simge &mdash; açıkça boş bir alt özniteliğine sahip olmalıdır:
     </p>
     <pre>{`<img src="/decorative-swirl.png" alt="" />`}</pre>
     <p>
-      The empty alt tells screen readers to skip the image entirely. Omitting the alt attribute is different &mdash; the reader will announce the filename instead, which is almost always useless. <strong>Always include alt, even if empty.</strong>
+      Boş alt metin, ekran okuyuculara görseli tamamen atlamasını söyler. Alt özniteliğini atlamak farklıdır &mdash; okuyucu bunun yerine dosya adını bildirir ve bu neredeyse her zaman işe yaramaz. <strong>Boş olsa bile her zaman alt ekleyin.</strong>
     </p>
     <p>
-      An icon next to &ldquo;Menu&rdquo; in a nav: decorative (empty alt). An icon that is the only content of a button: functional (<code>alt=&quot;Open menu&quot;</code>).
-    </p>
-
-    <h2>Context matters more than the picture</h2>
-    <p>
-      The same image can deserve different alt text depending on where it appears. A photo of a red dress on a product page needs alt describing the product: &ldquo;Red A-line cotton dress with cap sleeves and a V-neckline.&rdquo; The same photo in a blog post about color theory might need: &ldquo;A saturated red dress against a pale gray wall.&rdquo;
-    </p>
-    <p>
-      Ask: what does this image contribute <em>to this page, at this moment</em>? Write for that.
+      Bir navigasyonda &ldquo;Menü&rdquo;nün yanındaki simge: dekoratif (boş alt). Bir düğmenin tek içeriği olan bir simge: işlevsel (<code>alt=&quot;Menüyü aç&quot;</code>).
     </p>
 
-    <h2>Functional images: describe the action</h2>
+    <h2>Bağlam, resimden daha önemlidir</h2>
     <p>
-      Images inside links or buttons describe the destination or action, not the pixels. If the link <em>is</em> an image of a magnifying glass, the alt isn&rsquo;t &ldquo;magnifying glass icon&rdquo; &mdash; it&rsquo;s &ldquo;Search.&rdquo;
+      Aynı görsel, nerede göründüğüne bağlı olarak farklı alt metin gerektirebilir. Bir ürün sayfasındaki kırmızı bir elbisenin fotoğrafı, ürünü tanımlayan alt metin gerektirir: &ldquo;Kısa kollu ve V yakalı kırmızı A kesim pamuklu elbise.&rdquo; Renk teorisi hakkındaki bir blog yazısındaki aynı fotoğraf şunu gerektirebilir: &ldquo;Soluk gri bir duvarın önünde doygun kırmızı bir elbise.&rdquo;
+    </p>
+    <p>
+      Şunu sorun: Bu görsel <em>bu sayfaya, bu anda</em> ne katıyor? Bunun için yazın.
+    </p>
+
+    <h2>İşlevsel görseller: eylemi tanımlayın</h2>
+    <p>
+      Bağlantılar veya düğmeler içindeki görseller, pikselleri değil, hedefi veya eylemi tanımlar. Bağlantı bir büyüteç görseli <em>ise</em>, alt metin &ldquo;büyüteç simgesi&rdquo; değil &mdash; &ldquo;Ara&rdquo;dır.
     </p>
     <pre>{`<a href="/cart">
-  <img src="/cart-icon.svg" alt="View shopping cart" />
+  <img src="/cart-icon.svg" alt="Alışveriş sepetini görüntüle" />
 </a>`}</pre>
     <p>
-      Describing pixels here is a classic mistake that leaves screen-reader users lost.
+      Burada pikselleri tanımlamak, ekran okuyucu kullanıcılarını kaybolmuş bırakan klasik bir hatadır.
     </p>
 
-    <h2>Complex images: charts, diagrams, infographics</h2>
+    <h2>Karmaşık görseller: grafikler, diyagramlar, infografikler</h2>
     <p>
-      A data chart can&rsquo;t be summarized in 120 characters. The good-practice pattern:
+      Bir veri grafiği 120 karakterde özetlenemez. İyi uygulama modeli:
     </p>
     <ul>
-      <li>Short alt naming the chart: <code>alt=&quot;Bar chart: monthly revenue 2025&quot;</code>.</li>
-      <li>A longer text alternative nearby &mdash; either a visible caption summarizing the key takeaway (&ldquo;Revenue grew 18% year-over-year, peaking in November&rdquo;) or a hidden longer description linked via <code>aria-describedby</code>.</li>
-      <li>If the chart is the primary content, a data table beneath it gives screen-reader users access to every number.</li>
+      <li>Grafiği adlandıran kısa alt: <code>alt=&quot;Çubuk grafik: aylık gelir 2025&quot;</code>.</li>
+      <li>Yakınlarda daha uzun bir metin alternatifi &mdash; ya temel çıkarımı özetleyen görünür bir altyazı (&ldquo;Gelir yıllık bazda %18 arttı, Kasım ayında zirve yaptı&rdquo;) ya da <code>aria-describedby</code> ile bağlanmış gizli bir uzun tanımlama.</li>
+      <li>Grafik birincil içerikse, altında bir veri tablosu ekran okuyucu kullanıcılarına her sayıya erişim sağlar.</li>
     </ul>
 
-    <h2>Alt text and SEO</h2>
+    <h2>Alt metin ve SEO</h2>
     <p>
-      Google has said publicly that alt text helps search engines &ldquo;understand the subject matter of the image.&rdquo; Good descriptive alt &mdash; the same kind that&rsquo;s good for accessibility &mdash; is good for image search and for the broader ranking of the page.
+      Google, alt metnin arama motorlarının &ldquo;görselin konusunu anlamasına&rdquo; yardımcı olduğunu kamuoyuyla paylaştı. İyi tanımlayıcı alt metin &mdash; erişilebilirlik için iyi olanla aynı tür &mdash; görsel arama ve sayfanın daha geniş sıralaması için iyidir.
     </p>
     <p>
-      Keyword-stuffed alt (&ldquo;cheap red dress buy red dress online red dress sale&rdquo;) is obvious and penalized. Write for a human first and you&rsquo;ll get the SEO value as a byproduct.
-    </p>
-
-    <h2>Don&rsquo;t start with &ldquo;image of&rdquo;</h2>
-    <p>
-      Screen readers already announce &ldquo;image&rdquo; before reading alt text. Starting alt with &ldquo;image of&rdquo; or &ldquo;picture of&rdquo; creates &ldquo;image image of a dog&rdquo; &mdash; redundant and amateur. Just describe the content.
-    </p>
-    <p>
-      Exception: if the <em>fact that it&rsquo;s a particular kind of visual</em> matters &mdash; &ldquo;Painting of a storm at sea&rdquo; versus &ldquo;Photograph of a storm at sea&rdquo; &mdash; name the medium.
+      Anahtar kelime dolu alt metin (&ldquo;ucuz kırmızı elbise kırmızı elbise satın al çevrimiçi kırmızı elbise indirim&rdquo;) barizdir ve cezalandırılır. Önce bir insan için yazın ve SEO değerini bir yan ürün olarak elde edin.
     </p>
 
-    <h2>People in images</h2>
+    <h2>&ldquo;Görseli&rdquo; ile başlamayın</h2>
     <p>
-      Describe what&rsquo;s relevant for the context. Name known people (&ldquo;Jay Smith, founder&rdquo;) when context expects it. For stock photo subjects or unnamed people, describe race, gender, and age only when relevant to the point &mdash; a feature about diversity in hiring benefits from it; a generic blog header does not.
+      Ekran okuyucular, alt metni okumadan önce zaten &ldquo;görsel&rdquo; bildirir. Alt metne &ldquo;görseli&rdquo; veya &ldquo;resmi&rdquo; ile başlamak &ldquo;görsel bir köpeğin görseli&rdquo; oluşturur &mdash; gereksiz ve amatörce. Sadece içeriği tanımlayın.
     </p>
     <p>
-      When in doubt, err toward describing what&rsquo;s visible without speculation. &ldquo;A smiling woman in a lab coat&rdquo; beats &ldquo;a happy scientist.&rdquo;
+      İstisna: <em>Belirli bir tür görsel olduğu gerçeği</em> önemliyse &mdash; &ldquo;Denizde fırtına tablosu&rdquo; ile &ldquo;Denizde fırtına fotoğrafı&rdquo; arasında &mdash; ortamı adlandırın.
     </p>
 
-    <h2>Testing your alt</h2>
+    <h2>Görsellerdeki insanlar</h2>
     <p>
-      Two quick checks:
+      Bağlam için neyin alakalı olduğunu tanımlayın. Bağlam beklediğinde bilinen kişileri adlandırın (&ldquo;Kurucu Jay Smith&rdquo;). Stok fotoğraf konuları veya isimsiz kişiler için, ırk, cinsiyet ve yaşı yalnızca konuyla ilgiliyse tanımlayın &mdash; işe alımda çeşitlilik hakkındaki bir özellik bundan faydalanır; genel bir blog başlığı faydalanmaz.
+    </p>
+    <p>
+      Şüpheye düştüğünüzde, spekülasyon yapmadan görünür olanı tanımlamaya yönelin. &ldquo;Laboratuvar önlüklü gülümseyen bir kadın&rdquo;, &ldquo;mutlu bir bilim insanı&rdquo;ndan daha iyidir.
+    </p>
+
+    <h2>Alt metninizi test etme</h2>
+    <p>
+      İki hızlı kontrol:
     </p>
     <ol>
-      <li><strong>Read the page without images:</strong> does the content still make sense, relying on the alt text alone? If no, the alts are underwritten.</li>
-      <li><strong>Read the alt in isolation:</strong> does it make sense without the surrounding paragraph? If only the context saves it, the alt is fine for this page but can&rsquo;t be reused.</li>
+      <li><strong>Sayfayı görseller olmadan okuyun:</strong> içerik, yalnızca alt metne dayanarak hala anlamlı mı? Hayırsa, alt metinler yetersiz yazılmıştır.</li>
+      <li><strong>Alt metni izole olarak okuyun:</strong> çevreleyen paragraf olmadan anlamlı mı? Yalnızca bağlam kurtarıyorsa, alt metin bu sayfa için iyidir ancak yeniden kullanılamaz.</li>
     </ol>
 
-    <h2>Writing alt for a screenshot</h2>
+    <h2>Ekran görüntüsü için alt metin yazma</h2>
     <p>
-      Screenshots of software, error messages, and tutorials need different alt treatment:
+      Yazılım, hata mesajları ve eğitimlerin ekran görüntüleri farklı alt metin işlemi gerektirir:
     </p>
     <ul>
-      <li><strong>Error messages:</strong> transcribe the actual error text. Alt: &ldquo;Error dialog reading &lsquo;Network connection lost. Retry?&rsquo; with Retry and Cancel buttons.&rdquo;</li>
-      <li><strong>UI tutorials:</strong> describe the action or location, not every pixel. Alt: &ldquo;Settings menu with &lsquo;Privacy&rsquo; option highlighted.&rdquo;</li>
-      <li><strong>Data tables captured as screenshots:</strong> either provide the data in accessible HTML alongside, or give alt a top-line summary (&ldquo;Table of monthly revenue, showing Q4 peak at $48k&rdquo;) and link to the full data.</li>
+      <li><strong>Hata mesajları:</strong> gerçek hata metnini yazıya dökün. Alt: &ldquo;&lsquo;Ağ bağlantısı kayboldu. Tekrar dene?&rsquo; yazan, Tekrar Dene ve İptal düğmeleri olan hata iletişim kutusu.&rdquo;</li>
+      <li><strong>UI eğitimleri:</strong> her pikseli değil, eylemi veya konumu tanımlayın. Alt: &ldquo;&lsquo;Gizlilik&rsquo; seçeneği vurgulanmış Ayarlar menüsü.&rdquo;</li>
+      <li><strong>Ekran görüntüsü olarak yakalanmış veri tabloları:</strong> ya verileri yanında erişilebilir HTML olarak sağlayın ya da alt metne üst düzey bir özet verin (&ldquo;Aylık gelir tablosu, Q4 zirvesi 48 bin $&rdquo;) ve tam verilere bağlantı verin.</li>
     </ul>
 
-    <h2>Alt versus title versus caption</h2>
+    <h2>Alt, başlık ve altyazı arasındaki fark</h2>
     <p>
-      Three attributes that often get confused:
+      Sıklıkla karıştırılan üç öznitelik:
     </p>
     <ul>
-      <li><strong><code>alt</code></strong>: announced by screen readers, shown if image fails to load. The primary accessibility attribute.</li>
-      <li><strong><code>title</code></strong>: tooltip text on hover for mouse users. Screen readers sometimes read it, sometimes not &mdash; inconsistent. Don&rsquo;t rely on it for accessibility.</li>
-      <li><strong><code>&lt;figcaption&gt;</code></strong>: visible caption below an image in a <code>&lt;figure&gt;</code>. Read by screen readers and seen by sighted users.</li>
+      <li><strong><code>alt</code></strong>: ekran okuyucular tarafından bildirilir, görsel yüklenemezse gösterilir. Birincil erişilebilirlik özniteliği.</li>
+      <li><strong><code>title</code></strong>: fare kullanıcıları için üzerine gelindiğinde araç ipucu metni. Ekran okuyucular bazen okur, bazen okumaz &mdash; tutarsız. Erişilebilirlik için ona güvenmeyin.</li>
+      <li><strong><code>&lt;figcaption&gt;</code></strong>: bir <code>&lt;figure&gt;</code> içinde görselin altında görünür altyazı. Ekran okuyucular tarafından okunur ve gören kullanıcılar tarafından görülür.</li>
     </ul>
     <p>
-      The pragmatic rule: always set <code>alt</code>. Use <code>figcaption</code> when a visible caption is useful. Skip <code>title</code> unless you have a specific reason.
+      Pratik kural: her zaman <code>alt</code> ayarlayın. Görünür bir altyazı faydalı olduğunda <code>figcaption</code> kullanın. Belirli bir nedeniniz yoksa <code>title</code>'ı atlayın.
     </p>
 
-    <h2>Animated GIFs and video posters</h2>
+    <h2>Animasyonlu GIF'ler ve video posterleri</h2>
     <p>
-      For GIFs, describe the action, not the first frame. An alt of &ldquo;dog sitting&rdquo; on a GIF where the dog then stands up and wags is misleading. Better: &ldquo;A dog stands up from sitting and wags its tail.&rdquo;
+      GIF'ler için, ilk kareyi değil, eylemi tanımlayın. Köpeğin sonra ayağa kalkıp kuyruk salladığı bir GIF'te &ldquo;oturan köpek&rdquo; alt metni yanıltıcıdır. Daha iyisi: &ldquo;Bir köpek oturmaktan kalkar ve kuyruğunu sallar.&rdquo;
     </p>
     <p>
-      For video <code>poster</code> images, alt follows the video element&rsquo;s <code>aria-label</code>. The poster itself doesn&rsquo;t typically need separate alt because screen readers treat the video control as the primary element.
-    </p>
-
-    <h2>Localization of alt text</h2>
-    <p>
-      Alt text is content and needs translation when your site is localized. Don&rsquo;t ship English alt on Spanish pages &mdash; screen readers in Spanish will read English words with Spanish phonetics and confuse users. Include alt strings in your translation files alongside button labels and headings.
-    </p>
-    <p>
-      Cultural context can shift descriptions too. A photo of a traditional food, a gesture, or a landmark might need contextual description that isn&rsquo;t obvious to a translator without seeing the image. Provide translators with the image, not just the English alt.
+      Video <code>poster</code> görselleri için alt metin, video öğesinin <code>aria-label</code> değerini takip eder. Posterin kendisi genellikle ayrı bir alt metin gerektirmez çünkü ekran okuyucular video kontrolünü birincil öğe olarak ele alır.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Alt metnin yerelleştirilmesi</h2>
     <p>
-      Leaving alt empty when the image carries information, and stuffing keywords into alt when it doesn&rsquo;t. Starting with &ldquo;image of.&rdquo; Using the same alt for every image in a gallery (&ldquo;Our team&rdquo; on 12 headshots &mdash; name the people or describe each). Describing the pixels for a functional icon instead of the action. Writing alt as captioning (&ldquo;Jay at the conference&rdquo;) when the reader has no idea who Jay is. Forgetting the alt attribute entirely, which makes screen readers announce the filename &mdash; <code>IMG_8472.jpg</code> is not useful. And skipping alt on complex charts because it&rsquo;s hard &mdash; it&rsquo;s worth the effort.
+      Alt metin içeriktir ve siteniz yerelleştirildiğinde çeviri gerektirir. İspanyolca sayfalarda İngilizce alt metin göndermeyin &mdash; İspanyolca ekran okuyucular, İngilizce kelimeleri İspanyolca fonetikle okur ve kullanıcıların kafasını karıştırır. Alt metin dizelerini, düğme etiketleri ve başlıklarla birlikte çeviri dosyalarınıza ekleyin.
+    </p>
+    <p>
+      Kültürel bağlam da tanımlamaları değiştirebilir. Geleneksel bir yemek, bir jest veya bir dönüm noktasının fotoğrafı, görseli görmeden bir çevirmen için açık olmayan bağlamsal bir tanımlama gerektirebilir. Çevirmenlere yalnızca İngilizce alt metni değil, görseli de sağlayın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Our <a href="/tools/alt-text-helper">alt text helper</a> suggests short, descriptive alt for any image and flags common problems like missing alts, duplicate alts, and keyword stuffing. For the broader meta-content pass, pair it with the <a href="/tools/meta-description-length-checker">meta description length checker</a>. And when simplifying alt phrasing for screen reader flow, the <a href="/tools/readability-score-checker">readability score checker</a> keeps your sentences simple.
+      Görsel bilgi taşıdığında alt metni boş bırakmak ve taşımadığında alt metne anahtar kelimeler doldurmak. &ldquo;Görseli&rdquo; ile başlamak. Bir galerideki her görsel için aynı alt metni kullanmak (12 vesikalık fotoğrafta &ldquo;Ekibimiz&rdquo; &mdash; kişileri adlandırın veya her birini tanımlayın). İşlevsel bir simge için eylem yerine pikselleri tanımlamak. Okuyucunun Jay'in kim olduğu hakkında hiçbir fikri olmadığında alt metni altyazı olarak yazmak (&ldquo;Jay konferansta&rdquo;). Alt özniteliğini tamamen unutmak, bu da ekran okuyucuların dosya adını bildirmesine neden olur &mdash; <code>IMG_8472.jpg</code> kullanışlı değildir. Ve zor olduğu için karmaşık grafiklerde alt metni atlamak &mdash; çabaya değer.
+    </p>
+
+    <h2>Rakamları çalıştırın</h2>
+    <p>
+      <a href="/tools/alt-text-helper">Alt metin yardımcımız</a>, herhangi bir görsel için kısa, tanımlayıcı alt metin önerir ve eksik alt metinler, yinelenen alt metinler ve anahtar kelime doldurma gibi yaygın sorunları işaretler. Daha geniş meta içerik geçişi için, bunu <a href="/tools/meta-description-length-checker">meta açıklama uzunluk denetleyicisi</a> ile eşleştirin. Ve ekran okuyucu akışı için alt metin ifadelerini basitleştirirken, <a href="/tools/readability-score-checker">okunabilirlik puanı denetleyicisi</a> cümlelerinizi basit tutar.
     </p>
   </>
 );

@@ -3,131 +3,71 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Raising a GPA is mostly arithmetic, not effort. The math of how
-      cumulative averages work means a 3.2 takes far more A&rsquo;s to
-      move up than a 2.5 does, and senior-year coursework has almost no
-      leverage left compared to freshman year. This guide explains the
-      dilution effect that makes GPA stubborn, which courses actually
-      move your number, and the grade-by-semester math to hit a specific
-      target.
+      GPA yükseltmek çoğunlukla aritmetiktir, çaba değil. Kümülatif ortalamaların nasıl çalıştığının matematiği, 3.2'yi yükseltmenin 2.5'e göre çok daha fazla A gerektirdiğini ve son sınıf derslerinin birinci sınıfa kıyasla neredeyse hiç kaldıraç etkisi olmadığını gösterir. Bu rehber, GPA'yı inatçı yapan seyreltme etkisini, notunuzu gerçekten hangi derslerin hareket ettirdiğini ve belirli bir hedefe ulaşmak için gereken dönem dönem matematiği açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The dilution problem</h2>
+    <h2>Seyreltme sorunu</h2>
     <p>
-      GPA is a weighted average. Every course you&rsquo;ve already taken is
-      locked in, and new courses get averaged in proportional to their
-      credit hours. The more credits already on your transcript, the less
-      any single new class moves your number.
+      GPA ağırlıklı bir ortalamadır. Daha önce aldığınız her ders sabittir ve yeni dersler, kredi saatleriyle orantılı olarak ortalamaya eklenir. Transkriptinizde ne kadar çok kredi varsa, tek bir yeni dersin notunuzu hareket ettirme gücü o kadar azalır.
     </p>
     <p>
-      Say you&rsquo;re a sophomore with a 3.0 GPA across 60 credit hours.
-      You take a 3-credit course and ace it (4.0). New GPA:{" "}
-      <code>(3.0 × 60 + 4.0 × 3) / 63 = 3.048</code>. A perfect A moved
-      you 0.048 points. To reach 3.5 from 3.0 in the same semester
-      (15 credits, all A&rsquo;s): <code>(3.0 × 60 + 4.0 × 15) / 75 = 3.2</code>.
-      A perfect 4.0 semester still only takes you to 3.2. GPA is a
-      super-tanker. It turns slowly.
+      Diyelim ki 60 kredi saati üzerinden 3.0 GPA'ya sahip bir ikinci sınıf öğrencisisiniz. 3 kredilik bir ders alıp onu mükemmel yapıyorsunuz (4.0). Yeni GPA:{" "}
+      <code>(3.0 × 60 + 4.0 × 3) / 63 = 3.048</code>. Mükemmel bir A, notunuzu 0.048 puan hareket ettirdi. Aynı dönemde 3.0'dan 3.5'e çıkmak için (15 kredi, hepsi A): <code>(3.0 × 60 + 4.0 × 15) / 75 = 3.2</code>. Mükemmel bir 4.0 dönemi sizi yalnızca 3.2'ye taşır. GPA bir süper tankerdir. Yavaş döner.
     </p>
 
-    <h2>Prioritize high-credit courses</h2>
+    <h2>Yüksek kredili derslere öncelik verin</h2>
     <p>
-      A 4-credit class affects your GPA 33% more than a 3-credit class,
-      and 4× more than a 1-credit class. If you have to pick which two
-      subjects to study hardest for, pick the ones with the most credits
-      — an A in a 4-credit course is the same effort ceiling and more
-      GPA movement than a 1-credit course. PE electives and
-      single-credit seminars are rounding error.
+      4 kredilik bir ders, GPA'nızı 3 kredilik bir dersten %33, 1 kredilik bir dersten ise 4 kat daha fazla etkiler. Hangi iki ders için en çok çalışacağınızı seçmek zorundaysanız, en fazla krediye sahip olanları seçin — 4 kredilik bir dersten A almak aynı çaba tavanına sahiptir ve 1 kredilik bir dersten daha fazla GPA hareketi sağlar. Beden eğitimi seçmeli dersleri ve bir kredilik seminerler yuvarlama hatalarıdır.
     </p>
 
-    <h2>Retake vs. ride</h2>
+    <h2>Tekrar almak vs. devam etmek</h2>
     <p>
-      Most schools have a &ldquo;grade forgiveness&rdquo; or retake policy
-      — you retake a class, and either the new grade replaces the old or
-      both count. If replace: retaking a D in a 4-credit course to turn
-      it into an A swings your GPA dramatically (gains: 3.0 GPA points × 4
-      credits = 12 quality points added to your cumulative). Check your
-      registrar&rsquo;s policy. It&rsquo;s usually the single most
-      effective move available if you have a failed or near-failed class
-      on your transcript.
+      Çoğu okulda "not affı" veya tekrar alma politikası vardır — bir dersi tekrar alırsınız ve ya yeni not eski notun yerine geçer ya da her ikisi de sayılır. Yerine koyma senaryosunda: 4 kredilik bir derste D'yi A'ya çevirmek GPA'nızı önemli ölçüde değiştirir (kazanç: 3.0 not puanı × 4 kredi = kümülatifinize eklenen 12 kalite puanı). Kayıt işleri ofisinizin politikasını kontrol edin. Transkriptinizde başarısız veya başarısıza yakın bir ders varsa, bu genellikle mevcut en güçlü hamledir.
     </p>
     <p>
-      If both grades count (the newer policy at many state systems),
-      retaking buys you less — effectively averaging the two and
-      diluting as before. Run the math before committing a semester to
-      it.
+      Her iki not da sayılıyorsa (birçok eyalet sisteminde daha yeni politika), tekrar almak size daha az kazandırır — etkili bir şekilde ikisini ortalamasını alır ve daha önce olduğu gibi seyreltir. Bir dönemi buna adamadan önce matematiği yapın.
     </p>
 
-    <h2>The W (withdraw) trap</h2>
+    <h2>W (bırakma) tuzağı</h2>
     <p>
-      Dropping a class before the W deadline removes it from your GPA.
-      Withdrawing after the drop deadline usually leaves a W on your
-      transcript that doesn&rsquo;t count in GPA but is visible. A
-      strategic W to avoid a C or D can preserve your GPA — but
-      graduate and professional school admissions committees count Ws
-      qualitatively. One or two is invisible. Five or more on a
-      transcript tells a story.
+      Bir dersi W son tarihinden önce bırakmak onu GPA'nızdan çıkarır. Bırakma son tarihinden sonra dersten çekilmek genellikle transkriptinizde GPA'nıza dahil olmayan ancak görünen bir W bırakır. C veya D'den kaçınmak için stratejik bir W, GPA'nızı koruyabilir — ancak lisansüstü ve profesyonel okul kabul komiteleri W'leri niteliksel olarak değerlendirir. Bir veya iki tane görünmezdir. Transkriptte beş veya daha fazlası bir hikaye anlatır.
     </p>
 
-    <h2>Pass/fail — double-edged</h2>
+    <h2>Geçti/kaldı — iki ucu keskin kılıç</h2>
     <p>
-      A P/F grade option lets you pass a hard class without risking your
-      GPA, but you also can&rsquo;t <em>raise</em> it with that class.
-      Use P/F for courses outside your major where the risk of a C is
-      higher than the reward of an A. Save graded courses for anything
-      where you can realistically earn an A-/A.
+      G/K not seçeneği, GPA'nızı riske atmadan zor bir dersi geçmenizi sağlar, ancak aynı zamanda o dersle notunuzu <em>yükseltemeyeceğiniz</em> anlamına gelir. G/K'yı, C riskinin A ödülünden ağır bastığı bölüm dışı dersler için kullanın. Notlu dersleri, gerçekçi bir şekilde A-/A alabileceğiniz her şey için saklayın.
     </p>
 
-    <h2>Weighted vs unweighted — depends who&rsquo;s looking</h2>
+    <h2>Ağırlıklı vs. ağırlıksız — kimin baktığına bağlı</h2>
     <p>
-      High school students in honors/AP courses have a weighted GPA
-      (often on a 5.0 scale) and an unweighted (on 4.0). College
-      admissions officers typically recalculate using their own scale,
-      so both numbers eventually get reduced to a common denominator.
-      Don&rsquo;t stack APs just for weighted-GPA inflation —
-      admissions will see through it, and a B in an AP is often
-      equivalent to an A in regular for admission scoring.
+      Onur/AP derslerindeki lise öğrencilerinin ağırlıklı (genellikle 5.0 ölçeğinde) ve ağırlıksız (4.0 üzerinden) GPA'sı vardır. Üniversite kabul görevlileri tipik olarak kendi ölçeklerini kullanarak yeniden hesaplar, bu nedenle her iki sayı da sonuçta ortak bir paydaya indirgenir. Sadece ağırlıklı GPA'nızı şişirmek için AP derslerini yığmayın — kabul görevlileri bunu görecektir ve bir AP'deki B, kabul puanlamasında genellikle normal bir dersteki A'ya eşdeğerdir.
     </p>
 
-    <h2>The realistic-target math</h2>
+    <h2>Gerçekçi hedef matematiği</h2>
     <p>
-      Use the{" "}
-      <a href="/tools/gpa-calculator">GPA calculator</a> to plot scenarios:
-      enter your current cumulative GPA + credits, then enter a
-      hypothetical upcoming semester. The calculator reveals whether your
-      goal is actually reachable given the credit hours you have left.
+      Senaryoları planlamak için{" "}
+      <a href="/tools/gpa-calculator">GPA hesaplayıcıyı</a> kullanın: mevcut kümülatif GPA'nızı + kredilerinizi girin, ardından varsayımsal bir gelecek dönemi girin. Hesaplayıcı, hedefinizin kalan kredi saatleriniz göz önüne alındığında gerçekten ulaşılabilir olup olmadığını ortaya çıkarır.
     </p>
     <p>
-      Example: Junior with 3.0 over 90 credits, wants a 3.5 by graduation
-      (30 credits remaining). Required:{" "}
-      <code>((3.5 × 120) − (3.0 × 90)) / 30 = 5.0</code>. Unreachable —
-      you can&rsquo;t average above 4.0. The realistic ceiling is a 3.25
-      (all A&rsquo;s). Students who don&rsquo;t run this math before
-      setting a goal often set unreachable ones and give up mid-semester.
+      Örnek: 90 kredi üzerinden 3.0 GPA'ya sahip bir üçüncü sınıf öğrencisi, mezuniyete kadar (30 kredi kaldı) 3.5 istiyor. Gerekli:{" "}
+      <code>((3.5 × 120) − (3.0 × 90)) / 30 = 5.0</code>. İmkansız — 4.0'ın üzerinde ortalama alamazsınız. Gerçekçi tavan 3.25'tir (tüm A'lar). Bir hedef belirlemeden önce bu matematiği yapmayan öğrenciler genellikle ulaşılamaz hedefler koyar ve dönem ortasında pes eder.
     </p>
 
-    <h2>The three-move prioritization</h2>
+    <h2>Üç hamleli önceliklendirme</h2>
     <p>
-      If you have one semester to raise your GPA: (1) front-load your
-      schedule with higher-credit classes you know you can A. (2) drop
-      or P/F the classes where a C is realistic. (3) retake one old class
-      under grade-replacement if your policy allows.
+      GPA'nızı yükseltmek için bir döneminiz varsa: (1) Programınızı, A alabileceğinizi bildiğiniz daha yüksek kredili derslerle doldurun. (2) C almanın gerçekçi olduğu dersleri bırakın veya G/K yapın. (3) Politikanız izin veriyorsa, not değiştirme kapsamında eski bir dersi tekrar alın.
     </p>
     <p>
-      Skip: cramming extra-credit points in 1-credit electives, stacking
-      APs you&rsquo;ll hate-B, or switching majors late (senior-year
-      major switches often lock in an unfavorable GPA because too few
-      new courses can move it).
+      Atlayın: 1 kredilik seçmeli derslerde ekstra kredi puanları için tıkıştırmak, nefret edeceğiniz B'ler alacağınız AP'leri yığmak veya oyunun sonlarında bölüm değiştirmek (son sınıfta bölüm değiştirmek genellikle negatif bir GPA'yı kilitler çünkü onu hareket ettirmek için çok az yeni ders kalır).
     </p>
     <p>
-      Run the numbers for your exact situation in the{" "}
-      <a href="/tools/gpa-calculator">GPA calculator</a>, plan study time
-      against <a href="/tools/grade-calculator">grade calculator</a>{" "}
-      projections for each course, and check whether a target is
-      mathematically reachable before you commit a semester to it.
+      Kendi durumunuz için{" "}
+      <a href="/tools/gpa-calculator">GPA hesaplayıcıda</a> sayıları çalıştırın, çalışma sürenizi her ders için{" "}
+      <a href="/tools/grade-calculator">not hesaplayıcı</a> projeksiyonlarına göre planlayın ve bir dönemi buna adamadan önce bir hedefin matematiksel olarak ulaşılabilir olup olmadığını kontrol edin.
     </p>
   </>
 );

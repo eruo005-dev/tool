@@ -1,113 +1,80 @@
 export const intro = (
   <>
     <p>
-      Writing well is not a gift. It&rsquo;s a skill built from a small number of moves, applied
-      consistently. Clear writing is clear thinking rendered visible — if you can&rsquo;t write
-      it cleanly, you probably haven&rsquo;t thought it through cleanly either.
+      İyi yazmak bir yetenek değildir. Az sayıda hamleden oluşan, tutarlı bir şekilde uygulanan bir beceridir. Açık yazı, görünür kılınmış açık düşüncedir — eğer temiz bir şekilde yazamıyorsanız, muhtemelen konuyu da temiz bir şekilde düşünmemişsinizdir.
     </p>
     <p>
-      This guide covers the moves that separate forgettable writing from writing people actually
-      read and share. You don&rsquo;t need to be a novelist — you need to be understood without
-      effort.
+      Bu rehber, unutulmaz yazıyı insanların gerçekten okuyup paylaştığı yazıdan ayıran hamleleri kapsar. Roman yazarı olmanıza gerek yok — çaba harcamadan anlaşılmanız yeterli.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Start with the point, not the setup</h2>
+    <h2>1. Girişle değil, noktayla başlayın</h2>
     <p>
-      Most first drafts bury the lede. The reader doesn&rsquo;t need your framing, your warm-up,
-      or the meandering context before the point — they need the point. Write the draft, then
-      delete the first paragraph. 90% of the time, the piece is stronger for it.
+      Çoğu ilk taslak asıl konuyu gömer. Okuyucunun çerçevelemeye, ısınma turlarına veya noktaya ulaşmadan önceki dolambaçlı bağlama ihtiyacı yoktur — onların ihtiyacı olan noktanın kendisidir. Taslağı yazın, ardından ilk paragrafı silin. Zamanın %90'ında metin bundan güçlenir.
     </p>
 
-    <h2>2. Shorter sentences</h2>
+    <h2>2. Daha kısa cümleler</h2>
     <p>
-      Long sentences force the reader to hold multiple clauses in memory while searching for the
-      verb. Short sentences don&rsquo;t. Mix lengths for rhythm, but when in doubt, shorten. Most
-      writing improves from splitting every sentence over 25 words.
+      Uzun cümleler, okuyucuyu fiili ararken birden fazla yan cümleyi hafızada tutmaya zorlar. Kısa cümleler bunu yapmaz. Ritim için uzunlukları karıştırın, ancak şüpheye düştüğünüzde kısaltın. Çoğu yazı, 25 kelimenin üzerindeki her cümleyi bölmekle gelişir.
     </p>
 
-    <h2>3. Cut adverbs and intensifiers</h2>
+    <h2>3. Zarfları ve pekiştiricileri kesin</h2>
     <p>
-      &ldquo;Very,&rdquo; &ldquo;really,&rdquo; &ldquo;basically,&rdquo; &ldquo;actually.&rdquo;
-      They dilute the sentence and add no information. &ldquo;She was very tired&rdquo; is weaker
-      than &ldquo;She was exhausted.&rdquo; Strong verbs and precise nouns beat adverbs every
-      time.
+      &ldquo;Çok,&rdquo; &ldquo;gerçekten,&rdquo; &ldquo;temelde,&rdquo; &ldquo;aslında.&rdquo; Cümleyi sulandırırlar ve hiçbir bilgi eklemezler. &ldquo;Çok yorgundu&rdquo; ifadesi, &ldquo;Bitkindi&rdquo; ifadesinden daha zayıftır. Güçlü fiiller ve kesin isimler, zarfları her zaman yener.
     </p>
 
-    <h2>4. Prefer concrete to abstract</h2>
+    <h2>4. Soyut yerine somutu tercih edin</h2>
     <p>
-      &ldquo;Leverage synergies&rdquo; means nothing. &ldquo;Have the sales and engineering teams
-      share the same dashboard&rdquo; means something specific. Concrete nouns, concrete verbs,
-      concrete examples — they&rsquo;re what makes writing memorable.
+      &ldquo;Sinerjilerden yararlanmak&rdquo; hiçbir şey ifade etmez. &ldquo;Satış ve mühendislik ekiplerinin aynı panoyu paylaşmasını sağlayın&rdquo; belirli bir şey ifade eder. Somut isimler, somut fiiller, somut örnekler — yazıyı unutulmaz kılan şeyler bunlardır.
     </p>
 
-    <h2>5. Use the active voice</h2>
+    <h2>5. Etken çatıyı kullanın</h2>
     <p>
-      Active voice: &ldquo;The team shipped the feature.&rdquo; Passive: &ldquo;The feature was
-      shipped by the team.&rdquo; Active is shorter, clearer, and names the actor. Passive is
-      fine occasionally, but the default should be active.
+      Etken çatı: &ldquo;Ekip özelliği yayınladı.&rdquo; Edilgen: &ldquo;Özellik ekip tarafından yayınlandı.&rdquo; Etken çatı daha kısa, daha nettir ve eylemi yapanı belirtir. Edilgen çatı ara sıra uygundur, ancak varsayılan etken olmalıdır.
     </p>
 
-    <h2>6. Read it out loud</h2>
+    <h2>6. Yüksek sesle okuyun</h2>
     <p>
-      The ear catches what the eye misses. Stumbling over a sentence means the reader will too.
-      If you can&rsquo;t say it naturally, it doesn&rsquo;t read naturally. This single habit
-      catches more problems than any other editing pass.
+      Kulak, gözün kaçırdığını yakalar. Bir cümlede takılıp kalmak, okuyucunun da takılacağı anlamına gelir. Doğal bir şekilde söyleyemiyorsanız, doğal bir şekilde okunmuyordur. Bu tek alışkanlık, diğer tüm düzeltme turlarından daha fazla sorunu yakalar.
     </p>
 
-    <h2>7. Write a draft, then rewrite</h2>
+    <h2>7. Bir taslak yazın, sonra yeniden yazın</h2>
     <p>
-      First drafts are supposed to be bad. Get the ideas down; don&rsquo;t edit while writing.
-      The real work is rewriting. Almost every piece of good writing was written 3–5 times.
-      Writing <em>is</em> rewriting.
+      İlk taslakların kötü olması beklenir. Fikirleri aşağıya yazın; yazarken düzenleme yapmayın. Asıl iş yeniden yazmaktır. Neredeyse her iyi yazı parçası 3-5 kez yazılmıştır. Yazmak <em>yeniden yazmaktır</em>.
     </p>
 
-    <h2>8. Know who you&rsquo;re writing for</h2>
+    <h2>8. Kimin için yazdığınızı bilin</h2>
     <p>
-      Imagine a specific person. What do they already know? What don&rsquo;t they care about?
-      Writing for &ldquo;everyone&rdquo; means writing for no one. A piece written for one real
-      reader almost always reads better than one written for a generic audience.
+      Belirli bir kişiyi hayal edin. Ne biliyorlar? Neyi umursamıyorlar? &ldquo;Herkes&rdquo; için yazmak, hiç kimse için yazmaktır. Gerçek bir okuyucu için yazılmış bir metin, neredeyse her zaman genel bir kitle için yazılmış olandan daha iyi okunur.
     </p>
 
-    <h2>9. One idea per paragraph</h2>
+    <h2>9. Paragraf başına bir fikir</h2>
     <p>
-      Paragraphs should have one point. If you can&rsquo;t summarize the paragraph in a sentence,
-      it&rsquo;s probably two paragraphs fighting for space. Break them apart. White space is
-      your friend — dense walls of text repel readers.
+      Paragrafların tek bir noktası olmalıdır. Paragrafı bir cümlede özetleyemiyorsanız, muhtemelen yer için savaşan iki paragraftır. Onları ayırın. Boşluk sizin dostunuzdur — yoğun metin duvarları okuyucuları iter.
     </p>
 
-    <h2>10. Cut 20% on the final pass</h2>
+    <h2>10. Son geçişte %20 kesin</h2>
     <p>
-      Your second draft is 20% too long. Not specific sentences — an even spread across the
-      piece. Every pass trimming gets you closer to the version the reader will actually finish.
-      &ldquo;I&rsquo;m sorry I wrote a long letter; I didn&rsquo;t have time to write a short
-      one.&rdquo;
+      İkinci taslağınız %20 fazla uzundur. Belirli cümleler değil — metin boyunca eşit bir dağılım. Her kısaltma geçişi sizi okuyucunun gerçekten bitireceği versiyona yaklaştırır. &ldquo;Uzun bir mektup yazdığım için üzgünüm; kısa bir tane yazmaya vaktim yoktu.&rdquo;
     </p>
 
-    <h2>11. Show, don&rsquo;t tell</h2>
+    <h2>11. Gösterin, anlatmayın</h2>
     <p>
-      &ldquo;She was angry&rdquo; is telling. &ldquo;She slammed the door so hard the frame
-      cracked&rdquo; is showing. Specific detail pulls the reader into the scene; abstract
-      description keeps them out. This applies to non-fiction as much as fiction.
+      &ldquo;Kızgındı&rdquo; anlatmaktır. &ldquo;Kapıyı o kadar sert çarptı ki çerçeve çatladı&rdquo; göstermektir. Spesifik detay okuyucuyu sahnenin içine çeker; soyut tanım onları dışarıda tutar. Bu, kurgu dışı için de kurgu kadar geçerlidir.
     </p>
 
-    <h2>12. Publish before it&rsquo;s perfect</h2>
+    <h2>12. Mükemmel olmadan yayınlayın</h2>
     <p>
-      Writing you never share doesn&rsquo;t improve you. Ship a draft you&rsquo;re 80% happy with
-      and learn what readers actually respond to. Perfection is the enemy of growth. Pair with
-      our <a href="/guides/how-to-start-a-blog">blog-starting guide</a> to find a low-friction
-      outlet.
+      Paylaşmadığınız yazı sizi geliştirmez. %80 memnun olduğunuz bir taslağı yayınlayın ve okuyucuların gerçekte neye tepki verdiğini öğrenin. Mükemmellik, büyümenin düşmanıdır. Düşük engelli bir çıkış bulmak için <a href="/guides/how-to-start-a-blog">blog başlatma rehberimizle</a> birlikte kullanın.
     </p>
 
-    <h2>Your weekly writing routine</h2>
+    <h2>Haftalık yazma rutininiz</h2>
     <p>
-      Write 500 words, three times a week. Put each piece through the same checklist: start with
-      the point, cut adverbs, read out loud, trim 20%. Do it for 90 days and you won&rsquo;t
-      recognize your writing. Pair with our{" "}
-      <a href="/guides/how-to-build-good-habits">habits guide</a> to keep the reps consistent.
+      Haftada üç kez 500 kelime yazın. Her parçayı aynı kontrol listesinden geçirin: noktayla başlayın, zarfları kesin, yüksek sesle okuyun, %20 kısaltın. 90 gün boyunca yapın ve yazınızı tanıyamayacaksınız. Tekrarları tutarlı tutmak için{" "}
+      <a href="/guides/how-to-build-good-habits">alışkanlık rehberimizle</a> birlikte kullanın.
     </p>
   </>
 );

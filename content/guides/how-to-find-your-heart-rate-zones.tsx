@@ -3,242 +3,249 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Heart-rate zones are the cleanest way to prescribe cardio intensity
-      without relying on subjective effort. Knowing that Zone 2 is a
-      different animal from Zone 4 lets you build a training week where
-      easy days are actually easy and hard days are actually hard.
-      Beginners usually push their easy runs too hard, which makes the
-      hard days mediocre; using zones corrects that. The math is
-      approximate &mdash; max heart rate varies by 10+ beats person to
-      person &mdash; but even rough zones are better than running by feel
-      alone. This guide covers the 220-age estimate, the more accurate
-      Karvonen method, what happens physiologically in each zone, the
-      lactate thresholds that anchor the system, and how to assign zones
-      to your training days.
+      Kalp atış hızı bölgeleri, kardiyo yoğunluğunu öznel çabaya
+      güvenmeden belirlemenin en temiz yoludur. Bölge 2'nin Bölge
+      4'ten farklı bir canlı olduğunu bilmek, kolay günlerin gerçekten
+      kolay, zor günlerin ise gerçekten zor olduğu bir antrenman
+      haftası oluşturmanızı sağlar. Yeni başlayanlar genellikle kolay
+      koşularını çok zorlarlar, bu da zor günleri vasat hale getirir;
+      bölgeleri kullanmak bunu düzeltir. Matematik yaklaşıktır &mdash;
+      maksimum kalp atış hızı kişiden kişiye 10+ atım fark eder
+      &mdash; ancak kabaca bölgeler bile yalnızca hisse göre koşmaktan
+      iyidir. Bu kılavuz, 220-yaş tahminini, daha doğru Karvonen
+      yöntemini, her bölgede fizyolojik olarak neler olduğunu, sistemi
+      temellendiren laktat eşiklerini ve antrenman günlerinize bölgeleri
+      nasıl atayacağınızı kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Max heart rate</h2>
+    <h2>Maksimum kalp atış hızı</h2>
     <p>
-      Zones are all percentages of max HR (or HR reserve), so the first
-      job is estimating max.
+      Bölgeler, maksimum KAH'ın (veya KAH rezervinin) yüzdeleridir, bu
+      nedenle ilk iş maksimumu tahmin etmektir.
     </p>
-    <pre>{`Fox & Haskell (1971):   HRmax = 220 - age
-Tanaka et al (2001):    HRmax = 208 - 0.7 * age
-Gellish et al (2007):   HRmax = 207 - 0.7 * age
+    <pre>{`Fox & Haskell (1971):   KAHmaks = 220 - yaş
+Tanaka ve ark. (2001):    KAHmaks = 208 - 0.7 * yaş
+Gellish ve ark. (2007):   KAHmaks = 207 - 0.7 * yaş
 
-For a 40-year-old:
-220-age:  180 bpm
-Tanaka:   180 bpm
-Gellish:  179 bpm`}</pre>
+40 yaşındaki biri için:
+220-yaş:  180 atım/dk
+Tanaka:   180 atım/dk
+Gellish:  179 atım/dk`}</pre>
     <p>
-      The 220-age formula overestimates for younger adults and
-      underestimates for older. Tanaka is slightly more accurate. All
-      formulas have a standard error of ~10 bpm &mdash; your actual max
-      could be anywhere in that range.
-    </p>
-
-    <h2>Measuring max for real</h2>
-    <p>
-      The most accurate approach is a field test. After a thorough
-      warm-up:
-    </p>
-    <pre>{`Running:  4-min all-out effort, then 3-min easy, then 3-min all-out.
-          Peak HR during the last minute of the second effort is close to max.
-
-Cycling:  20-min all-out time trial. Peak HR at the end is often 5 bpm below max.
-
-Treadmill ramp: increase gradient 1% per minute until failure. HR at failure = max.`}</pre>
-    <p>
-      These tests hurt. Don&rsquo;t do them cold, and don&rsquo;t do them
-      if you have unscreened cardiovascular risk factors. An exercise
-      stress test with a clinician is the safe version.
+      220-yaş formülü genç yetişkinler için olduğundan fazla, yaşlılar
+      için ise olduğundan az tahmin eder. Tanaka biraz daha doğrudur.
+      Tüm formüllerin standart hatası ~10 atım/dk'dır &mdash; gerçek
+      maksimumunuz bu aralıkta herhangi bir yerde olabilir.
     </p>
 
-    <h2>Resting heart rate</h2>
+    <h2>Maksimumu gerçekten ölçmek</h2>
     <p>
-      Measure first thing in the morning, before getting out of bed,
-      before coffee. Average across 3&ndash;5 days.
+      En doğru yaklaşım bir saha testidir. Kapsamlı bir ısınmanın
+      ardından:
     </p>
-    <pre>{`Sedentary adult:     60-80 bpm
-Recreational athlete: 55-65 bpm
-Trained endurance:    40-55 bpm
-Elite:               30-45 bpm`}</pre>
+    <pre>{`Koşu:  4 dk maksimum efor, ardından 3 dk kolay, ardından 3 dk maksimum.
+          İkinci eforun son dakikasındaki en yüksek KAH maksimuma yakındır.
+
+Bisiklet:  20 dk maksimum zaman denemesi. Sondaki en yüksek KAH genellikle maksimumun 5 atım/dk altındadır.
+
+Koşu bandı rampası: başarısızlığa kadar dakikada %1 eğim artırın. Başarısızlık anındaki KAH = maksimum.`}</pre>
     <p>
-      Resting HR is a rough measure of fitness. Dropping 5&ndash;10 bpm
-      over months of training is a good sign. Suddenly higher resting
-      HR (10+ bpm above baseline) suggests fatigue, illness, or
-      overtraining.
+      Bu testler acıtır. Soğukken yapmayın ve taranmamış kardiyovasküler
+      risk faktörleriniz varsa yapmayın. Bir klinisyenle yapılan egzersiz
+      stres testi güvenli versiyondur.
     </p>
 
-    <h2>Percentage of max (simple zones)</h2>
-    <pre>{`Zone 1  50-60% HRmax   Active recovery, warmup
-Zone 2  60-70% HRmax   Aerobic base, fat burning
-Zone 3  70-80% HRmax   Tempo, aerobic power
-Zone 4  80-90% HRmax   Threshold / lactate
-Zone 5  90-100% HRmax  VO2max, short intervals`}</pre>
+    <h2>Dinlenik kalp atış hızı</h2>
     <p>
-      Example for HRmax 180:
+      Sabah ilk iş, yataktan çıkmadan önce, kahveden önce ölçün.
+      3&ndash;5 gün boyunca ortalama alın.
     </p>
-    <pre>{`Zone 1  90-108 bpm
-Zone 2  108-126 bpm
-Zone 3  126-144 bpm
-Zone 4  144-162 bpm
-Zone 5  162-180 bpm`}</pre>
-
-    <h2>Karvonen method (HR reserve)</h2>
+    <pre>{`Hareketsiz yetişkin:     60-80 atım/dk
+Rekreasyonel sporcu: 55-65 atım/dk
+Antrenmanlı dayanıklılık:    40-55 atım/dk
+Elit:               30-45 atım/dk`}</pre>
     <p>
-      The percentage-of-max approach ignores your resting HR, which
-      varies a lot across fitness levels. The Karvonen formula uses HR
-      reserve (HRR), which is more personalized.
-    </p>
-    <pre>{`HRR = HRmax - HRrest
-Target HR = (HRR * intensity%) + HRrest
-
-For HRmax 180, HRrest 50, 70% intensity:
-HRR = 130
-Target = 130 * 0.70 + 50 = 141 bpm`}</pre>
-    <p>
-      Karvonen zones typically hit higher HR numbers than plain
-      percentage-of-max for trained athletes, and they track effort
-      more accurately.
+      Dinlenik KAH, kabaca bir fitness ölçüsüdür. Aylar süren antrenmanla
+      5&ndash;10 atım/dk düşmesi iyi bir işarettir. Aniden yükselen
+      dinlenik KAH (taban çizgisinin 10+ atım/dk üzerinde) yorgunluk,
+      hastalık veya aşırı antrenmanı gösterir.
     </p>
 
-    <h2>What happens physiologically in each zone</h2>
+    <h2>Maksimum yüzdesi (basit bölgeler)</h2>
+    <pre>{`Bölge 1  %50-60 KAHmaks  Aktif toparlanma, ısınma
+Bölge 2  %60-70 KAHmaks  Aerobik taban, yağ yakımı
+Bölge 3  %70-80 KAHmaks  Tempo, aerobik güç
+Bölge 4  %80-90 KAHmaks  Eşik / laktat
+Bölge 5  %90-100 KAHmaks VO2maks, kısa aralıklar`}</pre>
     <p>
-      <strong>Zone 1 (50&ndash;60% HRmax).</strong> Walking briskly,
-      warming up. Blood is moving, joints are loosening. Sustainable
-      indefinitely.
+      KAHmaks 180 için örnek:
     </p>
+    <pre>{`Bölge 1  90-108 atım/dk
+Bölge 2  108-126 atım/dk
+Bölge 3  126-144 atım/dk
+Bölge 4  144-162 atım/dk
+Bölge 5  162-180 atım/dk`}</pre>
+
+    <h2>Karvonen yöntemi (KAH rezervi)</h2>
     <p>
-      <strong>Zone 2 (60&ndash;70%).</strong> Aerobic base. You can hold
-      a full conversation. Primary fuel: fat. Builds mitochondria and
-      capillary density. The zone endurance athletes spend 70&ndash;80%
-      of their training in.
+      Maksimum yüzdesi yaklaşımı, fitness seviyelerine göre büyük ölçüde
+      değişen dinlenik KAH'ınızı görmezden gelir. Karvonen formülü, daha
+      kişiselleştirilmiş olan KAH rezervini (KAHr) kullanır.
     </p>
+    <pre>{`KAHr = KAHmaks - KAHdinlenik
+Hedef KAH = (KAHr * yoğunluk%) + KAHdinlenik
+
+KAHmaks 180, KAHdinlenik 50, %70 yoğunluk için:
+KAHr = 130
+Hedef = 130 * 0.70 + 50 = 141 atım/dk`}</pre>
     <p>
-      <strong>Zone 3 (70&ndash;80%).</strong> Tempo. Conversation
-      becomes short sentences. Fuel mix shifts toward carbs. The
-      &ldquo;gray zone&rdquo; beginners usually run in and should avoid
-      &mdash; too hard to recover, too easy to drive peak adaptations.
-    </p>
-    <p>
-      <strong>Zone 4 (80&ndash;90%).</strong> Threshold. You can only
-      say a couple of words. Lactate starts accumulating near your
-      capacity to clear it. Threshold intervals improve sustainable
-      race pace.
-    </p>
-    <p>
-      <strong>Zone 5 (90&ndash;100%).</strong> VO2max. Full breathing,
-      no talking. Intervals 1&ndash;5 minutes long. Builds peak oxygen
-      delivery.
+      Karvonen bölgeleri, antrenmanlı sporcular için genellikle düz
+      maksimum yüzdesinden daha yüksek KAH sayılarına ulaşır ve çabayı
+      daha doğru takip eder.
     </p>
 
-    <h2>Lactate thresholds (LT1 and LT2)</h2>
+    <h2>Her bölgede fizyolojik olarak neler olur</h2>
     <p>
-      More precise than HR zones. Zones are a proxy; thresholds are the
-      underlying physiology.
+      <strong>Bölge 1 (%50&ndash;60 KAHmaks).</strong> Tempolu yürüyüş,
+      ısınma. Kan hareket ediyor, eklemler gevşiyor. Süresiz olarak
+      sürdürülebilir.
     </p>
     <p>
-      <strong>LT1</strong> (first lactate threshold, ~60&ndash;70%
-      HRmax) is the border between pure aerobic and mixed metabolism.
-      Easy-day pace should stay below LT1.
+      <strong>Bölge 2 (%60&ndash;70).</strong> Aerobik taban. Tam bir
+      sohbet edebilirsiniz. Birincil yakıt: yağ. Mitokondri ve kılcal
+      damar yoğunluğunu artırır. Dayanıklılık sporcularının
+      antrenmanlarının %70&ndash;80'ini geçirdiği bölge.
     </p>
     <p>
-      <strong>LT2</strong> (second lactate threshold, ~85&ndash;92%
-      HRmax) is the point where lactate accumulates faster than
-      clearance. It&rsquo;s the fastest pace you can hold for roughly
-      an hour. Threshold intervals live just above LT2.
+      <strong>Bölge 3 (%70&ndash;80).</strong> Tempo. Sohbet kısa
+      cümlelere dönüşür. Yakıt karışımı karbonhidratlara kayar.
+      Yeni başlayanların genellikle koştuğu ve kaçınması gereken
+      &ldquo;gri bölge&rdquo; &mdash; toparlanmak için çok zor, en üst
+      düzey adaptasyonları tetiklemek için çok kolay.
     </p>
     <p>
-      Lab testing measures these precisely. Field estimates: LT2 HR is
-      usually within a few beats of your average HR for a 60-minute
-      race effort.
+      <strong>Bölge 4 (%80&ndash;90).</strong> Eşik. Sadece birkaç
+      kelime söyleyebilirsiniz. Laktat, onu temizleme kapasitenize
+      yakın bir şekilde birikmeye başlar. Eşik aralıkları sürdürülebilir
+      yarış temposunu iyileştirir.
     </p>
-
-    <h2>Training prescriptions by zone</h2>
-    <pre>{`Weekly distribution for a typical endurance athlete:
-Zone 1-2  80%  (easy, long)
-Zone 3    5%   (deliberately minimized)
-Zone 4    10%  (threshold intervals)
-Zone 5    5%   (VO2max intervals)`}</pre>
     <p>
-      &ldquo;Polarized training&rdquo; &mdash; mostly very easy, a
-      little very hard, almost nothing in between &mdash; outperforms
-      &ldquo;threshold training&rdquo; (mostly Zone 3) in most
-      endurance studies. Beginners tend to do the opposite and plateau.
+      <strong>Bölge 5 (%90&ndash;100).</strong> VO2maks. Tam nefes,
+      konuşma yok. 1&ndash;5 dakikalık aralıklar. En yüksek oksijen
+      iletimini artırır.
     </p>
 
-    <h2>Heart-rate drift</h2>
+    <h2>Laktat eşikleri (LE1 ve LE2)</h2>
     <p>
-      HR drifts up during long steady efforts even at constant pace.
-      Causes: dehydration, heat, fatigue. A run that starts at 150 bpm
-      and ends at 160 bpm at the same pace means your effort is
-      actually climbing. In Zone 2 training, prioritize holding HR
-      constant &mdash; that may mean slowing down in the second half.
+      KAH bölgelerinden daha hassastır. Bölgeler bir vekildir; eşikler
+      altta yatan fizyolojidir.
+    </p>
+    <p>
+      <strong>LE1</strong> (birinci laktat eşiği, ~%60&ndash;70
+      KAHmaks) saf aerobik ve karışık metabolizma arasındaki sınırdır.
+      Kolay gün temposu LE1'in altında kalmalıdır.
+    </p>
+    <p>
+      <strong>LE2</strong> (ikinci laktat eşiği, ~%85&ndash;92
+      KAHmaks) laktatın temizlemeden daha hızlı biriktiği noktadır.
+      Yaklaşık bir saat boyunca koruyabileceğiniz en hızlı tempodur.
+      Eşik aralıkları LE2'nin hemen üzerinde yaşar.
+    </p>
+    <p>
+      Laboratuvar testleri bunları hassas bir şekilde ölçer. Saha
+      tahminleri: LE2 KAH'ı genellikle 60 dakikalık bir yarış
+      eforundaki ortalama KAH'ınızdan birkaç atım içindedir.
     </p>
 
-    <h2>Monitors and accuracy</h2>
+    <h2>Bölgelere göre antrenman reçeteleri</h2>
+    <pre>{`Tipik bir dayanıklılık sporcusu için haftalık dağılım:
+Bölge 1-2  %80  (kolay, uzun)
+Bölge 3    %5   (bilinçli olarak en aza indirilmiş)
+Bölge 4    %10  (eşik aralıkları)
+Bölge 5    %5   (VO2maks aralıkları)`}</pre>
     <p>
-      <strong>Chest straps</strong> read the electrical signal and are
-      the reference standard for accuracy.
-    </p>
-    <p>
-      <strong>Wrist optical sensors</strong> use LEDs to detect blood
-      flow &mdash; good at steady efforts, poor during intervals and
-      weight training where the wrist moves or tenses. Can be off by
-      20+ bpm during weightlifting.
-    </p>
-    <p>
-      If zone training matters to you, wear a chest strap at least for
-      interval and threshold work.
+      &ldquo;Kutuplaşmış antrenman&rdquo; &mdash; çoğunlukla çok kolay,
+      birazcık çok zor, arada neredeyse hiçbir şey &mdash; çoğu
+      dayanıklılık çalışmasında &ldquo;eşik antrenmanından&rdquo;
+      (çoğunlukla Bölge 3) daha iyi performans gösterir. Yeni başlayanlar
+      tam tersini yapma ve platoya ulaşma eğilimindedir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Kalp atış hızı kayması</h2>
     <p>
-      <strong>Trusting 220-age as gospel.</strong> Standard error ~10
-      bpm. Plan to refine with a field test.
-    </p>
-    <p>
-      <strong>Running all easy runs at Zone 3.</strong> Too hard to
-      recover, not hard enough to trigger the peak adaptations. Keep
-      Zone 2 boring.
-    </p>
-    <p>
-      <strong>Using HRmax-based zones with a high resting HR.</strong>{" "}
-      Switch to Karvonen; the numbers will actually match the effort.
-    </p>
-    <p>
-      <strong>Ignoring HR drift on long runs.</strong> Constant pace
-      with rising HR means rising effort. Let pace adjust.
-    </p>
-    <p>
-      <strong>Wrist HR for intervals.</strong> Optical sensors lag and
-      misread in hard efforts. Chest strap for intervals.
-    </p>
-    <p>
-      <strong>Only training in Zone 4.</strong> Burns out quickly,
-      skips the aerobic base. Most of your time should be easier, not
-      harder.
-    </p>
-    <p>
-      <strong>Using the same zones after gaining fitness.</strong>{" "}
-      Resting HR drops and LT2 shifts. Reassess zones every 3&ndash;6
-      months.
+      KAH, sabit tempoda bile uzun süreli eforlar sırasında yukarı
+      doğru kayar. Nedenleri: dehidrasyon, sıcak, yorgunluk. Aynı
+      tempoda 150 atım/dk'da başlayıp 160 atım/dk'da biten bir koşu,
+      eforunuzun aslında arttığı anlamına gelir. Bölge 2 antrenmanında,
+      KAH'ı sabit tutmaya öncelik verin &mdash; bu, ikinci yarıda
+      yavaşlamak anlamına gelebilir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Monitörler ve doğruluk</h2>
     <p>
-      Plug in age and resting HR into the{" "}
-      <a href="/tools/heart-rate-zone-calculator">heart rate zone calculator</a>{" "}
-      for Karvonen zones in bpm. Convert pace at each zone with the{" "}
-      <a href="/tools/running-pace-calculator">running pace calculator</a>,
-      and check session caloric burn with the{" "}
-      <a href="/tools/calorie-calculator">calorie calculator</a> when
-      matching training load to nutrition.
+      <strong>Göğüs bantları</strong> elektrik sinyalini okur ve
+      doğruluk için referans standarttır.
+    </p>
+    <p>
+      <strong>Bilek optik sensörleri</strong> kan akışını tespit etmek
+      için LED'ler kullanır &mdash; sabit eforlarda iyi, bileğin
+      hareket ettiği veya gerildiği aralıklar ve ağırlık antrenmanı
+      sırasında zayıftır. Ağırlık kaldırma sırasında 20+ atım/dk
+      sapabilir.
+    </p>
+    <p>
+      Bölge antrenmanı sizin için önemliyse, en azından aralık ve eşik
+      çalışmaları için bir göğüs bandı takın.
+    </p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>
+      <strong>220-yaş'ı mutlak doğru kabul etmek.</strong> Standart hata
+      ~10 atım/dk. Bir saha testiyle iyileştirmeyi planlayın.
+    </p>
+    <p>
+      <strong>Tüm kolay koşuları Bölge 3'te koşmak.</strong> Toparlanmak
+      için çok zor, en üst düzey adaptasyonları tetiklemek için yeterince
+      zor değil. Bölge 2'yi sıkıcı tutun.
+    </p>
+    <p>
+      <strong>Yüksek dinlenik KAH ile KAHmaks tabanlı bölgeleri
+      kullanmak.</strong> Karvonen'e geçin; sayılar gerçekten çabayla
+      eşleşecektir.
+    </p>
+    <p>
+      <strong>Uzun koşularda KAH kaymasını görmezden gelmek.</strong>
+      Artan KAH ile sabit tempo, artan efor anlamına gelir. Temponun
+      ayarlanmasına izin verin.
+    </p>
+    <p>
+      <strong>Aralıklar için bilek KAH'ı.</strong> Optik sensörler zorlu
+      eforlarda gecikir ve yanlış okur. Aralıklar için göğüs bandı.
+    </p>
+    <p>
+      <strong>Sadece Bölge 4'te antrenman yapmak.</strong> Çabuk
+      tüketir, aerobik tabanı atlar. Zamanınızın çoğu daha kolay
+      olmalı, daha zor değil.
+    </p>
+    <p>
+      <strong>Fitness kazandıktan sonra aynı bölgeleri kullanmak.</strong>
+      Dinlenik KAH düşer ve LE2 kayar. Bölgeleri her 3&ndash;6 ayda bir
+      yeniden değerlendirin.
+    </p>
+
+    <h2>Sayıları hesaplayın</h2>
+    <p>
+      Karvonen bölgeleri için atım/dk cinsinden yaşı ve dinlenik KAH'ı{" "}
+      <a href="/tools/heart-rate-zone-calculator">kalp atış hızı bölgesi hesaplayıcısına</a>{" "}
+      girin. Her bölgedeki tempoyu{" "}
+      <a href="/tools/running-pace-calculator">koşu temposu hesaplayıcısı</a> ile
+      dönüştürün ve antrenman yükünü beslenmeyle eşleştirirken seans kalori
+      yakımını{" "}
+      <a href="/tools/calorie-calculator">kalori hesaplayıcısı</a> ile kontrol edin.
     </p>
   </>
 );

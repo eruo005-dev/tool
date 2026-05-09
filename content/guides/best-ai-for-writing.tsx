@@ -2,58 +2,59 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    The best AI for writing in 2026 depends entirely on what you&rsquo;re writing. Marketing copy,
-    long-form prose, technical docs, screenplays, and poetry all favor different models. Here&rsquo;s
-    the breakdown.
+    2026'da yazma işleri için en iyi yapay zeka, tamamen ne yazdığınıza bağlıdır. Pazarlama metinleri,
+    uzun nesir, teknik dokümanlar, senaryolar ve şiirlerin hepsi farklı modelleri tercih eder. İşte
+    detaylı döküm.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>By writing type</h2>
+    <h2>Yazma türüne göre</h2>
     <ul>
-      <li><strong>Long-form essays / articles:</strong> Claude Sonnet 4.6. Cleaner voice, less
-        marketing-flavored, follows tone instructions reliably.</li>
-      <li><strong>Marketing copy / ad copy:</strong> ChatGPT Plus (GPT-5). Wider stylistic range,
-        better at hitting specific brand voices.</li>
-      <li><strong>Technical writing / docs:</strong> Claude. Source-faithful, fewer hallucinations
-        on complex topics.</li>
-      <li><strong>Email / business writing:</strong> Either flagship; Claude reads more natural
-        out-of-the-box.</li>
-      <li><strong>Creative fiction:</strong> See <a href="/guides/best-ai-for-creative-writing">best AI for creative writing</a>.</li>
-      <li><strong>Cover letters / resumes:</strong> Claude wins on tone calibration.</li>
-      <li><strong>Newsletter drafts:</strong> Claude or ChatGPT; both excellent.</li>
-      <li><strong>Translations:</strong> GPT-5 (broadest language coverage), Gemini (Asian languages).</li>
+      <li><strong>Uzun denemeler / makaleler:</strong> Claude Sonnet 4.6. Daha temiz bir ses, daha az
+        pazarlama kokan, ton talimatlarını güvenilir şekilde takip eder.</li>
+      <li><strong>Pazarlama metinleri / reklam metinleri:</strong> ChatGPT Plus (GPT-5). Daha geniş
+        stilistik yelpaze, belirli marka seslerini yakalamada daha iyidir.</li>
+      <li><strong>Teknik yazı / dokümantasyon:</strong> Claude. Kaynağa sadık, karmaşık konularda
+        daha az halüsinasyon görür.</li>
+      <li><strong>E-posta / iş yazışmaları:</strong> Her iki amiral gemisi de iyidir; Claude kutudan
+        çıktığı gibi daha doğal okunur.</li>
+      <li><strong>Yaratıcı kurgu:</strong> Bkz. <a href="/guides/best-ai-for-creative-writing">yaratıcı yazarlık için en iyi yapay zeka</a>.</li>
+      <li><strong>Ön yazılar / özgeçmişler:</strong> Ton ayarlamasında Claude kazanır.</li>
+      <li><strong>Bülten taslakları:</strong> Claude veya ChatGPT; ikisi de mükemmel.</li>
+      <li><strong>Çeviriler:</strong> GPT-5 (en geniş dil kapsamı), Gemini (Asya dilleri).</li>
     </ul>
 
-    <h2>The honest 2026 picks</h2>
+    <h2>2026'nın dürüst seçimleri</h2>
     <ul>
-      <li><strong>Default:</strong> Claude Pro at $20/mo. Cleanest output, least &ldquo;AI smell.&rdquo;</li>
-      <li><strong>If you also need image gen:</strong> ChatGPT Plus at $20/mo.</li>
-      <li><strong>If you need both, often:</strong> Both subscriptions for $40/mo.</li>
-      <li><strong>For high-volume writing automation:</strong> DeepSeek V3.2 API. 90% cheaper, ~95%
-        the quality.</li>
+      <li><strong>Varsayılan:</strong> Ayda 20$'a Claude Pro. En temiz çıktı, en az &ldquo;yapay zeka
+        kokusu.&rdquo;</li>
+      <li><strong>Görsel üretime de ihtiyacınız varsa:</strong> Ayda 20$'a ChatGPT Plus.</li>
+      <li><strong>İkisine de sık ihtiyacınız varsa:</strong> Ayda 40$'a her iki abonelik.</li>
+      <li><strong>Yüksek hacimli yazma otomasyonu için:</strong> DeepSeek V3.2 API. %90 daha ucuz,
+        kalitenin ~%95'i.</li>
     </ul>
 
-    <h2>Tools beyond chat</h2>
+    <h2>Sohbetin ötesindeki araçlar</h2>
     <p>
-      For writers who want AI integrated into their drafting workflow, look beyond the chat
-      interface: Sudowrite for fiction; Notion AI for in-doc editing; Lex for distraction-free
-      drafting; Granola for meeting-note-to-draft. These wrap the same models in a
-      writing-specific UX.
+      Yapay zekayı taslak oluşturma iş akışına entegre etmek isteyen yazarlar için sohbet
+      arayüzünün ötesine bakın: Kurgu için Sudowrite; belge içi düzenleme için Notion AI; dikkat
+      dağıtmayan taslak oluşturma için Lex; toplantı notundan taslağa için Granola. Bunlar aynı
+      modelleri yazmaya özel bir kullanıcı deneyimiyle sarar.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Sık yapılan hatalar</h2>
     <ul>
-      <li>Asking for &ldquo;a 1500-word blog post&rdquo; without examples of the voice you want.
-        Always paste 2-3 paragraphs of prior writing as the tone reference.</li>
-      <li>Letting the AI write the whole piece. The best workflow is human outline &rarr; AI fill
-        &rarr; human edit. Three passes minimum.</li>
-      <li>Skipping the human edit. AI prose is fluent but predictable; the edit is where personality
-        lives.</li>
+      <li>İstediğiniz sesin örnekleri olmadan &ldquo;1500 kelimelik bir blog yazısı&rdquo; istemek.
+        Ton referansı olarak her zaman önceden yazılmış 2-3 paragraf yapıştırın.</li>
+      <li>Yapay zekanın tüm metni yazmasına izin vermek. En iyi iş akışı insan taslağı &rarr; yapay
+        zeka doldurma &rarr; insan düzenlemesidir. En az üç geçiş.</li>
+      <li>İnsan düzenlemesini atlamak. Yapay zeka metni akıcı ama tahmin edilebilirdir; kişilik
+        düzenlemede yaşar.</li>
     </ul>
     <p>
-      Compare: <a href="/compare/claude-vs-chatgpt">Claude vs ChatGPT</a>,{" "}
+      Karşılaştırın: <a href="/compare/claude-vs-chatgpt">Claude vs ChatGPT</a>,{" "}
       <a href="/compare/claude-vs-gemini">Claude vs Gemini</a>.
     </p>
   </>

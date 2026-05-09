@@ -1,134 +1,84 @@
 export const intro = (
   <>
     <p>
-      &ldquo;<a href="/learn/agent">AI agent</a>&rdquo; has become a catch-all term, and the setup steps depend
-      entirely on which kind you actually need. A Zapier workflow that summarises
-      your inbox is an agent. Claude Code refactoring your codebase is an agent.
-      A LangGraph state machine orchestrating five tool calls is an agent. The
-      work you do to stand them up is not the same.
+      &ldquo;<a href="/learn/agent">AI ajanı</a>&rdquo; her şeyi kapsayan bir terim haline geldi ve kurulum adımları tamamen hangi türe ihtiyacınız olduğuna bağlı. Gelen kutunuzu özetleyen bir Zapier iş akışı bir ajandır. Kod tabanınızı yeniden düzenleyen Claude Code bir ajandır. Beş araç çağrısını düzenleyen bir LangGraph durum makinesi bir ajandır. Bunları ayağa kaldırmak için yaptığınız iş aynı değildir.
     </p>
     <p>
-      This guide is a decision tree. In ten minutes you&rsquo;ll know which of
-      four paths fits your problem, roughly what it costs, and what to read next.
-      Written April 2026, against the current generation of tools (Claude Opus 4.7,
-      GPT-5 class models, OpenAI AgentKit, Claude Agent SDK 0.1.48).
+      Bu rehber bir karar ağacıdır. On dakika içinde, sorununuza hangi dört yoldan birinin uyduğunu, kabaca ne kadara mal olacağını ve sırada ne okumanız gerektiğini bileceksiniz. Nisan 2026'da, mevcut araç nesline (Claude Opus 4.7, GPT-5 sınıfı modeller, OpenAI AgentKit, Claude Agent SDK 0.1.48) göre yazılmıştır.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>Step 1 — Name the job before naming the tool</h2>
+    <h2>Adım 1 — Aracı adlandırmadan önce işi adlandırın</h2>
     <p>
-      Write one sentence: <em>&ldquo;I want an agent that takes X and produces Y
-      without me watching.&rdquo;</em> If you can&rsquo;t finish that sentence,
-      you don&rsquo;t need an agent yet — you need a prompt. Try our{" "}
-      <a href="/tools/prompt-improver">prompt improver</a> and the{" "}
-      <a href="/tools/ai-prompt-generator">prompt generator</a> first. Agents are
-      for <strong>multi-step tasks with tool use</strong>, not single answers.
+      Bir cümle yazın: <em>&ldquo;Beni izlemeden X'i alıp Y'yi üreten bir ajan istiyorum.&rdquo;</em> Bu cümleyi tamamlayamıyorsanız, henüz bir ajana ihtiyacınız yok — bir isteme ihtiyacınız var. Önce{" "}
+      <a href="/tools/prompt-improver">istem geliştiricimizi</a> ve{" "}
+      <a href="/tools/ai-prompt-generator">istem oluşturucumuzu</a> deneyin. Ajanlar, tek cevaplar için değil, <strong>araç kullanımı olan çok adımlı görevler</strong> içindir.
     </p>
 
-    <h2>Step 2 — Pick the right lane</h2>
+    <h2>Adım 2 — Doğru şeridi seçin</h2>
     <p>
-      There are four real options in 2026. Pick the highest-level one that can
-      do the job. Going lower buys flexibility but costs weeks of your time.
+      2026'da dört gerçek seçenek var. İşi yapabilecek en üst düzey olanı seçin. Daha aşağı inmek esneklik kazandırır ancak haftalarınıza mal olur.
     </p>
 
-    <h3>Lane A — Use a hosted agent product (1 hour)</h3>
+    <h3>Şerit A — Barındırılan bir ajan ürünü kullanın (1 saat)</h3>
     <p>
-      For most knowledge-work tasks, the answer is <strong>ChatGPT agent mode</strong>,{" "}
-      <strong>Claude&rsquo;s computer use</strong>, or a vertical product like
-      Sierra, Intercom Fin, or Zapier Agents. Zero code, one configuration screen,
-      live in under an hour. See our{" "}
-      <a href="/guides/how-to-use-chatgpt-agent-mode">ChatGPT agent mode guide</a> —
-      it covers 70% of &ldquo;please do this for me&rdquo; use cases.
+      Çoğu bilgi işi görevi için cevap <strong>ChatGPT ajan modu</strong>,{" "}
+      <strong>Claude'un bilgisayar kullanımı</strong> veya Sierra, Intercom Fin ya da Zapier Agents gibi dikey bir üründür. Sıfır kod, bir yapılandırma ekranı, bir saatten kısa sürede canlı.{" "}
+      <a href="/guides/how-to-use-chatgpt-agent-mode">ChatGPT ajan modu rehberimize</a> bakın — &ldquo;bunu benim için yap&rdquo; kullanım durumlarının %70'ini kapsar.
     </p>
 
-    <h3>Lane B — Use a no-code platform (1 day)</h3>
+    <h3>Şerit B — Kodsuz bir platform kullanın (1 gün)</h3>
     <p>
-      If the task involves glueing apps together — Slack to Gmail to a sheet —
-      use <strong>Zapier Agents</strong>, <strong>n8n</strong>, or{" "}
-      <strong>OpenAI&rsquo;s Agent Builder</strong>. You draw the flow, pick tools
-      from a menu, and the agent runs on their infrastructure. Recurring cost,
-      but you don&rsquo;t own an ops burden.
+      Görev, uygulamaları birbirine bağlamayı içeriyorsa — Slack'ten Gmail'e, bir tabloya — <strong>Zapier Agents</strong>, <strong>n8n</strong> veya{" "}
+      <strong>OpenAI'ın Agent Builder'ını</strong> kullanın. Akışı çizersiniz, bir menüden araçlar seçersiniz ve ajan onların altyapısında çalışır. Yinelenen maliyet, ancak operasyon yükü size ait değildir.
     </p>
 
-    <h3>Lane C — Use an agent SDK (1 week)</h3>
+    <h3>Şerit C — Bir ajan SDK'sı kullanın (1 hafta)</h3>
     <p>
-      If you&rsquo;re a developer and you want <em>your</em> code orchestrating
-      the agent, use the <strong>OpenAI Agents SDK</strong> (<code>pip install
-      openai-agents</code>) or the <strong>Claude Agent SDK</strong>
-      (<code>pip install claude-agent-sdk</code>, version 0.1.48 as of March 2026).
-      Both give you Agents, tools, handoffs, guardrails — and you host them
-      yourself. See our{" "}
-      <a href="/guides/how-to-build-an-agent-with-the-openai-agents-sdk">OpenAI SDK guide</a>{" "}
-      and <a href="/guides/how-to-build-an-agent-with-the-claude-agent-sdk">Claude SDK guide</a>.
+      Bir geliştiriciyseniz ve ajantı <em>kendi</em> kodunuzun yönetmesini istiyorsanız, <strong>OpenAI Agents SDK</strong>'yı (<code>pip install openai-agents</code>) veya <strong>Claude Agent SDK</strong>'yı (<code>pip install claude-agent-sdk</code>, Mart 2026 itibarıyla sürüm 0.1.48) kullanın. Her ikisi de size Ajanlar, araçlar, devir teslimler, korkuluklar verir — ve onları kendiniz barındırırsınız.{" "}
+      <a href="/guides/how-to-build-an-agent-with-the-openai-agents-sdk">OpenAI SDK rehberimize</a>{" "}
+      ve <a href="/guides/how-to-build-an-agent-with-the-claude-agent-sdk">Claude SDK rehberimize</a> bakın.
     </p>
 
-    <h3>Lane D — Use a framework (2+ weeks)</h3>
+    <h3>Şerit D — Bir çerçeve kullanın (2+ hafta)</h3>
     <p>
-      For multi-agent, long-running, or stateful workflows, use{" "}
-      <strong>LangGraph</strong> (stateful graphs), <strong>CrewAI</strong>{" "}
-      (role-based teams), <strong>AutoGen</strong> (multi-agent conversations),
-      or <strong>MetaGPT</strong> (software teams). These give the most control
-      and the most rope to hang yourself with. Only pick this lane if you&rsquo;ve
-      already outgrown Lane C.
+      Çok ajanlı, uzun süreli veya durum bilgisi olan iş akışları için <strong>LangGraph</strong> (durum bilgisi olan grafikler), <strong>CrewAI</strong> (role dayalı ekipler), <strong>AutoGen</strong> (çok ajanlı konuşmalar) veya <strong>MetaGPT</strong> (yazılım ekipleri) kullanın. Bunlar en fazla kontrolü ve kendinizi asmanız için en fazla ipi verir. Bu şeridi yalnızca Şerit C'yi aştıysanız seçin.
     </p>
 
-    <h2>Step 3 — Decide where it runs</h2>
+    <h2>Adım 3 — Nerede çalışacağına karar verin</h2>
     <p>
-      Three choices. <strong>Hosted</strong>: the vendor runs it (ChatGPT, Claude,
-      Zapier). Easiest, least flexible, per-seat or per-task pricing.{" "}
-      <strong>Your laptop</strong>: run the SDK locally against an API key.
-      Fastest to iterate, terrible for production. <strong>Your server</strong>:
-      a small Python service on Fly, Render, or a VPS — the practical choice
-      once the agent actually does useful work.
+      Üç seçenek. <strong>Barındırılan</strong>: satıcı çalıştırır (ChatGPT, Claude, Zapier). En kolayı, en az esnek, koltuk başına veya görev başına fiyatlandırma.{" "}
+      <strong>Dizüstü bilgisayarınız</strong>: SDK'yı bir API anahtarıyla yerel olarak çalıştırın. Yineleme yapmak en hızlısı, üretim için berbat. <strong>Sunucunuz</strong>: Fly, Render veya bir VPS üzerinde küçük bir Python hizmeti — ajan gerçekten yararlı işler yapmaya başladığında pratik seçim.
     </p>
 
-    <h2>Step 4 — Wire it to the tools it needs</h2>
+    <h2>Adım 4 — İhtiyaç duyduğu araçlara bağlayın</h2>
     <p>
-      Almost every useful agent needs to reach outside its model: read a file,
-      call an API, query a database, send a message. In 2026, the standard for
-      this is <strong><a href="/learn/mcp">MCP</a></strong> (Model Context Protocol). See{" "}
-      <a href="/guides/how-to-connect-an-agent-to-mcp-tools">our MCP setup guide</a>{" "}
-      — install a server, allow-list the tools, and the agent can use them the
-      same way across Claude, OpenAI, and most frameworks. MCP is the single
-      biggest quality-of-life improvement in agent engineering this year.
+      Neredeyse her kullanışlı ajanın dışarıya ulaşması gerekir: bir dosya okumak, bir API çağırmak, bir veritabanını sorgulamak, bir mesaj göndermek. 2026'da bunun standardı <strong><a href="/learn/mcp">MCP</a></strong>'dir (Model Bağlam Protokolü).{" "}
+      <a href="/guides/how-to-connect-an-agent-to-mcp-tools">MCP kurulum rehberimize</a> bakın — bir sunucu kurun, araçları beyaz listeye ekleyin ve ajan bunları Claude, OpenAI ve çoğu çerçeve arasında aynı şekilde kullanabilsin. MCP, bu yıl ajan mühendisliğindeki en büyük yaşam kalitesi iyileştirmesidir.
     </p>
 
-    <h2>Step 5 — Start with read-only, add writes slowly</h2>
+    <h2>Adım 5 — Salt okunur ile başlayın, yazma işlemlerini yavaşça ekleyin</h2>
     <p>
-      The single most common production failure is giving an agent write access
-      too early. Begin with <em>read-only tools</em>: let it query, summarise,
-      and suggest. Once you trust its judgment over ten or twenty runs, add one
-      write tool at a time (send message → create draft → send draft). Every
-      Claude and OpenAI SDK supports explicit allow-listing; use it.
+      En yaygın üretim hatası, bir ajana çok erken yazma erişimi vermektir. <em>Salt okunur araçlarla</em> başlayın: sorgulamasına, özetlemesine ve önermesine izin verin. On veya yirmi çalıştırmada yargısına güvendikten sonra, her seferinde bir yazma aracı ekleyin (mesaj gönder → taslak oluştur → taslağı gönder). Her Claude ve OpenAI SDK'sı açık beyaz listeyi destekler; kullanın.
     </p>
 
-    <h2>Step 6 — Budget for tokens and cap them</h2>
+    <h2>Adım 6 — Tokenlar için bütçe ayırın ve sınırlayın</h2>
     <p>
-      An agent that loops can burn $50 in an afternoon. Before you ship, set a
-      per-run token ceiling and a per-day spend cap at the provider level. Run
-      your prompts through our{" "}
-      <a href="/tools/ai-token-counter">AI token counter</a> so you know the
-      baseline cost before you loop it 100 times.
+      Döngüye giren bir ajan bir öğleden sonra 50 dolar yakabilir. Göndermeden önce, sağlayıcı düzeyinde çalıştırma başına bir token tavanı ve günlük bir harcama sınırı belirleyin. İstemlerinizi{" "}
+      <a href="/tools/ai-token-counter">AI token sayacımızda</a> çalıştırın, böylece 100 kez döngüye sokmadan önce taban maliyeti bilirsiniz.
     </p>
 
-    <h2>Step 7 — Measure and iterate</h2>
+    <h2>Adım 7 — Ölçün ve yineleyin</h2>
     <p>
-      Log every run: inputs, tool calls, outputs, token spend, user feedback.
-      The best agents in production look boring — a narrow task, a tight tool
-      set, 95%+ success, a human reviewing the 5%. The worst look impressive in
-      demos and explode the first time they meet a real user.
+      Her çalıştırmayı günlüğe kaydedin: girdiler, araç çağrıları, çıktılar, token harcaması, kullanıcı geri bildirimi. Üretimdeki en iyi ajanlar sıkıcı görünür — dar bir görev, sıkı bir araç seti, %95+ başarı, %5'i inceleyen bir insan. En kötüleri demolarda etkileyici görünür ve ilk kez gerçek bir kullanıcıyla karşılaştıklarında patlarlar.
     </p>
 
-    <h2>The honest shortlist</h2>
+    <h2>Dürüst kısa liste</h2>
     <p>
-      If you asked me to pick just three places to start today: <strong>ChatGPT
-      agent mode</strong> for personal research and browsing tasks,{" "}
-      <strong>Claude Code</strong> for anything involving your codebase, and{" "}
-      <strong>Zapier Agents</strong> for cross-app automation. Everything else
-      is for when those three stop being enough.
+      Bugün başlamak için yalnızca üç yer seçmem istenseydi: kişisel araştırma ve gezinme görevleri için <strong>ChatGPT ajan modu</strong>, kod tabanınızı içeren her şey için <strong>Claude Code</strong> ve uygulamalar arası otomasyon için <strong>Zapier Agents</strong>. Diğer her şey, bu üçü yeterli olmadığında içindir.
     </p>
   </>
 );

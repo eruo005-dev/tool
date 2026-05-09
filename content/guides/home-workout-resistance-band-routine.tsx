@@ -2,95 +2,86 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Resistance bands are the most underrated training tool in home fitness.
-    Cheap, quiet, portable, and &mdash; programmed correctly &mdash; capable
-    of building real strength. Here&rsquo;s how to actually use them.
+    Direnç bantları, ev fitnessında en hafife alınan antrenman aracıdır. Ucuzdurlar,
+    sessizdirler, taşınabilirler ve doğru programlandıklarında gerçek güç inşa edebilirler.
+    İşte onları etkili bir şekilde nasıl kullanacağınız.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      The dismissive take on bands is that they&rsquo;re for rehab and warm-ups.
-      That&rsquo;s outdated. A well-stocked band kit plus smart programming
-      can drive strength and hypertrophy for months, especially for people
-      without access to a gym. The key is treating them like you&rsquo;d treat
-      dumbbells: with real sets, real progression, and honest effort.
+      Bantlara yönelik küçümseyici bakış açısı, onların yalnızca rehabilitasyon ve ısınma için olduğu yönündedir.
+      Bu artık doğru değil. İyi donanımlı bir bant seti ve akıllı programlama, özellikle spor salonuna erişimi olmayanlar için aylarca
+      sürecek güç ve kas kazanımı sağlayabilir. Anahtar, onlara dambıl gibi davranmaktır: gerçek setler, gerçek ilerleme
+      ve dürüst çaba ile.
     </p>
 
-    <h2>Why bands work</h2>
+    <h2>Bantlar neden işe yarar</h2>
     <p>
-      Bands provide variable resistance &mdash; tension increases as they
-      stretch, which matches the strength curve of many lifts better than
-      gravity-based loads. They&rsquo;re ultra-portable (fit in a carry-on),
-      silent (apartment-friendly), joint-gentle, and cheap. A full setup costs
-      less than one month of most gym memberships and lasts years.
+      Bantlar değişken direnç sağlar — gerildikçe gerilim artar, bu da birçok kaldırışın güç
+      eğrisini yerçekimi tabanlı yüklerden daha iyi eşleştirir.
+      Son derece taşınabilirdirler (el bagajına sığar), sessizdirler (apartman dostu),
+      eklem dostudur ve ucuzdurlar. Tam bir set, çoğu spor salonu üyeliğinin bir aylık ücretinden daha azına mal olur
+      ve yıllarca dayanır.
     </p>
 
-    <h2>The essential set</h2>
+    <h2>Temel set</h2>
     <ul>
-      <li>Light loop band &mdash; glute activation, upper-body accessories.</li>
-      <li>Medium loop band &mdash; core working weight for most movements.</li>
-      <li>Heavy loop band &mdash; squats, deadlifts, heavy pulling.</li>
-      <li>Long tube band with handles &mdash; rows, presses, curls.</li>
-      <li>Door anchor rated for real tension &mdash; never use a weak one.</li>
-      <li>Budget: a full kit runs roughly $40&ndash;$80 on Amazon or a fitness brand site.</li>
+      <li>Hafif halka bant — glute aktivasyonu, üst vücut aksesuarları.</li>
+      <li>Orta halka bant — çoğu hareket için birincil çalışma ağırlığı.</li>
+      <li>Ağır halka bant — squat, deadlift, ağır çekişler.</li>
+      <li>Tutamaklı uzun tüp bant — row, press, curl.</li>
+      <li>Gerçek gerilimi kaldırabilecek bir kapı ankrajı — asla zayıf bir tane kullanmayın.</li>
+      <li>Bütçe: Tam bir set Amazon veya bir fitness markası sitesinde yaklaşık 40–80 dolara mal olur.</li>
     </ul>
 
-    <h2>A 30-minute full-body routine</h2>
+    <h2>30 dakikalık tam vücut rutini</h2>
     <p>
-      Warm up 3&ndash;5 minutes, then run the circuit. Rest 60&ndash;90
-      seconds between sets.
+      3–5 dakika ısının, ardından devreyi uygulayın. Setler arasında 60–90 saniye
+      dinlenin.
     </p>
     <ul>
-      <li>Banded squat &mdash; 3 sets of 12.</li>
-      <li>Glute bridge with band above knees &mdash; 3 sets of 10.</li>
-      <li>Seated or standing band row &mdash; 3 sets of 10.</li>
-      <li>Overhead press &mdash; 3 sets of 10.</li>
-      <li>Push-up (add band across back for extra load) &mdash; 3 sets of 8.</li>
-      <li>Bicep curl &mdash; 3 sets of 12.</li>
-      <li>Triceps overhead extension &mdash; 3 sets of 12.</li>
-      <li>Plank &mdash; 3 sets of 30 seconds.</li>
+      <li>Bant squat — 3 set x 12 tekrar.</li>
+      <li>Dizlerin üzerinde bantla glute bridge — 3 set x 10 tekrar.</li>
+      <li>Oturarak veya ayakta bant row — 3 set x 10 tekrar.</li>
+      <li>Overhead press — 3 set x 10 tekrar.</li>
+      <li>Push-up (ekstra yük için sırta bant ekleyin) — 3 set x 8 tekrar.</li>
+      <li>Biceps curl — 3 set x 12 tekrar.</li>
+      <li>Triceps overhead extension — 3 set x 12 tekrar.</li>
+      <li>Plank — 3 set x 30 saniye.</li>
     </ul>
 
-    <h2>Progression without heavier bands</h2>
+    <h2>Daha ağır bantlar olmadan ilerleme</h2>
     <p>
-      Progressive overload still applies &mdash; you just progress differently.
-      Options: move to a heavier band, stack two bands together, shorten the
-      band by stepping wider or gripping higher, add pauses at the hardest
-      point of the rep, slow the eccentric to 3&ndash;4 seconds, or increase
-      reps before moving up in tension. Track sets and reps the same way
-      you&rsquo;d track weights.
+      Aşamalı aşırı yük hala geçerlidir — sadece farklı şekilde ilerlersiniz.
+      Seçenekler: daha ağır bir banda geçin, iki bandı birleştirin, duruşunuzu genişleterek veya bandı daha yüksekte tutarak kısaltın,
+      tekrarın en zor noktasında duraklamalar ekleyin, eksantrik (alçalma) aşamasını 3–4 saniyeye yavaşlatın
+      veya gerilim eklemeden önce tekrarları artırın. Setleri ve tekrarları ağırlıklarla olduğu gibi takip edin.
     </p>
 
-    <h2>Anchoring and safety</h2>
+    <h2>Ankraj ve güvenlik</h2>
     <p>
-      A cheap door anchor is the single biggest risk in band training. If it
-      fails mid-row, the handle whips into your face. Buy an anchor rated for
-      real load and inspect your bands before every session &mdash; a nick in
-      latex becomes a snap under tension. Never pull a band toward your eyes
-      or face. Use a stable door that latches firmly, or a rig designed for
-      anchoring.
+      Ucuz bir kapı ankrajı, bant antrenmanındaki en büyük risktir. Bir row sırasında başarısız olursa,
+      tutamak yüzünüze çarpar. Gerçek yük için derecelendirilmiş bir ankraj satın alın ve bantlarınızı
+      her seanstan önce inceleyin — lateksteki bir çentik, gerilim altında bir yırtılmaya dönüşür.
+      Asla bir bandı gözlerinize veya yüzünüze doğru çekmeyin. Sıkıca kapanan sağlam bir kapı veya ankraj için tasarlanmış bir düzenek kullanın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Doing the same routine forever with no progression &mdash; your body
-      adapts in 4&ndash;6 weeks. Ignoring the eccentric (the lowering phase)
-      and snapping back too fast. Skipping mobility and warm-up, then blaming
-      the bands when a shoulder tweaks. Assuming bands can&rsquo;t build
-      muscle &mdash; they can, if you train with intent. And using beat-up
-      bands with visible wear instead of replacing them.
+      İlerleme olmadan aynı rutini sonsuza kadar yapmak — vücudunuz 4–6 haftada uyum sağlar.
+      Çok hızlı bırakmak, eksantrik (alçalma) aşamasını görmezden gelmek. Hareketlilik ve ısınmayı atlamak,
+      sonra omzunuz ağrıdığında bantları suçlamak. Bantların kas inşa edemeyeceğini varsaymak — niyetle antrenman yaparsanız inşa edebilirler.
+      Ve yıpranmış bantları değiştirmek yerine kullanmaya devam etmek.
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Özet</h2>
     <p>
-      Bands aren&rsquo;t a compromise &mdash; they&rsquo;re a legitimate
-      training tool when you program them with real sets, real progression,
-      and real effort. Spend $40&ndash;$80 once, stick to a structured
-      routine, and expect meaningful strength gains in 8&ndash;12 weeks. Not
-      medical advice. Talk to your healthcare provider before starting any
-      new program, especially if you have joint or cardiac concerns.
+      Bantlar bir uzlaşma değildir — onları gerçek setler, gerçek ilerleme
+      ve gerçek çaba ile programladığınızda meşru bir antrenman aracıdırlar. Bir kez 40–80 dolar harcayın, yapılandırılmış bir rutine bağlı kalın
+      ve 8–12 hafta içinde anlamlı güç kazanımları bekleyin.
+      Tıbbi tavsiye değildir. Yeni bir programa başlamadan önce, özellikle eklem veya kalp sorunlarınız varsa, sağlık uzmanınıza danışın.
     </p>
   </>
 );

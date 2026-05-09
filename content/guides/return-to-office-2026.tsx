@@ -2,44 +2,42 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    The return-to-office (RTO) push from 2023-2025 stabilized in 2026 around hybrid 3-2 (three days office, two
-    home) for most knowledge work. Here&rsquo;s the actual state of play and what it means if you&rsquo;re
-    negotiating.
+    2023-2025 dönemindeki ofise dönüş (RTO) baskısı, 2026'da çoğu bilgi işi için hibrit 3-2 (üç gün ofis, iki gün ev) modelinde dengelendi. İşte mevcut durum ve pazarlık yapıyorsanız bunun anlamı.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Where each company landed</h2>
+    <h2>Her şirketin vardığı nokta</h2>
     <ul>
-      <li><strong>Fully remote:</strong> ~15-20% of large companies kept it (GitLab, Automattic, some startups).</li>
-      <li><strong>Hybrid 3-2:</strong> the dominant 2026 model (~50%).</li>
-      <li><strong>Hybrid 4-1:</strong> ~20%.</li>
-      <li><strong>Fully in-office:</strong> ~10-15%, weighted toward financial services + younger startups.</li>
+      <li><strong>Tamamen uzaktan:</strong> Büyük şirketlerin ~%15-20'si bunu korudu (GitLab, Automattic, bazı startup'lar).</li>
+      <li><strong>Hibrit 3-2:</strong> 2026'nın baskın modeli (~%50).</li>
+      <li><strong>Hibrit 4-1:</strong> ~%20.</li>
+      <li><strong>Tamamen ofiste:</strong> ~%10-15, ağırlıklı olarak finansal hizmetler + genç startup'lar.</li>
     </ul>
-    <h2>What the data actually shows</h2>
+    <h2>Verilerin gerçekte gösterdiği</h2>
     <ul>
-      <li>Productivity differences between fully remote + hybrid + in-office are SMALL across most knowledge roles.</li>
-      <li>Junior employees benefit more from in-person time (mentoring, observation).</li>
-      <li>Senior employees show productivity gains in remote/hybrid (focus time matters more than collaboration).</li>
-      <li>Retention is consistently better in companies that offer flexibility.</li>
+      <li>Tamamen uzaktan + hibrit + ofis arasındaki verimlilik farkları çoğu bilgi rolü için KÜÇÜKTÜR.</li>
+      <li>Genç çalışanlar yüz yüze zamandan daha fazla fayda sağlar (mentorluk, gözlem).</li>
+      <li>Kıdemli çalışanlar uzaktan/hibrit çalışmada verimlilik artışı gösterir (odaklanma süresi işbirliğinden daha önemlidir).</li>
+      <li>Esneklik sunan şirketlerde çalışan tutma oranı sürekli olarak daha iyidir.</li>
     </ul>
-    <h2>Negotiating leverage in 2026</h2>
+    <h2>2026'da pazarlık gücü</h2>
     <ul>
-      <li>If your role is hard to fill: full-remote is still a real ask.</li>
-      <li>Hybrid 2-3 (more remote) often available if not advertised.</li>
-      <li>Compressed schedules (10-hr days, 4-day workweek) are increasingly normalized.</li>
-      <li>If they push 5-day, ask for travel allowance / commute compensation.</li>
+      <li>Rolünüz doldurulması zorsa: tamamen uzaktan çalışma hâlâ gerçekçi bir taleptir.</li>
+      <li>Hibrit 2-3 (daha fazla uzaktan) genellikle ilan edilmese bile mevcuttur.</li>
+      <li>Sıkıştırılmış programlar (10 saatlik günler, 4 günlük çalışma haftası) giderek normalleşiyor.</li>
+      <li>5 gün dayatırlarsa, seyahat ödeneği / işe gidiş tazminatı isteyin.</li>
     </ul>
-    <h2>If you&rsquo;re returning</h2>
+    <h2>Geri dönüyorsanız</h2>
     <ul>
-      <li>Treat the office days as different work: synchronous + meetings + relationships.</li>
-      <li>Block deep-work days at home; don&rsquo;t default-meet on remote days.</li>
-      <li>Negotiate which days you go in &mdash; Tuesday/Wednesday/Thursday is most productive.</li>
+      <li>Ofis günlerini farklı iş olarak ele alın: senkron + toplantılar + ilişkiler.</li>
+      <li>Evdeki derin çalışma günlerini bloklayın; uzaktan günlerde varsayılan olarak toplantı yapmayın.</li>
+      <li>Hangi günler gideceğinizi pazarlık edin &mdash; Salı/Çarşamba/Perşembe en verimli olanıdır.</li>
     </ul>
     <p>
-      Related: <a href="/guides/four-day-work-week-evidence">4-day work week evidence</a>,{" "}
-      <a href="/guides/how-to-work-from-home-productively">how to work from home productively</a>.
+      İlgili: <a href="/guides/four-day-work-week-evidence">4 günlük çalışma haftası kanıtı</a>,{" "}
+      <a href="/guides/how-to-work-from-home-productively">evden verimli çalışma rehberi</a>.
     </p>
   </>
 );

@@ -3,181 +3,170 @@
 export const intro = (
   <>
     <p>
-      What can you actually earn building developer tools — as a salaried engineer,
-      a solo indie maker, or a side-project monetizer? The answer in 2026 is
-      genuinely encouraging: full-time dev-tools comp is competitive with top SWE
-      roles, indie maker dev tools sustain low-six-figure ARR more often than
-      consumer indie products, and the side-project-to-revenue path has shorter
-      time-to-first-dollar than most categories.
+      Geliştirici araçları oluşturarak aslında ne kadar kazanabilirsiniz — maaşlı bir mühendis,
+      bağımsız bir üretici veya bir yan projeyi paraya çeviren biri olarak? 2026'daki cevap
+      gerçekten cesaret verici: tam zamanlı geliştirici araçları maaşı, en iyi SWE rollerine
+      rakip oluyor, bağımsız üretici geliştirici araçları tüketici bağımsız ürünlerine göre
+      daha sık düşük altı haneli ARR seviyesini sürdürüyor ve yan projeden gelire geçiş yolu
+      çoğu kategoriden daha kısa bir ilk-para-zamanına sahip.
     </p>
     <p>
-      This guide covers all three paths with honest numbers.
+      Bu rehber, her üç yolu da dürüst rakamlarla ele alıyor.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "fulltime", label: "Full-time dev-tools salaries" },
-  { id: "indie", label: "Solo indie dev tools" },
-  { id: "side-project", label: "Monetizing your side project" },
-  { id: "monetization", label: "Can you make money with dev utilities?" },
+  { id: "fulltime", label: "Tam zamanlı geliştirici araçları maaşları" },
+  { id: "indie", label: "Bağımsız geliştirici araçları" },
+  { id: "side-project", label: "Yan projenizi paraya çevirmek" },
+  { id: "monetization", label: "Geliştirici araçlarıyla para kazanılır mı?" },
 ];
 
 export const body = (
   <>
-    <h2 id="fulltime">Full-time dev-tools salaries</h2>
+    <h2 id="fulltime">Tam zamanlı geliştirici araçları maaşları</h2>
     <p>
-      Use our{" "}
-      <a href="/tools/dev-tool-salary-estimator">salary estimator</a> for ranges by
-      level / tier / region. Quick reference for US in 2026 (total comp midpoints):
+      Seviye / kademe / bölgeye göre aralıklar için{" "}
+      <a href="/tools/dev-tool-salary-estimator">maaş hesaplayıcımızı</a> kullanın. 2026 ABD için hızlı referans (toplam ücret orta noktaları):
     </p>
     <ul>
-      <li>Junior (0–2 yrs) at standard tech: ~$110K. At FAANG: ~$160K.</li>
-      <li>Mid (3–5 yrs) at standard tech: ~$180K. At FAANG: ~$260K.</li>
-      <li>Senior (5–8 yrs) at standard tech: ~$240K. At FAANG: ~$350K.</li>
-      <li>Staff (8–12 yrs) at standard tech: ~$340K. At FAANG: ~$500K.</li>
-      <li>Principal (12+ yrs) at standard tech: ~$450K. At FAANG: ~$700K.</li>
+      <li>Junior (0–2 yıl) standart teknolojide: ~$110K. FAANG'de: ~$160K.</li>
+      <li>Mid (3–5 yıl) standart teknolojide: ~$180K. FAANG'de: ~$260K.</li>
+      <li>Senior (5–8 yıl) standart teknolojide: ~$240K. FAANG'de: ~$350K.</li>
+      <li>Staff (8–12 yıl) standart teknolojide: ~$340K. FAANG'de: ~$500K.</li>
+      <li>Principal (12+ yıl) standart teknolojide: ~$450K. FAANG'de: ~$700K.</li>
     </ul>
     <p>
-      DPE / DevTools roles trade slightly above generic SWE due to scarcity. The
-      premium is consistent at every level — somewhere between 5% and 15% over
-      product-engineering comp.
+      DPE / DevTools rolleri, kıtlık nedeniyle genel SWE'nin biraz üzerinde seyreder.
+      Bu prim her seviyede tutarlıdır — ürün mühendisliği maaşının %5 ila %15'i arasında bir yerde.
     </p>
 
-    <h2 id="indie">Solo indie dev tools — what&rsquo;s realistic</h2>
+    <h2 id="indie">Bağımsız geliştirici araçları — gerçekçi olan nedir</h2>
     <p>
-      The dev-tools indie market in 2026 is bigger than people think:
+      2026'da geliştirici araçları bağımsız pazarı insanların düşündüğünden daha büyük:
     </p>
     <ul>
       <li>
-        <strong>Hobby tier:</strong> $0–$1K MRR. Most solo dev-tool projects sit
-        here forever — and that&rsquo;s often fine. The portfolio + audience effects
-        compound even at this scale.
+        <strong>Hobi seviyesi:</strong> $0–$1K MRR. Çoğu bağımsız geliştirici aracı projesi
+        sonsuza kadar burada kalır — ve bu genellikle sorun değildir. Portföy + kitle etkileri
+        bu ölçekte bile birikir.
       </li>
       <li>
-        <strong>Sustainable side income:</strong> $1K–$5K MRR. Achievable in
-        12–24 months with focused execution. Pays for the &ldquo;f-you fund&rdquo;
-        without quitting day-job.
+        <strong>Sürdürülebilir yan gelir:</strong> $1K–$5K MRR. Odaklanmış bir çalışmayla
+        12–24 ayda ulaşılabilir. Günlük işinizi bırakmadan "f-you fonu"nu karşılar.
       </li>
       <li>
-        <strong>Solo full-time:</strong> $5K–$15K MRR. Where many indie founders
-        replace their salary. Realistic for narrow-but-deep tools with paying
-        prosumer / SMB users.
+        <strong>Bağımsız tam zamanlı:</strong> $5K–$15K MRR. Birçok bağımsız kurucunun
+        maaşını değiştirdiği yer. Ödeme yapan prosumer / KOBİ kullanıcıları olan dar ama derin araçlar için gerçekçi.
       </li>
       <li>
-        <strong>Indie scale:</strong> $15K–$50K MRR. Requires either a strong
-        prosumer hit or some B2B traction. Possible solo for some founders;
-        usually requires hiring a contractor or two.
+        <strong>Bağımsız ölçek:</strong> $15K–$50K MRR. Ya güçlü bir prosumer hiti ya da
+        biraz B2B ivmesi gerektirir. Bazı kurucular için tek başına mümkün; genellikle bir veya iki
+        serbest çalışan kiralamayı gerektirir.
       </li>
       <li>
-        <strong>Bootstrapped business:</strong> $50K+ MRR. At this scale you&rsquo;ve
-        crossed into a real bootstrapped business. Solo founders sometimes sustain
-        this; more often you hire 1–3 employees.
+        <strong>Bootstrapped iş:</strong> $50K+ MRR. Bu ölçekte gerçek bir bootstrapped
+        işe geçtiniz. Bağımsız kurucular bazen bunu sürdürür; daha sık olarak 1–3 çalışan işe alırsınız.
       </li>
     </ul>
     <p>
-      What separates the levels: distribution, not engineering. Solo indie
-      dev-tool founders who stay at $0 MRR usually built fine tools that no one
-      heard about. The ones at $5K+ invested as much in content / community /
-      audience as in code.
+      Seviyeleri ayıran şey: dağıtım, mühendislik değil. $0 MRR'de kalan bağımsız
+      geliştirici aracı kurucuları genellikle kimsenin duymadığı iyi araçlar inşa etti. $5K+ seviyesindekiler
+      koda olduğu kadar içerik / topluluk / kitleye de yatırım yaptı.
     </p>
 
-    <h2 id="side-project">Monetizing your dev-tool side project</h2>
+    <h2 id="side-project">Geliştirici aracı yan projenizi paraya çevirmek</h2>
     <p>
-      Five real monetization paths, ranked by typical conversion rate at small
-      scale:
+      Küçük ölçekte tipik dönüşüm oranına göre sıralanmış beş gerçek para kazanma yolu:
     </p>
     <ol>
       <li>
-        <strong>Hosted SaaS tier on top of OSS.</strong> The open-core model.
-        Highest revenue ceiling. Requires building hosted infra; takes longer.
+        <strong>Açık kaynak üzerinde barındırılan SaaS katmanı.</strong> Açık çekirdek modeli.
+        En yüksek gelir tavanı. Barındırılan altyapı oluşturmayı gerektirir; daha uzun sürer.
       </li>
       <li>
-        <strong>Pro features for individuals.</strong> $5–$20/month for power
-        features. Works when there&rsquo;s a clear power-user segment willing to
-        pay (advanced search, larger limits, integrations).
+        <strong>Bireyler için Pro özellikleri.</strong> Güç özellikleri için ayda $5–$20.
+        Ödemeye istekli net bir güç kullanıcı segmenti olduğunda çalışır (gelişmiş arama, daha büyük limitler, entegrasyonlar).
       </li>
       <li>
-        <strong>Team / business tier.</strong> $20–$200/seat/month for company
-        features (SSO, audit logs, role-based access). Higher revenue per
-        customer; longer sales cycle.
+        <strong>Takım / iş katmanı.</strong> Şirket özellikleri için ayda koltuk başına $20–$200
+        (SSO, denetim günlükleri, rol tabanlı erişim). Müşteri başına daha yüksek gelir; daha uzun satış döngüsü.
       </li>
       <li>
-        <strong>Sponsorship / GitHub Sponsors.</strong> Works for projects with a
-        large free user base. Typical $0–$2K/month for popular projects;
-        occasionally more for projects with corporate sponsors.
+        <strong>Sponsorluk / GitHub Sponsors.</strong> Geniş bir ücretsiz kullanıcı tabanına sahip projeler için çalışır.
+        Popüler projeler için tipik $0–$2K/ay; kurumsal sponsorları olan projeler için ara sıra daha fazla.
       </li>
       <li>
-        <strong>Usage-based pricing.</strong> Pay per call / per build / per
-        seat-hour. Aligns price to value but adds billing complexity.
+        <strong>Kullanım tabanlı fiyatlandırma.</strong> Çağrı başına / derleme başına / koltuk-saati başına ödeme.
+        Fiyatı değerle uyumlu hale getirir ancak faturalama karmaşıklığı ekler.
       </li>
     </ol>
     <p>
-      For a first monetization attempt: <strong>start with Pro features for
-      individuals at $9–$15/month</strong>. Lowest sales-cycle friction, easy to
-      iterate, builds revenue while you figure out the longer-term motion.
+      İlk para kazanma denemesi için: <strong>bireyler için ayda $9–$15 arası Pro özellikleriyle başlayın</strong>.
+      En düşük satış döngüsü sürtünmesi, yinelemesi kolay, daha uzun vadeli hareketi çözerken gelir oluşturur.
     </p>
 
-    <h2 id="monetization">Can you make money building developer utilities?</h2>
+    <h2 id="monetization">Geliştirici araçları oluşturarak para kazanılır mı?</h2>
     <p>
-      Yes — and the path is more legible than for consumer side projects.
-      Patterns that work in 2026:
+      Evet — ve yol, tüketici yan projelerinden daha anlaşılır.
+      2026'da işe yarayan kalıplar:
     </p>
     <ul>
       <li>
-        <strong>Solve a B2B problem you saw at your day job.</strong> The Sentry,
-        Linear, dbt origin story. You know the problem deeply because you lived
-        it; the buyer is companies in the same situation.
+        <strong>Günlük işinizde gördüğünüz bir B2B sorununu çözün.</strong> Sentry,
+        Linear, dbt'nin köken hikayesi. Sorunu derinden biliyorsunuz çünkü yaşadınız;
+        alıcı aynı durumdaki şirketler.
       </li>
       <li>
-        <strong>Niche down hard.</strong> &ldquo;Tool for Postgres migration
-        review&rdquo; converts. &ldquo;Tool for database operations&rdquo; doesn&rsquo;t.
+        <strong>İyice nişleşin.</strong> "Postgres geçiş incelemesi için araç"
+        dönüşüm sağlar. "Veritabanı işlemleri için araç" sağlamaz.
       </li>
       <li>
-        <strong>Distribute through technical content.</strong> Most successful
-        indie dev-tool founders write deeply about their domain. The content
-        attracts the right buyers; the tool monetizes them.
+        <strong>Teknik içerik aracılığıyla dağıtın.</strong> En başarılı
+        bağımsız geliştirici aracı kurucuları, alanları hakkında derinlemesine yazarlar.
+        İçerik doğru alıcıları çeker; araç onları paraya çevirir.
       </li>
       <li>
-        <strong>Use an existing distribution channel.</strong> VS Code extensions,
-        GitHub apps, Slack apps, Chrome extensions, Stripe Apps Marketplace — all
-        give you marketplace presence + payment infra for free.
+        <strong>Mevcut bir dağıtım kanalını kullanın.</strong> VS Code uzantıları,
+        GitHub uygulamaları, Slack uygulamaları, Chrome uzantıları, Stripe Apps Marketplace — hepsi
+        size ücretsiz olarak pazar yeri varlığı + ödeme altyapısı sağlar.
       </li>
       <li>
-        <strong>Be patient.</strong> Most successful indie dev-tool projects took
-        12-36 months from launch to meaningful revenue. The compounding works in
-        your favor; don&rsquo;t bail at month 6.
+        <strong>Sabırlı olun.</strong> En başarılı bağımsız geliştirici aracı projelerinin
+        lansmandan anlamlı gelire ulaşması 12-36 ay sürdü. Birikim sizin lehinize çalışır;
+        6. ayda pes etmeyin.
       </li>
     </ul>
     <p>
-      For a structured approach: validate with our{" "}
-      <a href="/tools/dev-tool-idea-scorer">idea scorer</a>, build to spec with
-      our <a href="/tools/cli-dx-checklist">CLI DX checklist</a>, then run
-      systematic distribution.
+      Yapılandırılmış bir yaklaşım için:{" "}
+      <a href="/tools/dev-tool-idea-scorer">fikir puanlayıcımızla</a> doğrulayın,
+      <a href="/tools/cli-dx-checklist">CLI DX kontrol listemizle</a> spesifikasyonlara göre oluşturun,
+      ardından sistematik dağıtım yapın.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Estimate dev-tools salary by level + region",
+  label: "Seviye + bölgeye göre geliştirici araçları maaşını tahmin edin",
   targetSlug: "dev-tool-salary-estimator",
 };
 
 export const faq = [
   {
-    q: "Developer tool salary: what can you earn?",
-    a: "US 2026 total comp midpoints: junior $110K-$160K, mid $180K-$260K, senior $240K-$350K, staff $340K-$500K, principal $450K-$700K. DPE/DevTools sits 5-15% above generic SWE due to scarcity. Use our salary estimator for ranges by level + tier + region.",
+    q: "Geliştirici aracı maaşı: ne kadar kazanabilirsiniz?",
+    a: "ABD 2026 toplam ücret orta noktaları: junior $110K-$160K, mid $180K-$260K, senior $240K-$350K, staff $340K-$500K, principal $450K-$700K. DPE/DevTools, kıtlık nedeniyle genel SWE'nin %5-15 üzerindedir. Seviye + kademe + bölgeye göre aralıklar için maaş hesaplayıcımızı kullanın.",
   },
   {
-    q: "Can you make money building developer utilities?",
-    a: "Yes — more legibly than consumer side projects. Patterns: solve a B2B problem from your day job, niche down hard ('Postgres migration review' beats 'database operations'), distribute via technical content, use existing marketplaces (VS Code, GitHub Apps, Slack, Stripe), and be patient (12-36 months to meaningful revenue).",
+    q: "Geliştirici araçları oluşturarak para kazanılır mı?",
+    a: "Evet — tüketici yan projelerinden daha anlaşılır. Kalıplar: günlük işinizden bir B2B sorununu çözün, iyice nişleşin ('Postgres geçiş incelemesi', 'veritabanı işlemleri'nden daha iyidir), teknik içerik aracılığıyla dağıtın, mevcut pazaryerlerini kullanın (VS Code, GitHub Apps, Slack, Stripe) ve sabırlı olun (anlamlı gelire 12-36 ay).",
   },
   {
-    q: "How do indie game developers and dev-tool indie makers compare on revenue?",
-    a: "Dev-tool indie makers more reliably hit $1K-$15K MRR than indie game developers. Dev-tool buyers (devs/companies) are easier to reach via technical content + marketplaces; indie games need broad consumer distribution. Both can hit higher tiers but dev-tools has a higher floor.",
+    q: "Bağımsız oyun geliştiricileri ve geliştirici aracı bağımsız üreticileri gelir açısından nasıl karşılaştırılır?",
+    a: "Geliştirici aracı bağımsız üreticileri, bağımsız oyun geliştiricilerine göre $1K-$15K MRR'ye daha güvenilir bir şekilde ulaşır. Geliştirici aracı alıcılarına (geliştiriciler/şirketler) teknik içerik + pazaryerleri aracılığıyla ulaşmak daha kolaydır; bağımsız oyunların geniş tüketici dağıtımına ihtiyacı vardır. Her ikisi de daha yüksek seviyelere ulaşabilir ancak geliştirici araçlarının daha yüksek bir tabanı vardır.",
   },
   {
-    q: "How do I monetize my developer tool side project?",
-    a: "Start with Pro features at $9-$15/month for individuals (lowest sales friction). Add team/business tier ($20-$200/seat) once you have prosumer traction. Hosted SaaS on top of OSS has highest ceiling but more infra. GitHub Sponsors works for large free user bases. Usage-based pricing aligns to value but adds billing complexity.",
+    q: "Geliştirici aracı yan projemi nasıl paraya çevirebilirim?",
+    a: "Bireyler için ayda $9-$15 arası Pro özellikleriyle başlayın (en düşük satış sürtünmesi). Prosumer ivmesi elde ettiğinizde takım/iş katmanı ekleyin (koltuk başına $20-$200). Açık kaynak üzerinde barındırılan SaaS en yüksek tavana sahiptir ancak daha fazla altyapı gerektirir. GitHub Sponsors, geniş ücretsiz kullanıcı tabanları için çalışır. Kullanım tabanlı fiyatlandırma değerle uyumlu hale getirir ancak faturalama karmaşıklığı ekler.",
   },
 ];

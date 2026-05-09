@@ -3,169 +3,91 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Keyword density is the percentage of a page&rsquo;s total words that match a target term.
-      It was once the single most discussed metric in SEO, the axis on which whole chapters of
-      Google&rsquo;s 2003 ranking algorithm turned. A decade of deliberate stuffing penalties,
-      the Panda update, BERT, and the shift to semantic search has stripped density of most of
-      its direct ranking power. But it remains useful as a diagnostic: it tells you whether a
-      page is actually about what you think it is about, whether you are under-serving the
-      primary intent, or whether the language has drifted into padding. This guide covers the
-      basic calculation, historical versus modern SEO use, penalties for overuse, stemming and
-      variation handling, what &ldquo;natural frequency&rdquo; means, and where LSI keywords
-      actually fit.
+      Anahtar kelime yoğunluğu, bir sayfadaki toplam kelime sayısına oranla hedef terimin geçme yüzdesidir. Bir zamanlar SEO'da en çok tartışılan metrik, Google'ın 2003 sıralama algoritmasının bütün bölümlerinin üzerine inşa edildiği eksendi. On yıl süren kasıtlı doldurma cezaları, Panda güncellemesi, BERT ve anlamsal aramaya geçiş, yoğunluğu doğrudan sıralama gücünün çoğundan arındırdı. Ancak tanısal bir araç olarak hâlâ kullanışlıdır: bir sayfanın gerçekten ne hakkında olduğunu düşündüğünüz konu hakkında olup olmadığını, birincil amacı yeterince karşılayıp karşılamadığınızı veya dilin gereksiz doldurmaya kayıp kaymadığını size söyler. Bu kılavuz, temel hesaplamayı, tarihsel ve modern SEO kullanımını, aşırı kullanım cezalarını, kök bulma ve varyasyon yönetimini, "doğal sıklığın" ne anlama geldiğini ve LSI anahtar kelimelerinin aslında nereye oturduğunu kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The basic calculation</h2>
+    <h2>Temel hesaplama</h2>
     <p>
-      Keyword density is (occurrences of the keyword / total words) &times; 100. A 1,000-word
-      article that mentions &ldquo;email marketing&rdquo; 15 times has an exact-match density of
-      1.5 percent. For a single-word keyword the counting is simple. For multi-word phrases the
-      numerator stays the count of phrase occurrences, and the denominator stays total words,
-      which dilutes density because one occurrence of a two-word phrase still counts as one in
-      the numerator but consumes two slots in the denominator. Most density tools report the
-      phrase count over the word count without adjusting, which is the convention.
+      Anahtar kelime yoğunluğu (anahtar kelimenin geçme sayısı / toplam kelime sayısı) × 100'dür. "E-posta pazarlaması"ndan 15 kez bahseden 1.000 kelimelik bir makalenin tam eşleşme yoğunluğu yüzde 1,5'tir. Tek kelimelik bir anahtar kelime için sayma basittir. Çok kelimeli ifadelerde pay, ifadenin geçme sayısı olarak kalır ve payda toplam kelime sayısı olarak kalır; bu, yoğunluğu seyreltir çünkü iki kelimelik bir ifadenin bir geçişi payda bir olarak sayılır ancak paydada iki yuva tüketir. Çoğu yoğunluk aracı, ayarlama yapmadan kelime sayısı üzerinden ifade sayısını rapor eder; bu gelenektir.
     </p>
-    <pre>{`Text:     1,000 words total
-Phrase:   "email marketing" appears 15 times
+    <pre>{`Metin:     1.000 kelime toplam
+İfade:   "e-posta pazarlaması" 15 kez geçiyor
 
-Density = (15 / 1000) * 100 = 1.5%`}</pre>
+Yoğunluk = (15 / 1000) * 100 = %1,5`}</pre>
 
-    <h2>Historical SEO: what density meant</h2>
+    <h2>Tarihsel SEO: yoğunluğun anlamı</h2>
     <p>
-      In the first decade of search, keyword density was a strong ranking signal. Pages with
-      densities in the 2-5 percent range for a target term outranked pages that mentioned the
-      term only in passing. This led to a decade of over-optimization: thin pages stuffed with
-      target keywords, doorway pages built to rank for single terms, and footer-text gardens
-      designed purely to hit a density threshold. The early search engines treated high density
-      as a positive signal because the alternative was worse&mdash;ignoring the term entirely.
+      Aramanın ilk on yılında, anahtar kelime yoğunluğu güçlü bir sıralama sinyaliydi. Hedef terim için yoğunluğu yüzde 2-5 aralığında olan sayfalar, terimden yalnızca geçerken bahseden sayfaları geride bıraktı. Bu, on yıl süren aşırı optimizasyona yol açtı: hedef anahtar kelimelerle doldurulmuş ince sayfalar, tek terimler için sıralamak üzere oluşturulmuş giriş sayfaları ve yalnızca bir yoğunluk eşiğine ulaşmak için tasarlanmış altbilgi metni bahçeleri. İlk arama motorları yüksek yoğunluğu olumlu bir sinyal olarak ele aldı çünkü alternatif daha kötüydü—terimi tamamen görmezden gelmek.
     </p>
 
-    <h2>Modern SEO: what density means now</h2>
+    <h2>Modern SEO: yoğunluğun şimdiki anlamı</h2>
     <p>
-      Google&rsquo;s 2011 Panda update, 2013 Hummingbird rewrite, and 2019 BERT and 2022
-      MUM-style language models have all moved ranking away from word-frequency matching toward
-      semantic understanding. BERT can tell that a page about &ldquo;running shoes&rdquo; and a
-      page about &ldquo;athletic footwear for runners&rdquo; are about the same topic even
-      without identical keywords. Density is no longer the direct lever it once was. But it is
-      still a useful diagnostic: if your page about &ldquo;email marketing&rdquo; never uses
-      the phrase, or uses it only in the title, the page may be less focused than you think.
+      Google'ın 2011 Panda güncellemesi, 2013 Hummingbird yeniden yazımı ve 2019 BERT ile 2022 MUM tarzı dil modelleri, sıralamayı kelime sıklığı eşleştirmesinden anlamsal anlayışa doğru kaydırdı. BERT, "koşu ayakkabıları" hakkındaki bir sayfa ile "koşucular için atletik ayakkabılar" hakkındaki bir sayfanın, aynı anahtar kelimelere sahip olmasalar bile aynı konu hakkında olduğunu söyleyebilir. Yoğunluk artık eskisi gibi doğrudan bir kaldıraç değil. Ancak yine de kullanışlı bir tanı aracıdır: "e-posta pazarlaması" hakkındaki sayfanız bu ifadeyi hiç kullanmıyorsa veya yalnızca başlıkta kullanıyorsa, sayfa düşündüğünüzden daha az odaklı olabilir.
     </p>
 
-    <h2>Stuffing penalties</h2>
+    <h2>Doldurma cezaları</h2>
     <p>
-      Google&rsquo;s spam policies explicitly list keyword stuffing as a violation. The detection
-      is not tied to a precise density threshold&mdash;it looks for patterns that suggest
-      mechanical insertion rather than natural writing. Repeating the keyword in every sentence,
-      inserting it into irrelevant places, or filling footer text and alt attributes with
-      variants all trigger flags. A page with 5 percent density written naturally can rank fine;
-      a page with 2 percent density that reads like robot-generated padding can get suppressed.
-      The modern rule: write for readers, let density follow.
+      Google'ın spam politikaları, anahtar kelime doldurmayı açıkça bir ihlal olarak listeler. Tespit, belirli bir yoğunluk eşiğine bağlı değildir—doğal yazı yerine mekanik yerleştirmeyi öneren kalıpları arar. Anahtar kelimeyi her cümlede tekrarlamak, alakasız yerlere eklemek veya altbilgi metnini ve alt özniteliklerini varyantlarla doldurmak, tümü işaretleyicileri tetikler. Doğal yazılmış yüzde 5 yoğunluğa sahip bir sayfa sorunsuz sıralanabilir; robot tarafından oluşturulmuş dolgu gibi okunan yüzde 2 yoğunluğa sahip bir sayfa bastırılabilir. Modern kural: okuyucular için yazın, yoğunluğun onu takip etmesine izin verin.
     </p>
 
-    <h2>Natural frequency</h2>
+    <h2>Doğal sıklık</h2>
     <p>
-      Natural frequency is the density you get when a knowledgeable writer addresses the topic
-      without thinking about density at all. It varies by topic. Technical content about a
-      specific product mentions the product name often&mdash;2 to 3 percent is common and
-      normal. A broader article about a category mentions the category term less often because
-      the writer uses pronouns, synonyms, and partial references. If your target density for a
-      term is wildly above or below what a human writer would produce naturally on that topic,
-      the density is signaling a problem with the writing.
+      Doğal sıklık, bilgili bir yazarın yoğunluğu hiç düşünmeden konuyu ele aldığında elde ettiğiniz yoğunluktur. Konuya göre değişir. Belirli bir ürünle ilgili teknik içerik, ürün adından sıkça bahseder—yüzde 2 ila 3 yaygın ve normaldir. Bir kategori hakkındaki daha geniş bir makale, yazar zamirler, eş anlamlılar ve kısmi referanslar kullandığı için kategori teriminden daha az bahseder. Bir terim için hedef yoğunluğunuz, bir insan yazarın o konuda doğal olarak üreteceğinin çok üstünde veya altındaysa, yoğunluk yazıda bir sorun olduğunu işaret ediyordur.
     </p>
 
-    <h2>Stemming and partial matches</h2>
+    <h2>Kök bulma ve kısmi eşleşmeler</h2>
     <p>
-      A density tool that counts only exact matches under-reports the real prominence of a
-      topic. &ldquo;Email marketing&rdquo;, &ldquo;email marketer&rdquo;, and &ldquo;marketing
-      emails&rdquo; all signal the same topic to a modern search engine. Stemming collapses
-      inflected forms (marketing, marketer, markets) to a common root. Lemmatization is stricter
-      and maps word forms to dictionary headwords. Most density tools offer exact-match by
-      default and stemmed-match as a toggle. For SEO analysis, stemmed counts are usually more
-      honest.
+      Yalnızca tam eşleşmeleri sayan bir yoğunluk aracı, bir konunun gerçek önemini eksik rapor eder. "E-posta pazarlaması", "e-posta pazarlamacısı" ve "pazarlama e-postaları"nın tümü, modern bir arama motoruna aynı konuyu işaret eder. Kök bulma, çekimli biçimleri (pazarlama, pazarlamacı, pazarlar) ortak bir köke indirger. Lemmatizasyon daha katıdır ve kelime biçimlerini sözlük temel sözcüklerine eşler. Çoğu yoğunluk aracı varsayılan olarak tam eşleşme ve bir geçiş olarak kök bulmalı eşleşme sunar. SEO analizi için, kök bulmalı sayılar genellikle daha dürüsttür.
     </p>
 
-    <h2>LSI and semantic terms</h2>
+    <h2>LSI ve anlamsal terimler</h2>
     <p>
-      &ldquo;LSI keywords&rdquo; is an SEO term borrowed loosely from Latent Semantic Indexing,
-      a 1990s information-retrieval technique. Google does not use actual LSI in its production
-      ranking, despite the name&rsquo;s popularity in SEO content. What Google does use is
-      topic modeling via <a href="/learn/transformer">transformer</a>-based language models, which recognize that a page about
-      &ldquo;cameras&rdquo; should probably mention &ldquo;lens&rdquo;, &ldquo;shutter&rdquo;,
-      &ldquo;aperture&rdquo;, and &ldquo;exposure&rdquo;. These are often called LSI keywords in
-      SEO tools but are better described as semantically related terms or co-occurring topic
-      terms. Checking that your page covers the terms your competitors cover is more useful than
-      hitting a density threshold on the primary keyword.
+      "LSI anahtar kelimeleri", 1990'ların bir bilgi erişim tekniği olan Latent Semantic Indexing'den gevşek bir şekilde ödünç alınmış bir SEO terimidir. Google, adının SEO içeriğindeki popülaritesine rağmen, üretim sıralamasında gerçek LSI kullanmaz. Google'ın kullandığı şey, "kameralar" hakkındaki bir sayfanın muhtemelen "lens", "deklanşör", "diyafram" ve "pozlama"dan bahsetmesi gerektiğini tanıyan <a href="/learn/transformer">transformer</a> tabanlı dil modelleri aracılığıyla konu modellemesidir. Bunlara SEO araçlarında genellikle LSI anahtar kelimeleri denir, ancak daha iyi bir tanım anlamsal olarak ilişkili terimler veya birlikte oluşan konu terimleridir. Sayfanızın rakiplerinizin kapsadığı terimleri kapsadığını kontrol etmek, birincil anahtar kelimede bir yoğunluk eşiğine ulaşmaktan daha kullanışlıdır.
     </p>
 
-    <h2>Competitor density analysis</h2>
+    <h2>Rakip yoğunluk analizi</h2>
     <p>
-      Before optimizing your density, measure what top-ranking competitors use. Pull the top
-      five organic results for your target query, strip navigation and boilerplate, and compute
-      density for each. The median tells you what density Google considers appropriate for that
-      query. If your page sits far outside that range (either much higher or much lower), the
-      content is probably an outlier in either information density or relevance. Match the
-      competitive baseline before trying to exceed it.
+      Yoğunluğunuzu optimize etmeden önce, en üst sıradaki rakiplerin ne kullandığını ölçün. Hedef sorgunuz için ilk beş organik sonucu alın, gezinme ve şablon metinleri çıkarın ve her biri için yoğunluğu hesaplayın. Medyan, Google'ın bu sorgu için uygun gördüğü yoğunluğu söyler. Sayfanız bu aralığın çok dışındaysa (çok daha yüksek veya çok daha düşük), içerik muhtemelen bilgi yoğunluğu veya alaka düzeyi açısından aykırı bir değerdir. Aşmaya çalışmadan önce rekabetçi taban çizgisini eşleştirin.
     </p>
 
-    <h2>Density by document zone</h2>
+    <h2>Belge bölgesine göre yoğunluk</h2>
     <p>
-      Word position matters more than raw density. A keyword in the title, H1, first paragraph,
-      URL, and first image alt attribute signals topic more strongly than the same keyword
-      repeated ten times in a sidebar. Modern density analysis should weight different zones
-      differently, or at least report density per zone (title, H1, intro, body, footer). An
-      unfocused page with the right density in the wrong places underperforms a focused page
-      with lower density where it counts.
+      Kelime konumu, ham yoğunluktan daha önemlidir. Başlık, H1, ilk paragraf, URL ve ilk görsel alt özniteliğindeki bir anahtar kelime, aynı anahtar kelimenin bir kenar çubuğunda on kez tekrarlanmasından daha güçlü bir konu sinyali verir. Modern yoğunluk analizi, farklı bölgeleri farklı şekilde ağırlıklandırmalı veya en azından bölge başına yoğunluğu (başlık, H1, giriş, gövde, altbilgi) rapor etmelidir. Doğru yoğunluğa sahip ancak yanlış yerlerde olan odaksız bir sayfa, önemli yerlerde daha düşük yoğunluğa sahip odaklı bir sayfadan daha kötü performans gösterir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Targeting a fixed density number.</strong> &ldquo;I want exactly 2 percent&rdquo;
-      leads to stilted writing with the keyword inserted mechanically. Write for the reader and
-      measure density as a diagnostic.
+      <strong>Sabit bir yoğunluk sayısını hedeflemek.</strong> "Tam olarak yüzde 2 istiyorum" ifadesi, anahtar kelimenin mekanik olarak yerleştirildiği yapmacık yazılara yol açar. Okuyucu için yazın ve yoğunluğu tanısal bir araç olarak ölçün.
     </p>
     <p>
-      <strong>Ignoring phrase variations.</strong> Counting only exact matches misses
-      &ldquo;marketing emails&rdquo; when you are measuring &ldquo;email marketing&rdquo;. Use
-      stemmed or lemmatized counts for an honest picture.
+      <strong>İfade varyasyonlarını göz ardı etmek.</strong> Yalnızca tam eşleşmeleri saymak, "e-posta pazarlaması"nı ölçerken "pazarlama e-postaları"nı kaçırır. Dürüst bir tablo için kök bulmalı veya lemmatize edilmiş sayımlar kullanın.
     </p>
     <p>
-      <strong>Counting everything on the page.</strong> Navigation, footer, sidebar, and
-      boilerplate dilute or inflate the density measurement. Analyze the main content area
-      only, as a search engine would.
+      <strong>Sayfadaki her şeyi saymak.</strong> Gezinme, altbilgi, kenar çubuğu ve şablon metin, yoğunluk ölçümünü seyreltir veya şişirir. Bir arama motorunun yapacağı gibi yalnızca ana içerik alanını analiz edin.
     </p>
     <p>
-      <strong>Stuffing alt text and meta tags.</strong> Image alt attributes and meta
-      descriptions full of keyword variants are an old pattern that still triggers penalties.
-      Write alt text that describes the image; write descriptions that describe the page.
+      <strong>Alt metni ve meta etiketleri doldurmak.</strong> Anahtar kelime varyantlarıyla dolu görsel alt öznitelikleri ve meta açıklamaları, hâlâ cezaları tetikleyen eski bir kalıptır. Görseli tanımlayan alt metin yazın; sayfayı tanımlayan açıklamalar yazın.
     </p>
     <p>
-      <strong>Ignoring anchor text.</strong> Internal and inbound anchor text counts toward how
-      search engines associate a page with topics. Heavy anchor-text repetition with the same
-      exact phrase is a signal of manipulation.
+      <strong>Çapa metnini göz ardı etmek.</strong> İç ve gelen çapa metni, arama motorlarının bir sayfayı konularla nasıl ilişkilendirdiğine katkıda bulunur. Aynı tam ifadenin ağır çapa metni tekrarı, manipülasyon sinyalidir.
     </p>
     <p>
-      <strong>Forgetting to measure after edits.</strong> Adding a single section or rewriting
-      the intro can shift density by half a percent. Re-measure after significant edits to
-      verify the page still focuses where you intended.
+      <strong>Düzenlemelerden sonra ölçmeyi unutmak.</strong> Tek bir bölüm eklemek veya girişi yeniden yazmak yoğunluğu yarım puan kaydırabilir. Sayfanın hâlâ amaçladığınız yere odaklandığını doğrulamak için önemli düzenlemelerden sonra yeniden ölçün.
     </p>
     <p>
-      <strong>Treating LSI keywords as magic.</strong> Dropping in a list of related terms does
-      not substitute for writing about the topic thoroughly. Related terms should appear because
-      you covered the topic, not because a tool said they should.
+      <strong>LSI anahtar kelimelerini sihirli olarak görmek.</strong> İlgili terimlerin bir listesini eklemek, konuyu kapsamlı bir şekilde yazmanın yerini tutmaz. İlgili terimler, bir araç olması gerektiğini söylediği için değil, konuyu ele aldığınız için görünmelidir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Measure keyword density, phrase frequency, and term distribution with the{" "}
-      <a href="/tools/keyword-density-checker">keyword density checker</a>. Pair with the{" "}
-      <a href="/tools/readability-score-checker">readability score checker</a> to make sure
-      optimizing density has not made the prose harder to read, and the{" "}
-      <a href="/tools/meta-description-length-checker">meta description length checker</a>
-      {" "}to confirm the key terms make it into the snippet that shows in search results.
+      Anahtar kelime yoğunluğunu, ifade sıklığını ve terim dağılımını{" "}
+      <a href="/tools/keyword-density-checker">anahtar kelime yoğunluğu denetleyicisi</a> ile ölçün. Yoğunluğu optimize etmenin metni okumayı zorlaştırmadığından emin olmak için{" "}
+      <a href="/tools/readability-score-checker">okunabilirlik puanı denetleyicisi</a> ile ve anahtar terimlerin arama sonuçlarında gösterilen snippet'e girdiğini onaylamak için{" "}
+      <a href="/tools/meta-description-length-checker">meta açıklama uzunluğu denetleyicisi</a> ile birlikte kullanın.
     </p>
   </>
 );

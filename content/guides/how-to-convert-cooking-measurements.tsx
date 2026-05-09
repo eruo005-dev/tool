@@ -3,177 +3,177 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      You&rsquo;re halfway into a French pastry recipe when it asks for 250g of flour and
-      your measuring cups are in US customary units. You eyeball it, the dough turns into
-      glue, and now you&rsquo;re angry at the internet. Cooking conversions look simple
-      until you hit the three traps that ruin batches: volume vs weight for dry
-      ingredients, the US/UK/metric cup drift, and oven temperatures that nobody agrees
-      on. This guide covers the unit systems you&rsquo;ll actually encounter, when
-      precision matters (baking) versus when it doesn&rsquo;t (soups), the flour-and-sugar
-      weight tables that professional kitchens use, and the <a href="/learn/temperature-ai">temperature</a> conversions that
-      keep your cakes from turning into bricks.
+      Bir Fransız hamur işi tarifinin yarısındasınız ve 250g un istiyor, sizin ölçü
+      kaplarınız ise ABD geleneksel birimlerinde. Göz kararı yapıyorsunuz, hamur
+      yapışkan bir kütleye dönüşüyor ve şimdi internete kızgınsınız. Yemek
+      dönüşümleri, partileri mahveden üç tuzağa rastlayana kadar basit görünür: kuru
+      malzemelerde hacim ve ağırlık farkı, ABD/İngiltere/metrik bardak farkı ve
+      kimsenin üzerinde anlaşamadığı fırın sıcaklıkları. Bu rehber, karşılaşacağınız
+      birim sistemlerini, hassasiyetin önemli olduğu (fırıncılık) ve olmadığı
+      (çorbalar) durumları, profesyonel mutfakların kullandığı un ve şeker ağırlık
+      tablolarını ve keklerinizi tuğlaya çevirmekten kurtaran <a href="/learn/temperature-ai">sıcaklık</a> dönüşümlerini kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The three cup sizes that trip people up</h2>
+    <h2>İnsanların kafasını karıştıran üç bardak boyutu</h2>
     <p>
-      A &ldquo;cup&rdquo; is not one unit. The <strong>US customary cup</strong> is
-      240ml, the <strong>US legal cup</strong> (used on nutrition labels) is 240ml
-      rounded from 236.588ml, the <strong>metric cup</strong> used in Australia, New
-      Zealand, and Canada is 250ml, and the historical <strong>UK imperial cup</strong>
-      was 284ml &mdash; though modern UK recipes almost always use grams instead. If a
-      recipe says &ldquo;1 cup flour&rdquo; and you use a 250ml cup where a 240ml was
-      intended, you&rsquo;ve added 4% extra. For bread or macarons that&rsquo;s enough to
-      wreck the hydration ratio.
+      Bir &ldquo;bardağın&rdquo; tek bir birimi yoktur. <strong>ABD geleneksel bardağı</strong>
+      240ml, <strong>ABD yasal bardağı</strong> (besin etiketlerinde kullanılır) 236.588ml'den
+      yuvarlanmış 240ml, Avustralya, Yeni Zelanda ve Kanada'da kullanılan <strong>metrik bardak</strong>
+      250ml ve tarihi <strong>İngiltere imparatorluk bardağı</strong>
+      284ml idi &mdash; ancak modern İngiltere tarifleri neredeyse her zaman gram kullanır. Bir
+      tarif &ldquo;1 bardak un&rdquo; diyorsa ve siz 240ml olması gerekirken 250ml'lik bir bardak
+      kullanıyorsanız, %4 fazla eklemiş olursunuz. Ekmek veya makaronlar için bu, hidrasyon
+      oranını bozmaya yeter.
     </p>
 
-    <h2>Teaspoons and tablespoons</h2>
+    <h2>Çay kaşığı ve yemek kaşığı</h2>
     <p>
-      These are more consistent globally. A <strong>teaspoon</strong> is 5ml everywhere
-      except Australia where it&rsquo;s sometimes 5ml and sometimes not. A{" "}
-      <strong>tablespoon</strong> is 15ml in the US and UK, 20ml in Australia. That 33%
-      difference in tablespoons matters for anything with salt, leavener, or strong
-      spices &mdash; a tablespoon of baking soda when you meant 15ml will taste like
-      soap.
+      Bunlar küresel olarak daha tutarlıdır. Bir <strong>çay kaşığı</strong> Avustralya hariç her yerde
+      5ml'dir, orada bazen 5ml bazen değildir. Bir{" "}
+      <strong>yemek kaşığı</strong> ABD ve İngiltere'de 15ml, Avustralya'da 20ml'dir. Yemek
+      kaşıklarındaki bu %33'lük fark, tuz, kabartma tozu veya güçlü baharatlar içeren her şeyde
+      önemlidir &mdash; 15ml olması gerekirken bir yemek kaşığı karbonat koyarsanız tadı sabun
+      gibi olur.
     </p>
-    <pre>{`1 tsp  = 5 ml
-1 tbsp = 15 ml (US/UK) or 20 ml (AU)
-1 fl oz = 29.5735 ml
-1 US cup = 16 tbsp = 48 tsp = 240 ml
-1 metric cup = 250 ml
-1 pint (US) = 473 ml, 1 pint (UK) = 568 ml`}</pre>
+    <pre>{`1 çay kaşığı  = 5 ml
+1 yemek kaşığı = 15 ml (ABD/İngiltere) veya 20 ml (AU)
+1 sıvı ons = 29.5735 ml
+1 ABD bardağı = 16 yemek kaşığı = 48 çay kaşığı = 240 ml
+1 metrik bardak = 250 ml
+1 pint (ABD) = 473 ml, 1 pint (İngiltere) = 568 ml`}</pre>
 
-    <h2>Volume vs weight for flour</h2>
+    <h2>Un için hacim ve ağırlık</h2>
     <p>
-      This is the biggest source of recipe failure. A cup of flour can weigh anywhere from
-      120g to 155g depending on how it&rsquo;s scooped. A packed cup (scoop-and-shake) is
-      ~150g. A spooned-and-leveled cup is ~125g. That&rsquo;s a 20% variance in the core
-      ingredient, which is why every serious baking recipe now lists flour by weight.
-      <strong> Use a kitchen scale for baking</strong> &mdash; a $15 scale pays for
-      itself the first time your cookies stop being a lottery.
+      Bu, tarif başarısızlığının en büyük kaynağıdır. Bir bardak un, nasıl alındığına bağlı olarak
+      120g ile 155g arasında herhangi bir ağırlıkta olabilir. Sıkıştırılmış bir bardak (al-salla)
+      ~150g'dır. Kaşıkla alınıp düzeltilmiş bir bardak ~125g'dır. Bu, ana bileşende %20'lik bir
+      fark anlamına gelir, bu nedenle ciddi her fırıncılık tarifi artık unu ağırlıkla belirtir.
+      <strong> Fırıncılık için mutfak terazisi kullanın</strong> &mdash; 15 dolarlık bir terazi,
+      kurabiyelerinizin bir kumar olmaktan çıktığı ilk seferde kendini amorti eder.
     </p>
     <p>
-      Reference weights: all-purpose flour 125g/cup, bread flour 130g/cup, cake flour
-      115g/cup, whole wheat flour 130g/cup. These assume the spoon-and-level method.
-    </p>
-
-    <h2>Sugar, butter, and other dense staples</h2>
-    <p>
-      Granulated sugar is denser and more consistent than flour: 200g per US cup. Brown
-      sugar depends on how it&rsquo;s packed &mdash; a packed cup is ~220g, a loose cup
-      is ~170g. Recipes that say &ldquo;1 cup packed brown sugar&rdquo; mean push it down
-      with the back of a spoon so it holds the cup shape when dumped. Butter in the US
-      comes in 113g sticks (quarter-pound), subdivided into 8 tablespoons per stick. In
-      Europe, butter is almost always measured in grams.
+      Referans ağırlıklar: çok amaçlı un 125g/bardak, ekmek unu 130g/bardak, kek unu
+      115g/bardak, tam buğday unu 130g/bardak. Bunlar kaşıkla alıp düzeltme yöntemini varsayar.
     </p>
 
-    <h2>Liquids are simpler but watch the ounce</h2>
+    <h2>Şeker, tereyağı ve diğer yoğun temel malzemeler</h2>
     <p>
-      Fluid ounces measure volume. Weight ounces measure mass. For water they&rsquo;re
-      nearly equal (8 fl oz = 236g of water), which is where the confusion comes from.
-      For anything denser &mdash; honey, molasses, heavy cream &mdash; 8 fl oz weighs
-      more than 8 oz. A recipe that asks for &ldquo;8 oz honey&rdquo; is ambiguous;
-      assume weight unless context says volume.
+      Toz şeker undan daha yoğun ve daha tutarlıdır: ABD bardağı başına 200g. Esmer şeker
+      nasıl paketlendiğine bağlıdır &mdash; sıkıştırılmış bir bardak ~220g, gevşek bir bardak
+      ~170g'dır. &ldquo;1 bardak sıkıştırılmış esmer şeker&rdquo; diyen tarifler, bir kaşığın
+      tersiyle bastırın, böylece döküldüğünde bardak şeklini korusun anlamına gelir. ABD'de
+      tereyağı 113g'lik çubuklar halinde (çeyrek pound) gelir ve her çubukta 8 yemek kaşığı
+      bulunur. Avrupa'da tereyağı neredeyse her zaman gramla ölçülür.
     </p>
 
-    <h2>Oven temperatures: Fahrenheit, Celsius, gas marks</h2>
+    <h2>Sıvılar daha basittir ancak onsa dikkat edin</h2>
     <p>
-      The common conversion is C = (F &minus; 32) &times; 5/9, but memorize these
-      landmarks because they come up constantly: 350&deg;F = 175&deg;C = gas mark 4
-      (classic baking), 375&deg;F = 190&deg;C = gas mark 5, 400&deg;F = 200&deg;C = gas
-      mark 6, 425&deg;F = 220&deg;C = gas mark 7 (pizza), 450&deg;F = 230&deg;C = gas
-      mark 8.
-    </p>
-    <pre>{`F     C     Gas  Common use
-250   120   1/2  Meringues, slow drying
-300   150   2    Slow roasts
-350   175   4    Most baking (default)
-375   190   5    Muffins, quick breads
-400   200   6    Roast vegetables
-425   220   7    Pizza, hot-roasting
-450   230   8    Bread crust, broiling
-500   260   10   Neapolitan pizza (domestic max)`}</pre>
-    <p>
-      Convection (fan) ovens run hotter. Drop the temperature 15&ndash;20&deg;C (~25&deg;F)
-      or reduce the time by 20% when converting from a conventional recipe.
+      Sıvı ons hacmi ölçer. Ağırlık ons kütleyi ölçer. Su için neredeyse eşittirler (8 sıvı ons = 236g su),
+      kafa karışıklığının kaynağı da budur. Daha yoğun herhangi bir şey için &mdash; bal, pekmez, krema
+      &mdash; 8 sıvı ons, 8 onstan daha ağırdır. &ldquo;8 ons bal&rdquo; isteyen bir tarif
+      belirsizdir; bağlam hacmi belirtmiyorsa ağırlık olduğunu varsayın.
     </p>
 
-    <h2>Regional recipe language</h2>
+    <h2>Fırın sıcaklıkları: Fahrenheit, Celsius, gaz işaretleri</h2>
     <p>
-      American recipes use cups, sticks of butter, and Fahrenheit. British recipes use
-      grams, milliliters, and Celsius &mdash; and call self-rising flour what Americans
-      call self-rising flour (same thing, different name). Australian recipes use the
-      20ml tablespoon. French recipes almost always weight-based, with butter in grams
-      and temperatures in Celsius. When you find a recipe you love, take 10 minutes to
-      write in the conversions next to the original measurements &mdash; future-you will
-      thank you.
+      Yaygın dönüşüm C = (F &minus; 32) &times; 5/9'dur, ancak bu referans noktalarını ezberleyin
+      çünkü sürekli karşınıza çıkarlar: 350&deg;F = 175&deg;C = gaz işareti 4
+      (klasik fırıncılık), 375&deg;F = 190&deg;C = gaz işareti 5, 400&deg;F = 200&deg;C = gaz
+      işareti 6, 425&deg;F = 220&deg;C = gaz işareti 7 (pizza), 450&deg;F = 230&deg;C = gaz
+      işareti 8.
+    </p>
+    <pre>{`F     C     Gaz  Yaygın Kullanım
+250   120   1/2  Beze, yavaş kurutma
+300   150   2    Yavaş kızartmalar
+350   175   4    Çoğu fırıncılık (varsayılan)
+375   190   5    Muffin, hızlı ekmekler
+400   200   6    Sebze kızartma
+425   220   7    Pizza, yüksek ısıda kızartma
+450   230   8    Ekmek kabuğu, ızgara
+500   260   10   Napoli pizzası (ev tipi maksimum)`}</pre>
+    <p>
+      Konveksiyon (fanlı) fırınlar daha sıcak çalışır. Geleneksel bir tariften dönüştürürken
+      sıcaklığı 15&ndash;20&deg;C (~25&deg;F) düşürün veya süreyi %20 azaltın.
     </p>
 
-    <h2>When precision matters and when it doesn&rsquo;t</h2>
+    <h2>Bölgesel tarif dili</h2>
     <p>
-      <strong>Baking, pastry, and confectionery</strong> are chemistry &mdash; ratios of
-      flour:fat:liquid:leavener determine whether the thing rises or collapses. Weigh
-      everything. <strong>Soups, stews, stir-fries, and braises</strong> are forgiving
-      &mdash; eyeballed is fine. <strong>Candy-making and sugar work</strong> require a
-      thermometer, not measuring cups &mdash; temperature stages (soft-ball, hard-crack)
-      matter more than weights. <strong>Sourdough</strong> is weight-obsessed because
-      baker&rsquo;s percentages define the dough.
+      Amerikan tarifleri bardak, tereyağı çubuğu ve Fahrenheit kullanır. İngiliz tarifleri gram,
+      mililitre ve Celsius kullanır &mdash; ve kendiliğinden kabaran una Amerikalıların
+      kendiliğinden kabaran un dediği şeyi derler (aynı şey, farklı isim). Avustralya tarifleri
+      20ml'lik yemek kaşığını kullanır. Fransız tarifleri neredeyse her zaman ağırlık bazlıdır,
+      tereyağı gram, sıcaklıklar Celsius cinsindendir. Sevdiğiniz bir tarif bulduğunuzda, orijinal
+      ölçülerin yanına dönüşümleri yazmak için 10 dakika ayırın &mdash; gelecekteki siz size
+      teşekkür edecek.
     </p>
 
-    <h2>Converting a whole recipe</h2>
+    <h2>Hassasiyet ne zaman önemlidir ve ne zaman değildir</h2>
     <p>
-      Don&rsquo;t convert piece by piece &mdash; you&rsquo;ll accumulate rounding errors.
-      Convert the largest ingredient (usually flour or liquid) first, then scale others
-      proportionally. For doubling or halving, rewrite the whole recipe in the target
-      units before you start, and double-check the egg count &mdash; you can&rsquo;t
-      halve an egg without beating and measuring, and 30g of beaten egg is roughly half
-      a large egg.
+      <strong>Fırıncılık, pasta ve şekerlemeler</strong> kimyadır &mdash; un:yağ:sıvı:kabartıcı
+      oranları, şeyin kabarıp kabarmayacağını veya çöküp çökmeyeceğini belirler. Her şeyi
+      tartın. <strong>Çorbalar, yahniler, wok yemekleri ve kavurmalar</strong> affedicidir
+      &mdash; göz kararı yeterlidir. <strong>Şekerleme ve şeker işleri</strong> ölçü kapları değil,
+      bir termometre gerektirir &mdash; sıcaklık aşamaları (yumuşak top, sert kırılma)
+      ağırlıklardan daha önemlidir. <strong>Ekşi maya</strong> ağırlık takıntılıdır çünkü
+      fırıncı yüzdeleri hamuru tanımlar.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Bir tarifin tamamını dönüştürme</h2>
     <p>
-      <strong>Using fl oz and oz interchangeably.</strong> Fluid ounces are volume,
-      weight ounces are mass. They&rsquo;re only equal for water.
-    </p>
-    <p>
-      <strong>Scooping flour instead of spooning.</strong> Plunging the cup into the bag
-      packs the flour and adds 20&ndash;30g. Spoon into the cup, then level with a knife.
-    </p>
-    <p>
-      <strong>Converting oven temps without adjusting convection.</strong> Fan ovens run
-      hot &mdash; subtract 20&deg;C from the conventional temperature or your cake browns
-      before it sets.
-    </p>
-    <p>
-      <strong>Assuming 1 cup = 250ml everywhere.</strong> In US recipes it&rsquo;s 240ml.
-      The 4% difference wrecks bread hydration.
-    </p>
-    <p>
-      <strong>Using the wrong tablespoon.</strong> Australian tablespoons are 20ml, not
-      15ml. For salt, baking soda, or baking powder that&rsquo;s enough to ruin the
-      dish.
-    </p>
-    <p>
-      <strong>Trusting conversions for brown sugar without packing.</strong> Packed and
-      loose cups of brown sugar differ by 30%. Recipes almost always mean packed.
-    </p>
-    <p>
-      <strong>Ignoring altitude.</strong> Above 3,000ft, leaveners over-rise and liquids
-      evaporate faster. Conversion tables don&rsquo;t cover this &mdash; look up
-      altitude-specific adjustments.
+      Parça parça dönüştürmeyin &mdash; yuvarlama hataları birikir. Önce en büyük bileşeni
+      (genellikle un veya sıvı) dönüştürün, ardından diğerlerini orantılı olarak ölçeklendirin.
+      İkiye katlama veya yarıya indirme için, başlamadan önce tüm tarifi hedef birimlerde
+      yeniden yazın ve yumurta sayısını iki kez kontrol edin &mdash; bir yumurtayı çırpmadan
+      ve ölçmeden yarıya indiremezsiniz ve 30g çırpılmış yumurta kabaca büyük bir yumurtanın
+      yarısıdır.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Convert cups, grams, tablespoons, and oven temperatures in one place with the{" "}
-      <a href="/tools/cooking-converter">cooking converter</a>. Pair with the{" "}
-      <a href="/tools/unix-timestamp-converter">unix timestamp converter</a> for tracking
-      fermentation and proofing start times across timezones, and the{" "}
-      <a href="/tools/time-zone-converter">time zone converter</a> for coordinating
-      multi-step bakes with collaborators.
+      <strong>Sıvı ons ve ağırlık onsunu birbirinin yerine kullanmak.</strong> Sıvı ons hacimdir,
+      ağırlık ons kütledir. Sadece su için eşittirler.
+    </p>
+    <p>
+      <strong>Unu kaşıkla almak yerine daldırarak almak.</strong> Bardağı torbaya daldırmak
+      unu sıkıştırır ve 20&ndash;30g ekler. Kaşıkla bardağa koyun, ardından bir bıçakla
+      düzeltin.
+    </p>
+    <p>
+      <strong>Fırın sıcaklıklarını konveksiyonu ayarlamadan dönüştürmek.</strong> Fanlı
+      fırınlar sıcak çalışır &mdash; geleneksel sıcaklıktan 20&deg;C çıkarın, yoksa kekiniz
+      oturmadan önce kızarır.
+    </p>
+    <p>
+      <strong>1 bardağın her yerde 250ml olduğunu varsaymak.</strong> ABD tariflerinde
+      240ml'dir. %4'lük fark ekmek hidrasyonunu bozar.
+    </p>
+    <p>
+      <strong>Yanlış yemek kaşığını kullanmak.</strong> Avustralya yemek kaşıkları 20ml'dir,
+      15ml değil. Tuz, karbonat veya kabartma tozu için bu, yemeği mahvetmeye yeter.
+    </p>
+    <p>
+      <strong>Esmer şeker için sıkıştırmadan dönüşümlere güvenmek.</strong> Sıkıştırılmış ve
+      gevşek esmer şeker bardakları %30 farklıdır. Tarifler neredeyse her zaman
+      sıkıştırılmış anlamına gelir.
+    </p>
+    <p>
+      <strong>Rakımı göz ardı etmek.</strong> 3.000ft'nin üzerinde, kabartıcılar aşırı
+      kabarır ve sıvılar daha hızlı buharlaşır. Dönüşüm tabloları bunu kapsamaz &mdash;
+      rakıma özgü ayarlamalara bakın.
+    </p>
+
+    <h2>Rakamları çalıştırın</h2>
+    <p>
+      Bardak, gram, yemek kaşığı ve fırın sıcaklıklarını tek bir yerde dönüştürmek için{" "}
+      <a href="/tools/cooking-converter">yemek dönüştürücüyü</a> kullanın. Fermantasyon ve
+      mayalanma başlangıç zamanlarını saat dilimleri arasında takip etmek için{" "}
+      <a href="/tools/unix-timestamp-converter">unix zaman damgası dönüştürücü</a> ve
+      işbirlikçilerle çok aşamalı pişirmeleri koordine etmek için{" "}
+      <a href="/tools/time-zone-converter">saat dilimi dönüştürücü</a> ile eşleştirin.
     </p>
   </>
 );

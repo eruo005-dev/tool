@@ -3,141 +3,114 @@
 export const intro = (
   <>
     <p>
-      If you&rsquo;re hiring someone to build your gaming PC, the prep work you do
-      before dropping off parts saves time, prevents misunderstandings, and
-      protects your warranty rights. This is the practical pre-build checklist.
+      Birine oyun bilgisayarınızı toplaması için iş veriyorsanız, parçaları teslim etmeden önce yapacağınız hazırlık çalışmaları zaman kazandırır, yanlış anlaşılmaları önler ve garanti haklarınızı korur. İşte pratik, toplama öncesi kontrol listesi.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "before-buying", label: "Before buying parts" },
-  { id: "before-dropoff", label: "Before drop-off" },
-  { id: "what-to-bring", label: "What to bring with the parts" },
-  { id: "after-pickup", label: "After pickup" },
+  { id: "before-buying", label: "Parçaları satın almadan önce" },
+  { id: "before-dropoff", label: "Teslim etmeden önce" },
+  { id: "what-to-bring", label: "Parçalarla birlikte ne getirilmeli" },
+  { id: "after-pickup", label: "Teslim aldıktan sonra" },
 ];
 
 export const body = (
   <>
-    <h2 id="before-buying">Before buying parts</h2>
+    <h2 id="before-buying">Parçaları satın almadan önce</h2>
     <ol>
       <li>
-        <strong>Get the builder&rsquo;s parts compatibility check.</strong> Most
-        professional builders will review your parts list and flag compatibility
-        issues (CPU/motherboard mismatch, PSU wattage shortfall, case clearance for
-        cooler) before you commit to purchases. Free service. Take advantage.
+        <strong>Toplayıcıdan parça uyumluluk kontrolü isteyin.</strong> Çoğu profesyonel toplayıcı, satın alma işlemini yapmadan önce parça listenizi inceleyip uyumluluk sorunlarını (CPU/ anakart uyuşmazlığı, PSU watt değeri yetersizliği, soğutucu için kasa boşluğu) işaretler. Ücretsiz hizmet. Değerlendirin.
       </li>
       <li>
-        <strong>Confirm warranty terms.</strong> Some builders only warranty their
-        labor on parts they sourced. Verify they&rsquo;ll labor-warranty parts you
-        bring in.
+        <strong>Garanti koşullarını onaylayın.</strong> Bazı toplayıcılar yalnızca kendi tedarik ettikleri parçalar için işçilik garantisi verir. Sizin getirdiğiniz parçalara işçilik garantisi verip vermeyeceklerini doğrulayın.
       </li>
       <li>
-        <strong>Confirm OS license terms.</strong> Bring your own Windows license
-        (cheaper) or have them include one (convenient). Verify before buying.
+        <strong>İşletim sistemi lisans koşullarını onaylayın.</strong> Kendi Windows lisansınızı getirin (daha ucuz) veya onların bir tane eklemesini sağlayın (pratik). Satın almadan önce doğrulayın.
       </li>
       <li>
-        <strong>Check the calendar.</strong> Some builders book 1-3 weeks out. If
-        you have a specific need-by date, book early.
+        <strong>Takvimi kontrol edin.</strong> Bazı toplayıcılar 1-3 hafta sonrasına randevu alır. Belirli bir teslim tarihiniz varsa, erken rezervasyon yaptırın.
       </li>
     </ol>
 
-    <h2 id="before-dropoff">Before drop-off — preparation checklist</h2>
+    <h2 id="before-dropoff">Teslim etmeden önce — hazırlık kontrol listesi</h2>
     <ul>
       <li>
-        <strong>Keep all original boxes.</strong> The builder may need them for
-        returns / exchanges if a part is DOA. Plus the boxes hold the manufacturer
-        warranty cards.
+        <strong>Tüm orijinal kutuları saklayın.</strong> Toplayıcı, bir parça arızalı çıkarsa iade/değişim için onlara ihtiyaç duyabilir. Ayrıca kutular üretici garanti kartlarını içerir.
       </li>
       <li>
-        <strong>Save all receipts.</strong> Required for any future RMA. Print or
-        save PDFs.
+        <strong>Tüm fişleri saklayın.</strong> Gelecekteki herhangi bir RMA için gereklidir. Çıktı alın veya PDF olarak kaydedin.
       </li>
       <li>
-        <strong>Don&rsquo;t open sealed parts.</strong> Some retailers (Amazon)
-        accept open-box returns; some (Newegg, B&amp;H) don&rsquo;t. Builder will
-        unbox during build.
+        <strong>Mühürlü parçaları açmayın.</strong> Bazı perakendeciler (Amazon) açılmış kutu iadesini kabul eder; bazıları (Newegg, B&amp;H) kabul etmez. Toplayıcı, toplama sırasında kutuyu açacaktır.
       </li>
       <li>
-        <strong>Confirm part list matches.</strong> Print the parts list before
-        drop-off. Verify each part is present + matches the receipt.
+        <strong>Parça listesinin eşleştiğini onaylayın.</strong> Teslim etmeden önce parça listesini yazdırın. Her bir parçanın mevcut olduğunu ve fişle eşleştiğini doğrulayın.
       </li>
       <li>
-        <strong>Note any special requests.</strong> RGB color preference, case fan
-        configuration, specific cable routing. Write it down — verbal requests get
-        forgotten.
+        <strong>Özel istekleri not edin.</strong> RGB renk tercihi, kasa fanı konfigürasyonu, belirli kablo yönlendirmesi. Yazılı olarak belirtin — sözlü istekler unutulur.
       </li>
       <li>
-        <strong>Photograph parts before drop-off.</strong> Especially serial numbers
-        + condition of each part. Insurance against drop-off-condition disputes.
+        <strong>Parçaları teslim etmeden önce fotoğraflayın.</strong> Özellikle seri numaraları ve her bir parçanın durumu. Teslimat durumu anlaşmazlıklarına karşı önlem.
       </li>
       <li>
-        <strong>Confirm pickup expectations.</strong> Date, what&rsquo;s included,
-        any pre-payment vs final-payment terms.
+        <strong>Teslim alma beklentilerini onaylayın.</strong> Tarih, nelerin dahil olduğu, peşin ödeme ve kalan ödeme koşulları.
       </li>
     </ul>
 
-    <h2 id="what-to-bring">What to bring with the parts</h2>
+    <h2 id="what-to-bring">Parçalarla birlikte ne getirilmeli</h2>
     <ul>
-      <li>All parts in their original boxes.</li>
-      <li>All accessories that came with parts (extra cables, mounting brackets, manuals).</li>
-      <li>Windows license / activation key if you&rsquo;re providing it.</li>
-      <li>Printed copy of part list + special requests.</li>
-      <li>Your phone number for any questions during the build.</li>
-      <li>Photo ID if the shop requires it for valuable drop-offs.</li>
+      <li>Orijinal kutularındaki tüm parçalar.</li>
+      <li>Parçalarla gelen tüm aksesuarlar (ek kablolar, montaj braketleri, kılavuzlar).</li>
+      <li>Sağlıyorsanız Windows lisansı / etkinleştirme anahtarı.</li>
+      <li>Parça listesinin ve özel isteklerin çıktısı.</li>
+      <li>Toplama sırasında oluşabilecek sorular için telefon numaranız.</li>
+      <li>Değerli teslimatlar için dükkan talep ediyorsa fotoğraflı kimlik.</li>
     </ul>
 
-    <h2 id="after-pickup">After pickup — what to verify</h2>
+    <h2 id="after-pickup">Teslim aldıktan sonra — doğrulanması gerekenler</h2>
     <ol>
       <li>
-        <strong>Visual inspection.</strong> Cable management, no obvious bent pins,
-        case panels closed properly, fans spinning the right direction.
+        <strong>Görsel inceleme.</strong> Kablo yönetimi, belirgin bükülmüş pin olmaması, kasa panellerinin düzgün kapanması, fanların doğru yönde dönmesi.
       </li>
       <li>
-        <strong>BIOS settings.</strong> Boot to BIOS. Confirm XMP/EXPO is enabled
-        for RAM (check rated speed displays). Confirm boot priority is set
-        correctly.
+        <strong>BIOS ayarları.</strong> BIOS'a önyükleme yapın. RAM için XMP/EXPO'nun etkin olduğunu onaylayın (belirtilen hızı gösterdiğini kontrol edin). Önyükleme önceliğinin doğru ayarlandığını onaylayın.
       </li>
       <li>
-        <strong>Stress test independently.</strong> Run OCCT or Prime95 for 30
-        minutes. Verify CPU temps stay under 90°C. Run Furmark or 3DMark for GPU.
+        <strong>Bağımsız stres testi yapın.</strong> 30 dakika boyunca OCCT veya Prime95 çalıştırın. CPU sıcaklıklarının 90°C'nin altında kaldığını doğrulayın. GPU için Furmark veya 3DMark çalıştırın.
       </li>
       <li>
-        <strong>Verify all parts present.</strong> Open the case (if accessible).
-        Confirm RAM count, M.2 drives present, GPU model matches receipt.
+        <strong>Tüm parçaların mevcut olduğunu doğrulayın.</strong> Kasayı açın (erişilebilirse). RAM sayısını, M.2 sürücülerin varlığını, GPU modelinin fişle eşleştiğini onaylayın.
       </li>
       <li>
-        <strong>Test all USB ports + audio + Ethernet.</strong> Plug devices in,
-        verify connectivity.
+        <strong>Tüm USB bağlantı noktalarını, ses ve Ethernet'i test edin.</strong> Cihazları takın, bağlantıyı doğrulayın.
       </li>
       <li>
-        <strong>Verify warranty paperwork.</strong> Dated, signed, lists what&rsquo;s
-        covered, contact info for service requests.
+        <strong>Garanti belgelerini doğrulayın.</strong> Tarihli, imzalı, nelerin kapsandığını listeleyen, servis talepleri için iletişim bilgilerini içeren.
       </li>
       <li>
-        <strong>Save the original parts boxes.</strong> Some manufacturer warranties
-        require original packaging for RMA.
+        <strong>Orijinal parça kutularını saklayın.</strong> Bazı üretici garantileri RMA için orijinal ambalajı gerektirir.
       </li>
     </ol>
   </>
 );
 
 export const cta = {
-  label: "Find a hire-vs-DIY breakeven for your numbers",
+  label: "Kendi rakamlarınız için işe alma ve kendi yapma arasındaki başabaş noktasını bulun",
   targetSlug: "pc-build-vs-hire-calculator",
 };
 
 export const faq = [
   {
-    q: "How to prepare your parts before hiring PC assembly?",
-    a: "Get builder's compatibility check before buying. Confirm warranty terms (will they labor-warranty parts you brought?). Save receipts + boxes. Don't open sealed parts. Print part list. Note special requests in writing. Photograph parts before drop-off. Confirm pickup date + payment terms.",
+    q: "PC toplama işi için işe almadan önce parçalar nasıl hazırlanır?",
+    a: "Satın almadan önce toplayıcıdan uyumluluk kontrolü isteyin. Garanti koşullarını onaylayın (getirdiğiniz parçalara işçilik garantisi verecekler mi?). Fişleri ve kutuları saklayın. Mühürlü parçaları açmayın. Parça listesini yazdırın. Özel istekleri yazılı olarak not edin. Parçaları teslim etmeden önce fotoğraflayın. Teslim alma tarihini ve ödeme koşullarını onaylayın.",
   },
   {
-    q: "What should I bring when dropping off parts for PC assembly?",
-    a: "All parts in original boxes (with accessories), Windows license if providing your own, printed parts list + special requests, your phone for questions during build, photo ID if shop requires for valuable drop-offs.",
+    q: "PC toplama için parçaları teslim ederken ne getirmeliyim?",
+    a: "Orijinal kutularındaki tüm parçalar (aksesuarlarla birlikte), kendiniz sağlıyorsanız Windows lisansı, yazdırılmış parça listesi ve özel istekler, toplama sırasında sorular için telefonunuz, değerli teslimatlar için dükkan talep ediyorsa fotoğraflı kimlik.",
   },
   {
-    q: "What should I verify after picking up a professionally built PC?",
-    a: "Visual inspection of cable management + no bent pins. BIOS settings (XMP/EXPO enabled). Independent stress test (30-min Prime95 + Furmark). Verify all parts present + match receipt. Test USB + audio + Ethernet. Verify warranty paperwork. Save boxes for future RMA.",
+    q: "Profesyonelce toplanmış bir bilgisayarı teslim aldıktan sonra neyi doğrulamalıyım?",
+    a: "Kablo yönetimi ve bükülmüş pin olmaması için görsel inceleme. BIOS ayarları (XMP/EXPO etkin). Bağımsız stres testi (30 dk Prime95 + Furmark). Tüm parçaların mevcut olduğunu ve fişle eşleştiğini doğrulayın. USB + ses + Ethernet'i test edin. Garanti belgelerini doğrulayın. Gelecekteki RMA için kutuları saklayın.",
   },
 ];

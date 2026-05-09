@@ -3,192 +3,191 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Regex is a superpower until it isn&rsquo;t. A pattern that looks right can match too
-      much, too little, or nothing at all, and the error messages your language&rsquo;s regex
-      engine gives are usually either silence (zero matches) or catastrophic backtracking that
-      hangs your process. The only reliable way to get regex right is to test it against a
-      deliberate set of inputs: strings that should match, strings that should not, and the
-      tricky edge cases at the boundaries. Then you examine the capture groups and verify
-      they&rsquo;re grabbing what you actually want. This guide covers how to build a test
-      matrix, the difference between greedy and lazy quantifiers, anchors and word boundaries,
-      capture groups, the most useful flags, and how to spot catastrophic backtracking before
-      it reaches production.
+      Regex süper bir güçtür, ta ki olmadığı ana kadar. Doğru görünen bir kalıp çok fazla, çok az
+      ya da hiç eşleşmeyebilir ve dilinizin regex motorunun verdiği hata mesajları genellikle ya
+      sessizlik (sıfır eşleşme) ya da işleminizi askıya alan felaket geri izlemedir. Regex'i doğru
+      yapmanın tek güvenilir yolu, onu kasıtlı bir girdi kümesine karşı test etmektir: eşleşmesi
+      gereken dizeler, eşleşmemesi gerekenler ve sınırlardaki zorlu uç durumlar. Ardından yakalama
+      gruplarını inceler ve gerçekten istediğiniz şeyi yakaladıklarını doğrularsınız. Bu kılavuz,
+      bir test matrisinin nasıl oluşturulacağını, açgözlü ve tembel niceleyiciler arasındaki farkı,
+      çıpaları ve kelime sınırlarını, yakalama gruplarını, en kullanışlı bayrakları ve felaket geri
+      izlemeyi üretime ulaşmadan önce nasıl tespit edeceğinizi kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Start with test cases, not the pattern</h2>
+    <h2>Kalıpla değil, test senaryolarıyla başlayın</h2>
     <p>
-      Before writing a regex, write down the inputs it must match, the inputs it must reject,
-      and the edge cases. For an email validator, that&rsquo;s obvious emails, emails with
-      plus-addressing, international domains, leading/trailing whitespace, empty strings, and
-      the classic &ldquo;a@b.c&rdquo; that RFC says is valid but intuition rejects. Build the
-      pattern against these cases iteratively; don&rsquo;t try to write it in one shot from
-      memory.
+      Bir regex yazmadan önce, eşleşmesi gereken girdileri, reddetmesi gereken girdileri ve uç
+      durumları yazın. Bir e-posta doğrulayıcı için bunlar; bariz e-postalar, artı adreslemeli
+      e-postalar, uluslararası alan adları, baştaki/sondaki boşluklar, boş dizeler ve RFC'nin
+      geçerli dediği ancak sezgilerin reddettiği klasik "a@b.c"dir. Kalıbı bu durumlara karşı
+      yinelemeli olarak oluşturun; ezberden tek seferde yazmaya çalışmayın.
     </p>
-    <pre>{`Should match:       alice@example.com
+    <pre>{`Eşleşmeli:         alice@example.com
                     bob+tag@sub.example.co.uk
                     c@d.ef
-Should NOT match:   @example.com
+Eşleşmemeli:        @example.com
                     alice@
                     alice@@example.com
                     alice example.com
-                    (empty)`}</pre>
+                    (boş)`}</pre>
 
-    <h2>Anchors: start, end, word boundary</h2>
+    <h2>Çıpalar: başlangıç, bitiş, kelime sınırı</h2>
     <p>
-      <code>^</code> anchors to the start of the string (or line, with the <code>m</code> flag).
-      <code>$</code> anchors to the end. Without anchors, <code>\d+</code> matches digits
-      anywhere inside the string, not the whole string. <code>\b</code> is a word boundary: it
-      matches the transition between a word character and a non-word character.{" "}
-      <code>\bcat\b</code> matches the word &ldquo;cat&rdquo; but not &ldquo;catalog.&rdquo;
+      <code>^</code> dizenin başlangıcına (veya <code>m</code> bayrağı ile satır başına) çıpalar.
+      <code>$</code> sona çıpalar. Çıpalar olmadan, <code>\d+</code> dizenin herhangi bir yerindeki
+      rakamları eşleştirir, tüm dizeyi değil. <code>\b</code> bir kelime sınırıdır: bir kelime
+      karakteri ile kelime olmayan bir karakter arasındaki geçişi eşleştirir.{" "}
+      <code>\bcat\b</code> "cat" kelimesini eşleştirir ancak "catalog"u eşleştirmez.
     </p>
-    <pre>{`^\d+$      entire string is digits
-\d+        contains digits somewhere
-\bcat\b    the standalone word "cat"
-\bcat      "cat" at the start of a word (matches "catalog" too)`}</pre>
+    <pre>{`^\d+$      tüm dize rakamlardan oluşur
+\d+        bir yerde rakam içerir
+\bcat\b    bağımsız "cat" kelimesi
+\bcat      bir kelimenin başındaki "cat" ("catalog"u da eşleştirir)`}</pre>
 
-    <h2>Greedy versus lazy quantifiers</h2>
+    <h2>Açgözlü ve tembel niceleyiciler</h2>
     <p>
-      By default, quantifiers are <strong>greedy</strong>&mdash;they match as much as possible.{" "}
-      <code>&lt;.+&gt;</code> against <code>&lt;a&gt;text&lt;/a&gt;</code> matches the entire
-      string because <code>.+</code> eats everything then backtracks. The lazy form{" "}
-      <code>&lt;.+?&gt;</code> stops at the first <code>&gt;</code>. Quantifiers with <code>?</code>
-      appended become lazy: <code>*?</code>, <code>+?</code>, <code>{`{2,5}?`}</code>.
+      Varsayılan olarak, niceleyiciler <strong>açgözlüdür</strong>&mdash;mümkün olduğunca çok
+      eşleştirirler. <code>&lt;.+&gt;</code> ifadesi <code>&lt;a&gt;text&lt;/a&gt;</code> karşısında
+      tüm dizeyi eşleştirir çünkü <code>.+</code> her şeyi yer ve sonra geri izler. Tembel biçim
+      <code>&lt;.+?&gt;</code> ilk <code>&gt;</code>'de durur. <code>?</code> eklenmiş niceleyiciler
+      tembel hale gelir: <code>*?</code>, <code>+?</code>, <code>{`{2,5}?`}</code>.
     </p>
-    <pre>{`Input: <a>text</a>
-<.+>     matches  <a>text</a>          (greedy, whole string)
-<.+?>    matches  <a>                  (lazy, stops at first >)
-<[^>]+>  matches  <a>                  (character class, no backtrack)`}</pre>
+    <pre>{`Girdi: <a>text</a>
+<.+>     eşleşir  <a>text</a>          (açgözlü, tüm dize)
+<.+?>    eşleşir  <a>                  (tembel, ilk >'de durur)
+<[^>]+>  eşleşir  <a>                  (karakter sınıfı, geri izleme yok)`}</pre>
 
-    <h2>Character classes</h2>
+    <h2>Karakter sınıfları</h2>
     <p>
-      Square brackets define a set of acceptable characters. <code>[abc]</code> matches a, b,
-      or c. <code>[a-z]</code> matches any lowercase letter. <code>[^abc]</code> (with caret
-      inside) means &ldquo;anything except a, b, c.&rdquo; Common shorthand: <code>\d</code>
-      is <code>[0-9]</code>, <code>\w</code> is <code>[A-Za-z0-9_]</code>, <code>\s</code> is
-      whitespace, and capital versions (<code>\D</code>, <code>\W</code>, <code>\S</code>) are
-      their complements.
-    </p>
-
-    <h2>Capture groups and back-references</h2>
-    <p>
-      Parentheses create numbered capture groups. <code>(\d+)-(\d+)</code> against{" "}
-      <code>123-456</code> captures &ldquo;123&rdquo; in group 1 and &ldquo;456&rdquo; in
-      group 2. Back-references reuse a captured value: <code>(\w+)\s+\1</code> matches a
-      duplicated word like &ldquo;the the.&rdquo; Named groups <code>{`(?<year>\\d{4})`}</code>
-      make complex patterns readable. Non-capturing groups <code>(?:...)</code> let you use
-      grouping for quantifiers without creating a numbered group you&rsquo;ll never reference.
-    </p>
-    <pre>{`(\d{4})-(\d{2})-(\d{2})   date with three groups
-(?:foo|bar)+              non-capturing alternation
-(?<y>\d{4})-(?<m>\d{2})   named groups
-(\w+)\s+\\1                repeated word`}</pre>
-
-    <h2>Flags</h2>
-    <p>
-      <code>g</code> finds all matches (not just the first). <code>i</code> is case-insensitive.
-      <code>m</code> makes <code>^</code> and <code>$</code> match line boundaries as well as
-      string boundaries. <code>s</code> (dotall) makes <code>.</code> match newlines. <code>u</code>
-      enables full Unicode matching in JavaScript. <code>x</code> (extended) lets you add
-      whitespace and comments to the pattern for readability.
-    </p>
-    <pre>{`/hello/i      matches HELLO, Hello, hello
-/^abc/gm      matches "abc" at start of each line
-/a.b/s        the . matches newlines too`}</pre>
-
-    <h2>Lookahead and lookbehind</h2>
-    <p>
-      Lookaheads and lookbehinds are zero-width assertions&mdash;they check a condition without
-      consuming characters. <code>{`\\d+(?=px)`}</code> matches digits followed by &ldquo;px&rdquo;
-      without including &ldquo;px&rdquo; in the match. <code>{`(?<=\\$)\\d+`}</code> matches
-      digits preceded by a dollar sign, without including the dollar sign. Negative versions
-      <code>(?!...)</code> and <code>{`(?<!...)`}</code> assert absence.
+      Köşeli parantezler kabul edilebilir karakterler kümesini tanımlar. <code>[abc]</code> a, b
+      veya c'yi eşleştirir. <code>[a-z]</code> herhangi bir küçük harfi eşleştirir. <code>[^abc]</code>
+      (içinde şapka işareti) "a, b, c dışındaki her şey" anlamına gelir. Yaygın kısaltmalar: <code>\d</code>
+      <code>[0-9]</code>'dur, <code>\w</code> <code>[A-Za-z0-9_]</code>'dir, <code>\s</code>
+      boşluktur ve büyük harf sürümleri (<code>\D</code>, <code>\W</code>, <code>\S</code>)
+      bunların tümleyenleridir.
     </p>
 
-    <h2>The catastrophic backtracking trap</h2>
+    <h2>Yakalama grupları ve geri başvurular</h2>
     <p>
-      Some patterns, when faced with non-matching input, explore exponentially many paths.{" "}
-      <code>(a+)+b</code> against <code>aaaaaaaaaaaaaaaaX</code> takes billions of steps before
-      failing. The culprit is nested quantifiers matching the same thing. Warning signs: a
-      group with a quantifier, where the group itself contains a quantifier that could match
-      the same characters. Defensive rewrites include possessive quantifiers where available,
-      atomic groups, or replacing <code>.+</code> inside repeated groups with a restrictive
-      character class like <code>[^&quot;]+</code>.
+      Parantezler numaralandırılmış yakalama grupları oluşturur. <code>(\d+)-(\d+)</code> ifadesi
+      <code>123-456</code> karşısında grup 1'de "123"ü ve grup 2'de "456"yı yakalar. Geri
+      başvurular yakalanan bir değeri yeniden kullanır: <code>(\w+)\s+\1</code> "the the" gibi
+      yinelenen bir kelimeyi eşleştirir. Adlandırılmış gruplar <code>{`(?<year>\\d{4})`}</code>
+      karmaşık kalıpları okunabilir kılar. Yakalamayan gruplar <code>(?:...)</code>, hiçbir zaman
+      başvurmayacağınız numaralandırılmış bir grup oluşturmadan niceleyiciler için gruplama
+      kullanmanızı sağlar.
     </p>
-    <pre>{`Dangerous:  ^(\w+)+$         nested quantifier
-            ^(a|a)*$          ambiguous alternation
-            ^(a|aa)*$         overlapping branches
+    <pre>{`(\d{4})-(\d{2})-(\d{2})   üç gruplu tarih
+(?:foo|bar)+              yakalamayan seçenek
+(?<y>\d{4})-(?<m>\d{2})   adlandırılmış gruplar
+(\w+)\s+\\1                yinelenen kelime`}</pre>
 
-Safer:      ^\w+$             single quantifier
-            ^[^"]*$           specific character class`}</pre>
+    <h2>Bayraklar</h2>
+    <p>
+      <code>g</code> tüm eşleşmeleri bulur (yalnızca ilkini değil). <code>i</code> büyük/küçük harf
+      duyarsızdır. <code>m</code>, <code>^</code> ve <code>$</code>'nin dize sınırlarının yanı sıra
+      satır sınırlarını da eşleştirmesini sağlar. <code>s</code> (dotall), <code>.</code>'nin yeni
+      satırları eşleştirmesini sağlar. <code>u</code>, JavaScript'te tam Unicode eşleştirmeyi
+      etkinleştirir. <code>x</code> (genişletilmiş), okunabilirlik için kalıba boşluk ve yorum
+      eklemenize olanak tanır.
+    </p>
+    <pre>{`/hello/i      HELLO, Hello, hello'yu eşleştirir
+/^abc/gm      her satırın başındaki "abc"yi eşleştirir
+/a.b/s        . yeni satırları da eşleştirir`}</pre>
 
-    <h2>Testing strategy</h2>
+    <h2>İleriye ve geriye bakma</h2>
     <p>
-      Keep a file with should-match and should-not-match lines for every regex you deploy. Run
-      it every time you change the pattern. When a bug report comes in (&ldquo;this string
-      matched when it shouldn&rsquo;t&rdquo;), add the failing string to the test file first,
-      verify the regex fails, then fix and re-run. This is unit testing for patterns.
-    </p>
-
-    <h2>Flavor differences</h2>
-    <p>
-      JavaScript, Python, PCRE (PHP, Perl), .NET, Go (RE2), and grep-style all have different
-      capabilities. RE2 (Go, Rust&rsquo;s <code>regex</code> crate) guarantees linear time but
-      drops back-references and lookbehinds. JavaScript&rsquo;s dotall flag is relatively
-      recent. Test in the actual engine you&rsquo;ll deploy against&mdash;a pattern that works
-      on regex101 might behave differently in your language.
-    </p>
-
-    <h2>Common mistakes</h2>
-    <p>
-      <strong>Forgetting anchors.</strong> <code>\d+</code> matches any digits anywhere.{" "}
-      <code>^\d+$</code> requires the whole string to be digits. Choose deliberately; the
-      wrong one causes false positives.
-    </p>
-    <p>
-      <strong>Using <code>.*</code> inside a larger pattern.</strong> The dot-star matches
-      everything including too much, because it&rsquo;s greedy. Use a specific character class
-      like <code>[^&quot;]*</code> for &ldquo;anything but a quote&rdquo; when parsing
-      structured text.
-    </p>
-    <p>
-      <strong>Not escaping metacharacters.</strong> Dots in literal strings must be{" "}
-      <code>\.</code>. Parentheses in literal phone numbers must be <code>\(</code> and{" "}
-      <code>\)</code>. <code>example.com</code> without escaping the dot matches
-      &ldquo;exampleXcom&rdquo; too.
-    </p>
-    <p>
-      <strong>Using regex to parse HTML or JSON.</strong> HTML is not a regular language. Use
-      a parser. Regex works for surgical extraction of simple patterns inside known structure,
-      not for full parsing.
-    </p>
-    <p>
-      <strong>Ignoring Unicode.</strong> <code>\w</code> in JavaScript is ASCII-only by default,
-      so <code>caf&eacute;</code> doesn&rsquo;t match. Use the <code>u</code> flag plus
-      <code>\p{`{L}`}</code> character classes for Unicode-aware matching.
-    </p>
-    <p>
-      <strong>Catastrophic backtracking in production.</strong> Nested quantifiers against
-      adversarial input can freeze your service. Use linear-time engines (RE2, Rust regex) for
-      anything that takes untrusted input, or add a timeout.
-    </p>
-    <p>
-      <strong>Not testing the negative cases.</strong> A regex that matches everything you
-      want is useless if it also matches things you don&rsquo;t. Always include should-not-match
-      inputs in your test set.
+      İleriye ve geriye bakmalar sıfır genişlikli iddialardır&mdash;karakter tüketmeden bir koşulu
+      kontrol ederler. <code>{`\\d+(?=px)`}</code> ardından "px" gelen rakamları eşleştirir ancak
+      "px"yi eşleşmeye dahil etmez. <code>{`(?<=\\$)\\d+`}</code> dolar işaretinden önce gelen
+      rakamları eşleştirir, dolar işaretini dahil etmez. Olumsuz sürümler
+      <code>(?!...)</code> ve <code>{`(?<!...)`}</code> yokluğu iddia eder.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Felaket geri izleme tuzağı</h2>
     <p>
-      Paste your pattern and sample strings into our{" "}
-      <a href="/tools/regex-tester">regex tester</a> to see matches, captures, and flag behavior
-      in real time. Pair it with the <a href="/tools/regex-builder">regex builder</a> when
-      you&rsquo;re constructing a pattern from scratch, and the{" "}
-      <a href="/tools/regex-to-english">regex to English translator</a> to verify you&rsquo;re
-      reading someone else&rsquo;s pattern the way they intended.
+      Bazı kalıplar, eşleşmeyen girdilerle karşılaştıklarında üstel olarak birçok yolu keşfeder.{" "}
+      <code>(a+)+b</code> ifadesi <code>aaaaaaaaaaaaaaaaX</code> karşısında başarısız olmadan önce
+      milyarlarca adım atar. Suçlu, aynı şeyi eşleştiren iç içe niceleyicilerdir. Uyarı işaretleri:
+      kendisi aynı karakterleri eşleştirebilecek bir niceleyici içeren bir gruptur. Savunma amaçlı
+      yeniden yazmalar, mevcut olduğunda sahiplenici niceleyicileri, atomik grupları veya tekrarlanan
+      gruplar içindeki <code>.+</code> yerine <code>[^&quot;]+</code> gibi kısıtlayıcı bir karakter
+      sınıfı kullanmayı içerir.
+    </p>
+    <pre>{`Tehlikeli:  ^(\w+)+$         iç içe niceleyici
+            ^(a|a)*$          belirsiz seçenek
+            ^(a|aa)*$         örtüşen dallar
+
+Daha güvenli: ^\w+$             tek niceleyici
+            ^[^"]*$           belirli karakter sınıfı`}</pre>
+
+    <h2>Test stratejisi</h2>
+    <p>
+      Dağıttığınız her regex için eşleşmeli ve eşleşmemeli satırları içeren bir dosya bulundurun.
+      Kalıbı her değiştirdiğinizde çalıştırın. Bir hata raporu geldiğinde ("bu dize eşleşmemesi
+      gerekirken eşleşti"), önce başarısız olan dizeyi test dosyasına ekleyin, regex'in başarısız
+      olduğunu doğrulayın, ardından düzeltin ve yeniden çalıştırın. Bu, kalıplar için birim
+      testidir.
+    </p>
+
+    <h2>Lehçe farklılıkları</h2>
+    <p>
+      JavaScript, Python, PCRE (PHP, Perl), .NET, Go (RE2) ve grep tarzının tümü farklı
+      yeteneklere sahiptir. RE2 (Go, Rust'ın <code>regex</code> sandığı) doğrusal zamanı garanti
+      eder ancak geri başvuruları ve geriye bakmaları bırakır. JavaScript'in dotall bayrağı
+      nispeten yenidir. Dağıtım yapacağınız gerçek motorda test edin&mdash;regex101'de çalışan bir
+      kalıp, dilinizde farklı davranabilir.
+    </p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>
+      <strong>Çıpaları unutmak.</strong> <code>\d+</code> herhangi bir yerdeki tüm rakamları
+      eşleştirir. <code>^\d+$</code> tüm dizenin rakamlardan oluşmasını gerektirir. Bilinçli
+      seçim yapın; yanlış olanı yanlış pozitiflere neden olur.
+    </p>
+    <p>
+      <strong>Daha büyük bir kalıbın içinde <code>.*</code> kullanmak.</strong> Nokta-yıldız,
+      açgözlü olduğu için çok fazla dahil her şeyi eşleştirir. Yapılandırılmış metin ayrıştırırken
+      tırnak dışındaki her şey için <code>[^&quot;]*</code> gibi belirli bir karakter sınıfı
+      kullanın.
+    </p>
+    <p>
+      <strong>Meta karakterleri kaçışlamamak.</strong> Gerçek dizelerdeki noktalar <code>\.</code>
+      olmalıdır. Gerçek telefon numaralarındaki parantezler <code>\(</code> ve <code>\)</code>
+      olmalıdır. Noktayı kaçışlamadan <code>example.com</code>, "exampleXcom"u da eşleştirir.
+    </p>
+    <p>
+      <strong>HTML veya JSON ayrıştırmak için regex kullanmak.</strong> HTML düzenli bir dil
+      değildir. Bir ayrıştırıcı kullanın. Regex, bilinen yapı içindeki basit kalıpların cerrahi
+      çıkarımı için çalışır, tam ayrıştırma için değil.
+    </p>
+    <p>
+      <strong>Unicode'u görmezden gelmek.</strong> JavaScript'te <code>\w</code> varsayılan olarak
+      yalnızca ASCII'dir, bu nedenle <code>caf&eacute;</code> eşleşmez. Unicode duyarlı eşleştirme
+      için <code>u</code> bayrağı artı <code>\p{`{L}`}</code> karakter sınıflarını kullanın.
+    </p>
+    <p>
+      <strong>Üretimde felaket geri izleme.</strong> Düşmanca girdilere karşı iç içe niceleyiciler
+      hizmetinizi dondurabilir. Güvenilmeyen girdi alan her şey için doğrusal zamanlı motorlar
+      (RE2, Rust regex) kullanın veya bir zaman aşımı ekleyin.
+    </p>
+    <p>
+      <strong>Olumsuz durumları test etmemek.</strong> İstediğiniz her şeyi eşleştiren bir regex,
+      istemediğiniz şeyleri de eşleştiriyorsa işe yaramaz. Test kümenize her zaman eşleşmemesi
+      gereken girdileri ekleyin.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      Kalıbınızı ve örnek dizelerinizi, eşleşmeleri, yakalamaları ve bayrak davranışını gerçek
+      zamanlı olarak görmek için <a href="/tools/regex-tester">regex test aracımıza</a> yapıştırın.
+      Sıfırdan bir kalıp oluştururken <a href="/tools/regex-builder">regex oluşturucu</a> ile
+      eşleştirin ve başka birinin kalıbını amaçlandığı gibi okuyup okumadığınızı doğrulamak için
+      <a href="/tools/regex-to-english">regex'ten İngilizce'ye çeviriciyi</a> kullanın.
     </p>
   </>
 );

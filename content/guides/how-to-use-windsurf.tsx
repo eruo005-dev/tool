@@ -2,73 +2,73 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Windsurf is Codeium&rsquo;s AI-native editor &mdash; a VS Code fork built around{" "}
-    <strong>Cascade</strong>, an agent that reads your whole codebase, plans multi-file changes,
-    and keeps itself in sync as you edit. It is the most obvious Cursor alternative and in some
-    workflows feels noticeably more proactive.
+    Windsurf, Codeium&rsquo;un yapay zeka odaklı editörüdür &mdash;{" "}
+    <strong>Cascade</strong> adında, tüm kod tabanınızı okuyan, çok dosyalı değişiklikler planlayan
+    ve siz düzenleme yaparken kendini güncel tutan bir ajan etrafında inşa edilmiş bir VS Code çatalıdır.
+    En belirgin Cursor alternatifidir ve bazı iş akışlarında gözle görülür şekilde daha proaktif hissettirir.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What Windsurf actually is</h2>
+    <h2>Windsurf aslında nedir</h2>
     <p>
-      Windsurf is the editor; Cascade is the agent inside it. Cascade has full repo awareness
-      through Codeium&rsquo;s indexer, can run terminal commands, and is designed around what
-      Codeium calls &ldquo;flows&rdquo; &mdash; it watches what you do and stays collaborative
-      instead of waiting for a fresh prompt each turn. Underneath, it routes to frontier models
-      (Claude, GPT, Gemini) plus Codeium&rsquo;s own SWE-1 family.
+      Windsurf editördür; Cascade ise onun içindeki ajandır. Cascade, Codeium&rsquo;un indeksleyicisi
+      sayesinde tam repo farkındalığına sahiptir, terminal komutlarını çalıştırabilir ve Codeium&rsquo;un
+      &ldquo;akışlar&rdquo; olarak adlandırdığı yapı etrafında tasarlanmıştır &mdash; ne yaptığınızı izler
+      ve her seferinde yeni bir komut beklemeden işbirlikçi kalır. Altta, öncü modellere (Claude, GPT, Gemini)
+      ve Codeium&rsquo;un kendi SWE-1 ailesine yönlendirme yapar.
     </p>
 
-    <h2>Installing</h2>
+    <h2>Kurulum</h2>
     <p>
-      Download the installer from <code>windsurf.com</code> for macOS, Windows, or Linux. Sign in
-      with a Codeium account and import your VS Code settings and extensions on first launch
-      &mdash; it is a fork, so almost everything carries over. The free tier gives you a generous
-      autocomplete quota and a smaller Cascade credit bucket to try the agent.
+      macOS, Windows veya Linux için yükleyiciyi <code>windsurf.com</code> adresinden indirin. Bir Codeium
+      hesabıyla oturum açın ve ilk açılışta VS Code ayarlarınızı ve eklentilerinizi içe aktarın
+      &mdash; bu bir çatal olduğu için neredeyse her şey taşınır. Ücretsiz katman size cömert bir
+      otomatik tamamlama kotası ve ajantı denemek için daha küçük bir Cascade kredi havuzu sunar.
     </p>
 
-    <h2>A first session</h2>
+    <h2>İlk oturum</h2>
     <p>
-      Open a repo, hit <code>Cmd+L</code> to open Cascade, and describe the change: &ldquo;move
-      the rate limiter out of the route handler into middleware and add a test that hits it
-      thrice in a second.&rdquo; Cascade proposes a plan, touches the relevant files, runs
-      commands you approve, and shows diffs inline. Use <strong>Write mode</strong> to let it
-      edit freely and <strong>Chat mode</strong> to keep it read-only while you think.
+      Bir repo açın, Cascade&rsquo;i açmak için <code>Cmd+L</code> tuşuna basın ve değişikliği tanımlayın:
+      &ldquo;hız sınırlayıcıyı rota işleyicisinden middleware&rsquo;e taşı ve saniyede üç kez vuran bir test ekle.&rdquo;
+      Cascade bir plan önerir, ilgili dosyalara dokunur, onayladığınız komutları çalıştırır ve satır içinde
+      farkları gösterir. Serbestçe düzenleme yapmasına izin vermek için <strong>Yazma modunu</strong>,
+      düşünürken salt okunur kalması için <strong>Sohbet modunu</strong> kullanın.
     </p>
 
-    <h2>Rules and memories</h2>
+    <h2>Kurallar ve anılar</h2>
     <p>
-      Drop a <code>.windsurfrules</code> at the repo root for project rules (&ldquo;we use
-      Drizzle, not Prisma; always add a migration file&rdquo;) and use the global rules panel for
-      personal preferences. Cascade also has a Memories system that persists facts across
-      sessions &mdash; review it occasionally, because a bad memory (&ldquo;the user prefers
-      callbacks over promises&rdquo;) will poison every future turn until you delete it.
+      Proje kuralları için repo köküne bir <code>.windsurfrules</code> dosyası bırakın (&ldquo;Prisma değil,
+      Drizzle kullanıyoruz; her zaman bir migrasyon dosyası ekleyin&rdquo;) ve kişisel tercihler için genel
+      kurallar panelini kullanın. Cascade ayrıca oturumlar arasında bilgileri kalıcı hale getiren bir Anılar
+      sistemine sahiptir &mdash; ara sıra gözden geçirin, çünkü kötü bir anı (&ldquo;kullanıcı promise&rsquo;ler
+      yerine callback&rsquo;leri tercih eder&rdquo;) siz onu silene kadar her gelecek adımı zehirleyecektir.
     </p>
 
-    <h2>Configuration pitfalls</h2>
+    <h2>Yapılandırma tuzakları</h2>
     <p>
-      Turn off auto-accept for shell commands until you trust Cascade with your environment; it
-      will cheerfully run <code>pnpm install</code> or a migration if you let it. Pin a default
-      model in settings so you are not silently bounced onto a cheaper tier mid-refactor. And
-      check the index status before the first big task &mdash; Cascade is dramatically better
-      once the initial repo index finishes.
+      Cascade&rsquo;e ortamınıza güvenene kadar kabuk komutları için otomatik kabulü kapatın; izin verirseniz
+      neşeyle <code>pnpm install</code> veya bir migrasyon çalıştıracaktır. Ayarlarda varsayılan bir model
+      sabitleyin, böylece yeniden düzenleme sırasında sessizce daha ucuz bir katmana atılmazsınız. Ve ilk
+      büyük görevden önce indeks durumunu kontrol edin &mdash; Cascade, ilk repo indeksi tamamlandıktan sonra
+      önemli ölçüde daha iyidir.
     </p>
 
-    <h2>When Windsurf shines</h2>
+    <h2>Windsurf ne zaman parlar</h2>
     <p>
-      Greenfield features and non-trivial refactors where you want one tool that plans, edits,
-      and runs commands with good codebase awareness. The flow-style UI is genuinely more
-      ergonomic than bouncing between a chat panel and files, and the autocomplete is best-in-class
-      on large repos thanks to the indexer.
+      İyi bir kod tabanı farkındalığıyla planlama, düzenleme ve komut çalıştırma yapan tek bir araç
+      istediğiniz yeni özellikler ve önemsiz olmayan yeniden düzenlemeler. Akış tarzı arayüz, bir sohbet
+      paneli ve dosyalar arasında gidip gelmekten gerçekten daha ergonomiktir ve otomatik tamamlama,
+      indeksleyici sayesinde büyük repolarda sınıfının en iyisidir.
     </p>
 
-    <h2>When not to use it</h2>
+    <h2>Ne zaman kullanılmamalı</h2>
     <p>
-      If you are deeply wired into JetBrains shortcuts, switching editors for an agent is a big
-      ask &mdash; Continue or the JetBrains AI Assistant are saner choices. Same if your company
-      forbids a second editor install. And for scripted, headless agent work (CI, bots), a CLI
-      like Aider or OpenCode fits better than an editor-bound tool.
+      JetBrains kısayollarına derinden bağlıysanız, bir ajan için editör değiştirmek büyük bir fedakarlıktır
+      &mdash; Continue veya JetBrains AI Assistant daha mantıklı seçimlerdir. Şirketiniz ikinci bir editör
+      kurulumunu yasaklıyorsa da aynı durum geçerlidir. Ve betik tabanlı, başsız ajan çalışmaları (CI, botlar)
+      için, bir editöre bağlı araçtan ziyade Aider veya OpenCode gibi bir CLI daha uygundur.
     </p>
   </>
 );

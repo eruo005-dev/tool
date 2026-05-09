@@ -3,170 +3,169 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      The User-Agent header is a 30-year-old game of telephone. What
-      started as a short self-identification from Mosaic
-      (<code>NCSA_Mosaic/2.0</code>) turned into today&rsquo;s
-      unreadable Mozilla-compatible mess because every browser wanted
-      to be served content meant for the browser that came before
-      it. Parsing UA strings reliably is still useful for logging
-      and feature compatibility, but the landscape has shifted under
-      it: Chrome and Edge have frozen most of the UA string behind
-      User-Agent Client Hints, Safari sends a deliberately reduced
-      UA on iOS, and privacy browsers lie on purpose. This guide
-      covers the anatomy of a UA string, why almost every browser
-      pretends to be Mozilla, how to extract browser/OS/device
-      cleanly, how spoofed and randomized UAs change the game, and
-      the Client Hints API that is quietly replacing UA parsing
-      entirely.
+      User-Agent başlığı, 30 yıllık bir kulaktan kulağa oyunudur.
+      Mosaic'in kısa bir kendini tanımlaması olarak başlayan
+      (<code>NCSA_Mosaic/2.0</code>) şey, her tarayıcının kendinden önceki
+      tarayıcı için hazırlanmış içeriği almak istemesi yüzünden bugünkü
+      okunamaz Mozilla uyumlu karmaşaya dönüştü. UA dizelerini güvenilir bir
+      şekilde ayrıştırmak, günlükleme ve özellik uyumluluğu için hâlâ
+      kullanışlıdır, ancak zemin altından kaydı: Chrome ve Edge, UA
+      dizesinin çoğunu User-Agent Client Hints'in arkasında dondurdu,
+      Safari iOS'ta kasıtlı olarak azaltılmış bir UA gönderiyor ve gizlilik
+      tarayıcıları bilerek yalan söylüyor. Bu kılavuz, bir UA dizesinin
+      anatomisini, neredeyse her tarayıcının neden Mozilla gibi
+      davrandığını, tarayıcı/işletim sistemi/cihazın temiz bir şekilde nasıl
+      çıkarılacağını, sahte ve rastgeleleştirilmiş UA'ların oyunu nasıl
+      değiştirdiğini ve UA ayrıştırmasını sessizce tamamen değiştiren Client
+      Hints API'sini kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Anatomy of a UA string</h2>
+    <h2>Bir UA dizesinin anatomisi</h2>
     <p>
-      A representative modern UA string:
+      Temsili bir modern UA dizesi:
     </p>
     <pre>{`Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 AppleWebKit/537.36 (KHTML, like Gecko)
 Chrome/125.0.0.0 Safari/537.36`}</pre>
     <p>
-      The grammar is loosely
-      <code> product/version (comment) product/version ...</code>.
-      Tokens separated by spaces; parenthetical comments carry
-      platform details. Order is partially standardized by RFC 9110
-      section 10.1.5, but every browser has historical baggage.
+      Dil bilgisi gevşek bir şekilde
+      <code> ürün/sürüm (yorum) ürün/sürüm ...</code> şeklindedir.
+      Boşluklarla ayrılmış belirteçler; parantez içi yorumlar platform
+      ayrıntılarını taşır. Sıralama kısmen RFC 9110 bölüm 10.1.5 tarafından
+      standartlaştırılmıştır, ancak her tarayıcının tarihsel bir bagajı vardır.
     </p>
 
-    <h2>Why everyone claims to be Mozilla</h2>
+    <h2>Herkes neden Mozilla olduğunu iddia ediyor</h2>
     <p>
-      In 1993, Netscape Navigator identified as
-      <code> Mozilla/1.0</code>. Sites checked for
-      &ldquo;Mozilla&rdquo; to serve enhanced content &mdash; frames,
-      images, later JavaScript. When Internet Explorer launched in
-      1995, Microsoft copied the Mozilla identifier
-      (<code>Mozilla/1.22 (compatible; MSIE 2.0; ...)</code>) so
-      sites would serve IE the same content. Every browser since has
-      played the same trick: Safari&rsquo;s WebKit claims
-      compatibility with KHTML; Chrome claims compatibility with
-      Safari; Opera claimed compatibility with everything.
+      1993'te Netscape Navigator kendini
+      <code> Mozilla/1.0</code> olarak tanımladı. Siteler, gelişmiş içerik
+      sunmak için &ldquo;Mozilla&rdquo;yı kontrol ediyordu &mdash; çerçeveler,
+      resimler, daha sonra JavaScript. Internet Explorer 1995'te piyasaya
+      sürüldüğünde, Microsoft Mozilla tanımlayıcısını kopyaladı
+      (<code>Mozilla/1.22 (compatible; MSIE 2.0; ...)</code>) böylece
+      siteler IE'ye aynı içeriği sunacaktı. O zamandan beri her tarayıcı
+      aynı numarayı yaptı: Safari'nin WebKit'i KHTML ile uyumlu olduğunu
+      iddia ediyor; Chrome, Safari ile uyumlu olduğunu iddia ediyor; Opera
+      her şeyle uyumlu olduğunu iddia ediyor.
     </p>
     <p>
-      The upshot: the leading <code>Mozilla/5.0</code> token
-      identifies nothing. Skip it and read the tokens further right.
+      Sonuç: baştaki <code>Mozilla/5.0</code> belirteci hiçbir şeyi
+      tanımlamaz. Onu atlayın ve daha sağdaki belirteçleri okuyun.
     </p>
 
-    <h2>Extracting browser, OS, and device</h2>
+    <h2>Tarayıcı, işletim sistemi ve cihazı çıkarma</h2>
     <p>
-      The modern breakdown of the Chrome UA above:
+      Yukarıdaki Chrome UA'sının modern dökümü:
     </p>
     <p>
-      <strong>Browser</strong>: the last meaningful product/version
-      token that is not <code>AppleWebKit</code>,
-      <code> KHTML</code>, or <code>Safari</code>. For Chrome:
+      <strong>Tarayıcı</strong>: <code>AppleWebKit</code>,
+      <code> KHTML</code> veya <code>Safari</code> olmayan son anlamlı
+      ürün/sürüm belirteci. Chrome için:
       <code> Chrome/125.0.0.0</code>.
     </p>
     <p>
-      <strong>Engine</strong>:
-      <code> AppleWebKit/537.36</code> in the middle.
+      <strong>Motor</strong>:
+      <code> AppleWebKit/537.36</code> ortada.
     </p>
     <p>
-      <strong>OS</strong>: inside the first parenthetical.
-      <code> Windows NT 10.0</code> maps to Windows 10/11 (both use
-      the same NT version).
+      <strong>İşletim Sistemi</strong>: ilk parantez içinde.
+      <code> Windows NT 10.0</code>, Windows 10/11'e karşılık gelir (her
+      ikisi de aynı NT sürümünü kullanır).
     </p>
     <p>
-      <strong>Device</strong>: in the comment on mobile UAs:
+      <strong>Cihaz</strong>: mobil UA'larda yorumda:
       <code> iPhone</code>,
-      <code> SM-G991B</code> (a Samsung model),
+      <code> SM-G991B</code> (bir Samsung modeli),
       <code> Pixel 8</code>.
     </p>
     <p>
-      Common parsing libraries &mdash; <code>ua-parser-js</code>,
-      Python&rsquo;s <code>user_agents</code>,
-      Java&rsquo;s <code>uap-core</code> &mdash; handle the
-      edge cases with regex sets updated regularly. Roll your own
-      only for logging, never for feature detection.
+      Yaygın ayrıştırma kütüphaneleri &mdash; <code>ua-parser-js</code>,
+      Python'un <code>user_agents</code>'ı,
+      Java'nın <code>uap-core</code>'u &mdash; uç durumları düzenli olarak
+      güncellenen regex setleriyle halleder. Kendi ayrıştırıcınızı yalnızca
+      günlükleme için yazın, asla özellik tespiti için.
     </p>
 
-    <h2>Frozen UAs and UA reduction</h2>
+    <h2>Dondurulmuş UA'lar ve UA azaltımı</h2>
     <p>
-      In 2021, Google announced and then started shipping
-      <strong> User-Agent reduction</strong>: Chrome pins most UA
-      fields to static values. As of 2024, the reduced Chrome UA on
-      desktop looks like:
+      2021'de Google, <strong>User-Agent azaltımını</strong> duyurdu ve
+      ardından göndermeye başladı: Chrome, çoğu UA alanını statik
+      değerlere sabitler. 2024 itibarıyla, masaüstünde azaltılmış Chrome
+      UA'sı şöyle görünür:
     </p>
     <pre>{`Mozilla/5.0 (Windows NT 10.0; Win64; x64)
 AppleWebKit/537.36 (KHTML, like Gecko)
 Chrome/125.0.0.0 Safari/537.36`}</pre>
     <p>
-      Every Chrome user on Windows 10 <em>and</em> Windows 11
-      <em>and</em> Windows 8.1 now sends the same
-      <code> Windows NT 10.0</code> string. The device information is
-      gone, the minor version is frozen at
-      <code> .0.0.0</code>, and the real values are only available
-      via User-Agent Client Hints.
+      Windows 10 <em>ve</em> Windows 11 <em>ve</em> Windows 8.1'deki her
+      Chrome kullanıcısı artık aynı <code> Windows NT 10.0</code> dizesini
+      gönderiyor. Cihaz bilgisi gitti, alt sürüm
+      <code> .0.0.0</code>'da donduruldu ve gerçek değerler yalnızca
+      User-Agent Client Hints aracılığıyla kullanılabilir.
     </p>
     <p>
-      Safari on iOS has always under-reported: iPad Safari sends a
-      desktop UA by default. Firefox on Linux randomizes a few bits
-      in private browsing. Treat UA strings as rough approximation,
-      not identification.
+      iOS'taki Safari her zaman eksik rapor vermiştir: iPad Safari varsayılan
+      olarak bir masaüstü UA'sı gönderir. Linux'taki Firefox, gizli
+      gezintide birkaç biti rastgeleleştirir. UA dizelerine kesin tanımlama
+      değil, kaba bir yaklaşım olarak davranın.
     </p>
 
     <h2>User-Agent Client Hints</h2>
     <p>
-      Client Hints split the UA into many small HTTP headers, each
-      of which the site must opt into requesting.
+      Client Hints, UA'yı, her biri sitenin talep etmeyi seçmesi gereken
+      birçok küçük HTTP başlığına böler.
     </p>
     <pre>{`Sec-CH-UA: "Chromium";v="125", "Not.A/Brand";v="24"
 Sec-CH-UA-Mobile: ?0
 Sec-CH-UA-Platform: "Windows"`}</pre>
     <p>
-      These three are sent on every request by default. Higher-entropy
-      hints (full browser version, model, architecture, platform
-      version) require the site to send
+      Bu üçü varsayılan olarak her istekte gönderilir. Daha yüksek entropili
+      ipuçları (tam tarayıcı sürümü, model, mimari, platform sürümü), sitenin
+      önceki bir yanıtta
       <code> Accept-CH: Sec-CH-UA-Platform-Version, Sec-CH-UA-Model</code>
-      {" "}in an earlier response. On the next request the browser
-      includes them.
+      {" "}göndermesini gerektirir. Bir sonraki istekte tarayıcı bunları
+      ekler.
     </p>
     <p>
-      Client-side, read them via the <code>navigator.userAgentData</code>
-      {" "}API. <code>navigator.userAgentData.getHighEntropyValues</code>
-      {" "}returns a promise resolving to an object with the requested
-      fields.
-    </p>
-
-    <h2>Spoofed UAs</h2>
-    <p>
-      Three populations lie in their UA:
-    </p>
-    <p>
-      <strong>Privacy browsers</strong>: Brave, Tor Browser, and
-      privacy add-ons deliberately randomize or generalize the UA to
-      resist fingerprinting.
-    </p>
-    <p>
-      <strong>Power users</strong>: Chrome, Edge, and Firefox all
-      have dev-tools options to send a custom UA, commonly used for
-      testing mobile sites or bypassing UA-gated paywalls.
-    </p>
-    <p>
-      <strong>Bots and scrapers</strong>: good ones identify
-      honestly (<code>Googlebot/2.1</code>,
-      <code> bingbot/2.0</code>). Bad ones mimic Chrome or Safari
-      exactly to blend in.
-    </p>
-    <p>
-      Never use UA parsing for security decisions. Rate limiting,
-      CAPTCHA, and behavioral analysis are the right tools.
+      İstemci tarafında, bunları <code>navigator.userAgentData</code>
+      {" "}API'si aracılığıyla okuyun. <code>navigator.userAgentData.getHighEntropyValues</code>
+      {" "}, istenen alanları içeren bir nesneye çözümlenen bir promise döndürür.
     </p>
 
-    <h2>Bot identification patterns</h2>
+    <h2>Sahte UA'lar</h2>
     <p>
-      Legitimate crawlers follow a predictable pattern:
-      <code> Name/Version (+URL)</code>.
+      Üç grup UA'larında yalan söyler:
+    </p>
+    <p>
+      <strong>Gizlilik tarayıcıları</strong>: Brave, Tor Browser ve gizlilik
+      eklentileri, parmak izine karşı koymak için UA'yı kasıtlı olarak
+      rastgeleleştirir veya genelleştirir.
+    </p>
+    <p>
+      <strong>Güç kullanıcıları</strong>: Chrome, Edge ve Firefox'un
+      hepsinde, genellikle mobil siteleri test etmek veya UA ile kısıtlanmış
+      ödeme duvarlarını aşmak için kullanılan, özel bir UA gönderme seçeneği
+      vardır.
+    </p>
+    <p>
+      <strong>Botlar ve kazıyıcılar</strong>: iyi olanlar dürüstçe tanımlar
+      (<code>Googlebot/2.1</code>,
+      <code> bingbot/2.0</code>). Kötü olanlar, karışmak için Chrome veya
+      Safari'yi tam olarak taklit eder.
+    </p>
+    <p>
+      Güvenlik kararları için asla UA ayrıştırması kullanmayın. Hız sınırlama,
+      CAPTCHA ve davranışsal analiz doğru araçlardır.
+    </p>
+
+    <h2>Bot tanımlama kalıpları</h2>
+    <p>
+      Meşru tarayıcılar öngörülebilir bir kalıbı takip eder:
+      <code> Ad/Sürüm (+URL)</code>.
     </p>
     <pre>{`Googlebot/2.1 (+http://www.google.com/bot.html)
 bingbot/2.0 (+http://www.bing.com/bingbot.htm)
@@ -174,14 +173,14 @@ DuckDuckBot/1.1; (+http://duckduckgo.com/duckduckbot.html)
 facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)
 Slackbot 1.0 (+https://api.slack.com/robots)`}</pre>
     <p>
-      The <code>+URL</code> convention is a strong hint a UA is a
-      bot. Verify a claim of being Googlebot by reverse-DNS: the
-      request&rsquo;s IP should resolve to
-      <code> *.googlebot.com</code> or <code>*.google.com</code>,
-      and forward-resolving that hostname should return the same IP.
+      <code>+URL</code> kuralı, bir UA'nın bot olduğuna dair güçlü bir
+      ipucudur. Googlebot olduğu iddiasını ters DNS ile doğrulayın: isteğin
+      IP'si <code> *.googlebot.com</code> veya <code>*.google.com</code>'a
+      çözümlenmeli ve bu ana bilgisayar adının ileri çözümlemesi aynı IP'yi
+      döndürmelidir.
     </p>
 
-    <h2>UA on mobile</h2>
+    <h2>Mobilde UA</h2>
     <p>
       iPhone (iOS 17, Safari):
     </p>
@@ -195,59 +194,60 @@ Version/17.5 Mobile/15E148 Safari/604.1`}</pre>
 AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0
 Mobile Safari/537.36`}</pre>
     <p>
-      The model (<code>Pixel 8</code>) appears on Android but not on
-      reduced-UA Chrome for desktop. iPad Safari sends a desktop UA
-      indistinguishable from macOS Safari &mdash; detect iPad via
-      <code> navigator.maxTouchPoints &gt; 1</code> and
-      <code> Mac</code> in UA.
+      Model (<code>Pixel 8</code>) Android'de görünür ancak azaltılmış UA'lı
+      Chrome masaüstünde görünmez. iPad Safari, macOS Safari'den ayırt
+      edilemeyen bir masaüstü UA'sı gönderir &mdash; iPad'i
+      <code> navigator.maxTouchPoints &gt; 1</code> ve
+      <code> Mac</code> UA'da olarak tespit edin.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Feature-detecting via UA string.</strong> Use
-      <code> if (&apos;IntersectionObserver&apos; in window)</code>,
-      not <code>if (chromeVersion &gt; 50)</code>. The former survives
-      the next UA reduction; the latter breaks every release.
+      <strong>UA dizesi aracılığıyla özellik tespiti.</strong>
+      <code> if (&apos;IntersectionObserver&apos; in window)</code>
+      kullanın, <code>if (chromeVersion &gt; 50)</code> değil. İlki
+      sonraki UA azaltımından sağ çıkar; ikincisi her sürümde bozulur.
     </p>
     <p>
-      <strong>Matching on &ldquo;Chrome&rdquo; to identify Chrome.</strong>
-      {" "}Edge, Opera, Brave, Arc, and Samsung Internet all include
-      the Chrome token. Check for Edge, Opera, etc. first and
-      short-circuit.
+      <strong>Chrome'u tanımlamak için &ldquo;Chrome&rdquo; ile eşleştirme.</strong>
+      {" "}Edge, Opera, Brave, Arc ve Samsung Internet'in tümü Chrome
+      belirtecini içerir. Önce Edge, Opera vb.'yi kontrol edin ve kısa devre
+      yapın.
     </p>
     <p>
-      <strong>Matching on &ldquo;Safari&rdquo; to identify Safari.</strong>
-      {" "}Chrome includes <code>Safari/537.36</code> for historical
-      compatibility. Check for <code>Chrome</code> or
-      <code> CriOS</code> first.
+      <strong>Safari'yi tanımlamak için &ldquo;Safari&rdquo; ile eşleştirme.</strong>
+      {" "}Chrome, tarihsel uyumluluk için <code>Safari/537.36</code>
+      içerir. Önce <code>Chrome</code> veya <code> CriOS</code>'u kontrol
+      edin.
     </p>
     <p>
-      <strong>Treating Windows NT 10.0 as Windows 10.</strong>
-      Windows 11 still reports <code>Windows NT 10.0</code>. The
-      platform version in Client Hints
-      (<code>Sec-CH-UA-Platform-Version</code>) distinguishes them.
+      <strong>Windows NT 10.0'ı Windows 10 olarak ele alma.</strong>
+      Windows 11 hâlâ <code>Windows NT 10.0</code> bildirir. Client
+      Hints'teki platform sürümü
+      (<code>Sec-CH-UA-Platform-Version</code>) bunları ayırt eder.
     </p>
     <p>
-      <strong>Storing parsed UA strings without re-parsing.</strong>
-      {" "}Parser libraries update monthly to handle new browsers. A
-      string classified as unknown in 2023 might parse cleanly today.
-      Parse on read, not on write.
+      <strong>Ayrıştırılmış UA dizelerini yeniden ayrıştırmadan saklama.</strong>
+      {" "}Ayrıştırıcı kütüphaneleri, yeni tarayıcıları işlemek için aylık
+      olarak güncellenir. 2023'te bilinmeyen olarak sınıflandırılan bir dize
+      bugün temiz bir şekilde ayrıştırılabilir. Yazarken değil, okurken
+      ayrıştırın.
     </p>
     <p>
-      <strong>Building security gates on UA.</strong> Trivial to
-      spoof, unreliable to detect. Use real signals.
+      <strong>UA üzerinde güvenlik kapıları oluşturma.</strong> Sahtesi
+      kolay, tespiti güvenilmez. Gerçek sinyalleri kullanın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Break down any UA string into browser, OS, device, and engine
-      with the{" "}
-      <a href="/tools/user-agent-parser">user agent parser</a>. Pair
-      with the{" "}
-      <a href="/tools/http-status-code-lookup">HTTP status code lookup</a>
-      {" "}when debugging server-side UA-gated responses, and the{" "}
-      <a href="/tools/mime-type-lookup">MIME type lookup</a> for the
-      Accept-header side of content negotiation.
+      Herhangi bir UA dizesini tarayıcı, işletim sistemi, cihaz ve motora
+      ayırın{" "}
+      <a href="/tools/user-agent-parser">kullanıcı aracısı ayrıştırıcısı</a>
+      ile. Sunucu tarafı UA ile kısıtlanmış yanıtları hata ayıklarken{" "}
+      <a href="/tools/http-status-code-lookup">HTTP durum kodu arama</a>
+      ile ve içerik anlaşmasının Accept-başlık tarafı için{" "}
+      <a href="/tools/mime-type-lookup">MIME türü arama</a>
+      ile eşleştirin.
     </p>
   </>
 );

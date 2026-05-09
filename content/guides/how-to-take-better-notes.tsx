@@ -1,90 +1,87 @@
 export const intro = (
   <>
     <p>
-      Most notes are write-once, read-never. That&rsquo;s wasted effort. Good
-      notes are a thinking tool and a future-you asset. The difference is
-      method. Whether you&rsquo;re a student, researcher, or professional, a
-      system beats winging it.
+      Çoğu not bir kez yazılır ve bir daha asla okunmaz. Bu boşa harcanmış bir çabadır.
+      İyi notlar bir düşünme aracı ve gelecekteki kendinize yapılmış bir yatırımdır.
+      Farkı yaratan şey yöntemdir. İster öğrenci, ister araştırmacı, ister profesyonel olun,
+      sistemsiz olmak, amaçsızca sürüklenmekten daha iyidir.
     </p>
     <p>
-      Here&rsquo;s what works without becoming a Notion cult member.
+      İşte Notion tarikatına katılmadan işe yarayan yöntemler.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Use your own words, not transcription</h2>
+    <h2>1. Kendi kelimelerinizi kullanın, kopyalamayın</h2>
     <p>
-      Copying the lecture or book verbatim is useless. Rewriting in your own
-      words forces comprehension. If you can&rsquo;t rephrase it, you
-      don&rsquo;t understand it. This alone doubles retention.
+      Dersi veya kitabı kelimesi kelimesine kopyalamak işe yaramaz. Kendi kelimelerinizle
+      yeniden yazmak anlamayı zorunlu kılar. Eğer yeniden ifade edemiyorsanız, anlamamışsınızdır.
+      Bu tek başına akılda kalıcılığı ikiye katlar.
     </p>
 
-    <h2>2. The Cornell method works</h2>
+    <h2>2. Cornell yöntemi işe yarar</h2>
     <p>
-      Page divided into 3 sections: notes, cues/questions, summary. Forces
-      you to process the material while and after writing. Simple and proven
-      since the 1950s.
+      Sayfa 3 bölüme ayrılır: notlar, ipuçları/sorular, özet. Sizi yazarken ve yazdıktan sonra
+      materyali işlemeye zorlar. 1950'lerden beri basit ve kanıtlanmış bir yöntem.
     </p>
 
-    <h2>3. Question-first notes for books</h2>
+    <h2>3. Kitaplar için soru odaklı notlar</h2>
     <p>
-      Write the questions you hope the book will answer before reading.
-      Non-fiction reading becomes search instead of stream. You&rsquo;ll
-      remember more because you&rsquo;re looking for something specific.
+      Okumadan önce, kitabın cevaplamasını umduğunuz soruları yazın. Kurgu dışı okuma bir akış
+      olmaktan çıkıp bir arayış haline gelir. Daha fazlasını hatırlarsınız çünkü belirli bir şey
+      arıyorsunuzdur.
     </p>
 
-    <h2>4. Write summaries after each section</h2>
+    <h2>4. Her bölümden sonra bir özet yazın</h2>
     <p>
-      3 sentences at the end of each chapter or meeting. &ldquo;What was this
-      about?&rdquo; If you can&rsquo;t, reread. This single habit separates
-      note-takers who remember from those who don&rsquo;t.
+      Her bölümün veya toplantının sonunda 3 cümle yazın. "Bu ne hakkındaydı?" Eğer yazamıyorsanız,
+      tekrar okuyun. Bu tek alışkanlık, hatırlayanları hatırlamayanlardan ayırır.
     </p>
 
-    <h2>5. One tool, not five</h2>
+    <h2>5. Beş araç değil, tek bir araç</h2>
     <p>
-      Paper notebook, Notion, Obsidian, Apple Notes — pick one. Fragmenting
-      across tools means nothing gets found later. Boring + consistent beats
-      fancy + scattered.
+      Kağıt defter, Notion, Obsidian, Apple Notes — birini seçin. Araçlar arasında parçalanma,
+      hiçbir şeyin daha sonra bulunamaması anlamına gelir. Sıkıcı + tutarlı, süslü + dağınıktan
+      daha iyidir.
     </p>
 
-    <h2>6. Link notes together</h2>
+    <h2>6. Notları birbirine bağlayın</h2>
     <p>
-      Notes about related topics should reference each other. Obsidian and
-      Roam built whole businesses on this insight. Paper works too — index
-      cards and page references. The links make you think across ideas.
+      İlgili konulardaki notlar birbirine referans vermelidir. Obsidian ve Roam tüm işlerini bu
+      içgörü üzerine kurdu. Kağıt da işe yarar — dizin kartları ve sayfa referansları. Bağlantılar
+      sizi fikirler arasında düşünmeye iter.
     </p>
 
-    <h2>7. Review weekly</h2>
+    <h2>7. Haftalık gözden geçirin</h2>
     <p>
-      15 minutes on Sunday rereading the week&rsquo;s notes. Re-encoding
-      without this is forgotten within weeks. The review step is what
-      converts notes from disposable into durable.
+      Pazar günü haftanın notlarını yeniden okumak için 15 dakika ayırın. Bu olmadan, yeniden
+      kodlama haftalar içinde unutulur. Gözden geçirme adımı, notları tek kullanımlıktan kalıcıya
+      dönüştüren şeydir.
     </p>
 
-    <h2>8. Don&rsquo;t take notes on everything</h2>
+    <h2>8. Her şey hakkında not almayın</h2>
     <p>
-      Trying to capture every lecture word or podcast idea leads to garbage
-      notes you never reread. Be selective. The filtering is what makes notes
-      valuable — everything-in is just transcript.
+      Bir dersteki her kelimeyi veya bir podcast'teki her fikri yakalamaya çalışmak, asla tekrar
+      okumayacağınız çöp notlar üretir. Seçici olun. Filtreleme, notları değerli kılan şeydir —
+      her şeyi yakalamak sadece bir transkripttir.
     </p>
 
-    <h2>9. Mind maps for brainstorming, lists for tasks</h2>
+    <h2>9. Beyin fırtınası için zihin haritaları, görevler için listeler</h2>
     <p>
-      Don&rsquo;t use lists for exploring ideas (they enforce linear thinking)
-      and don&rsquo;t use mind maps for groceries. Match the format to the
-      thinking. Most people use one format for everything.
+      Fikirleri keşfetmek için listeler kullanmayın (doğrusal düşünmeyi zorlarlar) ve alışveriş
+      için zihin haritaları kullanmayın. Formatı düşünceye uydurun. Çoğu insan her şey için tek
+      bir format kullanır.
     </p>
 
-    <h2>10. Notes that will live 10 years</h2>
+    <h2>10. 10 yıl yaşayacak notlar</h2>
     <p>
-      Write for your future self. Include context — date, source, why you
-      took the note. You&rsquo;ll thank yourself when you re-encounter the
-      note three years later and actually understand it. See{" "}
-      <a href="/guides/how-to-read-more-books">reading guide</a> and{" "}
-      <a href="/guides/time-management-tips-for-students">time management
-      guide</a>.
+      Gelecekteki kendiniz için yazın. Bağlam ekleyin — tarih, kaynak, notu neden aldığınız.
+      Üç yıl sonra notla karşılaştığınızda ve onu gerçekten anladığınızda kendinize teşekkür
+      edeceksiniz. Bkz.{" "}
+      <a href="/guides/how-to-read-more-books">okuma rehberi</a> ve{" "}
+      <a href="/guides/time-management-tips-for-students">zaman yönetimi rehberi</a>.
     </p>
   </>
 );

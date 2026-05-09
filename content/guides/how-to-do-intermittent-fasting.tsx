@@ -3,244 +3,248 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Intermittent fasting is eating within a restricted window each day and
-      not eating for the rest. It&rsquo;s not a diet in the traditional
-      sense &mdash; there&rsquo;s no prescribed food list &mdash; just a
-      schedule. People use it to simplify meal planning, manage weight,
-      improve metabolic markers, or get the convenience of skipping
-      breakfast without feeling guilty. The research case is real but more
-      modest than influencer videos suggest; the main mechanism for weight
-      change is still calorie reduction, not fasting magic. This guide
-      covers the common schedules (16:8, 18:6, OMAD), what actually breaks
-      a fast, the benefits and risks, how to ramp in sensibly, and the
-      people who should skip this approach entirely.
+      Aralıklı oruç, her gün belirli bir zaman diliminde yemek yemeyi ve
+      geri kalan zamanda yememeyi içerir. Geleneksel anlamda bir diyet
+      değildir — belirlenmiş bir yiyecek listesi yoktur — sadece bir
+      programdır. İnsanlar bunu yemek planlamasını basitleştirmek, kiloyu
+      yönetmek, metabolik belirteçleri iyileştirmek veya suçluluk
+      duymadan kahvaltıyı atlamanın rahatlığını elde etmek için kullanır.
+      Araştırma vakası gerçektir ancak fenomen videolarının önerdiğinden
+      daha mütevazıdır; kilo değişiminin ana mekanizması hala kalori
+      azaltımıdır, orucun sihri değil. Bu rehber, yaygın programları
+      (16:8, 18:6, OMAD), orucu gerçekte neyin bozduğunu, faydaları ve
+      riskleri, makul bir şekilde nasıl başlanacağını ve bu yaklaşımı
+      tamamen atlaması gereken kişileri kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The most common schedules</h2>
+    <h2>En yaygın programlar</h2>
     <p>
-      Intermittent fasting (IF) is a family, not a single protocol:
+      Aralıklı oruç (IF) tek bir protokol değil, bir ailedir:
     </p>
-    <pre>{`16:8     16-hour fast, 8-hour eating window     most popular, easiest
-18:6     18-hour fast, 6-hour eating window     more strict
-20:4     20-hour fast, 4-hour window             "warrior diet"
-OMAD     one meal a day, ~1-hour window         aggressive
-5:2      normal eating 5 days, ~500 kcal 2 days  weekly cadence
-ADF      alternate day fasting                    aggressive, hard to sustain
-24-hr    full-day fast 1-2x per week              episodic`}</pre>
+    <pre>{`16:8     16 saat oruç, 8 saat yeme penceresi     en popüler, en kolay
+18:6     18 saat oruç, 6 saat yeme penceresi     daha katı
+20:4     20 saat oruç, 4 saat pencere             "savaşçı diyeti"
+OMAD     günde bir öğün, ~1 saat pencere         agresif
+5:2      5 gün normal yeme, 2 gün ~500 kcal      haftalık ritim
+ADF      dönüşümlü gün orucu                     agresif, sürdürmesi zor
+24 saat  haftada 1-2 kez tam gün orucu           epizodik`}</pre>
     <p>
-      Most people who stick with IF land on 16:8 or a lighter 14:10. The
-      stricter variants work if you like them but don&rsquo;t deliver
-      proportionally more benefit.
-    </p>
-
-    <h2>How 16:8 actually looks</h2>
-    <pre>{`Option A (skip breakfast)
-  Eat:  12:00 PM - 8:00 PM
-  Fast: 8:00 PM - 12:00 PM next day
-  During fast: water, black coffee, plain tea
-
-Option B (early eaters)
-  Eat:  8:00 AM - 4:00 PM
-  Fast: 4:00 PM - 8:00 AM next day`}</pre>
-    <p>
-      Option B aligns better with circadian rhythms and tends to show
-      slightly better metabolic markers in studies. Option A is easier
-      socially for most people.
+      IF'ye bağlı kalan çoğu kişi 16:8 veya daha hafif bir 14:10'da
+      karar kılar. Daha katı varyantlar eğer hoşunuza gidiyorsa işe
+      yarar ancak orantılı olarak daha fazla fayda sağlamaz.
     </p>
 
-    <h2>What actually breaks a fast</h2>
-    <p>
-      Strict definition: anything with calories. Practical definition:
-      anything that causes a meaningful insulin response.
-    </p>
-    <pre>{`Breaks a fast: any food, sweetened drinks, milk in coffee,
-               juice, broth, gum with sugar alcohols, fruit
+    <h2>16:8 gerçekte nasıl görünür</h2>
+    <pre>{`Seçenek A (kahvaltıyı atla)
+  Ye:   12:00 - 20:00
+  Oruç: 20:00 - 12:00 ertesi gün
+  Oruç sırasında: su, sade kahve, sade çay
 
-Usually okay:  water, black coffee, plain tea, seltzer,
-               trace electrolytes (pinch of salt)
-
-Gray area:     stevia, diet soda (no calories but possible
-               insulin response), MCT oil (calories but
-               minimal insulin impact), bone broth`}</pre>
+Seçenek B (erken yiyenler)
+  Ye:   08:00 - 16:00
+  Oruç: 16:00 - 08:00 ertesi gün`}</pre>
     <p>
-      If your goal is weight management, the strict definition
-      doesn&rsquo;t matter &mdash; total calories still drive the
-      outcome. If your goal is autophagy or fasting&rsquo;s claimed
-      metabolic effects, stick to the strict list.
+      Seçenek B sirkadiyen ritimlerle daha uyumludur ve çalışmalarda
+      biraz daha iyi metabolik belirteçler gösterme eğilimindedir.
+      Seçenek A çoğu kişi için sosyal olarak daha kolaydır.
     </p>
 
-    <h2>Claimed benefits</h2>
+    <h2>Orucu gerçekte ne bozar</h2>
+    <p>
+      Katı tanım: kalorisi olan her şey. Pratik tanım: anlamlı bir
+      insülin yanıtına neden olan her şey.
+    </p>
+    <pre>{`Orucu bozar: herhangi bir yiyecek, tatlandırılmış içecekler,
+               kahvede süt, meyve suyu, et suyu, şeker alkollü
+               sakız, meyve
+
+Genelde sorun yok: su, sade kahve, sade çay, soda,
+                    eser miktarda elektrolit (bir tutam tuz)
+
+Gri alan:        stevia, diyet soda (kalorisiz ancak olası
+                 insülin yanıtı), MCT yağı (kalorili ancak
+                 minimal insülin etkisi), kemik suyu`}</pre>
+    <p>
+      Amacınız kilo yönetimiyse, katı tanım önemli değildir — toplam
+      kaloriler yine sonucu belirler. Amacınız otofaji veya orucun
+      iddia edilen metabolik etkileriyse, katı listeye bağlı kalın.
+    </p>
+
+    <h2>İddia edilen faydalar</h2>
     <ul>
-      <li>Weight loss &mdash; real, but via calorie reduction from the smaller window</li>
-      <li>Improved insulin sensitivity &mdash; modest, similar to continuous caloric restriction</li>
+      <li>Kilo kaybı — gerçek, ancak daha küçük pencereden kalori azaltımı yoluyla</li>
+      <li>İyileşmiş insülin duyarlılığı — mütevazı, sürekli kalori kısıtlamasına benzer</li>
       <li>
-        Reduced visceral fat &mdash; some trials show slight advantage over
-        non-fasting equicaloric diets
+        Azalmış visseral yağ — bazı deneyler, oruçsuz eşit kalorili
+        diyetlere göre hafif bir avantaj gösteriyor
       </li>
       <li>
-        Cellular autophagy &mdash; demonstrated in animal models; human
-        evidence is thinner, and requires longer fasts than 16 hours
+        Hücresel otofaji — hayvan modellerinde gösterilmiştir; insan
+        kanıtı daha zayıftır ve 16 saatten daha uzun oruçlar gerektirir
       </li>
-      <li>Simpler meal planning &mdash; undervalued but real</li>
-      <li>Stable energy (in habituated fasters) &mdash; anecdotally consistent</li>
+      <li>Daha basit yemek planlaması — değeri az bilinir ancak gerçektir</li>
+      <li>Sabit enerji (alışmış oruç tutanlarda) — anekdot olarak tutarlı</li>
     </ul>
 
-    <h2>Claimed benefits that don&rsquo;t hold up</h2>
+    <h2>Geçerli olmayan iddia edilen faydalar</h2>
     <p>
-      <strong>Dramatic fat loss over equivalent calorie deficits.</strong>{" "}
-      Meta-analyses show IF matches, not beats, continuous calorie
-      restriction on body composition.
+      <strong>Eşdeğer kalori açıklarına göre dramatik yağ kaybı.</strong>{" "}
+      Meta-analizler, IF'nin vücut kompozisyonunda sürekli kalori
+      kısıtlamasıyla eşleştiğini, geçmediğini gösteriyor.
     </p>
     <p>
-      <strong>Massive growth-hormone spike.</strong> Real but short-lived
-      and clinically insignificant for most people.
+      <strong>Büyük büyüme hormonu artışı.</strong> Gerçek ancak kısa
+      süreli ve çoğu kişi için klinik olarak önemsiz.
     </p>
     <p>
-      <strong>Works for hypertrophy/muscle gain.</strong> Hard to hit
-      protein and calorie targets in a short window; not optimal for
-      aggressive gain goals.
-    </p>
-
-    <h2>The beginner ramp</h2>
-    <p>
-      Jumping straight to 16:8 from grazing all day usually backfires with
-      hunger, irritability, and binging at the window open. Ease in:
-    </p>
-    <pre>{`Week 1:  12:12   (stop eating 3 hours before bed)
-Week 2:  14:10
-Week 3:  15:9
-Week 4:  16:8`}</pre>
-    <p>
-      Most people acclimatize within two weeks. Hunger in the morning
-      fades; coffee and water handle the first 3&ndash;4 hours.
+      <strong>Hipertrofi/kas kazanımı için işe yarar.</strong> Kısa bir
+      pencerede protein ve kalori hedeflerine ulaşmak zordur; agresif
+      kazanım hedefleri için optimal değildir.
     </p>
 
-    <h2>What to eat in the window</h2>
+    <h2>Yeni başlayanlar için kademeli geçiş</h2>
     <p>
-      Fasting isn&rsquo;t a free pass. If your 8-hour window is pizza and
-      ice cream, you won&rsquo;t lose weight even with a perfect fasting
-      schedule. Structure the window:
+      Tüm gün atıştırmaktan doğrudan 16:8'e atlamak genellikle açlık,
+      sinirlilik ve pencere açıldığında tıkınma ile sonuçlanır. Yavaş
+      başlayın:
+    </p>
+    <pre>{`Hafta 1:  12:12   (yatmadan 3 saat önce yemeyi bırak)
+Hafta 2:  14:10
+Hafta 3:  15:9
+Hafta 4:  16:8`}</pre>
+    <p>
+      Çoğu kişi iki hafta içinde alışır. Sabah açlığı azalır; kahve ve
+      su ilk 3-4 saati idare eder.
+    </p>
+
+    <h2>Pencerede ne yenmeli</h2>
+    <p>
+      Oruç, serbest geçiş kartı değildir. 8 saatlik pencereniz pizza ve
+      dondurmayla doluysa, mükemmel bir oruç programıyla bile kilo
+      veremezsiniz. Pencereyi yapılandırın:
     </p>
     <ul>
-      <li>Prioritize protein &mdash; 0.8&ndash;1 g per lb body weight across meals</li>
-      <li>Include fiber &mdash; keeps satiety through the fast</li>
-      <li>Carbs and fat based on your overall calorie target</li>
-      <li>Avoid huge blood-sugar swings at window-open (slam of refined carbs on an empty stomach is uncomfortable)</li>
+      <li>Proteini önceliklendirin — öğünlerde vücut ağırlığının kg'ı başına 1.6-2.2 g</li>
+      <li>Lif ekleyin — oruç boyunca tokluğu korur</li>
+      <li>Karbonhidrat ve yağları genel kalori hedefinize göre ayarlayın</li>
+      <li>Pencere açıldığında büyük kan şekeri dalgalanmalarından kaçının (boş mideye rafine karbonhidrat yüklemek rahatsız edicidir)</li>
     </ul>
 
-    <h2>Exercise and fasting</h2>
+    <h2>Egzersiz ve oruç</h2>
     <p>
-      Fasted cardio is fine and can work well for habituated people.
-      Fasted lifting is doable but sub-optimal for strength gains; if
-      strength is a priority, break the fast before heavy sessions.
+      Aç karnına kardiyo iyidir ve alışmış kişiler için iyi çalışabilir.
+      Aç karnına ağırlık kaldırmak yapılabilir ancak güç kazanımları
+      için optimal değildir; güç bir öncelikse, ağır seanslardan önce
+      orucu bozun.
     </p>
     <p>
-      Post-workout meal: protein within a couple of hours matters more
-      than in the 30-minute &ldquo;anabolic window&rdquo; panic of the
-      90s. Don&rsquo;t end a hard session at 10 PM right when your fast
-      is starting &mdash; it compromises recovery.
+      Antrenman sonrası öğün: birkaç saat içinde protein almak, 90'ların
+      30 dakikalık "anabolik pencere" paniğinden daha önemlidir. Zor bir
+      seansı, orucunuz başlarken saat 22:00'de bitirmeyin — bu
+      toparlanmayı tehlikeye atar.
     </p>
 
-    <h2>Risks and side effects</h2>
+    <h2>Riskler ve yan etkiler</h2>
     <p>
-      First 2&ndash;3 weeks are the roughest:
+      İlk 2-3 hafta en zorudur:
     </p>
     <ul>
-      <li>Headaches (usually dehydration or caffeine withdrawal)</li>
-      <li>Irritability at the end of the fast window</li>
-      <li>Sleep disruption if eating too close to bed</li>
-      <li>Digestive adjustment when meals become larger</li>
-      <li>Lightheadedness with electrolyte depletion</li>
+      <li>Baş ağrıları (genellikle dehidrasyon veya kafein yoksunluğu)</li>
+      <li>Oruç penceresinin sonunda sinirlilik</li>
+      <li>Yatağa çok yakın yemek yemekten uyku bozukluğu</li>
+      <li>Öğünler büyüdüğünde sindirim ayarlaması</li>
+      <li>Elektrolit tükenmesiyle baş dönmesi</li>
     </ul>
     <p>
-      Most issues resolve with better timing, salt, and water. If
-      symptoms persist past 3&ndash;4 weeks, IF may not be right for
-      you.
+      Çoğu sorun daha iyi zamanlama, tuz ve su ile çözülür. Belirtiler
+      3-4 haftadan sonra devam ederse, IF sizin için uygun olmayabilir.
     </p>
 
-    <h2>Who should not do IF</h2>
+    <h2>IF yapmaması gerekenler</h2>
     <p>
-      Medical caution or contraindication for:
+      Tıbbi dikkat veya kontrendikasyon:
     </p>
     <ul>
-      <li>History of eating disorders (any restriction can re-trigger)</li>
-      <li>Pregnancy or breastfeeding</li>
-      <li>Type 1 diabetes or insulin-dependent T2 (without medical guidance)</li>
-      <li>Underweight or undernourished individuals</li>
-      <li>Children and teens</li>
-      <li>People on medications that require food</li>
-      <li>Competitive athletes in season (hard to fuel performance)</li>
+      <li>Yeme bozukluğu geçmişi (herhangi bir kısıtlama yeniden tetikleyebilir)</li>
+      <li>Hamilelik veya emzirme</li>
+      <li>Tip 1 diyabet veya insüline bağımlı T2 (tıbbi rehberlik olmadan)</li>
+      <li>Zayıf veya yetersiz beslenmiş bireyler</li>
+      <li>Çocuklar ve gençler</li>
+      <li>Yiyecek gerektiren ilaçlar kullanan kişiler</li>
+      <li>Sezondaki rekabetçi sporcular (performansı beslemek zordur)</li>
     </ul>
 
-    <h2>Women and IF</h2>
+    <h2>Kadınlar ve IF</h2>
     <p>
-      Some women report menstrual cycle disruption on strict IF (long
-      fasts or under-eating). If you see cycle changes, shorten the
-      fast window or add kilocalories. Research here is mixed and
-      individual response varies &mdash; pay attention to your body
-      rather than the protocol.
+      Bazı kadınlar katı IF'de (uzun oruçlar veya az yeme) adet döngüsü
+      bozukluğu bildiriyor. Döngü değişiklikleri görürseniz, oruç
+      penceresini kısaltın veya kalori ekleyin. Buradaki araştırmalar
+      karışıktır ve bireysel yanıt değişir — protokolden ziyade
+      vücudunuza dikkat edin.
     </p>
 
-    <h2>Coffee, tea, and electrolytes</h2>
+    <h2>Kahve, çay ve elektrolitler</h2>
     <p>
-      Plain black coffee and plain tea are standard during the fast.
-      Milk, cream, oat milk break the fast by the strict definition
-      (and spike insulin). Artificial sweeteners are a gray zone; some
-      research suggests they can break insulin-response fasts.
+      Sade siyah kahve ve sade çay oruç sırasında standarttır. Süt,
+      krema, yulaf sütü katı tanıma göre orucu bozar (ve insülini
+      yükseltir). Yapay tatlandırıcılar gri bir alandır; bazı
+      araştırmalar insülin yanıtı oruçlarını bozabileceklerini
+      öne sürüyor.
     </p>
     <p>
-      A pinch of salt in water during a longer fast helps. Commercial
-      electrolyte drinks usually contain sugar &mdash; check the
-      label.
-    </p>
-
-    <h2>Common mistakes</h2>
-    <p>
-      <strong>Jumping straight to OMAD.</strong> Almost guaranteed to
-      rebound. Ease in over weeks.
-    </p>
-    <p>
-      <strong>Eating garbage in the window.</strong> IF is a schedule,
-      not a diet. If your overall intake is low-quality or
-      over-calorie, IF won&rsquo;t save you.
-    </p>
-    <p>
-      <strong>Not drinking enough.</strong> Most &ldquo;fasting
-      headaches&rdquo; are dehydration. Water and salt.
-    </p>
-    <p>
-      <strong>Making the window too short.</strong> Trying to eat 2,800
-      kcal in a 4-hour window is uncomfortable and usually undereats.
-    </p>
-    <p>
-      <strong>Ignoring protein.</strong> Easy to under-eat protein on
-      OMAD or 18:6. Budget it into the first meal.
-    </p>
-    <p>
-      <strong>Using IF as a binge-restrict cycle.</strong> Restrict
-      &ndash; binge &ndash; restrict is disordered, not disciplined.
-      If this is your pattern, step away from IF.
-    </p>
-    <p>
-      <strong>Ignoring how you feel.</strong> If 16:8 makes you
-      miserable for three months, find another tool. There is no
-      benefit worth persistent misery.
+      Daha uzun bir oruç sırasında suya bir tutam tuz yardımcı olur.
+      Ticari elektrolit içecekleri genellikle şeker içerir — etiketi
+      kontrol edin.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Track your eating window with the{" "}
-      <a href="/tools/fasting-timer">fasting timer</a>. Set your
-      calorie target for the window with the{" "}
-      <a href="/tools/calorie-calculator">calorie calculator</a> (IF
-      still follows TDEE math), and watch water intake with the{" "}
-      <a href="/tools/water-intake-calculator">water intake calculator</a>{" "}
-      since proper hydration is the biggest single lever for feeling
-      good during the fast.
+      <strong>Doğrudan OMAD'a atlamak.</strong> Neredeyse kesin olarak
+      geri teper. Haftalar içinde kademeli geçiş yapın.
+    </p>
+    <p>
+      <strong>Pencerede abur cubur yemek.</strong> IF bir programdır,
+      diyet değil. Genel alımınız düşük kaliteli veya aşırı kaloriliyse,
+      IF sizi kurtarmaz.
+    </p>
+    <p>
+      <strong>Yeterince su içmemek.</strong> Çoğu "oruç baş ağrısı"
+      dehidrasyondur. Su ve tuz.
+    </p>
+    <p>
+      <strong>Pencereyi çok kısa yapmak.</strong> 4 saatlik bir pencerede
+      2.800 kcal yemeye çalışmak rahatsız edicidir ve genellikle az
+      yemeye yol açar.
+    </p>
+    <p>
+      <strong>Proteini ihmal etmek.</strong> OMAD veya 18:6'da proteini
+      az tüketmek kolaydır. İlk öğünde bütçeleyin.
+    </p>
+    <p>
+      <strong>IF'yi tıkınma-kısıtlama döngüsü olarak kullanmak.</strong>
+      Kısıtlama - tıkınma - kısıtlama disiplin değil, bozukluktur. Bu
+      sizin modelinizse, IF'den uzaklaşın.
+    </p>
+    <p>
+      <strong>Nasıl hissettiğinizi görmezden gelmek.</strong> 16:8 sizi
+      üç ay boyunca mutsuz ediyorsa, başka bir araç bulun. Kalıcı
+      mutsuzluğa değecek hiçbir fayda yoktur.
+    </p>
+
+    <h2>Sayıları hesaplayın</h2>
+    <p>
+      Yeme pencerenizi{" "}
+      <a href="/tools/fasting-timer">oruç zamanlayıcı</a> ile takip
+      edin. Pencere için kalori hedefinizi{" "}
+      <a href="/tools/calorie-calculator">kalori hesaplayıcı</a> ile
+      belirleyin (IF hala TDEE matematiğini takip eder) ve su alımınızı{" "}
+      <a href="/tools/water-intake-calculator">su alımı hesaplayıcı</a>{" "}
+      ile izleyin çünkü uygun hidrasyon, oruç sırasında iyi hissetmek
+      için en büyük tek kaldıraçtır.
     </p>
   </>
 );

@@ -3,135 +3,145 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A cycle&rsquo;s fertile window is six days long — the five days
-      before ovulation plus ovulation day itself — but pinpointing when
-      that window opens takes more than counting days on a calendar.
-      This guide covers the four tracking methods by accuracy (calendar,
-      cervical mucus, basal body <a href="/learn/temperature-ai">temperature</a>, LH test strips), what each
-      one actually tells you, and how to combine them for a picture
-      that&rsquo;s reliable enough to plan around — whether you&rsquo;re
-      trying to conceive or trying to avoid it.
+      Bir döngünün doğurganlık penceresi altı gün sürer — yumurtlamadan
+      önceki beş gün artı yumurtlama gününün kendisi — ancak bu
+      pencerenin ne zaman açıldığını belirlemek, takvimde gün saymaktan
+      daha fazlasını gerektirir. Bu rehber, dört izleme yöntemini
+      doğruluk sırasına göre (takvim, servikal mukus, bazal vücut{" "}
+      <a href="/learn/temperature-ai">sıcaklığı</a>, LH test şeritleri),
+      her birinin size gerçekte ne söylediğini ve hamile kalmaya
+      çalışıyor ya da kaçınmaya çalışıyor olun — plan yapmak için
+      yeterince güvenilir bir tablo elde etmek üzere bunları nasıl
+      birleştireceğinizi kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Why the calendar method is a starting point, not an answer</h2>
+    <h2>Takvim yöntemi neden bir başlangıç noktasıdır, bir cevap değil</h2>
     <p>
-      Textbook cycles are 28 days long and ovulation happens on day 14.
-      Real cycles vary — 21 to 35 days is considered normal, and the{" "}
-      <em>same person&rsquo;s</em> cycles often vary 2–7 days month to
-      month. If you predict your fertile window purely by &ldquo;cycle
-      day 14,&rdquo; you&rsquo;ll miss it in any month where you
-      ovulated on day 11 or day 18.
+      Ders kitabı döngüleri 28 gün sürer ve yumurtlama 14. günde
+      gerçekleşir. Gerçek döngüler değişkendir — 21 ila 35 gün normal
+      kabul edilir ve <em>aynı kişinin</em> döngüleri aydan aya
+      genellikle 2–7 gün arasında değişir. Doğurganlık pencerenizi
+      tamamen &ldquo;döngünün 14. günü&rdquo; ile tahmin ederseniz,
+      11. günde veya 18. günde yumurtladığınız herhangi bir ayda bunu
+      kaçırırsınız.
     </p>
     <p>
-      The calendar method works for two things: (1) narrowing the window
-      to a roughly ten-day range worth watching, and (2) a rough
-      rhythm-method failure rate of 15–25% per year if used alone as
-      contraception. Neither is good enough for precise conception
-      planning. It&rsquo;s table-stakes — use it to know when to start
-      looking, then switch to a body-signal method for the actual
-      window.
-    </p>
-
-    <h2>Cervical mucus — free, underrated, reasonably accurate</h2>
-    <p>
-      Cervical mucus changes consistency across the cycle. Post-period,
-      most people have little or none (&ldquo;dry days&rdquo;). As
-      ovulation approaches, estrogen rises and mucus becomes stretchy,
-      clear, and slippery — the &ldquo;egg-white cervical mucus&rdquo;
-      (EWCM) described in fertility literature. After ovulation,
-      progesterone thickens it again quickly.
-    </p>
-    <p>
-      Peak EWCM is your strongest same-day ovulation signal that&rsquo;s
-      free and requires no equipment. Most people find it reliable after
-      2–3 cycles of deliberate tracking, though it takes practice to
-      distinguish EWCM from normal discharge confidently. Perfect use
-      alone as a contraceptive method (the Creighton or Billings systems)
-      has a published failure rate around 1–3% per year — comparable to
-      condoms — but real-world use drifts higher.
+      Takvim yöntemi iki şey için işe yarar: (1) pencereyi izlemeye
+      değer kabaca on günlük bir aralığa daraltmak ve (2) tek başına
+      doğum kontrolü olarak kullanıldığında yılda %15–25 civarında kaba
+      bir ritim yöntemi başarısızlık oranı. Hiçbiri hassas gebelik
+      planlaması için yeterince iyi değildir. Bu temel bir adımdır —
+      ne zaman bakmaya başlayacağınızı bilmek için kullanın, ardından
+      gerçek pencere için bir vücut sinyali yöntemine geçin.
     </p>
 
-    <h2>Basal body temperature (BBT) — confirmation, not prediction</h2>
+    <h2>Servikal mukus — ücretsiz, hafife alınmış, makul derecede doğru</h2>
     <p>
-      Body temperature at rest rises by 0.3–0.6°F (0.2–0.3°C) <em>after</em>{" "}
-      ovulation, due to progesterone. Track BBT every morning before
-      getting out of bed using a dedicated BBT thermometer (more precise
-      than a regular one), and plot it. Two consecutive days above the
-      pre-ovulation baseline confirms ovulation happened.
+      Servikal mukus, döngü boyunca kıvamını değiştirir. Adet sonrası,
+      çoğu kişide çok az veya hiç yoktur (&ldquo;kuru günler&rdquo;).
+      Yumurtlama yaklaştıkça, östrojen yükselir ve mukus esnek, berrak
+      ve kaygan hale gelir — doğurganlık literatüründe tanımlanan
+      &ldquo;yumurta akı servikal mukus&rdquo; (EWCM). Yumurtlamadan
+      sonra, progesteron onu hızla tekrar kalınlaştırır.
     </p>
     <p>
-      Key limitation: BBT confirms <em>after</em> ovulation, so by itself
-      it&rsquo;s useless for timing intercourse for conception on the
-      fertile day. Its real value is closing the loop — learning your own
-      ovulation day pattern across months so your calendar predictions
-      improve.
-    </p>
-
-    <h2>LH test strips — the most precise prediction</h2>
-    <p>
-      Luteinizing hormone (LH) surges 24–48 hours before ovulation.
-      Over-the-counter LH test strips (also called OPKs — ovulation
-      predictor kits) detect the surge in urine. A positive means
-      ovulation is likely within the next 12–36 hours. Test daily,
-      starting ~5 days before your expected ovulation day, through the
-      day of the positive.
-    </p>
-    <p>
-      Accuracy is high — the test itself is around 99% sensitive in
-      clinical studies. The practical catch: some people have LH
-      baseline variation, or PCOS-related elevated LH, that creates
-      false positives. Pair with one other method (EWCM or BBT) for
-      confirmation if you&rsquo;re getting confusing results across
-      multiple cycles.
+      En yüksek EWCM, ücretsiz ve hiçbir ekipman gerektirmeyen en güçlü
+      aynı gün yumurtlama sinyalinizdir. Çoğu kişi, kasıtlı olarak 2–3
+      döngü takip ettikten sonra bunu güvenilir bulur, ancak EWCM'yi
+      normal akıntıdan güvenle ayırt etmek pratik gerektirir. Tek başına
+      bir doğum kontrol yöntemi olarak (Creighton veya Billings
+      sistemleri) mükemmel kullanımda yayınlanmış başarısızlık oranı
+      yılda yaklaşık %1–3 civarındadır — prezervatiflerle karşılaştırılabilir
+      — ancak gerçek dünya kullanımı daha yüksektir.
     </p>
 
-    <h2>Combining methods — &ldquo;symptothermal&rdquo;</h2>
+    <h2>Bazal vücut sıcaklığı (BBT) — onaylama, tahmin değil</h2>
     <p>
-      Using cervical mucus + BBT together (often called the
-      symptothermal method) has one of the best efficacy profiles of any
-      non-hormonal contraceptive method when used perfectly — under 1%
-      failure per year. For conception planning, symptothermal plus LH
-      strips closes every gap: LH strips predict the window opening, EWCM
-      confirms the fertile day in real-time, and BBT confirms afterward
-      that ovulation actually occurred.
+      Dinlenme halindeki vücut sıcaklığı, progesteron nedeniyle
+      yumurtlamadan <em>sonra</em> 0.3–0.6°F (0.2–0.3°C) yükselir.
+      Her sabah yataktan kalkmadan önce özel bir BBT termometresi
+      (normalden daha hassas) kullanarak BBT'yi takip edin ve grafiğe
+      dökün. Yumurtlama öncesi taban çizgisinin üzerinde art arda iki
+      gün, yumurtlamanın gerçekleştiğini onaylar.
+    </p>
+    <p>
+      Temel sınırlama: BBT, yumurtlamadan <em>sonra</em> onaylar, bu
+      nedenle tek başına doğurgan günde cinsel ilişki zamanlaması için
+      işe yaramaz. Gerçek değeri, döngüyü kapatmaktır — aylar boyunca
+      kendi yumurtlama günü modelinizi öğrenerek takvim tahminlerinizin
+      iyileşmesini sağlar.
     </p>
 
-    <h2>The fertile window math</h2>
+    <h2>LH test şeritleri — en hassas tahmin</h2>
     <p>
-      Sperm can live 3–5 days in fertile cervical mucus; the egg is viable
-      for 12–24 hours after ovulation. So the fertile window is
-      effectively the 5 days before ovulation plus ovulation day — 6 days
-      total. Inside that window, conception probability per act of
-      intercourse is highest the day before and day of ovulation
-      (15–30%).
+      Luteinize edici hormon (LH), yumurtlamadan 24–48 saat önce
+      yükselir. Reçetesiz satılan LH test şeritleri (OPK'ler olarak da
+      adlandırılır — yumurtlama tahmin kitleri), idrardaki yükselişi
+      tespit eder. Pozitif bir sonuç, yumurtlamanın önümüzdeki 12–36
+      saat içinde olmasının muhtemel olduğu anlamına gelir. Beklenen
+      yumurtlama gününüzden yaklaşık 5 gün önce başlayarak, pozitif
+      sonuç alınan güne kadar her gün test edin.
     </p>
     <p>
-      For conception: intercourse every 1–2 days throughout the fertile
-      window maximizes chances. Daily intercourse vs every-other-day
-      doesn&rsquo;t meaningfully change outcomes. Stressing about perfect
-      timing often causes more problems than the timing itself.
+      Doğruluk yüksektir — testin kendisi klinik çalışmalarda yaklaşık
+      %99 hassasiyete sahiptir. Pratik sorun: bazı kişilerde LH taban
+      çizgisi değişikliği veya yanlış pozitifler oluşturan PCOS ile
+      ilişkili yüksek LH vardır. Birden fazla döngüde kafa karıştırıcı
+      sonuçlar alıyorsanız, onay için başka bir yöntemle (EWCM veya BBT)
+      eşleştirin.
     </p>
 
-    <h2>When to see a clinician</h2>
+    <h2>Yöntemleri birleştirme — &ldquo;semptotermal&rdquo;</h2>
     <p>
-      Under 35 and trying for 12 months without conception; 35 or over
-      and trying for 6 months; cycles consistently shorter than 21 days
-      or longer than 35 days; or any month without a detectable LH surge
-      across 3+ consecutive tracked cycles. These are the flags for a
-      reproductive-endocrinology or OB-GYN conversation about testing
-      (hormone panels, AMH, semen analysis if applicable).
+      Servikal mukus + BBT'yi birlikte kullanmak (genellikle semptotermal
+      yöntem olarak adlandırılır), mükemmel kullanıldığında hormonal
+      olmayan herhangi bir doğum kontrol yönteminin en iyi etkinlik
+      profillerinden birine sahiptir — yılda %1'in altında başarısızlık.
+      Gebelik planlaması için, semptotermal artı LH şeritleri her boşluğu
+      kapatır: LH şeritleri pencerenin açılışını tahmin eder, EWCM
+      doğurgan günü gerçek zamanlı olarak onaylar ve BBT daha sonra
+      yumurtlamanın gerçekten gerçekleştiğini onaylar.
+    </p>
+
+    <h2>Doğurganlık penceresi matematiği</h2>
+    <p>
+      Sperm, doğurgan servikal mukusta 3–5 gün yaşayabilir; yumurta,
+      yumurtlamadan sonra 12–24 saat canlıdır. Bu nedenle doğurganlık
+      penceresi etkili bir şekilde yumurtlamadan önceki 5 gün artı
+      yumurtlama günüdür — toplam 6 gün. Bu pencerede, cinsel ilişki
+      başına gebelik olasılığı en yüksek yumurtlamadan bir gün önce ve
+      yumurtlama günüdür (%15–30).
     </p>
     <p>
-      For day-to-day tracking, use the{" "}
-      <a href="/tools/ovulation-calculator">ovulation calculator</a> to
-      predict your fertile window from cycle data, and the{" "}
-      <a href="/tools/pregnancy-calculator">pregnancy calculator</a> once
-      you&rsquo;re tracking a positive result. This guide is informational
-      — always confirm health decisions with a qualified clinician.
+      Gebelik için: doğurganlık penceresi boyunca her 1–2 günde bir
+      cinsel ilişki şansı en üst düzeye çıkarır. Her gün cinsel ilişkiye
+      girmek ile gün aşırı girmek sonuçları anlamlı şekilde
+      değiştirmez. Mükemmel zamanlama konusunda stres yapmak genellikle
+      zamanlamanın kendisinden daha fazla soruna neden olur.
+    </p>
+
+    <h2>Bir klinisyene ne zaman görünmeli</h2>
+    <p>
+      35 yaş altı ve 12 ay boyunca gebelik olmadan denemek; 35 yaş ve
+      üzeri ve 6 ay boyunca denemek; sürekli olarak 21 günden kısa veya
+      35 günden uzun döngüler; veya art arda 3+ takip edilen döngüde
+      tespit edilebilir bir LH yükselişi olmayan herhangi bir ay. Bunlar,
+      testler (hormon panelleri, AMH, varsa semen analizi) hakkında bir
+      üreme endokrinolojisi veya kadın doğum uzmanı ile görüşme
+      işaretleridir.
+    </p>
+    <p>
+      Günlük takip için, döngü verilerinden doğurganlık pencerenizi
+      tahmin etmek üzere{" "}
+      <a href="/tools/ovulation-calculator">yumurtlama hesaplayıcıyı</a>{" "}
+      ve pozitif bir sonucu takip ettiğinizde{" "}
+      <a href="/tools/pregnancy-calculator">gebelik hesaplayıcıyı</a>{" "}
+      kullanın. Bu rehber bilgilendirme amaçlıdır — sağlık kararlarını
+      her zaman kalifiye bir klinisyenle onaylayın.
     </p>
   </>
 );

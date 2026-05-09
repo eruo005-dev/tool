@@ -2,76 +2,59 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Public benchmarks (MMLU, SWE-bench, HumanEval) are useful but only get you partway. To know
-    which model is actually best for <em>your</em> use case, you have to evaluate it on your own
-    tasks. Here&rsquo;s a 2026 protocol that takes a couple of hours and saves months of switching.
+    Genel kıyaslamalar (MMLU, SWE-bench, HumanEval) faydalıdır ancak sizi yalnızca bir yere kadar götürür. Hangi modelin <em>sizin</em> kullanım senaryonuz için gerçekten en iyisi olduğunu bilmek için, onu kendi görevlerinizde değerlendirmeniz gerekir. İşte birkaç saat süren ve aylarca sürecek model değiştirme işlemlerinden tasarruf ettiren 2026 protokolü.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The 4-step evaluation protocol</h2>
+    <h2>4 adımlı değerlendirme protokolü</h2>
 
-    <h3>1. Build a 30-task evaluation set (1 hour)</h3>
+    <h3>1. 30 görevlik bir değerlendirme seti oluşturun (1 saat)</h3>
     <p>
-      Pick 30 tasks that represent your real work. Cover edge cases, ambiguity, your domain&rsquo;s
-      specific quirks. Save inputs and your &ldquo;ideal&rdquo; outputs (or rubrics if outputs are
-      open-ended). 30 tasks is the sweet spot &mdash; enough to be statistically meaningful, few
-      enough to grade by hand.
+      Gerçek işinizi temsil eden 30 görev seçin. Uç durumları, belirsizlikleri ve alanınıza özgü tuhaflıkları kapsayın. Girdileri ve "ideal" çıktılarınızı (veya çıktılar açık uçluysa değerlendirme kriterlerinizi) kaydedin. 30 görev ideal sayıdır; istatistiksel olarak anlamlı olacak kadar çok, elle notlandırmak için yeterince az.
     </p>
 
-    <h3>2. Run each candidate model with the same <a href="/learn/system-prompt">system prompt</a> (30 min)</h3>
+    <h3>2. Her aday modeli aynı <a href="/learn/system-prompt">sistem yönergesi</a> ile çalıştırın (30 dk)</h3>
     <p>
-      Use a consistent prompt template. Don&rsquo;t bias one model with longer instructions or more
-      examples than another. For a fair fight, run each candidate with default <a href="/learn/temperature-ai">temperature</a> and the
-      same context. Save the outputs.
+      Tutarlı bir yönerge şablonu kullanın. Bir modele diğerinden daha uzun talimatlar veya daha fazla örnek vererek avantaj sağlamayın. Adil bir karşılaştırma için, her adayı varsayılan <a href="/learn/temperature-ai">sıcaklık</a> ve aynı bağlamla çalıştırın. Çıktıları kaydedin.
     </p>
 
-    <h3>3. Grade with rubrics (1 hour)</h3>
+    <h3>3. Değerlendirme kriterleriyle notlandırın (1 saat)</h3>
     <p>
-      Score each output 1-5 on relevant dimensions: correctness, faithfulness, format compliance,
-      conciseness. Aggregate by mean score per model. The numbers will surprise you &mdash; the
-      model that &ldquo;feels&rdquo; best in casual chat often loses on consistency.
+      Her çıktıyı ilgili boyutlarda 1-5 arası puanlayın: doğruluk, bağlılık, biçim uyumu, kısalık. Model başına ortalama puana göre toplayın. Rakamlar sizi şaşırtacak; gündelik sohbette "en iyi" gibi görünen model, tutarlılıkta genellikle kaybeder.
     </p>
 
-    <h3>4. Spot-check the failures (30 min)</h3>
+    <h3>4. Başarısızlıkları gözden geçirin (30 dk)</h3>
     <p>
-      Look at the worst 5 outputs from each model. Patterns tell you more than averages. If model
-      A fails on edge cases but nails the common case, and model B is mediocre across the board,
-      A wins for production.
+      Her modelden en kötü 5 çıktıya bakın. Kalıplar size ortalamalardan daha fazlasını söyler. Model A uç durumlarda başarısız oluyor ancak yaygın durumu mükemmel yapıyorsa ve Model B her alanda vasatsa, üretim için A kazanır.
     </p>
 
-    <h2>What to actually measure</h2>
+    <h2>Gerçekte ne ölçülmeli</h2>
     <ul>
-      <li><strong>Correctness:</strong> binary right/wrong on tasks with verifiable answers.</li>
-      <li><strong>Faithfulness:</strong> does the output stay grounded in the provided source? (Most
-        important for RAG.)</li>
-      <li><strong>Instruction adherence:</strong> did it actually do what you asked?</li>
-      <li><strong>Format compliance:</strong> did it output JSON when you asked for JSON?</li>
-      <li><strong>Latency:</strong> p50 and p95 to first token + completion.</li>
-      <li><strong>Cost per task:</strong> total input + output tokens × price.</li>
+      <li><strong>Doğruluk:</strong> Doğrulanabilir cevapları olan görevlerde ikili doğru/yanlış.</li>
+      <li><strong>Bağlılık:</strong> Çıktı, sağlanan kaynağa sadık kalıyor mu? (RAG için en önemlisi.)</li>
+      <li><strong>Talimata uyum:</strong> Sizden isteneni gerçekten yaptı mı?</li>
+      <li><strong>Biçim uyumu:</strong> JSON istediğinizde JSON çıktısı verdi mi?</li>
+      <li><strong>Gecikme süresi:</strong> İlk token ve tamamlama için p50 ve p95.</li>
+      <li><strong>Görev başına maliyet:</strong> Toplam girdi + çıktı tokenları × fiyat.</li>
     </ul>
 
-    <h2>Tools to make this easier</h2>
+    <h2>Bunu kolaylaştıracak araçlar</h2>
     <ul>
-      <li><strong>OpenAI <a href="/learn/evals">Evals</a></strong> &mdash; structured eval framework, model-agnostic.</li>
-      <li><strong>Promptfoo</strong> &mdash; YAML-driven multi-model bake-off. Easiest entry point.</li>
-      <li><strong>Anthropic Workbench</strong> &mdash; for Claude-specific iteration.</li>
-      <li><strong>LangSmith</strong> &mdash; tracing + eval, integrates with LangChain.</li>
-      <li><strong>Braintrust / Humanloop</strong> &mdash; production-grade eval ops.</li>
+      <li><strong>OpenAI <a href="/learn/evals">Evals</a></strong> &mdash; Yapılandırılmış değerlendirme çerçevesi, modelden bağımsız.</li>
+      <li><strong>Promptfoo</strong> &mdash; YAML tabanlı çok modelli karşılaştırma. En kolay başlangıç noktası.</li>
+      <li><strong>Anthropic Workbench</strong> &mdash; Claude'a özel yineleme için.</li>
+      <li><strong>LangSmith</strong> &mdash; İzleme + değerlendirme, LangChain ile entegre olur.</li>
+      <li><strong>Braintrust / Humanloop</strong> &mdash; Üretim düzeyinde değerlendirme operasyonları.</li>
     </ul>
 
-    <h2>The trap to avoid</h2>
+    <h2>Kaçınılması gereken tuzak</h2>
     <p>
-      &ldquo;Vibe-checking&rdquo; with 5 prompts and picking the model that gave the best answer
-      <em> on those 5</em>. You&rsquo;re biased. Always evaluate at scale (30+ tasks) and grade
-      structurally. Most people picking models in 2026 are still vibe-checking, which is why so
-      many production deployments use the wrong model.
+      5 yönergeyle "hissiyat kontrolü" yapmak ve <em>o 5'te</em> en iyi cevabı veren modeli seçmek. Taraflısınız. Her zaman ölçekte (30+ görev) değerlendirin ve yapısal olarak notlandırın. 2026'da hala birçok kişi model seçerken hissiyat kontrolü yapıyor, bu yüzden pek çok üretim dağıtımı yanlış modeli kullanıyor.
     </p>
     <p>
-      Compare models head-to-head: <a href="/tools/frontier-model-tracker">frontier model
-      tracker</a>. Cost-compare: <a href="/tools/claude-vs-deepseek-cost-calculator">Claude vs
-      DeepSeek</a>.
+      Modelleri karşılaştırın: <a href="/tools/frontier-model-tracker">sınır modeli izleyici</a>. Maliyet karşılaştırması: <a href="/tools/claude-vs-deepseek-cost-calculator">Claude vs DeepSeek</a>.
     </p>
   </>
 );

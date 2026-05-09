@@ -3,75 +3,80 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      &ldquo;Strip special characters&rdquo; is a deceptively fuzzy
-      request. There&rsquo;s no universal definition of a &ldquo;special&rdquo;
-      character &mdash; it depends on what you&rsquo;re cleaning text for.
-      URL-safe output wants one character set; database primary keys want
-      another; human-readable display wants a third. Running a blanket
-      regex like <code>/[^a-zA-Z0-9]/g</code> will nuke spaces, accents,
-      and punctuation you probably wanted to keep. This guide walks
-      through defining &ldquo;special&rdquo; for your use case, the regex
-      patterns for each, how to preserve common punctuation selectively,
-      and how to produce ASCII-only or URL-safe output without destroying
-      the meaning of the text.
+      &ldquo;Özel karakterleri temizle&rdquo; talebi göründüğünden daha
+      muğlaktır. &ldquo;Özel&rdquo; karakterin evrensel bir tanımı
+      yoktur &mdash; metni ne için temizlediğinize bağlıdır.
+      URL uyumlu çıktı bir karakter seti ister; veritabanı birincil
+      anahtarları başka birini ister; insan tarafından okunabilir
+      görüntüleme üçüncü birini ister. <code>/[^a-zA-Z0-9]/g</code>
+      gibi genel bir regex kullanmak, muhtemelen korumak istediğiniz
+      boşlukları, aksanları ve noktalama işaretlerini yok eder. Bu
+      kılavuz, kullanım durumunuza göre &ldquo;özel&rdquo; tanımını
+      yapmayı, her biri için regex kalıplarını, yaygın noktalama
+      işaretlerini seçici olarak nasıl koruyacağınızı ve metnin
+      anlamını bozmadan yalnızca ASCII veya URL uyumlu çıktıyı nasıl
+      üreteceğinizi adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Start by defining &ldquo;special&rdquo;</h2>
+    <h2>&ldquo;Özel&rdquo; tanımını yaparak başlayın</h2>
     <p>
-      Pick the output constraint first, then derive the allow-list:
+      Önce çıktı kısıtlamasını seçin, ardından izin verilenler
+      listesini oluşturun:
     </p>
     <ul>
-      <li><strong>Filename-safe</strong> &mdash; no <code>/ \\ : * ? &ldquo; &lt; &gt; |</code></li>
-      <li><strong>URL-safe</strong> &mdash; alphanumeric, dash, underscore, dot</li>
-      <li><strong>ASCII-only</strong> &mdash; strip or transliterate everything outside U+0000&ndash;U+007F</li>
-      <li><strong>Alphanumeric-only</strong> &mdash; letters and digits, nothing else</li>
-      <li><strong>Human-readable</strong> &mdash; keep punctuation, strip control chars</li>
+      <li><strong>Dosya adı uyumlu</strong> &mdash; <code>/ \\ : * ? &ldquo; &lt; &gt; |</code> yok</li>
+      <li><strong>URL uyumlu</strong> &mdash; alfanümerik, tire, alt çizgi, nokta</li>
+      <li><strong>Yalnızca ASCII</strong> &mdash; U+0000&ndash;U+007F dışındaki her şeyi temizle veya dönüştür</li>
+      <li><strong>Yalnızca alfanümerik</strong> &mdash; harfler ve rakamlar, başka hiçbir şey</li>
+      <li><strong>İnsan tarafından okunabilir</strong> &mdash; noktalama işaretlerini koru, kontrol karakterlerini temizle</li>
     </ul>
 
-    <h2>Allow-list beats deny-list</h2>
+    <h2>Yasaklama listesi yerine izin verme listesi</h2>
     <p>
-      Deny-listing (&ldquo;remove these bad characters&rdquo;) leaves you
-      vulnerable to characters you didn&rsquo;t think of &mdash; especially
-      Unicode confusables, zero-width characters, and invisible tags.
-      Allow-listing (&ldquo;keep only these characters&rdquo;) is safer.
+      Yasaklama listesi (&ldquo;bu kötü karakterleri kaldır&rdquo;)
+      aklınıza gelmeyen karakterlere karşı sizi savunmasız bırakır
+      &mdash; özellikle Unicode karıştırıcıları, sıfır genişlikli
+      karakterler ve görünmez etiketler. İzin verme listesi
+      (&ldquo;yalnızca bu karakterleri tut&rdquo;) daha güvenlidir.
     </p>
-    <pre>{`// Allow-list: alphanumeric + space + basic punctuation
+    <pre>{`// İzin verme listesi: alfanümerik + boşluk + temel noktalama
 str.replace(/[^\\p{L}\\p{N} .,!?'-]/gu, "")
 
-// \\p{L} = any letter (any script)
-// \\p{N} = any number
-// u flag = Unicode`}</pre>
+// \\p{L} = herhangi bir harf (herhangi bir alfabe)
+// \\p{N} = herhangi bir sayı
+// u bayrağı = Unicode`}</pre>
 
-    <h2>ASCII-only with transliteration</h2>
+    <h2>Dönüştürme ile yalnızca ASCII</h2>
     <p>
-      Don&rsquo;t just strip non-ASCII &mdash; transliterate first so
-      &ldquo;caf&eacute;&rdquo; becomes &ldquo;cafe,&rdquo; not
-      &ldquo;caf.&rdquo; The trick: normalize to NFD (decomposed form),
-      then strip combining marks, then strip anything still non-ASCII.
+      ASCII olmayanı sadece temizlemeyin &mdash; önce dönüştürün ki
+      &ldquo;caf&eacute;&rdquo; &ldquo;caf&rdquo; değil, &ldquo;cafe&rdquo;
+      olsun. İşin püf noktası: NFD'ye (ayrıştırılmış biçim) normalleştirin,
+      ardından birleştirme işaretlerini temizleyin, ardından hâlâ ASCII
+      olmayan her şeyi temizleyin.
     </p>
     <pre>{`function toAscii(s) {
   return s
     .normalize("NFD")
-    .replace(/\\p{M}/gu, "")       // strip combining marks
-    .replace(/[^\\x00-\\x7F]/g, ""); // drop any remaining non-ASCII
+    .replace(/\\p{M}/gu, "")       // birleştirme işaretlerini temizle
+    .replace(/[^\\x00-\\x7F]/g, ""); // kalan ASCII olmayanları at
 }
 
 toAscii("caf\\u00e9")        // "cafe"
 toAscii("na\\u00efve")       // "naive"
 toAscii("r\\u00e9sum\\u00e9") // "resume"`}</pre>
     <p>
-      This handles accented Latin beautifully. It can&rsquo;t transliterate
-      non-Latin scripts &mdash; for Cyrillic, Greek, or CJK you need a
-      dedicated library.
+      Bu, aksanlı Latin harflerini harika bir şekilde işler. Latin
+      olmayan alfabeleri dönüştüremez &mdash; Kiril, Yunan veya Çin-Japon-Kore
+      için özel bir kütüphaneye ihtiyacınız vardır.
     </p>
 
-    <h2>URL-safe output</h2>
+    <h2>URL uyumlu çıktı</h2>
     <p>
-      URLs allow a narrow character set. The standard pattern:
+      URL'ler dar bir karakter setine izin verir. Standart kalıp:
     </p>
     <pre>{`function toSlug(s) {
   return s
@@ -85,97 +90,101 @@ toAscii("r\\u00e9sum\\u00e9") // "resume"`}</pre>
 toSlug("Hello, World!")       // "hello-world"
 toSlug("caf\\u00e9 &amp; bar")   // "cafe-bar"`}</pre>
 
-    <h2>Preserve spaces but strip punctuation</h2>
+    <h2>Boşlukları koru ama noktalama işaretlerini temizle</h2>
     <p>
-      Common for prepping text for tokenization or search indexing:
+      Metni tokenizasyon veya arama indeksleme için hazırlarken yaygındır:
     </p>
     <pre>{`str.replace(/[^\\p{L}\\p{N}\\s]/gu, "")
    .replace(/\\s+/g, " ")
    .trim()`}</pre>
     <p>
-      Removes punctuation but keeps word boundaries intact.
+      Noktalama işaretlerini kaldırır ancak kelime sınırlarını korur.
     </p>
 
-    <h2>Filename sanitization</h2>
+    <h2>Dosya adı temizleme</h2>
     <p>
-      Windows is the strictest. Safe filename regex:
+      En katı işletim sistemi Windows'tur. Güvenli dosya adı regex'i:
     </p>
     <pre>{`function sanitizeFilename(name) {
   return name
     .replace(/[\\/\\\\:*?"&lt;&gt;|]/g, "_")
     .replace(/\\s+/g, " ")
     .trim()
-    .slice(0, 200);              // reserve room for extension
+    .slice(0, 200);              // uzantı için yer bırak
 }`}</pre>
     <p>
-      Also check for reserved names on Windows: <code>CON</code>,
+      Ayrıca Windows'ta ayrılmış adları kontrol edin: <code>CON</code>,
       <code>PRN</code>, <code>AUX</code>, <code>NUL</code>,
       <code>COM1</code>&ndash;<code>COM9</code>, <code>LPT1</code>&ndash;<code>LPT9</code>.
-      Neither with nor without extensions are allowed as filenames.
+      Bunlar ne uzantılı ne de uzantısız dosya adı olarak kullanılamaz.
     </p>
 
-    <h2>Control character stripping</h2>
+    <h2>Kontrol karakterlerini temizleme</h2>
     <p>
-      Control characters (U+0000&ndash;U+001F and U+007F) cause chaos in
-      display, logs, and databases. Strip them universally unless you
-      specifically need <code>\t</code>, <code>\n</code>, <code>\r</code>:
+      Kontrol karakterleri (U+0000&ndash;U+001F ve U+007F) görüntüleme,
+      günlükler ve veritabanlarında kaosa neden olur. Özellikle
+      <code>\t</code>, <code>\n</code>, <code>\r</code>'ye ihtiyacınız
+      yoksa evrensel olarak temizleyin:
     </p>
     <pre>{`str.replace(/[\\x00-\\x08\\x0B\\x0C\\x0E-\\x1F\\x7F]/g, "")`}</pre>
 
-    <h2>Preserving quotes and apostrophes</h2>
+    <h2>Tırnak işaretlerini ve kesme işaretlerini koruma</h2>
     <p>
-      &ldquo;Smart&rdquo; quotes (U+2018, U+2019, U+201C, U+201D) vs
-      straight (U+0027, U+0022) is a frequent headache. Pick one and
-      normalize:
+      &ldquo;Akıllı&rdquo; tırnaklar (U+2018, U+2019, U+201C, U+201D) ile
+      düz tırnaklar (U+0027, U+0022) sık sık baş ağrısı yapar. Birini
+      seçin ve normalleştirin:
     </p>
     <pre>{`str
   .replace(/[\\u2018\\u2019\\u201A\\u201B]/g, "'")
   .replace(/[\\u201C\\u201D\\u201E\\u201F]/g, "\\"");`}</pre>
 
-    <h2>Category-based stripping with Unicode</h2>
+    <h2>Unicode ile kategori bazlı temizleme</h2>
     <p>
-      Regex Unicode categories let you strip by meaning, not by codepoint:
+      Regex Unicode kategorileri, kod noktasına göre değil, anlama göre
+      temizlemenizi sağlar:
     </p>
     <ul>
-      <li><code>{`\\p{L}`}</code> &mdash; letters</li>
-      <li><code>{`\\p{N}`}</code> &mdash; numbers</li>
-      <li><code>{`\\p{P}`}</code> &mdash; punctuation</li>
-      <li><code>{`\\p{S}`}</code> &mdash; symbols (math, currency, etc.)</li>
-      <li><code>{`\\p{M}`}</code> &mdash; marks (combining diacritics)</li>
-      <li><code>{`\\p{C}`}</code> &mdash; control and format characters</li>
-      <li><code>{`\\p{Z}`}</code> &mdash; separators (spaces)</li>
+      <li><code>{`\\p{L}`}</code> &mdash; harfler</li>
+      <li><code>{`\\p{N}`}</code> &mdash; sayılar</li>
+      <li><code>{`\\p{P}`}</code> &mdash; noktalama işaretleri</li>
+      <li><code>{`\\p{S}`}</code> &mdash; semboller (matematik, para birimi vb.)</li>
+      <li><code>{`\\p{M}`}</code> &mdash; işaretler (birleştirme aksanları)</li>
+      <li><code>{`\\p{C}`}</code> &mdash; kontrol ve biçim karakterleri</li>
+      <li><code>{`\\p{Z}`}</code> &mdash; ayırıcılar (boşluklar)</li>
     </ul>
-    <pre>{`// Strip punctuation and symbols only
+    <pre>{`// Yalnızca noktalama ve sembolleri temizle
 str.replace(/[\\p{P}\\p{S}]/gu, "")`}</pre>
 
-    <h2>Testing your filter</h2>
+    <h2>Filtrenizi test etme</h2>
     <p>
-      Always run it on a torture-test string:
+      Her zaman bir işkence testi dizesi üzerinde çalıştırın:
     </p>
     <pre>{`const test = "Caf\\u00e9 \\u2014 'Na\\u00efve' &lt;3 &#x1F600; \\u0000\\u200B";
 console.log(filter(test));`}</pre>
     <p>
-      Check the output for smart quotes, combining marks, emoji,
-      zero-width space, and control characters. If any slipped through,
-      tighten your allow-list.
+      Çıktıyı akıllı tırnaklar, birleştirme işaretleri, emoji,
+      sıfır genişlikli boşluk ve kontrol karakterleri açısından
+      kontrol edin. Herhangi biri geçtiyse, izin verme listenizi
+      sıkılaştırın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Using <code>[^a-zA-Z0-9]</code> without the Unicode flag and
-      destroying all non-ASCII letters. Stripping combining marks
-      without first normalizing to NFD, so &ldquo;caf&eacute;&rdquo; (one
-      code point) stays intact but &ldquo;cafe + combining acute&rdquo;
-      becomes &ldquo;cafe&rdquo; &mdash; inconsistent results across
-      inputs. Forgetting zero-width characters exist. Writing a
-      deny-list that misses a character class somebody pastes next week.
+      Unicode bayrağı olmadan <code>[^a-zA-Z0-9]</code> kullanmak ve
+      ASCII olmayan tüm harfleri yok etmek. Önce NFD'ye normalleştirmeden
+      birleştirme işaretlerini temizlemek, böylece &ldquo;caf&eacute;&rdquo;
+      (tek kod noktası) bozulmadan kalırken &ldquo;cafe + birleştirme
+      vurgusu&rdquo; &ldquo;cafe&rdquo; olur &mdash; girdiler arasında
+      tutarsız sonuçlar. Sıfır genişlikli karakterlerin varlığını
+      unutmak. Gelecek hafta birinin yapıştırabileceği bir karakter
+      sınıfını kaçıran bir yasaklama listesi yazmak.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      <a href="/tools/special-character-remover">Special character remover</a>
-      <a href="/tools/unicode-text-normalizer">Unicode text normalizer</a>
-      <a href="/tools/slug-generator">Slug generator</a>
+      <a href="/tools/special-character-remover">Özel karakter temizleyici</a>
+      <a href="/tools/unicode-text-normalizer">Unicode metin normalleştirici</a>
+      <a href="/tools/slug-generator">Slug oluşturucu</a>
     </p>
   </>
 );

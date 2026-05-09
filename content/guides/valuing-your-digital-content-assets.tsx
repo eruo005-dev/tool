@@ -3,205 +3,206 @@
 export const intro = (
   <>
     <p>
-      &ldquo;Is my content inventory worth anything?&rdquo; comes up most often when
-      someone is thinking about selling, getting acquired, or filing taxes. The honest
-      answer: yes, but the value depends entirely on which lens you&rsquo;re using.
-      Tax accountants, insurance brokers, and content-site brokers will give you wildly
-      different numbers for the same library.
+      &ldquo;İçerik envanterimin bir değeri var mı?&rdquo; sorusu en çok birisi satmayı,
+      satın alınmayı veya vergi beyanı vermeyi düşünürken gündeme gelir. Dürüst
+      cevap: evet, ancak değer tamamen hangi mercekten baktığınıza bağlıdır.
+      Vergi muhasebecileri, sigorta komisyoncuları ve içerik sitesi komisyoncuları aynı
+      kütüphane için size birbirinden çok farklı rakamlar verecektir.
     </p>
     <p>
-      This guide explains the three valuation lenses, when each applies, and how to
-      assemble a defensible estimate. Pair it with our{" "}
-      <a href="/tools/content-inventory-value-estimator">content inventory value
-      estimator</a> for the math.
+      Bu kılavuz, üç değerleme merceğini, her birinin ne zaman uygulanacağını ve
+      savunulabilir bir tahminin nasıl oluşturulacağını açıklar. Matematik için{" "}
+      <a href="/tools/content-inventory-value-estimator">içerik envanteri değer
+      tahmin aracımız</a> ile birlikte kullanın.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "lenses", label: "The three valuation lenses" },
-  { id: "replacement", label: "Replacement cost" },
-  { id: "traffic", label: "Traffic-driven value" },
-  { id: "revenue", label: "Revenue-driven value" },
-  { id: "monetization", label: "Monetizing existing content" },
+  { id: "lenses", label: "Üç değerleme merceği" },
+  { id: "replacement", label: "Yenileme maliyeti" },
+  { id: "traffic", label: "Trafik kaynaklı değer" },
+  { id: "revenue", label: "Gelir kaynaklı değer" },
+  { id: "monetization", label: "Mevcut içeriği paraya çevirme" },
 ];
 
 export const body = (
   <>
-    <h2 id="lenses">The three valuation lenses</h2>
+    <h2 id="lenses">Üç değerleme merceği</h2>
     <p>
-      Every &ldquo;how much is my content worth?&rdquo; conversation reduces to one of
-      three lenses, and the right answer depends on who&rsquo;s asking:
+      &ldquo;İçeriğimin değeri ne kadar?&rdquo; konuşmalarının her biri üç
+      mercekten birine indirgenir ve doğru cevap kimin sorduğuna bağlıdır:
     </p>
     <ol>
       <li>
-        <strong>Replacement cost.</strong> What would it cost to recreate this content?
-        Used for: insurance scheduling, founder transitions, internal accounting.
+        <strong>Yenileme maliyeti.</strong> Bu içeriği yeniden oluşturmanın maliyeti ne
+        olurdu? Kullanım alanları: sigorta planlaması, kurucu geçişleri, dahili muhasebe.
       </li>
       <li>
-        <strong>Traffic-driven value.</strong> What&rsquo;s the SEO value of the existing
-        organic traffic? Used for: domain auctions, content-site brokering, comparing
-        against ad-buy alternatives.
+        <strong>Trafik kaynaklı değer.</strong> Mevcut organik trafiğin SEO değeri
+        nedir? Kullanım alanları: alan adı açık artırmaları, içerik sitesi komisyonculuğu,
+        reklam satın alma alternatifleriyle karşılaştırma.
       </li>
       <li>
-        <strong>Revenue-driven value.</strong> What&rsquo;s the direct contribution to
-        revenue? Used for: strategic acquisitions, financing, M&amp;A.
+        <strong>Gelir kaynaklı değer.</strong> Gelire doğrudan katkı nedir?
+        Kullanım alanları: stratejik satın almalar, finansman, birleşme ve satın almalar.
       </li>
     </ol>
     <p>
-      Mature deals reference all three. If you only have one number, you&rsquo;re leaving
-      money on the table or being asked to take less than you deserve.
+      Olgun anlaşmalar her üçüne de atıfta bulunur. Yalnızca bir rakamınız varsa,
+      masada para bırakıyorsunuz veya hak ettiğinizden daha azını almanız isteniyor demektir.
     </p>
 
-    <h2 id="replacement">Lens 1: replacement cost</h2>
+    <h2 id="replacement">Mercek 1: yenileme maliyeti</h2>
     <p>
-      The simplest model. Three inputs:
+      En basit model. Üç girdi:
     </p>
     <ul>
       <li>
-        <strong>Number of pieces.</strong> Articles, videos, podcasts, courses — count
-        only meaningful pieces (a 200-word doodle isn&rsquo;t equivalent to a 2000-word
-        guide).
+        <strong>Parça sayısı.</strong> Makaleler, videolar, podcast'ler, kurslar — yalnızca
+        anlamlı parçaları sayın (200 kelimelik bir karalama, 2000 kelimelik bir
+        rehberle eşdeğer değildir).
       </li>
       <li>
-        <strong>Hours per piece.</strong> Research + draft + edit + publish. Typical
-        ranges: 2–4 hours for a short blog post, 6–12 for a deep guide, 20+ for a
-        researched longform.
+        <strong>Parça başına saat.</strong> Araştırma + taslak + düzenleme + yayınlama.
+        Tipik aralıklar: kısa bir blog yazısı için 2–4 saat, derinlemesine bir rehber için 6–12,
+        araştırmalı uzun metin için 20+ saat.
       </li>
       <li>
-        <strong>Loaded hourly rate.</strong> What you&rsquo;d pay a freelance writer or
-        consultant to recreate it. Range: $50–$150/hour for solid content writers in
-        2026; $100–$250/hour for subject-matter experts.
+        <strong>Yüklü saatlik ücret.</strong> Bunu yeniden oluşturması için bir serbest
+        yazar veya danışmana ödeyeceğiniz miktar. 2026'da kaliteli içerik yazarları için
+        aralık: $50–$150/saat; konu uzmanları için $100–$250/saat.
       </li>
     </ul>
     <p>
-      Example: 120 articles × 4 hours × $75/hour = $36,000 replacement cost.
+      Örnek: 120 makale × 4 saat × $75/saat = $36.000 yenileme maliyeti.
     </p>
     <p>
-      When to use it: tax filings (cost-method), insurance, internal P&amp;L. The
-      number is conservative — most acquirers will pay more than this for a portfolio
-      with traction.
+      Ne zaman kullanılır: vergi beyannameleri (maliyet yöntemi), sigorta, dahili K&Z. Bu
+      rakam muhafazakardır — çoğu satın alan, ivmesi olan bir portföy için bundan daha
+      fazlasını ödeyecektir.
     </p>
 
-    <h2 id="traffic">Lens 2: traffic-driven value</h2>
+    <h2 id="traffic">Mercek 2: trafik kaynaklı değer</h2>
     <p>
-      Treats your content library as a forward annuity of organic clicks. Inputs:
+      İçerik kütüphanenizi organik tıklamalardan oluşan bir vadeli gelir olarak ele alır. Girdiler:
     </p>
     <ul>
       <li>
-        <strong>Monthly organic traffic.</strong> From Google Search Console or GA4
-        — last 90-day average. Don&rsquo;t cherry-pick a peak month.
+        <strong>Aylık organik trafik.</strong> Google Search Console veya GA4'ten
+        — son 90 günlük ortalama. En yüksek ayı seçmeyin.
       </li>
       <li>
-        <strong>Average CPC.</strong> What you&rsquo;d pay to buy this traffic on Google
-        Ads for the same keywords. Pull from Ahrefs / Semrush / Google Ads keyword
-        planner. Varies wildly by niche — finance is $5+, lifestyle is $0.30.
+        <strong>Ortalama TBM.</strong> Aynı anahtar kelimeler için bu trafiği Google
+        Ads'den satın almanın maliyeti. Ahrefs / Semrush / Google Ads anahtar kelime
+        planlayıcıdan alın. Nişe göre çok değişir — finans $5+, yaşam tarzı $0.30.
       </li>
       <li>
-        <strong>Multiplier.</strong> Content sites trade at 2–4× annualized revenue
-        on platforms like Empire Flippers and Motion Invest. Use 2.5× as a default;
-        higher for growing niches, lower for declining or AI-disrupted ones.
+        <strong>Çarpan.</strong> İçerik siteleri Empire Flippers ve Motion Invest gibi
+        platformlarda yıllık gelirin 2–4 katı arasında işlem görür. Varsayılan olarak 2.5×
+        kullanın; büyüyen nişler için daha yüksek, düşen veya yapay zeka tarafından bozulan
+        nişler için daha düşük.
       </li>
     </ul>
     <p>
-      Math: monthly_traffic × 12 × CPC × multiplier. Example: 8000 monthly visits × 12
-      × $1.20 × 2.5 = $288,000 traffic-driven value.
+      Matematik: aylık_trafik × 12 × TBM × çarpan. Örnek: 8000 aylık ziyaret × 12
+      × $1.20 × 2.5 = $288.000 trafik kaynaklı değer.
     </p>
     <p>
-      When to use it: domain auctions, content-site sales (Empire Flippers, Flippa),
-      comparing &ldquo;build vs acquire&rdquo; for SEO traffic.
+      Ne zaman kullanılır: alan adı açık artırmaları, içerik sitesi satışları (Empire Flippers, Flippa),
+      SEO trafiği için &ldquo;inşa et vs satın al&rdquo; karşılaştırması.
     </p>
 
-    <h2 id="revenue">Lens 3: revenue-driven value</h2>
+    <h2 id="revenue">Mercek 3: gelir kaynaklı değer</h2>
     <p>
-      For content that drives direct revenue — leads, conversions, paid memberships:
+      Doğrudan gelir sağlayan içerik için — potansiyel müşteriler, dönüşümler, ücretli üyelikler:
     </p>
     <ul>
       <li>
-        <strong>Conversion rate.</strong> Visitor → paying customer. Pull from analytics
-        + CRM. Typical SaaS / DTC: 1–3%. Content-heavy lead-gen: 0.5–1.5%.
+        <strong>Dönüşüm oranı.</strong> Ziyaretçi → ödeme yapan müşteri. Analitik
+        + CRM'den alın. Tipik SaaS / DTC: %1–3. İçerik ağırlıklı potansiyel müşteri yaratma: %0.5–1.5.
       </li>
       <li>
-        <strong>Customer LTV.</strong> Lifetime, not first-year. SaaS: $200–$5000+.
-        Affiliate / lead-gen: $50–$300.
+        <strong>Müşteri YD.</strong> Ömür boyu, ilk yıl değil. SaaS: $200–$5000+.
+        Ortaklık / potansiyel müşteri yaratma: $50–$300.
       </li>
       <li>
-        <strong>Multiplier.</strong> 2–4× as above.
+        <strong>Çarpan.</strong> Yukarıdaki gibi 2–4×.
       </li>
     </ul>
     <p>
-      Math: monthly_traffic × 12 × conv_rate × LTV × multiplier. Example: 8000 × 12 ×
-      0.015 × $120 × 2.5 = $43,200.
+      Matematik: aylık_trafik × 12 × dönüşüm_oranı × YD × çarpan. Örnek: 8000 × 12 ×
+      0.015 × $120 × 2.5 = $43.200.
     </p>
     <p>
-      When to use it: strategic acquisitions where the buyer cares about your customer
-      pipeline more than your traffic. M&amp;A discussions. Revenue-share partnerships.
+      Ne zaman kullanılır: alıcının trafiğinizden çok müşteri hattınızla ilgilendiği
+      stratejik satın almalar. Birleşme ve satın alma görüşmeleri. Gelir paylaşımı ortaklıkları.
     </p>
     <p>
-      Note: revenue-driven valuations are usually <em>lower</em> than traffic-driven
-      valuations for the same site, because most content sites have low conversion
-      rates. Don&rsquo;t use revenue-driven if traffic-driven is materially higher —
-      it understates the asset value.
+      Not: Gelir kaynaklı değerlemeler genellikle aynı site için trafik kaynaklı
+      değerlemelerden <em>daha düşüktür</em>, çünkü çoğu içerik sitesinin dönüşüm
+      oranları düşüktür. Trafik kaynaklı değer maddi olarak daha yüksekse gelir kaynaklıyı
+      kullanmayın — bu, varlık değerini eksik gösterir.
     </p>
 
-    <h2 id="monetization">Monetizing existing content (the underused move)</h2>
+    <h2 id="monetization">Mevcut içeriği paraya çevirme (az kullanılan hamle)</h2>
     <p>
-      Before selling or valuing for tax purposes, ask: have you actually monetized
-      this inventory? Most people haven&rsquo;t. The options:
+      Satmadan veya vergi amaçlı değerlemeden önce şunu sorun: bu envanteri gerçekten
+      paraya çevirdiniz mi? Çoğu kişi çevirmemiştir. Seçenekler:
     </p>
     <ul>
       <li>
-        <strong>Ezoic / Mediavine / AdThrive display ads.</strong> Once you hit minimum
-        traffic thresholds (Mediavine 50K sessions/month, AdThrive 100K), display ads
-        on a content site at $20–$40 RPM is real money.
+        <strong>Ezoic / Mediavine / AdThrive görüntülü reklamları.</strong> Minimum trafik
+        eşiklerine ulaştığınızda (Mediavine 50K oturum/ay, AdThrive 100K), bir içerik
+        sitesinde $20–$40 BGB ile görüntülü reklamlar gerçek paradır.
       </li>
       <li>
-        <strong>Affiliate links.</strong> Amazon Associates is the easy entry; better
-        margins on niche programs (Impact, ShareASale, direct deals). 1–5% conversion ×
-        commission rate × visits.
+        <strong>Ortaklık bağlantıları.</strong> Amazon Associates kolay giriştir; niş
+        programlarda (Impact, ShareASale, doğrudan anlaşmalar) daha iyi marjlar. %1–5 dönüşüm ×
+        komisyon oranı × ziyaret.
       </li>
       <li>
-        <strong>Sponsored placements.</strong> Banners, sponsored articles. Niche-
-        dependent — finance, B2B, software all pay; entertainment is harder.
+        <strong>Sponsorlu yerleşimler.</strong> Banner'lar, sponsorlu makaleler. Nişe
+        bağlı — finans, B2B, yazılım öder; eğlence daha zordur.
       </li>
       <li>
-        <strong>Email list build.</strong> Even unmonetized, an engaged email list adds
-        2–5× to a content site&rsquo;s sale value.
+        <strong>E-posta listesi oluşturma.</strong> Paraya çevrilmemiş olsa bile, etkileşimli bir e-posta listesi
+        bir içerik sitesinin satış değerine 2–5× ekler.
       </li>
       <li>
-        <strong>Productize the content.</strong> Compile your top guides into a
-        Gumroad ebook ($19), a video course ($99), or a paid newsletter. Often
-        outperforms display ads per visitor.
+        <strong>İçeriği ürünleştirme.</strong> En iyi rehberlerinizi bir
+        Gumroad e-kitabı ($19), bir video kursu ($99) veya ücretli bir bülten halinde derleyin.
+        Genellikle ziyaretçi başına görüntülü reklamlardan daha iyi performans gösterir.
       </li>
     </ul>
     <p>
-      The takeaway: a content library generating $0/month sells for less than the same
-      library generating $500/month, even though the underlying content is identical.
-      Monetize before you appraise.
+      Çıkarım: Ayda $0 üreten bir içerik kütüphanesi, altta yatan içerik aynı olsa bile,
+      ayda $500 üreten aynı kütüphaneden daha düşük fiyata satılır.
+      Değerlemeden önce paraya çevirin.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Estimate your content&rsquo;s value (free)",
+  label: "İçeriğinizin değerini tahmin edin (ücretsiz)",
   targetSlug: "content-inventory-value-estimator",
 };
 
 export const faq = [
   {
-    q: "How do I value my digital assets and content?",
-    a: "Three lenses, depending on audience: replacement cost (for tax/insurance), traffic-driven value (for domain auctions, broker sales), revenue-driven value (for strategic acquisitions). Mature deals reference all three. Use our content inventory value estimator to compute all three at once.",
+    q: "Dijital varlıklarımı ve içeriğimi nasıl değerlerim?",
+    a: "Kitleye bağlı olarak üç mercek: yenileme maliyeti (vergi/sigorta için), trafik kaynaklı değer (alan adı açık artırmaları, komisyoncu satışları için), gelir kaynaklı değer (stratejik satın almalar için). Olgun anlaşmalar her üçüne de atıfta bulunur. Üçünü aynı anda hesaplamak için içerik envanteri değer tahmin aracımızı kullanın.",
   },
   {
-    q: "Is my content inventory worth anything?",
-    a: "Yes — even unmonetized content has replacement value (what it'd cost to recreate). Monetized content with traffic adds traffic-driven value. Content tied to revenue has revenue-driven value. Most content owners undervalue their inventory because they only think in one lens.",
+    q: "İçerik envanterimin bir değeri var mı?",
+    a: "Evet — paraya çevrilmemiş içeriğin bile yenileme değeri vardır (yeniden oluşturmanın maliyeti). Trafiği olan paraya çevrilmiş içerik, trafik kaynaklı değer ekler. Gelire bağlı içerik, gelir kaynaklı değere sahiptir. Çoğu içerik sahibi, yalnızca tek bir mercekle düşündükleri için envanterlerini eksik değerler.",
   },
   {
-    q: "What multiplier do content sites trade at?",
-    a: "Content sites trade at 2-4× annualized revenue on Empire Flippers, Motion Invest, and Flippa. Use 2.5× as default. Higher (3-4×) for growing niches; lower (1.5-2×) for declining or AI-disrupted niches. Always benchmark against recent comparable sales on the marketplace.",
+    q: "İçerik siteleri hangi çarpandan işlem görür?",
+    a: "İçerik siteleri Empire Flippers, Motion Invest ve Flippa'da yıllık gelirin 2-4 katı arasında işlem görür. Varsayılan olarak 2.5× kullanın. Büyüyen nişler için daha yüksek (3-4×); düşen veya yapay zeka tarafından bozulan nişler için daha düşük (1.5-2×). Her zaman pazardaki son karşılaştırılabilir satışlara göre kıyaslama yapın.",
   },
   {
-    q: "How do I monetize existing content I haven't monetized yet?",
-    a: "Display ads (Mediavine at 50K sessions/mo, AdThrive at 100K), affiliate links (Amazon Associates entry-level; niche programs better), sponsored content for B2B/finance/software niches, email list build (multiplies sale value 2-5×), or productize as ebook/course/paid newsletter. Even modest monetization significantly increases sale value.",
+    q: "Henüz paraya çevirmediğim mevcut içeriği nasıl paraya çevirebilirim?",
+    a: "Görüntülü reklamlar (Mediavine 50K oturum/ay, AdThrive 100K), ortaklık bağlantıları (Amazon Associates giriş seviyesi; niş programlar daha iyi), B2B/finans/yazılım nişleri için sponsorlu içerik, e-posta listesi oluşturma (satış değerini 2-5× çarpar) veya e-kitap/kurs/ücretli bülten olarak ürünleştirme. Mütevazı bir para kazanma bile satış değerini önemli ölçüde artırır.",
   },
 ];

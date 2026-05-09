@@ -1,124 +1,127 @@
 export const intro = (
   <>
     <p>
-      Focus isn&rsquo;t a personality trait. It&rsquo;s a set of conditions you set up before the
-      work starts. If you&rsquo;ve ever sat down for a &ldquo;focus session&rdquo; and found
-      yourself on your phone twelve minutes later, the problem wasn&rsquo;t willpower — it was
-      that nothing about the environment, the task, or the entry point was set up to make focus
-      easier than distraction.
+      Odaklanma bir kişilik özelliği değildir. İşe başlamadan önce oluşturduğunuz bir dizi koşuldur.
+      Eğer bir "odaklanma seansı" için oturup on iki dakika sonra kendinizi telefonda bulduysanız,
+      sorun irade gücü değildi — ortam, görev veya başlangıç noktası, odaklanmayı dikkat dağıtıcı
+      şeylerden daha kolay hale getirecek şekilde ayarlanmamıştı.
     </p>
     <p>
-      This guide lays out twelve practical moves that measurably improve focus. None of them
-      require meditation apps, four-hour morning routines, or expensive hardware. Pick three to
-      start with and run them for a week.
+      Bu rehber, odaklanmayı ölçülebilir şekilde iyileştiren on iki pratik adımı sıralıyor. Hiçbiri
+      meditasyon uygulamaları, dört saatlik sabah rutinleri veya pahalı donanımlar gerektirmez.
+      Başlamak için üç tane seçin ve bir hafta boyunca uygulayın.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Pre-decide the task the night before</h2>
+    <h2>1. Görevi bir gece önceden belirleyin</h2>
     <p>
-      The hardest moment in any focus session isn&rsquo;t the work — it&rsquo;s the twenty
-      seconds between opening your laptop and knowing what to do first. Decide tonight. Write
-      one sentence on a sticky note: &ldquo;First thing tomorrow, open X and do Y.&rdquo; That
-      removes the single biggest friction point from your morning.
+      Herhangi bir odaklanma seansındaki en zor an işin kendisi değil — dizüstü bilgisayarınızı
+      açmak ile ilk ne yapacağınızı bilmek arasındaki yirmi saniyedir. Bu gece karar verin.
+      Bir yapışkan nota tek bir cümle yazın: "Yarın ilk iş, X'i aç ve Y'yi yap." Bu, sabahınızdaki
+      en büyük sürtünme noktasını ortadan kaldırır.
     </p>
 
-    <h2>2. Use a timer, not a to-do list, for the actual work</h2>
+    <h2>2. Gerçek iş için yapılacaklar listesi değil, zamanlayıcı kullanın</h2>
     <p>
-      To-do lists invite you to switch tasks. Timers commit you to one thing for a specific
-      window. Start with 25-minute pomodoros: one task, one timer, no switching. Our{" "}
-      <a href="/tools/pomodoro-timer">free pomodoro timer</a> runs in your browser and handles
-      the full focus/break rhythm for you.
+      Yapılacaklar listeleri sizi görev değiştirmeye davet eder. Zamanlayıcılar ise sizi belirli bir
+      süre boyunca tek bir şeye adar. 25 dakikalık pomodoro ile başlayın: bir görev, bir zamanlayıcı,
+      değişiklik yok. Tarayıcınızda çalışan ve sizin için tam odaklanma/ara ritmini yöneten{" "}
+      <a href="/tools/pomodoro-timer">ücretsiz pomodoro zamanlayıcımızı</a> kullanabilirsiniz.
     </p>
 
-    <h2>3. Phone in another room</h2>
+    <h2>3. Telefonu başka bir odada bırakın</h2>
     <p>
-      Not face-down on the desk. Not in a drawer. Another room. Every study on this is lopsided:
-      the mere presence of your phone within reach measurably degrades working memory and focus,
-      even when it&rsquo;s silent. Five seconds of inconvenience is the entire point.
+      Masanın üzerinde yüzüstü değil. Çekmecede değil. Başka bir odada. Bununla ilgili her çalışma
+      aynı sonucu veriyor: telefonunuzun erişilebilir mesafede olması, sessizde olsa bile, çalışma
+      belleğinizi ve odaklanmanızı ölçülebilir şekilde düşürür. Beş saniyelik bir zahmet, asıl
+      amaçtır.
     </p>
 
-    <h2>4. Close tabs, not just notifications</h2>
+    <h2>4. Sadece bildirimleri değil, sekmeleri de kapatın</h2>
     <p>
-      Muting notifications helps, but the deeper cost is visual clutter. Every open Slack tab,
-      every unread-badge-in-peripheral-vision pulls a fraction of your attention. Close everything
-      that&rsquo;s not directly needed for the task. If you think you&rsquo;ll need it later, bookmark
-      it and close it anyway.
+      Bildirimleri sessize almak yardımcı olur, ancak asıl maliyet görsel karmaşadır. Açık her Slack
+      sekmesi, çevresel görüşteki her okunmamış rozet, dikkatinizin bir kısmını çeker. Görev için
+      doğrudan gerekli olmayan her şeyi kapatın. Daha sonra ihtiyacınız olacağını düşünüyorsanız,
+      yer imlerine ekleyin ve yine de kapatın.
     </p>
 
-    <h2>5. Do hard work in your sharpest 90-minute window</h2>
+    <h2>5. Zor işi, en keskin olduğunuz 90 dakikalık aralıkta yapın</h2>
     <p>
-      Most people have one 90-minute window in the day where focus is dramatically easier. For
-      most, it&rsquo;s the first 90 minutes after fully waking up. For some, it&rsquo;s late
-      evening. Figure out yours and guard it like a meeting. Don&rsquo;t spend your sharpest
-      window on email or admin — those can be done groggy.
+      Çoğu insanın günde, odaklanmanın belirgin şekilde daha kolay olduğu bir 90 dakikalık aralığı
+      vardır. Çoğu için bu, tamamen uyandıktan sonraki ilk 90 dakikadır. Bazıları içinse geç
+      saatlerdir. Kendi aralığınızı bulun ve onu bir toplantı gibi koruyun. En keskin olduğunuz
+      aralığı e-posta veya idari işler için harcamayın — bunlar uykulu haldeyken de yapılabilir.
     </p>
 
-    <h2>6. Use the two-minute entry ramp</h2>
+    <h2>6. İki dakikalık başlangıç rampasını kullanın</h2>
     <p>
-      Starting is the hardest part. Use this trick: commit to just two minutes of the task, fully
-      permitted to stop after. You almost never stop. Inertia is equally strong in both directions —
-      use it to your advantage by nudging yourself past the entry barrier.
+      Başlamak en zor kısımdır. Bu numarayı kullanın: görevin sadece iki dakikasını yapmaya
+      kendinizi adayın ve sonrasında durmanıza tamamen izin verin. Neredeyse hiç durmazsınız.
+      Eylemsizlik her iki yönde de eşit derecede güçlüdür — başlangıç engelini aşarak kendinizi
+      ittirerek bundan faydalanın.
     </p>
 
-    <h2>7. Single-task, hard</h2>
+    <h2>7. Tek bir göreve sıkı sıkıya bağlı kalın</h2>
     <p>
-      Multitasking is a productivity myth that refuses to die. Task-switching carries a hidden
-      cost — studies show it can cost up to 40% of cognitive throughput. When you&rsquo;re in a
-      focus round, one task. That&rsquo;s it. If a new thought arrives (&ldquo;oh, I should email
-      so-and-so&rdquo;), write it on a sticky note and keep going.
+      Çoklu görev, ölmek bilmeyen bir üretkenlik efsanesidir. Görev değiştirmenin gizli bir maliyeti
+      vardır — çalışmalar, bilişsel verimin %40'ına kadar kayba yol açabileceğini gösteriyor. Bir
+      odaklanma turundayken, tek bir görev. Bu kadar. Yeni bir düşünce gelirse ("aa, falancaya e-posta
+      atmalıyım"), bunu bir yapışkan nota yazın ve devam edin.
     </p>
 
-    <h2>8. Engineer your environment</h2>
+    <h2>8. Ortamınızı düzenleyin</h2>
     <p>
-      Your environment is doing half the work. Clear desk, good light, water within reach,
-      comfortable chair. Small friction points — scrolling to find a file, a flickering overhead
-      light, being slightly too cold — add up to broken focus. Spend 10 minutes once making your
-      workspace default-friendly and you&rsquo;ll save hours over the next month.
+      Ortamınız işin yarısını yapar. Temiz masa, iyi ışık, elinizin altında su, rahat bir sandalye.
+      Küçük sürtünme noktaları — bir dosyayı bulmak için kaydırmak, titreşen bir tavan lambası, biraz
+      fazla soğuk olmak — odaklanmayı bozar. Çalışma alanınızı varsayılan olarak kullanışlı hale
+      getirmek için bir kez 10 dakika harcayın ve önümüzdeki ay boyunca saatler kazanın.
     </p>
 
-    <h2>9. Take the break, even when you don&rsquo;t want to</h2>
+    <h2>9. İstemeseniz bile ara verin</h2>
     <p>
-      After 25–50 minutes of focus, your brain needs recovery. Skipping breaks feels virtuous but
-      degrades the next round. Stand up, look at something 20 feet away, drink water, stretch.
-      Five minutes, no screens. You&rsquo;ll come back sharper than if you&rsquo;d pushed through.
+      25-50 dakikalık odaklanmanın ardından beyninizin toparlanmaya ihtiyacı vardır. Molaları atlamak
+      erdemli görünür ancak bir sonraki turu zayıflatır. Ayağa kalkın, 20 metre ötedeki bir şeye
+      bakın, su için, esneyin. Beş dakika, ekran yok. Zorlamaya devam ettiğinizden daha keskin bir
+      şekilde geri dönersiniz.
     </p>
 
-    <h2>10. Protect sleep</h2>
+    <h2>10. Uykuyu koruyun</h2>
     <p>
-      Sleep is a focus multiplier. One bad night of sleep pulls your working memory and
-      decision-making down by a measurable amount — more than any caffeine or technique can
-      restore. If you&rsquo;re serious about focus, you&rsquo;re serious about a consistent bedtime
-      and getting 7–8 hours. Everything else in this guide runs better on a well-rested brain.
+      Uyku, odaklanmanın çarpanıdır. Bir gece kötü uyku, çalışma belleğinizi ve karar verme
+      yeteneğinizi ölçülebilir bir miktarda düşürür — kahve veya herhangi bir tekniğin geri
+      getirebileceğinden daha fazla. Odaklanma konusunda ciddiyseniz, tutarlı bir yatma saati ve
+      7-8 saat uyku konusunda da ciddisinizdir. Bu rehberdeki her şey, iyi dinlenmiş bir beyinde
+      daha iyi çalışır.
     </p>
 
-    <h2>11. Pair focus with a physical cue</h2>
+    <h2>11. Odaklanmayı fiziksel bir ipucuyla eşleştirin</h2>
     <p>
-      Make the start of a focus session physical: put on a specific pair of headphones, light a
-      candle, move to a specific chair, make coffee in a specific mug. After a few days, the cue
-      itself starts triggering focus — the brain learns &ldquo;this signal means deep work&rdquo;
-      and helps you slip in faster. It sounds silly; it works.
+      Bir odaklanma seansının başlangıcını fiziksel hale getirin: belirli bir kulaklık takın, bir
+      mum yakın, belirli bir sandalyeye geçin, belirli bir fincanda kahve yapın. Birkaç gün sonra,
+      ipucunun kendisi odaklanmayı tetiklemeye başlar — beyin "bu sinyal derin çalışma demektir"
+      diye öğrenir ve daha hızlı geçiş yapmanıza yardımcı olur. Kulağa aptalca geliyor; işe yarıyor.
     </p>
 
-    <h2>12. Count focus rounds, not hours</h2>
+    <h2>12. Saatleri değil, odaklanma turlarını sayın</h2>
     <p>
-      Tracking &ldquo;hours worked&rdquo; is the wrong metric — it rewards the appearance of work.
-      Count focus rounds instead: 25 minutes, one task, no switching. Four rounds in a day is a
-      productive day. Six is excellent. Don&rsquo;t chase more than that — the marginal round
-      usually isn&rsquo;t real focus, just tired time at the desk. Pair this with{" "}
-      <a href="/guides/how-to-stay-productive-daily">our daily productivity guide</a> for the
-      broader habit stack.
+      "Çalışılan saatleri" takip etmek yanlış bir ölçüttür — çalışma görüntüsünü ödüllendirir. Bunun
+      yerine odaklanma turlarını sayın: 25 dakika, bir görev, değişiklik yok. Günde dört tur
+      üretken bir gündür. Altı mükemmeldir. Daha fazlasını hedeflemeyin — sonraki tur genellikle
+      gerçek odaklanma değil, masada geçen yorgun zamandır. Bunu, daha geniş alışkanlık yapısı için{" "}
+      <a href="/guides/how-to-stay-productive-daily">günlük üretkenlik rehberimizle</a> birleştirin.
     </p>
 
-    <h2>Start with three, for one week</h2>
+    <h2>Bir hafta boyunca üç taneyle başlayın</h2>
     <p>
-      Don&rsquo;t try to adopt twelve things at once. Pick three: the phone-in-another-room rule,
-      the 25-minute pomodoro timer, and the night-before task pick. Run them Monday through
-      Friday. Next week, add one more. Focus isn&rsquo;t a personality upgrade — it&rsquo;s a few
-      habits, stacked, that make deep work the path of least resistance. The{" "}
-      <a href="/tools/pomodoro-timer">pomodoro timer</a> is a good place to start right now.
+      Aynı anda on iki şeyi benimsemeye çalışmayın. Üç tane seçin: telefonu başka bir odada bırakma
+      kuralı, 25 dakikalık pomodoro zamanlayıcısı ve bir gece önceden görev seçme. Bunları Pazartesi
+      ile Cuma arasında uygulayın. Gelecek hafta bir tane daha ekleyin. Odaklanma bir kişilik
+      yükseltmesi değildir — derin çalışmayı en az dirençli yol haline getiren, üst üste konmuş birkaç
+      alışkanlıktır.{" "}
+      <a href="/tools/pomodoro-timer">Pomodoro zamanlayıcısı</a> şu anda başlamak için iyi bir yerdir.
     </p>
   </>
 );

@@ -2,115 +2,81 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Treats are a tool for training, bonding, and dental help &mdash; not a fourth meal. The
-    fastest way to overshoot daily calories on an otherwise healthy dog is to free-pour the
-    treat jar. The veterinary rule of thumb &mdash; the 10% rule &mdash; gives you a clean
-    daily budget and keeps the rest of the food doing the nutritional work it&rsquo;s
-    designed to do.
+    Ödüller, eğitim, bağ kurma ve diş sağlığı için bir araçtır &mdash; dördüncü bir öğün değil. Sağlıklı bir köpeğin günlük kalorisini aşmanın en hızlı yolu, ödül kavanozunu serbestçe doldurmaktır. Veteriner hekimlerin genel kuralı &mdash; %10 kuralı &mdash; size temiz bir günlük bütçe sağlar ve diğer yiyeceklerin, tasarlandıkları besleyici işi yapmasına olanak tanır.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The 10% rule, plain English</h2>
+    <h2>%10 kuralı, sade Türkçe</h2>
     <p>
-      Treats should make up no more than 10% of total daily calories. The remaining 90% comes
-      from a balanced complete-and-balanced diet (kibble, fresh, raw, however you feed). The
-      AAFCO and AAHA both back this number because complete diets are formulated assuming
-      that&rsquo;s where most calories are coming from. Push treats much past 10% and you
-      start short-changing the dog on micronutrients while increasing total energy intake
-      &mdash; the perfect setup for slow weight gain.
+      Ödüller, toplam günlük kalorinin en fazla %10'unu oluşturmalıdır. Kalan %90, dengeli, eksiksiz ve dengeli bir diyetten (kuru mama, taze mama, çiğ mama, nasıl beslerseniz besleyin) gelir. AAFCO ve AAHA bu sayıyı destekler çünkü eksiksiz diyetler, kalorilerin çoğunun buradan geldiği varsayımıyla formüle edilmiştir. Ödülleri %10'un çok üzerine çıkarırsanız, toplam enerji alımını artırırken köpeğin mikro besinlerden yararlanmasını azaltmaya başlarsınız &mdash; yavaş kilo alımı için mükemmel bir düzenek.
     </p>
 
-    <h2>How to find your dog&rsquo;s actual budget</h2>
+    <h2>Köpeğinizin gerçek bütçesini nasıl bulursunuz</h2>
     <p>
-      Start with resting energy requirement (RER), then multiply by an activity factor:
+      Dinlenme enerji ihtiyacı (RER) ile başlayın, ardından bir aktivite faktörü ile çarpın:
     </p>
     <ul>
-      <li><strong>RER</strong> = 70 &times; (body weight in kg)<sup>0.75</sup></li>
-      <li><strong>Daily energy requirement (DER)</strong> = RER &times; activity factor</li>
-      <li><strong>Treat budget</strong> = DER &times; 0.10</li>
+      <li><strong>RER</strong> = 70 &times; (kg cinsinden vücut ağırlığı)<sup>0,75</sup></li>
+      <li><strong>Günlük enerji ihtiyacı (DER)</strong> = RER &times; aktivite faktörü</li>
+      <li><strong>Ödül bütçesi</strong> = DER &times; 0,10</li>
     </ul>
     <p>
-      Activity factors run roughly 1.2 (low: senior, neutered, couch dog), 1.6 (moderate:
-      daily walks), 1.8 (active: working/sporting/intact). Pregnant, nursing, growing puppies,
-      and underweight rescues need special handling &mdash; ask your vet.
+      Aktivite faktörleri kabaca 1,2 (düşük: yaşlı, kısırlaştırılmış, kanepe köpeği), 1,6 (orta: günlük yürüyüşler), 1,8 (aktif: çalışan/spor yapan/kısırlaştırılmamış) şeklindedir. Hamile, emziren, büyüyen yavru köpekler ve düşük kilolu kurtarma köpekleri özel ilgi gerektirir &mdash; veterinerinize danışın.
     </p>
 
     <p>
-      A 40-pound moderately active adult dog: ~18 kg, RER &asymp; 612 kcal, DER &asymp; 980 kcal,
-      treat budget &asymp; 98 kcal/day. That&rsquo;s about one bully stick, three medium training
-      sessions worth of small biscuits, or a quarter cup of plain canned pumpkin.
+      40 kiloluk orta derecede aktif yetişkin bir köpek: ~18 kg, RER &asymp; 612 kcal, DER &asymp; 980 kcal, ödül bütçesi &asymp; 98 kcal/gün. Bu, yaklaşık bir adet bully stick, üç orta boy eğitim seansına yetecek kadar küçük bisküvi veya çeyrek su bardağı sade konserve balkabağına eşittir.
     </p>
 
-    <h2>Watch out for hidden calorie bombs</h2>
+    <h2>Gizli kalori bombalarına dikkat edin</h2>
     <ul>
-      <li><strong>Bully sticks and rawhides:</strong> 80&ndash;120 kcal each &mdash; that&rsquo;s
-        the whole budget for a small dog.</li>
-      <li><strong>Cheese:</strong> 110 kcal per ounce &mdash; the most over-fed treat in dog
-        ownership.</li>
-      <li><strong>Peanut butter:</strong> 95 kcal per tablespoon. Useful for hiding pills, but
-        a teaspoon is enough.</li>
-      <li><strong>Dental chews like Greenies or Dentastix:</strong> 30&ndash;100 kcal each
-        depending on size. Track them.</li>
-      <li><strong>Table scraps:</strong> a single chicken thigh skin can blow the daily
-        budget for a small breed.</li>
+      <li><strong>Bully stick ve rawhide'lar:</strong> Her biri 80&ndash;120 kcal &mdash; küçük bir köpek için tüm bütçe bu.</li>
+      <li><strong>Peynir:</strong> Ons başına 110 kcal &mdash; köpek sahipliğinde en çok fazla verilen ödül.</li>
+      <li><strong>Fıstık ezmesi:</strong> Yemek kaşığı başına 95 kcal. Hapları gizlemek için kullanışlıdır, ancak bir çay kaşığı yeterlidir.</li>
+      <li><strong>Greenies veya Dentastix gibi diş çiğneme ürünleri:</strong> Boyutuna bağlı olarak her biri 30&ndash;100 kcal. Bunları takip edin.</li>
+      <li><strong>Sofra artıkları:</strong> Tek bir tavuk but derisi, küçük bir cins için günlük bütçeyi aşabilir.</li>
     </ul>
 
-    <h2>Low-calorie alternatives that work</h2>
+    <h2>İşe yarayan düşük kalorili alternatifler</h2>
     <p>
-      For training-volume work &mdash; where you&rsquo;re handing out 50&ndash;100 reinforcers
-      in a session &mdash; switch to ultra-low-calorie options so the count doesn&rsquo;t
-      blow up:
+      Eğitim amaçlı yoğun çalışmalar için &mdash; bir seansta 50&ndash;100 pekiştireç verdiğiniz durumlar &mdash; sayının artmaması için ultra düşük kalorili seçeneklere geçin:
     </p>
     <ul>
-      <li>Plain training treats labeled &ldquo;1 kcal each&rdquo; or &ldquo;low cal&rdquo;
-        (3&ndash;5 kcal/piece is realistic).</li>
-      <li>Frozen blueberries (1 kcal each) &mdash; great in summer.</li>
-      <li>Carrot sticks (4 kcal per medium baby carrot, satisfying to chew).</li>
-      <li>Plain rice cakes broken into quarters (~9 kcal each).</li>
-      <li>Cucumber rounds (negligible calories).</li>
-      <li>A small portion of the dog&rsquo;s normal kibble pulled from the day&rsquo;s ration
-        &mdash; zero net calorie impact.</li>
+      <li>Üzerinde &ldquo;her biri 1 kcal&rdquo; veya &ldquo;düşük kalorili&rdquo; yazan sade eğitim ödülleri (parça başına 3&ndash;5 kcal gerçekçidir).</li>
+      <li>Dondurulmuş yaban mersini (her biri 1 kcal) &mdash; yaz aylarında harikadır.</li>
+      <li>Havuç çubukları (orta boy bir bebek havucunda 4 kcal, çiğnemesi tatmin edicidir).</li>
+      <li>Dörde bölünmüş sade pirinç kekleri (her biri ~9 kcal).</li>
+      <li>Salatalık halkaları (önemsiz kalori).</li>
+      <li>Köpeğin günlük porsiyonundan ayrılan normal kuru mamasının küçük bir kısmı &mdash; sıfır net kalori etkisi.</li>
     </ul>
 
-    <h2>Foods to never give a dog</h2>
+    <h2>Bir köpeğe asla verilmemesi gereken yiyecekler</h2>
     <p>
-      The 10% rule applies to <em>safe</em> treats. Some human foods are toxic regardless of
-      portion size:
+      %10 kuralı <em>güvenli</em> ödüller için geçerlidir. Bazı insan yiyecekleri, porsiyon boyutundan bağımsız olarak toksiktir:
     </p>
     <ul>
-      <li>Chocolate &mdash; theobromine is toxic, dark chocolate especially.</li>
-      <li>Grapes and raisins &mdash; can cause acute kidney failure.</li>
-      <li>Onions, garlic, leeks, chives &mdash; allium toxicity damages red blood cells.</li>
-      <li>Xylitol (sweetener in sugar-free gum, peanut butter, baking) &mdash; severe insulin
-        spike, often fatal.</li>
-      <li>Macadamia nuts &mdash; cause weakness and tremors.</li>
-      <li>Cooked bones &mdash; splinter and perforate. Raw, large recreational bones are a
-        separate (and debated) topic.</li>
-      <li>Raw bread dough &mdash; expands in the stomach and ferments alcohol.</li>
+      <li>Çikolata &mdash; teobromin toksiktir, özellikle bitter çikolata.</li>
+      <li>Üzüm ve kuru üzüm &mdash; akut böbrek yetmezliğine neden olabilir.</li>
+      <li>Soğan, sarımsak, pırasa, frenk soğanı &mdash; allium toksisitesi kırmızı kan hücrelerine zarar verir.</li>
+      <li>Ksilitol (şekersiz sakız, fıstık ezmesi, fırıncılıkta tatlandırıcı) &mdash; şiddetli insülin yükselmesi, genellikle ölümcül.</li>
+      <li>Macadamia fındığı &mdash; halsizlik ve titremeye neden olur.</li>
+      <li>Pişmiş kemikler &mdash; kırılır ve delinmeye neden olur. Çiğ, büyük eğlence kemikleri ayrı (ve tartışmalı) bir konudur.</li>
+      <li>Çiğ ekmek hamuru &mdash; midede genişler ve alkol fermente eder.</li>
     </ul>
     <p>
-      If you&rsquo;re unsure about a food, the ASPCA Animal Poison Control hotline (888-426-4435)
-      is staffed 24/7. There may be a fee, but it&rsquo;s far cheaper than an ER visit.
+      Bir yiyecekten emin değilseniz, ASPCA Hayvan Zehir Kontrol hattı (888-426-4435) 7/24 hizmet vermektedir. Ücretli olabilir, ancak bir acil servis ziyaretinden çok daha ucuzdur.
     </p>
 
-    <h2>Adjusting for weight loss</h2>
+    <h2>Kilo kaybı için ayarlama</h2>
     <p>
-      If your dog needs to drop weight, the protocol is to reduce <em>total</em> calories by
-      roughly 10&ndash;20% and keep the treat fraction at or below 10% of the new total &mdash;
-      not the old total. Switching to lower-calorie treats and reducing the volume of meals
-      is more effective than abruptly cutting treats to zero, because the begging behavior
-      that triggered overfeeding doesn&rsquo;t resolve when the dog is hungry. Discuss any
-      meaningful weight-loss plan with your vet first.
+      Köpeğinizin kilo vermesi gerekiyorsa, protokol <em>toplam</em> kaloriyi yaklaşık %10&ndash;20 oranında azaltmak ve ödül oranını yeni toplamın %10'unda veya altında tutmaktır &mdash; eski toplamın değil. Düşük kalorili ödüllere geçmek ve öğün miktarını azaltmak, ödülleri aniden sıfıra indirmekten daha etkilidir, çünkü aşırı beslemeyi tetikleyen yalvarma davranışı, köpek açken ortadan kalkmaz. Herhangi bir anlamlı kilo verme planını önce veterinerinizle görüşün.
     </p>
 
-    <h2>Run the math on your dog</h2>
+    <h2>Köpeğiniz için matematiği yapın</h2>
     <p>
-      Our <a href="/tools/dog-treat-calorie-budget">dog treat calorie budget calculator</a>
-      takes weight and activity level and returns the daily calorie need plus the 10% treat
-      cap. It also lists 12 common treats with how many of each fit under that cap so you
-      can pick a strategy without doing the math each time.
+      <a href="/tools/dog-treat-calorie-budget">Köpek ödülü kalori bütçesi hesaplayıcımız</a>, kilo ve aktivite seviyesini alır ve günlük kalori ihtiyacı ile %10 ödül sınırını döndürür. Ayrıca, her seferinde matematik yapmadan bir strateji seçebilmeniz için bu sınırın altına kaç tane sığdığını gösteren 12 yaygın ödülü listeler.
     </p>
   </>
 );

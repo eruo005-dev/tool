@@ -3,188 +3,187 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A vague savings goal (&ldquo;I want to save more&rdquo;) is
-      something most people abandon within 3 months; a specific one
-      (&ldquo;$7,200 by December 31 for a Japan trip, $600/month from
-      each paycheck&rdquo;) has a completion rate 5–10× higher. The
-      difference isn&rsquo;t willpower — it&rsquo;s math, target, and
-      automation. This guide walks through how to set a savings target
-      that you&rsquo;ll actually hit, how to back-solve monthly contribution
-      from target + date, and the account structure that makes
-      adherence easy.
+      Belirsiz bir tasarruf hedefi (&ldquo;Daha fazla biriktirmek istiyorum&rdquo;)
+      çoğu insanın 3 ay içinde terk ettiği bir şeydir; spesifik bir hedef
+      (&ldquo;31 Aralık'a kadar Japonya gezisi için 7.200$, her maaştan
+      600$/ay&rdquo;) ise 5–10 kat daha yüksek tamamlanma oranına sahiptir.
+      Fark irade gücü değil — matematik, hedef ve otomasyondur. Bu
+      rehber, gerçekten ulaşacağınız bir tasarruf hedefi nasıl belirlenir,
+      hedef + tarihten aylık katkı nasıl geri hesaplanır ve uyumu
+      kolaylaştıran hesap yapısı konularında adım adım yol gösterir.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Step 1 — name the goal, put a number and date on it</h2>
+    <h2>Adım 1 — hedefi adlandırın, üzerine bir sayı ve tarih koyun</h2>
     <p>
-      &ldquo;Save more&rdquo; has no finish line. &ldquo;Build a $15,000
-      down payment by May 2027&rdquo; does. Specificity creates
-      accountability.
+      &ldquo;Daha fazla biriktir&rdquo;in bitiş çizgisi yoktur. &ldquo;Mayıs
+      2027'ye kadar 15.000$ peşinat biriktir&rdquo;in vardır. Spesifiklik
+      hesap verebilirlik yaratır.
     </p>
     <p>
-      Common target examples with ballpark numbers:
+      Yaklaşık rakamlarla yaygın hedef örnekleri:
     </p>
     <p>
-      <strong>Emergency fund:</strong> 3–6 months of essential expenses.
-      Most households: $10k–$25k.
+      <strong>Acil durum fonu:</strong> 3–6 aylık temel giderler.
+      Çoğu hane: 10k$–25k$.
     </p>
     <p>
-      <strong>House down payment (20%):</strong> 20% × home price. $80k
-      for a $400k home.
+      <strong>Ev peşinatı (%20):</strong> %20 × ev fiyatı. 400k$'lık bir
+      ev için 80k$.
     </p>
     <p>
-      <strong>Wedding:</strong> US median is ~$30k. Yours may differ.
+      <strong>Düğün:</strong> ABD medyanı ~30k$'dır. Sizinki farklı olabilir.
     </p>
     <p>
-      <strong>Car replacement:</strong> $15k for used reliable, $25–35k
-      new.
+      <strong>Araba değişimi:</strong> İkinci el güvenilir için 15k$, sıfır
+      için 25–35k$.
     </p>
     <p>
-      <strong>Vacation:</strong> $2–10k depending on destination and
-      length.
+      <strong>Tatil:</strong> Hedef ve süreye bağlı olarak 2–10k$.
     </p>
     <p>
-      <strong>Starter investment pot:</strong> $10k to start a taxable
-      brokerage with sensible diversification.
-    </p>
-
-    <h2>Step 2 — back-solve monthly contribution</h2>
-    <p>
-      The formula:{" "}
-      <code>Monthly = (Target − Current) / Months remaining</code>.
-      Ignore interest for short horizons (&lt; 2 years); factor it in
-      for long ones.
-    </p>
-    <p>
-      Example: $15,000 down payment by May 2027 (24 months out),
-      $2,000 already saved. <code>($15,000 − $2,000) / 24 = $542/month</code>.
-      That&rsquo;s your savings target — it needs to come out of net pay,
-      automatically, before you see it in checking.
-    </p>
-    <p>
-      For 5+ year horizons in a high-yield savings account (4–5% in
-      2024–25), factor in interest: Future-value formula or our savings
-      goal calculator will adjust. For 5% yield, a $15,000 target at 24
-      months drops to about $513/month of deposits needed.
+      <strong>Başlangıç yatırım fonu:</strong> Makul çeşitlendirme ile
+      vergilendirilebilir bir aracı kurum hesabı başlatmak için 10k$.
     </p>
 
-    <h2>Step 3 — pick the right account</h2>
+    <h2>Adım 2 — aylık katkıyı geri hesaplayın</h2>
     <p>
-      <strong>High-yield savings (HYSA).</strong> 4–5% <a href="/learn/apy">APY</a> in 2024–25
-      (Ally, Marcus, Wealthfront Cash, SoFi). Liquid, FDIC-insured. Best
-      for anything you might need in 1–3 years.
+      Formül:{" "}
+      <code>Aylık = (Hedef − Mevcut) / Kalan ay sayısı</code>.
+      Kısa vadeler (&lt; 2 yıl) için faizi yok sayın; uzun vadelerde
+      dahil edin.
     </p>
     <p>
-      <strong>CDs or Treasuries.</strong> Slightly higher rates, but
-      locked in for 3–12 months. Use for money you&rsquo;re certain
-      you won&rsquo;t need before maturity.
+      Örnek: Mayıs 2027'ye kadar (24 ay kaldı) 15.000$ peşinat,
+      şimdiden 2.000$ birikmiş. <code>($15.000 − $2.000) / 24 = 542$/ay</code>.
+      Bu sizin tasarruf hedefiniz — net maaştan, otomatik olarak,
+      çek hesabınızda görmeden önce çıkması gerekiyor.
     </p>
     <p>
-      <strong>Brokerage (for long-horizon goals).</strong> 5+ years out,
-      invest in a broad index fund (VTI/VOO/SWTSX) for better expected
-      return. Not for anything closer because market can drop 30–40%
-      any given year.
-    </p>
-    <p>
-      <strong>Checking account.</strong> Never park savings here — low
-      yield and high mental availability to spend.
+      5+ yıllık vadeler için yüksek getirili bir tasarruf hesabında (%4–5
+      2024–25'te), faizi dahil edin: Gelecek değer formülü veya tasarruf
+      hedefi hesaplayıcımız ayarlama yapacaktır. %5 getiri için, 24 ayda
+      15.000$ hedefi, gereken aylık mevduatı yaklaşık 513$/a düşürür.
     </p>
 
-    <h2>Step 4 — automate the transfer</h2>
+    <h2>Adım 3 — doğru hesabı seçin</h2>
     <p>
-      Set an automatic transfer the day after payday that moves your
-      target amount from checking to the savings account for this
-      goal. If you use multiple goals, create separate savings
-      sub-accounts or &ldquo;buckets&rdquo; (Ally, Capital One 360, and
-      most neobanks support them) so you can see progress on each.
+      <strong>Yüksek getirili tasarruf (HYSA).</strong> 2024–25'te %4–5 <a href="/learn/apy">APY</a>
+      (Ally, Marcus, Wealthfront Cash, SoFi). Likit, FDIC sigortalı. 1–3
+      yıl içinde ihtiyaç duyabileceğiniz her şey için en iyisi.
     </p>
     <p>
-      Automation beats discipline at 50:1. The single highest-leverage
-      action in personal finance is making savings a default that
-      happens without you deciding each month.
+      <strong>CD'ler veya Hazine bonoları.</strong> Biraz daha yüksek
+      oranlar, ancak 3–12 ay kilitli. Vadesinden önce ihtiyacınız
+      olmayacağından emin olduğunuz para için kullanın.
     </p>
-
-    <h2>The named-goal trick</h2>
     <p>
-      Behavioral research (Hershfield 2011, Soman &amp; Zhao 2011) shows
-      that labeling a savings account (&ldquo;Japan 2027&rdquo; or &ldquo;House
-      Fund&rdquo; rather than &ldquo;Savings 2&rdquo;) dramatically
-      increases the probability that people keep their hands off it.
-      Same account, same interest, better adherence because the future
-      self becomes more concrete.
+      <strong>Aracı kurum (uzun vadeli hedefler için).</strong> 5+ yıl
+      sonrası için, daha iyi beklenen getiri için geniş bir endeks
+      fonuna (VTI/VOO/SWTSX) yatırım yapın. Daha yakın hedefler için
+      uygun değil çünkü piyasa herhangi bir yılda %30–40 düşebilir.
+    </p>
+    <p>
+      <strong>Çek hesabı.</strong> Tasarrufları asla burada tutmayın —
+      düşük getiri ve harcamaya yüksek zihinsel erişim.
     </p>
 
-    <h2>Step 5 — build in checkpoints</h2>
+    <h2>Adım 4 — transferi otomatikleştirin</h2>
     <p>
-      Quarterly reviews: Are you on pace? If the target was $15k by May
-      2027 and you&rsquo;ve got $6,000 by May 2026, you&rsquo;re slightly
-      ahead (should be ~$6,500 at pace). If you&rsquo;re $3,000, adjust:
-      raise contribution, extend date, or lower target.
+      Maaş gününden sonraki gün, hedef tutarınızı çek hesabından bu
+      hedef için tasarruf hesabına taşıyan otomatik bir transfer ayarlayın.
+      Birden fazla hedef kullanıyorsanız, her birindeki ilerlemeyi
+      görebilmek için ayrı tasarruf alt hesapları veya &ldquo;kovalar&rdquo;
+      oluşturun (Ally, Capital One 360 ve çoğu neobank bunu destekler).
     </p>
     <p>
-      Don&rsquo;t white-knuckle. The right thing when life changes is to
-      adjust the plan, not to quit it entirely.
-    </p>
-
-    <h2>Priority stacking — when you have multiple goals</h2>
-    <p>
-      Most finance advice orders them this way:
-    </p>
-    <p>
-      <strong>(1) Get your employer 401(k) match</strong> — pure free
-      money, beats everything else.
-    </p>
-    <p>
-      <strong>(2) $1,000 starter emergency fund</strong> — survival
-      buffer before doing anything fancy.
-    </p>
-    <p>
-      <strong>(3) Pay off any debt above ~8% interest</strong> — credit
-      cards, payday loans, some personal loans. Debt at 22% is a 22%
-      guaranteed return to pay down; no investment beats that.
-    </p>
-    <p>
-      <strong>(4) Full 3–6 month emergency fund</strong> before any other
-      savings goal.
-    </p>
-    <p>
-      <strong>(5) Max tax-advantaged retirement accounts</strong> (HSA,
-      401(k) up to limit, IRA up to limit).
-    </p>
-    <p>
-      <strong>(6) Specific goals</strong> (house, car, travel) in taxable
-      savings or brokerage.
-    </p>
-    <p>
-      Short-term debt and inadequate emergency fund should eat most of
-      your savings capacity before you start saving for vacation.
-      That&rsquo;s not deprivation — it&rsquo;s math.
+      Otomasyon, disiplini 50'ye 1 yener. Kişisel finansta en yüksek
+      kaldıraçlı eylem, tasarrufu her ay sizin karar vermeniz olmadan
+      gerçekleşen bir varsayılan haline getirmektir.
     </p>
 
-    <h2>Lifestyle inflation — the quiet goal-killer</h2>
+    <h2>Adlandırılmış hedef taktiği</h2>
     <p>
-      The most common reason savings goals stall isn&rsquo;t that people
-      can&rsquo;t save — it&rsquo;s that every raise goes to lifestyle
-      before it goes to savings. When you get a raise, automate a percent
-      of the new amount to savings before it hits checking. 50% of every
-      raise to savings for 5 years builds meaningful wealth; 0% of it
-      builds a nicer apartment.
+      Davranışsal araştırma (Hershfield 2011, Soman &amp; Zhao 2011),
+      bir tasarruf hesabını (&ldquo;Japonya 2027&rdquo; veya &ldquo;Ev
+      Fonu&rdquo; olarak &ldquo;Tasarruf 2&rdquo; yerine) etiketlemenin,
+      insanların ona dokunmama olasılığını önemli ölçüde artırdığını
+      gösteriyor. Aynı hesap, aynı faiz, daha iyi uyum çünkü gelecekteki
+      benlik daha somut hale geliyor.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Adım 5 — kontrol noktaları oluşturun</h2>
     <p>
-      Plug your target amount, start date, and current savings into the{" "}
-      <a href="/tools/savings-goal-calculator">savings goal calculator</a>{" "}
-      to get the monthly contribution needed. Use the{" "}
-      <a href="/tools/compound-interest-calculator">compound interest
-      calculator</a> if the goal is 5+ years out and you&rsquo;ll be
-      investing the money, and the{" "}
-      <a href="/tools/emergency-fund-calculator">emergency fund
-      calculator</a> if this is about building your buffer — a goal every
-      household should hit before any other.
+      Üç aylık incelemeler: Hedefte misiniz? Hedef Mayıs 2027'ye kadar
+      15k$ idiyse ve Mayıs 2026'da 6.000$'ınız varsa, biraz öndesiniz
+      (hedefte ~6.500$ olmalı). 3.000$'ınız varsa, ayarlayın: katkıyı
+      artırın, tarihi uzatın veya hedefi düşürün.
+    </p>
+    <p>
+      Dişinizi sıkmayın. Hayat değiştiğinde yapılacak doğru şey, planı
+      tamamen terk etmek değil, ayarlamaktır.
+    </p>
+
+    <h2>Öncelik sıralaması — birden fazla hedefiniz olduğunda</h2>
+    <p>
+      Çoğu finans tavsiyesi bunları şu şekilde sıralar:
+    </p>
+    <p>
+      <strong>(1) İşvereninizin 401(k) eşleşmesini alın</strong> — tamamen
+      bedava para, her şeyden önce gelir.
+    </p>
+    <p>
+      <strong>(2) 1.000$'lık başlangıç acil durum fonu</strong> — süslü
+      bir şey yapmadan önce hayatta kalma tamponu.
+    </p>
+    <p>
+      <strong>(3) ~%8'in üzerindeki tüm borçları ödeyin</strong> — kredi
+      kartları, maaş günü kredileri, bazı kişisel krediler. %22 faizli
+      borç, ödemek için %22 garantili getiridir; hiçbir yatırım bunu
+      geçemez.
+    </p>
+    <p>
+      <strong>(4) Diğer tasarruf hedeflerinden önce tam 3–6 aylık acil
+      durum fonu</strong>.
+    </p>
+    <p>
+      <strong>(5) Vergi avantajlı emeklilik hesaplarını maksimize edin</strong>
+      (HSA, 401(k) limite kadar, IRA limite kadar).
+    </p>
+    <p>
+      <strong>(6) Spesifik hedefler</strong> (ev, araba, seyahat) vergilendirilebilir
+      tasarruf veya aracı kurumda.
+    </p>
+    <p>
+      Kısa vadeli borç ve yetersiz acil durum fonu, tatil için biriktirmeye
+      başlamadan önce tasarruf kapasitenizin çoğunu tüketmelidir. Bu
+      yoksunluk değil — matematiktir.
+    </p>
+
+    <h2>Yaşam tarzı enflasyonu — sessiz hedef katili</h2>
+    <p>
+      Tasarruf hedeflerinin durmasının en yaygın nedeni, insanların
+      biriktirememesi değil — her zammın tasarruftan önce yaşam tarzına
+      gitmesidir. Zam aldığınızda, çek hesabınıza ulaşmadan önce yeni
+      miktarın bir yüzdesini otomatik olarak tasarrufa aktarın. 5 yıl
+      boyunca her zammın %50'sini tasarrufa koymak anlamlı bir servet
+      inşa eder; %0'ı ise daha güzel bir daire inşa eder.
+    </p>
+
+    <h2>Rakamları hesaplayın</h2>
+    <p>
+      Hedef tutarınızı, başlangıç tarihinizi ve mevcut tasarruflarınızı{" "}
+      <a href="/tools/savings-goal-calculator">tasarruf hedefi hesaplayıcısına</a>{" "}
+      girerek gereken aylık katkıyı bulun. Hedef 5+ yıl sonraysa ve parayı
+      yatırıma yönlendirecekseniz{" "}
+      <a href="/tools/compound-interest-calculator">bileşik faiz
+      hesaplayıcısını</a>, bu bir tampon oluşturmakla ilgiliyse — her hanenin
+      diğer her şeyden önce ulaşması gereken bir hedef —{" "}
+      <a href="/tools/emergency-fund-calculator">acil durum fonu
+      hesaplayıcısını</a> kullanın.
     </p>
   </>
 );

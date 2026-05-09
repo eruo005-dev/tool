@@ -3,181 +3,188 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      There are two mainstream strategies for paying off multiple debts at
-      once — the <strong>snowball</strong> (smallest balance first) and
-      the <strong>avalanche</strong> (highest interest rate first). The
-      math favors avalanche, the psychology favors snowball, and choosing
-      the wrong one for your brain often causes people to abandon the plan
-      entirely. This guide walks through the math, the behavioral
-      evidence, and the hybrid approach that usually wins in practice.
+      Birden fazla borcu aynı anda ödemek için iki ana strateji vardır —{" "}
+      <strong>kartopu</strong> (önce en küçük bakiye) ve{" "}
+      <strong>çığ</strong> (önce en yüksek faiz oranı). Matematik çığı
+      destekler, psikoloji kartopunu destekler ve beyniniz için yanlış
+      olanı seçmek genellikle insanların planı tamamen terk etmesine neden
+      olur. Bu rehber, matematiği, davranışsal kanıtları ve pratikte
+      genellikle kazanan hibrit yaklaşımı adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The two strategies in one sentence each</h2>
+    <h2>Her bir strateji tek cümlede</h2>
     <p>
-      <strong>Snowball:</strong> List debts by balance, smallest first.
-      Pay minimums on everything, throw every extra dollar at the
-      smallest. When it&rsquo;s paid off, roll that payment into the next
-      smallest. Repeat until you&rsquo;re debt-free.
+      <strong>Kartopu:</strong> Borçları bakiyeye göre, en küçükten
+      başlayarak sıralayın. Her şeye asgari ödemeleri yapın, her ekstra
+      lirayı en küçük borca yönlendirin. Ödendiğinde, o ödemeyi bir
+      sonraki en küçük borca aktarın. Borçsuz kalana kadar tekrarlayın.
     </p>
     <p>
-      <strong>Avalanche:</strong> List debts by interest rate, highest
-      first. Same minimums-everywhere rule, extra dollars go to highest
-      rate. Roll payments as each is paid off. Mathematically optimal.
-    </p>
-
-    <h2>A worked comparison</h2>
-    <p>
-      Three debts, $800/month available:
-    </p>
-    <p>
-      <strong>Credit card A:</strong> $2,500 @ 22%, min $75/mo.
-    </p>
-    <p>
-      <strong>Credit card B:</strong> $6,000 @ 18%, min $150/mo.
-    </p>
-    <p>
-      <strong>Auto loan:</strong> $12,000 @ 5.5%, min $280/mo.
-    </p>
-    <p>
-      Total minimums: $505/mo. Extra: $295/mo.
-    </p>
-    <p>
-      <strong>Snowball</strong> (smallest first = Card A): Card A paid
-      off in ~7 months. Then roll $75 min + $295 extra = $370 into
-      Card B on top of $150 min → $520/mo on Card B; paid off in ~12
-      months from that point. Then all into auto loan.{" "}
-      <strong>Total payoff: ~32 months. Total interest paid: ~$2,480.</strong>
-    </p>
-    <p>
-      <strong>Avalanche</strong> (highest rate first = Card A — same in
-      this case because it has highest rate AND smallest balance):
-      identical to snowball for this example.{" "}
-      <strong>Total payoff: 32 months. Total interest: $2,480.</strong>
-    </p>
-    <p>
-      But if instead Card A were $8,000 @ 22% and Card B were $2,500 @
-      18%:
-    </p>
-    <p>
-      <strong>Snowball</strong> kills Card B first (smallest) and saves
-      ~$200 less interest than avalanche over the life of the plan.
-      <strong>Avalanche</strong> kills the 22% card first (highest
-      rate). On identical total monthly payment, avalanche saves roughly
-      <strong> 3–8% in total interest</strong> vs snowball — in this
-      example, ~$300–800 depending on balances and term.
+      <strong>Çığ:</strong> Borçları faiz oranına göre, en yüksekten
+      başlayarak sıralayın. Aynı her yere asgari kuralı, ekstra paralar
+      en yüksek faiz oranına gider. Her biri ödendikçe ödemeleri
+      aktarın. Matematiksel olarak en uygun.
     </p>
 
-    <h2>When avalanche wins big</h2>
+    <h2>Karşılaştırmalı bir örnek</h2>
     <p>
-      Avalanche produces the biggest mathematical savings when:
+      Üç borç, ayda 800 TL mevcut:
     </p>
     <p>
-      <strong>You have a high-rate debt with a big balance.</strong> A
-      $20,000 credit card at 25% burns real money while you&rsquo;re
-      paying off a $1,000 store card first.
+      <strong>Kredi kartı A:</strong> %22 faizle 2.500 TL, asgari 75 TL/ay.
     </p>
     <p>
-      <strong>Interest rates span a wide range.</strong> 5% vs 28% creates
-      much bigger optimality differences than 16% vs 18%.
+      <strong>Kredi kartı B:</strong> %18 faizle 6.000 TL, asgari 150 TL/ay.
     </p>
     <p>
-      <strong>The debt horizon is long.</strong> The longer you&rsquo;ll be
-      paying, the more interest-rate optimization compounds.
-    </p>
-
-    <h2>When snowball wins in practice</h2>
-    <p>
-      The avalanche-is-optimal math is undisputed. But a 2012 Kellogg
-      School of Management study (Gal &amp; McShane) found that people
-      executing the snowball method paid off <em>more</em> total debt
-      than avalanche executors, because the early wins kept them
-      motivated and prevented quitting. If you quit an avalanche plan
-      at month 8 because you&rsquo;re demoralized, you&rsquo;ve saved
-      zero dollars. If you finish a snowball plan, the mathematically
-      &ldquo;suboptimal&rdquo; strategy beats the optimal one you
-      abandoned.
+      <strong>Araba kredisi:</strong> %5,5 faizle 12.000 TL, asgari 280 TL/ay.
     </p>
     <p>
-      Snowball suits you if: you have 5+ debts (makes early wins
-      frequent), you&rsquo;ve quit past plans, you&rsquo;re coming out of
-      financial trauma and need wins to rebuild confidence, or the
-      interest rates are clustered tight enough that the math difference
-      is &lt; $500 total.
-    </p>
-
-    <h2>The hybrid most finance writers actually recommend</h2>
-    <p>
-      <strong>Pay off any debt smaller than $1,000 first</strong>
-      (regardless of rate) to clear mental overhead and build momentum,
-      then switch to avalanche for the remaining debts. You get one
-      fast win, then you&rsquo;re on the optimal track.
+      Toplam asgari ödemeler: 505 TL/ay. Ekstra: 295 TL/ay.
     </p>
     <p>
-      Another hybrid: <strong>tackle the one that&rsquo;s killing your
-      credit score first.</strong> High utilization on a revolving account
-      (above 30% of limit) is doing active damage to your credit; paying
-      it down might unlock a balance transfer or refinance that dominates
-      either pure strategy.
+      <strong>Kartopu</strong> (önce en küçük = Kart A): Kart A ~7 ayda
+      ödenir. Ardından 75 TL asgari + 295 TL ekstra = 370 TL'yi Kart
+      B'ye, 150 TL asgariye ek olarak yönlendirin → Kart B'ye ayda 520
+      TL; bu noktadan itibaren ~12 ayda ödenir. Sonra tümü araba
+      kredisine.{" "}
+      <strong>Toplam ödeme süresi: ~32 ay. Ödenen toplam faiz: ~2.480 TL.</strong>
+    </p>
+    <p>
+      <strong>Çığ</strong> (önce en yüksek faiz = Kart A — bu durumda
+      aynı çünkü en yüksek faiz oranına ve en küçük bakiyeye sahip):
+      bu örnek için kartopu ile aynı.{" "}
+      <strong>Toplam ödeme süresi: 32 ay. Toplam faiz: 2.480 TL.</strong>
+    </p>
+    <p>
+      Ancak bunun yerine Kart A %22 faizle 8.000 TL ve Kart B %18 faizle
+      2.500 TL olsaydı:
+    </p>
+    <p>
+      <strong>Kartopu</strong> önce Kart B'yi (en küçük) bitirir ve planın
+      ömrü boyunca çığdan ~200 TL daha az faiz tasarrufu sağlar.
+      <strong>Çığ</strong> önce %22 faizli kartı (en yüksek faiz) bitirir.
+      Aynı toplam aylık ödemede, çığ kartopuna kıyasla toplam faizde
+      yaklaşık <strong>%3–8</strong> tasarruf sağlar — bu örnekte,
+      bakiyelere ve vadeye bağlı olarak ~300–800 TL.
     </p>
 
-    <h2>Always refinance or consolidate where possible</h2>
+    <h2>Çığın büyük kazandığı durumlar</h2>
     <p>
-      Before optimizing the order of payoff, check whether you can
-      refinance the whole stack into a lower rate:
+      Çığ, en büyük matematiksel tasarrufu şu durumlarda sağlar:
     </p>
     <p>
-      <strong>0% balance transfer</strong> — credit cards with 12–21
-      month intro periods. Transfer fee of 3–5%. Only works if you
-      genuinely pay it off during the promo period; after that it resets
-      to a regular <a href="/learn/apr">APR</a> and you&rsquo;re in a worse place.
+      <strong>Yüksek faizli ve büyük bakiyeli bir borcunuz varsa.</strong>
+      1.000 TL'lik bir mağaza kartını öderken %25 faizli 20.000 TL'lik bir
+      kredi kartı ciddi para kaybettirir.
     </p>
     <p>
-      <strong>Personal loan for debt consolidation</strong> — fixed rate
-      typically 7–20% depending on credit. Turns multiple revolving
-      debts into one installment loan with a fixed payoff date.
+      <strong>Faiz oranları geniş bir aralığa yayılmışsa.</strong> %5'e
+      karşı %28, %16'ya karşı %18'den çok daha büyük optimallik farkları
+      yaratır.
     </p>
     <p>
-      <strong>Home equity (HELOC or cash-out refi)</strong> — cheapest
-      rate, but now your debt is secured by your house. Only for
-      borrowers with stable income who won&rsquo;t rack the cards back
-      up afterwards.
+      <strong>Borç vadesi uzunsa.</strong> Ne kadar uzun süre ödeme
+      yaparsanız, faiz oranı optimizasyonu o kadar bileşik etki yaratır.
     </p>
 
-    <h2>The tactical rules either strategy requires</h2>
+    <h2>Kartopunun pratikte kazandığı durumlar</h2>
     <p>
-      <strong>(1) Stop adding to the pile.</strong> Freeze new credit card
-      spending during payoff. The debt-paydown math fails immediately if
-      balances keep growing.
+      Çığın optimal olduğu matematiği tartışmasızdır. Ancak 2012'de
+      yapılan bir Kellogg School of Management çalışması (Gal &amp;
+      McShane), kartopu yöntemini uygulayan kişilerin çığ uygulayanlardan
+      daha fazla toplam borç ödediğini buldu, çünkü erken kazanımlar
+      motivasyonlarını korudu ve pes etmelerini engelledi. 8. ayda
+      moralsizlikten bir çığ planını bırakırsanız, sıfır lira tasarruf
+      etmiş olursunuz. Bir kartopu planını tamamlarsanız, matematiksel
+      olarak "optimal olmayan" strateji, terk ettiğiniz optimal stratejiyi
+      yener.
     </p>
     <p>
-      <strong>(2) Pay more than the minimum on the target debt.</strong>
-      Whatever extra dollars you have each month go here. Minimum-only
-      on cards can take 15+ years to pay off.
-    </p>
-    <p>
-      <strong>(3) Auto-pay minimums everywhere</strong> so you don&rsquo;t
-      damage credit with a missed payment on a non-target debt.
-    </p>
-    <p>
-      <strong>(4) Keep a small emergency fund ($1k)</strong> during
-      payoff. Without it, any car repair or medical bill goes back on
-      a card and undoes progress.
+      Kartopu size uygunsa: 5+ borcunuz varsa (erken kazanımları
+      sıklaştırır), geçmiş planları bıraktıysanız, mali travmadan
+      çıkıyorsanız ve güveni yeniden inşa etmek için kazanımlara
+      ihtiyacınız varsa veya faiz oranları matematiksel farkın toplamda
+      500 TL'den az olacağı kadar yakınsa.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Çoğu finans yazarının aslında önerdiği hibrit</h2>
     <p>
-      Enter your debts, rates, and minimums into the{" "}
-      <a href="/tools/debt-payoff-calculator">debt payoff calculator</a>{" "}
-      — it shows total payoff time and interest paid under both strategies
-      side by side, so you can see the exact dollar difference. Pair with
-      the <a href="/tools/emergency-fund-calculator">emergency fund
-      calculator</a> to size that $1k buffer, and see our{" "}
-      <a href="/guides/how-to-pay-off-debt-fast">pay off debt fast guide</a>{" "}
-      for the full approach.
+      <strong>Önce 1.000 TL'den küçük herhangi bir borcu ödeyin</strong>
+      (faiz oranına bakılmaksızın) zihinsel yükü temizlemek ve ivme
+      kazanmak için, ardından kalan borçlar için çığ yöntemine geçin.
+      Hızlı bir kazanım elde edersiniz, ardından optimal yolda olursunuz.
+    </p>
+    <p>
+      Başka bir hibrit: <strong>Önce kredi puanınızı en çok etkileyen
+      borcu ele alın.</strong> Dönen bir hesapta yüksek kullanım (limitin
+      %30'unun üzerinde) kredinize aktif olarak zarar verir; bunu ödemek,
+      her iki saf stratejiyi de geride bırakacak bir bakiye transferi veya
+      refinansmanın önünü açabilir.
+    </p>
+
+    <h2>Mümkün olduğunda her zaman refinansman veya konsolidasyon yapın</h2>
+    <p>
+      Ödeme sırasını optimize etmeden önce, tüm borç yığınını daha düşük
+      bir faiz oranına dönüştürüp dönüştüremeyeceğinizi kontrol edin:
+    </p>
+    <p>
+      <strong>%0 bakiye transferi</strong> — 12–21 ay tanıtım dönemi olan
+      kredi kartları. %3–5 transfer ücreti. Yalnızca promosyon döneminde
+      gerçekten öderseniz işe yarar; sonrasında normal bir{" "}
+      <a href="/learn/apr">APR</a>'ye sıfırlanır ve daha kötü bir
+      durumda olursunuz.
+    </p>
+    <p>
+      <strong>Borç konsolidasyonu için kişisel kredi</strong> — kredi
+      notuna bağlı olarak genellikle %7–20 arası sabit faiz. Birden fazla
+      dönen borcu, sabit ödeme tarihi olan tek bir taksitli krediye
+      dönüştürür.
+    </p>
+    <p>
+      <strong>Ev sermayesi (HELOC veya nakit çıkışlı refinansman)</strong> —
+      en ucuz faiz, ancak artık borcunuz evinizle güvence altına alınmıştır.
+      Yalnızca istikrarlı geliri olan ve sonrasında kartları tekrar
+      doldurmayacak borçlular için.
+    </p>
+
+    <h2>Her iki stratejinin de gerektirdiği taktiksel kurallar</h2>
+    <p>
+      <strong>(1) Yığına ekleme yapmayı durdurun.</strong> Ödeme süresince
+      yeni kredi kartı harcamalarını dondurun. Bakiyeler büyümeye devam
+      ederse, borç ödeme matematiği anında başarısız olur.
+    </p>
+    <p>
+      <strong>(2) Hedef borca asgariden fazlasını ödeyin.</strong> Her ay
+      sahip olduğunuz ekstra paralar buraya gider. Kartlarda yalnızca
+      asgari ödeme yapmak 15+ yıl sürebilir.
+    </p>
+    <p>
+      <strong>(3) Her yerde asgari ödemeleri otomatik ödemeye alın</strong>
+      böylece hedef olmayan bir borçta kaçırılan ödeme nedeniyle kredinize
+      zarar vermezsiniz.
+    </p>
+    <p>
+      <strong>(4) Ödeme süresince küçük bir acil durum fonu (1.000 TL)
+      bulundurun.</strong> Bu olmadan, herhangi bir araba tamiri veya
+      sağlık faturası karta yansır ve ilerlemeyi geri alır.
+    </p>
+
+    <h2>Rakamları hesaplayın</h2>
+    <p>
+      Borçlarınızı, faiz oranlarınızı ve asgari ödemelerinizi{" "}
+      <a href="/tools/debt-payoff-calculator">borç ödeme hesaplayıcısına</a>{" "}
+      girin — her iki strateji altında toplam ödeme süresini ve ödenen
+      faizi yan yana gösterir, böylece tam dolar farkını görebilirsiniz.
+      Bu 1.000 TL'lik tamponu boyutlandırmak için{" "}
+      <a href="/tools/emergency-fund-calculator">acil durum fonu
+      hesaplayıcısı</a> ile birlikte kullanın ve tam yaklaşım için{" "}
+      <a href="/guides/how-to-pay-off-debt-fast">borcu hızlı ödeme
+      rehberimize</a> bakın.
     </p>
   </>
 );

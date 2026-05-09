@@ -3,53 +3,39 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Morse code is a 180-year-old encoding that turned the
-      alphabet into patterns of short and long signals, originally
-      so electrical impulses could carry language down a telegraph
-      wire. It outlived the telegraph by a century because it
-      works in almost any medium that can distinguish two states:
-      sound, light, radio pulses, a tapped pipe, a blinking
-      flashlight. Modern aviation still uses it for navigation
-      beacon identification, amateur radio keeps it alive on HF
-      bands, and it remains the fallback emergency signal everyone
-      was taught at least once (dot dot dot, dash dash dash, dot
-      dot dot). This guide covers the international Morse
-      alphabet, timing rules, prosigns that frame real-world
-      traffic, the difference between international and American
-      railroad Morse, why SOS is exactly what it is, and the
-      practical uses that keep the code on license exams today.
+      Mors kodu, alfabeyi kısa ve uzun sinyal desenlerine dönüştüren 180 yıllık bir kodlama sistemidir. Başlangıçta elektriksel darbelerin bir telgraf teli boyunca dil taşıması için tasarlanmıştır. Telgraftan bir yüzyıl daha uzun yaşamıştır çünkü iki durumu ayırt edebilen hemen her ortamda çalışır: ses, ışık, radyo darbeleri, vurulan bir boru, yanıp sönen bir el feneri. Modern havacılık hâlâ seyrüsefer feneri tanımlaması için kullanır, amatör telsizcilik onu HF bantlarında canlı tutar ve herkesin en az bir kez öğretildiği yedek acil durum sinyali olarak kalır (nokta nokta nokta, çizgi çizgi çizgi, nokta nokta nokta). Bu rehber, uluslararası Mors alfabesini, zamanlama kurallarını, gerçek dünya trafiğini çerçeveleyen prosignları, uluslararası ve Amerikan demiryolu Mors'u arasındaki farkı, SOS'un tam olarak neden bu şekilde olduğunu ve kodun bugün lisans sınavlarında kalmasını sağlayan pratik kullanımları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Dots, dashes, and timing</h2>
+    <h2>Noktalar, çizgiler ve zamanlama</h2>
     <p>
-      Every Morse character is a sequence of two signal lengths:
-      short (&ldquo;dot&rdquo; or &ldquo;dit&rdquo;) and long
-      (&ldquo;dash&rdquo; or &ldquo;dah&rdquo;). The dash is three
-      times the length of the dot &mdash; this ratio is what makes
-      Morse a code rather than a random sequence.
+      Her Mors karakteri, iki sinyal uzunluğunun bir dizisidir:
+      kısa (&ldquo;nokta&rdquo; veya &ldquo;dit&rdquo;) ve uzun
+      (&ldquo;çizgi&rdquo; veya &ldquo;dah&rdquo;). Çizgi, noktanın
+      üç katı uzunluğundadır &mdash; bu oran, Mors'u rastgele bir
+      diziden ayıran şeydir.
     </p>
     <p>
-      Full timing rules:
+      Tam zamanlama kuralları:
     </p>
     <p>
-      One dot = one time unit.
-      One dash = three time units.
-      Gap between parts of the same letter = one unit.
-      Gap between letters = three units.
-      Gap between words = seven units.
+      Bir nokta = bir zaman birimi.
+      Bir çizgi = üç zaman birimi.
+      Aynı harfin parçaları arasındaki boşluk = bir birim.
+      Harfler arasındaki boşluk = üç birim.
+      Kelimeler arasındaki boşluk = yedi birim.
     </p>
     <p>
-      The &ldquo;time unit&rdquo; is whatever the operator chooses.
-      At 20 words per minute, a dot is about 60 milliseconds. The
-      PARIS word (the traditional standard) is 50 units long, so
-      words-per-minute equals 50 &times; (units per second) / 60.
+      &ldquo;Zaman birimi&rdquo; operatörün seçtiği şeydir.
+      Dakikada 20 kelimede, bir nokta yaklaşık 60 milisaniyedir.
+      PARIS kelimesi (geleneksel standart) 50 birim uzunluğundadır,
+      bu nedenle dakikadaki kelime sayısı 50 &times; (saniyedeki birim) / 60'a eşittir.
     </p>
 
-    <h2>International Morse alphabet</h2>
+    <h2>Uluslararası Mors alfabesi</h2>
     <pre>{`A .-      N -.       0 -----
 B -...    O ---      1 .----
 C -.-.    P .--.     2 ..---
@@ -64,14 +50,14 @@ K -.-     X -..-
 L .-..    Y -.--
 M --      Z --..`}</pre>
     <p>
-      Short codes go to common letters. E is a single dot because
-      E is the most frequent letter in English &mdash; the same
-      frequency insight that drives Huffman coding, arrived at a
-      century earlier by Alfred Vail, who did much of the actual
-      assignment work while Samuel Morse took the credit.
+      Kısa kodlar sık kullanılan harflere gider. E tek bir noktadır çünkü
+      E, İngilizcede en sık kullanılan harftir &mdash; Huffman kodlamasını
+      yönlendiren aynı sıklık içgörüsü, bir yüzyıl önce Alfred Vail
+      tarafından keşfedilmiştir; Vail, Samuel Morse itibarı alırken
+      asıl atama işinin çoğunu yapmıştır.
     </p>
 
-    <h2>Punctuation and specials</h2>
+    <h2>Noktalama işaretleri ve özel karakterler</h2>
     <pre>{`.  .-.-.-       :  ---...
 ,  --..--       ;  -.-.-.
 ?  ..--..       =  -...-
@@ -81,202 +67,202 @@ M --      Z --..`}</pre>
 &  .-...        )  -.--.-
 @  .--.-.       -  -....-`}</pre>
     <p>
-      The <code>@</code> assignment (added in 2004 by the ITU) was
-      the first new Morse character in decades, reflecting
-      email-era usage in amateur contests.
+      <code>@</code> ataması (2004'te ITU tarafından eklenmiştir)
+      on yıllar sonraki ilk yeni Mors karakteriydi ve amatör
+      yarışmalarda e-posta dönemi kullanımını yansıtıyordu.
     </p>
 
-    <h2>Prosigns &mdash; operator signals</h2>
+    <h2>Prosignlar &mdash; operatör sinyalleri</h2>
     <p>
-      Prosigns are two-letter patterns sent with no gap, meaning a
-      procedural instruction rather than a letter. Written with a
-      bar over the letters.
+      Prosignlar, boşluksuz gönderilen iki harfli desenlerdir ve bir
+      harften ziyade prosedürel bir talimat anlamına gelir. Harflerin
+      üzerinde bir çizgi ile yazılır.
     </p>
     <p>
-      <strong>&#172;AR</strong> (<code>.-.-.</code>) &mdash; end of
-      message.
+      <strong>&#172;AR</strong> (<code>.-.-.</code>) &mdash; mesajın
+      sonu.
     </p>
     <p>
-      <strong>&#172;SK</strong> (<code>...-.-</code>) &mdash; end of
-      contact.
+      <strong>&#172;SK</strong> (<code>...-.-</code>) &mdash; temasın
+      sonu.
     </p>
     <p>
-      <strong>&#172;BT</strong> (<code>-...-</code>) &mdash; separator
-      within a message (like a paragraph break).
+      <strong>&#172;BT</strong> (<code>-...-</code>) &mdash; mesaj
+      içinde ayırıcı (paragraf arası gibi).
     </p>
     <p>
-      <strong>&#172;KN</strong> (<code>-.--.</code>) &mdash; &ldquo;go
-      ahead, specific station only.&rdquo;
+      <strong>&#172;KN</strong> (<code>-.--.</code>) &mdash; &ldquo;devam
+      et, yalnızca belirli istasyon.&rdquo;
     </p>
     <p>
-      <strong>&#172;SOS</strong> (<code>...---...</code>) &mdash; the
-      universal distress call, sent as a single unbroken pattern.
+      <strong>&#172;SOS</strong> (<code>...---...</code>) &mdash;
+      evrensel imdat çağrısı, kesintisiz tek bir desen olarak gönderilir.
     </p>
 
     <h2>SOS</h2>
     <p>
-      SOS is the single most widely recognized Morse sequence. It
-      is not an acronym (not &ldquo;Save Our Souls&rdquo; &mdash;
-      that is backronymed); it was picked because the pattern
-      <code> . . . &mdash; &mdash; &mdash; . . .</code> is short,
-      symmetric, unmistakable, and distinct from any accidental
-      noise.
+      SOS, en yaygın bilinen Mors dizisidir. Bir kısaltma değildir
+      (&ldquo;Save Our Souls&rdquo; değildir &mdash; bu sonradan
+      uydurulmuştur); desen
+      <code> . . . &mdash; &mdash; &mdash; . . .</code> kısa,
+      simetrik, yanlış anlaşılmaz ve kazara oluşan herhangi bir
+      gürültüden ayırt edilebilir olduğu için seçilmiştir.
     </p>
     <p>
-      Adopted as the international maritime distress signal at the
-      Berlin Radiotelegraphic Conference in 1906. Replaced by
-      automated GMDSS distress signaling in 1999, but SOS is still
-      legal, still recognized, and still drilled in survival
-      training.
-    </p>
-
-    <h2>International vs American Morse</h2>
-    <p>
-      Samuel Morse&rsquo;s original 1840s code (&ldquo;American
-      Morse&rdquo; or &ldquo;Railroad Morse&rdquo;) had different
-      patterns from the modern international one, including
-      internal gaps within characters (<code>C = .. .</code> with a
-      gap). It was used on North American wireline telegraph into
-      the 1920s.
-    </p>
-    <p>
-      The <strong>International Morse code</strong> above was
-      adopted by conferences in Europe in 1851 and eventually
-      everywhere else. It eliminated the within-character gaps,
-      simplified radio transmission, and is what &ldquo;Morse code&rdquo;
-      means in 2026.
+      1906 Berlin Radyotelgraf Konferansı'nda uluslararası deniz
+      imdat sinyali olarak kabul edilmiştir. 1999'da otomatik GMDSS
+      imdat sinyallemesi ile değiştirilmiştir, ancak SOS hâlâ
+      yasaldır, hâlâ tanınır ve hâlâ hayatta kalma eğitimlerinde
+      uygulanır.
     </p>
 
-    <h2>Sending Morse</h2>
+    <h2>Uluslararası ve Amerikan Mors'u</h2>
     <p>
-      Morse can be sent over any medium with two states:
+      Samuel Morse'un 1840'lardaki orijinal kodu (&ldquo;Amerikan
+      Mors'u&rdquo; veya &ldquo;Demiryolu Mors'u&rdquo;) modern
+      uluslararası olandan farklı desenlere sahipti; buna karakterler
+      içinde boşluklar da dahildi (<code>C = .. .</code> bir boşlukla).
+      1920'lere kadar Kuzey Amerika kablolu telgrafında kullanıldı.
     </p>
     <p>
-      <strong>Sound</strong>: key-down produces a continuous tone
-      (typically 700 Hz in amateur radio), key-up is silent.
-    </p>
-    <p>
-      <strong>Light</strong>: flashlight, Aldis lamp (military
-      signaling), blinking LED, even car headlights.
-    </p>
-    <p>
-      <strong>Radio</strong>: on-off keying of a continuous wave
-      (CW). The original use case and still active on amateur HF
-      bands.
-    </p>
-    <p>
-      <strong>Tap</strong>: pipe, wall, cell door. Famous use:
-      Admiral Jeremiah Denton blinked T-O-R-T-U-R-E during a 1966
-      Vietnam POW interview.
+      Yukarıdaki <strong>Uluslararası Mors kodu</strong>, 1851'de
+      Avrupa'daki konferanslar ve daha sonra diğer her yer tarafından
+      kabul edildi. Karakter içi boşlukları ortadan kaldırdı, radyo
+      iletimini basitleştirdi ve 2026'da &ldquo;Mors kodu&rdquo;
+      denilen şeydir.
     </p>
 
-    <h2>Speed and the PARIS standard</h2>
+    <h2>Mors gönderme</h2>
     <p>
-      Words per minute (WPM) is measured using the 50-unit word
-      PARIS as the reference. Typical speeds:
+      Mors, iki durumlu herhangi bir ortam üzerinden gönderilebilir:
     </p>
     <p>
-      <strong>5 WPM</strong>: entry level. Old FCC ham radio
-      licensing floor.
+      <strong>Ses</strong>: tuşa basıldığında sürekli bir ton üretilir
+      (amatör telsizde tipik olarak 700 Hz), tuş serbestken sessizdir.
     </p>
     <p>
-      <strong>13 WPM</strong>: historical FCC General Class
-      requirement (dropped in 2007).
+      <strong>Işık</strong>: el feneri, Aldis lambası (askeri
+      sinyalleme), yanıp sönen LED, hatta araba farları.
     </p>
     <p>
-      <strong>20 WPM</strong>: comfortable conversational speed
-      among active CW operators.
+      <strong>Radyo</strong>: sürekli dalganın (CW) aç-kapa
+      anahtarlaması. Orijinal kullanım alanı ve hâlâ amatör HF
+      bantlarında aktiftir.
     </p>
     <p>
-      <strong>30&ndash;40 WPM</strong>: contest and DXpedition
-      operators.
-    </p>
-    <p>
-      <strong>60+ WPM</strong>: elite. High-Speed Telegraphy world
-      championship records exceed 300 characters per minute.
+      <strong>Vuruş</strong>: boru, duvar, hücre kapısı. Ünlü
+      kullanım: Amiral Jeremiah Denton, 1966 Vietnam savaş esiri
+      röportajında T-O-R-T-U-R-E'yi göz kırparak heceledi.
     </p>
 
-    <h2>Farnsworth timing</h2>
+    <h2>Hız ve PARIS standardı</h2>
     <p>
-      Learners hit a plateau at around 10&ndash;12 WPM where they
-      can decode individual letters but struggle to assemble them
-      into words. The Farnsworth method (1959) keeps the character
-      speed fast (20 WPM) but stretches inter-character gaps
-      &mdash; so each dit/dah sounds like it will at full speed,
-      but the learner has time to recognize. As fluency grows, you
-      close the gaps.
+      Dakikadaki kelime sayısı (WPM), referans olarak 50 birimlik
+      PARIS kelimesi kullanılarak ölçülür. Tipik hızlar:
+    </p>
+    <p>
+      <strong>5 WPM</strong>: başlangıç seviyesi. Eski FCC amatör
+      telsiz lisanslama tabanı.
+    </p>
+    <p>
+      <strong>13 WPM</strong>: tarihi FCC Genel Sınıf gereksinimi
+      (2007'de kaldırıldı).
+    </p>
+    <p>
+      <strong>20 WPM</strong>: aktif CW operatörleri arasında rahat
+      konuşma hızı.
+    </p>
+    <p>
+      <strong>30&ndash;40 WPM</strong>: yarışma ve DXpedisyon
+      operatörleri.
+    </p>
+    <p>
+      <strong>60+ WPM</strong>: elit. Yüksek Hızlı Telgraf dünya
+      şampiyonası rekorları dakikada 300 karakteri aşar.
     </p>
 
-    <h2>Navigation beacons still use Morse</h2>
+    <h2>Farnsworth zamanlaması</h2>
     <p>
-      Aviation VOR (very-high-frequency omnidirectional range)
-      stations and NDBs (non-directional beacons) identify
-      themselves by Morse code of their 2- or 3-letter code on top
-      of their regular signal. A pilot tunes the frequency and
-      listens for, e.g., &ldquo;dash-dot-dash-dot dot-dot dash&rdquo;
-      (CIM) to confirm they are receiving the correct station.
+      Öğrenciler, yaklaşık 10&ndash;12 WPM'de, tek tek harfleri
+      çözebildikleri ancak bunları kelimelere dönüştürmekte
+      zorlandıkları bir platoya ulaşırlar. Farnsworth yöntemi
+      (1959), karakter hızını yüksek (20 WPM) tutar ancak karakterler
+      arası boşlukları uzatır &mdash; böylece her dit/dah tam hızda
+      duyulacak gibi gelir, ancak öğrencinin tanıması için zamanı
+      olur. Akıcılık arttıkça boşlukları kapatırsınız.
     </p>
 
-    <h2>Amateur radio</h2>
+    <h2>Seyrüsefer fenerleri hâlâ Mors kullanıyor</h2>
     <p>
-      Code-mode (CW) contacts are still one of the most active
-      portions of the amateur HF spectrum. CW gets through when
-      voice does not &mdash; a narrow bandwidth (under 500 Hz)
-      means the signal concentrates in less spectrum, so it
-      penetrates noise. Worldwide contacts with 5 watts and a wire
-      antenna are routine for CW operators.
+      Havacılık VOR (çok yüksek frekanslı omnidirectional menzil)
+      istasyonları ve NDB'ler (yönsüz fenerler), normal sinyallerinin
+      üzerine 2 veya 3 harfli kodlarının Mors koduyla kendilerini
+      tanımlarlar. Bir pilot frekansı ayarlar ve örneğin
+      &ldquo;çizgi-nokta-çizgi-nokta nokta-nokta-çizgi&rdquo;
+      (CIM) duyarak doğru istasyonu aldığını teyit eder.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Amatör telsizcilik</h2>
     <p>
-      <strong>Wrong dash length.</strong> If your dash is only
-      twice the dot instead of three times, experienced listeners
-      hear it as &ldquo;slurred&rdquo; and the receiver software
-      misdecodes. Practice with a metronome.
-    </p>
-    <p>
-      <strong>Inconsistent inter-letter gaps.</strong> Running
-      letters together (<code>....-</code> without a clear gap)
-      reads as H followed by T rather than the number 4. A dot in
-      Morse can stand alone as E, so gap discipline is everything.
-    </p>
-    <p>
-      <strong>Sending SOS as three letters.</strong> SOS is one
-      prosign <code>...---...</code> with no inter-letter gaps.
-      Sending S, O, S separately is a procedural error, though
-      anyone hearing it would still understand.
-    </p>
-    <p>
-      <strong>Assuming American Morse where International is in
-      use.</strong> Outside historical railroad contexts, everyone
-      uses International. Lookup tables for C, F, J, L, Q, X, Y, Z
-      differ.
-    </p>
-    <p>
-      <strong>Mis-memorizing a few letters permanently.</strong> Q
-      (<code>--.-</code>) and Y (<code>-.--</code>) are commonly
-      confused. So are H (<code>....</code>) and 5
-      (<code>.....</code>). Drill the pairs until the difference is
-      automatic.
-    </p>
-    <p>
-      <strong>Expecting the pattern for numbers to be intuitive.</strong>
-      The count is off by one:
-      <code> 1 = .----</code>, <code>2 = ..---</code>, etc. 0 is
-      <code> -----</code>. Memorize; do not guess.
+      Kod modu (CW) temasları, amatör HF spektrumunun hâlâ en aktif
+      kısımlarından biridir. CW, sesin geçemediği yerden geçer
+      &mdash; dar bir bant genişliği (500 Hz'in altında), sinyalin
+      daha az spektrumda yoğunlaşması anlamına gelir, bu nedenle
+      gürültüyü deler. 5 watt ve bir tel antenle dünya çapında
+      temaslar CW operatörleri için rutindir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Translate text and Morse back and forth with the{" "}
-      <a href="/tools/morse-code-translator">Morse code translator</a>.
-      Pair with the{" "}
-      <a href="/tools/binary-text-encoder">binary text encoder</a>
-      {" "}for layered signaling puzzles that mix dot-dash with
-      base-2, and the{" "}
-      <a href="/tools/caesar-cipher">Caesar cipher tool</a> when
-      you want to combine historical-era encodings with a
-      substitution layer.
+      <strong>Yanlış çizgi uzunluğu.</strong> Çizginiz noktanın
+      üç katı yerine sadece iki katıysa, deneyimli dinleyiciler
+      bunu &ldquo;yayvan&rdquo; olarak duyar ve alıcı yazılımı
+      yanlış çözer. Bir metronomla pratik yapın.
+    </p>
+    <p>
+      <strong>Tutarsız harf arası boşluklar.</strong> Harfleri
+      birbirine bitiştirmek (<code>....-</code> net bir boşluk
+      olmadan), 4 sayısı yerine H ve ardından T olarak okunur.
+      Mors'ta bir nokta tek başına E olabilir, bu nedenle boşluk
+      disiplini her şeydir.
+    </p>
+    <p>
+      <strong>SOS'u üç harf olarak göndermek.</strong> SOS, harf
+      arası boşluksuz tek bir prosigndır <code>...---...</code>.
+      S, O, S'yi ayrı ayrı göndermek prosedürel bir hatadır, ancak
+      duyan herkes yine de anlar.
+    </p>
+    <p>
+      <strong>Uluslararası Mors kullanılırken Amerikan Mors'u
+      varsaymak.</strong> Tarihi demiryolu bağlamları dışında,
+      herkes Uluslararası Mors kullanır. C, F, J, L, Q, X, Y, Z
+      için arama tabloları farklıdır.
+    </p>
+    <p>
+      <strong>Birkaç harfi kalıcı olarak yanlış ezberlemek.</strong>
+      Q (<code>--.-</code>) ve Y (<code>-.--</code>) sıklıkla
+      karıştırılır. H (<code>....</code>) ve 5
+      (<code>.....</code>) de öyle. Fark otomatik hale gelene kadar
+      çiftleri tekrarlayın.
+    </p>
+    <p>
+      <strong>Sayılar için desenin sezgisel olmasını beklemek.</strong>
+      Sayım bir eksiktir:
+      <code> 1 = .----</code>, <code>2 = ..---</code>, vb. 0 ise
+      <code> -----</code>. Ezberleyin; tahmin etmeyin.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      Metin ve Mors'u{" "}
+      <a href="/tools/morse-code-translator">Mors kodu çeviricisi</a>
+      ile ileri geri çevirin. Nokta-çizgiyi ikili tabanla karıştıran
+      katmanlı sinyalleme bulmacaları için{" "}
+      <a href="/tools/binary-text-encoder">ikili metin kodlayıcı</a>
+      ile ve tarihsel dönem kodlamalarını bir ikame katmanıyla
+      birleştirmek istediğinizde{" "}
+      <a href="/tools/caesar-cipher">Sezar şifreleme aracı</a>
+      ile eşleştirin.
     </p>
   </>
 );

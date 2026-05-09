@@ -2,99 +2,103 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Ergonomic desk setup isn&rsquo;t about expensive chairs &mdash; it&rsquo;s about geometry.
-    A $200 chair at the wrong height beats a $1,500 chair set up wrong, but a $200 chair set
-    up <em>right</em> beats both. Here&rsquo;s how to dial it in.
+    Ergonomik masa düzeni pahalı sandalyelerle ilgili değildir &mdash; geometriyle ilgilidir.
+    Yanlış yükseklikteki 200 dolarlık bir sandalye, yanlış ayarlanmış 1500 dolarlık bir sandalyeyi
+    yener, ancak <em>doğru</em> ayarlanmış 200 dolarlık bir sandalye ikisini de yener. İşte nasıl
+    ayarlayacağınız.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      The four big numbers to get right are: desk height, chair height, monitor height, and
-      monitor distance. Get these inside the OSHA / BIFMA G1 ranges and 80% of common pain
-      patterns &mdash; sore neck, tight shoulders, lower back ache, wrist tingles, late-day
-      headache &mdash; either disappear or become much easier to manage with the rest of your
-      lifestyle.
+      Doğru ayarlanması gereken dört büyük sayı şunlardır: masa yüksekliği, sandalye yüksekliği,
+      monitör yüksekliği ve monitör mesafesi. Bunları OSHA / BIFMA G1 aralıklarına getirin ve
+      yaygın ağrı modellerinin %80'i &mdash; boyun ağrısı, gergin omuzlar, bel ağrısı, bilek
+      karıncalanması, gün sonu baş ağrısı &mdash; ya kaybolur ya da yaşam tarzınızın geri kalanıyla
+      yönetilmesi çok daha kolay hale gelir.
     </p>
 
-    <h2>Start with elbow height, not chair height</h2>
+    <h2>Sandalye yüksekliğinden değil, dirsek yüksekliğinden başlayın</h2>
     <p>
-      Sit relaxed with your forearms parallel to the floor. The desk surface should hit at
-      your elbow height. Most office desks ship at 28&ndash;30 inches off the floor, which
-      is too tall for anyone under about 5&rsquo;9&Prime;. If you can&rsquo;t lower the desk,
-      raise the chair until elbows meet the desk &mdash; then add a footrest so your thighs
-      stay parallel to the floor and your feet stay flat.
+      Önkollarınız yere paralel olacak şekilde rahatça oturun. Masa yüzeyi dirsek yüksekliğinizde
+      olmalıdır. Çoğu ofis masası yerden 28&ndash;30 inç yükseklikte gelir ve bu, yaklaşık
+      5'9" altındaki herkes için çok yüksektir. Masayı alçaltamıyorsanız, dirsekler masaya
+      değene kadar sandalyeyi yükseltin &mdash; ardından uyluklarınız yere paralel ve ayaklarınız
+      düz kalacak şekilde bir ayak dayanağı ekleyin.
     </p>
 
-    <h2>The 90-90-90 chair rule</h2>
+    <h2>90-90-90 sandalye kuralı</h2>
     <ul>
-      <li>Knees: roughly 90&deg;, hips slightly higher than knees if anything.</li>
-      <li>Elbows: roughly 90&deg; at the keyboard.</li>
-      <li>Eyes: looking straight forward, not down, at the top third of the monitor.</li>
+      <li>Dizler: yaklaşık 90&deg;, kalçalar mümkünse dizlerden biraz daha yüksekte.</li>
+      <li>Dirsekler: klavyede yaklaşık 90&deg;.</li>
+      <li>Gözler: monitörün üst üçte birine aşağı değil, dümdüz ileri bakıyor.</li>
     </ul>
     <p>
-      If your chair has lumbar support, it should hit the small of your back &mdash; not your
-      mid-back, not your tailbone. If it doesn&rsquo;t, roll a small towel and put it there.
-      Free, works, takes 30 seconds.
+      Sandalyenizde bel desteği varsa, belinizin küçük kısmına denk gelmelidir &mdash; sırtınızın
+      ortasına veya kuyruk sokumunuza değil. Yoksa küçük bir havlu yuvarlayın ve oraya koyun.
+      Ücretsiz, işe yarar, 30 saniye sürer.
     </p>
 
-    <h2>Monitor: top edge at eye line</h2>
+    <h2>Monitör: üst kenar göz hizasında</h2>
     <p>
-      The classic mistake is monitor too low &mdash; almost everyone using a laptop on a desk
-      has this problem. Looking down at a screen for 6&ndash;8 hours a day grinds the
-      cervical spine and locks up the upper traps. Stack books, buy a $20 monitor riser, or
-      use a laptop stand with an external keyboard. Monitor top should sit at or just below
-      your eye line when you&rsquo;re sitting tall.
+      Klasik hata monitörün çok alçak olmasıdır &mdash; masada dizüstü bilgisayar kullanan
+      hemen hemen herkes bu sorunu yaşar. Günde 6&ndash;8 saat ekrana aşağı bakmak servikal
+      omurgayı aşındırır ve üst trapez kaslarını kilitler. Kitap yığınları, 20 dolarlık bir
+      monitör yükseltici satın alın veya harici klavyeyle bir dizüstü bilgisayar standı kullanın.
+      Dik oturduğunuzda monitörün üstü göz hizasında veya hemen altında olmalıdır.
     </p>
     <p>
-      Distance: roughly an arm&rsquo;s reach &mdash; 20&ndash;30 inches for most people. Closer
-      strains accommodation; farther forces you to lean. Bigger displays move farther back;
-      smaller move closer. The text should be readable at 100% zoom without squinting.
+      Mesafe: kabaca bir kol boyu &mdash; çoğu kişi için 20&ndash;30 inç. Daha yakın
+      akomodasyonu zorlar; daha uzak eğilmenize neden olur. Daha büyük ekranlar daha geriye
+      gider; daha küçükler daha yakına gelir. Metin %100 yakınlaştırmada göz kısmadan
+      okunabilir olmalıdır.
     </p>
 
-    <h2>Keyboard and mouse</h2>
+    <h2>Klavye ve fare</h2>
     <ul>
-      <li>Wrists straight, never bent up or down.</li>
-      <li>Mouse on the same plane as the keyboard, not on a separate surface higher or lower.</li>
-      <li>Keyboard centered on your spine, not on the desk &mdash; the &ldquo;B&rdquo; key
-        should line up with your sternum.</li>
-      <li>Wrist rest is for resting between bursts, not for typing on. Floating wrists prevent
-        carpal compression.</li>
+      <li>Bilekler düz, asla yukarı veya aşağı bükülmüş değil.</li>
+      <li>Fare klavyeyle aynı düzlemde, ayrı bir yüzeyde daha yüksek veya daha alçak değil.</li>
+      <li>Klavye omurganızın merkezinde, masanın üzerinde değil &mdash; "B" tuşu
+        göğüs kemiğinizle aynı hizada olmalıdır.</li>
+      <li>Bilek desteği, patlamalar arasında dinlenmek içindir, yazmak için değil. Havadaki
+        bilekler karpal sıkışmayı önler.</li>
     </ul>
 
-    <h2>Lighting and screen</h2>
+    <h2>Aydınlatma ve ekran</h2>
     <p>
-      Match screen brightness to room brightness. A bright screen in a dim room is the most
-      common eye strain trigger besides bad geometry. Position the desk so windows are 90&deg;
-      to your monitor &mdash; not behind you (glare) and not behind the monitor (silhouette).
-      For evening work, warm/dim ambient lighting plus a cooler task lamp on the keyboard works
-      better than dim everything.
+      Ekran parlaklığını oda parlaklığıyla eşleştirin. Loş bir odada parlak bir ekran, kötü
+      geometrinin yanı sıra en yaygın göz yorgunluğu tetikleyicisidir. Masayı, pencereler
+      monitörünüze 90&deg; açıyla olacak şekilde konumlandırın &mdash; arkanızda (parlama)
+      veya monitörün arkasında (siluet) değil. Akşam çalışmaları için sıcak/loş ortam
+      aydınlatması artı klavyede daha soğuk bir görev lambası, her şeyi loş yapmaktan daha
+      iyi çalışır.
     </p>
 
-    <h2>The cheap upgrade priority list</h2>
+    <h2>Ucuz yükseltme öncelik listesi</h2>
     <ol>
-      <li><strong>Monitor riser ($15&ndash;30):</strong> single biggest neck relief if your laptop is your monitor.</li>
-      <li><strong>External keyboard + mouse ($30&ndash;100):</strong> required to use the riser.</li>
-      <li><strong>Footrest ($25) or a thick book:</strong> if your desk forces a high chair.</li>
-      <li><strong>Lumbar pillow ($20) or rolled towel ($0):</strong> if your chair&rsquo;s lumbar is wrong for you.</li>
-      <li><strong>Standing desk converter ($150&ndash;300):</strong> only after the basics are dialed in.</li>
+      <li><strong>Monitör yükseltici ($15&ndash;30):</strong> monitörünüz dizüstü bilgisayarınızsa en büyük boyun rahatlaması.</li>
+      <li><strong>Harici klavye + fare ($30&ndash;100):</strong> yükselticiyi kullanmak için gereklidir.</li>
+      <li><strong>Ayak dayanağı ($25) veya kalın bir kitap:</strong> masanız yüksek bir sandalye gerektiriyorsa.</li>
+      <li><strong>Bel yastığı ($20) veya yuvarlanmış havlu ($0):</strong> sandalyenizin bel desteği size uymuyorsa.</li>
+      <li><strong>Ayakta çalışma masası dönüştürücüsü ($150&ndash;300):</strong> yalnızca temel ayarlar yapıldıktan sonra.</li>
     </ol>
 
-    <h2>Microhabits that beat any chair</h2>
+    <h2>Her sandalyeyi yenen mikro alışkanlıklar</h2>
     <ul>
-      <li>Stand and walk 60 seconds every 30 minutes. Set a timer.</li>
-      <li>20-20-20 rule: every 20 minutes, look 20 feet away for 20 seconds.</li>
-      <li>End-of-day: 5 minutes of doorway pec stretch + a 30-second hip flexor stretch.</li>
-      <li>Hydrate. Standing up to refill is a legitimate and free movement break.</li>
+      <li>Her 30 dakikada bir 60 saniye ayağa kalkın ve yürüyün. Bir zamanlayıcı ayarlayın.</li>
+      <li>20-20-20 kuralı: her 20 dakikada bir, 20 saniye boyunca 20 fit uzağa bakın.</li>
+      <li>Gün sonu: 5 dakika kapı eşiğinde göğüs germe + 30 saniye kalça fleksör germe.</li>
+      <li>Su için. Doldurmak için ayağa kalkmak meşru ve ücretsiz bir hareket molasıdır.</li>
     </ul>
 
-    <h2>Get your numbers in 30 seconds</h2>
+    <h2>Numaralarınızı 30 saniyede alın</h2>
     <p>
-      Plug your height into our <a href="/tools/ergonomic-desk-setup-checker">ergonomic desk
-      setup checker</a> and it returns the target desk, chair, monitor, and keyboard heights
-      for your body, plus a checklist for verifying with your own joints. Use it once when
-      you set up the workspace, then again any time something starts hurting.
+      Boyunuzu <a href="/tools/ergonomic-desk-setup-checker">ergonomik masa düzeni
+      kontrol aracımıza</a> girin ve vücudunuz için hedef masa, sandalye, monitör ve klavye
+      yüksekliklerini, ayrıca kendi eklemlerinizle doğrulamak için bir kontrol listesi döndürür.
+      Çalışma alanını kurduğunuzda bir kez, ardından bir şey ağrımaya başladığında tekrar
+      kullanın.
     </p>
   </>
 );

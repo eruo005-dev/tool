@@ -3,222 +3,150 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A clean border turns a random photo into a product card. A garish one turns a
-      product card into 2005. Borders seem like a tiny design decision until you
-      realize they silently control three things: how the image separates from the
-      page background, how it reads inside a grid of other images, and whether it
-      feels like a polished asset or an amateur export. This guide covers border width
-      in pixels versus percentages, color selection against different backgrounds,
-      when to use rounded corners versus square, the difference between inner and
-      outer borders, the polaroid effect, and the accessibility considerations most
-      designers skip.
+      Temiz bir kenarlık, rastgele bir fotoğrafı ürün kartına dönüştürür. Gösterişli bir kenarlık ise bir ürün kartını 2005 yılına götürür. Kenarlıklar, görüntünün sayfa arka planından nasıl ayrıldığını, diğer görüntülerden oluşan bir ızgarada nasıl okunduğunu ve profesyonel bir varlık mı yoksa amatör bir çıktı mı gibi hissettirdiğini sessizce kontrol ettiklerini fark edene kadar küçük bir tasarım kararı gibi görünür. Bu kılavuz, piksel ve yüzde cinsinden kenarlık genişliğini, farklı arka planlara karşı renk seçimini, yuvarlatılmış köşelerin ne zaman kullanılacağını, iç ve dış kenarlıklar arasındaki farkı, polaroid efektini ve çoğu tasarımcının atladığı erişilebilirlik hususlarını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Pixels vs percentages</h2>
+    <h2>Pikseller ve yüzdeler</h2>
     <p>
-      A <strong>fixed pixel border</strong> (say 4px) stays the same thickness no matter
-      what size the image is displayed. A <strong>percentage border</strong> (say 2%)
-      scales with the image. Fixed pixel borders are what CSS gives you by default and
-      what feels right for UI elements &mdash; a 2px border on a 40px avatar reads the
-      same as on a 400px banner.
+      <strong>Sabit piksel kenarlık</strong> (örneğin 4 piksel), görüntünün boyutu ne olursa olsun aynı kalınlıkta kalır. <strong>Yüzde kenarlık</strong> (örneğin %2) ise görüntüyle birlikte ölçeklenir. Sabit piksel kenarlıklar, CSS'nin varsayılan olarak verdiği ve UI öğeleri için doğru hissettiren şeydir &mdash; 40 piksellik bir avatar üzerindeki 2 piksellik kenarlık, 400 piksellik bir banner üzerindekiyle aynı okunur.
     </p>
     <p>
-      Percentage borders matter when you&rsquo;re baking the border into the image
-      itself rather than adding it via CSS &mdash; a 2% border on a 1000px-wide photo
-      is 20px, which scales appropriately if the image is later resized. For printed
-      photos and polaroid effects, use percentages; for web UI, use fixed pixels.
+      Yüzde kenarlıklar, kenarlığı CSS aracılığıyla eklemek yerine doğrudan görüntünün içine işlediğinizde önem kazanır &mdash; 1000 piksel genişliğindeki bir fotoğrafta %2'lik kenarlık 20 pikseldir ve görüntü daha sonra yeniden boyutlandırılırsa uygun şekilde ölçeklenir. Basılı fotoğraflar ve polaroid efektleri için yüzdeleri kullanın; web arayüzü için sabit pikselleri kullanın.
     </p>
 
-    <h2>Border width sensibilities</h2>
-    <pre>{`Context                      Width       Notes
-Avatar / profile circle      2-3 px      Fine, crisp
-Thumbnail in grid            1-2 px      Barely visible separator
-Product card                 1 px        Often just a 1px gray line
-Hero image                   0 px        Rarely needs a border
-Polaroid / frame effect      4-8% wide   Thicker at the bottom (10-15%)
-Print photo mat              5-10% wide  White or cream
-Instagram-style feed card    0-1 px      Flat is more modern`}</pre>
+    <h2>Kenarlık genişliği hassasiyetleri</h2>
+    <pre>{`Bağlam                      Genişlik       Notlar
+Avatar / profil dairesi     2-3 px         İnce, keskin
+Izgaradaki küçük resim      1-2 px         Zar zor görünen ayırıcı
+Ürün kartı                  1 px           Genellikle sadece 1px gri çizgi
+Kahraman görseli            0 px           Nadiren kenarlık gerektirir
+Polaroid / çerçeve efekti   %4-8 genişlik  Altta daha kalın (%10-15)
+Baskı fotoğraf paspartusu   %5-10 genişlik Beyaz veya krem
+Instagram tarzı besleme kartı 0-1 px       Düz olan daha moderndir`}</pre>
     <p>
-      When in doubt, go thinner than you think. A 1px border almost always looks more
-      professional than a 4px one. Borders that call attention to themselves age
-      poorly; borders that silently define edges age well.
+      Emin değilseniz, düşündüğünüzden daha ince olun. 1 piksellik bir kenarlık neredeyse her zaman 4 piksellik bir kenarlıktan daha profesyonel görünür. Dikkat çeken kenarlıklar kötü yaşlanır; kenarları sessizce tanımlayan kenarlıklar iyi yaşlanır.
     </p>
 
-    <h2>Color choice</h2>
+    <h2>Renk seçimi</h2>
     <p>
-      The border should have enough contrast to define the edge but not enough to
-      compete with the image. Three reliable approaches:
+      Kenarlık, kenarı tanımlamak için yeterli kontrasta sahip olmalı ancak görüntüyle rekabet edecek kadar olmamalıdır. Üç güvenilir yaklaşım:
     </p>
     <p>
-      <strong>Subtle neutral.</strong> A 1&ndash;2px border in <code>#e5e7eb</code>{" "}
-      (light gray), <code>#d1d5db</code>, or a slightly darker shade than the page
-      background. Use for product cards, thumbnails, anything in a grid.
-      Practically invisible but prevents images from merging into the background.
+      <strong>Hafif nötr.</strong> <code>#e5e7eb</code> (açık gri), <code>#d1d5db</code> veya sayfa arka planından biraz daha koyu bir tonda 1&ndash;2 piksellik kenarlık. Ürün kartları, küçük resimler, ızgaradaki her şey için kullanın. Neredeyse görünmez ancak görüntülerin arka planla birleşmesini önler.
     </p>
     <p>
-      <strong>White on dark.</strong> For images placed on a dark page background, a
-      white or near-white border creates a matted-photo effect. Works for portfolios
-      and editorial layouts.
+      <strong>Koyu üzerine beyaz.</strong> Koyu bir sayfa arka planına yerleştirilen görüntüler için beyaz veya beyaza yakın bir kenarlık, paspartulu fotoğraf efekti oluşturur. Portföyler ve editoryal düzenler için çalışır.
     </p>
     <p>
-      <strong>Image-matched.</strong> For a polaroid effect, the border is cream or
-      off-white &mdash; not pure white. <code>#faf8f3</code> or <code>#f5f1e8</code>{" "}
-      reads as &ldquo;paper.&rdquo;
+      <strong>Görüntüyle eşleşen.</strong> Polaroid efekti için kenarlık krem veya kirli beyazdır &mdash; saf beyaz değil. <code>#faf8f3</code> veya <code>#f5f1e8</code> "kağıt" gibi okunur.
     </p>
     <p>
-      Avoid black borders on dark photos &mdash; you can&rsquo;t see them. Avoid
-      saturated colors (red, blue) unless you&rsquo;re deliberately doing a magazine
-      or sticker effect.
+      Koyu fotoğraflarda siyah kenarlıklardan kaçının &mdash; görünmezler. Bilinçli olarak bir dergi veya çıkartma efekti yapmıyorsanız, doygun renklerden (kırmızı, mavi) kaçının.
     </p>
 
-    <h2>Rounded vs square corners</h2>
+    <h2>Yuvarlatılmış ve kare köşeler</h2>
     <p>
-      <strong>Square corners</strong> feel formal, editorial, documentary. News
-      photos, print design, corporate materials.
+      <strong>Kare köşeler</strong> resmi, editoryal, belgesel hissettirir. Haber fotoğrafları, baskı tasarımı, kurumsal materyaller.
     </p>
     <p>
-      <strong>Rounded corners</strong> feel friendly, app-like, modern. The default
-      in consumer software since iOS 7 (2013). Border radius 4&ndash;8px for cards,
-      8&ndash;16px for prominent images, 50% for circular avatars.
+      <strong>Yuvarlatılmış köşeler</strong> dostça, uygulama benzeri, modern hissettirir. iOS 7'den (2013) bu yana tüketici yazılımlarında varsayılandır. Kartlar için 4&ndash;8 piksel, belirgin görüntüler için 8&ndash;16 piksel, dairesel avatarlar için %50 kenar yarıçapı.
     </p>
     <p>
-      Match the radius to surrounding UI. If your buttons have 8px radius, your image
-      borders should too. Mixing 4px and 12px radii in one layout looks careless.
+      Yarıçapı çevredeki arayüzle eşleştirin. Düğmeleriniz 8 piksel yarıçapa sahipse, görüntü kenarlıklarınız da aynı olmalıdır. Bir düzende 4 piksel ve 12 piksel yarıçapları karıştırmak özensiz görünür.
     </p>
 
-    <h2>Inner vs outer borders</h2>
+    <h2>İç ve dış kenarlıklar</h2>
     <p>
-      An <strong>outer border</strong> (CSS <code>border</code>) lives outside the
-      image content &mdash; the image keeps its full resolution. An{" "}
-      <strong>inner border</strong> (a frame drawn onto the image) eats into the image
-      area. Baking the border into the image (inner) has one advantage: the border
-      travels with the image when shared, downloaded, or embedded. Outer borders only
-      exist in your CSS.
+      Bir <strong>dış kenarlık</strong> (CSS <code>border</code>) görüntü içeriğinin dışında yaşar &mdash; görüntü tam çözünürlüğünü korur. Bir <strong>iç kenarlık</strong> (görüntü üzerine çizilen bir çerçeve) görüntü alanını yer. Kenarlığı görüntünün içine işlemenin (iç) bir avantajı vardır: kenarlık, görüntü paylaşıldığında, indirildiğinde veya gömüldüğünde onunla birlikte gider. Dış kenarlıklar yalnızca CSS'nizde bulunur.
     </p>
-    <pre>{`/* CSS outer border */
+    <pre>{`/* CSS dış kenarlık */
 .photo {
   border: 1px solid #e5e7eb;
   border-radius: 8px;
 }
 
-/* or outline (doesn't affect layout) */
+/* veya outline (düzeni etkilemez) */
 .photo {
   outline: 2px solid #e5e7eb;
   outline-offset: 0;
 }`}</pre>
     <p>
-      Use CSS borders for web UI; bake borders into the image when you&rsquo;re
-      exporting for social media, email, or print.
+      Web arayüzü için CSS kenarlıklarını kullanın; sosyal medya, e-posta veya baskı için dışa aktarırken kenarlıkları görüntünün içine işleyin.
     </p>
 
-    <h2>The polaroid effect</h2>
+    <h2>Polaroid efekti</h2>
     <p>
-      A polaroid frame has three characteristics: white-to-cream border, thicker at the
-      bottom than the other three sides (historically 15% bottom, 5% sides and top),
-      and usually a subtle drop shadow. Proportions roughly:
+      Bir polaroid çerçevesinin üç özelliği vardır: beyazdan kreme kenarlık, diğer üç taraftan daha kalın alt kısım (tarihsel olarak %15 alt, %5 yanlar ve üst) ve genellikle hafif bir gölge. Yaklaşık oranlar:
     </p>
-    <pre>{`image 80% x 80% of frame
-top border    5%
-side borders  5% each
-bottom border 15%  (for the handwritten caption)
-drop shadow:  offset 2-4px down, 10-20px blur, ~15% opacity`}</pre>
+    <pre>{`görüntü çerçevenin %80 x %80'i
+üst kenarlık    %5
+yan kenarlıklar her biri %5
+alt kenarlık    %15  (el yazısı başlık için)
+gölge:  2-4px aşağı kaydırma, 10-20px bulanıklık, ~%15 opaklık`}</pre>
     <p>
-      The polaroid feel works for personal portfolios, wedding pages, vintage-styled
-      brands. Avoid for corporate or tech &mdash; it reads as nostalgic and can clash
-      with modern UI.
+      Polaroid hissi, kişisel portföyler, düğün sayfaları, vintage tarzı markalar için işe yarar. Kurumsal veya teknoloji için kaçının &mdash; nostaljik okunur ve modern arayüzle çatışabilir.
     </p>
 
-    <h2>Borders for thumbnails</h2>
+    <h2>Küçük resimler için kenarlıklar</h2>
     <p>
-      Thumbnails in a grid typically need borders to prevent images from visually
-      merging. A 1px border in a very light gray, or a CSS gap between cells, does the
-      job. If your thumbnails already have consistent backgrounds (white products on
-      white), you need the border. If they have varied content, the content edges
-      usually define themselves.
+      Bir ızgaradaki küçük resimlerin, görüntülerin görsel olarak birleşmesini önlemek için genellikle kenarlıklara ihtiyacı vardır. Çok açık gri renkte 1 piksellik bir kenarlık veya hücreler arasında bir CSS boşluğu işi görür. Küçük resimleriniz zaten tutarlı arka planlara sahipse (beyaz ürünler beyaz üzerine), kenarlığa ihtiyacınız vardır. Çeşitli içeriklere sahiplerse, içerik kenarları genellikle kendini tanımlar.
     </p>
 
-    <h2>Borders and accessibility</h2>
+    <h2>Kenarlıklar ve erişilebilirlik</h2>
     <p>
-      A focus ring is a special case of border &mdash; it appears when a user tabs to
-      an image link. Never disable the browser&rsquo;s focus outline on interactive
-      images without replacing it with a visible equivalent. Keyboard users rely on it
-      to know where they are on the page.
+      Odak halkası, kenarlığın özel bir durumudur &mdash; bir kullanıcı bir görüntü bağlantısına sekmeyle gittiğinde görünür. Etkileşimli görüntülerde tarayıcının odak anahattını, görünür bir eşdeğeriyle değiştirmeden asla devre dışı bırakmayın. Klavye kullanıcıları, sayfada nerede olduklarını bilmek için buna güvenir.
     </p>
     <pre>{`a:focus-visible .photo {
   outline: 2px solid #2563eb;
   outline-offset: 2px;
 }`}</pre>
     <p>
-      Also: borders are decorative, not informational. If information depends on a
-      color (like a red border meaning &ldquo;out of stock&rdquo;), duplicate it with
-      text or an icon for colorblind and screen-reader users.
+      Ayrıca: kenarlıklar dekoratiftir, bilgilendirici değildir. Bilgi bir renge bağlıysa (örneğin "stokta yok" anlamına gelen kırmızı kenarlık), renk körü ve ekran okuyucu kullanıcıları için bunu metin veya bir simgeyle çoğaltın.
     </p>
 
-    <h2>Drop shadows instead of borders</h2>
+    <h2>Kenarlıklar yerine gölgeler</h2>
     <p>
-      A subtle drop shadow (<code>box-shadow: 0 2px 8px rgba(0,0,0,0.08)</code>) often
-      replaces a border entirely. It lifts the image off the page, creates separation,
-      and avoids the flatness of a 1px line. Works best on white or light-gray page
-      backgrounds.
+      Hafif bir gölge (<code>box-shadow: 0 2px 8px rgba(0,0,0,0.08)</code>) genellikle bir kenarlığın yerini tamamen alır. Görüntüyü sayfadan kaldırır, ayrım yaratır ve 1 piksellik bir çizginin düzlüğünden kaçınır. Beyaz veya açık gri sayfa arka planlarında en iyi sonucu verir.
     </p>
 
-    <h2>Borders for printed images</h2>
+    <h2>Basılı görüntüler için kenarlıklar</h2>
     <p>
-      For print (newsletters, brochures, photo books), borders have more impact because
-      there&rsquo;s no hover state or animation to create visual interest. A 2mm
-      white matting around a photo in print is equivalent to a thick polaroid frame
-      onscreen &mdash; intentional and noticeable. Plan for print bleed (3mm beyond the
-      trim line) when designing borders that extend to the page edge.
+      Baskı için (bültenler, broşürler, fotoğraf kitapları), kenarlıklar daha fazla etkiye sahiptir çünkü görsel ilgi yaratacak bir üzerine gelme durumu veya animasyon yoktur. Baskıda bir fotoğrafın etrafındaki 2 mm'lik beyaz paspartu, ekrandaki kalın bir polaroid çerçevesine eşdeğerdir &mdash; kasıtlı ve fark edilir. Sayfa kenarına uzanan kenarlıklar tasarlarken baskı taşmasını (kesim çizgisinin 3 mm ötesi) planlayın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Borders that compete with the image.</strong> A thick colored border
-      draws attention away from the content. Go subtle; 1&ndash;2px neutrals beat
-      anything loud.
+      <strong>Görüntüyle rekabet eden kenarlıklar.</strong> Kalın renkli bir kenarlık, dikkati içerikten uzaklaştırır. Hafif olun; 1&ndash;2 piksellik nötrler, yüksek sesli olanlardan daha iyidir.
     </p>
     <p>
-      <strong>Mixing border radii.</strong> 4px here, 12px there, 0 elsewhere.
-      Consistency across a layout matters more than the specific value.
+      <strong>Kenar yarıçaplarını karıştırmak.</strong> Burada 4 piksel, şurada 12 piksel, başka yerde 0. Belirli bir değerden daha önemli olan, bir düzen genelinde tutarlılıktır.
     </p>
     <p>
-      <strong>Black borders on photos.</strong> They rarely contrast with the image
-      content well, and they read as dated. Use light neutrals instead.
+      <strong>Fotoğraflarda siyah kenarlıklar.</strong> Görüntü içeriğiyle nadiren iyi kontrast oluştururlar ve eski moda okunurlar. Bunun yerine açık nötrler kullanın.
     </p>
     <p>
-      <strong>Inner borders that waste image area.</strong> If you bake a 10% border
-      into a 1000px image, you&rsquo;ve lost 100px of content on each side. Render at
-      full resolution, then add the border.
+      <strong>Görüntü alanını boşa harcayan iç kenarlıklar.</strong> 1000 piksellik bir görüntüye %10'luk bir kenarlık işlerseniz, her iki tarafta 100 piksellik içerik kaybetmiş olursunuz. Tam çözünürlükte işleyin, ardından kenarlığı ekleyin.
     </p>
     <p>
-      <strong>Killing focus outlines on image links.</strong> Breaks keyboard
-      accessibility. If you dislike the default, replace it with a visible custom
-      outline, never suppress it entirely.
+      <strong>Görüntü bağlantılarındaki odak anahatlarını kaldırmak.</strong> Klavye erişilebilirliğini bozar. Varsayılanı beğenmiyorsanız, görünür bir özel anahatla değiştirin, asla tamamen bastırmayın.
     </p>
     <p>
-      <strong>Using border-radius on non-interactive images in a grid.</strong> Works
-      visually but can cause performance issues with many rounded images on low-end
-      mobile. Test on a real device.
+      <strong>Bir ızgaradaki etkileşimli olmayan görüntülerde border-radius kullanmak.</strong> Görsel olarak işe yarar ancak düşük kaliteli mobil cihazlarda çok sayıda yuvarlatılmış görüntüyle performans sorunlarına neden olabilir. Gerçek bir cihazda test edin.
     </p>
     <p>
-      <strong>Forgetting that borders add layout space.</strong> A 10px border on four
-      sides adds 20px to width and height. If the image container is fixed, the image
-      itself has to shrink. Use <code>box-sizing: border-box</code> to keep sizes
-      predictable.
+      <strong>Kenarlıkların düzene alan eklediğini unutmak.</strong> Dört tarafta 10 piksellik bir kenarlık, genişlik ve yüksekliğe 20 piksel ekler. Görüntü kabı sabitse, görüntünün kendisi küçülmek zorundadır. Boyutları tahmin edilebilir tutmak için <code>box-sizing: border-box</code> kullanın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları hesaplayın</h2>
     <p>
-      Add consistent borders across a batch of images with the{" "}
-      <a href="/tools/image-border-adder">image border adder</a>. Pair with the{" "}
-      <a href="/tools/image-round-corners">image round corners</a> tool to combine the
-      border with matching radii, and the{" "}
-      <a href="/tools/image-resizer">image resizer</a> to normalize dimensions before
-      the border pass so every card in a grid looks uniform.
+      Bir grup görüntüye tutarlı kenarlıklar eklemek için{" "}
+      <a href="/tools/image-border-adder">görüntü kenarlık ekleyici</a> aracını kullanın. Kenarlığı eşleşen yarıçaplarla birleştirmek için{" "}
+      <a href="/tools/image-round-corners">görüntü köşe yuvarlama</a> aracıyla ve kenarlık geçişinden önce boyutları normallestirerek ızgaradaki her kartın tek tip görünmesini sağlamak için{" "}
+      <a href="/tools/image-resizer">görüntü yeniden boyutlandırıcı</a> ile birlikte kullanın.
     </p>
   </>
 );

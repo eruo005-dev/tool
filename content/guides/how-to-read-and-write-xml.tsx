@@ -3,29 +3,30 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      XML is the 30-year-old granddaddy of structured data — verbose,
-      strict, and still everywhere you don&rsquo;t expect: RSS feeds,
-      SOAP APIs, SVG images, Office file formats (.docx, .xlsx),
-      Android layouts, Maven builds, sitemaps, and enterprise data
-      exchange. JSON won the web, but XML won the enterprise. This
-      guide covers XML syntax (elements, attributes, namespaces),
-      when XML is the right choice versus JSON, how to parse and
-      generate it safely (entity escaping, injection risks), schemas
-      (DTD, XSD, Relax NG), XPath and XSLT, and the gotchas that
-      trip up even experienced developers.
+      XML, 30 yıllık yapılandırılmış verinin dedesidir — ayrıntılı,
+      katı ve hâlâ beklemediğiniz her yerde karşınıza çıkar: RSS beslemeleri,
+      SOAP API'leri, SVG görüntüleri, Office dosya biçimleri (.docx, .xlsx),
+      Android düzenleri, Maven derlemeleri, site haritaları ve kurumsal veri
+      alışverişi. JSON web'i kazandı, ancak XML kurumsal dünyayı kazandı. Bu
+      kılavuz XML sözdizimini (öğeler, nitelikler, ad alanları),
+      XML'in JSON'a kıyasla ne zaman doğru seçim olduğunu, nasıl güvenli bir
+      şekilde ayrıştırılıp oluşturulacağını (varlık kaçışı, enjeksiyon riskleri),
+      şemaları (DTD, XSD, Relax NG), XPath ve XSLT'yi ve deneyimli
+      geliştiricileri bile zorlayan tuzakları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>XML basics — the syntax rules</h2>
+    <h2>XML temelleri — sözdizimi kuralları</h2>
     <p>
-      Every XML document needs a single root element. Tags must
-      nest properly. Attributes go in quotes. Case matters.
+      Her XML belgesinin tek bir kök öğeye ihtiyacı vardır. Etiketler
+      düzgün bir şekilde iç içe geçmelidir. Nitelikler tırnak içine alınır.
+      Büyük/küçük harf duyarlılığı önemlidir.
     </p>
     <p>
-      <strong>Minimal valid XML:</strong>
+      <strong>Minimum geçerli XML:</strong>
     </p>
     <p>
       <code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</code>
@@ -39,68 +40,68 @@ export const body: ReactElement = (
       <code>&lt;/book&gt;</code>
     </p>
     <p>
-      <strong>Elements vs attributes:</strong> elements are the
-      boxes (<code>&lt;title&gt;Dune&lt;/title&gt;</code>); attributes
-      describe them (<code>id=&quot;42&quot;</code>). Use elements for
-      content, attributes for metadata. Content that might contain
-      markup or needs structure goes in elements.
+      <strong>Öğeler ve nitelikler:</strong> öğeler kutulardır
+      (<code>&lt;title&gt;Dune&lt;/title&gt;</code>); nitelikler onları
+      tanımlar (<code>id=&quot;42&quot;</code>). İçerik için öğeleri,
+      meta veriler için nitelikleri kullanın. İşaretleme içerebilecek veya
+      yapıya ihtiyaç duyan içerik öğelere gider.
     </p>
     <p>
-      <strong>Self-closing:</strong> empty elements use{" "}
-      <code>&lt;br/&gt;</code> or <code>&lt;br&gt;&lt;/br&gt;</code>.
-      Both are valid.
-    </p>
-
-    <h2>XML vs JSON — when each wins</h2>
-    <p>
-      <strong>JSON wins for:</strong> web APIs, JavaScript-native
-      workflows, simple data exchange, anything developer-facing
-      today. Lighter, parseable natively, human-readable without
-      effort.
-    </p>
-    <p>
-      <strong>XML wins for:</strong> document-centric formats (where
-      mixed content matters — text with inline tags), schemas with
-      strict validation (regulated industries), existing enterprise
-      integrations (SOAP, SAP, IBM, banking), tools that require it
-      (Office Open XML, Android layouts, SVG).
-    </p>
-    <p>
-      <strong>XML has things JSON doesn&rsquo;t:</strong> namespaces
-      (merging data from multiple sources without key collision),
-      comments, mixed content (text + elements inline), strict
-      schemas (XSD), attributes distinct from elements, XSLT
-      transforms, XPath queries.
-    </p>
-    <p>
-      <strong>JSON has things XML doesn&rsquo;t:</strong> array
-      syntax, native number/boolean types, terseness, universal
-      support in every modern language without a library.
+      <strong>Kendiliğinden kapanan:</strong> boş öğeler{" "}
+      <code>&lt;br/&gt;</code> veya <code>&lt;br&gt;&lt;/br&gt;</code> kullanır.
+      Her ikisi de geçerlidir.
     </p>
 
-    <h2>Namespaces — the feature most people hate</h2>
+    <h2>XML vs JSON — hangisi ne zaman kazanır</h2>
     <p>
-      Namespaces prevent collision when you mix XML from different
-      sources. A <code>&lt;title&gt;</code> in HTML means something
-      different from <code>&lt;title&gt;</code> in SVG.
+      <strong>JSON şunlar için kazanır:</strong> web API'leri, JavaScript
+      tabanlı iş akışları, basit veri alışverişi, günümüzde geliştiriciye
+      yönelik her şey. Daha hafif, yerel olarak ayrıştırılabilir, çaba
+      harcamadan insan tarafından okunabilir.
     </p>
     <p>
-      <strong>Declaration:</strong>{" "}
+      <strong>XML şunlar için kazanır:</strong> belge odaklı biçimler (karma
+      içeriğin önemli olduğu yerler — satır içi etiketlerle metin), sıkı
+      doğrulamalı şemalar (düzenlenmiş endüstriler), mevcut kurumsal
+      entegrasyonlar (SOAP, SAP, IBM, bankacılık), bunu gerektiren araçlar
+      (Office Open XML, Android düzenleri, SVG).
+    </p>
+    <p>
+      <strong>XML'in JSON'da olmayan özellikleri:</strong> ad alanları
+      (birden çok kaynaktan gelen verileri anahtar çakışması olmadan birleştirme),
+      yorumlar, karma içerik (satır içi metin + öğeler), sıkı
+      şemalar (XSD), öğelerden farklı nitelikler, XSLT
+      dönüşümleri, XPath sorguları.
+    </p>
+    <p>
+      <strong>JSON'da XML'de olmayan özellikler:</strong> dizi
+      sözdizimi, yerel sayı/boolean türleri, kısalık, her modern dilde
+      kitaplık olmadan evrensel destek.
+    </p>
+
+    <h2>Ad alanları — çoğu insanın nefret ettiği özellik</h2>
+    <p>
+      Ad alanları, farklı kaynaklardan XML karıştırdığınızda çakışmayı
+      önler. HTML'deki bir <code>&lt;title&gt;</code> ile SVG'deki
+      <code>&lt;title&gt;</code> farklı anlama gelir.
+    </p>
+    <p>
+      <strong>Bildirim:</strong>{" "}
       <code>&lt;root xmlns:svg=&quot;http://www.w3.org/2000/svg&quot;&gt;</code>
     </p>
     <p>
-      <strong>Usage:</strong> prefix element names:{" "}
+      <strong>Kullanım:</strong> öğe adlarını önek olarak ekleyin:{" "}
       <code>&lt;svg:circle r=&quot;10&quot;/&gt;</code>.
     </p>
     <p>
-      Namespaces are URIs but they&rsquo;re just identifiers — the
-      URL doesn&rsquo;t have to resolve. Most developers copy
-      namespaces from docs and never think about them again.
+      Ad alanları URI'dir ancak bunlar yalnızca tanımlayıcılardır — URL'nin
+      çözümlenmesi gerekmez. Çoğu geliştirici ad alanlarını belgelerden
+      kopyalar ve bir daha onları düşünmez.
     </p>
 
-    <h2>Escaping — the #1 bug source</h2>
+    <h2>Kaçış — 1 numaralı hata kaynağı</h2>
     <p>
-      Five characters need escaping in XML:
+      XML'de beş karakterin kaçış karakteri kullanması gerekir:
     </p>
     <p>
       <code>&lt;</code> → <code>&amp;lt;</code>
@@ -109,164 +110,166 @@ export const body: ReactElement = (
       <br />
       <code>&amp;</code> → <code>&amp;amp;</code>
       <br />
-      <code>&quot;</code> → <code>&amp;quot;</code> (in attribute values)
+      <code>&quot;</code> → <code>&amp;quot;</code> (nitelik değerlerinde)
       <br />
-      <code>&apos;</code> → <code>&amp;apos;</code> (in attribute values)
+      <code>&apos;</code> → <code>&amp;apos;</code> (nitelik değerlerinde)
     </p>
     <p>
-      <strong>CDATA sections</strong> let you embed raw text without
-      escaping:
+      <strong>CDATA bölümleri</strong> kaçış karakteri kullanmadan ham metin
+      yerleştirmenizi sağlar:
     </p>
     <p>
-      <code>&lt;![CDATA[any &lt; or &amp; characters here are literal]]&gt;</code>
+      <code>&lt;![CDATA[buradaki herhangi bir &lt; veya &amp; karakteri gerçek anlamındadır]]&gt;</code>
     </p>
     <p>
-      Great for embedding code snippets, HTML content, or
-      already-formatted text. Doesn&rsquo;t need to be nested — just
-      wraps the block.
-    </p>
-
-    <h2>XML schema — validating structure</h2>
-    <p>
-      <strong>DTD (Document Type Definition):</strong> the original
-      schema format. Ancient syntax, limited type system. Still seen
-      in HTML/SGML doctypes. Don&rsquo;t write new DTDs.
-    </p>
-    <p>
-      <strong>XSD (XML Schema Definition):</strong> the modern
-      standard. Supports types (int, date, string patterns),
-      enumerations, cardinality, inheritance. Verbose but powerful.
-      The schema is itself XML.
-    </p>
-    <p>
-      <strong>Relax NG:</strong> cleaner schema syntax, popular in
-      open-source projects (DocBook). Less common in enterprise.
-    </p>
-    <p>
-      <strong>When to validate:</strong> on input (reject malformed
-      data) and on output (catch bugs before shipping). Validate
-      selectively if schemas get huge — validating every message on
-      a high-throughput pipe kills performance.
+      Kod parçacıkları, HTML içeriği veya önceden biçimlendirilmiş metin
+      gömmek için harikadır. İç içe geçmesi gerekmez — yalnızca bloğu
+      sarar.
     </p>
 
-    <h2>Parsing XML safely</h2>
+    <h2>XML şeması — yapıyı doğrulama</h2>
     <p>
-      <strong>XXE attacks:</strong> XML external entity attacks. An
-      attacker sends XML with{" "}
+      <strong>DTD (Belge Türü Tanımı):</strong> orijinal şema
+      biçimi. Eski sözdizimi, sınırlı tür sistemi. Hâlâ HTML/SGML
+      belge türlerinde görülür. Yeni DTD'ler yazmayın.
+    </p>
+    <p>
+      <strong>XSD (XML Şema Tanımı):</strong> modern
+      standart. Türleri (int, date, string kalıpları),
+      numaralandırmaları, kardinaliteyi, kalıtımı destekler. Ayrıntılı ancak
+      güçlüdür. Şemanın kendisi XML'dir.
+    </p>
+    <p>
+      <strong>Relax NG:</strong> daha temiz şema sözdizimi, açık
+      kaynak projelerde (DocBook) popülerdir. Kurumsal dünyada daha az
+      yaygındır.
+    </p>
+    <p>
+      <strong>Ne zaman doğrulama yapılmalı:</strong> girişte (hatalı
+      biçimlendirilmiş verileri reddet) ve çıkışta (göndermeden önce hataları
+      yakala). Şemalar çok büyürse seçici olarak doğrulayın — yüksek
+      verimli bir boru hattındaki her mesajı doğrulamak performansı öldürür.
+    </p>
+
+    <h2>XML'i güvenli bir şekilde ayrıştırma</h2>
+    <p>
+      <strong>XXE saldırıları:</strong> XML dış varlık saldırıları. Bir
+      saldırgan{" "}
       <code>&lt;!ENTITY xxe SYSTEM &quot;file:///etc/passwd&quot;&gt;</code>
-      {" "}and your parser dutifully reads that file. Devastating if
-      your parser loads external entities by default.
+      {" "}içeren XML gönderir ve ayrıştırıcınız bu dosyayı itaatkar bir şekilde
+      okur. Ayrıştırıcınız varsayılan olarak dış varlıkları yüklüyorsa
+      yıkıcıdır.
     </p>
     <p>
-      <strong>Fix:</strong> disable external entity resolution in
-      your XML parser. Every major parser has a flag:
-      Python&rsquo;s <code>defusedxml</code>, Java&rsquo;s{" "}
+      <strong>Çözüm:</strong> XML ayrıştırıcınızda dış varlık
+      çözümlemesini devre dışı bırakın. Her büyük ayrıştırıcının bir bayrağı
+      vardır: Python'da <code>defusedxml</code>, Java'da{" "}
       <code>XMLInputFactory.setProperty(SUPPORT_DTD, false)</code>,
-      Node&rsquo;s <code>libxmljs</code> with{" "}
+      Node'da <code>libxmljs</code> ile{" "}
       <code>noent: false</code>.
     </p>
     <p>
-      <strong>Billion laughs attack:</strong> nested entities that
-      expand exponentially. 10 levels of 10x expansion = 10 billion
-      characters. Crashes naive parsers. Modern parsers mostly defend
-      against this but check your library.
+      <strong>Milyar kahkaha saldırısı:</strong> katlanarak büyüyen
+      iç içe varlıklar. 10 seviye 10x genişleme = 10 milyar
+      karakter. Saf ayrıştırıcıları çökertir. Modern ayrıştırıcılar çoğunlukla
+      buna karşı koruma sağlar ancak kitaplığınızı kontrol edin.
     </p>
     <p>
       <strong>DOM vs SAX vs StAX:</strong>
     </p>
     <p>
-      DOM loads the whole document into memory. Easy, slow, bad for
-      large files.
+      DOM tüm belgeyi belleğe yükler. Kolay, yavaş, büyük
+      dosyalar için kötüdür.
     </p>
     <p>
-      SAX is event-driven — parser calls your callbacks as it
-      streams. Fast, memory-efficient, harder to write.
+      SAX olay odaklıdır — ayrıştırıcı akış yaparken geri çağrılarınızı
+      çağırır. Hızlı, bellek açısından verimli, yazması daha zordur.
     </p>
     <p>
-      StAX (pull parser) is the modern middle ground. You pull
-      events when you want them. Good for large files with selective
-      processing.
+      StAX (çekme ayrıştırıcı) modern orta yoldur. İstediğiniz zaman
+      olayları çekersiniz. Seçici işleme ile büyük dosyalar için iyidir.
     </p>
 
-    <h2>XPath and XSLT</h2>
+    <h2>XPath ve XSLT</h2>
     <p>
-      <strong>XPath</strong> is a query language for XML. Like CSS
-      selectors but more powerful. Examples:
+      <strong>XPath</strong> XML için bir sorgu dilidir. CSS
+      seçicileri gibidir ancak daha güçlüdür. Örnekler:
     </p>
     <p>
-      <code>/book/title</code> — direct child path
+      <code>/book/title</code> — doğrudan alt öğe yolu
       <br />
-      <code>//title</code> — any title anywhere
+      <code>//title</code> — herhangi bir yerdeki herhangi bir başlık
       <br />
-      <code>//book[@id=&apos;42&apos;]/title</code> — filtered
+      <code>//book[@id=&apos;42&apos;]/title</code> — filtrelenmiş
       <br />
-      <code>count(//book)</code> — function
+      <code>count(//book)</code> — işlev
     </p>
     <p>
-      XPath ships with most languages. Learn the 20% that handles
-      80% of queries: paths, attribute filters, text() nodes,
-      position() filters.
+      XPath çoğu dilde bulunur. Sorguların %80'ini karşılayan %20'yi
+      öğrenin: yollar, nitelik filtreleri, text() düğümleri,
+      position() filtreleri.
     </p>
     <p>
-      <strong>XSLT</strong> transforms XML into other XML, HTML, or
-      text. Declarative template language. Powerful but esoteric —
-      if you have a choice, use a regular language for
-      transformations instead.
-    </p>
-
-    <h2>Formatting and indentation</h2>
-    <p>
-      XML whitespace rules are subtle. Indentation is usually
-      ignored inside element content but preserved inside attributes
-      and CDATA. Pretty-printers typically use 2- or 4-space
-      indentation.
-    </p>
-    <p>
-      When XML is generated programmatically (no pretty-print), it
-      often arrives as one giant line. Formatters help developers
-      read it. Don&rsquo;t assume the wire format matches what the
-      formatter displays.
+      <strong>XSLT</strong> XML'i diğer XML, HTML veya
+      metne dönüştürür. Bildirimsel şablon dilidir. Güçlü ancak ezoteriktir —
+      bir seçeneğiniz varsa, dönüşümler için bunun yerine normal bir dil
+      kullanın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Biçimlendirme ve girinti</h2>
     <p>
-      <strong>Forgetting to escape.</strong> Ampersand in data →
-      parse error. Angle bracket in data → parse error. Use the
-      library&rsquo;s serializer; don&rsquo;t concatenate strings.
+      XML boşluk kuralları incedir. Girinti genellikle öğe içeriğinde
+      yok sayılır ancak nitelikler ve CDATA içinde korunur.
+      Güzel yazdırıcılar tipik olarak 2 veya 4 boşluklu girinti
+      kullanır.
     </p>
     <p>
-      <strong>Wrong encoding declaration.</strong> Declaring UTF-8
-      but writing CP1252 (common on Windows). Characters above ASCII
-      127 break. Always save as UTF-8 without BOM.
-    </p>
-    <p>
-      <strong>Mixing tabs and spaces.</strong> XML itself
-      doesn&rsquo;t care, but diff tools and humans do. Pick one.
-    </p>
-    <p>
-      <strong>Using XML when JSON would do.</strong> If your data is
-      &ldquo;list of records, each with fields,&rdquo; use JSON.
-      XML earns its verbosity on document-shaped or schema-heavy
-      problems.
-    </p>
-    <p>
-      <strong>Parsing XML with regex.</strong> Doesn&rsquo;t work.
-      XML is not a regular language. Use a parser.
-    </p>
-    <p>
-      <strong>Leaving XXE vulnerabilities open.</strong> Default
-      parser settings in some languages are dangerous. Disable
-      external entities explicitly.
+      XML programlı olarak oluşturulduğunda (güzel yazdırma yok), genellikle
+      dev bir satır olarak gelir. Biçimlendiriciler geliştiricilerin onu
+      okumasına yardımcı olur. Tel biçiminin, biçimlendiricinin
+      görüntülediğiyle eşleştiğini varsaymayın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Format and validate XML instantly with the{" "}
-      <a href="/tools/xml-formatter">XML formatter</a>. Pair with the{" "}
-      <a href="/tools/json-formatter">JSON formatter</a> for comparing
-      payload formats, and the{" "}
-      <a href="/tools/html-formatter">HTML formatter</a> when your
-      XML is really HTML-flavored markup.
+      <strong>Kaçış karakterini unutmak.</strong> Verideki ve işareti →
+      ayrıştırma hatası. Verideki açılı parantez → ayrıştırma hatası.
+      Kitaplığın serileştiricisini kullanın; dizeleri birleştirmeyin.
+    </p>
+    <p>
+      <strong>Yanlış kodlama bildirimi.</strong> UTF-8 bildirimi yapmak
+      ancak CP1252 yazmak (Windows'ta yaygın). ASCII 127'nin üzerindeki
+      karakterler bozulur. Her zaman BOM olmadan UTF-8 olarak kaydedin.
+    </p>
+    <p>
+      <strong>Sekmeleri ve boşlukları karıştırmak.</strong> XML'in
+      kendisi umursamaz, ancak fark araçları ve insanlar umursar. Birini
+      seçin.
+    </p>
+    <p>
+      <strong>JSON yeterliyken XML kullanmak.</strong> Veriniz
+      &ldquo;her biri alanlara sahip kayıtların listesi&rdquo; ise JSON
+      kullanın. XML, ayrıntılılığını belge şeklindeki veya şema ağırlıklı
+      sorunlarda haklı çıkarır.
+    </p>
+    <p>
+      <strong>XML'i regex ile ayrıştırmak.</strong> Çalışmaz.
+      XML düzenli bir dil değildir. Bir ayrıştırıcı kullanın.
+    </p>
+    <p>
+      <strong>XXE güvenlik açıklarını açık bırakmak.</strong> Bazı
+      dillerdeki varsayılan ayrıştırıcı ayarları tehlikelidir. Dış
+      varlıkları açıkça devre dışı bırakın.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      XML'i anında biçimlendirin ve doğrulayın{" "}
+      <a href="/tools/xml-formatter">XML biçimlendirici</a> ile. Yük
+      biçimlerini karşılaştırmak için{" "}
+      <a href="/tools/json-formatter">JSON biçimlendirici</a> ile eşleştirin ve
+      XML'iniz gerçekten HTML aromalı işaretleme olduğunda{" "}
+      <a href="/tools/html-formatter">HTML biçimlendirici</a> ile kullanın.
     </p>
   </>
 );

@@ -1,93 +1,93 @@
 export const intro = (
   <>
     <p>
-      &ldquo;Which language should I learn first?&rdquo; is the most asked question in tech —
-      and the wrong one. Every mainstream language pays well, has jobs available, and teaches
-      you the core skills. What actually matters is matching the language to the work you want
-      to do and sticking with one long enough to get good at it.
+      &ldquo;Hangi dili önce öğrenmeliyim?&rdquo; teknoloji dünyasında en çok sorulan sorudur —
+      ve yanlış olandır. Her ana akım dil iyi para kazandırır, iş imkanları sunar ve size
+      temel becerileri öğretir. Asıl önemli olan, dili yapmak istediğiniz işle eşleştirmek ve
+      bir dilde iyice ustalaşana kadar ona bağlı kalmaktır.
     </p>
     <p>
-      This guide walks through the top languages in 2026, who each one suits, and how to
-      choose without spending six months flip-flopping.
+      Bu rehber, 2026'daki en popüler dilleri, her birinin kime uygun olduğunu ve altı ay
+      kararsız kalmadan nasıl seçim yapacağınızı anlatıyor.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Python — the safest default</h2>
+    <h2>1. Python — en güvenli varsayılan</h2>
     <p>
-      Easiest syntax, biggest community, dominant in data/ML/scripting. If you&rsquo;re starting
-      cold or switching careers, Python is the highest-probability bet. Jobs everywhere. Our{" "}
-      <a href="/guides/how-to-learn-coding-fast">coding guide</a> has the learning path.
+      En kolay sözdizimi, en büyük topluluk, veri/ML/betik alanında baskın. Sıfırdan
+      başlıyorsanız veya kariyer değiştiriyorsanız, Python en yüksek olasılıklı bahistir. Her yerde iş var. Öğrenme yolculuğu için{" "}
+      <a href="/guides/how-to-learn-coding-fast">kodlama rehberimize</a> göz atın.
     </p>
 
-    <h2>2. JavaScript + TypeScript — for web</h2>
+    <h2>2. JavaScript + TypeScript — web için</h2>
     <p>
-      If you want to build web or mobile apps, JavaScript is unavoidable. TypeScript is the
-      production form. Massive ecosystem, React/Next.js dominant on the frontend, Node on the
-      backend. Second-best default after Python.
+      Web veya mobil uygulama geliştirmek istiyorsanız, JavaScript kaçınılmazdır. TypeScript ise
+      üretim formudur. Devasa ekosistem, ön uçta React/Next.js, arka uçta Node hakimdir.
+      Python'dan sonraki en iyi ikinci varsayılan.
     </p>
 
-    <h2>3. Go — for backend infrastructure</h2>
+    <h2>3. Go — arka uç altyapısı için</h2>
     <p>
-      Simple syntax, fast runtime, built for services. If you want to work on cloud, APIs, or
-      distributed systems, Go is a superb pick. Learnable in weeks once you know another
-      language.
+      Basit sözdizimi, hızlı çalışma zamanı, servisler için üretilmiştir. Bulut, API veya
+      dağıtık sistemler üzerinde çalışmak istiyorsanız, Go mükemmel bir seçimdir. Başka bir dil
+      biliyorsanız haftalar içinde öğrenilebilir.
     </p>
 
-    <h2>4. Rust — for systems and performance</h2>
+    <h2>4. Rust — sistemler ve performans için</h2>
     <p>
-      Harder learning curve than most, but growing fast in OS/browsers/embedded/crypto. Pick
-      Rust if you want to work on performance-critical or systems code and you enjoy compiler
-      challenges.
+      Çoğu dilden daha dik bir öğrenme eğrisi vardır, ancak işletim sistemi/tarayıcı/gömülü/kripto
+      alanlarında hızla büyümektedir. Performans kritik veya sistem kodu üzerinde çalışmak
+      istiyorsanız ve derleyici zorluklarından hoşlanıyorsanız Rust'ı seçin.
     </p>
 
-    <h2>5. Java / Kotlin — for enterprise and Android</h2>
+    <h2>5. Java / Kotlin — kurumsal ve Android için</h2>
     <p>
-      Java still runs enormous portions of banking, telecom, and legacy enterprise. Kotlin is
-      the preferred Android language and cleaner to write. Job market is huge but less
-      glamorous.
+      Java hâlâ bankacılık, telekom ve eski kurumsal sistemlerin büyük kısımlarını çalıştırıyor.
+      Kotlin tercih edilen Android dilidir ve yazması daha temizdir. İş piyasası büyük ama daha az
+      gösterişlidir.
     </p>
 
-    <h2>6. Swift — for iOS</h2>
+    <h2>6. Swift — iOS için</h2>
     <p>
-      If your goal is iOS/macOS apps, Swift is the answer. No good shortcuts. Pair with Xcode
-      and Apple&rsquo;s ecosystem. Strong career path but narrower than web.
+      Hedefiniz iOS/macOS uygulamalarıysa, Swift cevaptır. İyi bir kısayol yoktur. Xcode
+      ve Apple ekosistemiyle birlikte kullanın. Güçlü bir kariyer yolu sunar ancak web'den daha
+      dardır.
     </p>
 
-    <h2>7. C# — for games and enterprise</h2>
+    <h2>7. C# — oyunlar ve kurumsal için</h2>
     <p>
-      Unity (games) and Microsoft ecosystem. Comparable to Java in career breadth. If
-      you&rsquo;re aiming at gamedev or Microsoft-shop enterprise, C# is the pick.
+      Unity (oyunlar) ve Microsoft ekosistemi. Kariyer genişliği açısından Java'ya benzer.
+      Oyun geliştirme veya Microsoft odaklı kurumsal alanı hedefliyorsanız, C# seçimdir.
     </p>
 
-    <h2>8. C / C++ — for systems, embedded, games</h2>
+    <h2>8. C / C++ — sistemler, gömülü sistemler, oyunlar için</h2>
     <p>
-      Not for everyone. Steep, old, unforgiving. But if you want to work on game engines,
-      embedded systems, browser engines, or high-frequency trading, these are still the
-      languages. Pair with a modern language rather than starting here.
+      Herkes için değildir. Dik, eski, affetmez. Ancak oyun motorları, gömülü sistemler,
+      tarayıcı motorları veya yüksek frekanslı ticaret üzerinde çalışmak istiyorsanız, bunlar hâlâ
+      kullanılan dillerdir. Burada başlamak yerine modern bir dille birlikte kullanın.
     </p>
 
-    <h2>9. SQL — mandatory</h2>
+    <h2>9. SQL — zorunlu</h2>
     <p>
-      Not optional. Every data-related job requires SQL. Learn it alongside whatever primary
-      language you pick. Two weeks gets you functional; becomes a career superpower.
+      İsteğe bağlı değil. Veriyle ilgili her iş SQL gerektirir. Hangi ana dili seçerseniz seçin,
+      onunla birlikte öğrenin. İki haftada işlevsel hale gelirsiniz; kariyerinizde süper güce dönüşür.
     </p>
 
-    <h2>10. Don&rsquo;t language-hop</h2>
+    <h2>10. Dil değiştirip durmayın</h2>
     <p>
-      The common mistake: starting Python, then switching to Rust after 3 weeks because a
-      YouTube video made it look cool. Pick one, go deep for 6+ months, then add others. Your
-      first language is a vehicle — it&rsquo;s the destination (shipping things) that matters.
+      Yaygın hata: Python'la başlayıp, bir YouTube videosu havalı göründüğü için 3 hafta sonra
+      Rust'a geçmek. Birini seçin, 6+ ay derinlemesine çalışın, sonra diğerlerini ekleyin. İlk
+      diliniz bir araçtır — önemli olan varış noktasıdır (bir şeyler ortaya koymak).
     </p>
 
-    <h2>How to pick today</h2>
+    <h2>Bugün nasıl seçim yapmalı</h2>
     <p>
-      Want web/apps? JavaScript + TypeScript. Want data/ML/AI? Python. Want infrastructure?
-      Go. Want games? C# or Rust. Want mobile? Swift (iOS) or Kotlin (Android). Still
-      undecided? Python. See our <a href="/guides/how-to-get-your-first-developer-job">dev
-      job guide</a> for what to build next.
+      Web/uygulama mı istiyorsunuz? JavaScript + TypeScript. Veri/ML/AI mı? Python. Altyapı mı?
+      Go. Oyunlar mı? C# veya Rust. Mobil mi? Swift (iOS) veya Kotlin (Android). Hâlâ
+      kararsız mısınız? Python. Sırada ne yapmanız gerektiğini öğrenmek için <a href="/guides/how-to-get-your-first-developer-job">geliştirici iş rehberimize</a> göz atın.
     </p>
   </>
 );

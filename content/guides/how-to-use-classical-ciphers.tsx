@@ -3,289 +3,300 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Classical ciphers &mdash; Caesar, Atbash, Vigen&egrave;re, rail
-      fence, Playfair &mdash; are the substitution and transposition
-      schemes that carried secrets from Julius Caesar&rsquo;s
-      legions through the American Civil War and into World War I.
-      By any modern standard they&rsquo;re toys: a Caesar shift
-      falls to brute-force in 26 tries, a monoalphabetic substitution
-      falls to frequency analysis in an afternoon, and Vigen&egrave;re
-      succumbs to the Kasiski examination if the key is short. But
-      they&rsquo;re still worth understanding. Classical ciphers
-      are how you teach encryption, how puzzle hunts are built, how
-      CTF challenges start, and how students first see what
-      cryptanalysis looks like. This guide covers the substitution
-      principle, the Caesar and ROT13 specifics, frequency analysis,
-      the Vigen&egrave;re improvement and its weakness, transposition
-      vs substitution, why none of these are secure in 2026, and
-      where they still have real educational value.
+      Klasik şifreler &mdash; Sezar, Atbash, Vigen&egrave;re, çit
+      direği, Playfair &mdash; Jül Sezar&rsquo;ın lejyonlarından
+      Amerikan İç Savaşı&rsquo;na ve I. Dünya Savaşı&rsquo;na kadar
+      sırları taşıyan yer değiştirme ve aktarma yöntemleridir.
+      Herhangi bir modern standartta bunlar oyuncaktır: bir Sezar
+      kaydırması 26 denemede kaba kuvvetle çözülür, tek alfabeli bir
+      yer değiştirme bir öğleden sonra frekans analiziyle çözülür ve
+      Vigen&egrave;re, anahtar kısaysa Kasiski incelemesine yenik
+      düşer. Ancak yine de anlaşılmaya değerdirler. Klasik şifreler,
+      şifrelemenin nasıl öğretildiği, bulmaca avlarının nasıl
+      oluşturulduğu, CTF zorluklarının nasıl başladığı ve
+      öğrencilerin kriptanalizin neye benzediğini ilk kez nasıl
+      gördüğüdür. Bu kılavuz, yer değiştirme prensibini, Sezar ve
+      ROT13 özelliklerini, frekans analizini, Vigen&egrave;re
+      iyileştirmesini ve zayıflığını, aktarma ve yer değiştirme
+      karşılaştırmasını, bunların hiçbirinin 2026&rsquo;da neden
+      güvenli olmadığını ve hala gerçek eğitim değerine sahip
+      oldukları yerleri kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Substitution vs transposition</h2>
+    <h2>Yer değiştirme ve aktarma</h2>
     <p>
-      Classical ciphers split into two broad families:
+      Klasik şifreler iki ana aileye ayrılır:
     </p>
     <p>
-      <strong>Substitution ciphers</strong> replace each letter with
-      another according to a rule. The letters stay in the same
-      order; their identity changes. Caesar, Atbash,
-      Vigen&egrave;re, and the entire Enigma family are substitution
-      ciphers.
+      <strong>Yer değiştirme şifreleri</strong> her harfi bir kurala
+      göre başka bir harfle değiştirir. Harfler aynı sırada kalır;
+      kimlikleri değişir. Sezar, Atbash, Vigen&egrave;re ve tüm
+      Enigma ailesi yer değiştirme şifreleridir.
     </p>
     <p>
-      <strong>Transposition ciphers</strong> rearrange the letters
-      without changing them. A rail-fence cipher writes the message
-      in a zigzag and reads it off row by row. The letters are all
-      still present; their order changes.
+      <strong>Aktarma şifreleri</strong> harfleri değiştirmeden
+      yeniden düzenler. Bir çit direği şifresi mesajı zikzak
+      şeklinde yazar ve satır satır okur. Harflerin tümü hala
+      mevcuttur; sıraları değişir.
     </p>
     <p>
-      Modern ciphers (AES, ChaCha20) combine both ideas through
-      many rounds of substitution and transposition &mdash; but
-      orders of magnitude more complex than any classical design.
-    </p>
-
-    <h2>The Caesar cipher</h2>
-    <p>
-      The simplest substitution: each letter shifts by a fixed
-      amount N through the alphabet. Caesar himself reportedly used
-      N = 3.
-    </p>
-    <pre>{`plaintext:  HELLO WORLD
-shift 3:    KHOOR ZRUOG
-shift 13:   URYYB JBEYQ  (this is ROT13)
-shift 25:   GDKKN VNQKC`}</pre>
-    <p>
-      Decryption shifts the opposite direction, or equivalently by
-      <code> 26 - N</code>. Only 25 non-trivial keys exist &mdash;
-      brute force is instant.
-    </p>
-    <p>
-      <strong>ROT13</strong> is Caesar with N = 13. Its elegance is
-      that shifting twice gets you back:
-      <code> ROT13(ROT13(x)) = x</code>. Used for hiding spoilers in
-      Usenet and comments, never for security.
+      Modern şifreler (AES, ChaCha20) her iki fikri de birçok tur
+      yer değiştirme ve aktarma yoluyla birleştirir &mdash; ancak
+      herhangi bir klasik tasarımdan katbekat daha karmaşıktır.
     </p>
 
-    <h2>Monoalphabetic substitution</h2>
+    <h2>Sezar şifresi</h2>
     <p>
-      Generalize Caesar: instead of a shift, define an arbitrary
-      permutation of the 26 letters. The keyspace jumps to
-      <code> 26! &asymp; 4 &times; 10^26</code>, which sounds like a
-      lot but falls trivially to frequency analysis.
+      En basit yer değiştirme: her harf alfabede sabit bir N miktarı
+      kadar kayar. Sezar&rsquo;ın kendisinin N = 3 kullandığı
+      söylenir.
+    </p>
+    <pre>{`düz metin:  HELLO WORLD
+kaydırma 3:    KHOOR ZRUOG
+kaydırma 13:   URYYB JBEYQ  (bu ROT13)
+kaydırma 25:   GDKKN VNQKC`}</pre>
+    <p>
+      Şifre çözme, ters yönde kaydırma veya eşdeğer olarak
+      <code> 26 - N</code> ile yapılır. Yalnızca 25 önemsiz anahtar
+      vardır &mdash; kaba kuvvet anlıktır.
     </p>
     <p>
-      <strong>Atbash</strong> is a specific monoalphabetic cipher
-      where A &harr; Z, B &harr; Y, and so on. Originally Hebrew,
-      used in biblical texts. Trivial to decrypt if you recognize
-      the pattern.
+      <strong>ROT13</strong>, N = 13 olan Sezar&rsquo;dır. Zarafeti,
+      iki kez kaydırmanın sizi geri getirmesidir:
+      <code> ROT13(ROT13(x)) = x</code>. Usenet ve yorumlardaki
+      spoiler&rsquo;ları gizlemek için kullanılır, asla güvenlik
+      için değil.
     </p>
 
-    <h2>Frequency analysis</h2>
+    <h2>Tek alfabeli yer değiştirme</h2>
     <p>
-      English letters appear at predictable rates. E is about
-      12.7%, T 9.1%, A 8.2%, and so on down to Z at 0.07%. Given a
-      substitution-cipher ciphertext of even a few hundred letters,
-      count each character&rsquo;s frequency, match the highest to
-      E, the next to T, and iterate.
+      Sezar&rsquo;ı genelleştirin: bir kaydırma yerine, 26 harfin
+      keyfi bir permütasyonunu tanımlayın. Anahtar uzayı
+      <code> 26! &asymp; 4 &times; 10^26</code>&rsquo;a sıçrar,
+      kulağa çok gibi gelir ancak frekans analiziyle kolayca
+      çözülür.
     </p>
     <p>
-      Digraph frequencies help too. <strong>TH</strong> is the most
-      common English two-letter sequence;
+      <strong>Atbash</strong>, A &harr; Z, B &harr; Y vb. şeklinde
+      olan belirli bir tek alfabeli şifredir. Aslen İbranice olup
+      İncil metinlerinde kullanılmıştır. Deseni tanırsanız şifre
+      çözme önemsizdir.
+    </p>
+
+    <h2>Frekans analizi</h2>
+    <p>
+      İngilizce harfler tahmin edilebilir oranlarda görünür. E
+      yaklaşık %12.7, T %9.1, A %8.2 ve bu şekilde Z&rsquo;ye kadar
+      %0.07&rsquo;ye iner. Birkaç yüz harflik bir yer değiştirme
+      şifresi şifreli metni verildiğinde, her karakterin frekansını
+      sayın, en yükseği E ile, sonrakini T ile eşleştirin ve
+      yineleyin.
+    </p>
+    <p>
+      İkili harf frekansları da yardımcı olur. <strong>TH</strong> en
+      yaygın İngilizce iki harfli dizidir;
       <strong> HE</strong>, <strong>IN</strong>, <strong>ER</strong>,
-      <strong> AN</strong> follow. Triple-letter patterns
-      (<strong>THE</strong>) and common word shapes (a 3-letter
-      word at sentence start is often &ldquo;THE&rdquo; or
-      &ldquo;AND&rdquo;) finish the job.
+      <strong> AN</strong> onu takip eder. Üç harfli desenler
+      (<strong>THE</strong>) ve yaygın kelime şekilleri (cümle
+      başındaki 3 harfli bir kelime genellikle &ldquo;THE&rdquo; veya
+      &ldquo;AND&rdquo;dir) işi tamamlar.
     </p>
     <p>
-      Arab scholar Al-Kindi described frequency analysis in the 9th
-      century, breaking every substitution cipher for the next
-      thousand years.
+      Arap bilgin El-Kindi, 9. yüzyılda frekans analizini tanımlayarak
+      sonraki bin yıl boyunca her yer değiştirme şifresini kırdı.
     </p>
 
-    <h2>Vigen&egrave;re &mdash; polyalphabetic improvement</h2>
+    <h2>Vigen&egrave;re &mdash; çok alfabeli iyileştirme</h2>
     <p>
-      Vigen&egrave;re (16th century, usually attributed to
-      Blaise de Vigen&egrave;re though Bellaso published it first)
-      uses a keyword to shift each letter by a different amount,
-      cycling through the keyword.
+      Vigen&egrave;re (16. yüzyıl, genellikle Blaise de
+      Vigen&egrave;re&rsquo;e atfedilir ancak Bellaso önce
+      yayınlamıştır) her harfi farklı bir miktarda kaydırmak için bir
+      anahtar kelime kullanır ve anahtar kelime boyunca döngü yapar.
     </p>
-    <pre>{`plaintext: ATTACK AT DAWN
-key:       LEMONL EM ONLE
-ciphertext:LXFOPV EF RNHR`}</pre>
+    <pre>{`düz metin: ATTACK AT DAWN
+anahtar:   LEMONL EM ONLE
+şifreli metin:LXFOPV EF RNHR`}</pre>
     <p>
-      Letter A + L = L, T + E = X, T + M = F, and so on (treating
-      A = 0, ..., Z = 25, mod 26). The same plaintext letter
-      encrypts to different ciphertext letters depending on position,
-      defeating simple frequency analysis.
-    </p>
-    <p>
-      For 300 years Vigen&egrave;re was called <em>le chiffre
-      ind&eacute;chiffrable</em> (the indecipherable cipher). Then
-      Friedrich Kasiski published a breaking method in 1863.
-    </p>
-
-    <h2>The Kasiski examination</h2>
-    <p>
-      Find repeated sequences in the ciphertext. In Vigen&egrave;re,
-      when the same plaintext sequence lines up with the same part
-      of the key, it produces the same ciphertext. Measure the
-      distance between repetitions &mdash; the key length is likely
-      a divisor of that distance.
+      Harf A + L = L, T + E = X, T + M = F vb. (A = 0, ..., Z = 25,
+      mod 26 olarak ele alınır). Aynı düz metin harfi, konuma bağlı
+      olarak farklı şifreli metin harflerine şifrelenir ve basit
+      frekans analizini etkisiz hale getirir.
     </p>
     <p>
-      Once the key length is known, split the ciphertext into N
-      interleaved streams (every Nth letter), each of which is a
-      simple Caesar cipher. Break each with frequency analysis.
-    </p>
-    <p>
-      Modern statistical variants (index of coincidence, Friedman
-      test) break Vigen&egrave;re in seconds on any meaningful
-      ciphertext with a shortish key.
+      300 yıl boyunca Vigen&egrave;re&rsquo;ye <em>le chiffre
+      ind&eacute;chiffrable</em> (çözülemez şifre) denildi. Ardından
+      Friedrich Kasiski 1863&rsquo;te bir kırma yöntemi yayınladı.
     </p>
 
-    <h2>The one-time pad</h2>
+    <h2>Kasiski incelemesi</h2>
     <p>
-      Extend Vigen&egrave;re: use a key as long as the message,
-      generated truly randomly, used exactly once. This is the
-      one-time pad (OTP), and it is the only provably unbreakable
-      cipher. The catch: the key must be perfectly random, kept
-      secret, distributed securely, and never reused. Reusing a
-      one-time pad even once collapses the security entirely (see
-      the VENONA decrypts).
+      Şifreli metinde tekrarlanan dizileri bulun. Vigen&egrave;re&rsquo;de,
+      aynı düz metin dizisi anahtarın aynı kısmıyla hizalandığında,
+      aynı şifreli metni üretir. Tekrarlar arasındaki mesafeyi
+      ölçün &mdash; anahtar uzunluğu büyük olasılıkla bu mesafenin
+      bir bölenidir.
     </p>
     <p>
-      OTPs have seen real use &mdash; diplomatic hotlines, some
-      intelligence communications &mdash; but the key-distribution
-      problem makes them impractical for general use.
+      Anahtar uzunluğu bilindiğinde, şifreli metni N iç içe geçmiş
+      akışa (her N&rsquo;inci harf) bölün, her biri basit bir Sezar
+      şifresidir. Her birini frekans analiziyle kırın.
+    </p>
+    <p>
+      Modern istatistiksel varyantlar (uyum indeksi, Friedman testi)
+      Vigen&egrave;re&rsquo;yi kısa bir anahtarla herhangi bir anlamlı
+      şifreli metinde saniyeler içinde kırar.
     </p>
 
-    <h2>Transposition ciphers</h2>
+    <h2>Tek kullanımlık şerit</h2>
     <p>
-      <strong>Rail fence</strong>: write the plaintext in a zigzag
-      of N rails, read off by rows.
+      Vigen&egrave;re&rsquo;yi genişletin: mesajla aynı uzunlukta,
+      gerçekten rastgele oluşturulmuş, tam olarak bir kez kullanılan
+      bir anahtar kullanın. Bu, tek kullanımlık şerittir (OTP) ve
+      kanıtlanabilir şekilde kırılamaz tek şifredir. Püf noktası:
+      anahtar mükemmel rastgele olmalı, gizli tutulmalı, güvenli bir
+      şekilde dağıtılmalı ve asla yeniden kullanılmamalıdır. Bir tek
+      kullanımlık şeridi bir kez bile yeniden kullanmak güvenliği
+      tamamen çökertir (bkz. VENONA çözümleri).
     </p>
-    <pre>{`HELLO WORLD with 3 rails:
+    <p>
+      OTP&rsquo;ler gerçek kullanım görmüştür &mdash; diplomatik
+      hatlar, bazı istihbarat iletişimleri &mdash; ancak anahtar
+      dağıtım sorunu onları genel kullanım için pratik yapmaz.
+    </p>
 
+    <h2>Aktarma şifreleri</h2>
+    <p>
+      <strong>Çit direği</strong>: düz metni N raylı bir zikzak
+      şeklinde yazın, satır satır okuyun.
+    </p>
+    <pre>{`HELLO WORLD 3 raylı:
 H . . . O . . . R . .
 . E . L . W . R . L .
 . . L . . . O . . . D
-
-Read rows: HOR ELWRL LOD -> HORELWRLLOD`}</pre>
+Satırları oku: HOR ELWRL LOD -> HORELWRLLOD`}</pre>
     <p>
-      <strong>Columnar transposition</strong>: write into a grid of
-      fixed width, read off columns in an order set by a keyword.
-      Used through WWI. Breakable but laborious by hand.
+      <strong>Sütunlu aktarma</strong>: sabit genişlikte bir ızgaraya
+      yazın, bir anahtar kelime tarafından belirlenen bir sırayla
+      sütunları okuyun. I. Dünya Savaşı&rsquo;na kadar kullanıldı.
+      Elle kırılabilir ancak zahmetlidir.
     </p>
 
-    <h2>Playfair cipher</h2>
+    <h2>Playfair şifresi</h2>
     <p>
-      Invented in 1854 by Charles Wheatstone, named for Lord
-      Playfair who promoted it. Encrypts digraphs using a
-      5&times;5 keyword square. Broke the letter-frequency cheat
-      because pairs are encrypted, not individual letters.
+      1854&rsquo;te Charles Wheatstone tarafından icat edildi, onu
+      tanıtan Lord Playfair&rsquo;in adını aldı. Bir 5&times;5 anahtar
+      karesi kullanarak ikili harfleri şifreler. Harf frekansı
+      hilesini kırdı çünkü çiftler şifrelenir, bireysel harfler değil.
     </p>
     <p>
-      Used by British forces in WWI and into WWII for tactical
-      communications, where speed mattered more than long-term
-      secrecy. Broken by hand within hours given enough ciphertext.
-    </p>
-
-    <h2>Why none of these are secure in 2026</h2>
-    <p>
-      The common thread: classical ciphers have structure the
-      ciphertext preserves (letter frequencies, word shapes,
-      repetitions). Modern cryptanalysis exploits any such
-      structure. A pure substitution cipher is broken at
-      &ldquo;hello world&rdquo; length. A well-built stream cipher
-      (ChaCha20, AES-<a href="/learn/ctr">CTR</a>) leaves ciphertext statistically
-      indistinguishable from random &mdash; no structure to attack.
-    </p>
-    <p>
-      For real security in 2026, use authenticated encryption:
-      AES-GCM or ChaCha20-Poly1305 for symmetric; X25519 +
-      AES-GCM for hybrid. Libsodium or your language&rsquo;s
-      standard <code>crypto</code> module hands you correct defaults.
+      I. Dünya Savaşı&rsquo;nda ve II. Dünya Savaşı&rsquo;na kadar
+      İngiliz kuvvetleri tarafından taktik iletişim için kullanıldı,
+      hızın uzun vadeli gizlilikten daha önemli olduğu yerlerde.
+      Yeterli şifreli metin verildiğinde saatler içinde elle kırıldı.
     </p>
 
-    <h2>Where classical ciphers still earn their keep</h2>
+    <h2>Bunların hiçbiri 2026&rsquo;da neden güvenli değil</h2>
     <p>
-      <strong>Education</strong>: they are the clearest possible
-      introduction to the ideas of key, keyspace, keyspace size,
-      frequency analysis, and Kerckhoffs&rsquo;s principle. A
-      cryptography course without Caesar, Vigen&egrave;re, and
-      frequency analysis is missing 200 years of history.
+      Ortak nokta: klasik şifreler, şifreli metnin koruduğu bir yapıya
+      sahiptir (harf frekansları, kelime şekilleri, tekrarlar). Modern
+      kriptanaliz bu tür herhangi bir yapıyı kullanır. Saf bir yer
+      değiştirme şifresi &ldquo;hello world&rdquo; uzunluğunda
+      kırılır. İyi yapılandırılmış bir akış şifresi (ChaCha20,
+      AES-<a href="/learn/ctr">CTR</a>) şifreli metni istatistiksel
+      olarak rastgeleden ayırt edilemez bırakır &mdash; saldırılacak
+      yapı yoktur.
     </p>
     <p>
-      <strong>Puzzle and escape-room design</strong>: solvable by
-      hand in minutes once recognized, challenging enough to reward
-      the insight. Most escape-room &ldquo;codes&rdquo; are
-      classical ciphers.
-    </p>
-    <p>
-      <strong>CTF challenges</strong>: crypto categories in
-      capture-the-flag competitions frequently start with Caesar,
-      then layer in Vigen&egrave;re, XOR-with-repeating-key, and
-      weak RSA &mdash; each building on the classical intuition.
-    </p>
-    <p>
-      <strong>Obfuscation, not encryption</strong>: ROT13 still
-      appears in spoiler tags, USENET signatures, and some
-      extremely lightweight config obfuscation. Don&rsquo;t confuse
-      this with security.
+      2026&rsquo;da gerçek güvenlik için kimlik doğrulamalı şifreleme
+      kullanın: simetrik için AES-GCM veya ChaCha20-Poly1305; hibrit
+      için X25519 + AES-GCM. Libsodium veya dilinizin standart
+      <code>crypto</code> modülü size doğru varsayılanları verir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Klasik şifrelerin hala değerli olduğu yerler</h2>
     <p>
-      <strong>Treating any classical cipher as security.</strong>
-      Any &ldquo;encryption&rdquo; shipped to production that is
-      recognizably classical is broken. Developers occasionally
-      ROT13 configuration values thinking it matters; it does not.
+      <strong>Eğitim</strong>: anahtar, anahtar uzayı, anahtar uzayı
+      boyutu, frekans analizi ve Kerckhoffs ilkesi fikirlerine
+      mümkün olan en net girişimdir. Sezar, Vigen&egrave;re ve
+      frekans analizi olmayan bir kriptografi dersi 200 yıllık
+      tarihi kaçırıyor demektir.
     </p>
     <p>
-      <strong>Reusing a Vigen&egrave;re key on multiple messages.</strong>
-      Makes the Kasiski attack trivial &mdash; the attacker gets more
-      ciphertext to analyze against the same key.
+      <strong>Bulmaca ve kaçış odası tasarımı</strong>: tanındığında
+      dakikalar içinde elle çözülebilir, içgörüyü ödüllendirecek
+      kadar zorludur. Çoğu kaçış odası &ldquo;kodu&rdquo; klasik
+      şifrelerdir.
     </p>
     <p>
-      <strong>Expecting short keys to add security.</strong> A
-      Caesar shift of 7 is not meaningfully harder than a shift of
-      3 &mdash; brute force costs the same. The only defense is
-      keyspace size, and classical keyspaces are small.
+      <strong>CTF zorlukları</strong>: bayrak kapma
+      yarışmalarındaki kripto kategorileri genellikle Sezar ile
+      başlar, ardından Vigen&egrave;re, tekrarlayan anahtarlı XOR ve
+      zayıf RSA eklenir &mdash; her biri klasik sezgi üzerine inşa
+      edilir.
     </p>
     <p>
-      <strong>Removing spaces and punctuation to &ldquo;strengthen&rdquo;.</strong>
-      It helps only a little against frequency analysis and
-      complicates hand encryption. Real ciphers do not need the
-      crutch.
-    </p>
-    <p>
-      <strong>Mixing case and non-alphabetic characters inconsistently.</strong>
-      Pick a convention: strip to A&ndash;Z uppercase, or preserve
-      case and pass through punctuation. Halfway implementations
-      produce decryption bugs.
-    </p>
-    <p>
-      <strong>Claiming custom classical variants are novel.</strong>
-      Reversing the alphabet then applying Caesar then XORing with a
-      nursery rhyme is still classical and still broken. Any new
-      cipher must survive professional cryptanalysis, which your
-      variant has not.
+      <strong>Gizleme, şifreleme değil</strong>: ROT13 hala spoiler
+      etiketlerinde, USENET imzalarında ve bazı son derece hafif
+      yapılandırma gizlemelerinde görünür. Bunu güvenlikle
+      karıştırmayın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Encrypt and decrypt shifts instantly with the{" "}
-      <a href="/tools/caesar-cipher">Caesar cipher tool</a>. Pair
-      with the{" "}
-      <a href="/tools/morse-code-translator">Morse code translator</a>
-      {" "}for layered historical-signaling puzzles, and the{" "}
-      <a href="/tools/binary-text-encoder">binary text encoder</a>
-      {" "}when exercises combine ciphers with base conversions.
+      <strong>Herhangi bir klasik şifreyi güvenlik olarak ele almak.</strong>
+      Üretime gönderilen ve klasik olduğu anlaşılan herhangi bir
+      &ldquo;şifreleme&rdquo; kırılmıştır. Geliştiriciler bazen
+      yapılandırma değerlerini ROT13&rsquo;ler ve bunun önemli
+      olduğunu düşünürler; önemli değildir.
+    </p>
+    <p>
+      <strong>Birden çok mesajda bir Vigen&egrave;re anahtarını
+      yeniden kullanmak.</strong> Kasiski saldırısını önemsiz hale
+      getirir &mdash; saldırgan aynı anahtara karşı analiz edecek
+      daha fazla şifreli metin alır.
+    </p>
+    <p>
+      <strong>Kısa anahtarların güvenlik katacağını beklemek.</strong>
+      7 kaydırmalı bir Sezar, 3 kaydırmalı olandan anlamlı şekilde
+      daha zor değildir &mdash; kaba kuvvet aynı maliyettedir. Tek
+      savunma anahtar uzayı boyutudur ve klasik anahtar uzayları
+      küçüktür.
+    </p>
+    <p>
+      <strong>Şifreyi &ldquo;güçlendirmek&rdquo; için boşlukları ve
+      noktalama işaretlerini kaldırmak.</strong> Frekans analizine
+      karşı yalnızca biraz yardımcı olur ve elle şifrelemeyi
+      zorlaştırır. Gerçek şifrelerin desteğe ihtiyacı yoktur.
+    </p>
+    <p>
+      <strong>Büyük/küçük harf ve alfabetik olmayan karakterleri
+      tutarsız bir şekilde karıştırmak.</strong> Bir kural seçin:
+      A&ndash;Z büyük harfe indirgeyin veya büyük/küçük harfi
+      koruyun ve noktalama işaretlerini geçirin. Yarı yolda
+      uygulamalar şifre çözme hataları üretir.
+    </p>
+    <p>
+      <strong>Özel klasik varyantların yeni olduğunu iddia etmek.</strong>
+      Alfabeyi ters çevirip ardından Sezar uygulayıp bir tekerlemeyle
+      XOR&rsquo;lamak hala klasiktir ve hala kırılmıştır. Herhangi
+      bir yeni şifre, varyantınızın geçmediği profesyonel
+      kriptanalizden geçmelidir.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      Kaydırmaları anında şifreleyin ve şifresini çözün{" "}
+      <a href="/tools/caesar-cipher">Sezar şifre aracı</a> ile.
+      Katmanlı tarihsel sinyal bulmacaları için{" "}
+      <a href="/tools/morse-code-translator">Mors kodu çevirici</a>
+      {" "}ile eşleştirin ve alıştırmalar şifreleri taban
+      dönüşümleriyle birleştirdiğinde{" "}
+      <a href="/tools/binary-text-encoder">ikili metin kodlayıcı</a>
+      {" "}ile kullanın.
     </p>
   </>
 );

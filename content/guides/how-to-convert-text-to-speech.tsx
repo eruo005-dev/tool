@@ -3,121 +3,124 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Text-to-speech went from robotic-sounding novelty to genuinely human-sounding
-      tool around 2020, when neural TTS models (WaveNet, Tacotron, then Glow-TTS and
-      VALL-E) replaced the older concatenative and formant-synthesis approaches. The
-      difference is striking &mdash; modern TTS is used for audiobook narration,
-      podcast ads, IVR systems, and accessibility tools without listeners realizing
-      it&rsquo;s synthetic. Using TTS well, though, still takes more than
-      copy-pasting text. This guide covers SSML markup for precise control, voice
-      selection criteria, prosody (rate, pitch, volume), the split between the
-      browser&rsquo;s free Web Speech API and cloud TTS services, and the
-      accessibility considerations that separate &ldquo;technically reads the
-      text&rdquo; from &ldquo;actually useful for screen-reader users.&rdquo;
+      Metinden konuşmaya teknolojisi, 2020 civarında robotik sesli bir yenilikten
+      gerçekten insansı bir araca dönüştü. Bu dönüşüm, eski birleştirme ve formant
+      sentezi yaklaşımlarının yerini sinirsel TTS modellerinin (WaveNet, Tacotron,
+      ardından Glow-TTS ve VALL-E) almasıyla gerçekleşti. Fark çarpıcı &mdash;
+      modern TTS, dinleyicilerin sentetik olduğunu fark etmediği sesli kitap
+      anlatımı, podcast reklamları, IVR sistemleri ve erişilebilirlik araçlarında
+      kullanılıyor. Ancak TTS'yi iyi kullanmak, metni kopyalayıp yapıştırmaktan
+      daha fazlasını gerektiriyor. Bu kılavuz, hassas kontrol için SSML işaretlemesini,
+      ses seçim kriterlerini, prozodiyi (hız, perde, ses seviyesi), tarayıcının
+      ücretsiz Web Speech API'si ile bulut TTS hizmetleri arasındaki ayrımı ve
+      "teknik olarak metni okur" ile "ekran okuyucu kullanıcıları için gerçekten
+      kullanışlıdır" arasındaki farkı yaratan erişilebilirlik hususlarını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What neural TTS does differently</h2>
+    <h2>Sinirsel TTS'in farklı yaptığı şey</h2>
     <p>
-      Old TTS pipelines concatenated recorded phonemes (tiny speech fragments) and
-      smoothed the seams. Output sounded segmented and robotic. Neural TTS generates
-      the waveform directly from text using deep learning &mdash; either in a
-      two-stage pipeline (text to mel-spectrogram, then neural vocoder to waveform)
-      or end-to-end (text straight to waveform). The result has natural prosody,
-      breathing, and intonation.
+      Eski TTS hatları, kaydedilmiş fonemleri (küçük konuşma parçaları) birleştirir
+      ve birleşim yerlerini yumuşatırdı. Çıktı, bölümlere ayrılmış ve robotik
+      geliyordu. Sinirsel TTS, dalga formunu doğrudan metinden derin öğrenme
+      kullanarak üretir &mdash; ya iki aşamalı bir hatla (metinden mel-spektrograma,
+      ardından sinirsel vokoderden dalga formuna) ya da uçtan uca (doğrudan metinden
+      dalga formuna). Sonuç, doğal prozodi, nefes alma ve tonlamaya sahiptir.
     </p>
     <p>
-      Current state-of-the-art systems can clone a voice from 3&ndash;5 seconds of
-      reference audio, match emotional tone, and even preserve a speaker&rsquo;s
-      accent across languages. The tradeoff is compute &mdash; neural TTS needs a GPU
-      for real-time generation, unlike the old concatenative systems that ran on
-      phones in 2005.
+      Günümüzün en son teknoloji sistemleri, 3&ndash;5 saniyelik referans sesten
+      bir sesi klonlayabilir, duygusal tonu eşleştirebilir ve hatta bir konuşmacının
+      aksanını diller arasında koruyabilir. Bunun karşılığı hesaplama gücüdür
+      &mdash; sinirsel TTS, gerçek zamanlı üretim için bir GPU gerektirir; oysa eski
+      birleştirme sistemleri 2005'te telefonlarda çalışıyordu.
     </p>
 
-    <h2>SSML: the markup language for TTS</h2>
+    <h2>SSML: TTS için işaretleme dili</h2>
     <p>
-      Speech Synthesis Markup Language (SSML) is a W3C standard that lets you control
-      how text is rendered. It looks like HTML with TTS-specific tags.
+      Konuşma Sentezi İşaretleme Dili (SSML), metnin nasıl işleneceğini kontrol
+      etmenizi sağlayan bir W3C standardıdır. TTS'e özgü etiketlerle HTML'e benzer.
     </p>
     <pre>{`<speak>
   <p>
-    Welcome to the tutorial.
+    Eğitime hoş geldiniz.
     <break time="500ms"/>
-    Today we&rsquo;ll cover three topics:
-    SSML, <emphasis level="strong">voice selection</emphasis>,
-    and <prosody rate="slow">carefully-paced narration</prosody>.
+    Bugün üç konuyu ele alacağız:
+    SSML, <emphasis level="strong">ses seçimi</emphasis>
+    ve <prosody rate="slow">dikkatlice tempolu anlatım</prosody>.
   </p>
   <p>
-    The meeting starts at <say-as interpret-as="time">3:00 PM</say-as>,
-    and the ID is <say-as interpret-as="characters">ABC123</say-as>.
+    Toplantı <say-as interpret-as="time">15:00</say-as>'te başlıyor
+    ve kimlik <say-as interpret-as="characters">ABC123</say-as>'tür.
   </p>
 </speak>`}</pre>
     <p>
-      Not all TTS engines support all SSML tags. AWS Polly and Google Cloud TTS
-      support broad SSML; OpenAI&rsquo;s TTS API currently supports only plain text.
-      Check your engine&rsquo;s docs before authoring SSML.
+      Tüm TTS motorları tüm SSML etiketlerini desteklemez. AWS Polly ve Google
+      Cloud TTS geniş SSML desteği sunar; OpenAI'nin TTS API'si şu anda yalnızca
+      düz metni destekler. SSML yazmadan önce motorunuzun belgelerini kontrol edin.
     </p>
 
-    <h2>Key SSML tags</h2>
-    <pre>{`<break time="500ms"/>        Pause for 500 milliseconds
-<prosody rate="slow">         Slower speech
-<prosody rate="fast">         Faster
-<prosody pitch="+3st">        Raise pitch by 3 semitones
-<prosody volume="+6dB">       Louder
-<emphasis level="strong">     Emphasize words
-<say-as interpret-as="date">  Read "2024-04-23" as "April 23"
-<say-as interpret-as="telephone"> Read digits as phone number
-<say-as interpret-as="characters"> Spell out letter-by-letter
-<phoneme alphabet="ipa" ph="t@'meItoU">tomato</phoneme>
-<sub alias="World Health Organization">WHO</sub>`}</pre>
+    <h2>Temel SSML etiketleri</h2>
+    <pre>{`<break time="500ms"/>        500 milisaniye duraklama
+<prosody rate="slow">        Daha yavaş konuşma
+<prosody rate="fast">        Daha hızlı
+<prosody pitch="+3st">       Perdeyi 3 yarım ton yükselt
+<prosody volume="+6dB">      Daha yüksek ses
+<emphasis level="strong">    Kelimeleri vurgula
+<say-as interpret-as="date"> "2024-04-23"ü "23 Nisan" olarak oku
+<say-as interpret-as="telephone"> Rakamları telefon numarası olarak oku
+<say-as interpret-as="characters"> Harf harf hecele
+<phoneme alphabet="ipa" ph="t@'meItoU">domates</phoneme>
+<sub alias="Dünya Sağlık Örgütü">DSÖ</sub>`}</pre>
 
-    <h2>Voice selection</h2>
+    <h2>Ses seçimi</h2>
     <p>
-      The voice sets the personality of the output. Most cloud TTS services offer
-      dozens of voices per language, with names (Amazon Polly has Matthew, Joanna,
-      Ivy; Google has wavenet voices coded Male A/B/C; Azure has over 400 neural
-      voices across 100+ languages).
+      Ses, çıktının kişiliğini belirler. Çoğu bulut TTS hizmeti, dil başına
+      düzinelerce ses sunar. Amazon Polly'de Matthew, Joanna, Ivy; Google'da
+      wavenet sesleri (Male A/B/C kodlu); Azure'da 100'den fazla dilde 400'den
+      fazla sinirsel ses bulunur.
     </p>
     <p>
-      Voice choice criteria: match the content&rsquo;s formality (a news-style voice
-      vs conversational), match the demographic you&rsquo;re targeting (age, accent,
-      gender), and test with your actual script &mdash; some voices handle long
-      sentences better than others.
-    </p>
-
-    <h2>Prosody: rate, pitch, volume</h2>
-    <p>
-      Rate is measured as a percentage (&ldquo;slow,&rdquo; &ldquo;medium,&rdquo;
-      &ldquo;fast,&rdquo; or <code>50%</code>&ndash;<code>200%</code>). Typical
-      preferences:
-    </p>
-    <pre>{`Content type            Recommended rate
-Audiobook narration     90-95% (slightly slow, let words land)
-Podcast ad read         100% (natural)
-News / announcements    105-110%
-Tutorial voiceover      90-100%
-Accessibility (screen reader) user preference; default 100%`}</pre>
-    <p>
-      Pitch in semitones (<code>-20st</code> to <code>+20st</code>) or percentages.
-      Small shifts (+/- 2 semitones) are useful to distinguish characters in a
-      dialogue or to match a brand voice; big shifts (+/- 10st) sound cartoonish.
-    </p>
-    <p>
-      Volume in dB (<code>-40dB</code> to <code>+6dB</code>) or named levels. Rarely
-      needed &mdash; normalize in post-production instead.
+      Ses seçim kriterleri: içeriğin formalitesine uygun (haber tarzı ses vs
+      sohbet havası), hedeflediğiniz demografiye uygun (yaş, aksan, cinsiyet) ve
+      gerçek metninizle test edin &mdash; bazı sesler uzun cümleleri diğerlerinden
+      daha iyi işler.
     </p>
 
-    <h2>Web Speech API (browser-native)</h2>
+    <h2>Prozodi: hız, perde, ses seviyesi</h2>
     <p>
-      Browsers include a free TTS engine via the <code>SpeechSynthesis</code> API. No
-      API key, no per-character cost, works offline. The quality varies dramatically
-      by OS &mdash; macOS and iOS use Apple&rsquo;s high-quality neural voices;
-      Windows uses decent neural voices; Linux often has only basic eSpeak voices.
+      Hız, yüzde olarak ölçülür ("yavaş", "orta", "hızlı" veya
+      <code>%50</code>&ndash;<code>%200</code>). Tipik tercihler:
     </p>
-    <pre>{`const utter = new SpeechSynthesisUtterance("Hello, world.");
+    <pre>{`İçerik türü              Önerilen hız
+Sesli kitap anlatımı      %90-95 (biraz yavaş, kelimelerin oturmasına izin ver)
+Podcast reklam okuması    %100 (doğal)
+Haber / duyurular         %105-110
+Eğitim seslendirmesi      %90-100
+Erişilebilirlik (ekran okuyucu) kullanıcı tercihi; varsayılan %100`}</pre>
+    <p>
+      Perde yarım ton (<code>-20st</code> ile <code>+20st</code>) veya yüzde olarak.
+      Küçük kaymalar (+/- 2 yarım ton) bir diyalogdaki karakterleri ayırt etmek
+      veya bir marka sesine uymak için kullanışlıdır; büyük kaymalar (+/- 10st)
+      çizgi film gibi gelir.
+    </p>
+    <p>
+      Ses seviyesi dB (<code>-40dB</code> ile <code>+6dB</code>) veya adlandırılmış
+      seviyelerde. Nadiren gerekir &mdash; bunun yerine post-prodüksiyonda
+      normalleştirin.
+    </p>
+
+    <h2>Web Speech API (tarayıcı tabanlı)</h2>
+    <p>
+      Tarayıcılar, <code>SpeechSynthesis</code> API'si aracılığıyla ücretsiz bir
+      TTS motoru içerir. API anahtarı yok, karakter başına maliyet yok, çevrimdışı
+      çalışır. Kalite işletim sistemine göre büyük ölçüde değişir &mdash; macOS ve
+      iOS, Apple'ın yüksek kaliteli sinirsel seslerini kullanır; Windows iyi sinirsel
+      sesler kullanır; Linux'ta genellikle yalnızca temel eSpeak sesleri bulunur.
+    </p>
+    <pre>{`const utter = new SpeechSynthesisUtterance("Merhaba dünya.");
 utter.rate = 1.0;
 utter.pitch = 1.0;
 utter.volume = 1.0;
@@ -125,121 +128,126 @@ utter.voice = speechSynthesis.getVoices()
   .find(v => v.name.includes("Samantha"));
 speechSynthesis.speak(utter);`}</pre>
     <p>
-      The Web Speech API has no SSML support. You can control rate, pitch, volume per
-      utterance, but not mid-sentence emphasis or pauses. For richer control, use
-      cloud TTS.
+      Web Speech API'nin SSML desteği yoktur. Söyleyiş başına hız, perde, ses
+      seviyesini kontrol edebilirsiniz, ancak cümle ortasında vurgu veya duraklama
+      yapamazsınız. Daha zengin kontrol için bulut TTS kullanın.
     </p>
 
-    <h2>Cloud TTS comparison</h2>
-    <pre>{`Provider        Voices   Neural   SSML   Price (per 1M chars)
-AWS Polly       60+      Yes      Full   $4 standard, $16 neural
-Google Cloud    220+     Yes      Full   $4-$16 depending on tier
-Azure           400+     Yes      Full   $4-$16
-ElevenLabs      dozens   Yes      Some   $5-$30 per 1M chars
-OpenAI TTS      6        Yes      None   $15 per 1M chars`}</pre>
+    <h2>Bulut TTS karşılaştırması</h2>
+    <pre>{`Sağlayıcı      Sesler   Sinirsel   SSML   Fiyat (1M karakter başına)
+AWS Polly       60+      Evet       Tam    $4 standart, $16 sinirsel
+Google Cloud    220+     Evet       Tam    $4-$16 (katmana göre)
+Azure           400+     Evet       Tam    $4-$16
+ElevenLabs      düzinelerce Evet   Kısmi  $5-$30 (1M karakter başına)
+OpenAI TTS      6        Evet       Yok    $15 (1M karakter başına)`}</pre>
     <p>
-      For long-form content (audiobooks, podcast production) the cost matters; a
-      50,000-character chapter is ~$0.20&ndash;$0.80. For real-time applications
-      (phone systems, games), latency matters more. ElevenLabs and Azure are the
-      common choices for expressive narration; AWS and Google for high-volume IVR.
+      Uzun biçimli içeriklerde (sesli kitaplar, podcast prodüksiyonu) maliyet
+      önemlidir; 50.000 karakterlik bir bölüm ~$0,20&ndash;$0,80'dir. Gerçek
+      zamanlı uygulamalarda (telefon sistemleri, oyunlar) gecikme daha önemlidir.
+      ElevenLabs ve Azure, etkileyici anlatım için yaygın tercihlerdir; AWS ve
+      Google ise yüksek hacimli IVR için.
     </p>
 
-    <h2>Pronunciation control</h2>
+    <h2>Telaffuz kontrolü</h2>
     <p>
-      TTS engines mispronounce unusual words, brand names, and technical terms. Fixes:
+      TTS motorları alışılmadık kelimeleri, marka adlarını ve teknik terimleri
+      yanlış telaffuz eder. Düzeltmeler:
     </p>
     <p>
-      <strong>Spell it phonetically in the text.</strong> &ldquo;Write
-      &lsquo;kubernetes&rsquo; as &lsquo;koo-bur-NET-eez&rsquo; in the script.&rdquo;
-      Works but looks odd to editors.
+      <strong>Metinde fonetik olarak yazın.</strong> "Metinde 'kubernetes'i
+      'koo-bur-NET-eez' olarak yazın." İşe yarar ancak editörlere tuhaf görünür.
     </p>
     <p>
-      <strong>Use SSML phoneme tags.</strong> <code>&lt;phoneme alphabet=&quot;ipa&quot; ph=&quot;ku:b@rneItIs&quot;&gt;kubernetes&lt;/phoneme&gt;</code>.
-      Precise but requires IPA knowledge.
+      <strong>SSML fonem etiketlerini kullanın.</strong> <code>&lt;phoneme alphabet=&quot;ipa&quot; ph=&quot;ku:b@rneItIs&quot;&gt;kubernetes&lt;/phoneme&gt;</code>.
+      Hassastır ancak IPA bilgisi gerektirir.
     </p>
     <p>
-      <strong>Define a custom lexicon.</strong> AWS Polly and Google support uploading
-      a lexicon file that applies to all requests &mdash; best for brand names used
-      across many scripts.
-    </p>
-
-    <h2>Audio output format</h2>
-    <p>
-      Cloud TTS typically offers MP3 (good default, small file, universal support),
-      WAV or PCM (lossless, large, good for further editing), OGG (smaller than MP3,
-      less universal), or a <a href="/learn/stream">streaming</a> format for real-time playback.
-    </p>
-    <p>
-      For a final podcast or video deliverable, request WAV or 320kbps MP3, apply any
-      post-processing (compression, EQ, loudness normalization to -16 LUFS), then
-      export to final format. Don&rsquo;t use the raw TTS MP3 as-is &mdash; post
-      processing makes it sound more professional.
+      <strong>Özel bir sözlük tanımlayın.</strong> AWS Polly ve Google, tüm
+      isteklere uygulanan bir sözlük dosyası yüklemeyi destekler &mdash; birçok
+      metinde kullanılan marka adları için en iyisidir.
     </p>
 
-    <h2>Accessibility considerations</h2>
+    <h2>Ses çıktı formatı</h2>
     <p>
-      Screen-reader users consume TTS output hours per day. A few rules for
-      TTS-accessible content:
+      Bulut TTS tipik olarak MP3 (iyi varsayılan, küçük dosya, evrensel destek),
+      WAV veya PCM (kayıpsız, büyük, ileri düzenleme için iyi), OGG (MP3'ten
+      küçük, daha az evrensel) veya gerçek zamanlı oynatma için bir
+      <a href="/learn/stream">akış</a> formatı sunar.
     </p>
     <p>
-      Respect the user&rsquo;s chosen voice and rate &mdash; don&rsquo;t hardcode a
-      fast rate &ldquo;to save time.&rdquo; Screen-reader users typically listen at
-      300+ WPM with practice.
-    </p>
-    <p>
-      Provide punctuation that TTS engines interpret correctly. A dash (&mdash;)
-      creates a pause; parentheses group phrases; an em-space after a sentence allows
-      natural breath. Avoid Unicode decorations and special characters that engines
-      may verbalize literally (&ldquo;star&rdquo;, &ldquo;black-small-square&rdquo;).
-    </p>
-    <p>
-      For accessibility-focused apps, offer a voice-selection UI rather than
-      hardcoding one voice.
+      Nihai bir podcast veya video teslimatı için WAV veya 320kbps MP3 isteyin,
+      herhangi bir son işleme (sıkıştırma, EQ, -16 LUFS'ye ses yüksekliği
+      normalleştirme) uygulayın, ardından nihai formata aktarın. Ham TTS MP3'ü
+      olduğu gibi kullanmayın &mdash; son işleme onu daha profesyonel yapar.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Erişilebilirlik hususları</h2>
     <p>
-      <strong>Assuming all engines support SSML.</strong> OpenAI TTS ignores SSML
-      entirely. Test your markup against your actual engine.
+      Ekran okuyucu kullanıcıları günde saatlerce TTS çıktısı tüketir. TTS
+      erişilebilir içerik için birkaç kural:
     </p>
     <p>
-      <strong>Using the default voice without auditioning alternatives.</strong>{" "}
-      Voice choice dramatically changes perceived quality. Compare three or four on
-      the same script before committing.
+      Kullanıcının seçtiği ses ve hıza saygı gösterin &mdash; "zaman kazanmak için"
+      hızlı bir hızı sabit kodlamayın. Ekran okuyucu kullanıcıları pratikle
+      tipik olarak dakikada 300+ kelime hızında dinler.
     </p>
     <p>
-      <strong>Speaking too fast for long-form content.</strong> Audiobook narration
-      at 100% is typically too fast; 90&ndash;95% lets words land.
+      TTS motorlarının doğru yorumlayacağı noktalama işaretleri sağlayın. Bir
+      tire (&mdash;) duraklama oluşturur; parantezler ifadeleri gruplar; bir
+      cümleden sonra em-boşluk doğal nefes almaya izin verir. Motorların harfi
+      harfine seslendirebileceği Unicode süslemelerinden ve özel karakterlerden
+      kaçının ("yıldız", "siyah-küçük-kare").
     </p>
     <p>
-      <strong>Ignoring mispronunciations.</strong> Brand names, product names, and
-      technical jargon almost always need lexicon entries or phoneme tags.
-    </p>
-    <p>
-      <strong>Shipping raw TTS without post-processing.</strong> Loudness
-      normalization, EQ, and subtle compression are the difference between
-      &ldquo;robot reading&rdquo; and &ldquo;professional narration.&rdquo;
-    </p>
-    <p>
-      <strong>Forgetting silence at the head and tail.</strong> Cloud TTS often
-      produces output that starts speaking immediately. Add 300&ndash;500ms of silence
-      at each end for natural pacing.
-    </p>
-    <p>
-      <strong>Using neural voices without disclosure when required.</strong> Some
-      jurisdictions require disclosure of AI-generated voice in ads and political
-      content.
+      Erişilebilirlik odaklı uygulamalar için, bir sesi sabit kodlamak yerine bir
+      ses seçme arayüzü sunun.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Generate speech from text with voice controls using the{" "}
-      <a href="/tools/text-to-speech">text-to-speech tool</a>. Pair with the{" "}
-      <a href="/tools/audio-trimmer">audio trimmer</a> to tidy the start and end of
-      the generated file before shipping, and the{" "}
-      <a href="/tools/speech-to-text">speech-to-text tool</a> when you want to
-      generate a transcript for captions from the synthesized audio in a round-trip
-      workflow.
+      <strong>Tüm motorların SSML'yi desteklediğini varsaymak.</strong> OpenAI TTS,
+      SSML'yi tamamen yok sayar. İşaretlemenizi gerçek motorunuza karşı test edin.
+    </p>
+    <p>
+      <strong>Alternatifleri dinlemeden varsayılan sesi kullanmak.</strong>{" "}
+      Ses seçimi, algılanan kaliteyi önemli ölçüde değiştirir. Karar vermeden önce
+      aynı metin üzerinde üç veya dört sesi karşılaştırın.
+    </p>
+    <p>
+      <strong>Uzun biçimli içerik için çok hızlı konuşmak.</strong> Sesli kitap
+      anlatımında %100 hız tipik olarak çok hızlıdır; %90&ndash;95 kelimelerin
+      oturmasını sağlar.
+    </p>
+    <p>
+      <strong>Yanlış telaffuzları görmezden gelmek.</strong> Marka adları, ürün
+      adları ve teknik jargon neredeyse her zaman sözlük girişleri veya fonem
+      etiketleri gerektirir.
+    </p>
+    <p>
+      <strong>Ham TTS'yi son işleme olmadan göndermek.</strong> Ses yüksekliği
+      normalleştirme, EQ ve ince sıkıştırma, "robot okuması" ile "profesyonel
+      anlatım" arasındaki farktır.
+    </p>
+    <p>
+      <strong>Başta ve sonda sessizliği unutmak.</strong> Bulut TTS genellikle
+      hemen konuşmaya başlayan çıktı üretir. Doğal tempo için her iki uca
+      300&ndash;500ms sessizlik ekleyin.
+    </p>
+    <p>
+      <strong>Gerektiğinde açıklama yapmadan sinirsel sesleri kullanmak.</strong>
+      Bazı yargı bölgeleri, reklamlarda ve siyasi içeriklerde yapay zeka
+      tarafından oluşturulan sesin açıklanmasını gerektirir.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      Ses kontrolleriyle metinden konuşma oluşturmak için{" "}
+      <a href="/tools/text-to-speech">metinden konuşmaya aracını</a> kullanın.
+      Oluşturulan dosyanın başını ve sonunu düzeltmek için{" "}
+      <a href="/tools/audio-trimmer">ses kırpma aracıyla</a> eşleştirin ve
+      sentezlenen sesten altyazılar için bir transkript oluşturmak istediğinizde
+      bir gidiş-dönüş iş akışında{" "}
+      <a href="/tools/speech-to-text">konuşmadan metne aracını</a> kullanın.
     </p>
   </>
 );

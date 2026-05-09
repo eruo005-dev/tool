@@ -2,74 +2,49 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Aider is a pair-programming CLI that edits files in your repo and commits the changes directly
-    to git. You run it from inside a project, give it a goal in plain English, and it proposes
-    diffs one turn at a time &mdash; with every accepted change landing as its own git commit.
+    Aider, projenizdeki dosyaları düzenleyen ve değişiklikleri doğrudan git'e aktaran bir çift-programlama CLI aracıdır. Bir projenin içinden çalıştırılır, ona sade İngilizce bir hedef verilir ve her seferinde bir değişiklik önerir &mdash; kabul edilen her değişiklik kendi git commit'i olarak kaydedilir.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What Aider actually does</h2>
+    <h2>Aider aslında ne yapar</h2>
     <p>
-      Aider loads the files you add to the chat into an <a href="/learn/llm">LLM</a>&rsquo;s context, then asks the model
-      to produce either a unified diff or a whole-file rewrite depending on the edit format it
-      negotiated for your model. When you accept, Aider applies the edit and runs{" "}
-      <code>git commit</code> with a message it wrote. Undo is just{" "}
-      <code>git reset --hard HEAD~1</code>, so there is no magic state to untangle.
+      Aider, sohbete eklediğiniz dosyaları bir <a href="/learn/llm">LLM</a>'nin bağlamına yükler, ardından modelden, modeliniz için anlaşılan düzenleme formatına bağlı olarak birleşik bir diff veya tüm dosyanın yeniden yazılmasını üretmesini ister. Kabul ettiğinizde, Aider düzenlemeyi uygular ve yazdığı bir mesajla <code>git commit</code> çalıştırır. Geri almak sadece <code>git reset --hard HEAD~1</code> komutudur, bu nedenle çözülmesi gereken sihirli bir durum yoktur.
     </p>
 
-    <h2>Installing</h2>
+    <h2>Kurulum</h2>
     <pre>{`python -m pip install aider-install
 aider-install`}</pre>
     <p>
-      The installer puts Aider in its own isolated environment so it will not fight your project
-      deps. Set <code>ANTHROPIC_API_KEY</code> or <code>OPENAI_API_KEY</code> in your shell profile
-      before the first run.
+      Yükleyici, Aider'i kendi izole ortamına koyar, böylece proje bağımlılıklarınızla çatışmaz. İlk çalıştırmadan önce kabuk profilinize <code>ANTHROPIC_API_KEY</code> veya <code>OPENAI_API_KEY</code> değişkenini ayarlayın.
     </p>
 
-    <h2>A first session</h2>
+    <h2>İlk oturum</h2>
     <pre>{`cd my-project
 aider --model sonnet src/handlers.py src/handlers_test.py`}</pre>
     <p>
-      Inside the prompt, describe the change: &ldquo;add retry with exponential backoff to the
-      fetch_user handler, and extend the existing test to cover three retries.&rdquo; Aider will
-      edit both files, run the test command if you set one, and commit. Use <code>/add</code> and{" "}
-      <code>/drop</code> to manage the file set, <code>/undo</code> to roll back the last commit,
-      and <code>/ask</code> when you want to discuss without editing.
+      İstem içinde değişikliği tanımlayın: &ldquo;fetch_user işleyicisine üstel geri çekilme ile yeniden deneme ekleyin ve mevcut testi üç yeniden denemeyi kapsayacak şekilde genişletin.&rdquo; Aider her iki dosyayı da düzenleyecek, eğer ayarladıysanız test komutunu çalıştıracak ve commit yapacak. Dosya kümesini yönetmek için <code>/add</code> ve <code>/drop</code>, son commit'i geri almak için <code>/undo</code> ve düzenleme yapmadan tartışmak istediğinizde <code>/ask</code> komutlarını kullanın.
     </p>
 
-    <h2>Picking a model</h2>
+    <h2>Model seçimi</h2>
     <p>
-      Claude Sonnet and GPT-class frontier models are the sweet spot for whole-file edits on
-      real code. Aider&rsquo;s own leaderboard is the best live reference &mdash; it measures
-      edit-format compliance, not just raw code quality, which is what actually breaks agents in
-      practice. For cost-sensitive work, use an <code>--architect</code> plus{" "}
-      <code>--editor-model</code> split so a strong reasoner plans and a cheaper model writes.
+      Claude Sonnet ve GPT sınıfı öncü modeller, gerçek kod üzerinde tüm dosya düzenlemeleri için en uygun noktadır. Aider'in kendi liderlik tablosu en iyi canlı referanstır &mdash; sadece ham kod kalitesini değil, aynı zamanda pratikte ajanları bozan düzenleme formatı uyumluluğunu da ölçer. Maliyet hassasiyeti olan işler için, güçlü bir akıl yürütücünün plan yapması ve daha ucuz bir modelin yazması için bir <code>--architect</code> artı <code>--editor-model</code> ayrımı kullanın.
     </p>
 
-    <h2>Configuration pitfalls</h2>
+    <h2>Yapılandırma tuzakları</h2>
     <p>
-      Drop a <code>.aider.conf.yml</code> at the repo root to pin model, edit format, lint command
-      and test command. Aider will run your linter and tests after each edit and feed failures
-      back into the next turn &mdash; this is the single biggest quality win and most users skip
-      it. Add <code>.aider*</code> to <code>.gitignore</code> so chat history and cache do not
-      leak into commits.
+      Depo köküne bir <code>.aider.conf.yml</code> dosyası koyarak model, düzenleme formatı, lint komutu ve test komutunu sabitleyin. Aider, her düzenlemeden sonra linter'ınızı ve testlerinizi çalıştırır ve başarısızlıkları bir sonraki tura geri besler &mdash; bu en büyük kalite kazancıdır ve çoğu kullanıcı bunu atlar. Sohbet geçmişi ve önbelleğin commit'lere sızmasını önlemek için <code>.gitignore</code> dosyasına <code>.aider*</code> ekleyin.
     </p>
 
-    <h2>When Aider shines</h2>
+    <h2>Aider'in parladığı durumlar</h2>
     <p>
-      Bounded changes across two to six files where you want atomic commits and a clean diff
-      trail. Bug fixes with a reproducing test are ideal: write the failing test, tell Aider to
-      make it pass, watch it iterate.
+      Atomik commit'ler ve temiz bir diff izi istediğiniz, iki ila altı dosya arasındaki sınırlı değişiklikler. Bir testle çoğaltılabilen hata düzeltmeleri idealdir: başarısız olan testi yazın, Aider'e onu geçirmesini söyleyin ve yinelemesini izleyin.
     </p>
 
-    <h2>When not to use it</h2>
+    <h2>Ne zaman kullanılmamalı</h2>
     <p>
-      Greenfield apps where you do not yet have a repo structure &mdash; Aider assumes you know
-      which files to put in context, and its retrieval is weaker than IDE-integrated agents.
-      Also avoid it for &ldquo;read the whole repo and tell me how auth works&rdquo; exploration;
-      tools like Cline or Cursor index the codebase and will answer faster.
+      Henüz bir depo yapınız olmayan yeni başlangıç uygulamaları &mdash; Aider, bağlama hangi dosyaları koyacağınızı bildiğinizi varsayar ve geri alma yeteneği IDE ile entegre ajanlardan daha zayıftır. Ayrıca &ldquo;tüm depoyu oku ve bana kimlik doğrulamanın nasıl çalıştığını söyle&rdquo; türü keşifler için kullanmaktan kaçının; Cline veya Cursor gibi araçlar kod tabanını indeksler ve daha hızlı yanıt verir.
     </p>
   </>
 );

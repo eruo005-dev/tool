@@ -1,30 +1,30 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>Marvin turns Python functions into structured AI tools without the usual prompt-engineering boilerplate.</p>);
+export const intro: ReactElement = (<p>Marvin, Python fonksiyonlarını, olağan prompt mühendisliği karmaşası olmadan yapılandırılmış AI araçlarına dönüştürür.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>Marvin is a Python toolkit from the Prefect team that wraps <a href="/learn/llm">LLM</a> calls in typed, reliable primitives. Instead of hand-writing prompts and parsing responses, you decorate a function signature and Marvin handles the schema coercion, retries, and validation. It feels like regular Python, which is the point.</p>
-    <h2>What it is</h2>
-    <p>Marvin exposes a small set of primitives &mdash; <code>classify</code>, <code>extract</code>, <code>generate</code>, <code>cast</code>, and the <code>@ai_fn</code> decorator &mdash; that delegate to an LLM backend (OpenAI by default) and return Pydantic-typed results. Under the hood it generates a <a href="/learn/system-prompt">system prompt</a> from the type signature and docstring, calls the model, and parses JSON back into Python objects.</p>
-    <h2>Install / set up</h2>
-    <pre>{`# install
+    <p>Marvin, Prefect ekibinden bir Python araç setidir ve <a href="/learn/llm">LLM</a> çağrılarını tipli, güvenilir temel yapı taşlarına sarar. Prompt'ları elle yazmak ve yanıtları ayrıştırmak yerine, bir fonksiyon imzasını dekore edersiniz ve Marvin şema dönüşümünü, yeniden denemeleri ve doğrulamayı halleder. Normal Python gibi hissettirir, amaç da budur.</p>
+    <h2>Ne olduğu</h2>
+    <p>Marvin, küçük bir temel yapı taşı seti sunar &mdash; <code>classify</code>, <code>extract</code>, <code>generate</code>, <code>cast</code> ve <code>@ai_fn</code> dekoratörü &mdash; bunlar bir LLM arka ucuna (varsayılan olarak OpenAI) yetki verir ve Pydantic tipli sonuçlar döndürür. Perde arkasında, tür imzasından ve docstring'den bir <a href="/learn/system-prompt">sistem promptu</a> oluşturur, modeli çağırır ve JSON'u tekrar Python nesnelerine ayrıştırır.</p>
+    <h2>Kurulum / ayarlar</h2>
+    <pre>{`# kurulum
 pip install marvin
 export OPENAI_API_KEY=sk-...`}</pre>
-    <h2>First run</h2>
-    <p>The fastest demo is classification. Give Marvin a string and a list of labels, and it returns the best match as a typed value.</p>
-    <pre>{`$ python -c "import marvin; print(marvin.classify('This is amazing!', ['positive','negative']))"
-positive`}</pre>
-    <h2>Everyday workflows</h2>
+    <h2>İlk çalıştırma</h2>
+    <p>En hızlı demo sınıflandırmadır. Marvin'e bir dize ve bir etiket listesi verin, en iyi eşleşmeyi tipli bir değer olarak döndürür.</p>
+    <pre>{`$ python -c "import marvin; print(marvin.classify('Bu harika!', ['olumlu','olumsuz']))"
+olumlu`}</pre>
+    <h2>Günlük iş akışları</h2>
     <ul>
-      <li>Wrap a business rule with <code>@ai_fn</code> so product code calls a typed function instead of an LLM directly.</li>
-      <li>Use <code>marvin.extract</code> to pull entities (emails, prices, dates) out of unstructured support tickets.</li>
-      <li>Chain <code>marvin.generate</code> with Pydantic models to fabricate test fixtures that match your schema.</li>
+      <li>Bir iş kuralını <code>@ai_fn</code> ile sarın, böylece ürün kodu doğrudan bir LLM yerine tipli bir fonksiyon çağırır.</li>
+      <li>Yapılandırılmamış destek biletlerinden varlıkları (e-postalar, fiyatlar, tarihler) çıkarmak için <code>marvin.extract</code> kullanın.</li>
+      <li>Şemanızla eşleşen test verileri oluşturmak için <code>marvin.generate</code>'ı Pydantic modelleriyle zincirleyin.</li>
     </ul>
-    <h2>Gotchas and tips</h2>
-    <p>Marvin is thin on purpose. It does not ship a vector store, a chat UI, or an agent loop &mdash; if you need those, pair it with LangChain or ControlFlow (also from Prefect). Treat Marvin as the &ldquo;typed function&rdquo; layer and compose it with heavier frameworks.</p>
-    <p>Token cost is easy to underestimate because every decorated call round-trips to the model. Cache aggressively in production, and prefer <code>classify</code> over <code>@ai_fn</code> when the output space is small and known &mdash; it&rsquo;s cheaper and more deterministic.</p>
-    <h2>Who it&rsquo;s for</h2>
-    <p>Python developers who want LLM features inside existing services without adopting a full agent framework. If you already live in FastAPI, Prefect, or a data pipeline and you need structured outputs today, Marvin slots in cleanly.</p>
+    <h2>Tuzaklar ve ipuçları</h2>
+    <p>Marvin kasıtlı olarak incedir. Bir vektör deposu, sohbet arayüzü veya ajan döngüsü içermez &mdash; bunlara ihtiyacınız varsa, LangChain veya ControlFlow (yine Prefect'ten) ile eşleştirin. Marvin'i &ldquo;tipli fonksiyon&rdquo; katmanı olarak düşünün ve daha ağır çerçevelerle birleştirin.</p>
+    <p>Token maliyetini hafife almak kolaydır çünkü dekore edilmiş her çağrı modele gidip gelir. Üretimde agresif bir şekilde önbelleğe alın ve çıktı alanı küçük ve bilindiğinde <code>@ai_fn</code> yerine <code>classify</code>'ı tercih edin &mdash; daha ucuz ve daha deterministiktir.</p>
+    <h2>Kimler için</h2>
+    <p>Tam bir ajan çerçevesi benimsemeden mevcut hizmetler içinde LLM özellikleri isteyen Python geliştiricileri. Halihazırda FastAPI, Prefect veya bir veri hattında yaşıyorsanız ve bugün yapılandırılmış çıktılara ihtiyacınız varsa, Marvin temiz bir şekilde uyum sağlar.</p>
   </>
 );

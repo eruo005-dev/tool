@@ -3,190 +3,199 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A kilobyte is 1,000 bytes, except when it&rsquo;s 1,024 bytes, and the answer depends on
-      who you ask and when. RAM manufacturers and operating systems use powers of two
-      (1,024&nbsp;= 2<sup>10</sup>), because memory is physically organized in binary.
-      Storage manufacturers (hard drives, SSDs) use powers of ten, because the marketing
-      numbers look larger. IEC 60027-2 resolved this in 1998 by giving the binary versions
-      their own prefix (KiB, MiB, GiB) and keeping the decimal prefixes (KB, MB, GB) for base
-      ten. Almost nobody follows that cleanly. Network bandwidth is usually measured in bits
-      per second, not bytes per second, which adds a factor-of-8 confusion when comparing
-      &ldquo;100 Mbps internet&rdquo; with &ldquo;100 MB/s disk.&rdquo; This guide covers
-      bits and bytes, decimal versus binary prefixes, the IEC standard, bandwidth versus
-      storage, and how to translate between the three worlds without getting the answer off
-      by 10% or 1,000&times;.
+      Bir kilobayt 1.000 bayttır, ancak bazen 1.024 bayt olur ve cevap kime ve ne zaman
+      sorduğunuza bağlıdır. RAM üreticileri ve işletim sistemleri ikinin katlarını
+      (1.024&nbsp;= 2<sup>10</sup>) kullanır çünkü bellek fiziksel olarak ikili düzende
+      organize edilmiştir. Depolama üreticileri (sabit diskler, SSD'ler) onun katlarını
+      kullanır çünkü pazarlama rakamları daha büyük görünür. IEC 60027-2 standardı 1998
+      yılında ikili versiyonlara kendi öneklerini (KiB, MiB, GiB) vererek ve ondalık
+      önekleri (KB, MB, GB) on tabanı için koruyarak bu karışıklığı çözmüştür. Neredeyse
+      hiç kimse bu ayrımı net bir şekilde uygulamaz. Ağ bant genişliği genellikle saniye
+      başına bit olarak ölçülür, saniye başına bayt değil; bu da &ldquo;100 Mbps
+      internet&rdquo; ile &ldquo;100 MB/s disk&rdquo; karşılaştırılırken 8 katı bir
+      kafa karışıklığına yol açar. Bu kılavuz, bit ve baytları, ondalık ve ikili önekleri,
+      IEC standardını, bant genişliği ile depolama arasındaki farkı ve cevabı %10 veya
+      1.000 kat kaçırmadan bu üç dünya arasında nasıl çeviri yapılacağını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Bits and bytes</h2>
+    <h2>Bitler ve baytlar</h2>
     <p>
-      A <strong>bit</strong> is a single binary digit&mdash;0 or 1. A <strong>byte</strong> is
-      8 bits, enough to represent 256 distinct values or one ASCII character. Lowercase b
-      means bit (Mbps = megabits per second); uppercase B means byte (MB = megabyte). Mixing
-      them up gives 8&times; errors.
+      Bir <strong>bit</strong>, tek bir ikili basamaktır&mdash;0 veya 1. Bir <strong>bayt</strong>
+      ise 8 bittir ve 256 farklı değeri veya bir ASCII karakterini temsil etmeye yeterlidir.
+      Küçük harf b bit anlamına gelir (Mbps = saniye başına megabit); büyük harf B bayt
+      anlamına gelir (MB = megabayt). Bunları karıştırmak 8 kat hatalara yol açar.
     </p>
-    <pre>{`1 byte (B)  = 8 bits (b)
-1 nibble    = 4 bits (half a byte)
+    <pre>{`1 bayt (B)  = 8 bit (b)
+1 nibble    = 4 bit (yarım bayt)
 
-"100 Mbps" = 100 megabits per second = 12.5 MB/s
-"100 MB/s" = 100 megabytes per second = 800 Mbps`}</pre>
+"100 Mbps" = saniyede 100 megabit = 12,5 MB/s
+"100 MB/s" = saniyede 100 megabayt = 800 Mbps`}</pre>
 
-    <h2>Decimal prefixes (SI / storage marketing)</h2>
-    <pre>{`1 KB  = 1,000 B         (kilobyte, SI)
-1 MB  = 1,000 KB = 1,000,000 B
-1 GB  = 1,000 MB = 10⁹ B
-1 TB  = 1,000 GB = 10¹² B
-1 PB  = 1,000 TB = 10¹⁵ B
-1 EB  = 1,000 PB = 10¹⁸ B`}</pre>
+    <h2>Ondalık önekler (SI / depolama pazarlaması)</h2>
+    <pre>{`1 KB  = 1.000 B         (kilobayt, SI)
+1 MB  = 1.000 KB = 1.000.000 B
+1 GB  = 1.000 MB = 10⁹ B
+1 TB  = 1.000 GB = 10¹² B
+1 PB  = 1.000 TB = 10¹⁵ B
+1 EB  = 1.000 PB = 10¹⁸ B`}</pre>
     <p>
-      Storage manufacturers quote disk sizes in decimal. A &ldquo;1 TB&rdquo; hard drive holds
-      10<sup>12</sup> = 1,000,000,000,000 bytes. When the operating system reports it,
-      Windows (using binary interpretation) shows it as roughly 931 GB, which is where users
-      feel cheated. The drive is the size the label says in decimal, and 931 in binary.
-    </p>
-
-    <h2>Binary prefixes (IEC 60027-2)</h2>
-    <pre>{`1 KiB = 1,024 B              (kibibyte)
-1 MiB = 1,024 KiB = 2²⁰ B    = 1,048,576 B
-1 GiB = 1,024 MiB = 2³⁰ B    = 1,073,741,824 B
-1 TiB = 1,024 GiB = 2⁴⁰ B    = 1,099,511,627,776 B
-1 PiB = 1,024 TiB = 2⁵⁰ B`}</pre>
-    <p>
-      The IEC introduced these prefixes in 1998 specifically to disambiguate. &ldquo;Kibi,&rdquo;
-      &ldquo;mebi,&rdquo; &ldquo;gibi&rdquo; sound awkward but they&rsquo;re unambiguous.
-      Linux distributions, some server tools, and a growing number of software vendors use
-      them. Windows and Apple still show binary values with the decimal names (GB meaning
-      GiB), which is the primary source of confusion.
+      Depolama üreticileri disk boyutlarını ondalık olarak belirtir. &ldquo;1 TB&rdquo; bir
+      sabit disk 10<sup>12</sup> = 1.000.000.000.000 bayt tutar. İşletim sistemi bunu
+      bildirdiğinde, Windows (ikili yorum kullanarak) bunu yaklaşık 931 GB olarak gösterir,
+      bu da kullanıcıların kendilerini kandırılmış hissetmelerine neden olur. Disk, etikette
+      yazdığı boyuttadır (ondalık) ve 931 ise ikili karşılığıdır.
     </p>
 
-    <h2>The KB vs KiB discrepancy</h2>
+    <h2>İkili önekler (IEC 60027-2)</h2>
+    <pre>{`1 KiB = 1.024 B              (kibibayt)
+1 MiB = 1.024 KiB = 2²⁰ B    = 1.048.576 B
+1 GiB = 1.024 MiB = 2³⁰ B    = 1.073.741.824 B
+1 TiB = 1.024 GiB = 2⁴⁰ B    = 1.099.511.627.776 B
+1 PiB = 1.024 TiB = 2⁵⁰ B`}</pre>
     <p>
-      The gap grows with scale:
-    </p>
-    <pre>{`Unit  Decimal       Binary         Discrepancy
-KB    1,000         1,024           2.4%
-MB    1,000,000     1,048,576       4.9%
-GB    10⁹           1.07 × 10⁹      7.4%
-TB    10¹²          1.10 × 10¹²     9.9%
-PB    10¹⁵          1.13 × 10¹⁵    12.6%`}</pre>
-    <p>
-      At the gigabyte scale, the &ldquo;missing 7%&rdquo; of your new hard drive is the
-      decimal-vs-binary gap, not a manufacturer cheat. At terabyte scale, it&rsquo;s 10% of
-      the label.
+      IEC bu önekleri 1998 yılında özellikle belirsizliği gidermek için tanıttı.
+      &ldquo;Kibi,&rdquo; &ldquo;mebi,&rdquo; &ldquo;gibi&rdquo; kulağa tuhaf gelse de
+      kesin anlamlıdır. Linux dağıtımları, bazı sunucu araçları ve giderek artan sayıda
+      yazılım satıcısı bunları kullanır. Windows ve Apple hala ikili değerleri ondalık
+      isimlerle (GB'nin GiB anlamında) gösterir, bu da kafa karışıklığının ana kaynağıdır.
     </p>
 
-    <h2>Memory uses binary; storage uses decimal</h2>
+    <h2>KB ve KiB arasındaki fark</h2>
     <p>
-      RAM modules and CPU caches are sold in binary amounts because memory chips are
-      organized in power-of-two rows and columns. A 16 GB DIMM really holds 16 &times;
-      1,073,741,824 = 17.18 billion bytes. Storage devices (HDD, SSD, USB sticks) are sold in
-      decimal: a &ldquo;2 TB&rdquo; SSD holds 2 &times; 10<sup>12</sup> = 2 trillion bytes.
-      Operating systems often show both kinds of sizes in binary with decimal labels, which
-      is why disk space always looks smaller than advertised and memory never does.
+      Fark ölçek büyüdükçe artar:
+    </p>
+    <pre>{`Birim  Ondalık        İkili          Fark
+KB     1.000          1.024            %2,4
+MB     1.000.000      1.048.576        %4,9
+GB     10⁹            1,07 × 10⁹       %7,4
+TB     10¹²           1,10 × 10¹²      %9,9
+PB     10¹⁵           1,13 × 10¹⁵     %12,6`}</pre>
+    <p>
+      Gigabayt ölçeğinde, yeni sabit diskinizdeki &ldquo;eksik %7&rdquo; ondalık-ikili
+      farkıdır, üretici hilesi değil. Terabayt ölçeğinde bu, etiketin %10'u kadardır.
     </p>
 
-    <h2>Bandwidth vs storage</h2>
+    <h2>Bellek ikili kullanır; depolama ondalık kullanır</h2>
     <p>
-      Network speed is quoted in <strong>bits per second</strong>. Storage speed is usually in
-      <strong>bytes per second</strong>. To compare:
-    </p>
-    <pre>{`100 Mbps internet = 100,000,000 bits/s = 12.5 MB/s
-1 Gbps fiber      = 1,000,000,000 bits/s = 125 MB/s
-10 Gbps backbone  = 1.25 GB/s
-
-Home Wi-Fi rated "1200 Mbps" delivers ~150 MB/s at best.
-Downloading a 1 GB file on 100 Mbps takes about 80 seconds
-(not 10 seconds, because of the factor of 8).`}</pre>
-
-    <h2>File sizes in practice</h2>
-    <pre>{`Plain text email       ~10 KB
-JPEG photo (phone)     2-5 MB
-MP3 song (3.5 min)     ~3.5 MB
-1080p video (1 min)    ~130 MB
-4K video (1 min)       ~400 MB
-Linux ISO              ~3 GB
-Full-resolution movie  ~50 GB (Blu-ray quality)
-Large dataset          ~1 TB+`}</pre>
-
-    <h2>Throughput math</h2>
-    <p>
-      To estimate download time, divide file size by bandwidth after converting both to the
-      same unit. A 4 GB movie on a 50 Mbps connection: 4 GB &times; 8 = 32 Gb; 32 Gb / 0.05
-      Gbps = 640 s = 10.7 minutes. Real-world throughput is typically 60&ndash;80% of
-      advertised bandwidth due to protocol overhead, so plan on 14 minutes.
+      RAM modülleri ve CPU önbellekleri ikili miktarlarda satılır çünkü bellek yongaları
+      ikinin katları halinde satır ve sütunlar halinde düzenlenmiştir. 16 GB'lık bir DIMM
+      gerçekten 16 × 1.073.741.824 = 17,18 milyar bayt tutar. Depolama aygıtları (HDD, SSD,
+      USB bellekler) ondalık olarak satılır: &ldquo;2 TB&rdquo; bir SSD, 2 × 10<sup>12</sup>
+      = 2 trilyon bayt tutar. İşletim sistemleri genellikle her iki tür boyutu da ondalık
+      etiketlerle ikili olarak gösterir, bu nedenle disk alanı her zaman reklamı yapılandan
+      daha küçük görünür ve bellek asla böyle görünmez.
     </p>
 
-    <h2>Block sizes and filesystems</h2>
+    <h2>Bant genişliği ve depolama</h2>
     <p>
-      Filesystems allocate space in blocks (typically 4 KiB on modern systems). A 1-byte file
-      still consumes 4 KiB on disk. When you have millions of small files, the difference
-      between their sum of sizes and their actual disk usage can be dramatic. Tools like
-      <code>du</code> on Unix report actual block usage; tools that sum file metadata
-      report logical size.
+      Ağ hızı <strong>saniye başına bit</strong> olarak belirtilir. Depolama hızı genellikle
+      <strong>saniye başına bayt</strong> olarak belirtilir. Karşılaştırmak için:
+    </p>
+    <pre>{`100 Mbps internet = 100.000.000 bit/s = 12,5 MB/s
+1 Gbps fiber      = 1.000.000.000 bit/s = 125 MB/s
+10 Gbps omurga    = 1,25 GB/s
+
+"1200 Mbps" olarak derecelendirilen ev Wi-Fi'si en iyi ihtimalle ~150 MB/s sağlar.
+100 Mbps'de 1 GB'lık bir dosyayı indirmek yaklaşık 80 saniye sürer
+(10 saniye değil, çünkü 8 katı faktörü vardır).`}</pre>
+
+    <h2>Pratikte dosya boyutları</h2>
+    <pre>{`Düz metin e-posta       ~10 KB
+JPEG fotoğraf (telefon)  2-5 MB
+MP3 şarkı (3,5 dk)      ~3,5 MB
+1080p video (1 dk)      ~130 MB
+4K video (1 dk)         ~400 MB
+Linux ISO               ~3 GB
+Tam çözünürlüklü film   ~50 GB (Blu-ray kalitesi)
+Büyük veri seti         ~1 TB+`}</pre>
+
+    <h2>Verim hesaplamaları</h2>
+    <p>
+      İndirme süresini tahmin etmek için, dosya boyutunu bant genişliğine bölün, her ikisini
+      de aynı birime dönüştürdükten sonra. 50 Mbps bağlantıda 4 GB'lık bir film: 4 GB × 8 =
+      32 Gb; 32 Gb / 0,05 Gbps = 640 sn = 10,7 dakika. Gerçek dünya verimi, protokol yükü
+      nedeniyle genellikle reklamı yapılan bant genişliğinin %60-80'i kadardır, bu nedenle
+      14 dakika olarak plan yapın.
     </p>
 
-    <h2>Base64 and text encoding overhead</h2>
+    <h2>Blok boyutları ve dosya sistemleri</h2>
     <p>
-      When binary data is Base64-encoded for text transport, it inflates by 33%. A 1 MB image
-      becomes a 1.33 MB string. JSON-encoded binary (via Base64) in a web API carries this
-      tax. For large payloads, use binary transport (gRPC, multipart) instead.
+      Dosya sistemleri alanı bloklar halinde tahsis eder (modern sistemlerde genellikle 4
+      KiB). 1 baytlık bir dosya diskte hala 4 KiB yer kaplar. Milyonlarca küçük dosyanız
+      olduğunda, boyutlarının toplamı ile diskteki gerçek kullanımları arasındaki fark
+      dramatik olabilir. Unix'teki <code>du</code> gibi araçlar gerçek blok kullanımını
+      bildirir; dosya meta verilerini toplayan araçlar mantıksal boyutu bildirir.
     </p>
 
-    <h2>How to report sizes honestly</h2>
+    <h2>Base64 ve metin kodlama yükü</h2>
     <p>
-      Specify your base explicitly if the audience might care: &ldquo;500 GB (500,000,000,000
-      bytes)&rdquo; or &ldquo;512 GiB (binary)&rdquo; removes ambiguity. Software vendors
-      increasingly use IEC prefixes (KiB, MiB, GiB) in documentation but still show decimal
-      prefixes to users because &ldquo;MB&rdquo; is more recognizable.
+      İkili veri, metin taşımacılığı için Base64 ile kodlandığında %33 oranında şişer. 1
+      MB'lık bir görüntü, 1,33 MB'lık bir dize haline gelir. Bir web API'sinde JSON ile
+      kodlanmış ikili veri (Base64 aracılığıyla) bu vergiyi taşır. Büyük yükler için bunun
+      yerine ikili taşıma (gRPC, multipart) kullanın.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Boyutları dürüstçe nasıl raporlamalı</h2>
     <p>
-      <strong>Confusing bits and bytes.</strong> Mbps is bits per second; MB/s is bytes per
-      second. The ratio is 8. A 100 Mbps internet plan gives you 12.5 MB/s downloads, not 100.
-    </p>
-    <p>
-      <strong>Assuming GB means 1,073,741,824 bytes.</strong> Modern documentation treats GB
-      as decimal (10<sup>9</sup>) and GiB as binary (2<sup>30</sup>). Windows still uses GB
-      for binary values, which confuses comparisons between OS reports and drive labels.
-    </p>
-    <p>
-      <strong>Comparing Windows GB to storage label GB.</strong> Your 1 TB drive shows as 931
-      GB in Windows because Windows uses binary GB (really GiB) and the drive is labeled in
-      decimal TB. Nothing is missing.
-    </p>
-    <p>
-      <strong>Ignoring protocol overhead.</strong> Advertised 100 Mbps delivers 60&ndash;80
-      Mbps in practice after TCP/IP headers, retransmissions, and Wi-Fi encoding. Plan
-      accordingly.
-    </p>
-    <p>
-      <strong>Using &ldquo;KB&rdquo; to mean 1,024 in some places and 1,000 in others.</strong>
-      Pick a convention per document and stick with it. Prefer KiB/MiB when binary is what you
-      mean.
-    </p>
-    <p>
-      <strong>Summing logical file sizes to estimate disk usage.</strong> A directory of 1,000
-      tiny files takes more disk space than a text file of the summed bytes, because of block
-      allocation. Use <code>du</code>, not a recursive list of sizes.
-    </p>
-    <p>
-      <strong>Assuming Base64 is &ldquo;just text.&rdquo;</strong> It inflates binary by 33%.
-      For large payloads, this matters for bandwidth bills and memory use.
+      Hedef kitleniz umursayabilecekse tabanınızı açıkça belirtin: &ldquo;500 GB
+      (500.000.000.000 bayt)&rdquo; veya &ldquo;512 GiB (ikili)&rdquo; belirsizliği ortadan
+      kaldırır. Yazılım satıcıları, dokümantasyonda giderek artan şekilde IEC öneklerini
+      (KiB, MiB, GiB) kullanır ancak kullanıcılara hala ondalık önekleri gösterir çünkü
+      &ldquo;MB&rdquo; daha tanınabilirdir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Paste any data size into our{" "}
-      <a href="/tools/data-size-converter">data size converter</a> to see both decimal (KB,
-      MB, GB) and binary (KiB, MiB, GiB) values side by side. Pair it with the{" "}
-      <a href="/tools/base64-encoder-decoder">Base64 encoder</a> for sanity-checking the
-      post-encoding size of binary data, and the{" "}
-      <a href="/tools/unit-converter">unit converter</a> for the broader family of scale
-      conversions where you also need distance or time.
+      <strong>Bit ve baytları karıştırmak.</strong> Mbps saniye başına bittir; MB/s saniye
+      başına bayttır. Oran 8'dir. 100 Mbps'lik bir internet planı size 12,5 MB/s indirme
+      hızı sağlar, 100 değil.
+    </p>
+    <p>
+      <strong>GB'nin 1.073.741.824 bayt olduğunu varsaymak.</strong> Modern dokümantasyon
+      GB'yi ondalık (10<sup>9</sup>) ve GiB'yi ikili (2<sup>30</sup>) olarak ele alır.
+      Windows hala ikili değerler için GB kullanır, bu da işletim sistemi raporları ile
+      disk etiketleri arasındaki karşılaştırmaları karıştırır.
+    </p>
+    <p>
+      <strong>Windows GB'sini depolama etiketi GB'siyle karşılaştırmak.</strong> 1 TB'lık
+      diskiniz Windows'ta 931 GB olarak görünür çünkü Windows ikili GB (aslında GiB) kullanır
+      ve disk ondalık TB olarak etiketlenmiştir. Hiçbir şey eksik değildir.
+    </p>
+    <p>
+      <strong>Protokol yükünü göz ardı etmek.</strong> Reklamı yapılan 100 Mbps, pratikte
+      TCP/IP başlıkları, yeniden iletimler ve Wi-Fi kodlamasından sonra 60-80 Mbps sağlar.
+      Buna göre plan yapın.
+    </p>
+    <p>
+      <strong>Bazı yerlerde &ldquo;KB&rdquo;yi 1.024, bazı yerlerde 1.000 anlamında
+      kullanmak.</strong> Belge başına bir kural seçin ve ona bağlı kalın. İkili kastettiğinizde
+      KiB/MiB tercih edin.
+    </p>
+    <p>
+      <strong>Disk kullanımını tahmin etmek için mantıksal dosya boyutlarını toplamak.</strong>
+      1.000 küçük dosyadan oluşan bir dizin, blok tahsisi nedeniyle toplam baytların toplamından
+      daha fazla disk alanı kaplar. Özyinelemeli bir boyut listesi değil, <code>du</code>
+      kullanın.
+    </p>
+    <p>
+      <strong>Base64'ün &ldquo;sadece metin&rdquo; olduğunu varsaymak.</strong> İkili veriyi
+      %33 oranında şişirir. Büyük yükler için bu, bant genişliği faturaları ve bellek kullanımı
+      açısından önemlidir.
+    </p>
+
+    <h2>Rakamları hesaplayın</h2>
+    <p>
+      Herhangi bir veri boyutunu{" "}
+      <a href="/tools/data-size-converter">veri boyutu dönüştürücümüze</a> yapıştırarak hem
+      ondalık (KB, MB, GB) hem de ikili (KiB, MiB, GiB) değerleri yan yana görün. İkili
+      verinin kodlama sonrası boyutunu kontrol etmek için{" "}
+      <a href="/tools/base64-encoder-decoder">Base64 kodlayıcı</a> ve mesafe veya zaman da
+      gerektiren daha geniş ölçek dönüşümleri için{" "}
+      <a href="/tools/unit-converter">birim dönüştürücü</a> ile birlikte kullanın.
     </p>
   </>
 );

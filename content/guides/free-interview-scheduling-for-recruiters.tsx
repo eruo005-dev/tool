@@ -3,181 +3,176 @@
 export const intro = (
   <>
     <p>
-      The mechanic is mundane: finding a time when 3+ humans are free, sending the invite,
-      handling the reschedule, sending the reminder. Paid scheduling tools (GoodTime,
-      Calendly Pro, x.ai before they pivoted) make team interviews cheap; free tools have
-      gaps that cost you 2–3 candidate hours per week if you don&rsquo;t know the
-      workarounds.
+      Mekanik sıradandır: 3+ kişinin müsait olduğu bir zaman bulmak, davetiye göndermek,
+      yeniden planlamayı yönetmek, hatırlatıcıyı göndermek. Ücretli planlama araçları (GoodTime,
+      Calendly Pro, yön değiştirmeden önce x.ai) ekip mülakatlarını ucuz hale getirir; ücretsiz
+      araçların ise geçici çözümleri bilmiyorsanız haftada 2-3 aday saati kaybettiren boşlukları vardır.
     </p>
     <p>
-      This guide covers the free tools that actually work for recruiting workflows —
-      specifically the team-interview case (multiple interviewers, multiple rounds,
-      buffer time). Solo screen-call scheduling is easy; team coordination is where free
-      tiers get painful.
+      Bu rehber, işe alım iş akışları için gerçekten çalışan ücretsiz araçları kapsar —
+      özellikle ekip mülakatı durumu (birden çok mülakatçı, birden çok tur,
+      tampon süre). Bireysel ön görüşme planlaması kolaydır; ekip koordinasyonu, ücretsiz
+      katmanların can sıkıcı hale geldiği yerdir.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "calendly", label: "Calendly free for recruiting" },
-  { id: "team", label: "Team / panel interviews on free tools" },
-  { id: "google", label: "Google Calendar appointment slots" },
-  { id: "alternatives", label: "Cal.com self-hosted + Doodle" },
-  { id: "templates", label: "Email templates that cut reschedules" },
+  { id: "calendly", label: "İşe alım için ücretsiz Calendly" },
+  { id: "team", label: "Ücretsiz araçlarla ekip / panel mülakatları" },
+  { id: "google", label: "Google Takvim randevu aralıkları" },
+  { id: "alternatives", label: "Cal.com kendi sunucunda barındırma + Doodle" },
+  { id: "templates", label: "Yeniden planlamaları azaltan e-posta şablonları" },
 ];
 
 export const body = (
   <>
-    <h2 id="calendly">Calendly free for recruiting</h2>
+    <h2 id="calendly">İşe alım için ücretsiz Calendly</h2>
     <p>
-      Calendly free covers solo recruiter screening calls cleanly. The features
-      you&rsquo;ll wish you had on free tier:
+      Calendly ücretsiz, bireysel işe alım uzmanının ön görüşme aramalarını temiz bir şekilde kapsar.
+      Ücretsiz katmanda olmasını isteyeceğiniz özellikler:
     </p>
     <ul>
       <li>
-        <strong>1 event type only.</strong> Can&rsquo;t separate &ldquo;30-min phone
-        screen&rdquo; from &ldquo;60-min technical&rdquo; without paying. Workaround: bake
-        the type into the event name and rotate it (rename when switching modes).
+        <strong>Sadece 1 etkinlik türü.</strong> "30 dk telefon ön görüşmesi" ile
+        "60 dk teknik" ayrımını ödeme yapmadan yapamazsınız. Geçici çözüm: türü
+        etkinlik adına ekleyin ve döndürün (mod değiştirirken yeniden adlandırın).
       </li>
       <li>
-        <strong>No round-robin.</strong> Multi-recruiter teams can&rsquo;t share one
-        scheduling link. Workaround: each recruiter publishes their own link and the
-        coordinator picks one when responding.
+        <strong>Sıralı atama yok.</strong> Birden çok işe alım uzmanı olan ekipler tek bir
+        planlama bağlantısını paylaşamaz. Geçici çözüm: her işe alım uzmanı kendi bağlantısını yayınlar ve
+        koordinatör yanıtlarken birini seçer.
       </li>
       <li>
-        <strong>No buffer time.</strong> Back-to-back interviews kill you. Workaround:
-        manually break your availability windows (9–9:50, 10–10:50, etc.).
+        <strong>Tampon süre yok.</strong> Ardışık mülakatlar sizi yıpratır. Geçici çözüm:
+        müsaitlik aralıklarınızı manuel olarak bölün (9–9:50, 10–10:50, vb.).
       </li>
       <li>
-        <strong>No multi-stage links.</strong> Can&rsquo;t schedule phone → onsite in one
-        flow. Workaround: send separate links per stage; tag the bookings in your{" "}
-        <a href="/tools/recruiting-pipeline-tracker">pipeline tracker</a>.
+        <strong>Çok aşamalı bağlantı yok.</strong> Telefon → yüz yüze görüşmeyi tek bir
+        akışta planlayamazsınız. Geçici çözüm: aşama başına ayrı bağlantılar gönderin; rezervasyonları{" "}
+        <a href="/tools/recruiting-pipeline-tracker">işe alım hattı takipçinizde</a> etiketleyin.
       </li>
     </ul>
     <p>
-      Verdict: usable for solo recruiters at low volume. Above ~5 candidates/week the
-      workarounds get tiring.
+      Karar: düşük hacimde bireysel işe alım uzmanları için kullanılabilir. Haftada ~5 adayın üzerinde
+      geçici çözümler yorucu hale gelir.
     </p>
 
-    <h2 id="team">Team / panel interviews on free tools</h2>
+    <h2 id="team">Ücretsiz araçlarla ekip / panel mülakatları</h2>
     <p>
-      Coordinating 3 interviewers + 1 candidate across 4 calendars is the hardest
-      free-tool case. The realistic options:
+      3 mülakatçı + 1 adayı 4 takvim üzerinde koordine etmek en zor
+      ücretsiz araç durumudur. Gerçekçi seçenekler:
     </p>
     <ul>
       <li>
-        <strong>Google Calendar &ldquo;Find a time&rdquo;:</strong> add all interviewers
-        as required attendees, view free-busy across all of them, pick an open block.
-        Free if everyone is on Google Workspace.
+        <strong>Google Takvim "Bir zaman bul":</strong> tüm mülakatçıları
+        zorunlu katılımcı olarak ekleyin, hepsinin müsaitlik durumunu görün, boş bir blok seçin.
+        Herkes Google Workspace'teyse ücretsiz.
       </li>
       <li>
-        <strong>Microsoft Outlook Scheduling Assistant:</strong> same concept for
-        Microsoft 365 organizations.
+        <strong>Microsoft Outlook Planlama Asistanı:</strong> Microsoft 365
+        kuruluşları için aynı konsept.
       </li>
       <li>
-        <strong>Doodle Free:</strong> poll-based — send 5 time options, recipients vote.
-        Slow (multi-day back-and-forth) but works across organizations and free email
-        accounts.
+        <strong>Doodle Ücretsiz:</strong> anket tabanlı — 5 zaman seçeneği gönderin, alıcılar oy verir.
+        Yavaş (günler süren gidiş geliş) ancak kuruluşlar ve ücretsiz e-posta
+        hesapları arasında çalışır.
       </li>
       <li>
-        <strong>Cal.com self-hosted:</strong> open-source Calendly alternative; if you
-        host it yourself, you get round-robin, buffer time, and multi-event types for
-        free. Requires a developer to set up.
+        <strong>Cal.com kendi sunucunda barındırma:</strong> açık kaynaklı Calendly alternatifi; kendi
+        sunucunuzda barındırırsanız, sıralı atama, tampon süre ve birden çok etkinlik türünü
+        ücretsiz alırsınız. Kurulum için bir geliştirici gerektirir.
       </li>
     </ul>
     <p>
-      The team-interview hack that doesn&rsquo;t cost anything: <strong>three named time
-      blocks</strong> in the candidate-facing email. &ldquo;Are any of these 30-min slots
-      open for you next week? Tue 10 AM, Wed 2 PM, Thu 11 AM ET.&rdquo; Skip the
-      poll-tool round-trip entirely. Most candidates pick one in the first reply.
+      Hiçbir maliyeti olmayan ekip mülakatı taktiği: adaya yönelik e-postada <strong>üç adlandırılmış zaman
+      bloğu</strong>. "Gelecek hafta bu 30 dk'lık aralıklardan herhangi biri sizin için uygun mu? Salı 10:00, Çarşamba 14:00, Perşembe 11:00 ET." Anket aracının
+      gidiş gelişini tamamen atlayın. Çoğu aday ilk yanıtta birini seçer.
     </p>
 
-    <h2 id="google">Google Calendar appointment slots</h2>
+    <h2 id="google">Google Takvim randevu aralıkları</h2>
     <p>
-      Lesser-known: Google Calendar has built-in &ldquo;appointment schedules&rdquo;
-      (formerly &ldquo;appointment slots&rdquo;) on free Google Workspace personal accounts
-      since 2023. Lets you publish a public booking page like Calendly. Limits:
+      Daha az bilinen: Google Takvim'de 2023'ten beri ücretsiz Google Workspace kişisel
+      hesaplarında yerleşik "randevu zamanlamaları" (eski adıyla "randevu aralıkları") bulunur. Calendly gibi herkese açık bir rezervasyon sayfası yayınlamanıza olanak tanır. Sınırlamalar:
     </p>
     <ul>
-      <li>One appointment schedule at a time on the personal-Google free tier.</li>
-      <li>Doesn&rsquo;t handle round-robin natively.</li>
-      <li>Less polished than Calendly's UX but functional.</li>
+      <li>Kişisel Google ücretsiz katmanında aynı anda bir randevu zamanlaması.</li>
+      <li>Sıralı atamayı yerel olarak desteklemez.</li>
+      <li>Calendly'nin kullanıcı deneyiminden daha az cilalı ancak işlevsel.</li>
     </ul>
     <p>
-      For a solo recruiter who already has Gmail, this might be enough — no separate
-      account needed.
+      Zaten Gmail'i olan bireysel bir işe alım uzmanı için bu yeterli olabilir — ayrı bir
+      hesaba gerek yoktur.
     </p>
 
-    <h2 id="alternatives">Cal.com self-hosted + Doodle (the free Calendly alternatives)</h2>
+    <h2 id="alternatives">Cal.com kendi sunucunuzda barındırma + Doodle (ücretsiz Calendly alternatifleri)</h2>
     <p>
-      <strong>Cal.com</strong> is the open-source-and-self-hostable Calendly competitor.
-      Their cloud free tier limits to 1 event type (same as Calendly free), but the
-      self-hosted version gives you all features for free if you can run it. Requires:
+      <strong>Cal.com</strong>, açık kaynaklı ve kendi sunucunuzda barındırılabilen Calendly rakibidir.
+      Bulut ücretsiz katmanı 1 etkinlik türüyle sınırlıdır (Calendly ücretsiz ile aynı), ancak
+      kendi sunucunuzda barındırılan sürüm, çalıştırabiliyorsanız tüm özellikleri ücretsiz verir. Gerektirir:
     </p>
     <ul>
-      <li>A server (Vercel free, Railway free trial, or your own VPS).</li>
-      <li>A database (Postgres — Supabase free tier works).</li>
-      <li>Email sending (Resend free tier, or transactional Gmail).</li>
+      <li>Bir sunucu (Vercel ücretsiz, Railway ücretsiz deneme veya kendi VPS'iniz).</li>
+      <li>Bir veritabanı (Postgres — Supabase ücretsiz katmanı çalışır).</li>
+      <li>E-posta gönderme (Resend ücretsiz katmanı veya işlemsel Gmail).</li>
     </ul>
     <p>
-      Setup takes 2–3 hours for a developer; zero ongoing cost; gets you round-robin +
-      buffer + multi-event-types. Worth it if you have technical help available; not
-      worth it if you&rsquo;d be the maintainer.
+      Kurulum bir geliştirici için 2-3 saat sürer; sıfır devam eden maliyet; sıralı atama + tampon +
+      çoklu etkinlik türleri sağlar. Teknik yardımınız varsa değer; bakımı siz yapacaksanız
+      değmez.
     </p>
     <p>
-      <strong>Doodle</strong> is poll-based and surprisingly underused for recruiting.
-      Free tier handles the multi-person scheduling case Calendly free doesn&rsquo;t.
-      The downside: slower than direct booking because everyone has to vote first.
+      <strong>Doodle</strong> anket tabanlıdır ve işe alım için şaşırtıcı derecede az kullanılır.
+      Ücretsiz katman, Calendly ücretsizin yapamadığı çok kişili planlama durumunu halleder.
+      Dezavantajı: herkesin önce oy vermesi gerektiğinden doğrudan rezervasyondan daha yavaştır.
     </p>
 
-    <h2 id="templates">Email templates that cut reschedules</h2>
+    <h2 id="templates">Yeniden planlamaları azaltan e-posta şablonları</h2>
     <p>
-      The cheapest scheduling improvement isn&rsquo;t a tool — it&rsquo;s an email
-      template that reduces &ldquo;sorry, can we move it?&rdquo; messages. Templates that
-      work:
+      En ucuz planlama iyileştirmesi bir araç değil — "üzgünüm, kaydırabilir miyiz?" mesajlarını
+      azaltan bir e-posta şablonudur. İşe yarayan şablonlar:
     </p>
     <ul>
       <li>
-        <strong>Confirmation 24 hours out:</strong> &ldquo;Quick reminder: we&rsquo;re
-        meeting tomorrow at [time]. Here&rsquo;s the [video link]. If anything&rsquo;s
-        come up, reply now and we&rsquo;ll find another time.&rdquo;
+        <strong>24 saat kala onay:</strong> "Kısa hatırlatma: yarın [saat]'te buluşuyoruz.
+        İşte [video bağlantısı]. Bir şey çıkarsa, hemen yanıtlayın ve başka bir zaman bulalım."
       </li>
       <li>
-        <strong>Reschedule offer baked in:</strong> include 2–3 alternative times in every
-        confirmation. Lower mental cost for the candidate to reply with one.
+        <strong>Yeniden planlama teklifi dahil:</strong> her onaya 2-3 alternatif zaman ekleyin.
+        Adayın biriyle yanıt vermesi için zihinsel maliyeti düşürür.
       </li>
       <li>
-        <strong>Day-of nudge:</strong> 1 hour before, &ldquo;See you in 1 hour at [link].&rdquo;
-        Reduces no-shows by ~30% per published recruiter data.
+        <strong>Gününde hatırlatma:</strong> 1 saat kala, "1 saat sonra [bağlantı]'da görüşürüz."
+        Yayınlanmış işe alım uzmanı verilerine göre katılım olmamaları ~%30 azaltır.
       </li>
     </ul>
     <p>
-      Use Gmail templates (free, in settings) or text expander tools (TextBlaze free) to
-      avoid retyping these.
+      Bunları yeniden yazmaktan kaçınmak için Gmail şablonlarını (ücretsiz, ayarlarda) veya metin genişletici
+      araçlarını (TextBlaze ücretsiz) kullanın.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Track interview rounds in our free pipeline tool",
+  label: "Ücretsiz işe alım hattı aracımızda mülakat turlarını takip edin",
   targetSlug: "recruiting-pipeline-tracker",
 };
 
 export const faq = [
   {
-    q: "Can I use Calendly free for hiring?",
-    a: "Yes for solo recruiter screening calls. The 1-event-type limit and lack of buffer time hurt above 5 candidates/week — that's when paid Calendly or Cal.com self-hosted starts to be worth it.",
+    q: "İşe alım için Calendly ücretsiz kullanabilir miyim?",
+    a: "Evet, bireysel işe alım uzmanı ön görüşme aramaları için. 1 etkinlik türü sınırı ve tampon süre eksikliği, haftada 5 adayın üzerinde can sıkar — o zaman ücretli Calendly veya Cal.com kendi sunucunuzda barındırma değerli hale gelir.",
   },
   {
-    q: "How do I schedule a 4-person panel interview without paid tools?",
-    a: "Google Calendar 'Find a time' across all 4 calendars (works inside one Workspace org), or send 3 candidate-facing time options manually. Doodle works for cross-org scheduling but slows things down with the poll step.",
+    q: "Ücretli araçlar olmadan 4 kişilik bir panel mülakatını nasıl planlarım?",
+    a: "4 takvimin tümünde Google Takvim 'Bir zaman bul' (bir Workspace kuruluşu içinde çalışır) veya adaya yönelik 3 zaman seçeneğini manuel olarak gönderin. Doodle, kuruluşlar arası planlama için çalışır ancak anket adımıyla işleri yavaşlatır.",
   },
   {
-    q: "Is Cal.com really free?",
-    a: "The cloud version has the same 1-event-type free limit as Calendly. The self-hosted version is free for everything but requires you to run it on your own server — about 2-3 hours of setup if you have a developer.",
+    q: "Cal.com gerçekten ücretsiz mi?",
+    a: "Bulut sürümü, Calendly ile aynı 1 etkinlik türü ücretsiz sınırına sahiptir. Kendi sunucunuzda barındırılan sürüm her şey için ücretsizdir ancak kendi sunucunuzda çalıştırmanızı gerektirir — bir geliştiriciniz varsa yaklaşık 2-3 saatlik kurulum.",
   },
   {
-    q: "What reduces interview no-shows the most?",
-    a: "A 1-hour-out reminder email — most published recruiter data shows 25-35% no-show reduction. Calendly free has built-in confirmation but no day-of reminder — write a Gmail template instead.",
+    q: "Mülakat katılım olmamalarını en çok ne azaltır?",
+    a: "1 saat kala hatırlatma e-postası — yayınlanmış çoğu işe alım uzmanı verisi %25-35 katılım olmama azalması gösterir. Calendly ücretsizde yerleşik onay vardır ancak gününde hatırlatma yoktur — bunun yerine bir Gmail şablonu yazın.",
   },
 ];

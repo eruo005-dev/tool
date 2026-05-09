@@ -3,252 +3,253 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Minifying JavaScript shrinks bundle size, speeds up page loads,
-      and reduces the bytes users download on slow connections. Done
-      right, it&rsquo;s invisible — same behavior, fewer kilobytes.
-      Done wrong, it breaks your app in production. This guide covers
-      what minification actually does (whitespace removal, variable
-      renaming, dead code elimination), the difference between
-      minification and compression, when to use Terser vs esbuild vs
-      SWC, source maps for debugging minified code, the gotchas that
-      break minified bundles, and how modern bundlers handle all of
-      this automatically.
+      JavaScript'i küçültmek, paket boyutunu azaltır, sayfa yüklemelerini hızlandırır
+      ve kullanıcıların yavaş bağlantılarda indirdiği bayt miktarını düşürür.
+      Doğru yapıldığında görünmezdir — aynı davranış, daha az kilobayt.
+      Yanlış yapıldığında, uygulamanızı canlı ortamda bozar. Bu kılavuz,
+      küçültmenin gerçekte ne yaptığını (boşluk kaldırma, değişken yeniden adlandırma,
+      ölü kod temizleme), küçültme ile sıkıştırma arasındaki farkı, Terser vs esbuild vs
+      SWC kullanma zamanlarını, küçültülmüş kodu hata ayıklamak için kaynak haritalarını,
+      küçültülmüş paketleri bozan tuzakları ve modern paketleyicilerin tüm bunları
+      otomatik olarak nasıl ele aldığını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What minification actually does</h2>
+    <h2>Küçültme gerçekte ne yapar</h2>
     <p>
-      A minifier reads your JavaScript source and outputs semantically
-      equivalent but smaller code. The transformations include:
+      Bir küçültücü, JavaScript kaynağınızı okur ve anlamsal olarak eşdeğer
+      ancak daha küçük kod çıktısı verir. Dönüşümler şunları içerir:
     </p>
     <p>
-      <strong>Whitespace removal:</strong> strip unnecessary spaces,
-      tabs, and newlines. Typically saves 10-20%.
+      <strong>Boşluk kaldırma:</strong> gereksiz boşlukları, sekmeleri
+      ve yeni satırları temizler. Genellikle %10-20 tasarruf sağlar.
     </p>
     <p>
-      <strong>Variable renaming (mangling):</strong> rename{" "}
-      <code>totalUserCount</code> to <code>a</code>. Works only on
-      local scope variables, not exports or properties. Saves 30-50%
-      on identifier-heavy code.
+      <strong>Değişken yeniden adlandırma (mangling):</strong>{" "}
+      <code>totalUserCount</code> değişkenini <code>a</code> olarak yeniden adlandırır.
+      Yalnızca yerel kapsam değişkenlerinde çalışır, dışa aktarımlarda veya özelliklerde değil.
+      Tanımlayıcı ağırlıklı kodda %30-50 tasarruf sağlar.
     </p>
     <p>
-      <strong>Dead code elimination:</strong> remove unreachable
-      branches, unused imports, and dev-only code gated by{" "}
-      <code>process.env.NODE_ENV !== &apos;production&apos;</code>.
+      <strong>Ölü kod temizleme:</strong> ulaşılamaz dalları, kullanılmayan
+      içe aktarımları ve <code>process.env.NODE_ENV !== &apos;production&apos;</code> ile
+      korunan yalnızca geliştirme kodunu kaldırır.
     </p>
     <p>
-      <strong>Constant folding:</strong>{" "}
-      <code>2 + 3</code> becomes <code>5</code>.{" "}
-      <code>&quot;foo&quot; + &quot;bar&quot;</code> becomes{" "}
-      <code>&quot;foobar&quot;</code>.
+      <strong>Sabit katlama:</strong>{" "}
+      <code>2 + 3</code> ifadesi <code>5</code> olur.{" "}
+      <code>&quot;foo&quot; + &quot;bar&quot;</code> ifadesi{" "}
+      <code>&quot;foobar&quot;</code> olur.
     </p>
     <p>
-      <strong>Short-form rewrites:</strong>{" "}
-      <code>true</code> becomes <code>!0</code>;{" "}
-      <code>undefined</code> becomes <code>void 0</code>. Saves
-      bytes, hurts readability — but readability doesn&rsquo;t matter
-      in production.
-    </p>
-
-    <h2>Minification vs compression</h2>
-    <p>
-      Minification and gzip/brotli are complementary, not redundant.
-    </p>
-    <p>
-      <strong>Minification</strong> removes redundancy visible to the
-      JS parser.
-    </p>
-    <p>
-      <strong>Compression</strong> (gzip, brotli) removes redundancy
-      visible to a byte-level algorithm.
-    </p>
-    <p>
-      Typical results: 100KB raw JS → 40KB minified → 12KB brotli.
-      Both matter. Minification matters more for parse time (engine
-      does less work on smaller input); compression matters more for
-      transfer time.
+      <strong>Kısa biçim yeniden yazmaları:</strong>{" "}
+      <code>true</code> ifadesi <code>!0</code> olur;{" "}
+      <code>undefined</code> ifadesi <code>void 0</code> olur. Bayt
+      tasarrufu sağlar, okunabilirliği bozar — ancak okunabilirlik
+      canlı ortamda önemli değildir.
     </p>
 
-    <h2>Source maps — debug minified code</h2>
+    <h2>Küçültme ve sıkıştırma karşılaştırması</h2>
     <p>
-      Minified code is unreadable. A <strong>source map</strong> maps
-      minified positions back to original source, so browser devtools
-      can show you the original file when debugging.
+      Küçültme ve gzip/brotli tamamlayıcıdır, gereksiz değildir.
     </p>
     <p>
-      <strong>Inline:</strong>{" "}
+      <strong>Küçültme</strong>, JS ayrıştırıcısı tarafından görülebilen
+      fazlalığı kaldırır.
+    </p>
+    <p>
+      <strong>Sıkıştırma</strong> (gzip, brotli), bayt düzeyinde bir
+      algoritma tarafından görülebilen fazlalığı kaldırır.
+    </p>
+    <p>
+      Tipik sonuçlar: 100KB ham JS → 40KB küçültülmüş → 12KB brotli.
+      Her ikisi de önemlidir. Küçültme, ayrıştırma süresi için daha önemlidir
+      (motor daha küçük girdide daha az iş yapar); sıkıştırma, aktarım
+      süresi için daha önemlidir.
+    </p>
+
+    <h2>Kaynak haritaları — küçültülmüş kodda hata ayıklama</h2>
+    <p>
+      Küçültülmüş kod okunamaz. Bir <strong>kaynak haritası</strong>,
+      küçültülmüş konumları orijinal kaynağa eşler, böylece tarayıcı
+      geliştirici araçları hata ayıklama sırasında size orijinal dosyayı
+      gösterebilir.
+    </p>
+    <p>
+      <strong>Satır içi:</strong>{" "}
       <code>//# sourceMappingURL=data:application/json;base64,...</code>{" "}
-      embedded in the JS file. Increases file size; keep for dev only.
+      JS dosyasına gömülüdür. Dosya boyutunu artırır; yalnızca geliştirme
+      için saklayın.
     </p>
     <p>
-      <strong>External:</strong> <code>//# sourceMappingURL=app.js.map</code>
-      {" "}as a sibling file. Browser fetches only when devtools is
-      open.
+      <strong>Harici:</strong> <code>//# sourceMappingURL=app.js.map</code>
+      {" "}olarak yan dosya. Tarayıcı yalnızca geliştirici araçları
+      açıkken getirir.
     </p>
     <p>
-      <strong>Hidden source maps:</strong> generate the map but
-      don&rsquo;t reference it in the JS. Upload to Sentry/Datadog/
-      Rollbar for error tracking without exposing source publicly.
+      <strong>Gizli kaynak haritaları:</strong> haritayı oluşturun ancak
+      JS'de referans vermeyin. Kaynağı herkese açık hale getirmeden
+      hata izleme için Sentry/Datadog/Rollbar'a yükleyin.
     </p>
     <p>
-      <strong>Don&rsquo;t ship source maps referencing public URLs
-      unless you want source visible.</strong> Obvious, but common
-      mistake.
-    </p>
-
-    <h2>Terser, esbuild, SWC — picking a minifier</h2>
-    <p>
-      <strong>Terser:</strong> the default for most bundlers. Written
-      in JS, slow but produces the smallest output. Forked from
-      UglifyJS, handles modern ES syntax.
-    </p>
-    <p>
-      <strong>esbuild:</strong> written in Go. 10-100x faster than
-      Terser. Output is slightly larger (a few percent). Tradeoff is
-      usually worth it for dev iteration speed.
-    </p>
-    <p>
-      <strong>SWC:</strong> Rust-based minifier used by Next.js and
-      others. Fast like esbuild, output comparable to Terser. Now
-      the default in most modern toolchains.
-    </p>
-    <p>
-      <strong>Rule:</strong> use whatever your bundler defaults to.
-      The differences are small; the effort of switching rarely
-      pays off.
+      <strong>Kaynağın görünmesini istemiyorsanız, herkese açık URL'lere
+      referans veren kaynak haritalarını göndermeyin.</strong> Açık, ancak
+      yaygın bir hata.
     </p>
 
-    <h2>Common breakages from minification</h2>
+    <h2>Terser, esbuild, SWC — küçültücü seçimi</h2>
     <p>
-      <strong>String-based property access:</strong>{" "}
+      <strong>Terser:</strong> çoğu paketleyici için varsayılan. JS ile
+      yazılmıştır, yavaştır ancak en küçük çıktıyı üretir. UglifyJS'den
+      çatallanmıştır, modern ES sözdizimini işler.
+    </p>
+    <p>
+      <strong>esbuild:</strong> Go ile yazılmıştır. Terser'dan 10-100 kat
+      daha hızlıdır. Çıktı biraz daha büyüktür (birkaç yüzde). Bu ödünleşim
+      genellikle geliştirme döngü hızı için değerlidir.
+    </p>
+    <p>
+      <strong>SWC:</strong> Next.js ve diğerleri tarafından kullanılan
+      Rust tabanlı küçültücü. esbuild gibi hızlıdır, çıktısı Terser ile
+      karşılaştırılabilir. Artık çoğu modern araç zincirinde varsayılandır.
+    </p>
+    <p>
+      <strong>Kural:</strong> paketleyicinizin varsayılan olarak ne
+      kullandığını kullanın. Farklar küçüktür; değiştirme çabası nadiren
+      karşılığını verir.
+    </p>
+
+    <h2>Küçültmeden kaynaklanan yaygın bozulmalar</h2>
+    <p>
+      <strong>Dize tabanlı özellik erişimi:</strong>{" "}
       <code>obj[&quot;longName&quot;]</code> vs{" "}
-      <code>obj.longName</code>. Minifier mangles the latter to{" "}
-      <code>obj.a</code>; leaves the string intact. Your code
-      crashes.
+      <code>obj.longName</code>. Küçültücü ikincisini{" "}
+      <code>obj.a</code> olarak değiştirir; dizeyi olduğu gibi bırakır.
+      Kodunuz çöker.
     </p>
     <p>
-      <strong>Reflection on class/function names:</strong>{" "}
-      <code>SomeClass.name</code> might return <code>&quot;a&quot;</code>
-      {" "}after mangling. Affects routing/DI systems that rely on
-      class names.
+      <strong>Sınıf/fonksiyon adlarında yansıma:</strong>{" "}
+      <code>SomeClass.name</code> değeri, karıştırmadan sonra{" "}
+      <code>&quot;a&quot;</code> döndürebilir. Sınıf adlarına dayanan
+      yönlendirme/DI sistemlerini etkiler.
     </p>
     <p>
-      <strong>Angular-style DI with string params:</strong> older
-      Angular code declared deps as strings matching function
-      parameter names. Mangle breaks the match. Fixed by using
-      array-form annotations or <code>ngAnnotate</code>.
+      <strong>Dize parametreli Angular stili DI:</strong> eski Angular
+      kodu, bağımlılıkları fonksiyon parametre adlarıyla eşleşen dizeler
+      olarak bildirirdi. Karıştırma eşleşmeyi bozar. Dizi biçimli
+      ek açıklamalar veya <code>ngAnnotate</code> kullanılarak düzeltilir.
     </p>
     <p>
-      <strong>Side-effectful module imports:</strong> tree shaking
-      might drop imports that run code on load.{" "}
-      <code>sideEffects: false</code> in package.json tells the
-      bundler it&rsquo;s safe to remove unused imports.
+      <strong>Yan etkili modül içe aktarımları:</strong> ağaç sallama,
+      yükleme sırasında kod çalıştıran içe aktarımları düşürebilir.
+      package.json'da <code>sideEffects: false</code> ayarı, paketleyiciye
+      kullanılmayan içe aktarımları kaldırmanın güvenli olduğunu söyler.
     </p>
     <p>
-      <strong>Dynamic <code>eval</code>:</strong> minified code
-      inside <code>eval</code> can break if the evaluated code
-      references symbols that got renamed. Avoid <code>eval</code>.
-    </p>
-
-    <h2>What minifiers can&rsquo;t help with</h2>
-    <p>
-      <strong>Duplicated code:</strong> copy-pasted logic across
-      files stays as two separate copies after minification (no
-      dedup across scopes).
-    </p>
-    <p>
-      <strong>Large dependencies:</strong> importing moment.js costs
-      ~70KB minified. Minifier can&rsquo;t shrink third-party code
-      you don&rsquo;t own.
-    </p>
-    <p>
-      <strong>Tree shaking limits:</strong> only ESM imports tree
-      shake cleanly. CommonJS <code>require()</code> is dynamic;
-      bundler can&rsquo;t always prove what&rsquo;s unused.
+      <strong>Dinamik <code>eval</code>:</strong> küçültülmüş kod
+      içindeki <code>eval</code>, değerlendirilen kod yeniden adlandırılmış
+      sembollere referans veriyorsa bozulabilir. <code>eval</code>'den kaçının.
     </p>
 
-    <h2>Configuring minification</h2>
+    <h2>Küçültücülerin yardımcı olamayacağı şeyler</h2>
     <p>
-      Most tuning happens through bundler config. Common Terser
-      options worth knowing:
+      <strong>Yinelenen kod:</strong> dosyalar arasında kopyala-yapıştır
+      yapılmış mantık, küçültmeden sonra iki ayrı kopya olarak kalır
+      (kapsamlar arasında tekilleme yok).
     </p>
     <p>
-      <strong>drop_console:</strong> remove{" "}
-      <code>console.log</code> calls in production.
+      <strong>Büyük bağımlılıklar:</strong> moment.js içe aktarmak
+      küçültülmüş halde ~70KB maliyet getirir. Küçültücü, size ait olmayan
+      üçüncü taraf kodunu küçültemez.
     </p>
     <p>
-      <strong>drop_debugger:</strong> strip <code>debugger</code>
-      {" "}statements.
-    </p>
-    <p>
-      <strong>pure_funcs:</strong> mark functions as side-effect-free
-      so calls get removed if return value unused.
-    </p>
-    <p>
-      <strong>reserved:</strong> names never to mangle (e.g., DI
-      tokens, global API surfaces).
-    </p>
-    <p>
-      <strong>keep_classnames / keep_fnames:</strong> preserve names
-      for reflection-based code.
+      <strong>Ağaç sallama sınırlamaları:</strong> yalnızca ESM içe
+      aktarımları temiz bir şekilde ağaç sallar. CommonJS <code>require()</code>
+      dinamiktir; paketleyici neyin kullanılmadığını her zaman kanıtlayamaz.
     </p>
 
-    <h2>Bundlers do this for you</h2>
+    <h2>Küçültmeyi yapılandırma</h2>
     <p>
-      <strong>Webpack:</strong> minifies in production mode by default
-      with Terser.
+      Çoğu ayar, paketleyici yapılandırması üzerinden yapılır. Bilinmeye
+      değer yaygın Terser seçenekleri:
     </p>
     <p>
-      <strong>Next.js / Vite / Parcel:</strong> minify production
-      builds automatically.
+      <strong>drop_console:</strong> canlı ortamda{" "}
+      <code>console.log</code> çağrılarını kaldırır.
+    </p>
+    <p>
+      <strong>drop_debugger:</strong> <code>debugger</code>
+      {" "}ifadelerini temizler.
+    </p>
+    <p>
+      <strong>pure_funcs:</strong> fonksiyonları yan etkisiz olarak
+      işaretler, böylece dönüş değeri kullanılmazsa çağrılar kaldırılır.
+    </p>
+    <p>
+      <strong>reserved:</strong> asla karıştırılmaması gereken adlar
+      (ör. DI belirteçleri, genel API yüzeyleri).
+    </p>
+    <p>
+      <strong>keep_classnames / keep_fnames:</strong> yansıma tabanlı
+      kod için adları korur.
+    </p>
+
+    <h2>Paketleyiciler bunu sizin için yapar</h2>
+    <p>
+      <strong>Webpack:</strong> varsayılan olarak üretim modunda Terser
+      ile küçültür.
+    </p>
+    <p>
+      <strong>Next.js / Vite / Parcel:</strong> üretim derlemelerini
+      otomatik olarak küçültür.
     </p>
     <p>
       <strong>esbuild:</strong>{" "}
-      <code>--minify</code> flag or{" "}
-      <code>minify: true</code> in config.
+      <code>--minify</code> bayrağı veya yapılandırmada{" "}
+      <code>minify: true</code>.
     </p>
     <p>
-      You rarely need to run a standalone minifier. The exception:
-      you&rsquo;re shipping a single file or inline script that
-      isn&rsquo;t part of a build pipeline.
-    </p>
-
-    <h2>Common mistakes</h2>
-    <p>
-      <strong>Shipping unminified code.</strong> Check your build
-      output. If it&rsquo;s readable, it&rsquo;s not minified.
-    </p>
-    <p>
-      <strong>Shipping source maps publicly.</strong> Attackers can
-      reverse-engineer your code. Use hidden source maps uploaded
-      to an error-tracking service.
-    </p>
-    <p>
-      <strong>Minifying dev builds.</strong> Makes debugging
-      painful. Use production mode only for production.
-    </p>
-    <p>
-      <strong>Forgetting to enable compression at the server.</strong>
-      Minification without gzip/brotli leaves 70% of savings on the
-      table.
-    </p>
-    <p>
-      <strong>Relying on class/function names for behavior.</strong>
-      Minifier breaks this silently. Use explicit tokens or disable
-      mangling selectively.
+      Bağımsız bir küçültücü çalıştırmanız nadiren gerekir. İstisna:
+      bir derleme hattının parçası olmayan tek bir dosya veya satır içi
+      betik gönderiyorsanız.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Minify JavaScript instantly in your browser with the{" "}
-      <a href="/tools/js-minifier">JS minifier</a>. Pair with the{" "}
-      <a href="/tools/css-minifier">CSS minifier</a> for stylesheet
-      shrinkage, and the{" "}
-      <a href="/tools/html-formatter">HTML formatter</a> to clean up
-      markup before minifying.
+      <strong>Küçültülmemiş kod göndermek.</strong> Derleme çıktınızı
+      kontrol edin. Okunabilirse, küçültülmemiştir.
+    </p>
+    <p>
+      <strong>Kaynak haritalarını herkese açık göndermek.</strong>
+      Saldırganlar kodunuzu tersine mühendislikle çözebilir. Bir hata
+      izleme hizmetine yüklenen gizli kaynak haritalarını kullanın.
+    </p>
+    <p>
+      <strong>Geliştirme derlemelerini küçültmek.</strong> Hata ayıklamayı
+      zorlaştırır. Üretim modunu yalnızca üretim için kullanın.
+    </p>
+    <p>
+      <strong>Sunucuda sıkıştırmayı etkinleştirmeyi unutmak.</strong>
+      Gzip/brotli olmadan küçültme, tasarrufun %70'ini masada bırakır.
+    </p>
+    <p>
+      <strong>Davranış için sınıf/fonksiyon adlarına güvenmek.</strong>
+      Küçültücü bunu sessizce bozar. Açık belirteçler kullanın veya
+      karıştırmayı seçici olarak devre dışı bırakın.
+    </p>
+
+    <h2>Rakamları görün</h2>
+    <p>
+      JavaScript'i tarayıcınızda anında küçültmek için{" "}
+      <a href="/tools/js-minifier">JS küçültücü</a> aracını kullanın.
+      Stil sayfası küçültme için{" "}
+      <a href="/tools/css-minifier">CSS küçültücü</a> ile ve küçültmeden
+      önce işaretlemeyi temizlemek için{" "}
+      <a href="/tools/html-formatter">HTML biçimlendirici</a> ile
+      birleştirin.
     </p>
   </>
 );

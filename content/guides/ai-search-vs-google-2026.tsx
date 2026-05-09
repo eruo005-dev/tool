@@ -2,37 +2,33 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Google still owns search by usage in 2026 &mdash; but its share dropped meaningfully for the first time in 20+
-    years as AI search engines (Perplexity, ChatGPT Search, Bing Copilot, Kagi) ate the synthesis-heavy queries. Here&rsquo;s
-    where each wins.
+    Google, 2026'da kullanım açısından hâlâ arama pazarının sahibi &mdash; ancak payı, 20+ yıl sonra ilk kez önemli ölçüde düştü. Bunun nedeni, yapay zeka arama motorlarının (Perplexity, ChatGPT Search, Bing Copilot, Kagi) sentez ağırlıklı sorguları ele geçirmesi. İşte her birinin kazandığı alanlar.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Where AI search wins</h2>
+    <h2>Yapay zeka aramasının kazandığı yerler</h2>
     <ul>
-      <li><strong>Synthesis questions:</strong> &ldquo;compare X and Y&rdquo;, &ldquo;summarize the recent debate on Z&rdquo;.</li>
-      <li><strong>Multi-step research:</strong> Pro Search modes chain queries.</li>
-      <li><strong>Code questions:</strong> Phind and ChatGPT beat Google on this.</li>
-      <li><strong>Anything you&rsquo;d normally read 5 tabs to answer.</strong></li>
+      <li><strong>Sentez soruları:</strong> &ldquo;X ve Y'yi karşılaştır&rdquo;, &ldquo;Z hakkındaki son tartışmayı özetle&rdquo;.</li>
+      <li><strong>Çok adımlı araştırma:</strong> Pro Arama modları sorguları zincirler.</li>
+      <li><strong>Kod soruları:</strong> Phind ve ChatGPT bu konuda Google'ı geçiyor.</li>
+      <li><strong>Normalde 5 sekme açarak cevaplayacağınız her şey.</strong></li>
     </ul>
-    <h2>Where Google still wins</h2>
+    <h2>Google'ın hâlâ kazandığı yerler</h2>
     <ul>
-      <li><strong>Local search:</strong> &ldquo;coffee near me&rdquo;, &ldquo;hardware store hours&rdquo;.</li>
-      <li><strong>Transactional queries:</strong> shopping, flights, products.</li>
-      <li><strong>Breaking news:</strong> Google indexes faster than most AI engines.</li>
-      <li><strong>Image search:</strong> reverse image, visual lookup.</li>
-      <li><strong>Trusted source authority:</strong> when you specifically want the .gov / .edu page.</li>
+      <li><strong>Yerel arama:</strong> &ldquo;yakınımdaki kahve&rdquo;, &ldquo;nalbur dükkanı çalışma saatleri&rdquo;.</li>
+      <li><strong>İşlemsel sorgular:</strong> alışveriş, uçuşlar, ürünler.</li>
+      <li><strong>Son dakika haberleri:</strong> Google, çoğu yapay zeka motorundan daha hızlı indeksler.</li>
+      <li><strong>Görsel arama:</strong> tersine görsel arama, görsel arama.</li>
+      <li><strong>Güvenilir kaynak otoritesi:</strong> özellikle .gov / .edu sayfasını istediğinizde.</li>
     </ul>
-    <h2>The new mental model</h2>
+    <h2>Yeni zihinsel model</h2>
     <p>
-      Use Perplexity / ChatGPT Search for &ldquo;explain X&rdquo; and &ldquo;help me decide Y.&rdquo; Use Google for
-      &ldquo;find me the X near me&rdquo; and &ldquo;what&rsquo;s the latest on news Y.&rdquo; The skill is knowing
-      which tool fits which question.
+      &ldquo;X'i açıkla&rdquo; ve &ldquo;Y konusunda karar vermeme yardım et&rdquo; için Perplexity / ChatGPT Search kullanın. &ldquo;Yakınımdaki X'i bul&rdquo; ve &ldquo;Y haberiyle ilgili son gelişme ne?&rdquo; için Google kullanın. Beceri, hangi soruya hangi aracın uygun olduğunu bilmektir.
     </p>
     <p>
-      Compare engines side-by-side at <a href="/tools/ai-search-engine-comparison">the AI search engine comparison</a>.
+      Motorları yan yana karşılaştırmak için <a href="/tools/ai-search-engine-comparison">yapay zeka arama motoru karşılaştırması</a> sayfasını ziyaret edin.
     </p>
   </>
 );

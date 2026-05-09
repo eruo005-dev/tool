@@ -1,439 +1,436 @@
 export const intro = (
   <>
     <p>
-      Albert Einstein didn&rsquo;t actually call compound interest the eighth wonder of
-      the world (the quote is apocryphal), but the math is real and it&rsquo;s the single
-      most important concept in personal finance. Most explanations of it are either too
-      vague (&ldquo;your money makes money!&rdquo;) or too math-heavy (full
-      Black-Scholes-style derivations). This guide is in the middle: the core math,
-      worked through with specific numbers, plus 12 real scenarios you actually
-      encounter.
+      Albert Einstein aslında bileşik faizi dünyanın sekizinci harikası olarak adlandırmadı (bu söz uydurmadır), ancak matematik gerçektir ve kişisel finansın en önemli kavramıdır. Bununla ilgili açıklamaların çoğu ya çok belirsizdir (&ldquo;param para kazandırır!&rdquo;) ya da çok matematik ağırlıklıdır (tam Black-Scholes tarzı türetmeler). Bu rehber ortada bir yerdedir: belirli sayılarla işlenmiş temel matematik ve gerçekten karşılaştığınız 12 gerçek senaryo.
     </p>
     <p>
-      Use this as a reference. Numbers are based on standard assumptions documented in
-      each section &mdash; modify in the <a href="/tools/compound-interest-calculator">
-      compound interest calculator</a> for your specific situation.
+      Bunu bir referans olarak kullanın. Sayılar, her bölümde belgelenen standart varsayımlara dayanmaktadır &mdash; kendi özel durumunuz için <a href="/tools/compound-interest-calculator">bileşik faiz hesaplayıcısında</a> değişiklik yapın.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "definition", label: "Compound vs simple interest" },
-  { id: "formula", label: "The formula and how to use it" },
-  { id: "rule-of-72", label: "Rule of 72 and useful shortcuts" },
-  { id: "scenarios", label: "12 real-world scenarios" },
-  { id: "real-vs-nominal", label: "Real vs nominal returns (inflation)" },
-  { id: "tax-impact", label: "Account types: tax-advantaged vs taxable" },
-  { id: "starting-early", label: "Starting age: the 25 vs 35 difference" },
-  { id: "lump-sum-vs-monthly", label: "Lump sum vs monthly contributions" },
-  { id: "fees", label: "How fees compound against you" },
-  { id: "sequence-risk", label: "Sequence of returns near retirement" },
-  { id: "frequency", label: "Monthly vs daily vs continuous compounding" },
-  { id: "real-world-products", label: "Where to actually get compound returns" },
+  { id: "definition", label: "Bileşik ve basit faiz" },
+  { id: "formula", label: "Formül ve nasıl kullanılır" },
+  { id: "rule-of-72", label: "72 Kuralı ve kullanışlı kısayollar" },
+  { id: "scenarios", label: "12 gerçek dünya senaryosu" },
+  { id: "real-vs-nominal", label: "Reel ve nominal getiriler (enflasyon)" },
+  { id: "tax-impact", label: "Hesap türleri: vergi avantajlı ve vergilendirilebilir" },
+  { id: "starting-early", label: "Başlama yaşı: 25 ve 35 arasındaki fark" },
+  { id: "lump-sum-vs-monthly", label: "Toplu para ve aylık katkılar" },
+  { id: "fees", label: "Ücretler size karşı nasıl bileşik getiri sağlar" },
+  { id: "sequence-risk", label: "Emekliliğe yakın getiri sırası" },
+  { id: "frequency", label: "Aylık, günlük ve sürekli bileşik faiz" },
+  { id: "real-world-products", label: "Bileşik getiriyi nereden alabilirsiniz" },
 ];
 
 export const body = (
   <>
-    <h2 id="definition">Compound vs simple interest</h2>
+    <h2 id="definition">Bileşik ve basit faiz</h2>
     <p>
-      <strong>Simple interest</strong>: interest paid only on the original principal.
-      Loan of $1,000 at 5% simple interest, paid annually: $50/year forever (or until
-      principal is repaid). Used in a few specific contexts (auto loans in some states,
-      bonds with simple-interest coupons), but rare for savings.
+      <strong>Basit faiz</strong>: yalnızca orijinal anapara üzerinden ödenen faiz.
+      5% basit faizle, yıllık ödemeli 1.000$ kredi: sonsuza kadar yılda 50$ (veya anapara
+      geri ödenene kadar). Birkaç belirli bağlamda kullanılır (bazı eyaletlerde oto kredileri,
+      basit faiz kuponlu tahviller), ancak tasarruflar için nadirdir.
     </p>
     <p>
-      <strong>Compound interest</strong>: interest paid on principal PLUS accumulated
-      interest. $1,000 at 5% compounded annually:
+      <strong>Bileşik faiz</strong>: anapara ARTı birikmiş faiz üzerinden ödenen faiz.
+      Yıllık bileşik 5% ile 1.000$:
     </p>
     <ul>
-      <li>Year 1: balance $1,050 ($50 interest)</li>
-      <li>Year 2: balance $1,102.50 ($52.50 interest &mdash; on $1,050)</li>
-      <li>Year 3: balance $1,157.63 ($55.13 interest &mdash; on $1,102.50)</li>
-      <li>Year 30: balance $4,321.94</li>
+      <li>1. Yıl: bakiye 1.050$ (50$ faiz)</li>
+      <li>2. Yıl: bakiye 1.102,50$ (52,50$ faiz &mdash; 1.050$ üzerinden)</li>
+      <li>3. Yıl: bakiye 1.157,63$ (55,13$ faiz &mdash; 1.102,50$ üzerinden)</li>
+      <li>30. Yıl: bakiye 4.321,94$</li>
     </ul>
     <p>
-      Same 5% rate, same starting amount, same time. Compound triples simple. The
-      difference is the &ldquo;interest on interest&rdquo; that grows over time.
+      Aynı %5 oranı, aynı başlangıç tutarı, aynı süre. Bileşik, basit faizi üçe katlar.
+      Fark, zamanla büyüyen &ldquo;faizin faizi&rdquo;dir.
     </p>
 
-    <h2 id="formula">The formula and how to use it</h2>
-    <p>For a single deposit (no recurring contributions):</p>
+    <h2 id="formula">Formül ve nasıl kullanılır</h2>
+    <p>Tek bir mevduat için (yinelenen katkı yok):</p>
     <pre>{`A = P × (1 + r/n)^(n × t)`}</pre>
     <p>
-      Where: A = ending amount, P = principal, r = annual rate (decimal), n =
-      compounding periods per year, t = years.
+      Burada: A = bitiş tutarı, P = anapara, r = yıllık oran (ondalık), n =
+      yıllık bileşik dönemi sayısı, t = yıl.
     </p>
     <p>
-      <strong>Worked example</strong>: $10,000 at 7% compounded monthly for 10 years:
+      <strong>Çözülmüş örnek</strong>: 10 yıl boyunca aylık bileşik %7 ile 10.000$:
     </p>
     <ul>
-      <li>r/n = 0.07 / 12 = 0.005833</li>
+      <li>r/n = 0,07 / 12 = 0,005833</li>
       <li>n &times; t = 12 &times; 10 = 120</li>
-      <li>(1.005833)^120 = 2.0097</li>
-      <li>A = 10,000 &times; 2.0097 = $20,097</li>
+      <li>(1,005833)^120 = 2,0097</li>
+      <li>A = 10.000 &times; 2,0097 = 20.097$</li>
     </ul>
     <p>
-      Doubled in 10 years at 7%. Spreadsheet: <code>=FV(0.07/12, 120, 0, -10000)</code>.
+      %7 ile 10 yılda ikiye katlandı. Hesap tablosu: <code>=FV(0.07/12, 120, 0, -10000)</code>.
     </p>
     <p>
-      For ongoing monthly contributions (the real-world case for most retirement
-      saving):
+      Devam eden aylık katkılar için (çoğu emeklilik birikimi için gerçek dünya durumu):
     </p>
     <pre>{`FV = P × (1 + r)^n + PMT × [((1 + r)^n − 1) / r]`}</pre>
     <p>
-      Where r and n are now monthly (annual rate &divide; 12, years &times; 12), PMT is
-      monthly contribution. Spreadsheet:{" "}
+      Burada r ve n artık aylıktır (yıllık oran &divide; 12, yıl &times; 12), PMT
+      aylık katkıdır. Hesap tablosu:{" "}
       <code>=FV(annual_rate/12, years*12, -monthly_contribution, -starting_balance)</code>.
     </p>
 
-    <h2 id="rule-of-72">Rule of 72 and useful shortcuts</h2>
+    <h2 id="rule-of-72">72 Kuralı ve kullanışlı kısayollar</h2>
     <p>
-      The Rule of 72: divide 72 by your annual rate to get years to double. Useful for
-      mental math. Examples:
+      72 Kuralı: ikiye katlama yılını bulmak için 72'yi yıllık oranınıza bölün. Zihinsel
+      matematik için kullanışlıdır. Örnekler:
     </p>
     <ul>
-      <li>3% &rarr; 24 years to double (high-yield savings)</li>
-      <li>5% &rarr; 14.4 years (long-term bond fund)</li>
-      <li>7% &rarr; 10.3 years (real return of stock market)</li>
-      <li>10% &rarr; 7.2 years (nominal stock market historical)</li>
-      <li>15% &rarr; 4.8 years (extraordinary year, Warren Buffett territory)</li>
+      <li>%3 &rarr; ikiye katlamak için 24 yıl (yüksek getirili tasarruf)</li>
+      <li>%5 &rarr; 14,4 yıl (uzun vadeli tahvil fonu)</li>
+      <li>%7 &rarr; 10,3 yıl (borsanın reel getirisi)</li>
+      <li>%10 &rarr; 7,2 yıl (nominal borsa tarihsel)</li>
+      <li>%15 &rarr; 4,8 yıl (olağanüstü yıl, Warren Buffett bölgesi)</li>
     </ul>
     <p>
-      <strong>Variants</strong>: Rule of 114 = years to TRIPLE. Rule of 144 = years to
-      QUADRUPLE. Rule of 70 is the more accurate version (used by economists for
-      population doubling); the difference is small for typical rates.
+      <strong>Varyantlar</strong>: 114 Kuralı = ÜÇE KATLAMA yılı. 144 Kuralı = DÖRDE
+      KATLAMA yılı. 70 Kuralı daha doğru versiyondur (ekonomistler tarafından nüfus
+      ikiye katlaması için kullanılır); tipik oranlar için fark küçüktür.
     </p>
     <p>
-      <strong>Mental math chain</strong>: $10K at 7% becomes $20K in 10 years, $40K in
-      20 years, $80K in 30 years, $160K in 40 years. Each doubling adds the largest
-      absolute dollar amount &mdash; year 40 adds $80K, year 10 adds only $10K. This is
-      why time-in-market matters more than timing-the-market.
-    </p>
-
-    <h2 id="scenarios">12 real-world scenarios</h2>
-    <p>All scenarios assume 7% annual real return unless noted. 7% is the post-inflation historical S&amp;P 500 return.</p>
-
-    <h3>1. Maxing Roth IRA from age 25</h3>
-    <p>
-      $7,000/year for 40 years (age 25 to 65) at 7%: balance at 65 = $1,558,000. All
-      tax-free in retirement. Total contributed: $280,000. Growth: $1,278,000.
+      <strong>Zihinsel matematik zinciri</strong>: %7 ile 10K$, 10 yılda 20K$, 20
+      yılda 40K$, 30 yılda 80K$, 40 yılda 160K$ olur. Her ikiye katlama en büyük mutlak
+      dolar tutarını ekler &mdash; 40. yıl 80K$ ekler, 10. yıl yalnızca 10K$ ekler. Bu
+      nedenle piyasada geçirilen süre, piyasa zamanlamasından daha önemlidir.
     </p>
 
-    <h3>2. Maxing Roth IRA from age 35 (10-year delay)</h3>
+    <h2 id="scenarios">12 gerçek dünya senaryosu</h2>
+    <p>Aksi belirtilmedikçe tüm senaryolar %7 yıllık reel getiri varsayar. %7, enflasyon sonrası tarihsel S&amp;P 500 getirisidir.</p>
+
+    <h3>1. 25 yaşından itibaren Roth IRA'yı maksimize etmek</h3>
     <p>
-      $7,000/year for 30 years at 7%: balance at 65 = $735,000. Half the previous result
-      from waiting 10 years. The 10 lost years cost $823,000.
+      40 yıl boyunca (25-65 yaş) %7 ile yılda 7.000$: 65 yaşında bakiye = 1.558.000$.
+      Emeklilikte tamamen vergisiz. Toplam katkı: 280.000$. Büyüme: 1.278.000$.
     </p>
 
-    <h3>3. Starting at 22, 9-year head start through age 30</h3>
+    <h3>2. 35 yaşından itibaren Roth IRA'yı maksimize etmek (10 yıl gecikme)</h3>
     <p>
-      $7,000/year from 22 to 30 (9 years), then NOTHING after. At 7% to age 65: balance
-      at 65 = $608,000. Compare to scenario #2 (start at 35, contribute for 30 years
-      straight): $735,000. The 9 years of contributions at 22-30 ($63K total) almost
-      match 30 years of contributions starting at 35 ($210K total). Time wins.
+      30 yıl boyunca %7 ile yılda 7.000$: 65 yaşında bakiye = 735.000$. 10 yıl
+      beklemekten önceki sonucun yarısı. Kaybedilen 10 yılın maliyeti 823.000$.
     </p>
 
-    <h3>4. $200/month into S&amp;P 500 from age 22 to 65</h3>
+    <h3>3. 22 yaşında başlamak, 30 yaşına kadar 9 yıllık öncelik</h3>
     <p>
-      $2,400/year &times; 43 years at 7%: balance at 65 = $716,000. Total contributed:
-      $103,000. Growth: $613,000. Six dollars of growth for every dollar contributed.
+      22'den 30'a (9 yıl) yılda 7.000$, sonra HİÇBİR ŞEY. 65 yaşına kadar %7: 65
+      yaşında bakiye = 608.000$. 2. senaryo ile karşılaştırın (35'te başla, 30 yıl
+      boyunca katkı yap): 735.000$. 22-30 arası 9 yıllık katkılar (toplam 63K$) neredeyse
+      35'te başlayan 30 yıllık katkılarla (210K$) eşleşiyor. Zaman kazanır.
     </p>
 
-    <h3>5. 401(k) at standard match (3% you + 3% employer)</h3>
+    <h3>4. 22'den 65'e S&amp;P 500'e ayda 200$</h3>
     <p>
-      $50,000 salary &times; 6% combined = $3,000/year from age 22 to 65 at 7%: $895,000.
-      Doubling to $6,000 ($50K salary &times; 12%): $1,791,000. Match alone produces
-      $448,000 over a career &mdash; that&rsquo;s why &ldquo;always capture the
-      match&rdquo; is the universal advice.
+      43 yıl boyunca %7 ile yılda 2.400$: 65 yaşında bakiye = 716.000$. Toplam katkı:
+      103.000$. Büyüme: 613.000$. Katkıda bulunulan her dolar için altı dolar büyüme.
     </p>
 
-    <h3>6. Saving for a home down payment in 5 years</h3>
+    <h3>5. Standart eşleşmeli 401(k) (%3 siz + %3 işveren)</h3>
     <p>
-      $1,000/month at 4% (high-yield savings) for 60 months: $66,250. Same at 7% (more
-      aggressive) for 60 months: $71,890. Worth the $5,640 extra return? Probably no
-      &mdash; 5 years is too short for stock-market volatility risk. Stick with high-yield
-      savings or short-term Treasuries for 1-5 year goals.
+      50.000$ maaş &times; %6 birleşik = 22'den 65'e %7 ile yılda 3.000$: 895.000$.
+      İkiye katlayarak 6.000$ (50K$ maaş &times; %12): 1.791.000$. Eşleşme tek başına
+      bir kariyer boyunca 448.000$ üretir &mdash; bu nedenle &ldquo;eşleşmeyi her zaman
+      yakalayın&rdquo; evrensel tavsiyedir.
     </p>
 
-    <h3>7. 529 college savings from birth</h3>
+    <h3>6. 5 yılda ev peşinatı için birikim</h3>
     <p>
-      $300/month from year 0 to year 18 at 6% (more conservative due to shorter horizon):
-      total contributed $64,800, balance at 18: $115,000. Worth roughly 1.5 years of
-      private-school tuition at typical 2026 rates, or ~3 years of in-state public
-      tuition.
+      60 ay boyunca %4 (yüksek getirili tasarruf) ile ayda 1.000$: 66.250$. Aynı %7
+      (daha agresif) ile 60 ay: 71.890$. Fazladan 5.640$ getiriye değer mi? Muhtemelen
+      hayır &mdash; 5 yıl, borsa oynaklık riski için çok kısa. 1-5 yıllık hedefler için
+      yüksek getirili tasarruf veya kısa vadeli Hazine bonolarına bağlı kalın.
     </p>
 
-    <h3>8. The cost of waiting 1 year at 30 vs 50</h3>
+    <h3>7. Doğumdan itibaren 529 üniversite birikimi</h3>
     <p>
-      Same $10,000 invested at 30 vs at 50, both reaching age 65. At 30: 35 years at 7%
-      = $107,000. At 50: 15 years at 7% = $27,600. Cost of 20-year delay on $10K: $79,400
-      foregone. Cost of 1-year delay (skipping a single contribution at 30): roughly
-      $7,000 in foregone growth.
+      0. yıldan 18. yıla kadar %6 (daha kısa ufuk nedeniyle daha muhafazakar) ile ayda
+      300$: toplam katkı 64.800$, 18 yaşında bakiye: 115.000$. 2026 oranlarında tipik
+      özel okul ücretinin kabaca 1,5 yılına veya eyalet içi devlet üniversitesi ücretinin
+      ~3 yılına eşdeğer.
     </p>
 
-    <h3>9. The 1% expense ratio drag</h3>
+    <h3>8. 30'da vs 50'de 1 yıl beklemenin maliyeti</h3>
     <p>
-      $1,000/month for 30 years at 7% net: $1,222,000. At 6% net (because of 1% expense
-      ratio): $1,005,000. The expense ratio costs $217,000 over 30 years &mdash; about
-      18% of the gross return. This is why low-cost index funds (0.03-0.10%) matter so
-      much.
+      Aynı 10.000$, 30'da vs 50'de yatırıldı, her ikisi de 65 yaşına ulaşıyor. 30'da:
+      %7 ile 35 yıl = 107.000$. 50'de: %7 ile 15 yıl = 27.600$. 10K$'da 20 yıllık
+      gecikmenin maliyeti: 79.400$ kayıp. 1 yıllık gecikmenin maliyeti (30'da tek bir
+      katkıyı atlamak): kabaca 7.000$ kayıp büyüme.
     </p>
 
-    <h3>10. Inflation impact on a $1M nest egg</h3>
+    <h3>9. %1 gider oranı sürüklenmesi</h3>
     <p>
-      $1,000,000 at age 65 looks great in 2026 dollars. In 2056 dollars (assuming 3%
-      inflation), $1M of 2026 purchasing power requires $2,427,000. Always project in
-      real terms (using ~7% real instead of 10% nominal) to know your purchasing power
-      target. The <a href="/learn/nominal-vs-real-returns">nominal vs real returns
-      glossary entry</a> has more.
+      30 yıl boyunca %7 net ile ayda 1.000$: 1.222.000$. %6 net ile (%1 gider oranı
+      nedeniyle): 1.005.000$. Gider oranı 30 yılda 217.000$'a mal olur &mdash; brüt
+      getirinin yaklaşık %18'i. Bu nedenle düşük maliyetli endeks fonları (%0,03-0,10)
+      çok önemlidir.
     </p>
 
-    <h3>11. Pay off mortgage early or invest?</h3>
+    <h3>10. 1 milyon$'lık birikim üzerinde enflasyon etkisi</h3>
     <p>
-      $200/month extra principal on a 6.5% mortgage for 30 years: saves ~$95,000 in
-      interest, mortgage paid off in year 24. Same $200/month invested at 7% real
-      return: balance at 30 years = $245,000. Math says invest. Behavioral counter:
-      paying off mortgage gives psychological certainty + reduced monthly burden in
-      retirement. Most financial advisors say invest if mortgage rate is below 5%, pay
-      off if above 6%. The 5-6% rate range is judgment call. Run yours in the{" "}
-      <a href="/tools/mortgage-payoff-accelerator">mortgage payoff accelerator</a>.
+      1.000.000$, 65 yaşında 2026 dolarında harika görünüyor. 2056 dolarında (%3
+      enflasyon varsayarak), 2026 satın alma gücünde 1 milyon$ için 2.427.000$ gerekir.
+      Satın alma gücü hedefinizi bilmek için her zaman reel terimlerle (nominal %10
+      yerine ~%7 reel) projeksiyon yapın. <a href="/learn/nominal-vs-real-returns">Nominal
+      ve reel getiriler sözlük girişinde</a> daha fazlası var.
     </p>
 
-    <h3>12. The cost of cashing out 401(k) early</h3>
+    <h3>11. Mortgage'ı erken ödeyin veya yatırım yapın?</h3>
     <p>
-      $50,000 cashed out at age 30 to pay debts. Lost growth at 7% over 35 years to
-      retirement: $533,000. Plus immediate costs: 22% federal income tax ($11,000) + 10%
-      early withdrawal penalty ($5,000) + state income tax (varies, often $2,000-5,000)
-      = $18,000+ in immediate hits. Effective cost of $50K cash-out at 30: $551,000+
-      over a lifetime. Borrow elsewhere; never tap retirement for current debt.
+      30 yıl boyunca %6,5 mortgage'da ayda 200$ ek anapara: faizde ~95.000$ tasarruf,
+      mortgage 24. yılda ödenir. Aynı 200$/ay %7 reel getiri ile yatırılırsa: 30 yılda
+      bakiye = 245.000$. Matematik yatırım yapmayı söylüyor. Davranışsal karşı argüman:
+      mortgage'ı ödemek psikolojik kesinlik + emeklilikte azaltılmış aylık yük sağlar.
+      Çoğu finansal danışman, mortgage oranı %5'in altındaysa yatırım yapmayı, %6'nın
+      üzerindeyse ödemeyi söyler. %5-6 oran aralığı bir yargı çağrısıdır. Kendi
+      durumunuzu <a href="/tools/mortgage-payoff-accelerator">mortgage ödeme
+      hızlandırıcısında</a> çalıştırın.
     </p>
 
-    <h2 id="real-vs-nominal">Real vs nominal returns (inflation)</h2>
+    <h3>12. 401(k)'den erken para çekmenin maliyeti</h3>
     <p>
-      <strong>Nominal return</strong>: the headline number, before inflation.
-      &ldquo;The S&amp;P 500 returned 10% historically.&rdquo;
-    </p>
-    <p>
-      <strong>Real return</strong>: after subtracting inflation. &ldquo;The S&amp;P 500
-      returned 7% historically in real terms.&rdquo;
-    </p>
-    <p>
-      The 3% gap is exactly the historical inflation rate (1928-2024 average). For
-      retirement projections in today&rsquo;s purchasing power, ALWAYS use real returns.
-      Otherwise the projection lies to you.
-    </p>
-    <p>
-      <strong>How big is the lie?</strong> $1,000,000 in 30-year-future dollars at 3%
-      inflation = $412,000 in today&rsquo;s purchasing power. Less than half. The
-      &ldquo;you&rsquo;ll be a millionaire&rdquo; projection sounds great until you
-      realize half of it is just inflation.
+      Borçları ödemek için 30 yaşında çekilen 50.000$. Emekliliğe 35 yıl boyunca %7'de
+      kaybedilen büyüme: 533.000$. Artı anlık maliyetler: %22 federal gelir vergisi
+      (11.000$) + %10 erken çekim cezası (5.000$) + eyalet gelir vergisi (değişir,
+      genellikle 2.000-5.000$) = anlık 18.000$+ darbe. 30'da 50K$ çekimin etkin maliyeti:
+      bir ömür boyu 551.000$+. Başka bir yerden borç alın; mevcut borç için asla
+      emeklilik birikimine dokunmayın.
     </p>
 
-    <h2 id="tax-impact">Account types: tax-advantaged vs taxable</h2>
+    <h2 id="real-vs-nominal">Reel ve nominal getiriler (enflasyon)</h2>
     <p>
-      Same gross compound returns, very different net results based on account type.
-      $1,000/month at 7% for 30 years:
+      <strong>Nominal getiri</strong>: enflasyondan önceki başlık numarası.
+      &ldquo;S&amp;P 500 tarihsel olarak %10 getiri sağladı.&rdquo;
     </p>
-    <ul>
-      <li>
-        <strong>Roth IRA / Roth 401(k)</strong>: $1,222,000. All withdrawable tax-free.
-      </li>
-      <li>
-        <strong>Traditional 401(k) / Traditional IRA</strong>: $1,222,000 nominal.
-        After 22% retirement-bracket tax: $953,000 spendable.
-      </li>
-      <li>
-        <strong>Taxable brokerage</strong>: ~$1,050,000 (annual dividend tax + capital
-        gains on rebalancing eats ~14%). After capital gains tax on remaining unrealized
-        gains: ~$890,000 spendable.
-      </li>
-      <li>
-        <strong>HSA (US, if eligible)</strong>: $1,222,000. Tax-free contributions,
-        growth, and qualified-medical withdrawals. The best account in the US tax code.
-      </li>
-    </ul>
     <p>
-      The Roth and HSA results are 10-25% higher than taxable for identical
-      contributions and returns. This is why financial planners prioritize tax-advantaged
-      accounts.
+      <strong>Reel getiri</strong>: enflasyon çıkarıldıktan sonra. &ldquo;S&amp;P 500
+      tarihsel olarak reel olarak %7 getiri sağladı.&rdquo;
+    </p>
+    <p>
+      %3'lük fark tam olarak tarihsel enflasyon oranıdır (1928-2024 ortalaması). Bugünün
+      satın alma gücünde emeklilik projeksiyonları için HER ZAMAN reel getirileri
+      kullanın. Aksi takdirde projeksiyon size yalan söyler.
+    </p>
+    <p>
+      <strong>Yalan ne kadar büyük?</strong> %3 enflasyonda 30 yıl sonraki 1.000.000$
+      = bugünün satın alma gücünde 412.000$. Yarısından az. &ldquo;Milyoner
+      olacaksınız&rdquo; projeksiyonu, bunun yarısının sadece enflasyon olduğunu
+      fark edene kadar harika gelir.
     </p>
 
-    <h2 id="starting-early">Starting age: the 25 vs 35 difference</h2>
+    <h2 id="tax-impact">Hesap türleri: vergi avantajlı ve vergilendirilebilir</h2>
     <p>
-      Two siblings, same plan, different start ages:
+      Aynı brüt bileşik getiriler, hesap türüne göre çok farklı net sonuçlar. 30 yıl
+      boyunca %7 ile ayda 1.000$:
     </p>
     <ul>
       <li>
-        <strong>Sibling A starts 25</strong>: $500/month for 40 years at 7% &rarr;
-        $1,316,000 at 65.
+        <strong>Roth IRA / Roth 401(k)</strong>: 1.222.000$. Tümü vergisiz çekilebilir.
       </li>
       <li>
-        <strong>Sibling B starts 35</strong>: $500/month for 30 years at 7% &rarr;
-        $612,000 at 65.
+        <strong>Geleneksel 401(k) / Geleneksel IRA</strong>: 1.222.000$ nominal.
+        %22 emeklilik dilimi vergisinden sonra: harcanabilir 953.000$.
       </li>
       <li>
-        <strong>Difference</strong>: Sibling A contributed $60,000 more total ($240K vs
-        $180K) but ended with $704,000 more. The 10 extra years contributed $60K of
-        deposits and ~$644K of compounding-on-the-early-deposits.
+        <strong>Vergilendirilebilir aracı kurum</strong>: ~1.050.000$ (yıllık temettü
+        vergisi + yeniden dengelemede sermaye kazançları ~%14 yer). Kalan gerçekleşmemiş
+        kazançlar üzerindeki sermaye kazancı vergisinden sonra: ~890.000$ harcanabilir.
+      </li>
+      <li>
+        <strong>HSA (ABD, uygunsanız)</strong>: 1.222.000$. Vergisiz katkılar,
+        büyüme ve nitelikli tıbbi çekimler. ABD vergi kanunundaki en iyi hesap.
       </li>
     </ul>
     <p>
-      <strong>Practical implication</strong>: the cost of waiting is much higher than it
-      feels in your 20s. Even small amounts ($100-200/month) starting at 22-25 outperform
-      large amounts ($800-1,000/month) starting at 35-40.
+      Roth ve HSA sonuçları, aynı katkılar ve getiriler için vergilendirilebilir
+      hesaplardan %10-25 daha yüksektir. Bu nedenle finansal planlamacılar vergi
+      avantajlı hesaplara öncelik verir.
     </p>
 
-    <h2 id="lump-sum-vs-monthly">Lump sum vs monthly contributions</h2>
+    <h2 id="starting-early">Başlama yaşı: 25 ve 35 arasındaki fark</h2>
     <p>
-      Mathematically: lump-sum investing wins about 2/3 of the time. The market trends
-      up, so being invested earlier captures more growth. Dollar-cost averaging (DCA)
-      reduces the risk of buying at a peak.
-    </p>
-    <p>
-      Vanguard&rsquo;s research: lump-sum produces ~2.4% higher 10-year returns on
-      average than DCA over 12 months. Cost of waiting (DCA) over 12 months: holding cash
-      that earns 4% in money market while market returns 7% real = 3% drag for half a
-      year on average = ~1.5% cost.
-    </p>
-    <p>
-      <strong>Practical guidance</strong>: for new monthly contributions from paycheck,
-      you&rsquo;re effectively DCA&rsquo;ing already; that&rsquo;s fine. For windfalls
-      (inheritance, bonus, settlement), consider lump-sum unless emotional uncertainty
-      pushes you to DCA over 6-12 months. The math says lump-sum; the behavior says
-      whichever lets you actually do it.
-    </p>
-
-    <h2 id="fees">How fees compound against you</h2>
-    <p>
-      A 1% fee doesn&rsquo;t mean &ldquo;1% less return.&rdquo; It means 1% less
-      compounding every year, which is multiplicative over decades.
-    </p>
-    <p>
-      Same scenario at three fee levels, $1,000/month for 30 years at 7% gross:
+      İki kardeş, aynı plan, farklı başlangıç yaşları:
     </p>
     <ul>
-      <li>0.05% expense (Vanguard VTSAX): $1,206,000</li>
-      <li>1% expense (typical actively-managed fund): $1,005,000</li>
-      <li>2% expense (some 401(k) target-date funds): $828,000</li>
+      <li>
+        <strong>Kardeş A 25'te başlar</strong>: 40 yıl boyunca %7 ile ayda 500$ &rarr;
+        65'te 1.316.000$.
+      </li>
+      <li>
+        <strong>Kardeş B 35'te başlar</strong>: 30 yıl boyunca %7 ile ayda 500$ &rarr;
+        65'te 612.000$.
+      </li>
+      <li>
+        <strong>Fark</strong>: Kardeş A toplamda 60.000$ daha fazla katkı yaptı (240K$'a
+        karşı 180K$) ancak 704.000$ daha fazla ile sonuçlandı. 10 ekstra yıl, 60K$
+        mevduat ve erken mevduatların bileşik etkisinden ~644K$ katkıda bulundu.
+      </li>
     </ul>
     <p>
-      The 1% fee costs $201,000 over 30 years. The 2% fee costs $378,000. Always check
-      expense ratios; switch to low-cost index funds in your 401(k) if available.
+      <strong>Pratik çıkarım</strong>: beklemenin maliyeti, 20'li yaşlarınızda
+      hissedildiğinden çok daha yüksektir. 22-25 yaşlarında başlayan küçük miktarlar
+      (100-200$/ay) bile, 35-40 yaşlarında başlayan büyük miktarlardan (800-1.000$/ay)
+      daha iyi performans gösterir.
     </p>
 
-    <h2 id="sequence-risk">Sequence of returns near retirement</h2>
+    <h2 id="lump-sum-vs-monthly">Toplu para ve aylık katkılar</h2>
     <p>
-      Two retirees with identical 30-year average returns can have wildly different
-      outcomes based on the ORDER of returns &mdash; especially in years 1-5 of
-      retirement.
+      Matematiksel olarak: toplu para yatırımı zamanın yaklaşık 2/3'ünde kazanır. Piyasa
+      yükselme eğilimindedir, bu nedenle daha erken yatırım yapmak daha fazla büyüme
+      sağlar. Dolar maliyeti ortalaması (DCA), zirveden satın alma riskini azaltır.
     </p>
     <p>
-      <strong>Retiree A</strong>: retired 2000 with $1M, withdraws $40K/year (4% rule).
-      Faced 2000-2002 tech bust (-49%). Portfolio dropped to ~$500K while still
-      withdrawing. By 2010 (peak of stress): ~$280K. Even with strong 2010-2020 returns,
-      hard to recover.
+      Vanguard'ın araştırması: toplu para, 12 ay boyunca DCA'dan ortalama olarak ~%2,4
+      daha yüksek 10 yıllık getiri sağlar. 12 ay boyunca beklemenin (DCA) maliyeti:
+      piyasa %7 reel getiri sağlarken para piyasasında %4 kazanan nakit tutmak =
+      ortalama olarak yarım yıl için %3 sürüklenme = ~%1,5 maliyet.
     </p>
     <p>
-      <strong>Retiree B</strong>: retired 2010 with $1M, same plan. Faced 2010-2020 bull
-      market first. Portfolio at $1.7M by 2020 even with withdrawals.
-    </p>
-    <p>
-      Same average return over 30 years; very different outcomes. This is sequence-of-
-      returns risk and is why retirement planning increasingly uses Monte Carlo simulation
-      (running 1000+ historical scenarios) instead of single average-return projections.
-      For accumulators (not yet retired), sequence risk is much less important &mdash;
-      bad years early are fine because you&rsquo;re still buying low.
+      <strong>Pratik rehberlik</strong>: maaş çekinden gelen yeni aylık katkılar için,
+      zaten etkili bir şekilde DCA yapıyorsunuz; bu sorun değil. Beklenmedik nakit
+      girişleri (miras, ikramiye, uzlaşma) için, duygusal belirsizlik sizi 6-12 ay
+      boyunca DCA'ya itmedikçe toplu parayı düşünün. Matematik toplu parayı söyler;
+      davranış, hangisiyle gerçekten yapabiliyorsanız onu söyler.
     </p>
 
-    <h2 id="frequency">Monthly vs daily vs continuous compounding</h2>
+    <h2 id="fees">Ücretler size karşı nasıl bileşik getiri sağlar</h2>
     <p>
-      Compounding frequency matters less than rate or time. At 7% APR:
+      %1'lik bir ücret, &ldquo;%1 daha az getiri&rdquo; anlamına gelmez. Her yıl %1
+      daha az bileşik getiri anlamına gelir ve bu on yıllar boyunca çarpımsaldır.
+    </p>
+    <p>
+      Üç ücret seviyesinde aynı senaryo, 30 yıl boyunca %7 brüt ile ayda 1.000$:
     </p>
     <ul>
-      <li>Annual compounding: effective annual rate 7.00%</li>
-      <li>Monthly: 7.23%</li>
-      <li>Daily: 7.25%</li>
-      <li>Continuous: 7.25% (mathematical limit, e^0.07 - 1)</li>
+      <li>%0,05 gider (Vanguard VTSAX): 1.206.000$</li>
+      <li>%1 gider (tipik aktif yönetilen fon): 1.005.000$</li>
+      <li>%2 gider (bazı 401(k) hedef tarihli fonlar): 828.000$</li>
     </ul>
     <p>
-      Over 30 years on $100K, monthly vs daily is ~$5K difference. Most retirement
-      accounts compound continuously (every transaction); savings accounts compound
-      daily; bonds typically semi-annually. For practical projections, monthly compounding
-      is close enough &mdash; don&rsquo;t obsess over the frequency.
+      %1'lik ücret 30 yılda 201.000$'a mal olur. %2'lik ücret 378.000$'a mal olur.
+      Her zaman gider oranlarını kontrol edin; varsa 401(k)'nizde düşük maliyetli
+      endeks fonlarına geçin.
     </p>
 
-    <h2 id="real-world-products">Where to actually get compound returns</h2>
+    <h2 id="sequence-risk">Emekliliğe yakın getiri sırası</h2>
     <p>
-      <strong>Stocks (S&amp;P 500 index fund)</strong>: ~10% nominal, ~7% real
-      historical. Best long-horizon vehicle. Low-cost: VTSAX, FXAIX, SWPPX, or any major
-      brokerage&rsquo;s S&amp;P 500 index fund (0.02-0.04% expense).
+      Aynı 30 yıllık ortalama getiriye sahip iki emekli, özellikle emekliliğin 1-5.
+      yıllarında getirilerin SIRASINA bağlı olarak çok farklı sonuçlara sahip olabilir.
     </p>
     <p>
-      <strong>Bonds (Treasury or aggregate bond fund)</strong>: 3-5% nominal historically.
-      Less volatile; lower long-term return. Best for short-to-medium horizon (1-10
-      years) or as portfolio diversifier near retirement.
+      <strong>Emekli A</strong>: 2000'de 1 milyon$ ile emekli oldu, yılda 40.000$
+      çekiyor (%4 kuralı). 2000-2002 teknoloji çöküşüyle karşı karşıya kaldı (-%49).
+      Portföy, hala para çekerken ~500.000$'a düştü. 2010'a kadar (stresin zirvesi):
+      ~280.000$. 2010-2020 güçlü getirilerine rağmen toparlanması zor.
     </p>
     <p>
-      <strong>High-yield savings</strong>: 4-5% in 2026. Insured (FDIC up to $250K).
-      Best for emergency funds and 1-5 year goals.
+      <strong>Emekli B</strong>: 2010'da 1 milyon$ ile emekli oldu, aynı plan. Önce
+      2010-2020 boğa piyasasıyla karşı karşıya kaldı. Portföy, çekimlere rağmen 2020'de
+      1,7 milyon$'a ulaştı.
     </p>
     <p>
-      <strong>I-bonds (US Treasury inflation-protected)</strong>: variable rate tied to
-      inflation. ~5% in high-inflation periods. $10K/year purchase limit per person.
-      Best for inflation hedge in long-term holdings.
-    </p>
-    <p>
-      <strong>CDs</strong>: 4-5% in 2026 for 1-5 year terms. Better than savings if you
-      can lock up the money; less flexible.
-    </p>
-    <p>
-      <strong>Real estate (REITs in account, or direct ownership)</strong>: ~9-10%
-      nominal historically. Diversifier; less liquid (direct ownership) or volatile
-      (REITs). Most retail investors get sufficient real-estate exposure via target-date
-      fund REIT allocation.
+      30 yıl boyunca aynı ortalama getiri; çok farklı sonuçlar. Bu, getiri sırası
+      riskidir ve bu nedenle emeklilik planlaması, tek bir ortalama getiri projeksiyonu
+      yerine giderek daha fazla Monte Carlo simülasyonu (1000+ tarihsel senaryo
+      çalıştırma) kullanmaktadır. Birikim yapanlar (henüz emekli olmamış) için sıra
+      riski çok daha az önemlidir &mdash; erken kötü yıllar sorun değildir çünkü hala
+      düşükten alıyorsunuz.
     </p>
 
-    <h2>The 80/20 takeaway</h2>
+    <h2 id="frequency">Aylık, günlük ve sürekli bileşik faiz</h2>
     <p>
-      Compound interest math is simple: future value depends on rate, time, and amount.
-      Time matters most by far &mdash; starting at 25 vs 35 typically produces 2&times;
-      the final balance even with the same monthly contribution. Use real returns (7%
-      after inflation), not nominal (10%), to project today&rsquo;s purchasing power.
-      Use tax-advantaged accounts (Roth, HSA, traditional 401(k) with match) before
-      taxable. Use low-cost index funds (0.05% expense, not 1%+).
+      Bileşik faiz sıklığı, oran veya süreden daha az önemlidir. %7 YBB'de:
+    </p>
+    <ul>
+      <li>Yıllık bileşik: efektif yıllık oran %7,00</li>
+      <li>Aylık: %7,23</li>
+      <li>Günlük: %7,25</li>
+      <li>Sürekli: %7,25 (matematiksel limit, e^0,07 - 1)</li>
+    </ul>
+    <p>
+      100K$ üzerinde 30 yılda, aylık ve günlük arasındaki fark ~5K$'dır. Çoğu emeklilik
+      hesabı sürekli bileşik getiri sağlar (her işlem); tasarruf hesapları günlük
+      bileşik getiri sağlar; tahviller tipik olarak altı ayda bir. Pratik projeksiyonlar
+      için aylık bileşik yeterince yakındır &mdash; sıklık konusunda takıntılı olmayın.
+    </p>
+
+    <h2 id="real-world-products">Bileşik getiriyi nereden alabilirsiniz</h2>
+    <p>
+      <strong>Hisse senetleri (S&amp;P 500 endeks fonu)</strong>: ~%10 nominal, ~%7 reel
+      tarihsel. En iyi uzun vadeli araç. Düşük maliyetli: VTSAX, FXAIX, SWPPX veya
+      herhangi bir büyük aracı kurumun S&amp;P 500 endeks fonu (%0,02-0,04 gider).
     </p>
     <p>
-      Run your specific numbers in the <a href="/tools/compound-interest-calculator">
-      compound interest calculator</a>; check the supporting{" "}
-      <a href="/learn/rule-of-72">Rule of 72 glossary entry</a> for mental shortcuts;
-      and read the <a href="/learn/compound-interest">compound interest glossary</a> for
-      the short-form definition. The single most valuable financial action most people
-      can take is starting a Roth IRA or 401(k) match in their 20s and never stopping;
-      compound math handles the rest.
+      <strong>Tahviller (Hazine veya toplam tahvil fonu)</strong>: Tarihsel olarak %3-5
+      nominal. Daha az oynak; daha düşük uzun vadeli getiri. Kısa-orta vadeli (1-10 yıl)
+      hedefler veya emekliliğe yakın portföy çeşitlendiricisi olarak en iyisi.
+    </p>
+    <p>
+      <strong>Yüksek getirili tasarruf</strong>: 2026'da %4-5. Sigortalı (FDIC 250K$'a
+      kadar). Acil durum fonları ve 1-5 yıllık hedefler için en iyisi.
+    </p>
+    <p>
+      <strong>I-bond'lar (ABD Hazine enflasyon korumalı)</strong>: enflasyona bağlı
+      değişken oran. Yüksek enflasyon dönemlerinde ~%5. Kişi başına yılda 10K$ satın
+      alma limiti. Uzun vadeli holdinglerde enflasyon koruması için en iyisi.
+    </p>
+    <p>
+      <strong>CD'ler</strong>: 1-5 yıllık vadeler için 2026'da %4-5. Parayı
+      kilitleyebiliyorsanız tasarruftan daha iyidir; daha az esnektir.
+    </p>
+    <p>
+      <strong>Gayrimenkul (hesapta GYO'lar veya doğrudan mülkiyet)</strong>: Tarihsel
+      olarak ~%9-10 nominal. Çeşitlendirici; daha az likit (doğrudan mülkiyet) veya
+      oynak (GYO'lar). Çoğu perakende yatırımcı, hedef tarihli fon GYO tahsisi yoluyla
+      yeterli gayrimenkul maruziyeti elde eder.
+    </p>
+
+    <h2>80/20 çıkarımı</h2>
+    <p>
+      Bileşik faiz matematiği basittir: gelecekteki değer orana, süreye ve miktara
+      bağlıdır. Süre açık ara en önemlisidir &mdash; 25'te başlamak vs 35'te başlamak,
+      aynı aylık katkıyla bile tipik olarak 2&times; nihai bakiye üretir. Bugünün satın
+      alma gücünü projekte etmek için nominal (%10) değil, reel getirileri (%7 enflasyon
+      sonrası) kullanın. Vergilendirilebilir hesaplardan önce vergi avantajlı hesapları
+      (Roth, HSA, eşleşmeli geleneksel 401(k)) kullanın. Düşük maliyetli endeks fonlarını
+      (%1+ değil, %0,05 gider) kullanın.
+    </p>
+    <p>
+      Kendi özel sayılarınızı <a href="/tools/compound-interest-calculator">bileşik faiz
+      hesaplayıcısında</a> çalıştırın; zihinsel kısayollar için destekleyici{" "}
+      <a href="/learn/rule-of-72">72 Kuralı sözlük girişini</a> kontrol edin ve kısa
+      tanım için <a href="/learn/compound-interest">bileşik faiz sözlüğünü</a> okuyun.
+      Çoğu insanın yapabileceği en değerli finansal eylem, 20'li yaşlarında bir Roth IRA
+      veya 401(k) eşleşmesine başlamak ve asla durmamaktır; bileşik matematik gerisini
+      halleder.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Run any compound interest scenario in seconds",
+  label: "Herhangi bir bileşik faiz senaryosunu saniyeler içinde çalıştırın",
   targetSlug: "compound-interest-calculator",
 };
 
 export const faq = [
   {
-    q: "How much will $100/month grow to over 30 years?",
-    a: "At 7% real return: $1,200/year for 30 years = $122,000 ending balance, of which $36,000 is contributions and $86,000 is growth. At 10% nominal: $228,000. The 'gap' is inflation — purchase power-wise, those numbers look identical. Always project in real terms (~7%) to know what you can actually buy in retirement. Increase contributions whenever possible; doubling to $200/month roughly doubles the result to $244K real / $456K nominal.",
+    q: "Ayda 100$, 30 yılda ne kadar büyür?",
+    a: "%7 reel getiride: 30 yıl boyunca yılda 1.200$ = 122.000$ bitiş bakiyesi, bunun 36.000$'ı katkılar ve 86.000$'ı büyümedir. %10 nominalde: 228.000$. 'Fark' enflasyondur — satın alma gücü açısından bu sayılar aynı görünür. Emeklilikte gerçekte ne satın alabileceğinizi bilmek için her zaman reel terimlerle (~%7) projeksiyon yapın. Mümkün olduğunda katkıları artırın; ayda 200$'a ikiye katlamak, sonucu kabaca 244K$ reel / 456K$ nominale ikiye katlar.",
   },
   {
-    q: "Why do small differences in return rate matter so much over 30 years?",
-    a: "Compounding multiplies the difference exponentially. $1,000/month for 30 years at 6% = $1,005,000; at 7% = $1,222,000; at 8% = $1,490,000. Just 1% extra return = $217K-$268K more. Over 40 years the gap explodes: $1,000/month at 6% = $1,953,000; at 8% = $3,490,000. This is why expense ratios (1% drag) and tax efficiency (capital gains drag) matter so much — they're effectively negative returns that compound against you for decades.",
+    q: "Getiri oranındaki küçük farklılıklar 30 yılda neden bu kadar önemli?",
+    a: "Bileşik getiri, farkı katlanarak çarpar. 30 yıl boyunca %6 ile ayda 1.000$ = 1.005.000$; %7 ile = 1.222.000$; %8 ile = 1.490.000$. Sadece %1 fazla getiri = 217K$-268K$ daha fazla. 40 yılda fark patlar: %6 ile ayda 1.000$ = 1.953.000$; %8 ile = 3.490.000$. Bu nedenle gider oranları (%1 sürüklenme) ve vergi verimliliği (sermaye kazançları sürüklenmesi) çok önemlidir — bunlar on yıllar boyunca size karşı bileşik getiri sağlayan etkili negatif getirilerdir.",
   },
   {
-    q: "Should I focus on saving more or earning higher returns?",
-    a: "Both, but the leverage shifts based on time horizon. Early career (under 30): saving rate matters most because you have little capital to compound on. Going from 5% saving to 15% triples your contributions. Mid-career (30-50): balance — you have enough capital that 1% extra return matters AND you have enough income to contribute meaningfully. Late career (50+): return rate matters most because you're not adding much new capital but compounding works on a large base. Always before optimization: max your tax-advantaged accounts (Roth IRA, 401(k) match, HSA) since they give 'free returns' from tax savings.",
+    q: "Daha fazla biriktirmeye mi yoksa daha yüksek getiri elde etmeye mi odaklanmalıyım?",
+    a: "Her ikisine de, ancak kaldıraç zaman ufkuna göre değişir. Erken kariyer (30 yaş altı): birikim oranı en önemlisidir çünkü bileşik getiri sağlayacak çok az sermayeniz vardır. %5 birikimden %15 birikime geçmek katkılarınızı üçe katlar. Orta kariyer (30-50): denge — bileşik getiri sağlayacak yeterli sermayeniz vardır VE anlamlı katkı yapacak geliriniz vardır. Geç kariyer (50+): getiri oranı en önemlisidir çünkü fazla yeni sermaye eklemezsiniz ancak bileşik getiri büyük bir taban üzerinde çalışır. Her zaman optimizasyondan önce: vergi avantajlı hesaplarınızı (Roth IRA, 401(k) eşleşmesi, HSA) maksimize edin çünkü vergi tasarruflarından 'ücretsiz getiri' sağlarlar.",
   },
   {
-    q: "What's the mathematically optimal contribution strategy?",
-    a: "Contribute to capture 401(k) match first (instant 50-100% return). Then pay off any debt above ~7% interest (guaranteed return equal to debt rate). Then max Roth IRA ($7,000/year — flexibility + tax-free growth). Then HSA if eligible ($4,300 single / $8,550 family — triple tax benefits). Then max remaining 401(k) ceiling ($23,500 total). Then taxable brokerage. Within each account, pick low-cost index funds (0.05% expense range, not 1%+). Increase contributions automatically with each raise. The math doesn't care about market timing — start when you can, contribute monthly, never stop.",
+    q: "Matematiksel olarak en uygun katkı stratejisi nedir?",
+    a: "Önce 401(k) eşleşmesini yakalamak için katkı yapın (anında %50-100 getiri). Ardından ~%7'nin üzerindeki borçları ödeyin (borç oranına eşit garantili getiri). Ardından Roth IRA'yı maksimize edin (yılda 7.000$ — esneklik + vergisiz büyüme). Ardından uygunsanız HSA'yı (bekar 4.300$ / aile 8.550$ — üçlü vergi avantajı). Ardından kalan 401(k) tavanını maksimize edin (toplam 23.500$). Ardından vergilendirilebilir aracı kurum. Her hesap içinde düşük maliyetli endeks fonlarını (%1+ değil, %0,05 gider aralığı) seçin. Her zamla birlikte katkıları otomatik olarak artırın. Matematik piyasa zamanlamasını umursamaz — ne zaman yapabiliyorsanız başlayın, aylık katkı yapın, asla durmayın.",
   },
 ];

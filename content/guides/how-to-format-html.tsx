@@ -3,29 +3,30 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      HTML that lands in your repo after a copy-paste from a CMS, a WYSIWYG editor, or a code
-      generator is almost always ugly: inconsistent indentation, closing tags jammed against
-      content, attributes scattered in random order, and self-closing tags that disagree with the
-      project&rsquo;s conventions. The browser does not care&mdash;it will parse almost anything
-      that looks like HTML&mdash;but humans and diff tools care a lot. Consistent formatting keeps
-      reviews fast, makes diffs meaningful, and surfaces structural bugs that messy HTML hides.
-      This guide covers indent size, attribute ordering, self-closing and void elements, how
-      Prettier differs from html-tidy, inline versus block-level rules, and the specific
-      conventions that make HTML readable at scale.
+      Bir CMS'den, WYSIWYG düzenleyiciden veya bir kod üreteçten kopyalayıp yapıştırdıktan sonra
+      deponuza gelen HTML neredeyse her zaman çirkindir: tutarsız girintileme, içeriğe yapışık kapanış
+      etiketleri, rastgele sırada dağılmış nitelikler ve projenin kurallarıyla uyuşmayan kendi kendini
+      kapatan etiketler. Tarayıcı umursamaz&mdash;HTML gibi görünen hemen her şeyi ayrıştırır&mdash;ancak
+      insanlar ve diff araçları çok umursar. Tutarlı biçimlendirme, incelemeleri hızlı tutar, diff'leri
+      anlamlı kılar ve karmaşık HTML'nin gizlediği yapısal hataları ortaya çıkarır. Bu kılavuz,
+      girinti boyutunu, nitelik sıralamasını, kendi kendini kapatan ve boş öğeleri, Prettier'ın
+      html-tidy'den farkını, satır içi ve blok düzeyi kuralları ve HTML'yi ölçekte okunabilir kılan
+      belirli kuralları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Indent size and character</h2>
+    <h2>Girinti boyutu ve karakteri</h2>
     <p>
-      Two-space indentation is the modern default for HTML, matching the JavaScript and CSS
-      ecosystem. Four-space and tab indentation are still common in older codebases and some
-      enterprise style guides. The absolute rule is consistency: mixed tabs and spaces break
-      diff-tool alignment and trigger noisy whitespace changes on every commit. Configure your
-      editor with <code>editorconfig</code> or a Prettier config so every contributor produces the
-      same output, and add a pre-commit hook that runs the formatter on changed files.
+      İki boşluklu girintileme, JavaScript ve CSS ekosistemiyle eşleşen modern HTML varsayılanıdır.
+      Dört boşluklu ve sekme girintileme, eski kod tabanlarında ve bazı kurumsal stil kılavuzlarında
+      hala yaygındır. Mutlak kural tutarlılıktır: karışık sekmeler ve boşluklar, diff aracı
+      hizalamasını bozar ve her commit'te gürültülü boşluk değişikliklerine neden olur. Düzenleyicinizi
+      <code>editorconfig</code> veya bir Prettier yapılandırmasıyla yapılandırın, böylece her katkıda
+      bulunan aynı çıktıyı üretir ve değiştirilen dosyalarda biçimlendiriciyi çalıştıran bir
+      commit-öncesi kancası ekleyin.
     </p>
     <pre>{`.editorconfig
 [*.html]
@@ -35,148 +36,151 @@ end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true`}</pre>
 
-    <h2>Void elements and self-closing syntax</h2>
+    <h2>Boş öğeler ve kendi kendini kapatma sözdizimi</h2>
     <p>
-      HTML5 has 14 void elements that never have a closing tag: <code>area</code>,
+      HTML5'te hiçbir zaman kapanış etiketi olmayan 14 boş öğe vardır: <code>area</code>,
       <code>base</code>, <code>br</code>, <code>col</code>, <code>embed</code>, <code>hr</code>,
       <code>img</code>, <code>input</code>, <code>link</code>, <code>meta</code>, <code>param</code>,
-      <code>source</code>, <code>track</code>, and <code>wbr</code>. The HTML5 spec allows both
-      <code>&lt;br&gt;</code> and <code>&lt;br /&gt;</code> and treats them identically, but project
-      style usually picks one. Plain <code>&lt;br&gt;</code> is the HTML5 idiom. Self-closing
-      <code>&lt;br /&gt;</code> is a holdover from XHTML but remains common in JSX-adjacent
-      codebases where developers want one consistent rule across both languages. Pick one and
-      enforce it with the formatter.
+      <code>source</code>, <code>track</code> ve <code>wbr</code>. HTML5 spesifikasyonu hem
+      <code>&lt;br&gt;</code> hem de <code>&lt;br /&gt;</code>'a izin verir ve bunları aynı şekilde
+      ele alır, ancak proje stili genellikle birini seçer. Düz <code>&lt;br&gt;</code>, HTML5
+      deyimidir. Kendi kendini kapatan <code>&lt;br /&gt;</code>, XHTML'den kalma bir alışkanlıktır
+      ancak geliştiricilerin her iki dilde de tutarlı bir kural istediği JSX ile ilgili kod
+      tabanlarında yaygın olmaya devam eder. Birini seçin ve biçimlendiriciyle zorunlu kılın.
     </p>
 
-    <h2>Block versus inline elements</h2>
+    <h2>Blok ve satır içi öğeler</h2>
     <p>
-      Block-level elements (<code>div</code>, <code>section</code>, <code>article</code>,
+      Blok düzeyindeki öğeler (<code>div</code>, <code>section</code>, <code>article</code>,
       <code>header</code>, <code>footer</code>, <code>p</code>, <code>h1</code>-<code>h6</code>,
-      <code>ul</code>, <code>ol</code>, <code>li</code>, <code>table</code>) go on their own line
-      with their children indented one level. Inline elements (<code>span</code>, <code>a</code>,
-      <code>em</code>, <code>strong</code>, <code>code</code>) stay on the same line as
-      surrounding text so the prose reads naturally. Breaking inline elements onto their own lines
-      can introduce unintended whitespace nodes that change rendering, especially in flex and grid
-      layouts where a stray space affects alignment.
+      <code>ul</code>, <code>ol</code>, <code>li</code>, <code>table</code>) kendi satırlarında
+      bulunur ve alt öğeleri bir düzey girintilenir. Satır içi öğeler (<code>span</code>,
+      <code>a</code>, <code>em</code>, <code>strong</code>, <code>code</code>), metnin doğal
+      akması için çevreleyen metinle aynı satırda kalır. Satır içi öğeleri kendi satırlarına
+      bölmek, özellikle esnek ve ızgara düzenlerinde başıboş bir boşluğun hizalamayı etkilediği
+      durumlarda, işlemeyi değiştiren istenmeyen boşluk düğümleri ekleyebilir.
     </p>
-    <pre>{`<p>This is <a href="/">a link</a> in a sentence.</p>
+    <pre>{`<p>Bu bir <a href="/">bağlantıdır</a> cümle içinde.</p>
 
-Not:
+Değil:
 <p>
-  This is
-  <a href="/">a link</a>
-  in a sentence.
+  Bu bir
+  <a href="/">bağlantıdır</a>
+  cümle içinde.
 </p>`}</pre>
 
-    <h2>Attribute ordering</h2>
+    <h2>Nitelik sıralaması</h2>
     <p>
-      No official spec mandates an attribute order, but consistent ordering makes scanning faster
-      and helps reviewers spot missing values. A widely used order is: structural attributes first
-      (<code>id</code>, <code>class</code>), then element-specific attributes (<code>href</code>,
-      <code>src</code>, <code>type</code>, <code>value</code>), then metadata (<code>name</code>,
-      <code>title</code>, <code>alt</code>, <code>role</code>, <code>aria-*</code>), then event
-      handlers (<code>onclick</code>), then <code>data-*</code> attributes last. Prettier does not
-      sort attributes by default, but the <code>prettier-plugin-organize-attributes</code> plugin
-      and many linters can enforce an order if your team picks one.
+      Hiçbir resmi spesifikasyon bir nitelik sırası zorunlu kılmaz, ancak tutarlı sıralama taramayı
+      hızlandırır ve gözden geçirenlerin eksik değerleri fark etmesine yardımcı olur. Yaygın olarak
+      kullanılan bir sıra şudur: önce yapısal nitelikler (<code>id</code>, <code>class</code>),
+      ardından öğeye özgü nitelikler (<code>href</code>, <code>src</code>, <code>type</code>,
+      <code>value</code>), ardından meta veriler (<code>name</code>, <code>title</code>,
+      <code>alt</code>, <code>role</code>, <code>aria-*</code>), ardından olay işleyicileri
+      (<code>onclick</code>), en son <code>data-*</code> nitelikleri. Prettier varsayılan olarak
+      nitelikleri sıralamaz, ancak <code>prettier-plugin-organize-attributes</code> eklentisi ve
+      birçok linter, ekibiniz bir tane seçerse bir sıra zorunlu kılabilir.
     </p>
 
-    <h2>Attribute wrapping</h2>
+    <h2>Nitelik sarma</h2>
     <p>
-      When a tag has more attributes than fit on a single line at the project&rsquo;s print-width
-      setting (usually 80 or 100 characters), wrap each attribute onto its own line with the
-      closing bracket on a new line. Prettier does this automatically when
-      <code>singleAttributePerLine</code> is enabled or when the line would exceed the print
-      width.
+      Bir etiket, projenin baskı genişliği ayarında (genellikle 80 veya 100 karakter) tek bir satıra
+      sığmayacak kadar çok niteliğe sahip olduğunda, her niteliği kendi satırına sarın ve kapanış
+      köşeli parantezini yeni bir satıra koyun. Prettier bunu, <code>singleAttributePerLine</code>
+      etkinleştirildiğinde veya satır baskı genişliğini aştığında otomatik olarak yapar.
     </p>
     <pre>{`<button
   type="button"
   class="btn btn-primary"
   data-action="submit"
-  aria-label="Save changes"
+  aria-label="Değişiklikleri kaydet"
   disabled
->
-  Save
+&gt;
+  Kaydet
 </button>`}</pre>
 
-    <h2>Quote style for attributes</h2>
+    <h2>Nitelikler için tırnak stili</h2>
     <p>
-      HTML5 accepts unquoted attribute values for values that contain no whitespace, quotes,
-      ampersands, equals signs, or angle brackets. Quoted values are universally safer and are
-      the norm in every modern style guide. Double quotes are the default. Single quotes work but
-      can collide with JavaScript string content when HTML is embedded in JS templates. Pick
-      double quotes and lock it in your formatter.
+      HTML5, boşluk, tırnak, ve işareti, eşittir işareti veya açılı parantez içermeyen değerler için
+      tırnak işaretsiz nitelik değerlerini kabul eder. Tırnaklı değerler evrensel olarak daha
+      güvenlidir ve her modern stil kılavuzunda normdur. Çift tırnak varsayılandır. Tek tırnak
+      işe yarar ancak HTML, JS şablonlarına gömüldüğünde JavaScript dize içeriğiyle çakışabilir.
+      Çift tırnak seçin ve biçimlendiricinizde kilitleyin.
     </p>
 
-    <h2>Boolean attributes</h2>
+    <h2>Boolean nitelikler</h2>
     <p>
-      HTML boolean attributes like <code>disabled</code>, <code>checked</code>,
-      <code>readonly</code>, <code>required</code>, <code>selected</code>, and <code>hidden</code>
-      are true when present and false when absent regardless of value. You can write them as
-      <code>disabled</code>, <code>disabled=&quot;&quot;</code>, or <code>disabled=&quot;disabled&quot;</code>
-      and all three mean the same thing. The bare-name form is the modern idiom. Do not write
-      <code>disabled=&quot;false&quot;</code>&mdash;it is still true, because the attribute exists,
-      and the string &ldquo;false&rdquo; is ignored. To make the input not disabled, remove the
-      attribute entirely.
+      <code>disabled</code>, <code>checked</code>, <code>readonly</code>, <code>required</code>,
+      <code>selected</code> ve <code>hidden</code> gibi HTML boolean nitelikleri, mevcut olduğunda
+      true, değerden bağımsız olarak yok olduğunda false'tur. Bunları <code>disabled</code>,
+      <code>disabled=&quot;&quot;</code> veya <code>disabled=&quot;disabled&quot;</code> olarak
+      yazabilirsiniz ve üçü de aynı anlama gelir. Yalın ad biçimi modern deyimdir.
+      <code>disabled=&quot;false&quot;</code> yazmayın&mdash;yine de true'dur, çünkü nitelik
+      mevcuttur ve &ldquo;false&rdquo; dizesi yok sayılır. Girişin devre dışı olmaması için
+      niteliği tamamen kaldırın.
     </p>
 
-    <h2>Prettier versus html-tidy versus js-beautify</h2>
+    <h2>Prettier'a karşı html-tidy'ye karşı js-beautify</h2>
     <p>
-      Prettier is the modern default: fast, opinionated, minimal configuration, and handles
-      embedded CSS and JavaScript consistently. It formats HTML as part of a project-wide
-      formatter covering many languages. html-tidy is the classic tool: very configurable, good
-      at repairing malformed HTML, but slower and more opinionated in weird directions.
-      js-beautify (with its HTML mode) sits between them with more knobs than Prettier and faster
-      operation than tidy. For new projects Prettier is the path of least resistance; for legacy
-      cleanup where you need to repair broken HTML, html-tidy is better.
+      Prettier modern varsayılandır: hızlı, fikir sahibi, minimum yapılandırma ve gömülü CSS ve
+      JavaScript'i tutarlı bir şekilde işler. HTML'yi birçok dili kapsayan proje çapında bir
+      biçimlendiricinin parçası olarak biçimlendirir. html-tidy klasik araçtır: çok yapılandırılabilir,
+      bozuk HTML'yi onarmada iyidir, ancak daha yavaştır ve garip yönlerde daha fazla fikir sahibidir.
+      js-beautify (HTML moduyla) aralarında bir yerdedir: Prettier'dan daha fazla düğme ve tidy'den
+      daha hızlı çalışma sunar. Yeni projeler için Prettier en az dirençli yoldur; bozuk HTML'yi
+      onarmanız gereken eski temizlikler için html-tidy daha iyidir.
     </p>
 
-    <h2>Preserving meaningful whitespace</h2>
+    <h2>Anlamlı boşlukları koruma</h2>
     <p>
-      Inside <code>&lt;pre&gt;</code>, <code>&lt;textarea&gt;</code>, and any element with
-      <code>white-space: pre</code> in CSS, whitespace matters. Formatters must leave these
-      contents alone&mdash;no reindentation, no collapsing, no trailing-whitespace trimming.
-      Prettier and html-tidy both respect this by default. If you see formatter output that adds
-      or removes leading spaces inside a <code>&lt;pre&gt;</code>, check for a formatter bug or a
-      misconfigured override.
+      <code>&lt;pre&gt;</code>, <code>&lt;textarea&gt;</code> ve CSS'de <code>white-space: pre</code>
+      olan herhangi bir öğenin içinde boşluk önemlidir. Biçimlendiriciler bu içerikleri yalnız
+      bırakmalıdır&mdash;yeniden girintileme yok, daraltma yok, sondaki boşluk kırpma yok. Prettier
+      ve html-tidy varsayılan olarak buna saygı duyar. Bir <code>&lt;pre&gt;</code> içinde baştaki
+      boşlukları ekleyen veya kaldıran biçimlendirici çıktısı görürseniz, bir biçimlendirici hatası
+      veya yanlış yapılandırılmış bir geçersiz kılma olup olmadığını kontrol edin.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Reformatting generated files.</strong> Template engines, bundlers, and CMS exports
-      all produce HTML that may have intentional structure. Running a formatter on
-      build-output HTML creates noise that obscures real changes. Format source, not output.
+      <strong>Oluşturulan dosyaları yeniden biçimlendirme.</strong> Şablon motorları, paketleyiciler
+      ve CMS dışa aktarımları, kasıtlı bir yapıya sahip olabilecek HTML üretir. Derleme çıktısı
+      HTML'sinde bir biçimlendirici çalıştırmak, gerçek değişiklikleri gizleyen gürültü yaratır.
+      Kaynağı biçimlendirin, çıktıyı değil.
     </p>
     <p>
-      <strong>Breaking inline text across lines.</strong> Putting <code>&lt;a&gt;</code> or
-      <code>&lt;em&gt;</code> tags on their own line adds whitespace nodes that change rendering
-      in flex and grid layouts. Keep inline elements on the same line as surrounding prose.
+      <strong>Satır içi metni satırlar arasında bölme.</strong> <code>&lt;a&gt;</code> veya
+      <code>&lt;em&gt;</code> etiketlerini kendi satırlarına koymak, esnek ve ızgara düzenlerinde
+      işlemeyi değiştiren boşluk düğümleri ekler. Satır içi öğeleri çevreleyen metinle aynı satırda
+      tutun.
     </p>
     <p>
-      <strong>Mixing self-closing styles.</strong> Some <code>&lt;br /&gt;</code> and some
-      <code>&lt;br&gt;</code> in the same file means the formatter is not running or is
-      misconfigured. Pick one and enforce it.
+      <strong>Kendi kendini kapatma stillerini karıştırma.</strong> Aynı dosyada bazı
+      <code>&lt;br /&gt;</code> ve bazı <code>&lt;br&gt;</code> olması, biçimlendiricinin
+      çalışmadığı veya yanlış yapılandırıldığı anlamına gelir. Birini seçin ve zorunlu kılın.
     </p>
     <p>
-      <strong>Manual indentation on a large file.</strong> Humans are bad at counting spaces.
-      Always run the formatter before committing instead of adjusting indentation by eye.
+      <strong>Büyük bir dosyada manuel girintileme.</strong> İnsanlar boşluk saymakta kötüdür.
+      Girintiyi gözle ayarlamak yerine her zaman commit'ten önce biçimlendiriciyi çalıştırın.
     </p>
     <p>
-      <strong>Writing <code>disabled=&quot;false&quot;</code>.</strong> A present boolean
-      attribute is always true. Remove the attribute to make it false.
+      <strong><code>disabled=&quot;false&quot;</code> yazmak.</strong> Mevcut bir boolean nitelik
+      her zaman true'dur. False yapmak için niteliği kaldırın.
     </p>
     <p>
-      <strong>Unquoted attribute values.</strong> Technically legal for simple values but brittle
-      the moment someone adds a space or a quote. Always quote attribute values.
+      <strong>Tırnak işaretsiz nitelik değerleri.</strong> Basit değerler için teknik olarak
+      geçerlidir ancak birisi bir boşluk veya tırnak eklediği anda kırılgandır. Nitelik değerlerini
+      her zaman tırnak içine alın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları çalıştırın</h2>
     <p>
-      Clean up messy HTML instantly with the{" "}
-      <a href="/tools/html-formatter">HTML formatter</a>. Pair with the{" "}
-      <a href="/tools/xml-formatter">XML formatter</a> for XHTML and XML-flavored markup where
-      whitespace and self-closing rules differ, and the{" "}
-      <a href="/tools/html-to-markdown">HTML to Markdown converter</a> when you decide the content
-      would be better expressed as Markdown once it is legible.
+      Karmaşık HTML'yi anında temizleyin{" "}
+      <a href="/tools/html-formatter">HTML biçimlendirici</a> ile. Boşluk ve kendi kendini kapatma
+      kurallarının farklı olduğu XHTML ve XML türevi işaretleme için{" "}
+      <a href="/tools/xml-formatter">XML biçimlendirici</a> ile eşleştirin ve içeriğin okunabilir
+      hale geldiğinde Markdown olarak daha iyi ifade edileceğine karar verdiğinizde{" "}
+      <a href="/tools/html-to-markdown">HTML'den Markdown'a dönüştürücü</a> kullanın.
     </p>
   </>
 );

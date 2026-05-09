@@ -1,55 +1,55 @@
 import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
-  <p>There are hundreds of yoga and meditation apps, most charging $70 a year for content you can get free on YouTube. Here&rsquo;s how to pick one you&rsquo;ll actually use &mdash; and how to notice when the app is making things worse, not better.</p>
+  <p>Yüzlerce yoga ve meditasyon uygulaması var ve çoğu, YouTube'da ücretsiz bulabileceğiniz içerikler için yılda 70 dolar talep ediyor. İşte gerçekten kullanacağınız bir uygulamayı nasıl seçeceğiniz ve uygulamanın işleri daha iyi değil, daha kötü hale getirdiğini nasıl anlayacağınız.</p>
 );
 
 export const body: ReactElement = (
   <>
-    <p>The best yoga or mindfulness app is the one you open consistently. Features, price, and celebrity narrators matter less than whether the interface and style click with you in the first week. This is not medical advice &mdash; for clinical anxiety, depression, or trauma, an app is a supplement to professional care, not a replacement.</p>
+    <p>En iyi yoga veya farkındalık uygulaması, düzenli olarak açtığınız uygulamadır. Özellikler, fiyat ve ünlü anlatıcılar, arayüz ve tarzın ilk haftada size uyup uymadığından daha az önemlidir. Bu tıbbi bir tavsiye değildir &mdash; klinik anksiyete, depresyon veya travma için bir uygulama, profesyonel bakımın tamamlayıcısıdır, yerine geçmez.</p>
 
-    <h2>Yoga apps by level</h2>
+    <h2>Seviyelere göre yoga uygulamaları</h2>
     <ul>
-      <li>Complete beginner: Yoga with Adriene on YouTube &mdash; free, welcoming, no equipment needed, 30-day programs for a structured start.</li>
-      <li>Practical home practice: Down Dog &mdash; customizable length, level, and focus; great when you want to set the flow yourself.</li>
-      <li>Variety and live classes: Glo &mdash; deeper library, senior teachers, stronger for intermediate students who want specific lineages or styles.</li>
-      <li>Strength and mobility crossover: Alo Moves or Peloton App if you&rsquo;re blending yoga with general fitness.</li>
+      <li>Tamamen yeni başlayan: YouTube'da Yoga with Adriene &mdash; ücretsiz, arkadaş canlısı, ekipman gerektirmez, yapılandırılmış bir başlangıç için 30 günlük programlar.</li>
+      <li>Pratik ev pratiği: Down Dog &mdash; özelleştirilebilir süre, seviye ve odak; kendi hızınızı belirlemek istediğinizde harika.</li>
+      <li>Çeşitlilik ve canlı dersler: Glo &mdash; daha derin bir kütüphane, kıdemli eğitmenler, belirli gelenekler veya stiller isteyen orta seviye öğrenciler için daha güçlü.</li>
+      <li>Güç ve hareketlilik geçişi: Alo Moves veya Peloton App &mdash; yogayı genel fitness ile birleştiriyorsanız.</li>
     </ul>
-    <p>If you&rsquo;re brand new, don&rsquo;t pay for anything until you&rsquo;ve done 10 free sessions and know you&rsquo;ll stick with it.</p>
+    <p>Tamamen yeniyseniz, 10 ücretsiz seans yapıp buna bağlı kalacağınızı bilene kadar hiçbir şey için para ödemeyin.</p>
 
-    <h2>Meditation apps by goal</h2>
+    <h2>Hedefe göre meditasyon uygulamaları</h2>
     <ul>
-      <li>Structured beginner onboarding: Headspace &mdash; friendly, gamified, great for habit formation.</li>
-      <li>Sleep support and broad content: Calm &mdash; sleep stories, soundscapes, celebrity narrators.</li>
-      <li>Secular philosophy and deeper teaching: Waking Up &mdash; Sam Harris&rsquo;s app, stronger on non-dual and philosophical content.</li>
-      <li>Free and diverse: Insight Timer &mdash; tens of thousands of free guided meditations across traditions, with a paid tier if you want courses.</li>
-    </ul>
-
-    <h2>Pricing reality</h2>
-    <p>The main paid apps cluster around $60 to $70 per year. Monthly plans at $13 to $15 are a bad deal if you&rsquo;ll use the app for more than five months. Most apps offer a 7 to 14 day free trial &mdash; use it seriously before committing. Many employers and insurance plans now include Headspace, Calm, or Talkspace for free; check before you pay.</p>
-
-    <h2>Sleep story vs actual meditation</h2>
-    <p>Sleep stories are entertainment that helps you fall asleep. They&rsquo;re not meditation practice. If your only &ldquo;meditation&rdquo; is a celebrity narrating a sleep story, that&rsquo;s fine for sleep, but don&rsquo;t expect the attention and emotional regulation benefits that come from daytime practice with awareness.</p>
-
-    <h2>Signs the app isn&rsquo;t working for you</h2>
-    <ul>
-      <li>You feel more stressed after sessions, not less.</li>
-      <li>You feel guilt or shame about breaking a streak &mdash; the app is making you more neurotic, not calmer.</li>
-      <li>You&rsquo;re app-hopping every week looking for the one that finally clicks.</li>
-      <li>Meditation surfaces difficult trauma that you don&rsquo;t have a therapist to process with.</li>
-      <li>You&rsquo;re using it to avoid dealing with real life problems instead of facing them.</li>
+      <li>Yapılandırılmış yeni başlayan yönelimi: Headspace &mdash; arkadaş canlısı, oyunlaştırılmış, alışkanlık oluşturma için harika.</li>
+      <li>Uyku desteği ve geniş içerik: Calm &mdash; uyku hikayeleri, ses manzaraları, ünlü anlatıcılar.</li>
+      <li>Seküler felsefe ve daha derin öğretim: Waking Up &mdash; Sam Harris'in uygulaması, ikili olmayan ve felsefi içerikte daha güçlü.</li>
+      <li>Ücretsiz ve çeşitli: Insight Timer &mdash; gelenekler arasında on binlerce ücretsiz rehberli meditasyon, kurs istiyorsanız ücretli katman.</li>
     </ul>
 
-    <h2>Privacy considerations</h2>
-    <p>Mood check-ins, journal entries, and meditation patterns are sensitive health data. Read the privacy policy &mdash; look for whether data is shared with advertisers, whether you can delete your history, and whether the company has had a breach. Some wellness apps have been caught sharing mental health data with ad platforms. If privacy matters to you, Insight Timer and Waking Up have stronger reputations than apps owned by large ad-tech companies.</p>
+    <h2>Fiyatlandırma gerçeği</h2>
+    <p>Büyük ücretli uygulamalar yılda 60 ila 70 dolar arasında değişiyor. Aylık planlar 13 ila 15 dolar arasındadır ve uygulamayı beş aydan fazla kullanacaksanız kötü bir anlaşmadır. Çoğu uygulama 7 ila 14 günlük ücretsiz deneme sunar &mdash; taahhüt etmeden önce bunları ciddiye alın. Birçok işveren ve sigorta planı artık Headspace, Calm veya Talkspace'i ücretsiz olarak içeriyor &mdash; ödeme yapmadan önce kontrol edin.</p>
 
-    <h2>Free options that work</h2>
-    <p>YouTube channels (Yoga with Adriene, Goodful, Great Meditation), the free tier of Insight Timer, Tara Brach&rsquo;s podcast, and UCLA&rsquo;s Mindful Awareness Research Center free recordings are all high quality. You do not need to pay for a mindfulness practice to work.</p>
+    <h2>Uyku hikayesi ve gerçek meditasyon</h2>
+    <p>Uyku hikayeleri, uykuya dalmanıza yardımcı olan eğlencelerdir. Bir meditasyon pratiği değildir. Tek &ldquo;meditasyonunuz&rdquo; bir ünlünün uyku hikayesi okumasıysa, bu uyku için iyidir, ancak gündüz farkındalık pratiğinden gelen dikkat ve duygusal düzenleme faydalarını beklemeyin.</p>
 
-    <h2>Common mistakes</h2>
-    <p>App-hopping instead of committing to 30 days with one tool. Prioritizing streaks over actual quality of attention. Expecting instant peace after a week &mdash; benefits compound over months. Using a meditation app when you actually need a therapist. Paying full price without checking employer benefits first.</p>
+    <h2>Uygulamanın sizin için işe yaramadığının işaretleri</h2>
+    <ul>
+      <li>Seanslardan sonra daha az değil, daha stresli hissediyorsunuz.</li>
+      <li>Bir seriyi bozduğunuz için suçluluk veya utanç hissediyorsunuz &mdash; uygulama sizi daha sakin değil, daha nevrotik yapıyor.</li>
+      <li>Sonunda işe yarayacak olanı bulmak için her hafta uygulama değiştiriyorsunuz.</li>
+      <li>Meditasyon, işlemek için bir terapistiniz olmayan zor travmaları yüzeye çıkarıyor.</li>
+      <li>Gerçek hayattaki sorunlarla yüzleşmek yerine onlardan kaçmak için kullanıyorsunuz.</li>
+    </ul>
 
-    <h2>Bottom line</h2>
-    <p>Pick one app, use the free trial seriously, and commit for a month before judging it. If it&rsquo;s increasing your stress or shame, stop &mdash; the right practice feels like relief, not another productivity task. Not medical advice &mdash; for significant anxiety or depression, please work with a licensed professional.</p>
+    <h2>Gizlilik hususları</h2>
+    <p>Ruh hali kontrolleri, günlük girişleri ve meditasyon kalıpları hassas sağlık verileridir. Gizlilik politikasını okuyun &mdash; verilerin reklamcılarla paylaşılıp paylaşılmadığına, geçmişinizi silebilip silemeyeceğinize ve şirketin bir ihlal yaşayıp yaşamadığına bakın. Bazı sağlıklı yaşam uygulamalarının, reklam platformlarıyla ruh sağlığı verilerini paylaştığı bulunmuştur. Gizlilik sizin için önemliyse, Insight Timer ve Waking Up, büyük reklam teknolojisi şirketlerine ait uygulamalardan daha güçlü bir üne sahiptir.</p>
+
+    <h2>İşe yarayan ücretsiz seçenekler</h2>
+    <p>YouTube kanalları (Yoga with Adriene, Goodful, Great Meditation), Insight Timer'ın ücretsiz katmanı, Tara Brach'in podcast'i ve UCLA'nın Mindful Awareness Research Center ücretsiz kayıtlarının tümü yüksek kalitelidir. Bir farkındalık pratiğinin işe yaraması için para ödemeniz gerekmez.</p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>30 gün boyunca bir araca bağlı kalmak yerine uygulama atlamak. Gerçek dikkat kalitesi yerine serilere öncelik vermek. Bir hafta sonra anlık huzur beklemek &mdash; faydalar aylar içinde birikir. Aslında bir terapiste ihtiyacınız varken bir meditasyon uygulaması kullanmak. Önce işveren avantajlarını kontrol etmeden tam fiyat ödemek.</p>
+
+    <h2>Sonuç</h2>
+    <p>Bir uygulama seçin, ücretsiz denemeyi ciddiye alın ve yargılamadan önce bir ay taahhüt edin. Stresinizi veya utancınızı artırıyorsa, bırakın &mdash; doğru pratik, başka bir üretkenlik görevi değil, rahatlama gibi hissettirir. Tıbbi tavsiye değildir &mdash; önemli anksiyete veya depresyon için lütfen lisanslı bir profesyonelle çalışın.</p>
   </>
 );

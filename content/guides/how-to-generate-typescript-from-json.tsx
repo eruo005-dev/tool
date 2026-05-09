@@ -3,25 +3,27 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Hand-writing TypeScript interfaces for API responses is tedious
-      and error-prone. Generating them from sample JSON (or a JSON
-      Schema, OpenAPI spec, or protobuf) is faster, more accurate,
-      and stays in sync with the data. But generators make choices —
-      optional vs required, union vs enum, narrow vs loose types —
-      that affect how pleasant the generated types are to use. This
-      guide covers the generators worth knowing, the tradeoffs in
-      their <a href="/learn/inference">inference</a>, when to run-time validate in addition to
-      compile-time check, and the patterns for keeping generated
-      types fresh as APIs evolve.
+      API yanıtları için TypeScript arayüzlerini elle yazmak sıkıcı
+      ve hataya açıktır. Bunları örnek JSON'dan (veya bir JSON
+      Şeması, OpenAPI spesifikasyonu ya da protobuf'dan) oluşturmak
+      daha hızlı, daha doğru ve veriyle senkronize kalır. Ancak
+      oluşturucular, oluşturulan türlerin kullanımını etkileyen
+      seçimler yapar — isteğe bağlı vs zorunlu, birleşim vs enum,
+      dar vs geniş türler. Bu rehber, bilmeye değer oluşturucuları,
+      bunların <a href="/learn/inference">çıkarım</a>ındaki
+      ödünleşimleri, derleme zamanı kontrolüne ek olarak çalışma
+      zamanı doğrulamasının ne zaman yapılacağını ve API'ler
+      geliştikçe oluşturulan türleri güncel tutma kalıplarını
+      kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What a generator does</h2>
+    <h2>Bir oluşturucu ne yapar</h2>
     <p>
-      Given sample JSON:
+      Örnek JSON verildiğinde:
     </p>
     <pre>
 {`{
@@ -32,7 +34,7 @@ export const body: ReactElement = (
 }`}
     </pre>
     <p>
-      A generator produces:
+      Bir oluşturucu şunu üretir:
     </p>
     <pre>
 {`interface User {
@@ -43,220 +45,227 @@ export const body: ReactElement = (
 }`}
     </pre>
     <p>
-      Straightforward for flat data. Complications start with nested
-      objects, mixed arrays, optional fields, and null handling.
+      Düz veriler için basit. Zorluklar iç içe nesneler, karışık
+      diziler, isteğe bağlı alanlar ve null işleme ile başlar.
     </p>
 
-    <h2>Inference decisions you&rsquo;ll hit</h2>
+    <h2>Karşılaşacağınız çıkarım kararları</h2>
     <p>
-      <strong>Optional vs required:</strong> does the generator
-      assume all fields in the sample are required? Or only mark
-      required keys (if multiple samples are provided)? You usually
-      want to treat single-sample inference as a best-effort.
+      <strong>İsteğe bağlı vs zorunlu:</strong> oluşturucu,
+      örnekteki tüm alanların zorunlu olduğunu mu varsayar? Yoksa
+      yalnızca zorunlu anahtarları mı işaretler (birden çok örnek
+      sağlanırsa)? Genellikle tek örnekli çıkarımı en iyi çaba
+      olarak ele almak istersiniz.
     </p>
     <p>
-      <strong>Nullable fields:</strong> if a sample has{" "}
-      <code>&quot;email&quot;: null</code>, is it{" "}
-      <code>email: null</code>, <code>email?: string</code>, or{" "}
-      <code>email: string | null</code>? Depends on the generator.
+      <strong>Null olabilen alanlar:</strong> bir örnekte{" "}
+      <code>&quot;email&quot;: null</code> varsa, bu{" "}
+      <code>email: null</code>, <code>email?: string</code> veya{" "}
+      <code>email: string | null</code> mudur? Oluşturucuya bağlıdır.
     </p>
     <p>
-      <strong>Number vs literal:</strong>{" "}
-      <code>{`"status": 1`}</code> — is it <code>status: number</code>
-      {" "}or <code>status: 1</code>? Literal types are more precise
-      but brittle if the API returns other numbers.
+      <strong>Sayı vs literal:</strong>{" "}
+      <code>{`"status": 1`}</code> — bu <code>status: number</code>
+      {" "}mudur yoksa <code>status: 1</code> mi? Literal türler daha
+      kesindir ancak API başka sayılar döndürürse kırılgandır.
     </p>
     <p>
-      <strong>Array item union:</strong>{" "}
-      <code>[&quot;a&quot;, 1, true]</code> becomes{" "}
-      <code>(string | number | boolean)[]</code>. Usually fine, but
-      sometimes the generator gets cold feet and outputs{" "}
-      <code>any[]</code>.
+      <strong>Dizi öğesi birleşimi:</strong>{" "}
+      <code>[&quot;a&quot;, 1, true]</code> şuna dönüşür:{" "}
+      <code>(string | number | boolean)[]</code>. Genellikle sorun
+      yoktur, ancak bazen oluşturucu çekinir ve{" "}
+      <code>any[]</code> çıktısı verir.
     </p>
     <p>
       <strong>Enum vs string:</strong>{" "}
       <code>&quot;status&quot;: &quot;pending&quot;</code> —{" "}
-      <code>status: string</code> or <code>status: &quot;pending&quot;</code>?
-      Single-sample enums are dangerous; multi-sample inference can
-      detect real enums.
+      <code>status: string</code> mi yoksa <code>status: &quot;pending&quot;</code> mi?
+      Tek örnekli enum'lar tehlikelidir; çok örnekli çıkarım gerçek
+      enum'ları tespit edebilir.
     </p>
 
-    <h2>Generators worth knowing</h2>
+    <h2>Bilmeye değer oluşturucular</h2>
     <p>
-      <strong>quicktype:</strong> old, reliable, supports many source
-      formats (JSON, JSON Schema, GraphQL, Postman) and many target
-      languages. Output is ergonomic.
+      <strong>quicktype:</strong> eski, güvenilir, birçok kaynak
+      formatını (JSON, JSON Şeması, GraphQL, Postman) ve birçok hedef
+      dili destekler. Çıktısı ergonomiktir.
     </p>
     <p>
-      <strong>json-schema-to-typescript:</strong> converts JSON Schema
-      (not raw JSON). Output is faithful to the schema; requires you
-      have a schema already.
+      <strong>json-schema-to-typescript:</strong> JSON Şeması'nı
+      (ham JSON değil) dönüştürür. Çıktı şemaya sadıktır; zaten bir
+      şemanız olmasını gerektirir.
     </p>
     <p>
-      <strong>openapi-typescript / openapi-fetch:</strong> generate
-      types and typed fetch clients from OpenAPI. Best for REST APIs.
+      <strong>openapi-typescript / openapi-fetch:</strong> OpenAPI'den
+      türler ve türlenmiş fetch istemcileri oluşturur. REST API'leri
+      için en iyisidir.
     </p>
     <p>
-      <strong>graphql-codegen:</strong> for GraphQL APIs, generates
-      types plus hooks for Apollo/urql/others.
+      <strong>graphql-codegen:</strong> GraphQL API'leri için türler
+      ve Apollo/urql/diğerleri için hook'lar oluşturur.
     </p>
     <p>
-      <strong>protobufjs / ts-proto:</strong> for gRPC/protobuf.
+      <strong>protobufjs / ts-proto:</strong> gRPC/protobuf için.
     </p>
     <p>
-      <strong>VS Code paste-as-JSON:</strong> built-in command turns
-      pasted JSON into a TypeScript interface. Good for one-offs.
-    </p>
-
-    <h2>From JSON alone — no schema</h2>
-    <p>
-      Fine for quick typing, but:
-    </p>
-    <p>
-      Only one sample → generator can&rsquo;t distinguish optional
-      from required.
-    </p>
-    <p>
-      No way to know if an array element is always an object or
-      sometimes null.
-    </p>
-    <p>
-      No range/length/pattern info.
-    </p>
-    <p>
-      <strong>Hack for better inference:</strong> feed the generator
-      multiple samples covering edge cases (empty string, null,
-      missing keys). It&rsquo;ll infer unions and optionals more
-      accurately.
+      <strong>VS Code paste-as-JSON:</strong> yerleşik komut,
+      yapıştırılan JSON'u bir TypeScript arayüzüne dönüştürür. Tek
+      seferlik kullanımlar için iyidir.
     </p>
 
-    <h2>From JSON Schema — richer types</h2>
+    <h2>Yalnızca JSON'dan — şema yok</h2>
     <p>
-      JSON Schema carries constraints JSON doesn&rsquo;t. A schema
-      with:
+      Hızlı tipleme için iyidir, ancak:
+    </p>
+    <p>
+      Yalnızca bir örnek → oluşturucu isteğe bağlı ile zorunluyu
+      ayırt edemez.
+    </p>
+    <p>
+      Bir dizi öğesinin her zaman bir nesne mi yoksa bazen null mu
+      olduğunu bilmenin yolu yoktur.
+    </p>
+    <p>
+      Aralık/uzunluk/desen bilgisi yoktur.
+    </p>
+    <p>
+      <strong>Daha iyi çıkarım için hack:</strong> oluşturucuya
+      uç durumları (boş string, null, eksik anahtarlar) kapsayan
+      birden çok örnek besleyin. Birleşimleri ve isteğe bağlıları
+      daha doğru çıkarır.
+    </p>
+
+    <h2>JSON Şeması'ndan — daha zengin türler</h2>
+    <p>
+      JSON Şeması, JSON'un taşımadığı kısıtlamalar taşır. Şunları
+      içeren bir şema:
     </p>
     <pre>
 {`"status": { "enum": ["draft","published","archived"] }`}
     </pre>
     <p>
-      Generates:
+      Şunu oluşturur:
     </p>
     <pre>
 {`status: "draft" | "published" | "archived";`}
     </pre>
     <p>
-      Not possible from raw JSON. Worth writing a schema for anything
-      mission-critical.
+      Ham JSON'dan mümkün değildir. Kritik öneme sahip her şey için
+      bir şema yazmaya değer.
     </p>
 
-    <h2>Runtime validation matters too</h2>
+    <h2>Çalışma zamanı doğrulaması da önemlidir</h2>
     <p>
-      Generated TypeScript interfaces are compile-time only. If an API
-      returns malformed data, your code trusts it and crashes later.
+      Oluşturulan TypeScript arayüzleri yalnızca derleme zamanına
+      aittir. Bir API hatalı biçimlendirilmiş veri döndürürse,
+      kodunuz buna güvenir ve daha sonra çöker.
     </p>
     <p>
-      <strong>Pair generated types with runtime validation:</strong>
+      <strong>Oluşturulan türleri çalışma zamanı doğrulamasıyla eşleştirin:</strong>
     </p>
     <p>
-      <strong>Zod:</strong> define schema once, get both TS type
-      and runtime validator.
+      <strong>Zod:</strong> şemayı bir kez tanımlayın, hem TS türünü
+      hem de çalışma zamanı doğrulayıcısını elde edin.
     </p>
     <p>
-      <strong>ajv:</strong> compile JSON Schema to a fast runtime
-      validator.
+      <strong>ajv:</strong> JSON Şeması'nı hızlı bir çalışma zamanı
+      doğrulayıcısına derleyin.
     </p>
     <p>
-      <strong>io-ts / runtypes:</strong> similar pattern in the fp
-      camp.
+      <strong>io-ts / runtypes:</strong> fp kampında benzer desen.
     </p>
     <p>
-      At the API boundary: parse untrusted JSON through a validator,
-      trust the types from there on.
+      API sınırında: güvenilmeyen JSON'u bir doğrulayıcıdan geçirin,
+      oradan itibaren türlere güvenin.
     </p>
 
-    <h2>Naming and style</h2>
+    <h2>Adlandırma ve stil</h2>
     <p>
-      <strong>PascalCase for types:</strong>{" "}
-      <code>User</code>, not <code>user</code>.
+      <strong>Türler için PascalCase:</strong>{" "}
+      <code>User</code>, <code>user</code> değil.
     </p>
     <p>
       <strong>Interface vs type alias:</strong>{" "}
-      <code>interface</code> for object shapes,{" "}
-      <code>type</code> for unions and mapped types. Most
-      generators output interfaces.
+      <code>interface</code> nesne şekilleri için,{" "}
+      <code>type</code> birleşimler ve eşlenmiş türler için. Çoğu
+      oluşturucu interface çıktısı verir.
     </p>
     <p>
-      <strong>Nested type names:</strong> some generators inline
-      nested objects; others create named sub-types like{" "}
-      <code>UserAddress</code>. Named sub-types are usually better
-      for reuse.
+      <strong>İç içe tür adları:</strong> bazı oluşturucular iç içe
+      nesneleri satır içine alır; diğerleri{" "}
+      <code>UserAddress</code> gibi adlandırılmış alt türler oluşturur.
+      Adlandırılmış alt türler genellikle yeniden kullanım için daha
+      iyidir.
     </p>
     <p>
-      <strong>camelCase vs snake_case:</strong> if your API returns
-      <code> snake_case</code>, decide whether to keep it in TS or
-      transform. Keeping it matches the API wire format;
-      transforming is nicer ergonomically but requires mapping at
-      the boundary.
-    </p>
-
-    <h2>Keeping types fresh</h2>
-    <p>
-      APIs change. Generated types should regenerate automatically.
-    </p>
-    <p>
-      <strong>CI step:</strong> regenerate types on every
-      build/deploy. Fail if the schema changed but types weren&rsquo;t
-      regenerated.
-    </p>
-    <p>
-      <strong>Watch mode in dev:</strong> regenerate on schema save.
-      Tight feedback loop.
-    </p>
-    <p>
-      <strong>Commit generated files:</strong> yes. Keeps diffs
-      visible in PRs. Regenerate in CI to detect drift.
+      <strong>camelCase vs snake_case:</strong> API'niz{" "}
+      <code> snake_case</code> döndürüyorsa, bunu TS'de tutmaya mı
+      yoksa dönüştürmeye mi karar verin. Tutmak, API kablo formatıyla
+      eşleşir; dönüştürmek ergonomik olarak daha hoştur ancak sınırda
+      eşleme gerektirir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Türleri güncel tutma</h2>
     <p>
-      <strong>Trusting single-sample inference.</strong> Missing
-      fields get inferred as non-optional. Add multiple samples or
-      annotate manually.
+      API'ler değişir. Oluşturulan türler otomatik olarak yeniden
+      oluşturulmalıdır.
     </p>
     <p>
-      <strong>No runtime validation at API boundaries.</strong>{" "}
-      Generated types lie when data is malformed. Validate untrusted
-      input.
+      <strong>CI adımı:</strong> her derleme/dağıtımda türleri yeniden
+      oluşturun. Şema değiştiyse ancak türler yeniden oluşturulmadıysa
+      başarısız olun.
     </p>
     <p>
-      <strong>Regenerating without reviewing the diff.</strong> A
-      schema tweak can change every interface. Review changes like
-      any code.
+      <strong>Geliştirmede izleme modu:</strong> şema kaydedildiğinde
+      yeniden oluşturun. Sıkı geri bildirim döngüsü.
     </p>
     <p>
-      <strong>Mixing hand-written and generated in the same file.</strong>{" "}
-      Regen overwrites your edits. Keep generated output separate.
-    </p>
-    <p>
-      <strong>Ignoring null/undefined distinctions.</strong>{" "}
-      TypeScript treats them as different. Generated types should
-      too.
-    </p>
-    <p>
-      <strong>Leaving any leak in.</strong> Strict mode +{" "}
-      <code>noImplicitAny</code> catches this. Review generator
-      output for stray <code>any</code>.
+      <strong>Oluşturulan dosyaları kaydedin:</strong> evet. PR'larda
+      farkları görünür tutar. Sürüklenmeyi tespit etmek için CI'da
+      yeniden oluşturun.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Convert JSON to TypeScript interfaces instantly with the{" "}
-      <a href="/tools/json-to-typescript">JSON to TypeScript converter</a>.
-      Pair with the{" "}
-      <a href="/tools/json-schema-generator">JSON schema generator</a>
-      {" "}to get a reusable schema, and the{" "}
-      <a href="/tools/json-formatter">JSON formatter</a> to clean up
-      the sample first.
+      <strong>Tek örnekli çıkarıma güvenmek.</strong> Eksik alanlar
+      zorunlu olmayan olarak çıkarılır. Birden çok örnek ekleyin veya
+      manuel olarak not düşün.
+    </p>
+    <p>
+      <strong>API sınırlarında çalışma zamanı doğrulaması yapmamak.</strong>{" "}
+      Oluşturulan türler, veri hatalı biçimlendirildiğinde yalan söyler.
+      Güvenilmeyen girdiyi doğrulayın.
+    </p>
+    <p>
+      <strong>Farkı incelemeden yeniden oluşturmak.</strong> Bir şema
+      ince ayarı her arayüzü değiştirebilir. Değişiklikleri herhangi
+      bir kod gibi inceleyin.
+    </p>
+    <p>
+      <strong>Elle yazılmış ve oluşturulmuş olanı aynı dosyada karıştırmak.</strong>{" "}
+      Yeniden oluşturma, düzenlemelerinizin üzerine yazar. Oluşturulan
+      çıktıyı ayrı tutun.
+    </p>
+    <p>
+      <strong>null/undefined ayrımlarını görmezden gelmek.</strong>{" "}
+      TypeScript bunları farklı ele alır. Oluşturulan türler de öyle
+      yapmalıdır.
+    </p>
+    <p>
+      <strong>Herhangi bir any sızıntısı bırakmak.</strong> Sıkı mod +{" "}
+      <code>noImplicitAny</code> bunu yakalar. Oluşturucu çıktısını
+      başıboş <code>any</code> için inceleyin.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      JSON'u anında TypeScript arayüzlerine dönüştürmek için{" "}
+      <a href="/tools/json-to-typescript">JSON'dan TypeScript'e dönüştürücü</a>'yü
+      kullanın. Yeniden kullanılabilir bir şema elde etmek için{" "}
+      <a href="/tools/json-schema-generator">JSON şema oluşturucu</a>
+      {" "}ile ve örneği önce temizlemek için{" "}
+      <a href="/tools/json-formatter">JSON biçimlendirici</a> ile
+      eşleştirin.
     </p>
   </>
 );

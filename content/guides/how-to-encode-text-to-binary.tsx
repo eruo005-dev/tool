@@ -3,133 +3,133 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Converting <a href="/tools/text-to-binary">text to binary</a> is the most direct way to show what
-      a computer actually sees when you type a character. Every
-      letter becomes a sequence of bits, either 7 or 8 per character
-      for ASCII, or up to 32 bits for a UTF-8 Unicode character. The
-      conversion sounds mechanical, but three decisions shape the
-      output: ASCII vs UTF-8, 7-bit vs 8-bit framing, and big-endian
-      vs little-endian byte order. Getting any of the three wrong
-      turns &ldquo;Hello&rdquo; into unreadable garbage on the other
-      side. This guide covers what a byte actually encodes, how
-      ASCII and UTF-8 differ in the encoding of the same character,
-      the role of endianness, the legitimate modern uses (retro
-      hardware, teaching, debugging binary protocols), and the
-      common conversion mistakes to avoid.
+      <a href="/tools/text-to-binary">Metni ikiliye</a> dönüştürmek, bir karakter yazdığınızda bilgisayarın
+      gerçekte ne gördüğünü göstermenin en doğrudan yoludur. Her
+      harf, ASCII için karakter başına 7 veya 8 bit ya da bir UTF-8
+      Unicode karakteri için 32 bit'e kadar bir bit dizisi haline gelir.
+      Dönüşüm mekanik görünür, ancak çıktıyı üç karar şekillendirir:
+      ASCII vs UTF-8, 7-bit vs 8-bit çerçeveleme ve büyük-endian
+      vs küçük-endian bayt sırası. Bunlardan birini yanlış yapmak,
+      &ldquo;Merhaba&rdquo;yı diğer tarafta okunamaz bir çöp haline
+      getirir. Bu kılavuz, bir baytın gerçekte neyi kodladığını, aynı
+      karakterin kodlanmasında ASCII ve UTF-8'in nasıl farklılaştığını,
+      endianness'in rolünü, meşru modern kullanımları (retro donanım,
+      öğretim, ikili protokollerde hata ayıklama) ve kaçınılması
+      gereken yaygın dönüşüm hatalarını kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What a byte holds</h2>
+    <h2>Bir baytın içerdiği</h2>
     <p>
-      A byte is 8 bits. Each bit is 0 or 1. 8 bits give 256
-      possible values (<code>00000000</code> through
-      <code> 11111111</code>), typically written as 0 to 255
-      decimal or 00 to FF hex. Text encodings map each character to
-      one or more bytes; binary conversion shows those bytes as
-      explicit sequences of 0s and 1s.
+      Bir bayt 8 bittir. Her bit 0 veya 1'dir. 8 bit, genellikle 0
+      ile 255 arasında ondalık veya 00 ile FF arasında onaltılık
+      olarak yazılan 256 olası değer (<code>00000000</code> ile
+      <code> 11111111</code> arası) verir. Metin kodlamaları her
+      karakteri bir veya daha fazla bayta eşler; ikili dönüşüm bu
+      baytları açık 0 ve 1 dizileri olarak gösterir.
     </p>
 
-    <h2>ASCII &mdash; 7 bits per character</h2>
+    <h2>ASCII &mdash; Karakter başına 7 bit</h2>
     <p>
-      ASCII (1963, standardized in ANSI X3.4-1968) defines 128
-      characters in 7 bits. Letters, digits, punctuation, and
-      control codes.
+      ASCII (1963, ANSI X3.4-1968 ile standartlaştırılmış) 7 bitte
+      128 karakter tanımlar. Harfler, rakamlar, noktalama işaretleri
+      ve kontrol kodları.
     </p>
     <pre>{`A = 65  = 01000001
 a = 97  = 01100001
 0 = 48  = 00110000
-space = 32 = 00100000
-newline = 10 = 00001010`}</pre>
+boşluk = 32 = 00100000
+yeni satır = 10 = 00001010`}</pre>
     <p>
-      The 8th bit is zero in pure ASCII. Many systems historically
-      used the extra bit for extended character sets
-      (&ldquo;high ASCII&rdquo; for accented letters,
-      box-drawing), with every vendor picking a different mapping
-      &mdash; the mess that Unicode was invented to end.
+      Saf ASCII'de 8. bit sıfırdır. Birçok sistem tarihsel olarak
+      ek biti genişletilmiş karakter kümeleri için kullandı
+      (&ldquo;yüksek ASCII&rdquo; aksanlı harfler, kutu çizimi
+      için), her satıcı farklı bir eşleme seçti &mdash; Unicode'un
+      sonlandırmak için icat edildiği karmaşa.
     </p>
 
-    <h2>UTF-8 &mdash; Unicode in 1 to 4 bytes</h2>
+    <h2>UTF-8 &mdash; 1 ila 4 baytta Unicode</h2>
     <p>
-      UTF-8 (RFC 3629) is the dominant encoding on the modern web.
-      It encodes every Unicode code point using 1 to 4 bytes:
+      UTF-8 (RFC 3629), modern web'de baskın kodlamadır. Her Unicode
+      kod noktasını 1 ila 4 bayt kullanarak kodlar:
     </p>
     <p>
-      <strong>1 byte</strong> (code points 0&ndash;127): identical to
-      ASCII. <code>0xxxxxxx</code>. Leading bit 0.
+      <strong>1 bayt</strong> (kod noktaları 0&ndash;127): ASCII ile
+      aynıdır. <code>0xxxxxxx</code>. Baştaki bit 0.
     </p>
     <p>
-      <strong>2 bytes</strong> (128&ndash;2047):
-      <code> 110xxxxx 10xxxxxx</code>. Covers Latin extended, Greek,
-      Cyrillic, Hebrew, Arabic.
+      <strong>2 bayt</strong> (128&ndash;2047):
+      <code> 110xxxxx 10xxxxxx</code>. Genişletilmiş Latin, Yunan,
+      Kiril, İbrani, Arap alfabelerini kapsar.
     </p>
     <p>
-      <strong>3 bytes</strong> (2048&ndash;65535):
-      <code> 1110xxxx 10xxxxxx 10xxxxxx</code>. Covers most CJK
-      ideographs, Devanagari, and the BMP.
+      <strong>3 bayt</strong> (2048&ndash;65535):
+      <code> 1110xxxx 10xxxxxx 10xxxxxx</code>. Çoğu CJK
+      ideografını, Devanagari'yi ve BMP'yi kapsar.
     </p>
     <p>
-      <strong>4 bytes</strong> (65536&ndash;1114111):
-      <code> 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</code>. Covers
-      emoji, rarer CJK, historic scripts.
+      <strong>4 bayt</strong> (65536&ndash;1114111):
+      <code> 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</code>. Emoji,
+      daha nadir CJK, tarihi yazıları kapsar.
     </p>
     <p>
-      Example: &ldquo;&eacute;&rdquo; (U+00E9) in UTF-8 is
-      <code> 11000011 10101001</code> (0xC3 0xA9 &mdash; two bytes).
-      The emoji &ldquo;&#128512;&rdquo; (U+1F600) is four UTF-8
-      bytes.
+      Örnek: UTF-8'de &ldquo;&eacute;&rdquo; (U+00E9)
+      <code> 11000011 10101001</code>'dur (0xC3 0xA9 &mdash; iki bayt).
+      &ldquo;&#128512;&rdquo; (U+1F600) emojisi dört UTF-8
+      baytıdır.
     </p>
 
-    <h2>UTF-16 and UTF-32</h2>
+    <h2>UTF-16 ve UTF-32</h2>
     <p>
-      <strong>UTF-16</strong>: 2 bytes for Basic Multilingual Plane,
-      4 bytes for supplementary planes via surrogate pairs. Default
-      in-memory encoding for JavaScript strings, Java strings, and
-      Windows APIs. Uses a byte-order mark (BOM) to signal
-      endianness.
+      <strong>UTF-16</strong>: Temel Çok Dilli Düzlem için 2 bayt,
+      vekil çiftler aracılığıyla ek düzlemler için 4 bayt. JavaScript
+      dizeleri, Java dizeleri ve Windows API'leri için varsayılan
+      bellek içi kodlama. Endianness'i belirtmek için bir bayt sırası
+      işareti (BOM) kullanır.
     </p>
     <p>
-      <strong>UTF-32</strong>: always 4 bytes per code point. Rare
-      outside internal representations where random access to code
-      points matters.
+      <strong>UTF-32</strong>: kod noktası başına her zaman 4 bayt.
+      Kod noktalarına rastgele erişimin önemli olduğu dahili
+      temsiller dışında nadirdir.
     </p>
 
     <h2>Endianness</h2>
     <p>
-      For encodings wider than 1 byte (UTF-16, UTF-32, binary
-      numbers), the order of bytes matters.
+      1 bayttan daha geniş kodlamalar (UTF-16, UTF-32, ikili
+      sayılar) için baytların sırası önemlidir.
     </p>
     <p>
-      <strong>Big-endian</strong> (network byte order, Motorola
-      68k): most significant byte first. The 16-bit value
-      <code> 0x1234</code> is stored as <code>12 34</code>.
+      <strong>Büyük-endian</strong> (ağ bayt sırası, Motorola
+      68k): en anlamlı bayt önce. 16 bitlik
+      <code> 0x1234</code> değeri <code>12 34</code> olarak saklanır.
     </p>
     <p>
-      <strong>Little-endian</strong> (Intel x86, ARM default,
-      modern CPUs): least significant byte first.
-      <code> 0x1234</code> stored as <code>34 12</code>.
+      <strong>Küçük-endian</strong> (Intel x86, ARM varsayılanı,
+      modern CPU'lar): en az anlamlı bayt önce.
+      <code> 0x1234</code> değeri <code>34 12</code> olarak saklanır.
     </p>
     <p>
-      UTF-16 files start with a byte-order mark
-      (<code>FE FF</code> for BE, <code>FF FE</code> for LE) so
-      readers know. UTF-8 has no endianness (single byte units) but
-      some systems still prepend a BOM (<code>EF BB BF</code>) as
-      an encoding marker; it breaks many parsers and is best
-      avoided.
+      UTF-16 dosyaları, okuyucuların bilmesi için bir bayt sırası
+      işaretiyle (<code>FE FF</code> BE için, <code>FF FE</code> LE
+      için) başlar. UTF-8'in endianness'i yoktur (tek baytlık
+      birimler) ancak bazı sistemler yine de bir kodlama işareti
+      olarak bir BOM (<code>EF BB BF</code>) ekler; bu birçok
+      ayrıştırıcıyı bozar ve kaçınılması en iyisidir.
     </p>
 
-    <h2>Converting step by step</h2>
+    <h2>Adım adım dönüştürme</h2>
     <p>
-      To encode &ldquo;Hi&rdquo; to ASCII binary:
+      &ldquo;Hi&rdquo;yi ASCII ikiliye kodlamak için:
     </p>
     <pre>{`H -> 72  -> 01001000
 i -> 105 -> 01101001
 
-Full: 01001000 01101001`}</pre>
+Tam: 01001000 01101001`}</pre>
     <p>
-      In JavaScript:
+      JavaScript'te:
     </p>
     <pre>{`function textToBinary(str) {
   return [...str].map(ch =>
@@ -139,9 +139,9 @@ Full: 01001000 01101001`}</pre>
 
 textToBinary('Hi');  // '01001000 01101001'`}</pre>
     <p>
-      Note: <code>codePointAt(0)</code> returns a single Unicode
-      code point, but that is not the same as a UTF-8 byte. For
-      proper UTF-8 byte-level output:
+      Not: <code>codePointAt(0)</code> tek bir Unicode kod noktası
+      döndürür, ancak bu bir UTF-8 baytı ile aynı değildir. Uygun
+      UTF-8 bayt düzeyinde çıktı için:
     </p>
     <pre>{`function utf8Binary(str) {
   const bytes = new TextEncoder().encode(str);
@@ -153,139 +153,146 @@ textToBinary('Hi');  // '01001000 01101001'`}</pre>
 utf8Binary('caf\u00e9');
 // '01100011 01100001 01100110 11000011 10101001'`}</pre>
 
-    <h2>7-bit framing</h2>
+    <h2>7-bit çerçeveleme</h2>
     <p>
-      Pure ASCII output is sometimes written with 7 bits per
-      character, dropping the leading zero:
+      Saf ASCII çıktısı bazen karakter başına 7 bit ile yazılır,
+      baştaki sıfır atılır:
     </p>
-    <pre>{`H = 1001000 (7 bits)
-i = 1101001 (7 bits)`}</pre>
+    <pre>{`H = 1001000 (7 bit)
+i = 1101001 (7 bit)`}</pre>
     <p>
-      Used historically in 7-bit serial protocols and email
-      transports before 8-bit MIME became universal. In 2026 this
-      is primarily a puzzle-design choice or a bandwidth trick on
-      constrained radio links.
-    </p>
-
-    <h2>Base-N conversions</h2>
-    <p>
-      Binary is base-2. Related encodings use more compact bases:
-    </p>
-    <p>
-      <strong>Hexadecimal</strong> (base-16): 4 bits per digit.
-      <code> H</code> becomes <code>48</code>.
-    </p>
-    <p>
-      <strong>Octal</strong> (base-8): 3 bits per digit.
-      <code> H</code> becomes <code>110</code>.
-    </p>
-    <p>
-      <strong>Base64</strong>: groups of 6 bits expressed as one
-      of 64 printable ASCII characters. Common for embedding
-      binary in text where binary is unsafe (email, JSON, URLs).
+      Tarihsel olarak 7-bit seri protokollerde ve 8-bit MIME
+      evrensel hale gelmeden önceki e-posta taşımalarında
+      kullanılmıştır. 2026'da bu öncelikle bir bulmaca tasarımı
+      seçeneği veya kısıtlı radyo bağlantılarında bir bant genişliği
+      hilesidir.
     </p>
 
-    <h2>Real uses today</h2>
+    <h2>Taban-N dönüşümleri</h2>
     <p>
-      <strong>Teaching</strong> how computers store text. Clearer
-      than any metaphor.
+      İkili, taban-2'dir. İlgili kodlamalar daha kompakt tabanlar
+      kullanır:
     </p>
     <p>
-      <strong>Debugging</strong> binary protocols at the byte level.
-      When a custom protocol says &ldquo;3 bytes header, magic
-      value 0x4A6F,&rdquo; reading the binary or hex dump is how
-      you confirm.
+      <strong>Onaltılık</strong> (taban-16): basamak başına 4 bit.
+      <code> H</code>, <code>48</code> olur.
     </p>
     <p>
-      <strong>Retro computing</strong>: punch cards, paper tape,
-      6502 assembly, Z80. Everything is bits down there.
+      <strong>Sekizlik</strong> (taban-8): basamak başına 3 bit.
+      <code> H</code>, <code>110</code> olur.
     </p>
     <p>
-      <strong>Encoding layers in CTF or puzzle hunts</strong>:
-      ciphertext wrapped in Base64 wrapped in hex wrapped in
-      binary. Recognize each layer and unwrap.
-    </p>
-    <p>
-      <strong>Signage and novelty</strong>: T-shirts, tattoos, and
-      the occasional physical plaque. Convert and proofread &mdash;
-      a flipped bit is permanent.
+      <strong>Base64</strong>: 6 bitlik gruplar, 64 yazdırılabilir
+      ASCII karakterinden biri olarak ifade edilir. İkilinin güvenli
+      olmadığı metin içinde (e-posta, JSON, URL'ler) ikiliyi
+      gömmek için yaygındır.
     </p>
 
-    <h2>Character encoding detection</h2>
+    <h2>Bugünkü gerçek kullanımlar</h2>
     <p>
-      Given a binary blob, is it ASCII, Latin-1, UTF-8, or
-      something else? Heuristics:
+      <strong>Öğretim</strong>: bilgisayarların metni nasıl
+      sakladığını göstermek. Herhangi bir metafordan daha açıktır.
     </p>
     <p>
-      All bytes under 0x80 &rarr; safe to interpret as ASCII or
-      UTF-8.
+      <strong>Hata ayıklama</strong>: bayt düzeyinde ikili
+      protokollerde. Özel bir protokol &ldquo;3 bayt başlık, sihirli
+      değer 0x4A6F&rdquo; dediğinde, ikili veya onaltılık dökümü
+      okumak onaylama şeklinizdir.
     </p>
     <p>
-      Bytes 0x80&ndash;0xBF never appear first in UTF-8 &mdash; if
-      one starts a &ldquo;character,&rdquo; it is not valid UTF-8.
+      <strong>Retro bilgi işlem</strong>: delikli kartlar, kağıt
+      bant, 6502 assembly, Z80. Orada her şey bittir.
     </p>
     <p>
-      Presence of the UTF-8 BOM (0xEF 0xBB 0xBF) at the start is a
-      strong signal of UTF-8.
+      <strong>CTF veya bulmaca avlarında kodlama katmanları</strong>:
+      Base64 içine sarılmış, onaltılık içine sarılmış, ikili içine
+      sarılmış şifreli metin. Her katmanı tanıyın ve açın.
     </p>
     <p>
-      Failure to decode as UTF-8 usually means Latin-1, Windows-1252,
-      or a legacy Asian encoding (Shift JIS, GB18030). Modern
-      libraries (<code>chardet</code>, <code>uchardet</code>) get
-      it right most of the time but are not magic.
-    </p>
-
-    <h2>Common mistakes</h2>
-    <p>
-      <strong>Forgetting that one character is not always one
-      byte.</strong> In UTF-8, &ldquo;caf&eacute;&rdquo; is 5
-      characters but 5&ndash;6 bytes (depending on composed vs
-      decomposed form). Always distinguish character length from
-      byte length.
-    </p>
-    <p>
-      <strong>Using <code>charCodeAt</code> for non-BMP
-      characters.</strong>
-      Returns a UTF-16 code unit, not a full code point. For
-      emoji and rarer CJK, use <code>codePointAt</code>.
-    </p>
-    <p>
-      <strong>Omitting leading zeros.</strong>
-      <code> A</code> is binary <code>01000001</code> (8 bits);
-      writing <code>1000001</code> looks tidy but confuses
-      fixed-width parsers. Always pad.
-    </p>
-    <p>
-      <strong>Mixing endianness halfway through a file.</strong>
-      Output UTF-16-BE for headers and UTF-16-LE for the body,
-      and the reader gets garbage. Pick one and stick with it; BOM
-      announces the choice.
-    </p>
-    <p>
-      <strong>Adding a UTF-8 BOM by accident.</strong> Windows
-      Notepad famously prepends one. Many parsers (older PHP, some
-      JSON libraries) choke. If you must have a marker, use
-      <code> Content-Type: ...; charset=utf-8</code> at the protocol
-      level.
-    </p>
-    <p>
-      <strong>Treating binary output as a string to concatenate.</strong>
-      Adding the string &ldquo;01000001&rdquo; to another is fine;
-      adding <code>0x41</code> as a number is different. Keep the
-      type consistent.
+      <strong>Tabela ve yenilik</strong>: Tişörtler, dövmeler ve
+      ara sıra fiziksel plaketler. Dönüştürün ve düzeltin &mdash;
+      ters çevrilmiş bir bit kalıcıdır.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Karakter kodlaması tespiti</h2>
     <p>
-      Convert text to and from binary with the{" "}
-      <a href="/tools/binary-text-encoder">binary text encoder</a>.
-      Pair with the{" "}
-      <a href="/tools/base64-encoder-decoder">Base64 encoder/decoder</a>
-      {" "}when you need compact binary-in-text representation, and
-      the{" "}
-      <a href="/tools/caesar-cipher">Caesar cipher tool</a> for
-      layered puzzles that mix base conversion with simple
-      encryption.
+      Bir ikili yığın verildiğinde, bu ASCII mi, Latin-1 mi, UTF-8
+      mi yoksa başka bir şey mi? Sezgisel yöntemler:
+    </p>
+    <p>
+      Tüm baytlar 0x80'in altında &rarr; ASCII veya UTF-8 olarak
+      yorumlamak güvenlidir.
+    </p>
+    <p>
+      0x80&ndash;0xBF baytları UTF-8'de asla ilk sırada görünmez
+      &mdash; eğer biri bir &ldquo;karaktere&rdquo; başlıyorsa,
+      geçerli UTF-8 değildir.
+    </p>
+    <p>
+      Başlangıçta UTF-8 BOM'unun (0xEF 0xBB 0xBF) varlığı, güçlü
+      bir UTF-8 sinyalidir.
+    </p>
+    <p>
+      UTF-8 olarak çözümleme başarısızlığı genellikle Latin-1,
+      Windows-1252 veya eski bir Asya kodlaması (Shift JIS,
+      GB18030) anlamına gelir. Modern kütüphaneler
+      (<code>chardet</code>, <code>uchardet</code>) çoğu zaman
+      doğru yapar ancak sihirli değildir.
+    </p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>
+      <strong>Bir karakterin her zaman bir bayt olmadığını
+      unutmak.</strong> UTF-8'de &ldquo;caf&eacute;&rdquo; 5
+      karakter ancak 5&ndash;6 bayttır (birleşik veya ayrıştırılmış
+      forma bağlı olarak). Karakter uzunluğunu her zaman bayt
+      uzunluğundan ayırt edin.
+    </p>
+    <p>
+      <strong>BMP dışı karakterler için <code>charCodeAt</code>
+      kullanmak.</strong>
+      Tam bir kod noktası değil, bir UTF-16 kod birimi döndürür.
+      Emoji ve daha nadir CJK için <code>codePointAt</code>
+      kullanın.
+    </p>
+    <p>
+      <strong>Baştaki sıfırları atlamak.</strong>
+      <code> A</code> ikili <code>01000001</code>'dir (8 bit);
+      <code>1000001</code> yazmak düzenli görünür ancak sabit
+      genişlikli ayrıştırıcıların kafasını karıştırır. Her zaman
+      doldurun.
+    </p>
+    <p>
+      <strong>Bir dosyanın ortasında endianness'i
+      değiştirmek.</strong> Başlıklar için UTF-16-BE ve gövde için
+      UTF-16-LE çıktısı verirseniz, okuyucu çöp alır. Birini seçin
+      ve ona bağlı kalın; BOM seçimi duyurur.
+    </p>
+    <p>
+      <strong>Yanlışlıkla UTF-8 BOM eklemek.</strong> Windows
+      Notepad ünlü bir şekilde bir tane ekler. Birçok ayrıştırıcı
+      (eski PHP, bazı JSON kütüphaneleri) takılır. Bir işaretçiye
+      ihtiyacınız varsa, protokol düzeyinde
+      <code> Content-Type: ...; charset=utf-8</code> kullanın.
+    </p>
+    <p>
+      <strong>İkili çıktıyı birleştirilecek bir dize olarak
+      ele almak.</strong> &ldquo;01000001&rdquo; dizesini başka
+      birine eklemek sorun değildir; <code>0x41</code>'i bir sayı
+      olarak eklemek farklıdır. Türü tutarlı tutun.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      Metni{" "}
+      <a href="/tools/binary-text-encoder">ikili metin kodlayıcı</a>
+      ile ikiliye ve ikiliden dönüştürün. Kompakt metin içi ikili
+      temsiline ihtiyacınız olduğunda{" "}
+      <a href="/tools/base64-encoder-decoder">Base64 kodlayıcı/kod çözücü</a>
+      {" "}ile ve taban dönüşümünü basit şifreleme ile karıştıran
+      katmanlı bulmacalar için{" "}
+      <a href="/tools/caesar-cipher">Sezar şifreleme aracı</a>
+      ile birlikte kullanın.
     </p>
   </>
 );

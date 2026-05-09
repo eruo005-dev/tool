@@ -2,92 +2,59 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Freelancers pay more tax than W-2 employees on the same gross income &mdash; unless they actively plan.
-    Between self-employment tax, quarterly estimated payments, and deductions the IRS practically hands you,
-    the difference between an informed freelancer and an unprepared one is routinely $5,000&ndash;$15,000
-    per year. Here&rsquo;s how to keep more of what you earn without stepping into audit territory.
+    Serbest çalışanlar, aynı brüt gelir üzerinden W-2 çalışanlarından daha fazla vergi öder &mdash; aktif olarak plan yapmadıkları sürece. Serbest meslek vergisi, üç aylık tahmini ödemeler ve IRS'nin neredeyse size sunduğu kesintiler arasında, bilgili bir serbest çalışan ile hazırlıksız bir kişi arasındaki fark yılda rutin olarak $5,000&ndash;$15,000'dir. Denetim alanına girmeden kazandığınızın daha fazlasını nasıl koruyacağınız aşağıda açıklanmıştır.
   </p>
 );
 
 export const body: ReactElement = (
   <>
     <p>
-      Not financial advice. Consult a licensed advisor. Tax law changes yearly and varies by state &mdash; a
-      CPA who specializes in self-employment will pay for themselves many times over.
+      Mali tavsiye değildir. Lisanslı bir danışmana danışın. Vergi yasaları yıllık olarak değişir ve eyalete göre farklılık gösterir &mdash; serbest meslek konusunda uzmanlaşmış bir SMMM, kendini birçok kez amorti edecektir.
     </p>
 
-    <h2>Quarterly estimated payments</h2>
+    <h2>Üç aylık tahmini ödemeler</h2>
     <p>
-      If you expect to owe more than $1,000, the IRS wants you to pay quarterly via Form 1040-ES. Due dates
-      are roughly April 15, June 15, September 15, and January 15. Skip them and you&rsquo;ll owe an
-      underpayment penalty &mdash; currently 8% annualized, calculated per quarter. Safe harbor: pay 100% of
-      last year&rsquo;s total tax (110% if your AGI was over $150k) and you avoid penalties regardless of
-      what you owe in April.
+      $1,000'den fazla borcunuz olacağını düşünüyorsanız, IRS sizden Form 1040-ES aracılığıyla üç ayda bir ödeme yapmanızı ister. Son tarihler kabaca 15 Nisan, 15 Haziran, 15 Eylül ve 15 Ocak'tır. Bunları atlarsanız, eksik ödeme cezası ödersiniz &mdash; şu anda yıllık %8, çeyrek başına hesaplanır. Güvenli liman: geçen yılki toplam verginizin %100'ünü (AGI'nız $150k'nın üzerindeyse %110) ödeyin ve Nisan ayında ne borcunuz olursa olsun cezalardan kaçınırsınız.
     </p>
 
-    <h2>Self-employment tax is the big one</h2>
+    <h2>Serbest meslek vergisi en büyüğüdür</h2>
     <p>
-      Self-employment tax is 15.3% on your net earnings (12.4% Social Security up to the wage base, plus
-      2.9% Medicare uncapped, with an extra 0.9% over $200k). You get to deduct half of it on your 1040,
-      but it still stings. This is why an S-corp election can make sense past ~$60k in net profit &mdash;
-      you pay yourself a reasonable salary, take the rest as distributions, and save self-employment tax
-      on the distribution portion. Run the numbers before electing.
+      Serbest meslek vergisi, net kazancınızın %15,3'üdür (ücret tabanına kadar %12,4 Sosyal Güvenlik, artı sınırsız %2,9 Medicare ve $200k'nın üzerinde ek %0,9). Bunun yarısını 1040'ınızda düşebilirsiniz, ancak yine de can sıkıcıdır. Bu nedenle, ~$60k net kârın üzerinde bir S-corp seçimi mantıklı olabilir &mdash; kendinize makul bir maaş ödersiniz, geri kalanını temettü olarak alırsınız ve temettü kısmında serbest meslek vergisinden tasarruf edersiniz. Seçim yapmadan önce rakamları hesaplayın.
     </p>
 
-    <h2>Deductions the IRS expects you to take</h2>
+    <h2>IRS'nin almanızı beklediği kesintiler</h2>
     <ul>
-      <li>Home office: simplified method is $5/sqft up to 300 sqft ($1,500 max); actual method uses the business percentage of rent, utilities, and insurance.</li>
-      <li>Equipment and software &mdash; Section 179 lets you expense up to $1.16M of qualifying equipment in year one instead of depreciating.</li>
-      <li>Health insurance premiums &mdash; deductible above the line if you&rsquo;re not eligible for a spouse&rsquo;s employer plan.</li>
-      <li>SEP IRA (up to 25% of net earnings) or Solo 401(k) (up to $69,000 in 2024) &mdash; massive tax-deferred space.</li>
-      <li>Mileage at the IRS standard rate for business travel, tracked contemporaneously.</li>
-      <li>Professional development, subscriptions, and industry memberships.</li>
+      <li>Ev ofisi: basitleştirilmiş yöntem 300 sqft'ye kadar $5/sqft'dir (maksimum $1,500); fiili yöntem, kira, kamu hizmetleri ve sigortanın iş yüzdesini kullanır.</li>
+      <li>Ekipman ve yazılım &mdash; Bölüm 179, uygun ekipmanın amortismana tabi tutmak yerine ilk yılda 1,16 milyon $'a kadarını giderleştirmenize olanak tanır.</li>
+      <li>Sağlık sigortası primleri &mdash; eşinizin işveren planına uygun değilseniz, satırın üzerinde düşülebilir.</li>
+      <li>SEP IRA (net kazancın %25'ine kadar) veya Solo 401(k) (2024'te $69,000'a kadar) &mdash; büyük vergi ertelenmiş alan.</li>
+      <li>İş seyahati için IRS standart oranında kilometre, eşzamanlı olarak takip edilir.</li>
+      <li>Profesyonel gelişim, abonelikler ve sektör üyelikleri.</li>
     </ul>
 
-    <h2>Bookkeeping discipline</h2>
+    <h2>Defter tutma disiplini</h2>
     <p>
-      You don&rsquo;t need enterprise accounting &mdash; you do need clean records. QuickBooks
-      Self-Employed, Wave, or Xero sync to your business checking and categorize transactions automatically.
-      The rule: a dedicated business checking account, every expense flowing through it, receipts
-      photographed or saved to cloud storage. At tax time, your CPA gets a clean profit-and-loss statement
-      in 10 minutes instead of a shoebox in 10 hours.
+      Kurumsal muhasebeye ihtiyacınız yok &mdash; temiz kayıtlara ihtiyacınız var. QuickBooks Self-Employed, Wave veya Xero, işletme hesabınızla senkronize olur ve işlemleri otomatik olarak kategorize eder. Kural: özel bir işletme hesabı, her harcama buradan geçer, makbuzlar fotoğraflanır veya bulut depolamaya kaydedilir. Vergi zamanında, SMMM'niz 10 saatlik bir ayakkabı kutusu yerine 10 dakikada temiz bir kar-zarar tablosu alır.
     </p>
 
-    <h2>What NOT to deduct</h2>
+    <h2>NEYİ düşmemeli</h2>
     <p>
-      Meals eaten alone are not deductible. Client meals are 50% deductible with documentation. Commuting
-      to your regular office or client site is not deductible &mdash; only travel between job sites or to
-      temporary work locations. Clothing you could wear outside work (even if you only wear it for work) is
-      not deductible. Personal phone use mixed with business requires a reasonable percentage split, not
-      100%. The rule of thumb: if the IRS audits you, can you defend it with documentation?
+      Yalnız başına yenen yemekler düşülemez. Müşteri yemekleri, belgelerle %50 oranında düşülebilir. Normal ofisinize veya müşteri sahanıza gidiş-geliş düşülemez &mdash; yalnızca iş yerleri arasındaki seyahat veya geçici çalışma yerlerine yapılan seyahat. İş dışında giyebileceğiniz kıyafetler (iş için giyseniz bile) düşülemez. İşle karışık kişisel telefon kullanımı, %100 değil, makul bir yüzde bölünmesi gerektirir. Temel kural: IRS sizi denetlerse, belgelerle savunabilir misiniz?
     </p>
 
-    <h2>Retirement and the CPA conversation</h2>
+    <h2>Emeklilik ve SMMM görüşmesi</h2>
     <p>
-      A Solo 401(k) or SEP IRA is the single biggest tax lever freelancers ignore. At a $100k net profit,
-      maxing a Solo 401(k) can shelter $30k+ of taxable income and save you $9,000&ndash;$12,000 in combined
-      federal and state tax. A one-hour CPA strategy session costs $300&ndash;$500 and typically identifies
-      several thousand dollars in savings the first year &mdash; entity structure, retirement account
-      choice, and quarterly payment timing are where the real money is.
+      Solo 401(k) veya SEP IRA, serbest çalışanların göz ardı ettiği en büyük vergi kaldıracıdır. $100k net kârda, bir Solo 401(k)'yi maksimize etmek $30k+ vergiye tabi geliri koruyabilir ve size birleşik federal ve eyalet vergisinde $9,000&ndash;$12,000 tasarruf sağlayabilir. Bir saatlik SMMM strateji oturumu $300&ndash;$500'a mal olur ve genellikle ilk yılda birkaç bin dolar tasarruf sağlar &mdash; işletme yapısı, emeklilik hesabı seçimi ve üç aylık ödeme zamanlaması gerçek paranın olduğu yerlerdir.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Skipping quarterly payments and getting hit with penalties plus a five-figure April bill. Mixing
-      personal and business in the same account &mdash; audit red flag and a bookkeeping nightmare. Taking
-      an aggressive home-office deduction without the documentation to back it. Forgetting state estimated
-      taxes (most states want quarterlies too). Not setting aside 25&ndash;30% of every invoice into a
-      separate tax-reserve account from day one.
+      Üç aylık ödemeleri atlamak ve cezalar artı beş haneli bir Nisan faturası almak. Kişisel ve işi aynı hesapta karıştırmak &mdash; denetim kırmızı bayrağı ve defter tutma kabusu. Belgelerle desteklemeden agresif bir ev ofisi kesintisi yapmak. Eyalet tahmini vergilerini unutmak (çoğu eyalet de üç aylık ödeme ister). İlk günden itibaren her faturanın %25&ndash;30'unu ayrı bir vergi rezerv hesabına ayırmamak.
     </p>
 
-    <h2>Bottom line</h2>
+    <h2>Alt satır</h2>
     <p>
-      Freelancer tax optimization is 80% routine discipline and 20% smart structure. Pay quarterly, keep
-      clean books, max a Solo 401(k), and hire a CPA for one strategy session per year. Use the free
-      <a href="/tools/freelancer-tax-reserve-calculator"> freelancer-tax-reserve-calculator</a> to figure
-      out exactly how much to set aside from each invoice. Audit risk for freelancers is low, but only if
-      your documentation is solid &mdash; and it&rsquo;s the solid documentation that also lets you take
-      every deduction you&rsquo;re actually entitled to.
+      Serbest çalışan vergi optimizasyonu %80 rutin disiplin ve %20 akıllı yapıdır. Üç ayda bir ödeyin, temiz defterler tutun, bir Solo 401(k)'yi maksimize edin ve yılda bir strateji oturumu için bir SMMM kiralayın. Her faturadan ne kadar ayıracağınızı tam olarak bulmak için ücretsiz <a href="/tools/freelancer-tax-reserve-calculator"> freelancer-tax-reserve-calculator</a> aracını kullanın. Serbest çalışanlar için denetim riski düşüktür, ancak yalnızca belgeleriniz sağlamsa &mdash; ve gerçekten hakkınız olan her kesintiyi almanızı sağlayan da sağlam belgelerdir.
     </p>
   </>
 );

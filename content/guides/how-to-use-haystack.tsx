@@ -1,23 +1,23 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>Haystack is deepset&rsquo;s open-source Python framework for building production-grade <a href="/learn/llm">LLM</a> pipelines &mdash; RAG, agents, and search &mdash; with a clear component model.</p>);
+export const intro: ReactElement = (<p>Haystack, deepset'in açık kaynaklı Python framework'üdür ve üretim kalitesinde <a href="/learn/llm">LLM</a> pipeline'ları (RAG, ajanlar ve arama) oluşturmak için net bir bileşen modeli sunar.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>Haystack has been around since before the ChatGPT era, when it focused on neural search. Haystack 2.0 (released 2024) modernised the API around typed components and pipelines, and it&rsquo;s now one of the most production-focused alternatives to LangChain or LlamaIndex.</p>
-    <h2>What it is</h2>
-    <p>Pipelines are directed graphs of Components (retrievers, generators, rankers, converters) with typed input/output sockets. Document Stores (Elasticsearch, Weaviate, Qdrant, pgvector, OpenSearch, in-memory) hold the indexed content. Haystack ships first-party integrations for every major model provider and vector DB, plus a serverless option via deepset Cloud.</p>
-    <h2>Install / sign up</h2>
-    <pre>{`# Core
+    <p>Haystack, ChatGPT döneminden önce, sinirsel aramaya odaklandığı zamandan beri varlığını sürdürüyor. Haystack 2.0 (2024'te yayınlandı), API'yi yazılı bileşenler ve pipeline'lar etrafında modernize etti ve artık LangChain veya LlamaIndex'e en üretim odaklı alternatiflerden biri haline geldi.</p>
+    <h2>Ne olduğu</h2>
+    <p>Pipeline'lar, yazılı giriş/çıkış soketlerine sahip Bileşenlerin (alıcılar, üreteçler, sıralayıcılar, dönüştürücüler) yönlendirilmiş grafikleridir. Belge Depoları (Elasticsearch, Weaviate, Qdrant, pgvector, OpenSearch, bellek içi) indekslenmiş içeriği tutar. Haystack, her büyük model sağlayıcısı ve vektör veritabanı için birinci taraf entegrasyonlarının yanı sıra deepset Cloud aracılığıyla sunucusuz bir seçenek sunar.</p>
+    <h2>Kurulum / kayıt</h2>
+    <pre>{`# Çekirdek
 pip install haystack-ai
 
-# Integrations are separate packages
+# Entegrasyonlar ayrı paketlerdir
 pip install qdrant-haystack anthropic-haystack
 
-# Optional managed UI
+# İsteğe bağlı yönetilen arayüz
 # https://cloud.deepset.ai`}</pre>
-    <h2>First session</h2>
-    <p>A minimal RAG pipeline has three components: an embedding retriever, a prompt builder, and a generator. Wire them together and call run().</p>
+    <h2>İlk oturum</h2>
+    <p>Minimum bir RAG pipeline'ı üç bileşenden oluşur: bir gömme alıcısı, bir istem oluşturucu ve bir üreteç. Bunları birbirine bağlayın ve run() fonksiyonunu çağırın.</p>
     <pre>{`$ python
 from haystack import Pipeline
 from haystack.components.retrievers import InMemoryEmbeddingRetriever
@@ -31,16 +31,16 @@ p.add_component("llm", OpenAIGenerator(model="gpt-4o"))
 p.connect("retriever", "prompt.documents")
 p.connect("prompt", "llm")
 print(p.run({"retriever": {"query_embedding": emb}}))`}</pre>
-    <h2>Everyday workflows</h2>
+    <h2>Günlük iş akışları</h2>
     <ul>
-      <li>1. Build a document-grounded Q&amp;A service over your company&rsquo;s wiki and Confluence exports.</li>
-      <li>2. Add a Ranker component after retrieval to boost precision before hitting the LLM.</li>
-      <li>3. Deploy pipelines behind Hayhooks (FastAPI wrapper) for a REST endpoint you can scale with Kubernetes.</li>
+      <li>1. Şirketinizin wiki ve Confluence dışa aktarımları üzerinde belge tabanlı bir Soru-Cevap hizmeti oluşturun.</li>
+      <li>2. LLM'ye ulaşmadan önce hassasiyeti artırmak için alım sonrasına bir Sıralayıcı bileşeni ekleyin.</li>
+      <li>3. Pipeline'ları Hayhooks (FastAPI sarmalayıcısı) arkasında dağıtarak Kubernetes ile ölçeklendirebileceğiniz bir REST uç noktası oluşturun.</li>
     </ul>
-    <h2>Gotchas and tips</h2>
-    <p>Haystack&rsquo;s strength is that pipelines are serialisable YAML, which makes diffs and CI review easy. Keep prompts in templates, not hard-coded strings, so you can iterate without redeploying. Evaluation components (AnswerExactMatch, SASEvaluator) slot into the same pipeline graph so you can test in CI.</p>
-    <p>For very large corpora, favour Elasticsearch or OpenSearch document stores over in-memory &mdash; the InMemoryDocumentStore is great for tutorials but not production. <a href="/learn/stream">Streaming</a> responses require the streaming_callback parameter on generators; it&rsquo;s easy to miss and it changes how you consume output.</p>
-    <h2>Who it&rsquo;s for</h2>
-    <p>Teams shipping RAG or search-centric LLM products who want a typed, observable, deployable framework rather than a notebook-style toolkit.</p>
+    <h2>Tuzaklar ve ipuçları</h2>
+    <p>Haystack'in gücü, pipeline'ların serileştirilebilir YAML olmasıdır; bu da farkları ve CI incelemelerini kolaylaştırır. İstemleri şablonlarda tutun, sabit kodlanmış dizelerde değil; böylece yeniden dağıtmadan yineleme yapabilirsiniz. Değerlendirme bileşenleri (AnswerExactMatch, SASEvaluator) aynı pipeline grafiğine yerleşir, böylece CI'da test edebilirsiniz.</p>
+    <p>Çok büyük külliyatlar için bellek içi yerine Elasticsearch veya OpenSearch belge depolarını tercih edin &mdash; InMemoryDocumentStore eğitimler için harikadır ancak üretim için uygun değildir. <a href="/learn/stream">Akış</a> yanıtları, üreteçlerde streaming_callback parametresini gerektirir; bunu kaçırmak kolaydır ve çıktıyı tüketme şeklinizi değiştirir.</p>
+    <h2>Kimler için</h2>
+    <p>RAG veya arama odaklı LLM ürünleri gönderen, not defteri tarzı bir araç seti yerine yazılı, gözlemlenebilir, dağıtılabilir bir framework isteyen ekipler için.</p>
   </>
 );

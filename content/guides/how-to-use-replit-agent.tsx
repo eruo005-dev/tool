@@ -2,83 +2,46 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Replit Agent builds working apps from a prompt, entirely in the
-    browser. You describe the app, it scaffolds the code, installs
-    dependencies, runs it, and hands you a live URL &mdash; no laptop
-    setup, no deploy pipeline. It&rsquo;s aimed at founders, designers,
-    and engineers who want a prototype in front of users the same day.
+    Replit Agent, tamamen tarayıcıda çalışan, bir komut isteminden çalışan uygulamalar oluşturur. Uygulamayı tanımlarsınız, o da kodu oluşturur, bağımlılıkları yükler, çalıştırır ve size canlı bir URL verir &mdash; dizüstü bilgisayar kurulumu veya dağıtım hattı gerekmez. Aynı gün kullanıcılara bir prototip sunmak isteyen kurucular, tasarımcılar ve mühendisler için tasarlanmıştır.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What Replit Agent actually is</h2>
+    <h2>Replit Agent aslında nedir</h2>
     <p>
-      Replit Agent is the AI builder layered on top of Replit&rsquo;s
-      browser-based IDE. Under the hood it uses frontier models (Claude
-      and GPT-class) driving a planner that can create files, run the
-      shell, install packages, wire up a Postgres database, set
-      environment variables, and deploy. The output is a real Replit
-      workspace you can keep editing by hand or by chat.
+      Replit Agent, Replit'in tarayıcı tabanlı IDE'sinin üzerine inşa edilmiş yapay zeka destekli bir oluşturucudur. Arka planda, dosyalar oluşturabilen, kabuğu çalıştırabilen, paketleri kurabilen, bir Postgres veritabanı bağlayabilen, ortam değişkenlerini ayarlayabilen ve dağıtım yapabilen bir planlayıcıyı yönlendiren öncü modeller (Claude ve GPT sınıfı) kullanır. Çıktı, elle veya sohbet yoluyla düzenlemeye devam edebileceğiniz gerçek bir Replit çalışma alanıdır.
     </p>
 
-    <h2>Setting it up</h2>
+    <h2>Kurulum</h2>
     <p>
-      Sign in at <a href="https://replit.com">replit.com</a>. Agent is
-      included with the Replit Core plan (around $20/mo) with a monthly
-      credit allowance; pay-as-you-go credits are available above that.
-      No install step &mdash; just click <strong>Create App</strong> and
-      pick the Agent flow.
+      <a href="https://replit.com">replit.com</a> adresine giriş yapın. Agent, Replit Core planına (yaklaşık 20$/ay) aylık bir kredi limitiyle dahildir; bunun üzerinde kullandıkça öde kredileri mevcuttur. Kurulum adımı yok &mdash; sadece <strong>Create App</strong>'e tıklayın ve Agent akışını seçin.
     </p>
-    <pre>{`# No CLI install needed. Optional local connection:
+    <pre>{`# CLI kurulumu gerekmez. İsteğe bağlı yerel bağlantı:
 npm install -g @replit/cli
 replit login
-replit connect   # open current folder as a Replit workspace`}</pre>
+replit connect   # mevcut klasörü bir Replit çalışma alanı olarak açar`}</pre>
 
-    <h2>Your first session</h2>
+    <h2>İlk oturumunuz</h2>
     <p>
-      On the Agent start screen, write a prompt like: &ldquo;A Next.js app
-      that lets a user paste a URL and get back a markdown summary. Use
-      the OpenAI API, store history in Postgres, deploy it.&rdquo; Agent
-      proposes a plan &mdash; framework, schema, routes. Approve it and
-      watch it build. You&rsquo;ll get a running preview in a couple of
-      minutes; a deploy link follows if you ask for one.
+      Agent başlangıç ekranında şöyle bir komut yazın: &ldquo;Kullanıcının bir URL yapıştırmasına ve bir markdown özeti almasına izin veren bir Next.js uygulaması. OpenAI API'sini kullan, geçmişi Postgres'te sakla, dağıt.&rdquo; Agent bir plan önerir &mdash; framework, şema, rotalar. Onaylayın ve oluşturmasını izleyin. Birkaç dakika içinde çalışan bir önizleme alacaksınız; isterseniz bir dağıtım bağlantısı da gelir.
     </p>
 
-    <h2>A realistic workflow</h2>
+    <h2>Gerçekçi bir iş akışı</h2>
     <p>
-      Treat Agent like a scaffolder plus a pair programmer. Use it to get
-      from zero to a working skeleton, then drop into the editor (or
-      connect Cursor via SSH) for the detailed work. Iterate by chat for
-      feature-level changes (&ldquo;add email login&rdquo;), by hand for
-      polish. Replit&rsquo;s built-in Postgres, object storage, secrets,
-      and one-click deploy cover most small-app needs without leaving the
-      tab.
+      Agent'ı bir iskele kurucu ve bir eş programcı olarak düşünün. Sıfırdan çalışan bir iskelete ulaşmak için kullanın, ardından detaylı çalışma için düzenleyiciye geçin (veya SSH üzerinden Cursor bağlayın). Özellik düzeyindeki değişiklikler için sohbetle (&ldquo;e-posta girişi ekle&rdquo;), cilalama için elle yineleyin. Replit'in yerleşik Postgres, nesne depolama, sırlar ve tek tıkla dağıtım özellikleri, sekmeden çıkmadan çoğu küçük uygulama ihtiyacını karşılar.
     </p>
 
-    <h2>Gotchas and limits</h2>
+    <h2>Tuzaklar ve sınırlamalar</h2>
     <p>
-      Credits disappear fast if you let Agent run wild &mdash; a single
-      &ldquo;rebuild the app&rdquo; prompt can chew through several
-      dollars. Be specific and incremental. The stack is whatever Agent
-      picks; it favours Node, Python, and Next.js, and gets shakier with
-      Rust, Go, or anything requiring system packages. Generated code
-      quality is fine for prototypes but you&rsquo;ll still refactor
-      before production &mdash; expect duplicated logic, thin tests, and
-      the occasional hardcoded secret in a file you need to clean out.
+      Agent'ı kontrolsüz bırakırsanız krediler hızla tükenir &mdash; tek bir &ldquo;uygulamayı yeniden oluştur&rdquo; komutu birkaç dolar harcayabilir. Spesifik ve aşamalı olun. Yığın, Agent'ın seçtiği şeydir; Node, Python ve Next.js'i tercih eder, Rust, Go veya sistem paketleri gerektiren herhangi bir şeyde daha zayıf kalır. Oluşturulan kod kalitesi prototipler için yeterlidir ancak üretim öncesinde yine de yeniden düzenleme yapmanız gerekir &mdash; yinelenen mantık, zayıf testler ve temizlemeniz gereken bir dosyada ara sıra sabit kodlanmış sırlar bekleyin.
     </p>
 
-    <h2>When NOT to use it</h2>
+    <h2>Ne ZAMAN kullanılmamalı</h2>
     <p>
-      Skip Replit Agent for existing large codebases &mdash; it&rsquo;s
-      tuned for greenfield, not for navigating a ten-year-old monorepo.
-      Skip it for regulated environments where source and data must stay
-      on your infrastructure. And skip it if you already have a local
-      setup you like &mdash; the value is &ldquo;no laptop needed&rdquo;;
-      if your laptop&rsquo;s open anyway, <a href="/guides/how-to-use-bolt-new">Bolt.new</a>,{" "}
-      <a href="/guides/how-to-use-v0-by-vercel">v0</a>, or plain{" "}
-      <a href="/guides/how-to-set-up-claude-code">Claude Code</a> will
-      usually give you tighter output.
+      Mevcut büyük kod tabanları için Replit Agent'ı atlayın &mdash; on yıllık bir monorepoda gezinmek için değil, yeşil alan için optimize edilmiştir. Kaynak ve verilerin altyapınızda kalması gereken düzenlenmiş ortamlar için atlayın. Ve halihazırda sevdiğiniz bir yerel kurulumunuz varsa atlayın &mdash; değeri &ldquo;dizüstü bilgisayar gerekmez&rdquo;; dizüstü bilgisayarınız zaten açıksa, <a href="/guides/how-to-use-bolt-new">Bolt.new</a>,{" "}
+      <a href="/guides/how-to-use-v0-by-vercel">v0</a> veya düz{" "}
+      <a href="/guides/how-to-set-up-claude-code">Claude Code</a> genellikle size daha sıkı bir çıktı verecektir.
     </p>
   </>
 );

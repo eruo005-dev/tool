@@ -3,247 +3,189 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      The monthly cost of a pack-a-day habit is quietly one of the
-      largest line items in a smoker&rsquo;s budget, and almost nobody
-      adds it up. The daily purchase feels trivial; the annual total
-      is life-changing. The true cost goes beyond the pack price:
-      health insurance surcharges, dental work, home insurance, and
-      opportunity cost if that money had been invested instead. This
-      guide runs the simple pack-a-day math, then layers in the
-      compounding, secondary costs, and motivational framing that
-      makes the numbers concrete. The goal isn&rsquo;t guilt &mdash;
-      it&rsquo;s showing what quitting unlocks financially so the
-      decision becomes easier to make.
+      Bir paket günlük alışkanlığın aylık maliyeti, bir sigara tiryakisinin bütçesindeki en büyük kalemlerden biridir ve neredeyse hiç kimse bunu hesaplamaz. Günlük alışveriş önemsiz görünür; yıllık toplam ise hayat değiştirir. Gerçek maliyet paket fiyatının ötesine geçer: sağlık sigortası ek ücretleri, diş tedavileri, ev sigortası ve bu paranın yatırılsaydı elde edeceği fırsat maliyeti. Bu rehber, günde bir paketin basit matematiğini yapar, ardından bileşik etkiyi, ikincil maliyetleri ve rakamları somut hale getiren motive edici bir çerçeve ekler. Amaç suçluluk değil; sigarayı bırakmanın finansal olarak neleri mümkün kıldığını göstererek bırakmayı kolaylaştırmaktır.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Pack-a-day arithmetic</h2>
-    <pre>{`Pack price (US average 2025):     ~$8.50
-Pack-a-day:                       $8.50 x 365 = $3,102/yr
-10 years:                         ~$31,000
-20 years:                         ~$62,000
-30 years:                         ~$93,000`}</pre>
+    <h2>Günde bir paketin aritmetiği</h2>
+    <pre>{`Paket fiyatı (ABD ortalaması 2025):     ~$8,50
+Günde bir paket:                 $8,50 x 365 = $3.102/yıl
+10 yıl:                         ~$31.000
+20 yıl:                         ~$62.000
+30 yıl:                         ~$93.000`}</pre>
     <p>
-      That&rsquo;s nominal dollars, not inflation-adjusted. Tobacco
-      excise taxes keep rising, so the forward cost is higher still.
+      Bu nominal dolar cinsindendir, enflasyona göre ayarlanmamıştır. Tütün tüketim vergileri yükselmeye devam ettiği için gelecekteki maliyet daha da yüksektir.
     </p>
 
-    <h2>Regional price variation</h2>
-    <pre>{`New York City:     $14-16/pack   ($5,100-5,800/yr)
-Chicago:           $12-13/pack   ($4,380-4,745/yr)
-California:        $9-10/pack    ($3,285-3,650/yr)
-Virginia:          $6-7/pack     ($2,190-2,555/yr)
-Kentucky:          $6-7/pack     ($2,190-2,555/yr)
-UK (20-stick):     ~&pound;14 (~$17)   (&pound;5,110/yr)
-Australia:         ~AUD 45/pack  (AUD 16,425/yr)`}</pre>
+    <h2>Bölgesel fiyat farklılıkları</h2>
+    <pre>{`New York City:     $14-16/paket   ($5.100-$5.800/yıl)
+Chicago:           $12-13/paket   ($4.380-$4.745/yıl)
+Kaliforniya:        $9-10/paket    ($3.285-$3.650/yıl)
+Virginia:          $6-7/paket     ($2.190-$2.555/yıl)
+Kentucky:          $6-7/paket     ($2.190-$2.555/yıl)
+İngiltere (20'li paket):      ~£14 (~$17)   (£5.110/yıl)
+Avustralya:         ~$45 AUD/paket (AUD $16.425/yıl)`}</pre>
     <p>
-      Where you live matters hugely. A New Yorker smokes the equivalent
-      of a new used car every two years; a Kentuckian, every four.
-
+      Yaşadığınız yer büyük fark yaratır. New York'ta biri her iki yılda bir ikinci el araba değerinde sigara içer; Kentucky'de biri bunu her dört yılda bir yapar.
     </p>
 
-    <h2>Half-pack, two-pack, and vape</h2>
-    <pre>{`Half-pack/day at $8.50:   $1,551/yr
-Two-pack/day at $8.50:    $6,205/yr
+    <h2>Yarım paket, iki paket ve vaping</h2>
+    <pre>{`Günde yarım paket ($8,50):   $1.551/yıl
+Günde iki paket ($8,50):    $6.205/yıl
 
-Vape/e-cig:
-Disposables:              $6-8/unit, one per 1-3 days = $900-2,900/yr
-Refillable + juice:       $30-60/month = $360-720/yr
-Cartridge systems:        $15-25/week = $780-1,300/yr`}</pre>
+Vaping/nikotin:
+Tek kullanımlık:                  $6-8 her biri, her 1-3 günde bir = $900-$2.900/yıl
+Doldurulabilir + likit:          $30-60/ay = $360-$720/yıl
+Pod sistemleri:                  $15-25/hafta = $780-$1.300/yıl`}</pre>
     <p>
-      Vaping is cheaper per session but addiction and frequency often
-      drive total spend close to pack-a-day cigarette rates. The
-      &ldquo;I&rsquo;ll save money on vape&rdquo; argument rarely
-      survives twelve months.
+      Vaping seans başına daha ucuzdur, ancak bağımlılık ve sıklık genellikle toplam harcamayı günde bir paket seviyesine geri getirir. "Vaping yaparak para biriktireceğim" argümanı nadiren on iki ayı geçer.
     </p>
 
-    <h2>Compounded opportunity cost</h2>
+    <h2>Bileşik fırsat maliyeti</h2>
     <p>
-      The real number is what those dollars would have been if
-      invested instead. Assume 7% average real return:
+      Gerçek rakam, bu dolarların yatırılsaydı ne olacağıdır. %7'lik bir ortalama reel getiri varsayalım:
     </p>
-    <pre>{`$3,102/yr invested at 7% real:
-10 years:   $42,900     (vs $31,000 spent)
-20 years:   $127,000    (vs $62,000 spent)
-30 years:   $293,000    (vs $93,000 spent)
-40 years:   $620,000    (vs $124,000 spent)`}</pre>
+    <pre>{`$3.102/yıl %7 reel getiri ile:
+10 yıl:   $42.900     (vs. $31.000 harcanan)
+20 yıl:   $127.000    (vs. $62.000 harcanan)
+30 yıl:   $293.000    (vs. $93.000 harcanan)
+40 yıl:   $620.000    (vs. $124.000 harcanan)`}</pre>
     <p>
-      A pack-a-day smoker in their 20s who quits and invests the
-      savings is looking at a quarter-million-dollar retirement
-      differential over a working life. At two packs a day, the
-      numbers double.
+      Günde bir paket içen, bırakan ve tasarrufları yatıran 20'li yaşlardaki biri, çalışma hayatı boyunca çeyrek milyon dolarlık bir emeklilik farkıyla karşı karşıyadır. Günde iki paket içenler için bu rakam iki katına çıkar.
     </p>
 
-    <h2>Secondary costs: insurance</h2>
+    <h2>İkincil maliyetler: sigorta</h2>
     <p>
-      Smokers pay more for almost every insurance product:
+      Sigara içenler neredeyse her sigorta ürünü için daha fazla öder:
     </p>
-    <pre>{`Health insurance (ACA):    up to 50% surcharge allowed
-                           typical: $1,000-2,500/yr extra
-Life insurance:            2-3x non-smoker premiums
-                           $500-2,000/yr extra for similar coverage
-Disability:                15-30% higher
-Home insurance:            5-15% higher (fire risk)
-Auto (in some states):     slight increase`}</pre>
+    <pre>{`Sağlık sigortası (ACA):    %50'ye varan ek ücret mümkün
+                           tipik: $1.000-$2.500 ekstra/yıl
+Hayat sigortası:            Sigara içmeyene göre 2-3 kat prim
+                           $500-$2.000 ekstra/yıl benzer kapsam için
+Maluliyet sigortası:      %15-30 daha yüksek
+Ev sigortası:             %5-15 daha yüksek (yangın riski)
+Araba sigortası (bazı eyaletler): hafif artış`}</pre>
     <p>
-      A 35-year-old smoker with modest life cover often pays
-      $1,500&ndash;2,500 more per year across policies, entirely
-      separate from the packs themselves.
+      35 yaşında mütevazı hayat sigortası olan bir sigara tiryakisi, paket maliyetinden tamamen ayrı olarak, poliçeler arasında genellikle yılda $1.500-$2.500 daha fazla öder.
     </p>
 
-    <h2>Secondary costs: dental</h2>
+    <h2>İkincil maliyetler: diş</h2>
     <p>
-      Smoking is one of the largest risk factors for periodontal
-      disease, tooth loss, and staining. Typical smoker-specific
-      dental costs over a decade:
+      Sigara içmek periodontal hastalık, diş kaybı ve lekelenme için en büyük risk faktörlerinden biridir. On yıl boyunca sigaraya bağlı tipik diş maliyetleri:
     </p>
     <ul>
-      <li>Teeth whitening: $200&ndash;500 per session, often every 6&ndash;12 months</li>
-      <li>Extra cleanings for stain removal: $100&ndash;150 extra per year</li>
-      <li>Gum disease treatment (scaling/root planing): $1,000&ndash;4,000</li>
-      <li>Implants for lost teeth: $3,000&ndash;5,000 each</li>
+      <li>Diş beyazlatma: $200-$500 seans başına, genellikle her 6-12 ayda bir</li>
+      <li>Leke çıkarma için ekstra temizlik: Yılda $100-$150 ekstra</li>
+      <li>Diş eti hastalığı tedavisi (küretaj/kök düzeltmesi): $1.000-$4.000</li>
+      <li>Kaybedilen dişler için implantlar: Her biri $3.000-$5.000</li>
     </ul>
 
-    <h2>Secondary costs: medical</h2>
+    <h2>İkincil maliyetler: tıbbi</h2>
     <p>
-      Even before catastrophic illness, smokers have higher baseline
-      medical costs:
+      Ciddi hastalıktan önce bile, sigara içenlerin temel tıbbi maliyetleri daha yüksektir:
     </p>
     <ul>
-      <li>More respiratory infections, more doctor visits</li>
-      <li>Higher prescription costs</li>
-      <li>More sick days (~3&ndash;5 extra/yr) with lost wages</li>
-      <li>Earlier onset of chronic conditions that compound through life</li>
+      <li>Daha fazla solunum yolu enfeksiyonu, daha fazla doktor ziyareti</li>
+      <li>Daha yüksek reçete maliyetleri</li>
+      <li>Daha fazla hastalık izni (yılda ~3-5 ekstra) ve kayıp ücretler</li>
+      <li>Yaşam boyu biriken kronik hastalıkların daha erken başlangıcı</li>
     </ul>
     <p>
-      The CDC estimates smoking-attributable health care spending at
-      ~$170 billion/yr in the US &mdash; averaged across smokers,
-      about $5,800 per smoker per year. Even discounted for
-      attribution uncertainty, the per-person burden is real.
+      CDC, ABD'de sigaraya atfedilebilen sağlık harcamalarının yılda ~170 milyar dolar olduğunu tahmin ediyor, bu da sigara içen başına yılda yaklaşık $5.800'e denk geliyor. Atıf belirsizliği hesaba katılsa bile, kişi başına düşen yük gerçektir.
     </p>
 
-    <h2>Home and property costs</h2>
+    <h2>Ev ve mülk maliyetleri</h2>
     <p>
-      Smoking indoors reduces home resale value ($10,000&ndash;30,000
-      at typical prices), requires paint and carpet replacement at
-      move-out, and often voids rental security deposits. If you smoke
-      in a car, resale value drops $500&ndash;2,000.
+      İç mekanda sigara içmek bir evin yeniden satış değerini düşürür (normalin $10.000-$30.000 altında), taşınırken boya ve halı değişimi gerektirir ve genellikle depozito kaybına yol açar. Arabanızda sigara içiyorsanız, yeniden satış değeri $500-$2.000 düşer.
     </p>
 
-    <h2>Time cost</h2>
+    <h2>Zaman maliyeti</h2>
     <p>
-      A pack-a-day smoker spends ~30 min/day actively smoking, and
-      another 30 min/day on smoke breaks at work, buying packs, etc.
+      Günde bir paket içen biri, aktif olarak sigara içmek için günde ~30 dakika harcar, ayrıca işte sigara molaları, paket satın alma vb. için ek 30 dakika.
     </p>
-    <pre>{`1 hour/day =  365 hours/year  =  15 days/year  =  one work-month`}</pre>
+    <pre>{`1 saat/gün =  365 saat/yıl  =  15 gün/yıl  =  bir çalışma ayı`}</pre>
     <p>
-      This isn&rsquo;t a scolding &mdash; it&rsquo;s a realistic
-      accounting of what quitting returns to your schedule.
+      Bu bir azarlama değil; sigarayı bırakmanın programınıza geri kazandırdıklarının gerçekçi bir muhasebesidir.
     </p>
 
-    <h2>Total annual cost, all-in</h2>
-    <pre>{`Pack-a-day in a mid-cost US city, smoker for 10 years:
-Cigarettes:             $3,100
-Insurance surcharges:   $1,800
-Dental extras:          $400
-Medical extras:         $400
-Opportunity cost:       $4,000/yr (lost compounding, smoothed over 10 yr)
+    <h2>Yıllık toplam maliyet, her şey dahil</h2>
+    <pre>{`Orta maliyetli bir ABD şehrinde günde bir paket, 10 yıllık sigara tiryakisi:
+Sigara:             $3.100
+Sigorta ek ücretleri:   $1.800
+Diş ekstraları:          $400
+Tıbbi ekstralar:         $400
+Fırsat maliyeti:       $4.000/yıl (kayıp bileşik getiri, 10 yıla yayılmış)
                         --------
-True annual cost:       ~$9,700
+Gerçek yıllık maliyet:       ~$9.700
 
-30-year cumulative:     ~$291,000 in real spending & foregone wealth`}</pre>
+30 yıllık kümülatif:     ~$291.000 (gerçek harcama ve kayıp servet)`}</pre>
 
-    <h2>Savings if you quit today</h2>
+    <h2>Bugün bırakırsanız ne kazanırsınız</h2>
     <p>
-      Immediate:
+      Hemen:
     </p>
     <ul>
-      <li>Every pack not bought goes to savings/debt/future</li>
-      <li>Health/life insurance can re-rate after 12 months smoke-free (up to 50% savings)</li>
-      <li>Grocery, gas, and small-purchase savings from fewer convenience-store stops</li>
+      <li>Satın alınmayan her paket tasarrufa/borca/geleceğe gider</li>
+      <li>Sağlık/hayat sigortası 12 ay sigarasız kaldıktan sonra yeniden değerlendirilebilir (%50'ye varan tasarruf)</li>
+      <li>Daha az market, benzin ve küçük alışveriş duraklarından tasarruf</li>
     </ul>
     <p>
-      Future, if invested: compound return of the pack money over
-      working life &mdash; often the difference between adequate
-      retirement and early retirement.
+      Gelecek, yatırılırsa: sigara parasının bir çalışma hayatı boyunca bileşik getirisi; genellikle yeterli emeklilik ile erken emeklilik arasındaki fark.
     </p>
 
-    <h2>Motivation framing</h2>
+    <h2>Motive edici çerçeve</h2>
     <p>
-      &ldquo;Quit to save $3,000/year&rdquo; is abstract.
-      &ldquo;Each pack you don&rsquo;t buy is $12 toward your vacation
-      fund&rdquo; is concrete. Translating to something you want:
+      "Yılda $3.000 tasarruf etmek için bırak" soyuttur. "Satın almadığınız her paket, tatil fonunuza doğru $12'dir" somuttur. İstediğiniz bir şeye dönüştürün:
     </p>
-    <pre>{`Pack not bought  =  $8.50  =  coffee for three days
-Week not smoking =  $60    =  night out
-Month quit       =  $255   =  weekend trip
-Year quit        =  $3,100 =  used car / plane tickets to Asia
-Decade quit      =  $40K+  =  down payment / car / fellowship`}</pre>
+    <pre>{`Satın alınmayan paket  =  $8,50  =  üç günlük kahve
+İçilmeyen hafta       =  $60    =  bir gece dışarı
+Bırakılan ay          =  $255   =  hafta sonu gezisi
+Bırakılan yıl         =  $3.100 =  ikinci el araba / Asya uçuşu
+Bırakılan on yıl      =  $40.000+ =  peşinat / araba / üniversite fonu`}</pre>
     <p>
-      Auto-transfer the exact pack money to a savings account the
-      morning you quit. Within a month the balance makes the
-      decision self-reinforcing.
+      Bıraktığınız sabah, tam sigara parasını bir tasarruf hesabına otomatik olarak aktarın. Bir ay içinde bakiye, kararı kendi kendini pekiştirir hale getirir.
     </p>
 
-    <h2>Quit-aid cost</h2>
+    <h2>Bırakma yardımcılarının maliyeti</h2>
     <p>
-      Patches, gum, lozenges, Zyban, Chantix: $200&ndash;800 for a
-      12-week program. Compared to continued smoking, this pays back
-      within 1&ndash;3 months &mdash; a trivial investment against
-      annual savings.
+      Bant, sakız, pastil, Zyban, Chantix: 12 haftalık bir program için $200-$800. Sürekli sigara içmeye kıyasla, bu 1-3 ayda kendini amorti eder; yıllık tasarruflara karşı önemsiz bir yatırım.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Only counting the pack price.</strong> Misses insurance,
-      dental, medical, and opportunity cost &mdash; which often
-      double or triple the real number.
+      <strong>Sadece paket fiyatını hesaplamak.</strong> Sigorta, diş, tıbbi ve fırsat maliyetini görmezden gelir, bu da genellikle gerçek rakamı ikiye veya üçe katlar.
     </p>
     <p>
-      <strong>Assuming vape/nicotine-alternatives are cheap.</strong>{" "}
-      The convenience and availability can push spend even higher
-      once use frequency increases.
+      <strong>Vaping/nikotin alternatiflerinin ucuz olduğunu varsaymak.</strong>{" "}
+      Kullanım sıklığı, kolaylık ve bulunabilirlikle artar ve potansiyel olarak harcamayı daha da yükseltir.
     </p>
     <p>
-      <strong>Ignoring inflation.</strong> Tobacco prices rise faster
-      than general inflation. Forward cost is understated by today&rsquo;s
-      numbers.
+      <strong>Enflasyonu görmezden gelmek.</strong> Tütün fiyatları genel enflasyondan daha hızlı yükselir. Gelecekteki maliyetler bugünün rakamlarıyla olduğundan düşük gösterilir.
     </p>
     <p>
-      <strong>Forgetting the time tax.</strong> An hour a day is real
-      and never comes back.
+      <strong>Zaman vergisini unutmak.</strong> Günde bir saat gerçektir ve asla geri gelmez.
     </p>
     <p>
-      <strong>Underestimating compounding.</strong> The
-      quarter-million-dollar retirement differential isn&rsquo;t
-      hyperbole &mdash; it&rsquo;s the math on modest returns over
-      30 years.
+      <strong>Bileşik etkiyi hafife almak.</strong> Çeyrek milyon dolarlık bir emeklilik farkı abartı değildir; 30 yıl boyunca mütevazı getirilerin matematiğidir.
     </p>
     <p>
-      <strong>Not auto-saving the pack money.</strong> Without a
-      visible balance, quitting feels like loss, not gain. Automate
-      the transfer.
+      <strong>Sigara parasını otomatik olarak biriktirmemek.</strong> Görünür bir bakiye olmadan, bırakmak kayıp gibi hissettirir, kazanç değil. Transferi otomatikleştirin.
     </p>
     <p>
-      <strong>Treating cutbacks as sunk cost.</strong> Even reducing
-      half-a-pack still saves $1,500/yr. Don&rsquo;t wait for the
-      perfect quit.
+      <strong>Azaltmaları batık maliyet olarak görmek.</strong> Yarım pakete düşmek bile yılda $1.500 tasarruf sağlar. Mükemmel bırakma anını beklemeyin.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Kendi rakamlarınızı hesaplayın</h2>
     <p>
-      Plug daily usage and pack price into the{" "}
-      <a href="/tools/smoking-cost-calculator">smoking cost calculator</a>{" "}
-      for decade and lifetime totals. Compare against other recurring
-      spends in the{" "}
-      <a href="/tools/subscription-cost-calculator">subscription cost calculator</a>{" "}
-      and model what the same money compounds into with the{" "}
-      <a href="/tools/compound-interest-calculator">compound interest calculator</a>{" "}
-      &mdash; that&rsquo;s the number that turns a pack into a
-      retirement decision.
+      Günlük kullanımınızı ve paket fiyatınızı{" "}
+      <a href="/tools/smoking-cost-calculator">sigara maliyeti hesaplayıcısına</a>{" "}
+      girerek on yıllık ve ömür boyu toplamları görün. Bunu{" "}
+      <a href="/tools/subscription-cost-calculator">abonelik maliyeti hesaplayıcısındaki</a>{" "}
+      diğer yinelenen harcamalarla karşılaştırın ve aynı paranın{" "}
+      <a href="/tools/compound-interest-calculator">bileşik faiz hesaplayıcısıyla</a> ne olacağını modelleyin; işte bu, bir paketi emeklilik kararına dönüştüren rakamdır.
     </p>
   </>
 );

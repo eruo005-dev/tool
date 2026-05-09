@@ -3,211 +3,161 @@
 export const intro = (
   <>
     <p>
-      The AI implementation post-mortems on r/MachineLearning, r/Entrepreneur, and the
-      various IT-leadership Slacks are remarkably consistent in 2026. The same handful of
-      mistakes show up over and over. None of them are technical — every one is a
-      planning, scoping, or stakeholder-alignment failure that AI teams keep making.
+      r/MachineLearning, r/Entrepreneur ve çeşitli BT liderlik Slack gruplarındaki yapay zeka uygulama sonuç raporları 2026'da dikkat çekici şekilde tutarlı. Aynı birkaç hata tekrar tekrar karşımıza çıkıyor. Bunların hiçbiri teknik değil — her biri, yapay zeka ekiplerinin sürekli yaptığı bir planlama, kapsam belirleme veya paydaş uyumu başarısızlığı.
     </p>
     <p>
-      Here&rsquo;s the field-tested list, with the warning signs that show up before each
-      mistake bites you.
+      İşte sahada test edilmiş liste ve her hatanın sizi ısırmadan önce ortaya çıkan uyarı işaretleri.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "first-step", label: "What to do BEFORE implementing" },
-  { id: "mistakes", label: "The 8 most common mistakes" },
-  { id: "success", label: "How to know it&rsquo;s working" },
-  { id: "growth", label: "Will AI actually help my business grow?" },
+  { id: "first-step", label: "UYGULAMADAN ÖNCE ne yapmalı" },
+  { id: "mistakes", label: "En yaygın 8 hata" },
+  { id: "success", label: "İşe yaradığını nasıl anlarsınız" },
+  { id: "growth", label: "Yapay zeka işimin büyümesine gerçekten yardımcı olacak mı?" },
 ];
 
 export const body = (
   <>
-    <h2 id="first-step">What to do BEFORE implementing AI in your business</h2>
+    <h2 id="first-step">İşletmenizde yapay zeka uygulamadan ÖNCE ne yapmalısınız</h2>
     <p>
-      The first thing isn&rsquo;t picking a vendor or training your team. It&rsquo;s
-      defining the metric you&rsquo;re trying to move. The single biggest determinant of
-      whether your AI project succeeds or fails: did you define success before starting?
+      İlk yapılacak şey bir satıcı seçmek veya ekibinizi eğitmek değil. Taşımaya çalıştığınız metriği tanımlamaktır. Yapay zeka projenizin başarılı olup olmayacağını belirleyen en büyük faktör: başlamadan önce başarıyı tanımladınız mı?
     </p>
     <p>
-      Specifically, before any AI work begins, write down:
+      Spesifik olarak, herhangi bir yapay zeka çalışması başlamadan önce şunları yazın:
     </p>
     <ul>
       <li>
-        <strong>The metric.</strong> Customer support response time, doc processing
-        throughput, sales-rep capacity, etc. One specific number that your business
-        already tracks.
+        <strong>Metrik.</strong> Müşteri desteği yanıt süresi, belge işleme verimi, satış temsilcisi kapasitesi vb. İşletmenizin halihazırda takip ettiği belirli bir sayı.
       </li>
       <li>
-        <strong>The current baseline.</strong> What is the metric today? Last 90 days,
-        not vibes.
+        <strong>Mevcut temel değer.</strong> Metrik bugün ne durumda? Son 90 gün, tahminler değil.
       </li>
       <li>
-        <strong>The target.</strong> What number would make this project a success? Be
-        specific. &ldquo;A lot better&rdquo; is not a target.
+        <strong>Hedef.</strong> Bu projeyi başarılı kılacak sayı nedir? Spesifik olun. &ldquo;Çok daha iyi&rdquo; bir hedef değildir.
       </li>
       <li>
-        <strong>The deadline.</strong> By when? AI experiments without deadlines run
-        forever and cost a fortune.
+        <strong>Son tarih.</strong> Ne zamana kadar? Son tarihsiz yapay zeka deneyleri sonsuza kadar sürer ve servete mal olur.
       </li>
       <li>
-        <strong>The kill switch.</strong> What number, by what date, means you&rsquo;ll
-        cancel this project?
+        <strong>Durdurma anahtarı.</strong> Hangi sayı, hangi tarihe kadar, bu projeyi iptal edeceğiniz anlamına gelir?
       </li>
     </ul>
     <p>
-      Without these five lines written down, even a technically successful AI deployment
-      will feel like a failure because nobody can agree on whether it worked. With them,
-      a technically <em>marginal</em> deployment can be a clear win.
+      Bu beş satır yazılmadan, teknik olarak başarılı bir yapay zeka dağıtımı bile başarısızlık gibi hissettirecektir çünkü kimse işe yarayıp yaramadığı konusunda anlaşamaz. Bunlarla birlikte, teknik olarak <em>marjinal</em> bir dağıtım net bir kazanç olabilir.
     </p>
 
-    <h2 id="mistakes">The 8 most common mistakes</h2>
+    <h2 id="mistakes">En yaygın 8 hata</h2>
 
-    <h3>1. Solving the wrong problem</h3>
+    <h3>1. Yanlış sorunu çözmek</h3>
     <p>
-      The classic: a team spends 4 months building an AI system that does what they
-      thought they needed, only to discover the actual bottleneck was somewhere else.
-      Diagnostic: walk through the user&rsquo;s end-to-end workflow before scoping. If you
-      can&rsquo;t describe in a sentence which specific step the AI replaces, you
-      haven&rsquo;t scoped enough.
+      Klasik: Bir ekip, ihtiyaç duyduklarını düşündükleri şeyi yapan bir yapay zeka sistemi oluşturmak için 4 ay harcar, ancak gerçek darboğazın başka bir yerde olduğunu keşfeder. Teşhis: Kapsam belirlemeden önce kullanıcının uçtan uca iş akışını inceleyin. Yapay zekanın hangi belirli adımın yerini aldığını bir cümleyle açıklayamıyorsanız, yeterince kapsam belirlememişsinizdir.
     </p>
 
-    <h3>2. Optimizing for accuracy when speed matters</h3>
+    <h3>2. Hız önemliyken doğruluk için optimize etmek</h3>
     <p>
-      A slightly less accurate but 10× faster system will be used; a perfectly accurate
-      system that takes 30 seconds per query won&rsquo;t. Common in document processing
-      and customer-support deployments. Diagnostic: ask users to define their patience
-      threshold (&ldquo;5 seconds is fine, 30 seconds is too slow&rdquo;) before picking
-      the model.
+      Biraz daha az doğru ancak 10 kat daha hızlı bir sistem kullanılacaktır; sorgu başına 30 saniye süren mükemmel doğruluktaki bir sistem kullanılmayacaktır. Belge işleme ve müşteri desteği dağıtımlarında yaygındır. Teşhis: Modeli seçmeden önce kullanıcılardan sabır eşiklerini tanımlamalarını isteyin (&ldquo;5 saniye iyi, 30 saniye çok yavaş&rdquo;).
     </p>
 
-    <h3>3. Skipping the eval harness</h3>
+    <h3>3. Değerlendirme düzeneğini atlamak</h3>
     <p>
-      An eval harness is a structured test set with expected outputs you can run against
-      any model version. Without one, you can&rsquo;t answer &ldquo;is GPT-4o better than
-      Claude here?&rdquo; without subjective vibes. Every successful deployment we&rsquo;ve
-      seen has an eval harness. Most failed ones don&rsquo;t.
+      Değerlendirme düzeneği, herhangi bir model sürümüne karşı çalıştırabileceğiniz, beklenen çıktıları olan yapılandırılmış bir test setidir. Bir tane olmadan, öznel hisler olmadan &ldquo;GPT-4o burada Claude'dan daha mı iyi?&rdquo; sorusuna cevap veremezsiniz. Gördüğümüz her başarılı dağıtımın bir değerlendirme düzeneği vardır. Başarısız olanların çoğunda yoktur.
     </p>
 
-    <h3>4. Ignoring data quality until it&rsquo;s too late</h3>
+    <h3>4. Veri kalitesini çok geç olana kadar görmezden gelmek</h3>
     <p>
-      &ldquo;Garbage in, garbage out&rdquo; is even more true with AI than traditional
-      software. If your customer support tickets are inconsistently tagged, no amount of
-      prompt engineering fixes the downstream model. Audit data quality before model
-      selection, not after.
+      &ldquo;Çöp girer, çöp çıkar&rdquo; geleneksel yazılımdan bile daha doğrudur yapay zeka için. Müşteri destek biletleriniz tutarsız bir şekilde etiketlenmişse, hiçbir prompt mühendisliği alt akış modelini düzeltemez. Model seçiminden önce veri kalitesini denetleyin, sonradan değil.
     </p>
 
-    <h3>5. Treating AI as set-and-forget</h3>
+    <h3>5. Yapay zekayı kur ve unut olarak ele almak</h3>
     <p>
-      Models drift. Vendors release new versions. Edge cases emerge in production. AI
-      systems need ongoing maintenance — typically 0.5–1 FTE per significant deployment
-      after launch. Teams that scope &ldquo;build it and walk away&rdquo; engagements
-      regret it within 6 months.
+      Modeller kayar. Satıcılar yeni sürümler yayınlar. Üretimde uç durumlar ortaya çıkar. Yapay zeka sistemleri sürekli bakım gerektirir — tipik olarak lansmandan sonra önemli her dağıtım için 0,5–1 tam zamanlı çalışan. &ldquo;İnşa et ve git&rdquo; taahhütlerini kapsamlandıran ekipler 6 ay içinde pişman olur.
     </p>
 
-    <h3>6. Not communicating with users about AI use</h3>
+    <h3>6. Kullanıcılara yapay zeka kullanımı hakkında bilgi vermemek</h3>
     <p>
-      Users discover AI is in use mid-conversation; they feel deceived; they tell their
-      colleagues; trust craters. Disclose AI involvement up front and loudly. The few
-      hours of comms work pre-launch saves months of trust rebuilding.
+      Kullanıcılar konuşma sırasında yapay zekanın kullanımda olduğunu keşfeder; kendilerini aldatılmış hisseder; meslektaşlarına anlatır; güven çöker. Yapay zeka katılımını baştan ve yüksek sesle açıklayın. Lansman öncesi birkaç saatlik iletişim çalışması, aylarca sürecek güven yeniden inşasını kurtarır.
     </p>
 
-    <h3>7. Underbudgeting for ops + monitoring</h3>
+    <h3>7. Operasyon ve izleme için düşük bütçe ayırmak</h3>
     <p>
-      Most teams budget the model + integration cost and forget: API rate limits,
-      observability tooling, cost spikes from prompt-injection attacks, log storage,
-      eval-harness compute. Realistic: 20–40% of total project cost goes to ops over the
-      first year. Budget accordingly.
+      Çoğu ekip model + entegrasyon maliyetini bütçeler ve şunları unutur: API hız sınırları, gözlemlenebilirlik araçları, prompt enjeksiyon saldırılarından kaynaklanan maliyet artışları, günlük depolama, değerlendirme düzeneği hesaplaması. Gerçekçi: Toplam proje maliyetinin %20–40'ı ilk yıl boyunca operasyonlara gider. Buna göre bütçe yapın.
     </p>
 
-    <h3>8. Letting one stakeholder veto without alternatives</h3>
+    <h3>8. Alternatifler sunmadan bir paydaşın veto etmesine izin vermek</h3>
     <p>
-      Legal, security, or compliance often raise valid concerns — but those concerns can
-      stall projects indefinitely if the team doesn&rsquo;t come back with alternatives.
-      Bring 3 paths forward when a stakeholder raises a concern: the proposed approach,
-      a more conservative version, and a way to verify the concern is real. Stalled
-      consensus is the silent project killer.
+      Hukuk, güvenlik veya uyumluluk genellikle geçerli endişeler dile getirir — ancak ekip alternatiflerle geri dönmezse bu endişeler projeleri süresiz olarak durdurabilir. Bir paydaş bir endişe dile getirdiğinde 3 yol sunun: önerilen yaklaşım, daha muhafazakar bir versiyon ve endişenin gerçek olduğunu doğrulamanın bir yolu. Duran fikir birliği sessiz proje katilidir.
     </p>
 
-    <h2 id="success">How to know if AI consulting / implementation is working</h2>
+    <h2 id="success">Yapay zeka danışmanlığının / uygulamasının işe yarayıp yaramadığını nasıl anlarsınız</h2>
     <p>
-      The 6-month checkpoints that distinguish on-track from off-track engagements:
+      Yolunda giden ve gitmeyen taahhütleri ayırt eden 6 aylık kontrol noktaları:
     </p>
     <ul>
       <li>
-        <strong>Month 2:</strong> Eval harness is in place. Baseline metric is measured.
-        First prototype is in users&rsquo; hands.
+        <strong>2. Ay:</strong> Değerlendirme düzeneği hazır. Temel metrik ölçüldü. İlk prototip kullanıcıların elinde.
       </li>
       <li>
-        <strong>Month 3:</strong> Iteration #2 of the model / prompt has shipped. User
-        feedback is being collected. Cost-per-interaction is measured.
+        <strong>3. Ay:</strong> Model/prompt'un 2. yinelemesi yayınlandı. Kullanıcı geri bildirimi toplanıyor. Etkileşim başına maliyet ölçülüyor.
       </li>
       <li>
-        <strong>Month 4:</strong> Production deployment to a subset of users. Monitoring
-        + cost dashboards live. First measurable impact on the original metric.
+        <strong>4. Ay:</strong> Kullanıcıların bir alt kümesine üretim dağıtımı. İzleme + maliyet panoları canlı. Orijinal metrik üzerinde ilk ölçülebilir etki.
       </li>
       <li>
-        <strong>Month 6:</strong> Full rollout. Original metric improved by some
-        measurable amount (against the pre-defined target). Knowledge transfer mostly
-        complete; your team can iterate without the consultant.
+        <strong>6. Ay:</strong> Tam kullanıma sunma. Orijinal metrik, önceden tanımlanmış hedefe karşı ölçülebilir bir miktarda iyileşti. Bilgi aktarımı çoğunlukla tamamlandı; ekibiniz danışman olmadan yineleme yapabilir.
       </li>
     </ul>
     <p>
-      If at month 4 there&rsquo;s no production deployment to anyone, the project is
-      probably off track. Have a hard conversation about scope and timeline before month
-      6 turns into month 12.
+      4. ayda kimseye üretim dağıtımı yoksa, proje muhtemelen yolunda gitmiyordur. 6. ay 12. aya dönüşmeden önce kapsam ve zaman çizelgesi hakkında zor bir konuşma yapın.
     </p>
 
-    <h2 id="growth">Will AI consulting actually help my business grow?</h2>
+    <h2 id="growth">Yapay zeka danışmanlığı işimin büyümesine gerçekten yardımcı olacak mı?</h2>
     <p>
-      Honest answer: it depends entirely on the use case fit. AI is excellent at:
+      Dürüst cevap: tamamen kullanım durumu uyumuna bağlıdır. Yapay zeka şunlarda mükemmeldir:
     </p>
     <ul>
-      <li>Summarizing or extracting from large amounts of unstructured text</li>
-      <li>Generating draft content (emails, documents, code) for human review</li>
-      <li>Scoring or routing inputs based on learned patterns</li>
-      <li>Conversational interfaces over structured data</li>
-      <li>Detecting anomalies or surfacing patterns at scale</li>
+      <li>Büyük miktarlardaki yapılandırılmamış metni özetleme veya ondan çıkarım yapma</li>
+      <li>İnsan incelemesi için taslak içerik (e-postalar, belgeler, kod) oluşturma</li>
+      <li>Öğrenilmiş kalıplara dayalı olarak girdileri puanlama veya yönlendirme</li>
+      <li>Yapılandırılmış veriler üzerinden konuşmaya dayalı arayüzler</li>
+      <li>Ölçekte anormallikleri tespit etme veya kalıpları ortaya çıkarma</li>
     </ul>
     <p>
-      AI is not yet excellent at:
+      Yapay zeka henüz şunlarda mükemmel değildir:
     </p>
     <ul>
-      <li>Decisions with multi-step reasoning across complex domains</li>
-      <li>Anything requiring 100% accuracy without human review</li>
-      <li>Tasks with very small training data + high stakes</li>
-      <li>Long-running autonomous agents in dynamic environments</li>
+      <li>Karmaşık alanlarda çok adımlı akıl yürütme gerektiren kararlar</li>
+      <li>İnsan incelemesi olmadan %100 doğruluk gerektiren herhangi bir şey</li>
+      <li>Çok küçük eğitim verisi + yüksek riskli görevler</li>
+      <li>Dinamik ortamlarda uzun süre çalışan otonom ajanlar</li>
     </ul>
     <p>
-      Match your use case to the first list and you&rsquo;ll see growth. Match it to the
-      second and you&rsquo;ll be in the failed-engagement statistic. The honest test: ask
-      yourself, &ldquo;could a smart-but-junior employee do this with the right
-      instructions?&rdquo; If yes, AI probably can. If no, AI probably can&rsquo;t — yet.
+      Kullanım durumunuzu ilk listeyle eşleştirin ve büyüme göreceksiniz. İkinciyle eşleştirin ve başarısız taahhüt istatistiğinde olacaksınız. Dürüst test: kendinize sorun, &ldquo;Akıllı ama kıdemsiz bir çalışan bunu doğru talimatlarla yapabilir mi?&rdquo; Cevap evet ise, yapay zeka muhtemelen yapabilir. Hayır ise, yapay zeka muhtemelen yapamaz — henüz.
     </p>
   </>
 );
 
 export const cta = {
-  label: "Score your AI vendor before signing",
+  label: "İmzalamadan önce yapay zeka satıcınızı puanlayın",
   targetSlug: "ai-tool-evaluation-scorecard",
 };
 
 export const faq = [
   {
-    q: "What's the first thing I should do before implementing AI in my business?",
-    a: "Define the success metric, baseline, target, deadline, and kill switch — in writing — before any vendor conversations. The single biggest determinant of project success is whether you wrote down what 'success' means before starting.",
+    q: "İşletmemde yapay zeka uygulamadan önce yapmam gereken ilk şey nedir?",
+    a: "Herhangi bir satıcı görüşmesinden önce başarı metriğini, temel değeri, hedefi, son tarihi ve durdurma anahtarını yazılı olarak tanımlayın. Proje başarısının en büyük belirleyicisi, başlamadan önce 'başarı'nın ne anlama geldiğini yazıp yazmadığınızdır.",
   },
   {
-    q: "What are the most common mistakes when implementing AI?",
-    a: "Solving the wrong problem (build for the actual bottleneck), optimizing for accuracy when speed matters, skipping the eval harness, ignoring data quality, treating AI as set-and-forget, not disclosing AI to users, underbudgeting ops + monitoring, and letting one stakeholder veto without alternatives.",
+    q: "Yapay zeka uygularken en yaygın hatalar nelerdir?",
+    a: "Yanlış sorunu çözmek (gerçek darboğaz için inşa edin), hız önemliyken doğruluk için optimize etmek, değerlendirme düzeneğini atlamak, veri kalitesini görmezden gelmek, yapay zekayı kur ve unut olarak ele almak, yapay zekayı kullanıcılara açıklamamak, operasyon + izleme için düşük bütçe ayırmak ve alternatifler sunmadan bir paydaşın veto etmesine izin vermek.",
   },
   {
-    q: "How do I know if AI consulting will actually help my business grow?",
-    a: "Match your use case to where AI is genuinely strong (summarization, classification, extraction, conversational interfaces, anomaly detection) and avoid where it isn't yet (multi-step reasoning, 100%-accuracy decisions, very small training data with high stakes). If a smart-but-junior employee with clear instructions could do the task, AI probably can too.",
+    q: "Yapay zeka danışmanlığının işimin büyümesine gerçekten yardımcı olup olmayacağını nasıl anlarım?",
+    a: "Kullanım durumunuzu yapay zekanın gerçekten güçlü olduğu alanlarla (özetleme, sınıflandırma, çıkarım, konuşmaya dayalı arayüzler, anormallik tespiti) eşleştirin ve henüz güçlü olmadığı alanlardan (çok adımlı akıl yürütme, %100 doğruluk gerektiren kararlar, yüksek riskli çok küçük eğitim verisi) kaçının. Net talimatlarla akıllı ama kıdemsiz bir çalışan görevi yapabiliyorsa, yapay zeka da muhtemelen yapabilir.",
   },
   {
-    q: "What does success look like at 6 months for an AI engagement?",
-    a: "Month 2: eval harness + baseline + prototype. Month 3: iteration 2 shipped + user feedback. Month 4: production to subset of users + monitoring. Month 6: full rollout + measurable improvement vs target + knowledge transfer mostly done. If at month 4 nothing is in production, the project is off track.",
+    q: "Bir yapay zeka taahhüdü için 6 ayda başarı neye benzer?",
+    a: "2. Ay: değerlendirme düzeneği + temel değer + prototip. 3. Ay: 2. yineleme yayınlandı + kullanıcı geri bildirimi. 4. Ay: kullanıcıların alt kümesine üretim + izleme. 6. Ay: tam kullanıma sunma + hedefe karşı ölçülebilir iyileşme + bilgi aktarımı çoğunlukla tamamlandı. 4. ayda üretimde hiçbir şey yoksa, proje yolunda gitmiyordur.",
   },
 ];

@@ -3,240 +3,169 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Retirement planning is a series of numbers working against
-      compound interest and against your own inertia. Start at 25 and
-      a 10% savings rate gets you there; start at 45 and you need 25%
-      plus optimism. This guide walks through the target numbers (the
-      25x rule, the 4% rule), account priority order (401k match →
-      Roth IRA → 401k → taxable), the contribution limits, and the
-      common mistakes that cost real money over decades.
+      Emeklilik planlaması, bileşik faize ve kendi ataletinize karşı çalışan bir dizi sayıdır. 25 yaşında başlayın ve %10 tasarruf oranı sizi hedefe ulaştırır; 45 yaşında başlayın ve %25 artı iyimserliğe ihtiyacınız olur. Bu rehber, hedef sayıları (25x kuralı, %4 kuralı), hesap öncelik sırasını (401k eşleşmesi → Roth IRA → 401k → vergilendirilebilir), katkı limitlerini ve on yıllar boyunca gerçek paraya mal olan yaygın hataları adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The target number — 25x annual spending</h2>
+    <h2>Hedef sayı — yıllık harcamanın 25 katı</h2>
     <p>
-      Rule of thumb: you need 25 times your expected annual retirement
-      spending to retire. Spend $60k/year in retirement → need
-      $1.5M. Spend $100k → $2.5M.
+      Temel kural: Emekli olmak için beklenen yıllık emeklilik harcamanızın 25 katına ihtiyacınız var. Emeklilikte yılda 60 bin dolar harcayın → 1,5 milyon dolar gerekir. 100 bin dolar harcayın → 2,5 milyon dolar.
     </p>
     <p>
-      The 25x factor comes from the 4% rule: a diversified portfolio
-      (60/40 stocks/bonds) can safely sustain ~4% annual withdrawals
-      across a 30-year retirement without running out, assuming
-      historical returns. 25 × 4% = 100% of annual spend.
+      25 kat faktörü %4 kuralından gelir: Çeşitlendirilmiş bir portföy (%60 hisse/%40 tahvil), tarihsel getiriler varsayıldığında, 30 yıllık bir emeklilik boyunca yıllık %4 oranında güvenli bir şekilde para çekebilir ve tükenmez. 25 × %4 = yıllık harcamanın %100'ü.
     </p>
     <p>
-      Caveats: 4% is derived from US market history; low-yield
-      environments and 40+ year retirements argue for 3.3-3.5% as
-      safer. Early retirees often plan around 3.5% to buy insurance
-      against sequence-of-returns risk.
+      Uyarılar: %4, ABD piyasa geçmişinden türetilmiştir; düşük getirili ortamlar ve 40+ yıllık emeklilikler için %3,3-3,5 daha güvenli kabul edilir. Erken emekliler, getiri sırası riskine karşı sigorta olarak genellikle %3,5 etrafında plan yapar.
     </p>
 
-    <h2>The starting-age math</h2>
+    <h2>Başlangıç yaşı matematiği</h2>
     <p>
-      What percentage of income do you need to save? Varies by start
-      age (assumes 7% real return, aims for 25x annual spend at 65):
+      Gelirinizin yüzde kaçını biriktirmeniz gerekiyor? Başlangıç yaşına göre değişir (%7 reel getiri varsayar, 65 yaşında 25 kat yıllık harcamayı hedefler):
     </p>
     <p>
-      <strong>Start at 25:</strong> ~10-12% of gross income.
+      <strong>25 yaşında başla:</strong> Brüt gelirin ~%10-12'si.
     </p>
     <p>
-      <strong>Start at 30:</strong> ~15%.
+      <strong>30 yaşında başla:</strong> ~%15.
     </p>
     <p>
-      <strong>Start at 35:</strong> ~20%.
+      <strong>35 yaşında başla:</strong> ~%20.
     </p>
     <p>
-      <strong>Start at 40:</strong> ~25%.
+      <strong>40 yaşında başla:</strong> ~%25.
     </p>
     <p>
-      <strong>Start at 45:</strong> ~35%.
+      <strong>45 yaşında başla:</strong> ~%35.
     </p>
     <p>
-      <strong>Start at 50:</strong> ~45% — and you&rsquo;ll likely
-      retire later than 65, or accept a lower target.
+      <strong>50 yaşında başla:</strong> ~%45 — ve muhtemelen 65'ten sonra emekli olursunuz ya da daha düşük bir hedefi kabul edersiniz.
     </p>
     <p>
-      The cost of starting 10 years later is roughly doubling the
-      required savings rate. Compound growth is unforgiving.
+      10 yıl sonra başlamanın maliyeti, gerekli tasarruf oranını kabaca ikiye katlamaktır. Bileşik büyüme affetmez.
     </p>
 
-    <h2>Account priority order (US)</h2>
+    <h2>Hesap öncelik sırası (ABD)</h2>
     <p>
-      Most efficient order to allocate savings, for most people:
+      Çoğu kişi için tasarrufları tahsis etmenin en verimli sırası:
     </p>
     <p>
-      <strong>1. 401(k) up to employer match.</strong> Instant 50-100%
-      return on the match portion. Never skip this unless your
-      employer doesn&rsquo;t match.
+      <strong>1. İşveren eşleşmesine kadar 401(k).</strong> Eşleşen kısımda anında %50-100 getiri. İşvereniniz eşleşme yapmıyorsa bunu asla atlamayın.
     </p>
     <p>
-      <strong>2. HSA (if on a high-deductible plan).</strong> Triple
-      tax advantage: deductible contribution, tax-free growth, tax-free
-      withdrawal for medical. If you can pay medical out of pocket
-      and leave HSA to grow, it becomes the best retirement account
-      you have access to.
+      <strong>2. HSA (yüksek indirilebilir sağlık planınız varsa).</strong> Üçlü vergi avantajı: indirilebilir katkı, vergisiz büyüme, sağlık harcamaları için vergisiz çekim. Sağlık masraflarını cebinizden ödeyip HSA'nın büyümesine izin verebilirseniz, erişebileceğiniz en iyi emeklilik hesabı haline gelir.
     </p>
     <p>
-      <strong>3. Roth IRA (if eligible).</strong> $7,000 limit in
-      2026 ($8,000 if 50+). Tax-free growth and withdrawal. Income
-      limits apply; backdoor Roth works if you exceed them.
+      <strong>3. Roth IRA (uygunsanız).</strong> 2026'da 7.000 dolar limit (50+ ise 8.000 dolar). Vergisiz büyüme ve çekim. Gelir limitleri geçerlidir; aşarsanız backdoor Roth çalışır.
     </p>
     <p>
-      <strong>4. 401(k) beyond the match.</strong> $23,500 limit in
-      2026 ($31,000 if 50+). Pre-tax reduces current tax bill.
+      <strong>4. Eşleşmenin ötesinde 401(k).</strong> 2026'da 23.500 dolar limit (50+ ise 31.000 dolar). Vergi öncesi, mevcut vergi faturanızı azaltır.
     </p>
     <p>
-      <strong>5. Taxable brokerage.</strong> After maxing
-      tax-advantaged space. Tax-efficient index funds, long-term
-      capital gains rates.
+      <strong>5. Vergilendirilebilir aracı kurum.</strong> Vergi avantajlı alanı maksimize ettikten sonra. Vergi verimli endeks fonları, uzun vadeli sermaye kazancı oranları.
     </p>
 
-    <h2>Traditional vs Roth — which to use when</h2>
+    <h2>Geleneksel vs Roth — hangisini ne zaman kullanmalı</h2>
     <p>
-      <strong>Traditional (pre-tax):</strong> you deduct now, pay
-      income tax on withdrawals later. Better if your current tax
-      bracket is higher than your expected retirement bracket.
+      <strong>Geleneksel (vergi öncesi):</strong> Şimdi indirim alırsınız, daha sonra çekimlerde gelir vergisi ödersiniz. Mevcut vergi diliminiz beklenen emeklilik diliminizden yüksekse daha iyidir.
     </p>
     <p>
-      <strong>Roth (after-tax):</strong> no deduction now, but
-      withdrawals are tax-free. Better if your current bracket is
-      lower than your expected retirement bracket, and for younger
-      workers with decades of growth ahead.
+      <strong>Roth (vergi sonrası):</strong> Şimdi indirim yok, ancak çekimler vergisizdir. Mevcut diliminiz beklenen emeklilik diliminizden düşükse ve önünde on yıllarca büyüme olan genç çalışanlar için daha iyidir.
     </p>
     <p>
-      General guidance: Roth in your 20s-30s and in early-career
-      lower-income years; traditional in peak-earning years when
-      deductions matter most; mix of both for tax-bracket flexibility
-      in retirement.
+      Genel rehberlik: 20'li-30'lu yaşlarda ve kariyer başlangıcındaki düşük gelirli yıllarda Roth; indirimlerin en önemli olduğu en yüksek kazanç yıllarında geleneksel; emeklilikte vergi dilimi esnekliği için her ikisinin karışımı.
     </p>
 
-    <h2>Asset allocation — the glide path</h2>
+    <h2>Varlık dağılımı — kayma yolu</h2>
     <p>
-      Common rule: percentage in stocks = 110 − your age. At 30:
-      80% stocks / 20% bonds. At 60: 50% / 50%.
+      Yaygın kural: Hisse senedi yüzdesi = 110 − yaşınız. 30'da: %80 hisse / %20 tahvil. 60'da: %50 / %50.
     </p>
     <p>
-      A target-date fund (e.g., Vanguard Target Retirement 2055)
-      handles this automatically — it glides from aggressive to
-      conservative as the year approaches. Fine choice for hands-off
-      investors.
+      Bir hedef tarih fonu (örneğin, Vanguard Target Retirement 2055) bunu otomatik olarak halleder — yıl yaklaştıkça agresiften muhafazakara kayar. Pasif yatırımcılar için iyi bir seçim.
     </p>
     <p>
-      For self-managed: a 3-fund portfolio (US total market,
-      international total market, US bonds) covers 99% of what you
-      need. Expense ratios &lt; 0.10% (Vanguard, Fidelity, Schwab
-      index funds).
+      Kendi yönetenler için: 3 fonlu bir portföy (ABD toplam piyasa, uluslararası toplam piyasa, ABD tahvilleri) ihtiyacınız olanın %99'unu karşılar. Gider oranları &lt; 0,10 (Vanguard, Fidelity, Schwab endeks fonları).
     </p>
     <p>
-      Avoid: individual stocks as core retirement savings, high-fee
-      actively managed funds (1%+ expense ratio compounds to
-      hundreds of thousands in lost wealth), target-date funds with
-      fees above 0.20%.
+      Kaçının: Çekirdek emeklilik tasarrufu olarak bireysel hisseler, yüksek ücretli aktif yönetilen fonlar (%1+ gider oranı yüz binlerce dolar kayıpla bileşiklenir), ücretleri %0,20'nin üzerinde olan hedef tarih fonları.
     </p>
 
-    <h2>Social Security — when to claim</h2>
+    <h2>Sosyal Güvenlik — ne zaman talep edilmeli</h2>
     <p>
-      US: you can claim as early as 62, at full retirement age (66-67
-      depending on birth year), or delay until 70.
+      ABD: 62 yaşında, tam emeklilik yaşında (doğum yılına bağlı olarak 66-67) veya 70 yaşına kadar erteleyerek talep edebilirsiniz.
     </p>
     <p>
-      <strong>Claiming at 62:</strong> ~30% reduction in monthly
-      benefit vs FRA. Permanent.
+      <strong>62'de talep:</strong> Tam emeklilik yaşına kıyasla aylık yardımda ~%30 azalma. Kalıcı.
     </p>
     <p>
-      <strong>Claiming at FRA:</strong> 100% of your calculated
-      benefit.
+      <strong>Tam emeklilik yaşında talep:</strong> Hesaplanan yardımınızın %100'ü.
     </p>
     <p>
-      <strong>Delaying to 70:</strong> ~32% higher monthly benefit
-      than FRA (8% per year of delay).
+      <strong>70'e erteleme:</strong> Tam emeklilik yaşına kıyasla ~%32 daha yüksek aylık yardım (her erteleme yılı için %8).
     </p>
     <p>
-      Breakeven math favors delaying if you expect to live past the
-      early-to-mid 80s. Delaying is insurance against longevity; taking
-      early is better if you have health concerns or immediate need.
+      Başabaş matematiği, 80'lerin başından ortasına kadar yaşamayı bekliyorsanız ertelemeyi destekler. Ertelemek uzun ömre karşı sigortadır; sağlık sorunlarınız veya acil ihtiyacınız varsa erken almak daha iyidir.
     </p>
 
-    <h2>Healthcare before 65</h2>
+    <h2>65 yaşından önce sağlık hizmeti</h2>
     <p>
-      Medicare starts at 65. Retire before that and you need a
-      bridge: COBRA (expensive, 18 months max), ACA marketplace plans
-      (subsidized based on income — retirees managing taxable income
-      can qualify for substantial subsidies), or spouse&rsquo;s plan.
+      Medicare 65'te başlar. Ondan önce emekli olursanız bir köprüye ihtiyacınız var: COBRA (pahalı, maksimum 18 ay), ACA piyasa planları (gelire göre sübvansiyonlu — vergilendirilebilir geliri yöneten emekliler önemli sübvansiyonlar alabilir) veya eşinizin planı.
     </p>
     <p>
-      Budget $10-20k/year per person for ACA premiums + out-of-pocket
-      in early retirement if you&rsquo;re not subsidy-eligible.
+      Sübvansiyona uygun değilseniz, erken emeklilikte kişi başına yıllık ACA primleri + cepten harcamalar için 10-20 bin dolar bütçe ayırın.
     </p>
 
-    <h2>5 common retirement mistakes</h2>
+    <h2>5 yaygın emeklilik hatası</h2>
     <p>
-      <strong>1. Waiting to start.</strong> Starting at 35 instead of
-      25 roughly halves your final nest egg at the same savings rate.
+      <strong>1. Başlamayı beklemek.</strong> 25 yerine 35'te başlamak, aynı tasarruf oranında nihai birikiminizi kabaca yarıya indirir.
     </p>
     <p>
-      <strong>2. Cashing out 401(k) when changing jobs.</strong>
-      You pay income tax + 10% penalty, and lose decades of growth.
-      Always roll into an IRA or the new employer&rsquo;s 401(k).
+      <strong>2. İş değiştirirken 401(k)'yi nakde çevirmek.</strong> Gelir vergisi + %10 ceza ödersiniz ve on yıllarca büyümeyi kaybedersiniz. Her zaman bir IRA'ya veya yeni işverenin 401(k)'sine aktarın.
     </p>
     <p>
-      <strong>3. Too-conservative allocation in 30s/40s.</strong>
-      Being 60% bonds at 35 leaves enormous growth on the table.
-      Young investors should be 80-100% stocks.
+      <strong>3. 30'lu/40'lı yaşlarda çok muhafazakar dağılım.</strong> 35'te %60 tahvil olmak, masada büyük bir büyüme bırakır. Genç yatırımcılar %80-100 hisse senedinde olmalıdır.
     </p>
     <p>
-      <strong>4. Ignoring fees.</strong> 1% annual fees cost ~28% of
-      your wealth over 40 years. The difference between 0.04% (index
-      fund) and 1% (actively managed) on $500k over 30 years is over
-      $300k.
+      <strong>4. Ücretleri görmezden gelmek.</strong> Yıllık %1 ücretler, 40 yılda servetinizin ~%28'ine mal olur. 30 yılda 500 bin dolar üzerinde %0,04 (endeks fonu) ile %1 (aktif yönetilen) arasındaki fark 300 bin doların üzerindedir.
     </p>
     <p>
-      <strong>5. Not updating beneficiaries.</strong> Retirement
-      accounts pass by beneficiary designation, not your will. A
-      surprising number of accounts end up going to ex-spouses
-      because the designation was never updated.
+      <strong>5. Lehdarları güncellememek.</strong> Emeklilik hesapları, vasiyetinizle değil, lehdar atamasıyla geçer. Şaşırtıcı sayıda hesap, atama hiç güncellenmediği için eski eşlere gider.
     </p>
 
-    <h2>How to check if you&rsquo;re on track</h2>
+    <h2>Yolda olup olmadığınızı nasıl kontrol edersiniz</h2>
     <p>
-      Fidelity benchmarks (as a multiple of current annual salary):
+      Fidelity kriterleri (mevcut yıllık maaşın katı olarak):
     </p>
     <p>
-      <strong>By 30:</strong> 1x salary saved.
+      <strong>30'a kadar:</strong> 1x maaş birikmiş.
     </p>
     <p>
-      <strong>By 40:</strong> 3x.
+      <strong>40'a kadar:</strong> 3x.
     </p>
     <p>
-      <strong>By 50:</strong> 6x.
+      <strong>50'ye kadar:</strong> 6x.
     </p>
     <p>
-      <strong>By 60:</strong> 8x.
+      <strong>60'a kadar:</strong> 8x.
     </p>
     <p>
-      <strong>By 67:</strong> 10x.
+      <strong>67'ye kadar:</strong> 10x.
     </p>
     <p>
-      Behind these numbers = increase savings rate, extend working
-      years, or lower retirement spending target. Ahead = you have
-      room to reduce saving rate, retire earlier, or upgrade
-      lifestyle.
+      Bu sayıların gerisindeyseniz = tasarruf oranını artırın, çalışma yıllarını uzatın veya emeklilik harcama hedefini düşürün. Önündeyseniz = tasarruf oranını düşürme, daha erken emekli olma veya yaşam tarzını yükseltme alanınız var.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Rakamları hesaplayın</h2>
     <p>
-      Project your retirement savings trajectory with the{" "}
-      <a href="/tools/retirement-calculator">retirement calculator</a>
-      . Pair with the{" "}
-      <a href="/tools/compound-interest-calculator">compound interest
-      calculator</a> to see how starting 5 years earlier changes the
-      outcome, and the{" "}
-      <a href="/tools/net-worth-calculator">net worth calculator</a>
-      {" "}for an all-accounts snapshot.
+      Emeklilik tasarruf gidişatınızı{" "}
+      <a href="/tools/retirement-calculator">emeklilik hesaplayıcısı</a>
+      ile projelendirin. 5 yıl daha erken başlamanın sonucu nasıl değiştirdiğini görmek için{" "}
+      <a href="/tools/compound-interest-calculator">bileşik faiz hesaplayıcısı</a>
+      ve tüm hesapların anlık görüntüsü için{" "}
+      <a href="/tools/net-worth-calculator">net değer hesaplayıcısı</a>
+      ile birlikte kullanın.
     </p>
   </>
 );

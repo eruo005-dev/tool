@@ -3,106 +3,111 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Generating a QR code takes ten seconds. Generating one that actually scans
-      reliably on a menu, a business card, or a banner — that takes a minute of
-      thought about what&rsquo;s going inside the code, how big it&rsquo;ll print,
-      and where it&rsquo;s going to live. Skip that minute and you&rsquo;ll be
-      the person whose conference badge nobody can scan. Here&rsquo;s how to
-      avoid it.
+      QR kodu oluşturmak on saniye sürer. Menüde, kartvizitte veya posterde
+      güvenilir şekilde taranabilen bir kod oluşturmak ise bir dakikanızı alır;
+      kodun içinde ne olduğunu, ne kadar büyük basılacağını ve nerede
+      kullanılacağını düşünmeniz gerekir. O bir dakikayı atlarsanız, konferans
+      rozetini kimsenin tarayamadığı kişi olursunuz. İşte bundan nasıl
+      kaçınacağınız.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What a QR code actually encodes</h2>
+    <h2>Bir QR kodunun gerçekte neyi kodladığı</h2>
     <p>
-      A QR code is just a 2D barcode that stores text. Any text — a URL, a phone
-      number, a Wi-Fi password, a plain sentence. The important bit: the more
-      characters you encode, the denser the code becomes, and the harder it is
-      to scan at small sizes or on curved surfaces. A 20-character short URL
-      scans cleanly from across a room. A 200-character tracking URL with UTM
-      parameters becomes a grid of microscopic dots.
+      QR kodu, metin depolayan iki boyutlu bir barkoddur. Herhangi bir metin —
+      bir URL, telefon numarası, Wi-Fi şifresi, düz bir cümle. Önemli olan şey:
+      ne kadar çok karakter kodlarsanız, kod o kadar yoğun hale gelir ve küçük
+      boyutlarda veya kavisli yüzeylerde taranması o kadar zorlaşır. Kısa bir
+      20 karakterlik URL, bir oda boyunca temiz bir şekilde taranır. UTM
+      parametreleriyle dolu 200 karakterlik bir izleme URL'si, mikroskobik
+      noktalardan oluşan bir ızgaraya dönüşür.
     </p>
 
-    <h2>Shorten the URL first</h2>
+    <h2>Önce URL'yi kısaltın</h2>
     <p>
-      If you&rsquo;re encoding a link, do yourself a favor and shorten it before
-      generating. A Bitly link, a branded short domain, or a clean custom slug on
-      your own site — all three keep the code sparse and scannable.
-      There&rsquo;s a second benefit: if the destination ever changes, a short
-      URL redirects, but a QR code pointing at the long original is locked in
-      forever on whatever printed material it&rsquo;s on.
+      Bir bağlantı kodluyorsanız, kendinize bir iyilik yapın ve oluşturmadan
+      önce kısaltın. Bir Bitly bağlantısı, markalı kısa bir alan adı veya kendi
+      sitenizde temiz bir özel kısa bağlantı — üçü de kodu seyrek ve taranabilir
+      tutar. İkinci bir faydası daha vardır: hedef değişirse, kısa bir URL
+      yönlendirir, ancak uzun orijinali gösteren bir QR kodu basılı materyale
+      sonsuza kadar kilitlenir.
     </p>
     <p>
-      Our <a href="/tools/qr-code-generator">QR code generator</a> makes one for
-      any string, but the quality of your code starts with the quality of the
-      URL you feed it.
+      <a href="/tools/qr-code-generator">QR kod oluşturucumuz</a> herhangi bir
+      dize için bir kod üretir, ancak kodunuzun kalitesi, ona verdiğiniz URL'nin
+      kalitesiyle başlar.
     </p>
 
-    <h2>Error correction levels</h2>
+    <h2>Hata düzeltme seviyeleri</h2>
     <p>
-      QR codes have four redundancy levels: L (7%), M (15%), Q (25%), H (30%).
-      Higher levels let the code survive damage — a smudge, a logo in the
-      middle, a fold — but they also make the code denser for the same data.
+      QR kodlarının dört yedeklilik seviyesi vardır: L (%7), M (%15), Q (%25), H
+      (%30). Daha yüksek seviyeler, kodun hasara — bir leke, ortada bir logo,
+      bir katlanma — dayanmasını sağlar, ancak aynı veri için kodu daha yoğun
+      hale getirir.
     </p>
     <ul>
       <li>
-        <strong>L</strong>: clean digital contexts (on a screen, in an email).
+        <strong>L</strong>: temiz dijital bağlamlar (ekranda, e-postada).
       </li>
       <li>
-        <strong>M</strong>: the sane default for most print jobs.
+        <strong>M</strong>: çoğu baskı işi için makul varsayılan.
       </li>
       <li>
-        <strong>Q</strong>: outdoor signage, anywhere that might get dirty or
-        worn.
+        <strong>Q</strong>: dış mekan tabelaları, kirlenebilecek veya
+        aşınabilecek her yer.
       </li>
       <li>
-        <strong>H</strong>: when you want to put a logo in the center of the
-        code — the logo covers part of the pattern, and H can survive that.
+        <strong>H</strong>: kodun ortasına bir logo koymak istediğinizde — logo
+        desenin bir kısmını kaplar ve H bunu kaldırabilir.
       </li>
     </ul>
 
-    <h2>Minimum print size</h2>
+    <h2>Minimum baskı boyutu</h2>
     <p>
-      A reasonable baseline: at error correction M with a short URL (under 30
-      characters), 1 inch square prints reliably for scanning from 10-12 inches
-      away. Longer URLs or higher error correction push that up. For a poster
-      scanned from across a room, scale proportionally — the rule of thumb is
-      the code should be about 1/10th of the viewing distance.
+      Makul bir temel: hata düzeltme seviyesi M ve kısa bir URL (30 karakterin
+      altında) ile, 1 inç karelik bir baskı, 10-12 inç uzaktan tarama için
+      güvenilir şekilde çalışır. Daha uzun URL'ler veya daha yüksek hata
+      düzeltme seviyeleri bunu artırır. Bir oda boyunca taranması amaçlanan bir
+      poster için, orantılı olarak ölçeklendirin — temel bir kural, kodun
+      izleme mesafesinin yaklaşık 1/10'u kadar olması gerektiğidir.
     </p>
     <p>
-      Smaller is always riskier. If the code has to live on a business card,
-      keep the URL genuinely short and test on real paper, not just on a
-      screen.
-    </p>
-
-    <h2>Test from 2-3 phones</h2>
-    <p>
-      Before you print 500 of anything, scan the code with at least two
-      different phones — ideally one iPhone, one Android, one older device.
-      Scan from the distance and angle people will actually scan at. About 1 in
-      10 codes that look fine on screen fail on a real phone in real light.
-      Finding that out after the print run is expensive.
+      Daha küçük her zaman daha risklidir. Kod bir kartvizite sığması
+      gerekiyorsa, URL'yi çok kısa tutun ve sadece ekranda değil, gerçek kağıt
+      üzerinde test edin.
     </p>
 
-    <h2>What breaks QR codes in the wild</h2>
+    <h2>2-3 telefonda test edin</h2>
     <p>
-      Three things wreck scans more than anything else. <strong>Glossy
-      coatings</strong>: a laminated menu under restaurant lighting often reflects
-      right where the code is. Matte finishes scan much better.{" "}
-      <strong>Curved surfaces</strong>: a code on a coffee cup or a water bottle
-      distorts when the surface wraps; keep the code on the flattest face.{" "}
-      <strong>Low contrast</strong>: a dark gray code on a black background is
-      pretty and unscannable. Dark code on light background, period. Inverting
-      the colors works in theory but many scanner apps don&rsquo;t support it.
+      Herhangi bir şeyden 500 tane basmadan önce, kodu en az iki farklı
+      telefonla — ideal olarak bir iPhone, bir Android ve daha eski bir cihaz —
+      tarayın. İnsanların gerçekte kullanacağı mesafe ve açıdan tarayın.
+      Ekranda iyi görünen kodların yaklaşık 10'da 1'i, gerçek bir telefonda
+      gerçek ışıkta başarısız olur. Bunu baskıdan sonra öğrenmek pahalıdır.
     </p>
 
-    <h2>One more habit</h2>
+    <h2>Gerçek hayatta QR kodlarını ne bozar?</h2>
     <p>
-      Print the URL underneath the QR code in small text. Some phones fail,
-      some people don&rsquo;t know how to scan, and typing a short URL is a
-      one-second fallback. A QR code should complement a URL, not replace it.
+      Taramaları her şeyden çok bozan üç şey vardır. <strong>Parlak
+      kaplamalar</strong>: restoran ışığı altında lamine edilmiş bir menü,
+      genellikle kodun olduğu yerde yansıma yapar. Mat yüzeyler çok daha iyi
+      taranır. <strong>Kavisli yüzeyler</strong>: bir kahve fincanı veya su
+      şişesi üzerindeki kod, yüzey sarıldığında bozulur; kodu en düz yüzeyde
+      tutun. <strong>Düşük kontrast</strong>: siyah bir arka plan üzerinde koyu
+      gri bir kod şık görünür ancak taranmaz. Koyu kod, açık arka plan, nokta.
+      Renkleri tersine çevirmek teoride işe yarar ancak birçok tarama uygulaması
+      bunu desteklemez.
+    </p>
+
+    <h2>Bir alışkanlık daha</h2>
+    <p>
+      QR kodunun altına küçük harflerle URL'yi yazdırın. Bazı telefonlar
+      başarısız olur, bazı insanlar nasıl tarayacağını bilmez ve kısa bir URL
+      bir saniyelik bir yedek çözümdür. Bir QR kodu bir URL'yi tamamlamalı, onun
+      yerini almamalıdır.
     </p>
   </>
 );

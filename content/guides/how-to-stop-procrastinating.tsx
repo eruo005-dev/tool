@@ -1,116 +1,74 @@
 export const intro = (
   <>
     <p>
-      Procrastination isn&rsquo;t a character flaw. It&rsquo;s what happens when the gap between
-      &ldquo;do the thing&rdquo; and &ldquo;avoid doing the thing&rdquo; is too small, and the
-      second option is too easy. The way out isn&rsquo;t more willpower — willpower is finite and
-      you burn it by 10 a.m. The way out is to engineer the gap so that starting becomes the path
-      of least resistance.
+      Erteleme bir karakter kusuru değildir. "İşi yap" ile "işi yapmaktan kaçın" arasındaki mesafe çok küçük olduğunda ve ikinci seçenek çok kolay olduğunda ortaya çıkar. Çıkış yolu daha fazla irade gücü değildir — irade gücü sınırlıdır ve sabah 10'a kadar tükenir. Çıkış yolu, başlamayı en az dirençli yol haline getirecek şekilde mesafeyi düzenlemektir.
     </p>
     <p>
-      Here are eleven tactics that work. Most take under five minutes to set up. Pick two or
-      three and start today.
+      İşe yarayan on bir taktik var. Çoğunun kurulumu beş dakikadan az sürer. İki veya üç tane seçin ve bugün başlayın.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. The 2-minute rule: commit to just starting</h2>
+    <h2>1. 2 dakika kuralı: sadece başlamaya karar verin</h2>
     <p>
-      The most famous anti-procrastination tactic for a reason: commit to just two minutes of the
-      task, fully permitted to stop after. You almost never stop — starting is almost always the
-      whole battle. This works because you&rsquo;re not committing to the overwhelming full task;
-      you&rsquo;re committing to a sliver you can&rsquo;t reasonably talk yourself out of.
+      Ertelemeye karşı en ünlü taktik bir nedenden dolayı: görevin sadece iki dakikasını yapmaya karar verin ve sonrasında tamamen durma izniniz olsun. Neredeyse hiç durmazsınız — başlamak neredeyse her zaman tüm savaştır. Bu işe yarar çünkü bunaltıcı tam göreve değil, makul bir şekilde kendinizi vazgeçiremeyeceğiniz küçük bir parçaya karar veriyorsunuz.
     </p>
 
-    <h2>2. Shrink the task until it&rsquo;s embarrassingly small</h2>
+    <h2>2. Görevi utanç verici derecede küçük olana kadar küçültün</h2>
     <p>
-      &ldquo;Write the report&rdquo; triggers avoidance. &ldquo;Open the doc and type one sentence
-      of the intro&rdquo; does not. If a task feels heavy, you haven&rsquo;t broken it down enough.
-      Keep shrinking until the next step is laughably trivial. Momentum takes care of the rest.
+      "Raporu yaz" ifadesi kaçınmayı tetikler. "Belgeyi aç ve giriş için bir cümle yaz" ifadesi tetiklemez. Bir görev ağır geliyorsa, onu yeterince küçük parçalara ayırmamışsınızdır. Bir sonraki adım gülünç derecede önemsiz olana kadar küçültmeye devam edin. Momentum gerisini halleder.
     </p>
 
-    <h2>3. Use a timer to contain the dread</h2>
+    <h2>3. Korkuyu sınırlamak için bir zamanlayıcı kullanın</h2>
     <p>
-      Open-ended work is where procrastination thrives. A timer creates a frame: &ldquo;I have to
-      focus for 25 minutes, then I get a break.&rdquo; The finite window makes the task feel
-      survivable. Our <a href="/tools/pomodoro-timer">pomodoro timer</a> runs 25-minute focus
-      rounds with built-in breaks — the rhythm handles your brain&rsquo;s need for exit points.
+      Süresi belirsiz işler, ertelemenin geliştiği yerdir. Bir zamanlayıcı bir çerçeve oluşturur: "25 dakika odaklanmalıyım, sonra mola veririm." Sınırlı zaman dilimi, görevin üstesinden gelinebilir hissettirmesini sağlar. <a href="/tools/pomodoro-timer">Pomodoro zamanlayıcımız</a>, yerleşik molalarla 25 dakikalık odaklanma turları çalıştırır — bu ritim, beyninizin çıkış noktalarına olan ihtiyacını karşılar.
     </p>
 
-    <h2>4. Match the task to your current energy</h2>
+    <h2>4. Görevi mevcut enerjinizle eşleştirin</h2>
     <p>
-      Dread is often energy mismatch in disguise. Deep creative work at 3pm when you&rsquo;re
-      depleted feels impossible — and it is. Save the hardest tasks for your peak window
-      (usually mornings) and fill afternoons with low-stakes admin. You&rsquo;ll stop
-      procrastinating on stuff that just isn&rsquo;t matched to when you&rsquo;re at your best.
+      Korku genellikle gizlenmiş bir enerji uyumsuzluğudur. Saat 15:00'te, enerjiniz tükenmişken derin yaratıcı çalışma imkansız gelir — ve öyledir. En zor görevleri en verimli olduğunuz zaman dilimine (genellikle sabahlar) saklayın ve öğleden sonraları düşük riskli idari işlerle doldurun. En iyi halinizle eşleşmeyen şeyleri ertelemeyi bırakacaksınız.
     </p>
 
-    <h2>5. Set a &ldquo;when/where&rdquo; intention</h2>
+    <h2>5. Bir "ne zaman/nerede" niyeti belirleyin</h2>
     <p>
-      &ldquo;I&rsquo;ll work on the report later&rdquo; is procrastination dressed as a plan.
-      Replace it with implementation intentions: &ldquo;I&rsquo;ll work on the report Tuesday at
-      9am at the kitchen table.&rdquo; Research on this is consistent — specifying the when and
-      where can roughly double follow-through on hard tasks. It removes the decision fatigue of
-      &ldquo;when should I do it&rdquo; from the moment itself.
+      "Rapor üzerinde sonra çalışırım" ifadesi, plan kılığına girmiş ertelemedir. Bunun yerine uygulama niyetleri kullanın: "Rapor üzerinde Salı günü saat 9'da mutfak masasında çalışacağım." Bu konudaki araştırmalar tutarlıdır — ne zaman ve nerede olduğunu belirtmek, zor görevlerde takibi kabaca iki katına çıkarabilir. "Ne zaman yapmalıyım" karar yorgunluğunu o andan kaldırır.
     </p>
 
-    <h2>6. Remove friction from starting</h2>
+    <h2>6. Başlamadaki sürtünmeyi ortadan kaldırın</h2>
     <p>
-      Make the task one click away. Leave the doc open overnight, put the running shoes by the
-      door, log into the system the night before. Every extra action between you and starting is
-      a door that closes by morning. Meanwhile, add friction to distractions: phone in another
-      room, browser extensions that block sites during work windows.
+      Görevi bir tık uzağa koyun. Belgeyi gece boyunca açık bırakın, koşu ayakkabılarını kapının yanına koyun, bir gece önce sisteme giriş yapın. Sizinle başlama arasındaki her ekstra eylem, sabaha kadar kapanan bir kapıdır. Bu arada, dikkat dağıtıcılara sürtünme ekleyin: telefonu başka bir odada tutun, çalışma saatlerinde siteleri engelleyen tarayıcı uzantıları kullanın.
     </p>
 
-    <h2>7. Work in public</h2>
+    <h2>7. Halka açık bir yerde çalışın</h2>
     <p>
-      Social accountability is a legitimate superpower. Tell a colleague &ldquo;I&rsquo;ll send
-      you a draft by end of day.&rdquo; Join a body-doubling call. Work in a cafe. The mild
-      pressure of being observed — even loosely — kills most procrastination because you can no
-      longer hide the avoidance from yourself.
+      Sosyal hesap verebilirlik meşru bir süper güçtür. Bir iş arkadaşınıza "Sana gün sonuna kadar bir taslak göndereceğim" deyin. Bir beden-ikizleme görüşmesine katılın. Bir kafede çalışın. Gözlemlenmenin hafif baskısı — gevşek bir şekilde bile — çoğu ertelemeyi öldürür çünkü kaçınmayı artık kendinizden saklayamazsınız.
     </p>
 
-    <h2>8. Identify the feeling under the avoidance</h2>
+    <h2>8. Kaçınmanın altındaki duyguyu tanımlayın</h2>
     <p>
-      Procrastination is rarely about the task. It&rsquo;s usually about a feeling the task
-      triggers: fear of doing it badly, boredom, uncertainty about where to start, resentment
-      about having to do it. Once you name the feeling, you can address it directly — which is
-      much easier than trying to force yourself into work while your brain is quietly flooded with
-      anxiety.
+      Erteleme nadiren görevle ilgilidir. Genellikle görevin tetiklediği bir duyguyla ilgilidir: kötü yapma korkusu, can sıkıntısı, nereden başlayacağına dair belirsizlik, yapmak zorunda olmaya dair kızgınlık. Duyguyu adlandırdığınızda, onu doğrudan ele alabilirsiniz — bu, beyniniz sessizce kaygıyla dolup taşarken kendinizi işe zorlamaya çalışmaktan çok daha kolaydır.
     </p>
 
-    <h2>9. Reward the start, not the finish</h2>
+    <h2>9. Bitirmeyi değil, başlamayı ödüllendirin</h2>
     <p>
-      Finishing feels far away; starting is right now. Build a small ritual around starting: the
-      good coffee, the favorite playlist, the candle. The reward has to be attached to the
-      behavior you&rsquo;re trying to build, and right now that behavior is beginning — not
-      completing. Over time, &ldquo;I start things&rdquo; becomes an identity, not an act of will.
+      Bitirmek çok uzak görünür; başlamak şu an buradadır. Başlama etrafında küçük bir ritüel oluşturun: güzel kahve, favori çalma listesi, mum. Ödül, oluşturmaya çalıştığınız davranışa bağlı olmalıdır ve şu anda bu davranış başlamaktır — tamamlamak değil. Zamanla, "Bir şeylere başlarım" bir irade eylemi değil, bir kimlik haline gelir.
     </p>
 
-    <h2>10. Stop polishing the plan and start the thing</h2>
+    <h2>10. Planı cilalamayı bırakın ve işe başlayın</h2>
     <p>
-      Planning is procrastination&rsquo;s most sophisticated disguise. If you catch yourself on
-      your fifth to-do app, colour-coding your calendar, or reorganizing your notes system, you&rsquo;re
-      not working — you&rsquo;re avoiding work that looks like work. The plan is good enough. Start.
+      Planlama, ertelemenin en sofistike kılığıdır. Kendinizi beşinci yapılacaklar uygulamanızda, takviminizi renklendirirken veya not sisteminizi yeniden düzenlerken yakalarsanız, çalışmıyorsunuzdur — iş gibi görünen işten kaçınıyorsunuzdur. Plan yeterince iyidir. Başlayın.
     </p>
 
-    <h2>11. Build focus as the underlying skill</h2>
+    <h2>11. Temel beceri olarak odaklanmayı geliştirin</h2>
     <p>
-      Procrastination and distraction are cousins. The better you get at focus, the less room
-      procrastination has to operate. Our <a href="/guides/how-to-focus-better">focus guide</a>{" "}
-      covers the environmental and rhythmic setup that makes starting hard tasks genuinely
-      easier over time.
+      Erteleme ve dikkat dağınıklığı kuzenlerdir. Odaklanmada ne kadar iyi olursanız, ertelemenin faaliyet göstermesi için o kadar az yer kalır. <a href="/guides/how-to-focus-better">Odaklanma rehberimiz</a>, zor görevlere başlamayı zamanla gerçekten daha kolay hale getiren çevresel ve ritmik düzenlemeleri kapsar.
     </p>
 
-    <h2>Your 5-minute starting point</h2>
+    <h2>5 dakikalık başlangıç noktanız</h2>
     <p>
-      Right now: pick one task you&rsquo;ve been avoiding. Shrink it until the next step is a
-      single action under two minutes (open the file, draft one sentence, call the number, send
-      one text). Open our <a href="/tools/pomodoro-timer">pomodoro timer</a>, set it to 25
-      minutes, and do just the two-minute version. When the timer starts, you are — technically —
-      no longer procrastinating. That&rsquo;s the whole trick.
+      Hemen şimdi: ertelediğiniz bir görevi seçin. Bir sonraki adım iki dakikanın altında tek bir eylem olana kadar küçültün (dosyayı aç, bir cümle yaz, numarayı ara, bir mesaj gönder). <a href="/tools/pomodoro-timer">Pomodoro zamanlayıcımızı</a> açın, 25 dakikaya ayarlayın ve sadece iki dakikalık versiyonunu yapın. Zamanlayıcı başladığında, teknik olarak — artık ertelemiyorsunuz. Bütün numara bu.
     </p>
   </>
 );

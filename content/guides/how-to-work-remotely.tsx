@@ -1,105 +1,103 @@
 export const intro = (
   <>
     <p>
-      Remote work sounds easy until you try it. The hard parts aren&rsquo;t technical —
-      they&rsquo;re about focus, communication, and not going slowly insane when your
-      house is also your office. This guide is what actually works after thousands of
-      remote days.
+      Uzaktan çalışma, deneyene kadar kolay görünür. Zor kısımlar teknik değil —
+      odaklanma, iletişim ve evin aynı zamanda ofisin olduğunda yavaşça delirmemekle
+      ilgilidir. Bu rehber, binlerce uzaktan çalışma gününden sonra gerçekten işe yarayan
+      şeyleri anlatıyor.
     </p>
     <p>
-      If you&rsquo;re new to remote, or bad at it, you can fix that. The habits below
-      are the ones that separate people who thrive from people who burn out.
+      Uzaktan çalışmada yeniyseniz veya kötüyseniz, bunu düzeltebilirsiniz. Aşağıdaki
+      alışkanlıklar, başarılı olanları tükenenlerden ayıranlardır.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Have a dedicated workspace</h2>
+    <h2>1. Kendine özel bir çalışma alanı oluştur</h2>
     <p>
-      Not the couch. Not bed. A physical location your brain associates with work.
-      When you sit there, work starts. When you leave, it stops. The ritual matters more
-      than the furniture.
+      Koltuk değil. Yatak değil. Beyninin işle ilişkilendirdiği fiziksel bir yer.
+      Oraya oturduğunda iş başlar. Ayrıldığında durur. Ritüel, mobilyadan daha
+      önemlidir.
     </p>
 
-    <h2>2. Treat it like a real job</h2>
+    <h2>2. Gerçek bir işmiş gibi davran</h2>
     <p>
-      Shower. Get dressed. Start at a set time. The brain takes its cues from behavior.
-      If you act like you&rsquo;re on vacation, you&rsquo;ll feel like you&rsquo;re on
-      vacation — and your output will show it.
+      Duş al. Giyin. Belirli bir saatte başla. Beyin ipuçlarını davranıştan alır.
+      Tatildeymiş gibi davranırsan, tatildeymiş gibi hissedersin — ve çıktın bunu
+      gösterir.
     </p>
 
-    <h2>3. Overcommunicate in writing</h2>
+    <h2>3. Yazılı olarak aşırı iletişim kur</h2>
     <p>
-      When you can&rsquo;t tap someone on the shoulder, context dies. Default to writing
-      more than feels necessary. Post updates, leave detailed comments, summarize
-      decisions. Teams that over-communicate in writing stay aligned.
+      Birinin omzuna dokunamadığında bağlam kaybolur. Gerekenden fazla yazmayı
+      alışkanlık haline getir. Güncellemeler yayınla, detaylı yorumlar bırak,
+      kararları özetle. Yazılı olarak aşırı iletişim kuran ekipler uyumlu kalır.
     </p>
 
-    <h2>4. Async by default, sync when needed</h2>
+    <h2>4. Varsayılan olarak asenkron, gerektiğinde senkron</h2>
     <p>
-      Most messages don&rsquo;t need a reply in 5 minutes. Respect other people&rsquo;s
-      focus; expect them to respect yours. Synchronous calls are for decisions and
-      brainstorming, not status updates.
+      Çoğu mesaj 5 dakika içinde yanıt gerektirmez. Başkalarının odaklanmasına saygı
+      göster; onların da seninkine saygı göstermesini bekle. Senkron aramalar kararlar
+      ve beyin fırtınası içindir, durum güncellemeleri için değil.
     </p>
 
-    <h2>5. Calendar your focus time</h2>
+    <h2>5. Odaklanma zamanını takvimine ekle</h2>
     <p>
-      Block 2-3 hour chunks labeled &ldquo;Focus&rdquo;. Decline meetings in those
-      blocks. Without explicit guardrails, your day fills with meetings and you never
-      ship anything. Your calendar is your contract with yourself.
+      "Odaklanma" etiketli 2-3 saatlik bloklar ayır. Bu bloklardaki toplantıları reddet.
+      Açık bariyerler olmadan, günün toplantılarla dolar ve hiçbir şey teslim edemezsin.
+      Takvimin kendinle yaptığın sözleşmedir.
     </p>
 
-    <h2>6. Turn off notifications during deep work</h2>
+    <h2>6. Derin çalışma sırasında bildirimleri kapat</h2>
     <p>
-      Slack/email pings destroy focus. Put them on do-not-disturb for your focus hours.
-      Check 3-4 times a day, not constantly. The world will not end if you reply in 90
-      minutes instead of 5.
+      Slack/e-posta bildirimleri odaklanmayı bozar. Odaklanma saatlerinde rahatsız
+      etmeyin moduna al. Günde 3-4 kez kontrol et, sürekli değil. 5 dakika yerine 90
+      dakika sonra yanıt verirsen dünya sona ermez.
     </p>
 
-    <h2>7. Move your body</h2>
+    <h2>7. Vücudunu hareket ettir</h2>
     <p>
-      Without the office walk, you sit for 12 hours. Schedule a walk, a gym session, or
-      a workout at minimum. Physical activity fixes the focus and mood problems remote
-      work otherwise creates. See <a href="/guides/how-to-start-working-out">workout
-      guide</a>.
+      Ofis yürüyüşü olmadan 12 saat oturursun. En azından bir yürüyüş, spor salonu
+      seansı veya egzersiz planla. Fiziksel aktivite, uzaktan çalışmanın yarattığı
+      odaklanma ve ruh hali sorunlarını düzeltir. <a href="/guides/how-to-start-working-out">Egzersiz rehberine</a> bak.
     </p>
 
-    <h2>8. Log off</h2>
+    <h2>8. Kapat ve çık</h2>
     <p>
-      Remote work makes it easy to work 12-hour days because there&rsquo;s no commute
-      to signal the end. Set a hard stop. Close the laptop. Leave the room if you can.
-      Without a stop signal, your weekday blurs into evening and you burn out slowly.
+      Uzaktan çalışma, 12 saatlik günler yapmayı kolaylaştırır çünkü sonu işaret eden
+      bir işe gidiş yoktur. Kesin bir duruş belirle. Dizüstü bilgisayarı kapat.
+      Mümkünse odadan çık. Duruş sinyali olmadan hafta içi akşama karışır ve yavaşça
+      tükenirsin.
     </p>
 
-    <h2>9. See humans in person</h2>
+    <h2>9. İnsanlarla yüz yüze görüş</h2>
     <p>
-      Remote work is isolating. You will not notice until month 6. Book regular coffees,
-      dinners, coworking days with friends or colleagues. Human contact is not optional
-      for mental health. See <a href="/guides/how-to-make-friends-as-an-adult">adult
-      friendships</a>.
+      Uzaktan çalışma yalnızlaştırıcıdır. 6. aya kadar fark etmezsin. Arkadaşların
+      veya meslektaşlarınla düzenli kahveler, akşam yemekleri, ortak çalışma günleri
+      planla. İnsan teması ruh sağlığı için isteğe bağlı değildir. <a href="/guides/how-to-make-friends-as-an-adult">Yetişkin arkadaşlıklarına</a> bak.
     </p>
 
-    <h2>10. Build a shutdown ritual</h2>
+    <h2>10. Bir kapanış ritüeli oluştur</h2>
     <p>
-      10-minute wrap-up at end of day: write tomorrow&rsquo;s top 3 tasks, close open
-      tabs, shut the laptop. Brain gets a cue that work is done. You&rsquo;ll sleep
-      better. You&rsquo;ll start the next day faster.
+      Gün sonunda 10 dakikalık toparlama: yarının ilk 3 görevini yaz, açık sekmeleri
+      kapat, dizüstü bilgisayarı kapat. Beyin işin bittiğine dair bir işaret alır.
+      Daha iyi uyursun. Ertesi güne daha hızlı başlarsın.
     </p>
 
-    <h2>11. Visit the office when it matters</h2>
+    <h2>11. Gerektiğinde ofisi ziyaret et</h2>
     <p>
-      If your team has an office, show up for big launches, onboarding, team offsites.
-      Face time builds trust faster than 1000 Slack messages. You don&rsquo;t need to
-      live there; occasional presence compounds.
+      Ekibinin bir ofisi varsa, büyük lansmanlar, işe alım, ekip etkinlikleri için
+      gel. Yüz yüze zaman, 1000 Slack mesajından daha hızlı güven inşa eder. Orada
+      yaşamana gerek yok; ara sıra bulunmak birikir.
     </p>
 
-    <h2>12. Work from outside sometimes</h2>
+    <h2>12. Bazen dışarıda çalış</h2>
     <p>
-      A coffee shop, library, or coworking space once a week breaks the monotony and
-      often makes you more productive. You adapt to your surroundings — change them
-      occasionally. See <a href="/guides/how-to-set-up-a-home-office">home office
-      setup</a> for base setup.
+      Haftada bir kez bir kafe, kütüphane veya ortak çalışma alanı monotonluğu kırar
+      ve genellikle daha üretken olmanı sağlar. Çevrene uyum sağlarsın — ara sıra
+      değiştir. Temel kurulum için <a href="/guides/how-to-set-up-a-home-office">ev ofisi kurulumuna</a> bak.
     </p>
   </>
 );

@@ -3,180 +3,181 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Box shadow is the depth system of the web. Done right, it
-      makes cards feel layered, buttons feel clickable, modals feel
-      like they&rsquo;re floating. Done wrong, it makes your page
-      look like a 2010 iOS skeuomorphism tribute. This guide covers
-      the six box-shadow values and what they actually do, the
-      elevation system used by Material Design and modern design
-      systems, inset shadows, multi-layer shadows that feel real,
-      dark mode differences, performance, and the common mistakes
-      that make shadows look bolted on.
+      Kutu gölgesi, web'in derinlik sistemidir. Doğru yapıldığında,
+      kartların katmanlı, butonların tıklanabilir, modallerin
+      yüzüyormuş gibi hissettirir. Yanlış yapıldığında, sayfanızın
+      2010 iOS skeuomorphism övgüsü gibi görünmesine neden olur. Bu
+      kılavuz, altı kutu gölgesi değerini ve gerçekte ne yaptıklarını,
+      Material Design ve modern tasarım sistemleri tarafından
+      kullanılan yükseltme sistemini, iç gölgeleri, gerçekçi hissettiren
+      çok katmanlı gölgeleri, karanlık mod farklılıklarını,
+      performansı ve gölgelerin sonradan eklenmiş gibi görünmesine
+      neden olan yaygın hataları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The six values, decoded</h2>
+    <h2>Altı değer, çözüldü</h2>
     <p>
       <code>box-shadow: offset-x offset-y blur spread color
       [inset]</code>
     </p>
     <p>
-      <strong>offset-x:</strong> horizontal distance. Positive =
-      right, negative = left.
+      <strong>offset-x:</strong> yatay mesafe. Pozitif = sağ,
+      negatif = sol.
     </p>
     <p>
-      <strong>offset-y:</strong> vertical distance. Positive = down,
-      negative = up. Most shadows have positive y (light from above).
+      <strong>offset-y:</strong> dikey mesafe. Pozitif = aşağı,
+      negatif = yukarı. Çoğu gölgenin pozitif y değeri vardır (yukarıdan gelen ışık).
     </p>
     <p>
-      <strong>blur:</strong> how soft the shadow edge is. Higher =
-      softer, larger apparent shadow. 0 = hard edge.
+      <strong>blur:</strong> gölge kenarının ne kadar yumuşak olduğu. Yüksek =
+      daha yumuşak, daha büyük görünen gölge. 0 = sert kenar.
     </p>
     <p>
-      <strong>spread:</strong> how far the shadow grows or shrinks
-      before the blur applies. Positive expands; negative contracts.
-      Often omitted (defaults to 0).
+      <strong>spread:</strong> bulanıklık uygulanmadan önce gölgenin ne kadar
+      büyüdüğü veya küçüldüğü. Pozitif genişletir; negatif daraltır.
+      Genellikle atlanır (varsayılan 0).
     </p>
     <p>
-      <strong>color:</strong> shadow color, usually semi-transparent
-      black or dark.
+      <strong>color:</strong> gölge rengi, genellikle yarı saydam
+      siyah veya koyu.
     </p>
     <p>
-      <strong>inset:</strong> optional keyword — shadow appears
-      inside the element instead of outside.
+      <strong>inset:</strong> isteğe bağlı anahtar kelime — gölge
+      öğenin dışında değil içinde görünür.
     </p>
 
-    <h2>The elevation model</h2>
+    <h2>Yükseltme modeli</h2>
     <p>
-      Material Design popularized a tiered shadow system where each
-      level represents how &ldquo;lifted&rdquo; an element is. Modern
-      design systems (Tailwind, Radix Themes, Chakra) follow the
-      same pattern.
+      Material Design, her seviyenin bir öğenin ne kadar
+      &ldquo;kaldırılmış&rdquo; olduğunu temsil ettiği katmanlı bir gölge
+      sistemini popüler hale getirdi. Modern tasarım sistemleri
+      (Tailwind, Radix Themes, Chakra) aynı modeli takip eder.
     </p>
     <p>
-      <strong>Elevation 1 (xs):</strong> subtle separation —
-      <code> 0 1px 2px rgba(0,0,0,0.05)</code>. For borderless cards
-      or input fields.
+      <strong>Yükseltme 1 (xs):</strong> ince ayırma —
+      <code> 0 1px 2px rgba(0,0,0,0.05)</code>. Kenarlıksız kartlar
+      veya giriş alanları için.
     </p>
     <p>
-      <strong>Elevation 2 (sm):</strong> cards, buttons —
+      <strong>Yükseltme 2 (sm):</strong> kartlar, butonlar —
       <code> 0 1px 3px rgba(0,0,0,0.1)</code>.
     </p>
     <p>
-      <strong>Elevation 3 (md):</strong> floating cards, dropdowns —
+      <strong>Yükseltme 3 (md):</strong> yüzen kartlar, açılır menüler —
       <code> 0 4px 6px rgba(0,0,0,0.1)</code>.
     </p>
     <p>
-      <strong>Elevation 4 (lg):</strong> hover states, popovers —
+      <strong>Yükseltme 4 (lg):</strong> üzerine gelme durumları, popover'lar —
       <code> 0 10px 15px rgba(0,0,0,0.1)</code>.
     </p>
     <p>
-      <strong>Elevation 5 (xl):</strong> modals, drawers —
+      <strong>Yükseltme 5 (xl):</strong> modaller, çekmeceler —
       <code> 0 20px 25px rgba(0,0,0,0.15)</code>.
     </p>
     <p>
-      <strong>Elevation 6 (2xl):</strong> big floating elements —
+      <strong>Yükseltme 6 (2xl):</strong> büyük yüzen öğeler —
       <code> 0 25px 50px rgba(0,0,0,0.25)</code>.
     </p>
     <p>
-      Use a consistent set across your project. Inconsistent shadows
-      are the tell of a hand-built design.
+      Projenizde tutarlı bir set kullanın. Tutarsız gölgeler,
+      elle yapılmış bir tasarımın işaretidir.
     </p>
 
-    <h2>Multi-layer shadows — the secret to realism</h2>
+    <h2>Çok katmanlı gölgeler — gerçekçiliğin sırrı</h2>
     <p>
-      Real-world shadows have multiple components: the hard
-      &ldquo;contact&rdquo; shadow right under the object and the
-      soft ambient shadow further away. A single CSS shadow
-      approximates one of these; stacking two makes the object feel
-      grounded.
+      Gerçek dünya gölgelerinin birden çok bileşeni vardır: nesnenin
+      hemen altındaki sert &ldquo;temas&rdquo; gölgesi ve daha uzaktaki
+      yumuşak ortam gölgesi. Tek bir CSS gölgesi bunlardan birini
+      yaklaşık olarak verir; ikisini üst üste koymak nesnenin
+      zemine oturmuş hissettirir.
     </p>
     <p>
       <code>box-shadow: 0 1px 2px rgba(0,0,0,0.08), 0 4px 12px
       rgba(0,0,0,0.04);</code>
     </p>
     <p>
-      The first layer is tight and sharper (contact); the second is
-      diffuse (ambient). Multi-layer shadows are what make Stripe
-      and Linear UIs look polished.
+      İlk katman sıkı ve daha keskindir (temas); ikincisi dağınıktır
+      (ortam). Çok katmanlı gölgeler, Stripe
+      ve Linear arayüzlerinin cilalı görünmesini sağlayan şeydir.
     </p>
     <p>
-      <strong>Tailwind&rsquo;s default shadow-md:</strong> four
-      layered rgba shadows. Look at the computed value — it&rsquo;s
-      a stack, not a single shadow.
-    </p>
-
-    <h2>Color — black isn&rsquo;t always right</h2>
-    <p>
-      Pure black (#000) shadows look dirty against colored
-      backgrounds. Instead:
-    </p>
-    <p>
-      <strong>Match the shadow hue to the background:</strong> on a
-      blue card, tint the shadow blue-black.
-      <code> rgba(30, 50, 100, 0.15)</code> instead of
-      <code> rgba(0,0,0,0.15)</code>.
-    </p>
-    <p>
-      <strong>Use the element&rsquo;s color at low opacity:</strong>
-      for a purple button, <code>box-shadow: 0 4px 14px 0
-      rgba(128, 0, 255, 0.39)</code> feels like the button is
-      glowing instead of casting a shadow.
-    </p>
-    <p>
-      <strong>Dark mode:</strong> shadows on dark backgrounds are
-      nearly invisible. Switch to highlight-based elevation (subtle
-      inner glow, lighter border, or increased brightness) or use
-      much darker, larger shadows (<code>rgba(0,0,0,0.6)</code>).
+      <strong>Tailwind'in varsayılan shadow-md'si:</strong> dört
+      katmanlı rgba gölgesi. Hesaplanan değere bakın — bu
+      tek bir gölge değil, bir yığındır.
     </p>
 
-    <h2>Inset shadows</h2>
+    <h2>Renk — siyah her zaman doğru değildir</h2>
     <p>
-      <code>inset</code> inverts the shadow — it appears inside the
-      element, useful for depressed states (a pressed button) or
-      neumorphic designs.
+      Saf siyah (#000) gölgeler, renkli arka planlarda kirli görünür.
+      Bunun yerine:
+    </p>
+    <p>
+      <strong>Gölge tonunu arka planla eşleştirin:</strong> mavi bir
+      kartta, gölgeyi mavi-siyah olarak renklendirin.
+      <code> rgba(30, 50, 100, 0.15)</code> yerine
+      <code> rgba(0,0,0,0.15)</code> kullanın.
+    </p>
+    <p>
+      <strong>Öğenin rengini düşük opaklıkta kullanın:</strong>
+      mor bir buton için, <code>box-shadow: 0 4px 14px 0
+      rgba(128, 0, 255, 0.39)</code> butonun gölge oluşturmak yerine
+      parlıyormuş gibi hissettirir.
+    </p>
+    <p>
+      <strong>Karanlık mod:</strong> koyu arka planlardaki gölgeler
+      neredeyse görünmezdir. Vurgu tabanlı yükseltmeye (ince iç
+      parlama, daha açık kenarlık veya artırılmış parlaklık) geçin
+      veya çok daha koyu, daha büyük gölgeler kullanın (<code>rgba(0,0,0,0.6)</code>).
+    </p>
+
+    <h2>İç gölgeler</h2>
+    <p>
+      <code>inset</code> gölgeyi tersine çevirir — öğenin içinde
+      görünür, basılı durumlar (basılı bir buton) veya
+      neumorfik tasarımlar için kullanışlıdır.
     </p>
     <p>
       <code>box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);</code>
     </p>
     <p>
-      Classic use: input fields in older UIs, pressed-button states,
-      card thumbnails with subtle inner border.
+      Klasik kullanım: eski arayüzlerdeki giriş alanları, basılı buton durumları,
+      ince iç kenarlıklı kart küçük resimleri.
     </p>
     <p>
-      Can combine inset and outset in one rule:
+      Tek bir kuralda iç ve dış gölgeler birleştirilebilir:
       <code> box-shadow: inset 0 1px 0 rgba(255,255,255,0.1),
-      0 1px 2px rgba(0,0,0,0.2);</code> creates a glossy highlight
-      at top with a cast shadow below.
+      0 1px 2px rgba(0,0,0,0.2);</code> üstte parlak bir vurgu
+      ve altta dökülen bir gölge oluşturur.
     </p>
 
-    <h2>Filter drop-shadow — for complex shapes</h2>
+    <h2>Filtre drop-shadow — karmaşık şekiller için</h2>
     <p>
-      <code>box-shadow</code> draws the shadow from the element&rsquo;s
-      rectangular border box. If you have a PNG with transparency or
-      an SVG icon, the shadow will be rectangular, not following the
-      shape.
+      <code>box-shadow</code> gölgeyi öğenin dikdörtgen
+      kenarlık kutusundan çizer. Saydamlığa sahip bir PNG'niz
+      veya bir SVG simgeniz varsa, gölge dikdörtgen olur, şekli
+      takip etmez.
     </p>
     <p>
-      <strong>Solution:</strong> use <code>filter: drop-shadow(...)</code>.
-      It follows alpha channels.
+      <strong>Çözüm:</strong> <code>filter: drop-shadow(...)</code>
+      kullanın. Alfa kanallarını takip eder.
     </p>
     <p>
       <code>filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));</code>
     </p>
     <p>
-      Slightly more expensive to render than box-shadow (GPU filter
-      pass vs layout-only). Use for icons and irregular shapes,
-      box-shadow for rectangles.
+      Oluşturması box-shadow'dan biraz daha pahalıdır (GPU filtre
+      geçişi vs düzen tabanlı). Simgeler ve düzensiz şekiller için,
+      dikdörtgenler için box-shadow kullanın.
     </p>
 
-    <h2>Hover and transition</h2>
+    <h2>Üzerine gelme ve geçiş</h2>
     <p>
-      A classic move: slight shadow increase on hover to suggest
-      the element is lifting.
+      Klasik bir hareket: öğenin kalktığını önermek için üzerine
+      gelindiğinde gölgede hafif artış.
     </p>
     <p>
       <code>.card {`{ box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -185,95 +186,97 @@ export const body: ReactElement = (
       translateY(-2px); }`}</code>
     </p>
     <p>
-      The translateY reinforces the lift; the larger shadow reads as
-      distance from the surface.
+      translateY kalkışı güçlendirir; daha büyük gölge, yüzeyden
+      uzaklık olarak okunur.
     </p>
     <p>
-      <strong>Keep transitions short.</strong> 150-250ms feels
-      responsive; longer feels laggy.
-    </p>
-
-    <h2>Performance considerations</h2>
-    <p>
-      Shadows are GPU-accelerated but expensive compared to
-      flat-color rendering.
-    </p>
-    <p>
-      <strong>Large blur radius on large elements</strong> is the
-      most expensive case — the GPU has to composite a huge
-      transparent area. Limit blur to what you actually need.
-    </p>
-    <p>
-      <strong>Many layered shadows × many elements</strong> can
-      cause jank during scroll on low-end devices. If you have 50
-      cards each with 4-layer shadows, profile scroll performance.
-    </p>
-    <p>
-      <strong>Animating box-shadow</strong> triggers repaint on every
-      frame. Prefer animating <code>transform</code> and
-      <code> opacity</code> instead. If you need the shadow change,
-      consider using a pseudo-element with opacity toggles.
+      <strong>Geçişleri kısa tutun.</strong> 150-250ms duyarlı
+      hissettirir; daha uzunu gecikmeli hissettirir.
     </p>
 
-    <h2>Dark mode — the full redesign</h2>
+    <h2>Performans değerlendirmeleri</h2>
     <p>
-      Shadows don&rsquo;t read on dark backgrounds. Alternatives:
+      Gölgeler GPU hızlandırmalıdır ancak düz renk
+      oluşturmaya kıyasla pahalıdır.
     </p>
     <p>
-      <strong>Lighter border as elevation.</strong> Dark surfaces get
-      a 1px lighter top border (<code>border-top: 1px solid
+      <strong>Büyük öğelerde büyük bulanıklık yarıçapı</strong> en
+      pahalı durumdur — GPU'nun büyük bir saydam
+      alanı birleştirmesi gerekir. Bulanıklığı gerçekten ihtiyacınız
+      olanla sınırlayın.
+    </p>
+    <p>
+      <strong>Birçok katmanlı gölge × birçok öğe</strong> düşük
+      uçlu cihazlarda kaydırma sırasında takılmaya neden olabilir. Her biri
+      4 katmanlı gölgeye sahip 50 kartınız varsa, kaydırma
+      performansını profilleme yapın.
+    </p>
+    <p>
+      <strong>box-shadow'u canlandırmak</strong> her karede
+      yeniden boyamayı tetikler. Bunun yerine <code>transform</code> ve
+      <code> opacity</code>'i canlandırmayı tercih edin. Gölge değişikliğine
+      ihtiyacınız varsa, opaklık geçişleri olan bir sözde öğe
+      kullanmayı düşünün.
+    </p>
+
+    <h2>Karanlık mod — tam yeniden tasarım</h2>
+    <p>
+      Gölgeler koyu arka planlarda okunmaz. Alternatifler:
+    </p>
+    <p>
+      <strong>Yükseltme olarak daha açık kenarlık.</strong> Koyu yüzeyler
+      1px daha açık bir üst kenarlık alır (<code>border-top: 1px solid
       rgba(255,255,255,0.1)</code>).
     </p>
     <p>
-      <strong>Background lightness change.</strong> Each elevation
-      level = slightly lighter surface (instead of shadow). Material
-      Design&rsquo;s dark theme uses this.
+      <strong>Arka plan parlaklık değişimi.</strong> Her yükseltme
+      seviyesi = biraz daha açık yüzey (gölge yerine). Material
+      Design'ın koyu teması bunu kullanır.
     </p>
     <p>
-      <strong>Colored glow.</strong> Brand-colored shadow at low
-      opacity can still register on dark backgrounds.
+      <strong>Renkli parlama.</strong> Düşük opaklıkta marka renkli gölge,
+      koyu arka planlarda yine de algılanabilir.
     </p>
     <p>
-      <strong>Strong shadow.</strong> <code>rgba(0,0,0,0.6)</code> or
-      higher, with substantial blur. Works best when there&rsquo;s
-      actual contrast under the element.
-    </p>
-
-    <h2>Common mistakes</h2>
-    <p>
-      <strong>Full-black shadows on colored backgrounds.</strong>
-      Reads as dirty. Tint the shadow.
-    </p>
-    <p>
-      <strong>Single-layer shadow on a flat design.</strong> Pairs a
-      flat aesthetic with a sharp unrealistic shadow. Use multiple
-      layers or no shadow at all.
-    </p>
-    <p>
-      <strong>Shadows on everything.</strong> Shadows are contrast
-      cues — when everything has one, nothing stands out.
-    </p>
-    <p>
-      <strong>Identical shadow at every elevation.</strong> Using
-      <code>shadow-md</code> for cards, dropdowns, modals, and hero
-      images flattens the hierarchy. Match shadow to semantic
-      elevation.
-    </p>
-    <p>
-      <strong>Forgetting border-radius interaction.</strong> Hard
-      corners with soft shadows look awkward. The shadow reads the
-      element&rsquo;s border-radius; make sure they agree visually.
+      <strong>Güçlü gölge.</strong> <code>rgba(0,0,0,0.6)</code> veya
+      daha yüksek, önemli bulanıklıkla. Öğenin altında gerçek
+      kontrast olduğunda en iyi sonucu verir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Tune shadows live with the{" "}
-      <a href="/tools/box-shadow-generator">box shadow generator</a>.
-      Pair with the{" "}
-      <a href="/tools/border-radius-generator">border radius generator</a>
-      {" "}to match corner softness to shadow softness, and the{" "}
-      <a href="/tools/gradient-generator">gradient generator</a>
-      {" "}when layering shadows with background depth.
+      <strong>Renkli arka planlarda tam siyah gölgeler.</strong>
+      Kirli okunur. Gölgeyi renklendirin.
+    </p>
+    <p>
+      <strong>Düz bir tasarımda tek katmanlı gölge.</strong> Düz bir
+      estetiği keskin, gerçekçi olmayan bir gölgeyle eşleştirir. Birden çok
+      katman kullanın veya hiç gölge kullanmayın.
+    </p>
+    <p>
+      <strong>Her şeyde gölge.</strong> Gölgeler kontrast
+      ipuçlarıdır — her şeyde bir tane olduğunda, hiçbir şey öne çıkmaz.
+    </p>
+    <p>
+      <strong>Her yükseltmede aynı gölge.</strong> Kartlar, açılır menüler, modaller ve kahraman
+      görselleri için <code>shadow-md</code> kullanmak hiyerarşiyi
+      düzleştirir. Gölgeyi anlamsal yükseltmeyle eşleştirin.
+    </p>
+    <p>
+      <strong>Kenarlık yarıçapı etkileşimini unutmak.</strong> Sert
+      köşeler yumuşak gölgelerle garip görünür. Gölge, öğenin
+      kenarlık yarıçapını okur; görsel olarak uyumlu olduklarından emin olun.
+    </p>
+
+    <h2>Rakamları çalıştırın</h2>
+    <p>
+      Gölgeleri canlı olarak{" "}
+      <a href="/tools/box-shadow-generator">kutu gölgesi oluşturucu</a>
+      ile ayarlayın. Köşe yumuşaklığını gölge yumuşaklığıyla eşleştirmek için{" "}
+      <a href="/tools/border-radius-generator">kenarlık yarıçapı oluşturucu</a>
+      {" "}ve arka plan derinliğiyle gölgeleri katmanlarken{" "}
+      <a href="/tools/gradient-generator">gradyan oluşturucu</a>
+      {" "}ile birlikte kullanın.
     </p>
   </>
 );

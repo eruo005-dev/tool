@@ -3,40 +3,40 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Resizing images for the web is the single highest-leverage performance tweak most sites never finish. A 4000&nbsp;&times;&nbsp;3000 phone photo served into a 600&nbsp;px card wastes bandwidth, burns mobile data, and tanks your Largest Contentful Paint score. The fix is to ship pixels close to the size the browser actually paints, usually with a 2x buffer for retina displays. Getting this right means choosing real pixel dimensions, understanding device pixel ratio, and knowing when downscaling is enough versus when you need to crop. This guide walks through each decision and the trade-offs between quality and file size.
+      Görselleri web için yeniden boyutlandırmak, çoğu sitenin asla tamamlayamadığı en yüksek kaldıraçlı performans iyileştirmesidir. 600&nbsp;px'lik bir karta yerleştirilen 4000&nbsp;&times;&nbsp;3000 piksel bir telefon fotoğrafı, bant genişliğini boşa harcar, mobil veriyi tüketir ve En Büyük İçerikli Boya puanınızı düşürür. Çözüm, tarayıcının gerçekte boyadığı boyuta yakın pikseller göndermektir, genellikle retina ekranlar için 2x tampon ile. Bunu doğru yapmak, gerçek piksel boyutlarını seçmek, cihaz piksel oranını anlamak ve küçültmenin ne zaman yeterli olduğunu, ne zaman kırpmanız gerektiğini bilmek anlamına gelir. Bu kılavuz, her kararı ve kalite ile dosya boyutu arasındaki ödünleşimleri adım adım açıklar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>Start from the painted size, not the source</h2>
+    <h2>Kaynaktan değil, boyanmış boyuttan başlayın</h2>
     <p>
-      Open the page in a browser, inspect the image, and note its rendered CSS width in pixels. That number &mdash; not the source file&rsquo;s intrinsic size &mdash; is the anchor for every resize decision. A hero image painted at 1200&nbsp;px wide should not ship a 4800&nbsp;px source, and a 96&nbsp;px avatar has no business being a 1080p portrait.
+      Sayfayı bir tarayıcıda açın, görseli inceleyin ve CSS'de işlenen genişliğini piksel cinsinden not edin. Bu sayı &mdash; kaynak dosyanın gerçek boyutu değil &mdash; her yeniden boyutlandırma kararı için temel oluşturur. 1200&nbsp;px genişliğinde boyanmış bir kahraman görseli, 4800&nbsp;px'lik bir kaynak göndermemeli ve 96&nbsp;px'lik bir avatarın 1080p portre olması için hiçbir sebep yoktur.
     </p>
     <p>
-      Once you know the painted size, you pick a target. For non-retina, target equals painted size. For retina support, double it. For sites with 3x devices (high-end phones), triple it only for images where razor-sharp detail matters.
-    </p>
-
-    <h2>Pixel dimensions versus file size</h2>
-    <p>
-      Pixel dimensions (width and height) control sharpness. File size (KB) controls how fast the image downloads. They correlate but they are not the same knob. Halving the dimensions of a photo roughly quarters the file size because pixels are a 2D grid. Halving the quality slider (JPEG 90 &rarr; 45) also shrinks bytes but leaves dimensions untouched, trading clarity for speed.
-    </p>
-    <p>
-      Resize first, compress second. Resizing throws away data you didn&rsquo;t need; compression throws away data you maybe did.
+      Boyanmış boyutu öğrendikten sonra bir hedef seçersiniz. Retina olmayan için hedef, boyanmış boyuta eşittir. Retina desteği için iki katına çıkarın. 3x cihazlar (üst düzey telefonlar) için, yalnızca keskin detayların önemli olduğu görsellerde üç katına çıkarın.
     </p>
 
-    <h2>Device pixel ratio and the 2x rule</h2>
+    <h2>Piksel boyutları ve dosya boyutu</h2>
     <p>
-      A CSS pixel and a device pixel are not the same. A modern phone with a device pixel ratio (DPR) of 2 or 3 paints multiple hardware pixels for every CSS pixel. If your image element is <code>width: 400px</code> in CSS and the user has DPR&nbsp;2, the browser can show up to 800 hardware pixels of detail. Ship a 400&nbsp;px source and it will look soft; ship 800&nbsp;px and it looks crisp.
+      Piksel boyutları (genişlik ve yükseklik) keskinliği kontrol eder. Dosya boyutu (KB), görselin ne kadar hızlı indirileceğini kontrol eder. İlişkilidirler ancak aynı ayar değildirler. Bir fotoğrafın boyutlarını yarıya indirmek, dosya boyutunu kabaca dörtte birine düşürür çünkü pikseller 2B bir ızgaradır. Kalite kaydırıcısını yarıya indirmek (JPEG 90 &rarr; 45) de baytları küçültür ancak boyutları değiştirmez, netlikten ödün vererek hız kazandırır.
     </p>
     <p>
-      The pragmatic rule: always export at 2x painted size, and only bother with 3x for critical hero imagery where customers will zoom in.
+      Önce yeniden boyutlandırın, sonra sıkıştırın. Yeniden boyutlandırma, ihtiyacınız olmayan verileri atar; sıkıştırma, belki de ihtiyacınız olan verileri atar.
     </p>
 
-    <h2>Responsive sizing with srcset</h2>
+    <h2>Cihaz piksel oranı ve 2x kuralı</h2>
     <p>
-      Rather than choosing one size, the <code>srcset</code> attribute lets you offer a menu and let the browser pick. A typical product image might ship at 400&nbsp;px, 800&nbsp;px, and 1200&nbsp;px widths.
+      CSS pikseli ile cihaz pikseli aynı şey değildir. Cihaz piksel oranı (DPR) 2 veya 3 olan modern bir telefon, her CSS pikseli için birden çok donanım pikseli boyar. Görsel öğeniz CSS'de <code>width: 400px</code> ise ve kullanıcının DPR&nbsp;2'si varsa, tarayıcı 800 donanım pikseline kadar ayrıntı gösterebilir. 400&nbsp;px'lik bir kaynak gönderirseniz yumuşak görünür; 800&nbsp;px gönderirseniz net görünür.
+    </p>
+    <p>
+      Pragmatik kural: her zaman 2x boyanmış boyutta dışa aktarın ve yalnızca müşterilerin yakınlaştıracağı kritik kahraman görselleri için 3x ile uğraşın.
+    </p>
+
+    <h2>srcset ile duyarlı boyutlandırma</h2>
+    <p>
+      Tek bir boyut seçmek yerine, <code>srcset</code> özelliği bir menü sunmanıza ve tarayıcının seçmesine izin verir. Tipik bir ürün görseli 400&nbsp;px, 800&nbsp;px ve 1200&nbsp;px genişliklerinde gönderilebilir.
     </p>
     <pre>{`<img
   src="/img/product-800.jpg"
@@ -44,70 +44,70 @@ export const body: ReactElement = (
           /img/product-800.jpg 800w,
           /img/product-1200.jpg 1200w"
   sizes="(max-width: 600px) 100vw, 600px"
-  alt="Red leather wallet, front view"
+  alt="Kırmızı deri cüzdan, önden görünüm"
 />`}</pre>
     <p>
-      The <code>sizes</code> attribute tells the browser how big the image will render, so it can pick the right source before the CSS has even loaded.
+      <code>sizes</code> özelliği, tarayıcıya görselin ne kadar büyük işleneceğini söyler, böylece CSS henüz yüklenmemişken doğru kaynağı seçebilir.
     </p>
 
-    <h2>Downscale versus crop</h2>
+    <h2>Küçültme ve kırpma</h2>
     <p>
-      Downscaling preserves the whole frame at a smaller size; cropping throws away edges to reshape or tighten the composition. Use downscaling when the aspect ratio is already right and you just need fewer pixels. Use cropping when the subject is lost in dead space or when a layout demands a specific ratio &mdash; think square tiles, 16:9 hero banners, or 4:5 Instagram feed posts.
+      Küçültme, tüm çerçeveyi daha küçük bir boyutta korur; kırpma, kompozisyonu yeniden şekillendirmek veya sıkılaştırmak için kenarları atar. En boy oranı zaten doğru olduğunda ve yalnızca daha az piksele ihtiyacınız olduğunda küçültmeyi kullanın. Konu boş alanda kaybolduğunda veya bir düzen belirli bir oran gerektirdiğinde &mdash; kare karolar, 16:9 kahraman banner'ları veya 4:5 Instagram besleme gönderileri gibi &mdash; kırpmayı kullanın.
     </p>
     <p>
-      Mixing them is common: crop to the right ratio first, then downscale to the target width. Doing downscale first wastes CPU resizing pixels you&rsquo;ll throw away.
-    </p>
-
-    <h2>Aspect ratio locks</h2>
-    <p>
-      Most resize tools default to &ldquo;constrain proportions&rdquo; &mdash; change one dimension and the other follows. Disable this only when you deliberately want to stretch (almost never) or when you&rsquo;re padding a canvas to a fixed ratio. A face stretched by 8% from an accidental unlock is uncanny and obvious.
-    </p>
-    <p>
-      If you need a fixed output ratio from a mismatched source, the correct flow is: set the canvas, position the image inside it, fill the remaining space with a solid background or blurred extension.
+      Bunları karıştırmak yaygındır: önce doğru orana kırpın, ardından hedef genişliğe küçültün. Önce küçültmek, atacağınız pikselleri yeniden boyutlandırmak için CPU'yu boşa harcar.
     </p>
 
-    <h2>Quality versus size trade-offs</h2>
+    <h2>En boy oranı kilitleri</h2>
     <p>
-      JPEG quality settings are non-linear. The drop from 100 to 90 is imperceptible and saves 40&ndash;60% of the bytes. The drop from 90 to 75 saves another 30% with barely any visible cost on photos. Below 60 you start seeing blocking and color banding, especially on skies and gradients.
+      Çoğu yeniden boyutlandırma aracı varsayılan olarak &ldquo;oranları sınırla&rdquo; seçeneğini kullanır &mdash; bir boyutu değiştirin, diğeri de onu takip eder. Bunu yalnızca kasıtlı olarak germek istediğinizde (neredeyse hiç) veya bir tuvali sabit bir orana doldururken devre dışı bırakın. Kazara kilidin açılmasıyla %8 gerilmiş bir yüz, doğal olmayan ve belirgindir.
+    </p>
+    <p>
+      Uyumsuz bir kaynaktan sabit bir çıktı oranına ihtiyacınız varsa, doğru akış şudur: tuvali ayarlayın, görseli içine yerleştirin, kalan alanı düz bir arka plan veya bulanık uzantı ile doldurun.
+    </p>
+
+    <h2>Kalite ve boyut ödünleşimleri</h2>
+    <p>
+      JPEG kalite ayarları doğrusal değildir. 100'den 90'a düşüş algılanamaz ve baytların %40&ndash;60'ını kurtarır. 90'dan 75'e düşüş, fotoğraflarda neredeyse hiç görünür maliyet olmadan %30 daha kurtarır. 60'ın altında, özellikle gökyüzü ve gradyanlarda bloklanma ve renk bantlaşması görmeye başlarsınız.
     </p>
     <ul>
-      <li><strong>Hero photography:</strong> JPEG 80&ndash;85 or WebP 80.</li>
-      <li><strong>Thumbnails and list tiles:</strong> JPEG 70&ndash;75 or WebP 70.</li>
-      <li><strong>UI screenshots and diagrams:</strong> PNG or WebP lossless.</li>
-      <li><strong>Logos and flat illustrations:</strong> SVG if you have the source, else PNG.</li>
+      <li><strong>Kahraman fotoğrafçılığı:</strong> JPEG 80&ndash;85 veya WebP 80.</li>
+      <li><strong>Küçük resimler ve liste karoları:</strong> JPEG 70&ndash;75 veya WebP 70.</li>
+      <li><strong>UI ekran görüntüleri ve diyagramlar:</strong> PNG veya WebP kayıpsız.</li>
+      <li><strong>Logolar ve düz illüstrasyonlar:</strong> Kaynağınız varsa SVG, aksi halde PNG.</li>
     </ul>
 
-    <h2>Format matters more than settings</h2>
+    <h2>Biçim, ayarlardan daha önemlidir</h2>
     <p>
-      The biggest quality-per-byte win is usually picking the right format. WebP is 25&ndash;35% smaller than JPEG at equivalent quality. AVIF is another 20&ndash;30% smaller than WebP but encodes slowly. For photographs on modern browsers, ship WebP with a JPEG fallback; for graphics with few colors, stay with PNG or switch to SVG.
+      Bayt başına en büyük kalite kazancı genellikle doğru biçimi seçmektir. WebP, eşdeğer kalitede JPEG'den %25&ndash;35 daha küçüktür. AVIF, WebP'den %20&ndash;30 daha küçüktür ancak yavaş kodlanır. Modern tarayıcılardaki fotoğraflar için, JPEG yedeklemesiyle WebP gönderin; az renkli grafikler için PNG'de kalın veya SVG'ye geçin.
     </p>
     <p>
-      Don&rsquo;t convert PNG to JPEG for transparent logos &mdash; you&rsquo;ll get a white box around them. Don&rsquo;t convert JPEG to PNG to &ldquo;upgrade quality&rdquo; either; you can&rsquo;t un-bake the JPEG artifacts and the PNG will be huge.
+      Şeffaf logolar için PNG'yi JPEG'e dönüştürmeyin &mdash; etraflarında beyaz bir kutu elde edersiniz. &ldquo;Kaliteyi yükseltmek&rdquo; için JPEG'i PNG'ye dönüştürmeyin; JPEG yapaylıklarını geri alamazsınız ve PNG çok büyük olur.
     </p>
 
-    <h2>Common screen and export presets</h2>
+    <h2>Yaygın ekran ve dışa aktarma ön ayarları</h2>
     <p>
-      Useful starting sizes to keep in your head:
+      Aklınızda tutmanız gereken kullanışlı başlangıç boyutları:
     </p>
     <ul>
-      <li><strong>Blog hero:</strong> 1200&nbsp;&times;&nbsp;630 (also the Open Graph preview default).</li>
-      <li><strong>Product grid tile:</strong> 600&nbsp;&times;&nbsp;600 at 2x source.</li>
-      <li><strong>Avatar:</strong> 80&ndash;160&nbsp;px painted, so 160&ndash;320&nbsp;px source.</li>
-      <li><strong>Inline article image:</strong> 720&nbsp;px painted, 1440&nbsp;px source.</li>
-      <li><strong>Full-bleed hero on desktop:</strong> 1920&nbsp;&times;&nbsp;1080 or 2560&nbsp;&times;&nbsp;1440 for 4K support.</li>
+      <li><strong>Blog kahramanı:</strong> 1200&nbsp;&times;&nbsp;630 (ayrıca Open Graph önizleme varsayılanı).</li>
+      <li><strong>Ürün ızgarası karosu:</strong> 2x kaynakta 600&nbsp;&times;&nbsp;600.</li>
+      <li><strong>Avatar:</strong> 80&ndash;160&nbsp;px boyanmış, bu nedenle 160&ndash;320&nbsp;px kaynak.</li>
+      <li><strong>Satır içi makale görseli:</strong> 720&nbsp;px boyanmış, 1440&nbsp;px kaynak.</li>
+      <li><strong>Masaüstünde tam kanama kahraman:</strong> 4K desteği için 1920&nbsp;&times;&nbsp;1080 veya 2560&nbsp;&times;&nbsp;1440.</li>
     </ul>
 
-    <h2>Batch resizing workflow</h2>
+    <h2>Toplu yeniden boyutlandırma iş akışı</h2>
     <p>
-      For product catalogs and article batches, set a maximum width and let the tool downscale anything larger while leaving smaller files alone. A typical rule is &ldquo;no image wider than 1600&nbsp;px, JPEG 82.&rdquo; Run it over the whole folder and you&rsquo;ll cut 60&ndash;80% of the bytes from an untouched photo library without touching the good, smaller assets.
+      Ürün katalogları ve makale grupları için maksimum bir genişlik belirleyin ve aracın daha büyük olanları küçültmesine izin verirken daha küçük dosyaları olduğu gibi bırakın. Tipik bir kural &ldquo;1600&nbsp;px'den geniş görsel yok, JPEG 82&rdquo;dir. Bunu tüm klasör üzerinde çalıştırın ve iyi, daha küçük varlıklara dokunmadan dokunulmamış bir fotoğraf kitaplığındaki baytların %60&ndash;80'ini kesersiniz.
     </p>
     <p>
-      Always keep the originals. Resized copies are derivative; if you lose them, you can always regenerate from the masters.
+      Orijinalleri her zaman saklayın. Yeniden boyutlandırılmış kopyalar türevdir; onları kaybederseniz, her zaman ana dosyalardan yeniden oluşturabilirsiniz.
     </p>
 
-    <h2>The picture element for art direction</h2>
+    <h2>Sanat yönlendirmesi için picture öğesi</h2>
     <p>
-      When srcset isn&rsquo;t enough because you want a fundamentally different crop at different breakpoints (wide hero on desktop, tight portrait on mobile), use the <code>&lt;picture&gt;</code> element:
+      Farklı kesme noktalarında temelde farklı bir kırpma istediğinizde (masaüstünde geniş kahraman, mobilde dar portre) srcset yeterli olmadığında <code>&lt;picture&gt;</code> öğesini kullanın:
     </p>
     <pre>{`<picture>
   <source media="(max-width: 600px)"
@@ -115,63 +115,63 @@ export const body: ReactElement = (
   <source media="(min-width: 601px)"
           srcset="/img/hero-landscape.jpg">
   <img src="/img/hero-landscape.jpg"
-       alt="Team at the summit">
+       alt="Zirvedeki ekip">
 </picture>`}</pre>
     <p>
-      The <code>&lt;picture&gt;</code> element lets you serve genuinely different images per breakpoint, not just the same image at different sizes.
+      <code>&lt;picture&gt;</code> öğesi, kesme noktası başına aynı görselin farklı boyutlarını değil, gerçekten farklı görseller sunmanıza olanak tanır.
     </p>
 
-    <h2>Lazy loading the right way</h2>
+    <h2>Tembel yükleme doğru şekilde</h2>
     <p>
-      The <code>loading=&quot;lazy&quot;</code> attribute defers offscreen images until they&rsquo;re about to scroll into view. This is almost always a good idea &mdash; except for the hero image above the fold, which should load eagerly to hit your <a href="/learn/lcp">LCP</a> target.
+      <code>loading=&quot;lazy&quot;</code> özelliği, ekran dışı görselleri kaydırma görünümüne gelene kadar erteler. Bu neredeyse her zaman iyi bir fikirdir &mdash; <a href="/learn/lcp">LCP</a> hedefinize ulaşmak için hevesle yüklenmesi gereken ekran üstü kahraman görseli hariç.
     </p>
-    <pre>{`<!-- Above the fold -->
+    <pre>{`<!-- Ekran üstü -->
 <img src="/hero.jpg" fetchpriority="high" alt="...">
 
-<!-- Below the fold -->
+<!-- Ekran altı -->
 <img src="/below-fold.jpg" loading="lazy" alt="...">`}</pre>
     <p>
-      The <code>fetchpriority=&quot;high&quot;</code> hint on the LCP image is the newest tool; modern browsers use it to prioritize that download over other page assets.
+      LCP görselindeki <code>fetchpriority=&quot;high&quot;</code> ipucu en yeni araçtır; modern tarayıcılar, bu indirmeyi diğer sayfa varlıklarına göre önceliklendirmek için kullanır.
     </p>
 
-    <h2>Resampling algorithms and why they matter</h2>
+    <h2>Yeniden örnekleme algoritmaları ve neden önemlidir</h2>
     <p>
-      When a tool shrinks an image, it has to compute what each output pixel should be from a region of source pixels. Different algorithms give different results:
+      Bir araç bir görseli küçülttüğünde, her çıktı pikselinin bir kaynak piksel bölgesinden ne olması gerektiğini hesaplaması gerekir. Farklı algoritmalar farklı sonuçlar verir:
     </p>
     <ul>
-      <li><strong>Nearest-neighbor:</strong> picks the closest source pixel. Fast, but produces jagged, pixelated output. Avoid except for pixel art.</li>
-      <li><strong>Bilinear:</strong> averages the four nearest pixels. Fast, decent for small downscales, slightly blurry on big ones.</li>
-      <li><strong>Bicubic:</strong> samples a 4&nbsp;&times;&nbsp;4 neighborhood with a smoother curve. The default in most editors; good balance of speed and quality.</li>
-      <li><strong>Lanczos:</strong> uses a sinc-based filter over an 8&nbsp;&times;&nbsp;8 window. The best-looking for significant downscales but slower and can ring slightly.</li>
+      <li><strong>En yakın komşu:</strong> en yakın kaynak pikselini seçer. Hızlıdır ancak pürüzlü, pikselli çıktı üretir. Piksel sanatı dışında kaçının.</li>
+      <li><strong>Çift doğrusal:</strong> en yakın dört pikselin ortalamasını alır. Hızlıdır, küçük küçültmeler için iyidir, büyüklerde biraz bulanıktır.</li>
+      <li><strong>Çift kübik:</strong> daha yumuşak bir eğri ile 4&nbsp;&times;&nbsp;4'lük bir komşuluğu örnekler. Çoğu düzenleyicide varsayılandır; hız ve kalite arasında iyi bir denge.</li>
+      <li><strong>Lanczos:</strong> 8&nbsp;&times;&nbsp;8'lik bir pencere üzerinde sinc tabanlı bir filtre kullanır. Önemli küçültmeler için en iyi görünüme sahiptir ancak daha yavaştır ve hafifçe halkalanma yapabilir.</li>
     </ul>
     <p>
-      For web workflows, bicubic or Lanczos is the right default. Cheap tools sometimes default to bilinear or worse; if your downscales look soft or jagged, check which algorithm is in play.
+      Web iş akışları için çift kübik veya Lanczos doğru varsayılandır. Ucuz araçlar bazen çift doğrusal veya daha kötüsünü varsayılan olarak kullanır; küçültmeleriniz yumuşak veya pürüzlü görünüyorsa, hangi algoritmanın kullanıldığını kontrol edin.
     </p>
 
-    <h2>Upscaling: the honest answer</h2>
+    <h2>Büyütme: dürüst cevap</h2>
     <p>
-      You cannot add detail that isn&rsquo;t there. Classical upscalers (bicubic, Lanczos) just stretch existing pixels into a bigger grid, producing a blurry result. AI upscalers (ESRGAN, Topaz, Nvidia&rsquo;s tools) hallucinate plausible detail based on training data, which can look impressive but also invents specifics that weren&rsquo;t in the source.
+      Olmayan ayrıntıyı ekleyemezsiniz. Klasik büyütücüler (çift kübik, Lanczos) yalnızca mevcut pikselleri daha büyük bir ızgaraya yayarak bulanık bir sonuç üretir. Yapay zeka büyütücüler (ESRGAN, Topaz, Nvidia'nın araçları), eğitim verilerine dayanarak makul ayrıntılar hayal eder, bu etkileyici görünebilir ancak kaynakta olmayan belirli öğeler de icat eder.
     </p>
     <p>
-      The rule: always start from the highest-resolution source you have. Never upscale a web JPEG for print. If you absolutely must, AI upscaling at 2&times; is acceptable for non-critical uses; 4&times; starts showing obvious <a href="/learn/hallucination">hallucination</a> artifacts.
-    </p>
-
-    <h2>CDN-side resizing</h2>
-    <p>
-      Rather than generating every size variant at build time, modern CDNs (Cloudflare Images, Imgix, Cloudinary, Vercel Image Optimization) resize on the fly from a single high-res source. You upload one master, the CDN serves the right size for each request.
-    </p>
-    <p>
-      The tradeoff: first request is slow because the CDN computes the variant, subsequent requests are cached. Costs scale with unique variants served. For content sites, this is often cheaper and simpler than maintaining a pre-generated size ladder.
+      Kural: her zaman sahip olduğunuz en yüksek çözünürlüklü kaynaktan başlayın. Baskı için bir web JPEG'ini asla büyütmeyin. Kesinlikle yapmanız gerekiyorsa, kritik olmayan kullanımlar için 2&times;'te yapay zeka büyütme kabul edilebilir; 4&times;'te belirgin <a href="/learn/hallucination">halüsinasyon</a> yapaylıkları göstermeye başlar.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>CDN tarafı yeniden boyutlandırma</h2>
     <p>
-      The mistake every site makes at least once: uploading a 20&nbsp;MB camera RAW export straight into the CMS because &ldquo;the browser will just shrink it.&rdquo; The browser does shrink it, after downloading every byte over cellular. Other classics: unlocking aspect ratio and stretching faces, resizing a JPEG up (you can&rsquo;t invent pixels, you only invent blur), and saving as PNG to &ldquo;keep quality&rdquo; for photographs &mdash; PNG is lossless but 4&ndash;8&times; larger than JPEG for photos. Also watch for tools that resample at low quality; a fast nearest-neighbor downscale produces jagged edges where bicubic or Lanczos would be smooth.
+      Her boyut varyantını derleme zamanında oluşturmak yerine, modern CDN'ler (Cloudflare Images, Imgix, Cloudinary, Vercel Image Optimization) tek bir yüksek çözünürlüklü kaynaktan anında yeniden boyutlandırır. Bir ana dosya yüklersiniz, CDN her istek için doğru boyutu sunar.
+    </p>
+    <p>
+      Ödünleşim: ilk istek yavaştır çünkü CDN varyantı hesaplar, sonraki istekler önbelleğe alınır. Maliyetler, sunulan benzersiz varyantlarla ölçeklenir. İçerik siteleri için bu, önceden oluşturulmuş bir boyut merdiveni sürdürmekten genellikle daha ucuz ve daha basittir.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      Drop a file into our <a href="/tools/image-resizer">image resizer</a> to set exact pixel dimensions, preview the output, and export in one click. For the compression step afterwards, the <a href="/tools/image-compressor">image compressor</a> handles quality trade-offs without touching dimensions. And when you need to change the composition rather than just the size, the <a href="/tools/image-cropper">image cropper</a> lets you lock a ratio and frame the subject.
+      Her sitenin en az bir kez yaptığı hata: &ldquo;tarayıcı onu küçültecek&rdquo; diyerek 20&nbsp;MB'lık bir kamera RAW çıktısını doğrudan CMS'ye yüklemek. Tarayıcı küçültür, ancak her baytı hücresel ağ üzerinden indirdikten sonra. Diğer klasikler: en boy oranının kilidini açmak ve yüzleri germek, bir JPEG'i büyütmek (piksel icat edemezsiniz, yalnızca bulanıklık icat edersiniz) ve fotoğraflar için &ldquo;kaliteyi korumak&rdquo; amacıyla PNG olarak kaydetmek &mdash; PNG kayıpsızdır ancak fotoğraflar için JPEG'den 4&ndash;8&times; daha büyüktür. Ayrıca, düşük kalitede yeniden örnekleyen araçlara dikkat edin; hızlı bir en yakın komşu küçültme, çift kübik veya Lanczos'un pürüzsüz olacağı yerde pürüzlü kenarlar üretir.
+    </p>
+
+    <h2>Rakamları çalıştırın</h2>
+    <p>
+      Tam piksel boyutlarını ayarlamak, çıktıyı önizlemek ve tek tıklamayla dışa aktarmak için bir dosyayı <a href="/tools/image-resizer">görsel yeniden boyutlandırıcımıza</a> bırakın. Sonraki sıkıştırma adımı için <a href="/tools/image-compressor">görsel sıkıştırıcı</a>, boyutlara dokunmadan kalite ödünleşimlerini yönetir. Ve kompozisyonu yalnızca boyuttan ziyade değiştirmeniz gerektiğinde, <a href="/tools/image-cropper">görsel kırpıcı</a> bir oranı kilitlemenize ve konuyu çerçevelemenize olanak tanır.
     </p>
   </>
 );

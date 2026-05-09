@@ -2,87 +2,68 @@ import type { ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Ollama packages the heaviest part of running a local <a href="/learn/llm">LLM</a> &mdash; weights, runtime, <a href="/learn/quantization">quantization</a> &mdash; into a
-    single binary with a one-command install. This guide walks through installing it, pulling a model, and running
-    real prompts against the local API.
+    Ollama, yerel bir <a href="/learn/llm">LLM</a> çalıştırmanın en ağır kısmını (ağırlıklar, çalışma zamanı, <a href="/learn/quantization">kuantizasyon</a>) tek bir komutla kurulabilen tek bir ikili dosyada paketler. Bu kılavuz, Ollama'yı kurma, bir model çekme ve yerel API'ye karşı gerçek istemler çalıştırma adımlarını anlatır.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What Ollama actually is</h2>
+    <h2>Ollama aslında nedir</h2>
     <p>
-      Ollama is a local model server written in Go that wraps <code>llama.cpp</code> under the hood. It downloads
-      quantized GGUF weights, spins up an HTTP server on <code>localhost:11434</code>, and exposes a CLI plus an
-      OpenAI-compatible API. You talk to it the same way you talk to OpenAI &mdash; just point your client at the
-      local endpoint instead of <code>api.openai.com</code>.
+      Ollama, Go dilinde yazılmış ve arka planda <code>llama.cpp</code>'yi saran yerel bir model sunucusudur. Kuantize edilmiş GGUF ağırlıklarını indirir, <code>localhost:11434</code> üzerinde bir HTTP sunucusu başlatır ve bir CLI ile OpenAI uyumlu bir API sunar. Onunla, OpenAI ile konuştuğunuz gibi konuşursunuz &mdash; sadece istemcinizi <code>api.openai.com</code> yerine yerel uç noktaya yönlendirirsiniz.
     </p>
     <p>
-      The big win is that the model, runtime, template, and parameters are bundled into a single named artifact
-      (similar to a Docker image). You pull <code>llama3.1:8b</code> and you get a working model, not a folder of
-      files you have to stitch together.
+      En büyük avantaj, model, çalışma zamanı, şablon ve parametrelerin tek bir adlandırılmış yapıta (Docker imajına benzer) paketlenmiş olmasıdır. <code>llama3.1:8b</code> çekersiniz ve birbirine eklemeniz gereken bir dosya klasörü değil, çalışan bir model elde edersiniz.
     </p>
 
-    <h2>Installing Ollama</h2>
-    <p>On macOS or Linux, a single curl command gets you the binary:</p>
+    <h2>Ollama'yı Kurma</h2>
+    <p>macOS veya Linux'ta, tek bir curl komutu ikili dosyayı almanızı sağlar:</p>
     <pre>{`curl -fsSL https://ollama.com/install.sh | sh`}</pre>
     <p>
-      On Windows, grab the installer from ollama.com. On Linux servers, the install script also registers a systemd
-      unit so the daemon survives reboots. Verify the install:
+      Windows'ta, ollama.com'dan yükleyiciyi alın. Linux sunucularında, kurulum betiği ayrıca bir systemd birimi kaydeder, böylece arka plan işlemi yeniden başlatmalarda hayatta kalır. Kurulumu doğrulayın:
     </p>
     <pre>{`ollama --version
-systemctl status ollama   # Linux only`}</pre>
+systemctl status ollama   # Yalnızca Linux`}</pre>
 
-    <h2>Pulling and running your first model</h2>
+    <h2>İlk modelinizi çekme ve çalıştırma</h2>
     <p>
-      Pick a model based on your RAM. For a 16GB laptop, Llama 3.1 8B quantized to Q4 is the sweet spot. For 8GB
-      machines, drop to Phi-3 Mini or Qwen 2.5 3B. For 32GB+, Mistral Small or Llama 3.1 70B (heavily quantized)
-      become viable.
+      RAM'inize göre bir model seçin. 16 GB'lık bir dizüstü bilgisayar için, Q4'e kuantize edilmiş Llama 3.1 8B en uygun noktadır. 8 GB makineler için Phi-3 Mini veya Qwen 2.5 3B'ye geçin. 32 GB+ için Mistral Small veya Llama 3.1 70B (yoğun kuantize) kullanılabilir hale gelir.
     </p>
     <pre>{`ollama pull llama3.1:8b
-ollama run llama3.1:8b "Explain CRDTs in two sentences."`}</pre>
+ollama run llama3.1:8b "CRDT'leri iki cümlede açıkla."`}</pre>
     <p>
-      The first run streams tokens to your terminal. Subsequent runs reuse the loaded model from memory until it
-      idles out (five minutes by default).
+      İlk çalıştırma, token'ları terminalinize akıtır. Sonraki çalıştırmalar, boşta kalana kadar (varsayılan olarak beş dakika) yüklenen modeli bellekten yeniden kullanır.
     </p>
 
-    <h2>Using the HTTP API</h2>
+    <h2>HTTP API'sini Kullanma</h2>
     <p>
-      Every model you pull is reachable over HTTP. The native endpoint is <code>/api/generate</code>, and there is
-      also an OpenAI-compatible <code>/v1/chat/completions</code> for drop-in SDK usage:
+      Çektiğiniz her modele HTTP üzerinden erişilebilir. Yerel uç nokta <code>/api/generate</code>'dir ve ayrıca hazır SDK kullanımı için OpenAI uyumlu bir <code>/v1/chat/completions</code> da bulunur:
     </p>
     <pre>{`curl http://localhost:11434/api/generate -d '{
   "model": "llama3.1:8b",
-  "prompt": "Summarize the CAP theorem.",
+  "prompt": "CAP teoremini özetle.",
   "stream": false
 }'`}</pre>
-    <p>With the OpenAI SDK, just swap the base URL and use any string for the API key:</p>
+    <p>OpenAI SDK ile, sadece temel URL'yi değiştirin ve API anahtarı için herhangi bir dize kullanın:</p>
     <pre>{`from openai import OpenAI
 client = OpenAI(base_url="http://localhost:11434/v1", api_key="ollama")
 r = client.chat.completions.create(
     model="llama3.1:8b",
-    messages=[{"role": "user", "content": "hi"}],
+    messages=[{"role": "user", "content": "merhaba"}],
 )`}</pre>
 
-    <h2>Picking the right quantization</h2>
+    <h2>Doğru kuantizasyonu seçme</h2>
     <p>
-      GGUF models ship in multiple quantizations. <code>Q4_K_M</code> is a good default &mdash; roughly 4 bits per
-      weight with minimal quality loss. <code>Q8_0</code> is near-lossless but doubles memory. <code>Q2_K</code> is
-      aggressive and visibly degrades output on reasoning tasks. Ollama&rsquo;s default tags usually point at a sane
-      Q4 variant, but you can pin explicitly:
+      GGUF modelleri birden çok kuantizasyonda gelir. <code>Q4_K_M</code> iyi bir varsayılandır &mdash; ağırlık başına yaklaşık 4 bit, minimum kalite kaybıyla. <code>Q8_0</code> neredeyse kayıpsızdır ancak belleği iki katına çıkarır. <code>Q2_K</code> agresiftir ve akıl yürütme görevlerinde çıktıyı gözle görülür şekilde düşürür. Ollama'nın varsayılan etiketleri genellikle mantıklı bir Q4 varyantını işaret eder, ancak açıkça sabitleyebilirsiniz:
     </p>
     <pre>{`ollama pull llama3.1:8b-instruct-q8_0`}</pre>
     <p>
-      Also tune context size with <code>OLLAMA_CONTEXT_LENGTH</code> or a <code>Modelfile</code> &mdash; the default
-      of 2048 tokens is small, and models like Llama 3.1 support 128k natively.
+      Ayrıca <code>OLLAMA_CONTEXT_LENGTH</code> veya bir <code>Modelfile</code> ile bağlam boyutunu ayarlayın &mdash; varsayılan 2048 token küçüktür ve Llama 3.1 gibi modeller yerel olarak 128k'yı destekler.
     </p>
 
-    <h2>When Ollama is the wrong choice</h2>
+    <h2>Ollama'nın yanlış seçim olduğu durumlar</h2>
     <p>
-      If you need GPU-saturating throughput for a production <a href="/learn/inference">inference</a> workload, Ollama is fine for prototypes but
-      you will outgrow it &mdash; move to vLLM, TGI, or SGLang for batched serving. Ollama also does not do
-      multi-GPU tensor parallelism well. For personal daily use, offline coding assistance, privacy-first RAG
-      prototypes, and CI-friendly test fixtures, Ollama is the path of least resistance.
+      Bir üretim <a href="/learn/inference">çıkarım</a> iş yükü için GPU doygunluğu sağlayan bir iş hacmine ihtiyacınız varsa, Ollama prototipler için iyidir ancak onu aşarsınız &mdash; toplu sunum için vLLM, TGI veya SGLang'a geçin. Ollama ayrıca çoklu GPU tensor paralelliğini iyi yapmaz. Kişisel günlük kullanım, çevrimdışı kodlama yardımı, gizlilik öncelikli RAG prototipleri ve CI dostu test fikstürleri için Ollama en az dirençli yoldur.
     </p>
   </>
 );

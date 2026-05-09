@@ -2,35 +2,35 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    Finnish sauna research is one of the few longevity practices with hard mortality data behind it. Here&rsquo;s
-    what 2026 evidence supports, what doesn&rsquo;t, and a practical protocol.
+    Fin sauna araştırmaları, arkasında sert ölüm verileri bulunan az sayıdaki uzun ömür uygulamasından biridir. İşte
+    2026 kanıtlarının destekledikleri, desteklemedikleri ve pratik bir protokol.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The headline finding</h2>
+    <h2>Başlıca bulgu</h2>
     <p>
-      The KIHD study (2,300+ middle-aged Finnish men, 20-yr follow-up) found a 40% reduction in all-cause mortality
-      for 4-7 sessions/week vs 1 session, with sessions of 19+ min at 175°F+. Effect held after controlling for
-      smoking, BMI, age, alcohol, exercise.
+      KIHD çalışması (2.300+ orta yaşlı Fin erkeği, 20 yıllık takip), haftada 1 seansa kıyasla 4-7 seans/hafta için
+      tüm nedenlere bağlı ölümlerde %40 azalma buldu; seanslar 19+ dakika ve 175°F+ sıcaklıkta. Etki, sigara,
+      BMI, yaş, alkol, egzersiz kontrol edildikten sonra da geçerliydi.
     </p>
-    <h2>Beyond the headline</h2>
+    <h2>Başlıca bulgunun ötesinde</h2>
     <ul>
-      <li><strong>Cardio benefit:</strong> sauna mimics moderate-intensity exercise on heart rate and stroke volume.</li>
-      <li><strong>Endothelial function:</strong> regular sauna improves blood vessel reactivity comparable to aerobic training.</li>
-      <li><strong>BP reduction:</strong> 4-7 sessions/week associated with 32% lower BP over years.</li>
-      <li><strong>Sleep:</strong> sauna 90-120 min before bed accelerates sleep onset.</li>
+      <li><strong>Kardiyo faydası:</strong> sauna, kalp atış hızı ve atım hacmi üzerinde orta yoğunlukta egzersizi taklit eder.</li>
+      <li><strong>Endotel fonksiyonu:</strong> düzenli sauna, aerobik antrenmana benzer şekilde kan damarı reaktivitesini iyileştirir.</li>
+      <li><strong>Kan basıncı düşüşü:</strong> haftada 4-7 seans, yıllar içinde %32 daha düşük KB ile ilişkilidir.</li>
+      <li><strong>Uyku:</strong> yatmadan 90-120 dakika önce sauna, uykuya dalmayı hızlandırır.</li>
     </ul>
-    <h2>Practical</h2>
+    <h2>Pratik</h2>
     <ul>
-      <li>Hydrate before; replace electrolytes after.</li>
-      <li>Step out at first dizziness or nausea.</li>
-      <li>Skip with heart conditions, pregnancy, blood-pressure meds (talk to doctor).</li>
-      <li>Cold contrast (60-90 sec) between rounds amplifies the cardiovascular signal.</li>
+      <li>Öncesinde su için; sonrasında elektrolitleri yerine koyun.</li>
+      <li>İlk baş dönmesi veya mide bulantısında çıkın.</li>
+      <li>Kalp rahatsızlıkları, hamilelik, tansiyon ilaçları varsa atlayın (doktora danışın).</li>
+      <li>Turlar arasında soğuk kontrast (60-90 saniye) kardiyovasküler sinyali güçlendirir.</li>
     </ul>
     <p>
-      Build a session protocol with the <a href="/tools/sauna-protocol-calculator">sauna protocol calculator</a>.
+      <a href="/tools/sauna-protocol-calculator">Sauna protokolü hesaplayıcısı</a> ile bir seans protokolü oluşturun.
     </p>
   </>
 );

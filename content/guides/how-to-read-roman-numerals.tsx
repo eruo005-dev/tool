@@ -3,178 +3,172 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      Roman numerals still show up in surprising places&mdash;movie copyright dates, Super Bowl
-      logos, clock faces, papal names, book chapters, and the outline you wrote in ninth grade.
-      The system looks alien because it&rsquo;s additive and positional at the same time, with a
-      subtractive trick that changes the meaning of two letters standing next to each other.
-      Once you internalize the seven core symbols and the four subtractive pairs, reading any
-      numeral under 3,999 takes about two seconds of mental arithmetic. Beyond that, the notation
-      breaks down&mdash;there&rsquo;s no clean way to write a million without resorting to overlines
-      or modern extensions that almost nobody recognizes. This guide covers the seven letters,
-      the subtractive principle, why IIII sometimes replaces IV on clocks, how to convert in
-      both directions, and the modern contexts where the system still earns its keep.
+      Romen rakamları hala şaşırtıcı yerlerde karşımıza çıkıyor&mdash;film telif tarihleri, Super Bowl
+      logoları, saat yüzleri, papa isimleri, kitap bölümleri ve dokuzuncu sınıfta yazdığınız taslak.
+      Sistem yabancı görünüyor çünkü aynı anda hem toplamalı hem de konumsal, yan yana duran iki harfin
+      anlamını değiştiren bir çıkarma hilesi var. Yedi temel sembolü ve dört çıkarma çiftini
+      içselleştirdiğinizde, 3.999&rsquo;un altındaki herhangi bir rakamı okumak yaklaşık iki saniyelik
+      bir zihinsel aritmetik gerektirir. Bunun ötesinde, gösterim bozulur&mdash;bir milyonu, üst çizgi
+      veya neredeyse hiç kimsenin tanımadığı modern uzantılar olmadan yazmanın temiz bir yolu yoktur.
+      Bu kılavuz, yedi harfi, çıkarma ilkesini, saatlerde neden bazen IV yerine IIII kullanıldığını,
+      her iki yönde nasıl dönüştürüleceğini ve sistemin hala geçerli olduğu modern bağlamları kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The seven symbols</h2>
+    <h2>Yedi sembol</h2>
     <p>
-      Everything in Roman numerals is built from seven letters with fixed values. I is 1, V is 5,
-      X is 10, L is 50, C is 100, D is 500, and M is 1,000. That&rsquo;s the entire alphabet of the
-      system. There&rsquo;s no zero, no negative, and no fractional notation in standard use&mdash;the
-      Romans handled fractions with a separate duodecimal system based on the <em>uncia</em>.
+      Romen rakamlarındaki her şey, sabit değerlere sahip yedi harften oluşur. I 1&rsquo;dir, V 5&rsquo;tir,
+      X 10&rsquo;dur, L 50&rsquo;dir, C 100&rsquo;dür, D 500&rsquo;dür ve M 1.000&rsquo;dir. Sistemin
+      tüm alfabesi budur. Standart kullanımda sıfır, negatif veya kesirli gösterim yoktur&mdash;Romalılar
+      kesirleri <em>uncia</em> temelli ayrı bir onikilik sistemle ele alırdı.
     </p>
     <pre>{`I = 1      C = 100
 V = 5      D = 500
 X = 10     M = 1000
 L = 50`}</pre>
     <p>
-      Notice the pattern: the letters alternate between &ldquo;one&rdquo; units (I, X, C, M) and
-      &ldquo;five&rdquo; units (V, L, D). Each level is ten times the one-unit below it, which
-      makes the system decimal in disguise even though it doesn&rsquo;t use place value.
+      Desene dikkat edin: harfler &ldquo;bir&rdquo; birimleri (I, X, C, M) ve
+      &ldquo;beş&rdquo; birimleri (V, L, D) arasında gidip gelir. Her seviye, altındaki bir birimin on katıdır,
+      bu da sistemi, yer değeri kullanmasa bile, gizli bir ondalık sistem haline getirir.
     </p>
 
-    <h2>Addition is the default</h2>
+    <h2>Varsayılan toplamadır</h2>
     <p>
-      When symbols appear in descending order, you add them. VIII is 5 + 1 + 1 + 1 = 8. LXXVII
-      is 50 + 10 + 10 + 5 + 1 + 1 = 77. MMXXVI is 1000 + 1000 + 10 + 10 + 5 + 1 = 2026. The
-      &ldquo;descending order&rdquo; rule is what makes the notation unambiguous&mdash;you walk
-      left to right and accumulate.
+      Semboller azalan sırada göründüğünde, onları toplarsınız. VIII, 5 + 1 + 1 + 1 = 8&rsquo;dir. LXXVII
+      50 + 10 + 10 + 5 + 1 + 1 = 77&rsquo;dir. MMXXVI, 1000 + 1000 + 10 + 10 + 5 + 1 = 2026&rsquo;dır.
+      &ldquo;Azalan sıra&rdquo; kuralı, gösterimi belirsiz olmaktan çıkarır&mdash;soldan sağa gider ve
+      biriktirirsiniz.
     </p>
 
-    <h2>The subtractive principle</h2>
+    <h2>Çıkarma ilkesi</h2>
     <p>
-      When a smaller symbol appears <strong>before</strong> a larger one, subtract the smaller
-      from the larger. IV is 5 &minus; 1 = 4. IX is 10 &minus; 1 = 9. XL is 50 &minus; 10 = 40.
-      XC is 100 &minus; 10 = 90. CD is 500 &minus; 100 = 400. CM is 1,000 &minus; 100 = 900. There
-      are exactly six legal subtractive pairs; everything else is invalid.
+      Daha küçük bir sembol, daha büyük bir sembolün <strong>önünde</strong> göründüğünde, küçük olanı
+      büyük olandan çıkarın. IV, 5 &minus; 1 = 4&rsquo;tür. IX, 10 &minus; 1 = 9&rsquo;dur. XL, 50 &minus; 10 = 40&rsquo;tır.
+      XC, 100 &minus; 10 = 90&rsquo;dır. CD, 500 &minus; 100 = 400&rsquo;dür. CM, 1.000 &minus; 100 = 900&rsquo;dür. Tam
+      olarak altı geçerli çıkarma çifti vardır; diğer her şey geçersizdir.
     </p>
-    <pre>{`Allowed subtractive pairs:
+    <pre>{`İzin verilen çıkarma çiftleri:
 IV = 4    XL = 40    CD = 400
 IX = 9    XC = 90    CM = 900
 
-Illegal:
-IC (for 99) — must be XCIX
-IM (for 999) — must be CMXCIX`}</pre>
+Geçersiz:
+IC (99 için) — XCIX olmalı
+IM (999 için) — CMXCIX olmalı`}</pre>
     <p>
-      The subtractive rule is: you can only subtract a power of ten (I, X, C) from the next two
-      higher symbols. You can subtract I from V or X, X from L or C, and C from D or M. You
-      cannot subtract V, L, or D from anything, and you cannot subtract across more than one
-      level.
+      Çıkarma kuralı şudur: yalnızca bir on kuvvetini (I, X, C) sonraki iki yüksek sembolden
+      çıkarabilirsiniz. I&rsquo;yi V veya X&rsquo;ten, X&rsquo;i L veya C&rsquo;den ve C&rsquo;yi D veya M&rsquo;den çıkarabilirsiniz. V, L veya D&rsquo;yi
+      hiçbir şeyden çıkaramazsınız ve birden fazla seviye boyunca çıkarma yapamazsınız.
     </p>
 
-    <h2>Converting a decimal number to Roman</h2>
+    <h2>Bir ondalık sayıyı Romen rakamına dönüştürme</h2>
     <p>
-      The cleanest algorithm is greedy substitution. Walk through the values in order from
-      largest to smallest&mdash;M, CM, D, CD, C, XC, L, XL, X, IX, V, IV, I&mdash;and at each
-      step, emit as many copies of the current token as fit into the remaining number, then
-      subtract. For 1994: M (994 left), CM (94 left), XC (4 left), IV (0 left), giving MCMXCIV.
+      En temiz algoritma açgözlü ikamedir. En büyükten en küçüğe doğru değerler arasında yürüyün&mdash;M, CM, D, CD, C, XC, L, XL, X, IX, V, IV, I&mdash;ve her
+      adımda, kalan sayıya sığdığı kadar mevcut belirtecin kopyasını çıkarın, ardından
+      çıkarın. 1994 için: M (994 kaldı), CM (94 kaldı), XC (4 kaldı), IV (0 kaldı), MCMXCIV verir.
     </p>
     <pre>{`1994 → M CM XC IV → MCMXCIV
 2026 → MM XX VI → MMXXVI
-3888 → MMM DCCC LXXX VIII → MMMDCCCLXXXVIII (longest numeral under 4000)
+3888 → MMM DCCC LXXX VIII → MMMDCCCLXXXVIII (4000 altındaki en uzun rakam)
 49  → XL IX → XLIX`}</pre>
 
-    <h2>Converting Roman to decimal</h2>
+    <h2>Romen rakamını ondalık sayıya dönüştürme</h2>
     <p>
-      Read left to right. If the current letter&rsquo;s value is greater than or equal to the
-      next letter&rsquo;s value, add it. Otherwise subtract it. MCMXCIV walks as:
-      M (+1000), C (&minus;100 because M &gt; C... wait, C &lt; M, so subtract), M (+1000),
-      X (&minus;10), C (+100), I (&minus;1), V (+5), totaling 1994. The algorithm is easy to
-      implement and only takes a single pass.
+      Soldan sağa okuyun. Geçerli harfin değeri, sonraki harfin değerinden büyük veya eşitse, onu ekleyin. Aksi takdirde çıkarın. MCMXCIV şu şekilde ilerler:
+      M (+1000), C (&minus;100 çünkü M &gt; C... bekle, C &lt; M, yani çıkar), M (+1000),
+      X (&minus;10), C (+100), I (&minus;1), V (+5), toplam 1994. Algoritmanın uygulanması kolaydır
+      ve yalnızca tek bir geçiş gerektirir.
     </p>
 
-    <h2>The 3,999 ceiling</h2>
+    <h2>3.999 tavanı</h2>
     <p>
-      Standard Roman numerals max out at MMMCMXCIX = 3,999. To write 4,000 you&rsquo;d need four
-      Ms in a row, which violates the &ldquo;no more than three of the same letter&rdquo;
-      convention. Historical workarounds include a bar over a letter (vinculum) meaning
-      &ldquo;multiply by 1,000,&rdquo; so V&#772; means 5,000. In practice, when a number exceeds
-      3,999, people switch to Arabic digits. Movie copyrights almost never hit this wall, and
-      when they do, the studios just write the year normally.
+      Standart Romen rakamları en fazla MMMCMXCIX = 3.999&rsquo;a kadar çıkar. 4.000 yazmak için
+      arka arkaya dört M&rsquo;ye ihtiyacınız olur, bu da &ldquo;aynı harften en fazla üç tane&rdquo;
+      kuralını ihlal eder. Tarihsel geçici çözümler, bir harfin üzerinde &ldquo;1.000 ile çarp&rdquo;
+      anlamına gelen bir çubuk (vinculum) içerir, yani V&#772; 5.000 anlamına gelir. Pratikte, bir sayı
+      3.999&rsquo;u aştığında, insanlar Arap rakamlarına geçer. Film telifleri neredeyse hiç bu duvara çarpmaz ve
+      çarptıklarında stüdyolar yılı normal şekilde yazar.
     </p>
 
-    <h2>Where you still see Roman numerals</h2>
+    <h2>Romen rakamlarını hala gördüğünüz yerler</h2>
     <p>
-      Film and TV copyright dates use them, partly for tradition and partly because Roman
-      numerals are harder to read at a glance&mdash;which, cynically, helps hide how old a
-      rerun is. The Super Bowl uses them (except Super Bowl 50, which was stylized as
-      &ldquo;50&rdquo; because &ldquo;L&rdquo; looked weak on merchandise). Popes, monarchs, and
-      ships take Roman numerals as ordinals&mdash;Elizabeth II, Henry VIII, Apollo 11 is an
-      exception because NASA preferred Arabic. Book prefaces use them for front matter page
-      numbers. Clock faces use them, often with IIII instead of IV for visual symmetry opposite
-      VIII.
+      Film ve TV telif tarihleri bunları kullanır, kısmen gelenekten ve kısmen Romen
+      rakamlarının ilk bakışta okunması daha zor olduğu için&mdash;ki bu, alaycı bir şekilde, bir tekrarın ne kadar
+      eski olduğunu gizlemeye yardımcı olur. Super Bowl bunları kullanır (Super Bowl 50 hariç, çünkü
+      &ldquo;L&rdquo; ürünlerde zayıf göründüğü için &ldquo;50&rdquo; olarak stilize edilmiştir). Papalar, hükümdarlar ve
+      gemiler sıra sayıları olarak Romen rakamlarını alır&mdash;II. Elizabeth, VIII. Henry, Apollo 11 bir
+      istisnadır çünkü NASA Arap rakamlarını tercih etmiştir. Kitap önsözleri, ön sayfa sayıları için bunları kullanır.
+      Saat yüzleri bunları kullanır, genellikle VIII&rsquo;in karşısında görsel simetri için IV yerine IIII ile.
     </p>
 
-    <h2>Why IIII instead of IV on clocks</h2>
+    <h2>Saatlerde neden IV yerine IIII</h2>
     <p>
-      Walk around a watch display and you&rsquo;ll notice most analog clocks with Roman numerals
-      show IIII at the 4 o&rsquo;clock position, not IV. The conventional explanations: visual
-      symmetry with VIII on the opposite side (both are four characters wide), a reluctance to
-      use IV because it&rsquo;s the first two letters of IVPITER (Jupiter) in Latin, and the
-      casting convenience of making the same mold four times for I-I-I-I dials. Big Ben famously
-      uses IV. It&rsquo;s a style choice, not a correctness issue.
+      Bir saat vitrininde dolaşın ve Romen rakamlı çoğu analog saatin 4 konumunda
+      IV değil IIII gösterdiğini fark edeceksiniz. Geleneksel açıklamalar: karşı taraftaki VIII ile görsel
+      simetri (her ikisi de dört karakter genişliğindedir), IV kullanma konusundaki isteksizlik
+      çünkü Latince&rsquo;de IVPITER (Jüpiter)&rsquo;in ilk iki harfidir ve I-I-I-I kadranları için aynı kalıbı
+      dört kez yapmanın döküm kolaylığı. Big Ben ünlü bir şekilde
+      IV kullanır. Bu bir doğruluk meselesi değil, bir stil seçimidir.
     </p>
 
-    <h2>Arithmetic in Roman numerals</h2>
+    <h2>Romen rakamlarıyla aritmetik</h2>
     <p>
-      The Romans did not do arithmetic with the written form&mdash;they used a counting board
-      called an <em>abacus</em> and wrote results in numerals afterward. Trying to add MCMXCIV
-      and CCXXXIII by manipulating letters is a nightmare. This is one reason Arabic numerals
-      with positional notation and zero eventually won: addition, multiplication, and especially
-      division are dramatically easier when digits carry place value.
+      Romalılar yazılı formla aritmetik yapmazlardı&mdash;<em>abaküs</em> adı verilen bir sayma tahtası
+      kullanır ve sonuçları daha sonra rakamlarla yazarlardı. MCMXCIV
+      ve CCXXXIII&rsquo;ü harfleri manipüle ederek toplamaya çalışmak bir kabustur. Bu, konumsal gösterim ve
+      sıfır ile Arap rakamlarının nihayetinde kazanmasının nedenlerinden biridir: toplama, çarpma ve özellikle
+      bölme, rakamlar yer değeri taşıdığında çok daha kolaydır.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Yaygın hatalar</h2>
     <p>
-      <strong>Using illegal subtractive pairs.</strong> IC for 99 is wrong; it must be XCIX.
-      IIII is informally accepted on clocks but formally the correct form of 4 is IV. The
-      subtractive rule only works one level down, and only with I, X, or C as the subtracted
-      symbol.
+      <strong>Geçersiz çıkarma çiftleri kullanmak.</strong> 99 için IC yanlıştır; XCIX olmalıdır.
+      IIII saatlerde gayri resmi olarak kabul edilir, ancak resmi olarak 4&rsquo;ün doğru biçimi IV&rsquo;tür.
+      Çıkarma kuralı yalnızca bir seviye aşağıda çalışır ve yalnızca çıkarılan sembol olarak I, X veya C ile çalışır.
     </p>
     <p>
-      <strong>Stacking four identical letters.</strong> Standard Roman numerals never show
-      IIII, XXXX, CCCC, or MMMM (the clock exception aside). If your conversion produces four of
-      anything, you&rsquo;ve missed a subtractive step&mdash;re-check the number.
+      <strong>Dört özdeş harfi üst üste koymak.</strong> Standart Romen rakamları asla
+      IIII, XXXX, CCCC veya MMMM göstermez (saat istisnası hariç). Dönüşümünüz herhangi bir şeyden dört tane
+      üretiyorsa, bir çıkarma adımını kaçırmışsınızdır&mdash;sayıyı tekrar kontrol edin.
     </p>
     <p>
-      <strong>Reading a year as a word.</strong> MCM at the start of a film credit is 1900, not
-      &ldquo;mick-em.&rdquo; Break the numeral into additive chunks and sum them; never try to
-      pronounce it.
+      <strong>Bir yılı kelime olarak okumak.</strong> Bir film jeneriğinin başında MCM 1900&rsquo;dür,
+      &ldquo;mick-em&rdquo; değil. Rakamı toplamsal parçalara ayırın ve toplayın; asla telaffuz etmeye
+      çalışmayın.
     </p>
     <p>
-      <strong>Confusing L and I.</strong> In ornamental typefaces L and I can look similar.
-      Context saves you&mdash;LI is 51, not II. When in doubt, count strokes and remember that
-      L has a horizontal foot.
+      <strong>L ve I&rsquo;yi karıştırmak.</strong> Süs yazı tiplerinde L ve I benzer görünebilir.
+      Bağlam sizi kurtarır&mdash;LI 51&rsquo;dir, II değil. Şüpheye düştüğünüzde, vuruşları sayın ve L&rsquo;nin
+      yatay bir tabanı olduğunu hatırlayın.
     </p>
     <p>
-      <strong>Assuming zero exists.</strong> There is no Roman zero. The concept entered Europe
-      through Arabic mathematics centuries later. If a puzzle asks you for the Roman numeral
-      representing zero, the answer is &ldquo;N&rdquo; (for <em>nulla</em>) used by medieval
-      monks, but it&rsquo;s not part of standard notation.
+      <strong>Sıfırın var olduğunu varsaymak.</strong> Romen sıfırı yoktur. Kavram Avrupa&rsquo;ya
+      yüzyıllar sonra Arap matematiği aracılığıyla girmiştir. Bir bilmece sizden sıfırı temsil eden Romen rakamını
+      isterse, cevap ortaçağ keşişleri tarafından kullanılan &ldquo;N&rdquo;dir (<em>nulla</em> için), ancak
+      standart gösterimin bir parçası değildir.
     </p>
     <p>
-      <strong>Forgetting the 3,999 ceiling.</strong> When you need to represent a year like
-      4,000 or a large count, Roman numerals break down. Don&rsquo;t invent new notation; switch
-      to Arabic digits.
+      <strong>3.999 tavanını unutmak.</strong> 4.000 gibi bir yılı veya büyük bir sayıyı temsil etmeniz
+      gerektiğinde, Romen rakamları bozulur. Yeni bir gösterim icat etmeyin; Arap
+      rakamlarına geçin.
     </p>
     <p>
-      <strong>Reading digits left-to-right without looking ahead.</strong> You must compare each
-      letter to the next one to decide whether to add or subtract. Reading in isolation makes
-      IV look like 6 (5 + 1) instead of 4. Always peek at the next letter.
+      <strong>Rakamları ileriye bakmadan soldan sağa okumak.</strong> Ekleyip çıkarmayacağınıza karar vermek için her
+      harfi bir sonrakiyle karşılaştırmalısınız. Tek başına okumak, IV&rsquo;ün 4 yerine 6 (5 + 1) gibi görünmesine
+      neden olur. Her zaman bir sonraki harfe bakın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>Sayıları çalıştırın</h2>
     <p>
-      Don&rsquo;t translate Roman numerals by hand when you&rsquo;re checking a copyright date
-      or a Super Bowl logo; paste the numeral into our{" "}
-      <a href="/tools/roman-numeral-converter">Roman numeral converter</a>. Pair it with the{" "}
-      <a href="/tools/base64-encoder-decoder">Base64 encoder</a> when you&rsquo;re decoding
-      opaque identifiers from old file headers, and the{" "}
-      <a href="/tools/unit-converter">unit converter</a> for the adjacent problem of translating
-      between old and modern measurement systems.
+      Bir telif tarihini veya bir Super Bowl logosunu kontrol ederken Romen rakamlarını elle
+      çevirmeyin; rakamımızı{" "}
+      <a href="/tools/roman-numeral-converter">Romen rakamı dönüştürücüye</a> yapıştırın. Eski dosya
+      başlıklarından opak tanımlayıcıları çözerken{" "}
+      <a href="/tools/base64-encoder-decoder">Base64 kodlayıcı</a> ile ve eski ve modern ölçüm
+      sistemleri arasında çeviri yapmanın bitişik sorunu için{" "}
+      <a href="/tools/unit-converter">birim dönüştürücü</a> ile eşleştirin.
     </p>
   </>
 );

@@ -2,54 +2,53 @@ import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
   <p>
-    AI video in 2026 matured fast. Sora 2 (OpenAI), Veo 3 (Google), Runway Gen-4, Kling 2.5, and
-    Pika 2.5 each lead a niche. Picking the right one depends on length, style, control, and
-    cost.
+    2026'da yapay zeka videosu hızla olgunlaştı. Sora 2 (OpenAI), Veo 3 (Google), Runway Gen-4, Kling 2.5 ve
+    Pika 2.5'ın her biri bir alanda öne çıkıyor. Doğru aracı seçmek; uzunluk, stil, kontrol ve
+    maliyete bağlı.
   </p>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>The leaders by use case</h2>
+    <h2>Kullanım alanına göre liderler</h2>
     <ul>
-      <li><strong>Cinematic / film-look:</strong> Sora 2 (in ChatGPT Plus / Pro). Best motion
-        coherence and cinematography.</li>
-      <li><strong>Realistic + controllable:</strong> Veo 3 (in Gemini Advanced). Strong physics,
-        predictable outputs.</li>
-      <li><strong>Director-control workflows:</strong> Runway Gen-4. Camera control, motion brush,
-        and Director Mode.</li>
-      <li><strong>Fast-iterating short-form:</strong> Pika 2.5 + Kling 2.5. Cheap, quick, social-ready.</li>
-      <li><strong>Lip-sync + character consistency:</strong> Hedra Character-2 + Higgsfield.</li>
-      <li><strong>Open-weight self-host:</strong> CogVideoX, HunyuanVideo. Quality is closing on
-        proprietary, latency is much higher.</li>
+      <li><strong>Sinematik / film görünümü:</strong> Sora 2 (ChatGPT Plus / Pro'da). En iyi hareket
+        tutarlılığı ve sinematografi.</li>
+      <li><strong>Gerçekçi + kontrol edilebilir:</strong> Veo 3 (Gemini Advanced'de). Güçlü fizik,
+        öngörülebilir çıktılar.</li>
+      <li><strong>Yönetmen kontrolü iş akışları:</strong> Runway Gen-4. Kamera kontrolü, hareket fırçası
+        ve Yönetmen Modu.</li>
+      <li><strong>Hızlı yinelemeli kısa biçim:</strong> Pika 2.5 + Kling 2.5. Ucuz, hızlı, sosyal medyaya hazır.</li>
+      <li><strong>Dudak senkronizasyonu + karakter tutarlılığı:</strong> Hedra Character-2 + Higgsfield.</li>
+      <li><strong>Açık ağırlıklı, kendi barındırmalı:</strong> CogVideoX, HunyuanVideo. Kalite
+        tescilli çözümlere yaklaşıyor, gecikme çok daha yüksek.</li>
     </ul>
 
-    <h2>Pricing</h2>
+    <h2>Fiyatlandırma</h2>
     <ul>
-      <li><strong>ChatGPT Plus ($20):</strong> Sora limited; Pro ($200) for unlimited.</li>
-      <li><strong>Gemini Advanced ($20):</strong> Veo limited; Ultra ($250) for higher caps.</li>
-      <li><strong>Runway Standard ($15-95):</strong> credits-based, Director Mode.</li>
-      <li><strong>Pika / Kling / Higgsfield:</strong> $10-60/mo with credit packs.</li>
+      <li><strong>ChatGPT Plus (20$):</strong> Sora sınırlı; Pro (200$) sınırsız.</li>
+      <li><strong>Gemini Advanced (20$):</strong> Veo sınırlı; Ultra (250$) daha yüksek kotalar.</li>
+      <li><strong>Runway Standard (15-95$):</strong> kredi tabanlı, Yönetmen Modu.</li>
+      <li><strong>Pika / Kling / Higgsfield:</strong> Aylık 10-60$, kredi paketleriyle.</li>
     </ul>
 
-    <h2>Real-world workflow</h2>
+    <h2>Gerçek dünya iş akışı</h2>
     <p>
-      Pros aren&rsquo;t generating ads end-to-end with one tool. The 2026 workflow is:
-      Midjourney for the keyframe &rarr; Runway for image-to-video on that keyframe &rarr; Sora or
-      Veo for the long shots &rarr; Topaz Video AI for upscale &rarr; Premiere / Resolve for the
-      cut. Each tool does one thing well.
+      Profesyoneller 2026'da reklamları uçtan uca tek bir araçla üretmiyor. 2026 iş akışı şöyle:
+      Ana kare için Midjourney &rarr; Bu ana kareden video için Runway &rarr; Uzun çekimler için Sora veya
+      Veo &rarr; Yükseltme için Topaz Video AI &rarr; Kurgu için Premiere / Resolve. Her araç bir işi iyi yapar.
     </p>
 
-    <h2>Limits to know</h2>
+    <h2>Bilinmesi gereken sınırlamalar</h2>
     <ul>
-      <li>Most tools cap at 8-15 seconds per shot in 2026. You stitch in post.</li>
-      <li>Faces of real people are restricted across all major providers.</li>
-      <li>Music + audio sync is improving but still spotty &mdash; generate audio separately
+      <li>2026'da çoğu araç çekim başına 8-15 saniye ile sınırlı. Post prodüksiyonda birleştiriyorsunuz.</li>
+      <li>Gerçek kişilerin yüzleri tüm büyük sağlayıcılarda kısıtlanmıştır.</li>
+      <li>Müzik + ses senkronizasyonu gelişiyor ancak hala sorunlu &mdash; sesi ayrı oluşturun
         (Suno, Udio).</li>
-      <li>Watermarks are mandatory in some jurisdictions. Check before commercial use.</li>
+      <li>Bazı yargı bölgelerinde filigran zorunludur. Ticari kullanımdan önce kontrol edin.</li>
     </ul>
     <p>
-      Compare: <a href="/compare/chatgpt-vs-gemini">ChatGPT vs Gemini</a>.
+      Karşılaştırma: <a href="/compare/chatgpt-vs-gemini">ChatGPT vs Gemini</a>.
     </p>
   </>
 );

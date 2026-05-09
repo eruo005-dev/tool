@@ -1,88 +1,91 @@
 export const intro = (
   <>
     <p>
-      A developer portfolio is a hiring shortcut. Done right, it replaces pages
-      of resume-reading with 2 minutes of &ldquo;this person clearly ships.&rdquo;
-      Done wrong, it&rsquo;s a template with &ldquo;lorem ipsum&rdquo; and three
-      tutorial clones. Here&rsquo;s how to build one that gets interviews.
+      Bir geliştirici portföyü, işe alımda kısa bir yoldur. Doğru yapıldığında,
+      sayfalarca özgeçmiş okumayı, 2 dakikalık "bu kişi net bir şekilde iş çıkarıyor"
+      izlenimine dönüştürür. Yanlış yapıldığında ise, içinde "lorem ipsum" ve üç
+      tane eğitim klonu bulunan bir şablondur. İşte mülakatları garantileyen bir portföy
+      nasıl oluşturulur.
     </p>
     <p>
-      Focus on signals of competence over design flourishes.
+      Tasarım süslemelerinden çok, yetkinlik sinyallerine odaklanın.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Three real projects beats ten tutorials</h2>
+    <h2>1. On tane eğitimdense üç gerçek proje</h2>
     <p>
-      Hiring managers can smell a tutorial clone from a mile away. Ship three
-      original projects — even small ones — that solve a real problem.
-      Originality signals you can think beyond following directions.
+      İşe alım yöneticileri bir eğitim klonunu kilometrelerce öteden koklar. Gerçek
+      bir sorunu çözen üç özgün proje çıkarın — küçük olsalar bile. Özgünlük,
+      talimatları takip etmenin ötesinde düşünebildiğinizi gösterir.
     </p>
 
-    <h2>2. Each project needs: live demo + repo + writeup</h2>
+    <h2>2. Her projede şunlar olmalı: canlı demo + repo + yazılı açıklama</h2>
     <p>
-      A link to GitHub alone isn&rsquo;t enough. A deployed demo they can click.
-      The source on GitHub. A short writeup: problem, decisions, tradeoffs. The
-      writeup is what separates juniors from seniors.
+      Sadece GitHub bağlantısı yeterli değildir. Tıklayabilecekleri yayına alınmış
+      bir demo. GitHub'da kaynak kodu. Kısa bir yazılı açıklama: sorun, kararlar,
+      ödünleşimler. Yazılı açıklama, junior'ları senior'lardan ayıran şeydir.
     </p>
 
-    <h2>3. Write clear READMEs</h2>
+    <h2>3. Açık README'ler yazın</h2>
     <p>
-      Screenshot, one-paragraph description, stack, how to run it, decisions.
-      Most open-source READMEs are bad. A well-written one is a differentiator.
-      Show you can communicate, not just code.
+      Ekran görüntüsü, tek paragraflık açıklama, teknoloji yığını, nasıl çalıştırılacağı,
+      alınan kararlar. Çoğu açık kaynak README'si kötüdür. İyi yazılmış bir README
+      sizi farklılaştırır. Sadece kod yazmayı değil, iletişim kurabildiğinizi de
+      gösterin.
     </p>
 
-    <h2>4. Pick projects with actual users if possible</h2>
+    <h2>4. Mümkünse gerçek kullanıcıları olan projeler seçin</h2>
     <p>
-      A hobby project that 200 people use &gt; a polished app with 0 users.
-      Shows you can take something from idea to adoption. If no users, at least
-      make it look like a real product, not a CS homework assignment.
+      200 kişinin kullandığı bir hobi projesi &gt; 0 kullanıcılı cilalı bir uygulama.
+      Bir fikri alıp benimsetebildiğinizi gösterir. Kullanıcınız yoksa, en azından
+      bir bilgisayar bilimi ödevi değil, gerçek bir ürün gibi görünmesini sağlayın.
     </p>
 
-    <h2>5. Deploy to a real domain</h2>
+    <h2>5. Gerçek bir alan adına yayınlayın</h2>
     <p>
-      Your portfolio on <code>yourname.dev</code> looks more credible than a
-      Heroku subdomain. Vercel, Netlify, Cloudflare Pages all free. Buy the
-      domain. This costs $12 and signals commitment.
+      <code>adiniz.dev</code> adresindeki portföyünüz, bir Heroku alt alan adından
+      daha güvenilir görünür. Vercel, Netlify, Cloudflare Pages hepsi ücretsiz.
+      Alan adını satın alın. Bu 12 dolara mal olur ve bağlılık sinyali verir.
     </p>
 
-    <h2>6. Tech diversity matters less than depth</h2>
+    <h2>6. Teknoloji çeşitliliğinden çok derinlik önemlidir</h2>
     <p>
-      Three projects all in React is better than six projects across six stacks
-      with shallow understanding. Pick one frontend framework, one backend, one
-      database. Show depth, not breadth.
+      Altı farklı teknoloji yığınında yüzeysel anlayışa sahip altı projedense,
+      hepsi React ile yapılmış üç proje daha iyidir. Bir frontend framework'ü, bir
+      backend, bir veritabanı seçin. Genişlik değil, derinlik gösterin.
     </p>
 
-    <h2>7. Include a serious full-stack project</h2>
+    <h2>7. Ciddi bir full-stack projesi ekleyin</h2>
     <p>
-      Auth, database, frontend, deployment, payments if possible. Hiring
-      managers want to see you&rsquo;ve touched every layer. CRUD apps don&rsquo;t
-      impress — real features do.
+      Kimlik doğrulama, veritabanı, frontend, dağıtım, mümkünse ödemeler. İşe alım
+      yöneticileri her katmana dokunduğunuzu görmek ister. CRUD uygulamaları
+      etkileyici değildir — gerçek özellikler etkileyicidir.
     </p>
 
-    <h2>8. Contribute to open source</h2>
+    <h2>8. Açık kaynağa katkıda bulunun</h2>
     <p>
-      Even small contributions to well-known repos go on your portfolio. Signals
-      you can read others&rsquo; code, follow conventions, collaborate. See{" "}
-      <a href="/guides/how-to-contribute-to-open-source">open source guide</a>.
+      Bilinen repolara yapılan küçük katkılar bile portföyünüze girer. Başkalarının
+      kodunu okuyabildiğinizi, kurallara uyabildiğinizi ve işbirliği yapabildiğinizi
+      gösterir.{" "}
+      <a href="/guides/how-to-contribute-to-open-source">Açık kaynak rehberine</a> bakın.
     </p>
 
-    <h2>9. Write about what you built</h2>
+    <h2>9. Ne yaptığınız hakkında yazın</h2>
     <p>
-      A blog post explaining why you picked PostgreSQL over Mongo, or how you
-      handled a tricky bug, doubles the value of the project. Writing = thinking
-      publicly. Recruiters read it.
+      PostgreSQL'i neden Mongo'ya tercih ettiğinizi veya zor bir hatayı nasıl
+      çözdüğünüzü açıklayan bir blog yazısı, projenin değerini ikiye katlar.
+      Yazmak = topluluk önünde düşünmek. İşe alımcılar bunu okur.
     </p>
 
-    <h2>10. Keep it current</h2>
+    <h2>10. Güncel tutun</h2>
     <p>
-      A portfolio showing your last project in 2022 screams &ldquo;not actively
-      building.&rdquo; Update every 3-6 months. Remove old weak projects as you
-      add new strong ones. See{" "}
-      <a href="/guides/how-to-become-a-full-stack-developer">full-stack guide</a>.
+      Son projesi 2022'de olan bir portföy, "aktif olarak üretmiyor" mesajı verir.
+      Her 3-6 ayda bir güncelleyin. Yeni güçlü projeler ekledikçe eski zayıf
+      projeleri kaldırın.{" "}
+      <a href="/guides/how-to-become-a-full-stack-developer">Full-stack rehberine</a> bakın.
     </p>
   </>
 );

@@ -1,89 +1,95 @@
 export const intro = (
   <>
     <p>
-      Taxes are usually the largest expense in a household budget. Most people just
-      accept whatever comes out of their paycheck. A little tax literacy can save
-      thousands per year — entirely legally. This is the basics, not a CPA
-      replacement.
+      Vergiler genellikle bir hane bütçesindeki en büyük giderdir. Çoğu insan
+      maaş çekinden kesileni olduğu gibi kabul eder. Biraz vergi okuryazarlığı,
+      yılda binlerce lira tasarruf sağlayabilir — tamamen yasal yollarla. Bunlar
+      temel bilgilerdir, bir mali müşavir yerine geçmez.
     </p>
     <p>
-      Always consult a tax professional for your specific situation; below are the
-      common levers worth knowing.
+      Kendi özel durumunuz için her zaman bir vergi uzmanına danışın; aşağıda
+      bilmeye değer yaygın kaldıraçlar yer almaktadır.
     </p>
   </>
 );
 
 export const body = (
   <>
-    <h2>1. Max out 401(k) contributions</h2>
+    <h2>1. 401(k) katkılarını maksimuma çıkarın</h2>
     <p>
-      Every dollar into a traditional 401(k) reduces your taxable income now. $23,500
-      max in 2026. If your employer matches, that&rsquo;s free money. Single biggest
-      tax lever for most W-2 employees.
+      Geleneksel bir 401(k)'ye yatırılan her dolar, şu anki vergilendirilebilir
+      gelirinizi azaltır. 2026'da maksimum 23.500 dolar. İşvereniniz eşleştirme
+      yapıyorsa, bu bedava paradır. Çoğu W-2 çalışanı için en büyük vergi
+      kaldıracı.
     </p>
 
-    <h2>2. Use an IRA</h2>
+    <h2>2. IRA kullanın</h2>
     <p>
-      Traditional IRA = tax deduction now, taxed at withdrawal. Roth IRA = no
-      deduction now, tax-free growth forever. $7k/year limit in 2026. Most people
-      should have one of these in addition to 401(k).
+      Geleneksel IRA = şimdi vergi indirimi, çekimde vergilendirilir. Roth IRA =
+      şimdi indirim yok, sonsuza kadar vergisiz büyüme. 2026'da yıllık 7 bin
+      dolar limiti. Çoğu insanın 401(k)'ye ek olarak bunlardan birine sahip
+      olması gerekir.
     </p>
 
-    <h2>3. HSA if you&rsquo;re eligible</h2>
+    <h2>3. Uygunsanız HSA kullanın</h2>
     <p>
-      Triple tax-advantaged: tax deduction on contributions, tax-free growth, tax-free
-      withdrawals for medical. The best account type that exists. Requires a
-      high-deductible health plan.
+      Üçlü vergi avantajı: katkılarda vergi indirimi, vergisiz büyüme, sağlık
+      harcamaları için vergisiz çekim. Var olan en iyi hesap türü. Yüksek
+      indirilebilir sağlık planı gerektirir.
     </p>
 
-    <h2>4. Take every deduction you qualify for</h2>
+    <h2>4. Hak kazandığınız her kesintiyi alın</h2>
     <p>
-      Student loan interest, mortgage interest, state/local tax (capped at $10k),
-      charitable donations, medical over 7.5% of AGI. Itemize when deductions exceed
-      the standard deduction ($15k single, $30k joint in 2026).
+      Öğrenci kredisi faizi, ipotek faizi, eyalet/yerel vergi (10 bin dolar
+      sınırlı), hayır bağışları, AGI'nin %7,5'ini aşan sağlık giderleri.
+      Kesintiler standart kesintiyi (2026'da bekar için 15 bin dolar, ortak
+      başvuru için 30 bin dolar) aştığında kalem kalem beyan edin.
     </p>
 
-    <h2>5. Tax credits &gt; deductions</h2>
+    <h2>5. Vergi kredileri &gt; kesintiler</h2>
     <p>
-      Credits reduce tax directly, dollar for dollar. Child tax credit, education
-      credits, EV credit, home energy credits. Less glamorous than deductions but
-      often worth more.
+      Krediler, vergiyi doğrudan dolar dolar azaltır. Çocuk vergi kredisi,
+      eğitim kredileri, elektrikli araç kredisi, ev enerji kredileri.
+      Kesintilerden daha az gösterişli ama genellikle daha değerlidir.
     </p>
 
-    <h2>6. Harvest losses</h2>
+    <h2>6. Zararları hasat edin</h2>
     <p>
-      In taxable investment accounts, sell losers to offset gains. Up to $3,000 of
-      excess losses deduct against ordinary income. Be aware of wash sale rules —
-      don&rsquo;t buy back the same security within 30 days.
+      Vergilendirilebilir yatırım hesaplarında, kazançları dengelemek için
+      kaybettirenleri satın. Fazla zararların 3 bin dolara kadarı olağan
+      gelirden düşülebilir. Yıkama satış kurallarına dikkat edin — aynı menkul
+      kıymeti 30 gün içinde geri almayın.
     </p>
 
-    <h2>7. Hold investments long-term</h2>
+    <h2>7. Yatırımları uzun vadeli tutun</h2>
     <p>
-      Long-term capital gains (over 1 year) are taxed at 0-20%. Short-term are taxed
-      as ordinary income (up to 37%). Waiting an extra month can save tens of
-      thousands on large holdings.
+      Uzun vadeli sermaye kazançları (1 yıldan fazla) %0-20 arası vergilendirilir.
+      Kısa vadeli kazançlar olağan gelir olarak vergilendirilir (%37'ye kadar).
+      Büyük portföylerde fazladan bir ay beklemek on binlerce dolar tasarruf
+      sağlayabilir.
     </p>
 
-    <h2>8. Self-employed: the SEP or Solo 401(k)</h2>
+    <h2>8. Serbest çalışanlar: SEP veya Solo 401(k)</h2>
     <p>
-      If you have freelance or business income, you can contribute massive amounts
-      (up to $70k in 2026) pre-tax. Among the biggest tax shelters available. Worth
-      the paperwork.
+      Serbest veya iş geliriniz varsa, vergi öncesi büyük miktarlar (2026'da 70
+      bin dolara kadar) katkıda bulunabilirsiniz. Mevcut en büyük vergi
+      sığınaklarından biridir. Evrak işine değer.
     </p>
 
-    <h2>9. Business expenses if you freelance</h2>
+    <h2>9. Serbest çalışıyorsanız iş giderleri</h2>
     <p>
-      Home office, computer, software, internet portion, mileage. All deductible
-      against self-employment income. Keep receipts. This alone can save thousands a
-      year for side hustlers.
+      Ev ofisi, bilgisayar, yazılım, internet payı, kilometre. Tümü serbest
+      çalışma gelirine karşı düşülebilir. Makbuzları saklayın. Bu tek başına
+      ek iş yapanlar için yılda binlerce dolar tasarruf sağlayabilir.
     </p>
 
-    <h2>10. Hire a good CPA</h2>
+    <h2>10. İyi bir mali müşavir tutun</h2>
     <p>
-      For simple returns, TurboTax is fine. For anything complex — business, RSUs,
-      real estate, multiple states — a good CPA pays for themselves 5-10x. See{" "}
-      <a href="/guides/how-to-start-a-business-with-no-money">business guide</a> and{" "}
-      <a href="/guides/how-to-increase-your-income">income guide</a>.
+      Basit beyannameler için TurboTax yeterlidir. Karmaşık durumlar için — iş,
+      RSU'lar, gayrimenkul, birden fazla eyalet — iyi bir mali müşavir
+      kendini 5-10 kat amorti eder. Bkz.{" "}
+      <a href="/guides/how-to-start-a-business-with-no-money">iş rehberi</a> ve{" "}
+      <a href="/guides/how-to-increase-your-income">gelir rehberi</a>.
     </p>
   </>
 );

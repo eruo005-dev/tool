@@ -3,98 +3,99 @@ import type { ReactElement } from "react";
 export const intro: ReactElement = (
   <>
     <p>
-      A cryptographic hash function takes any input and produces a
-      fixed-length fingerprint that is (in theory) one-way:
-      infeasible to invert, infeasible to find two inputs that
-      collide. The &ldquo;in theory&rdquo; is doing a lot of work,
-      because two of the hash functions still widely deployed &mdash;
-      MD5 and SHA-1 &mdash; have had practical collisions published
-      (MD5 in 2004, SHA-1 in 2017 by Google&rsquo;s SHAttered
-      attack). Using them for integrity or identity today is a
-      known vulnerability. On top of that, hash functions are the
-      wrong tool for passwords entirely &mdash; you want a
-      deliberately slow password-hashing function like Argon2 or
-      bcrypt. This guide covers which hashes are broken, which are
-      current (SHA-256, SHA-3, BLAKE3), how collision and preimage
-      resistance differ, the password-hashing family and why it is
-      separate, salting and peppering, and the specific choice you
-      should make in 2026.
+      Kriptografik bir özet fonksiyonu, herhangi bir girdiyi alır ve
+      (teoride) tek yönlü olan sabit uzunlukta bir parmak izi üretir:
+      tersine çevrilmesi olanaksız, çakışan iki girdi bulunması
+      olanaksız. &ldquo;Teoride&rdquo; kısmı büyük bir iş yükü
+      taşır, çünkü hâlâ yaygın olarak kullanılan iki özet fonksiyonu
+      &mdash; MD5 ve SHA-1 &mdash; için pratik çakışmalar yayınlanmıştır
+      (MD5 2004'te, SHA-1 2017'de Google'ın SHAttered
+      saldırısıyla). Bunları bugün bütünlük veya kimlik için kullanmak
+      bilinen bir güvenlik açığıdır. Bunun da ötesinde, özet fonksiyonları
+      şifreler için tamamen yanlış araçtır &mdash; Argon2 veya
+      bcrypt gibi kasıtlı olarak yavaş bir şifre-özetleme fonksiyonu
+      istersiniz. Bu kılavuz, hangi özetlerin kırıldığını, hangilerinin
+      güncel olduğunu (SHA-256, SHA-3, BLAKE3), çakışma ve ön görüntü
+      direncinin nasıl farklılaştığını, şifre-özetleme ailesini ve neden
+      ayrı olduğunu, tuzlama ve biberlemeyi ve 2026'da yapmanız gereken
+      belirli seçimi kapsar.
     </p>
   </>
 );
 
 export const body: ReactElement = (
   <>
-    <h2>What a hash function guarantees</h2>
+    <h2>Bir özet fonksiyonunun garantileri</h2>
     <p>
-      A cryptographic hash function <code>H</code> maps an input of
-      any length to a fixed-size output. The three security
-      properties:
+      Kriptografik bir özet fonksiyonu <code>H</code>, herhangi bir
+      uzunluktaki girdiyi sabit boyutlu bir çıktıya eşler. Üç güvenlik
+      özelliği:
     </p>
     <p>
-      <strong>Preimage resistance</strong>: given
-      <code> H(x)</code>, infeasible to find <code>x</code>.
+      <strong>Ön görüntü direnci</strong>: verilen
+      <code> H(x)</code> ile <code>x</code>'i bulmak olanaksızdır.
     </p>
     <p>
-      <strong>Second-preimage resistance</strong>: given
-      <code> x</code>, infeasible to find a different
-      <code> x&rsquo;</code> with <code>H(x&rsquo;) = H(x)</code>.
+      <strong>İkinci ön görüntü direnci</strong>: verilen
+      <code> x</code> ile <code>H(x') = H(x)</code> olacak şekilde
+      farklı bir <code> x'</code> bulmak olanaksızdır.
     </p>
     <p>
-      <strong>Collision resistance</strong>: infeasible to find any
-      pair <code>x, x&rsquo;</code> with
-      <code> H(x) = H(x&rsquo;)</code>.
+      <strong>Çakışma direnci</strong>: <code>H(x) = H(x')</code>
+      olacak şekilde herhangi bir <code>x, x'</code> çifti bulmak
+      olanaksızdır.
     </p>
     <p>
-      Collision resistance is the hardest to maintain; it fails
-      first when a hash weakens.
-    </p>
-
-    <h2>MD5 &mdash; broken; do not use</h2>
-    <p>
-      MD5 produces a 128-bit output. Collision attacks have been
-      practical since 2004; in 2008 researchers forged a legitimate
-      CA certificate using MD5 collisions. Modern GPUs can produce
-      MD5 collisions in minutes.
-    </p>
-    <p>
-      Still acceptable for non-security uses: file chunking,
-      cache-busting, non-cryptographic checksums where an attacker
-      is not in the threat model. Never acceptable for digital
-      signatures, certificates, integrity verification, or password
-      hashing.
+      Çakışma direncini korumak en zorudur; bir özet zayıfladığında
+      ilk önce bu başarısız olur.
     </p>
 
-    <h2>SHA-1 &mdash; broken for collisions</h2>
+    <h2>MD5 &mdash; kırık; kullanmayın</h2>
     <p>
-      SHA-1 produces 160 bits. Theoretical attacks since 2005;
-      Google&rsquo;s SHAttered paper (2017) published a real
-      collision, and follow-up work (Shambles, 2020) made chosen-prefix
-      collisions practical at a cost of about $45,000 in GPU time.
+      MD5, 128 bitlik bir çıktı üretir. Çakışma saldırıları 2004'ten
+      beri pratiktir; 2008'de araştırmacılar MD5 çakışmalarını kullanarak
+      meşru bir CA sertifikasını taklit etti. Modern GPU'lar dakikalar
+      içinde MD5 çakışmaları üretebilir.
     </p>
     <p>
-      Browsers stopped accepting SHA-1 certificates in 2017. Git
-      still uses SHA-1 for object IDs; Linus has acknowledged the
-      risk and the Git project is working toward SHA-256. Avoid
-      SHA-1 for any new security-relevant use.
+      Güvenlik dışı kullanımlar için hâlâ kabul edilebilir: dosya
+      parçalama, önbellek temizleme, saldırganın tehdit modelinde
+      olmadığı kriptografik olmayan sağlama toplamları. Dijital
+      imzalar, sertifikalar, bütünlük doğrulaması veya şifre
+      özetleme için asla kabul edilemez.
     </p>
 
-    <h2>SHA-2 family &mdash; current standard</h2>
+    <h2>SHA-1 &mdash; çakışmalar için kırık</h2>
     <p>
-      SHA-2 is a family: <strong>SHA-224, SHA-256, SHA-384,
-      SHA-512</strong>, plus the truncated variants SHA-512/224 and
-      SHA-512/256. Output in bits matches the number in the name.
+      SHA-1, 160 bit üretir. 2005'ten beri teorik saldırılar;
+      Google'ın SHAttered makalesi (2017) gerçek bir çakışma
+      yayınladı ve takip çalışması (Shambles, 2020), seçilmiş-ön ekli
+      çakışmaları GPU zamanında yaklaşık 45.000 $ maliyetle pratik
+      hale getirdi.
     </p>
     <p>
-      <strong>SHA-256</strong> is the default choice for most
-      general-purpose hashing in 2026: file integrity, TLS
-      certificates, Bitcoin addresses, content-addressed storage.
-      No practical attacks.
+      Tarayıcılar 2017'de SHA-1 sertifikalarını kabul etmeyi bıraktı.
+      Git, nesne kimlikleri için hâlâ SHA-1 kullanıyor; Linus riski
+      kabul etti ve Git projesi SHA-256'ya geçiş için çalışıyor.
+      Herhangi bir yeni güvenlikle ilgili kullanım için SHA-1'den
+      kaçının.
+    </p>
+
+    <h2>SHA-2 ailesi &mdash; güncel standart</h2>
+    <p>
+      SHA-2 bir ailedir: <strong>SHA-224, SHA-256, SHA-384,
+      SHA-512</strong>, ayrıca kısaltılmış varyantlar SHA-512/224 ve
+      SHA-512/256. Bit cinsinden çıktı, addaki sayıyla eşleşir.
     </p>
     <p>
-      <strong>SHA-512</strong> is faster than SHA-256 on 64-bit CPUs
-      and gives a larger output for use cases (HKDF, long-term
-      archival) where the extra margin matters.
+      <strong>SHA-256</strong>, 2026'da çoğu genel amaçlı özetleme
+      için varsayılan seçimdir: dosya bütünlüğü, TLS sertifikaları,
+      Bitcoin adresleri, içerik adresli depolama. Pratik saldırı yok.
+    </p>
+    <p>
+      <strong>SHA-512</strong>, 64-bit CPU'larda SHA-256'dan daha
+      hızlıdır ve ek marjın önemli olduğu kullanım durumları (HKDF,
+      uzun vadeli arşivleme) için daha büyük bir çıktı sağlar.
     </p>
     <pre>{`import crypto from 'crypto';
 const digest = crypto.createHash('sha256')
@@ -102,182 +103,190 @@ const digest = crypto.createHash('sha256')
   .digest('hex');
 // b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9`}</pre>
 
-    <h2>SHA-3 &mdash; different internal design</h2>
+    <h2>SHA-3 &mdash; farklı iç tasarım</h2>
     <p>
-      SHA-3 was standardized in 2015 (FIPS 202) as a structurally
-      different alternative to SHA-2. It uses the Keccak sponge
-      construction where SHA-2 uses Merkle&ndash;Damg&aring;rd. Output
-      sizes are the same: SHA3-224, SHA3-256, SHA3-384, SHA3-512.
+      SHA-3, 2015'te (FIPS 202) SHA-2'ye yapısal olarak farklı bir
+      alternatif olarak standartlaştırıldı. SHA-2'nin Merkle–Damgård
+      kullandığı yerde Keccak sünger yapısını kullanır. Çıktı
+      boyutları aynıdır: SHA3-224, SHA3-256, SHA3-384, SHA3-512.
     </p>
     <p>
-      Both SHA-2 and SHA-3 are secure in 2026. Use SHA-3 if you need
-      diversification (don&rsquo;t want all your security keyed on
-      one construction surviving), or need the variable-output
-      SHAKE128/SHAKE256. Otherwise SHA-2 has better hardware support
-      and is slightly faster on most CPUs.
-    </p>
-
-    <h2>BLAKE2 and BLAKE3 &mdash; fast and modern</h2>
-    <p>
-      <strong>BLAKE2</strong> (2012) is as secure as SHA-3 but much
-      faster &mdash; often faster than MD5 on modern CPUs. Used by
-      WireGuard, Argon2, and many content-addressed systems.
-    </p>
-    <p>
-      <strong>BLAKE3</strong> (2020) goes further: it is
-      parallelizable, incremental, and extendable-output. 10&ndash;20x
-      faster than SHA-256 on typical hardware. No practical attacks.
-      Adopted by Zcash, IPFS (alongside SHA-256), and content-addressed
-      build tools.
-    </p>
-    <p>
-      For internal systems where you control both ends, BLAKE3 is a
-      strong default. For interoperability with standards, pick
-      SHA-256.
+      Hem SHA-2 hem de SHA-3, 2026'da güvenlidir. Çeşitlendirmeye
+      ihtiyacınız varsa (tüm güvenliğinizi tek bir yapının
+      hayatta kalmasına bağlamak istemiyorsanız) veya değişken çıktılı
+      SHAKE128/SHAKE256'ya ihtiyacınız varsa SHA-3 kullanın. Aksi
+      takdirde SHA-2 daha iyi donanım desteğine sahiptir ve çoğu
+      CPU'da biraz daha hızlıdır.
     </p>
 
-    <h2>Passwords are different &mdash; use a KDF</h2>
+    <h2>BLAKE2 ve BLAKE3 &mdash; hızlı ve modern</h2>
     <p>
-      Password hashing has opposite goals from file hashing. You
-      want the function to be <strong>slow</strong> and
-      memory-intensive, to resist the GPU clusters a stolen database
-      will face.
+      <strong>BLAKE2</strong> (2012), SHA-3 kadar güvenlidir ancak
+      çok daha hızlıdır &mdash; modern CPU'larda genellikle MD5'ten
+      bile hızlıdır. WireGuard, Argon2 ve birçok içerik adresli
+      sistem tarafından kullanılır.
     </p>
     <p>
-      <strong>Argon2id</strong> (winner of the 2015 Password Hashing
-      Competition, standardized in RFC 9106) is the current
-      recommendation from OWASP. Configure with
-      <code> t=3</code> iterations, <code>m=12288</code> KiB memory,
-      <code> p=1</code> parallelism as a 2026 starting point.
+      <strong>BLAKE3</strong> (2020) daha da ileri gider: paralelleştirilebilir,
+      artımlı ve genişletilebilir çıktılıdır. Tipik donanımda
+      SHA-256'dan 10–20 kat daha hızlıdır. Pratik saldırı yok.
+      Zcash, IPFS (SHA-256'nın yanında) ve içerik adresli derleme
+      araçları tarafından benimsenmiştir.
     </p>
     <p>
-      <strong>scrypt</strong> (2009) is also memory-hard and well
-      analyzed. Defaults of <code>N=131072, r=8, p=1</code> are a
-      good starting point.
-    </p>
-    <p>
-      <strong>bcrypt</strong> (1999) is older but still acceptable,
-      especially when Argon2 is not available. Use a work factor
-      of 12 or higher in 2026; 10 was fine in 2015, now too fast on
-      modern GPUs. Note bcrypt truncates inputs at 72 bytes.
-    </p>
-    <p>
-      <strong>PBKDF2-HMAC-SHA256</strong> with at least 600,000
-      iterations (OWASP 2023 guidance) is acceptable in regulated
-      environments that require FIPS-approved primitives, but it is
-      not memory-hard and loses to GPU attacks faster than the
-      alternatives.
+      Her iki ucu da kontrol ettiğiniz dahili sistemler için BLAKE3
+      güçlü bir varsayılandır. Standartlarla birlikte çalışabilirlik
+      için SHA-256'yı seçin.
     </p>
 
-    <h2>Salting</h2>
+    <h2>Şifreler farklıdır &mdash; bir KDF kullanın</h2>
     <p>
-      A salt is a unique random value added to the password before
-      hashing. Defeats rainbow tables and ensures two users with the
-      same password get different hashes.
+      Şifre özetleme, dosya özetlemeden zıt hedeflere sahiptir.
+      Fonksiyonun <strong>yavaş</strong> ve bellek yoğun olmasını
+      istersiniz, böylece çalıntı bir veritabanının karşılaşacağı
+      GPU kümelerine direnir.
     </p>
     <p>
-      Minimum salt length: 16 bytes of cryptographically random
-      data. Generate per user, store alongside the hash. Argon2,
-      bcrypt, and scrypt store the salt embedded in their output
-      string &mdash; you do not need to manage it separately.
-    </p>
-
-    <h2>Peppering &mdash; optional additional layer</h2>
-    <p>
-      A pepper is a secret value, the same for every user, mixed in
-      before hashing. Kept in application config, not in the
-      database. If the database is stolen alone, the attacker still
-      needs the pepper to brute-force.
+      <strong>Argon2id</strong> (2015 Şifre Özetleme Yarışması
+      birincisi, RFC 9106'da standartlaştırılmıştır) OWASP'ın güncel
+      önerisidir. 2026 başlangıç noktası olarak
+      <code> t=3</code> yineleme, <code>m=12288</code> KiB bellek,
+      <code> p=1</code> paralellik ile yapılandırın.
     </p>
     <p>
-      Peppering does not substitute for slow hashing, but layers on
-      top of it. Biggest gotcha: rotating the pepper invalidates
-      every password hash. Use a versioned scheme:
-      <code> pepper_v2_value</code> and store the version alongside
-      the hash.
-    </p>
-
-    <h2>HMAC and keyed hashing</h2>
-    <p>
-      A plain hash cannot authenticate &mdash; anyone can produce
-      <code> H(message)</code> since H is public. HMAC
-      (<code>HMAC(key, message)</code>) fixes this. Used for API
-      request signing, JWT HS256 tokens, and cookie integrity.
+      <strong>scrypt</strong> (2009) de bellek zorlamalıdır ve iyi
+      analiz edilmiştir. <code>N=131072, r=8, p=1</code>
+      varsayılanları iyi bir başlangıç noktasıdır.
     </p>
     <p>
-      Most modern libraries expose <code>hmac(key, message,
-      &apos;sha256&apos;)</code>. Both the message and key must be
-      present on the verifying side. Use constant-time comparison
-      when checking an HMAC (<code>crypto.timingSafeEqual</code> in
-      Node) to avoid timing leaks.
+      <strong>bcrypt</strong> (1999) daha eskidir ancak özellikle
+      Argon2 mevcut olmadığında hâlâ kabul edilebilir. 2026'da 12
+      veya daha yüksek bir iş faktörü kullanın; 10, 2015'te iyiydi,
+      şimdi modern GPU'larda çok hızlı. bcrypt'in girdileri 72
+      baytta kırptığını unutmayın.
+    </p>
+    <p>
+      En az 600.000 yineleme ile <strong>PBKDF2-HMAC-SHA256</strong>
+      (OWASP 2023 kılavuzu), FIPS onaylı ilkeller gerektiren
+      düzenlenmiş ortamlarda kabul edilebilir, ancak bellek zorlamalı
+      değildir ve GPU saldırılarına alternatiflerden daha hızlı
+      yenilir.
     </p>
 
-    <h2>Hash length and output representation</h2>
+    <h2>Tuzlama</h2>
     <p>
-      SHA-256 produces 32 bytes. Typical representations:
+      Tuz, şifreye özetlemeden önce eklenen benzersiz bir rastgele
+      değerdir. Gökkuşağı tablolarını etkisiz hale getirir ve aynı
+      şifreye sahip iki kullanıcının farklı özetler almasını sağlar.
     </p>
     <p>
-      <strong>Hex</strong>: 64 characters. Human-readable.
-    </p>
-    <p>
-      <strong>Base64</strong>: 44 characters with padding, 43
-      without. More compact.
-    </p>
-    <p>
-      <strong>Base32</strong>: 56 characters. Case-insensitive;
-      used in URLs.
-    </p>
-    <p>
-      Truncating a secure hash for ID purposes is safe down to
-      about 128 bits (32 hex chars) for collision resistance given
-      birthday-bound attacks. Never truncate below that for
-      security-sensitive IDs.
+      Minimum tuz uzunluğu: 16 bayt kriptografik olarak rastgele
+      veri. Kullanıcı başına oluşturun, özetin yanında saklayın.
+      Argon2, bcrypt ve scrypt, tuzu çıktı dizelerine gömülü olarak
+      saklar &mdash; ayrıca yönetmeniz gerekmez.
     </p>
 
-    <h2>Common mistakes</h2>
+    <h2>Biberleme &mdash; isteğe bağlı ek katman</h2>
     <p>
-      <strong>Hashing passwords with SHA-256.</strong> Any fast
-      hash is a mistake for passwords. A commodity GPU computes
-      billions of SHA-256 per second &mdash; an 8-character password
-      falls in hours. Use Argon2id, scrypt, or bcrypt.
+      Biber, her kullanıcı için aynı olan, özetlemeden önce karıştırılan
+      gizli bir değerdir. Uygulama yapılandırmasında tutulur,
+      veritabanında değil. Veritabanı tek başına çalınırsa, saldırganın
+      kaba kuvvet için bibere ihtiyacı olur.
     </p>
     <p>
-      <strong>Missing salt.</strong> Identical passwords get
-      identical hashes, rainbow tables work, single breach exposes
-      whole columns of users. Always salt.
-    </p>
-    <p>
-      <strong>Reusing a salt across users.</strong> A shared salt is
-      equivalent to no salt &mdash; rainbow tables can be rebuilt
-      once against it. Fresh per-user.
-    </p>
-    <p>
-      <strong>Using MD5 for integrity.</strong> &ldquo;It is just a
-      checksum.&rdquo; Not if an attacker can influence the file.
-      Use SHA-256 or BLAKE3 for any integrity check that matters.
-    </p>
-    <p>
-      <strong>Comparing hashes with <code>==</code>.</strong>
-      String equality leaks timing information &mdash; attackers can
-      binary-search the match position. Use constant-time compare.
-    </p>
-    <p>
-      <strong>Treating hashes as encryption.</strong> Hashes are
-      one-way. There is no &ldquo;decrypting&rdquo; a hash. If you
-      need to recover the original data, you need encryption (AES,
-      ChaCha20), not hashing.
+      Biberleme, yavaş özetlemenin yerini almaz, ancak onun üzerine
+      katman ekler. En büyük sorun: biberi döndürmek her şifre
+      özetini geçersiz kılar. Sürümlü bir şema kullanın:
+      <code> pepper_v2_value</code> ve sürümü özetin yanında
+      saklayın.
     </p>
 
-    <h2>Run the numbers</h2>
+    <h2>HMAC ve anahtarlı özetleme</h2>
     <p>
-      Generate digests across MD5, SHA-1, SHA-256, SHA-512, and
-      more with the{" "}
-      <a href="/tools/hash-generator">hash generator</a>. Pair with
-      the{" "}
-      <a href="/tools/password-generator">password generator</a>
-      {" "}for the inputs those hashes will protect, and the{" "}
-      <a href="/tools/uuid-generator">UUID generator</a> when you
-      need unique non-sensitive IDs where a hash would be overkill.
+      Düz bir özet kimlik doğrulaması yapamaz &mdash; H herkese açık
+      olduğu için herkes <code> H(mesaj)</code> üretebilir. HMAC
+      (<code>HMAC(anahtar, mesaj)</code>) bunu düzeltir. API isteği
+      imzalama, JWT HS256 tokenları ve çerez bütünlüğü için kullanılır.
+    </p>
+    <p>
+      Çoğu modern kütüphane <code>hmac(anahtar, mesaj,
+      'sha256')</code> işlevini sunar. Hem mesaj hem de anahtar
+      doğrulama tarafında bulunmalıdır. Zamanlama sızıntılarını
+      önlemek için bir HMAC'ı kontrol ederken sabit zamanlı karşılaştırma
+      kullanın (Node'da <code>crypto.timingSafeEqual</code>).
+    </p>
+
+    <h2>Özet uzunluğu ve çıktı gösterimi</h2>
+    <p>
+      SHA-256, 32 bayt üretir. Tipik gösterimler:
+    </p>
+    <p>
+      <strong>Hex</strong>: 64 karakter. İnsan tarafından okunabilir.
+    </p>
+    <p>
+      <strong>Base64</strong>: dolgulu 44 karakter, dolgusuz 43
+      karakter. Daha kompakt.
+    </p>
+    <p>
+      <strong>Base32</strong>: 56 karakter. Büyük/küçük harf duyarsız;
+      URL'lerde kullanılır.
+    </p>
+    <p>
+      Güvenli bir özeti kimlik amaçları için kısaltmak, doğum günü
+      sınırı saldırıları göz önüne alındığında çakışma direnci için
+      yaklaşık 128 bit (32 hex karakter) kadar güvenlidir. Güvenlik
+      açısından hassas kimlikler için asla bunun altına kısaltmayın.
+    </p>
+
+    <h2>Yaygın hatalar</h2>
+    <p>
+      <strong>Şifreleri SHA-256 ile özetlemek.</strong> Herhangi bir
+      hızlı özet, şifreler için bir hatadır. Sıradan bir GPU saniyede
+      milyarlarca SHA-256 hesaplar &mdash; 8 karakterlik bir şifre
+      saatler içinde kırılır. Argon2id, scrypt veya bcrypt kullanın.
+    </p>
+    <p>
+      <strong>Tuz eksikliği.</strong> Aynı şifreler aynı özetleri
+      alır, gökkuşağı tabloları çalışır, tek bir ihlal tüm kullanıcı
+      sütunlarını açığa çıkarır. Her zaman tuzlayın.
+    </p>
+    <p>
+      <strong>Tuzu kullanıcılar arasında yeniden kullanmak.</strong>
+      Paylaşılan bir tuz, tuz olmamasına eşdeğerdir &mdash; gökkuşağı
+      tabloları buna karşı yeniden oluşturulabilir. Her kullanıcı
+      için taze.
+    </p>
+    <p>
+      <strong>Bütünlük için MD5 kullanmak.</strong> &ldquo;Bu sadece
+      bir sağlama toplamı.&rdquo; Bir saldırgan dosyayı etkileyebiliyorsa
+      değil. Önemli olan herhangi bir bütünlük kontrolü için SHA-256
+      veya BLAKE3 kullanın.
+    </p>
+    <p>
+      <strong>Özetleri <code>==</code> ile karşılaştırmak.</strong>
+      Dize eşitliği zamanlama bilgisi sızdırır &mdash; saldırganlar
+      eşleşme konumunu ikili arayabilir. Sabit zamanlı karşılaştırma
+      kullanın.
+    </p>
+    <p>
+      <strong>Özetleri şifreleme olarak ele almak.</strong> Özetler
+      tek yönlüdür. Bir özetin &ldquo;şifresini çözmek&rdquo; diye
+      bir şey yoktur. Orijinal veriyi kurtarmanız gerekiyorsa,
+      şifrelemeye (AES, ChaCha20) ihtiyacınız vardır, özetlemeye
+      değil.
+    </p>
+
+    <h2>Sayıları çalıştırın</h2>
+    <p>
+      MD5, SHA-1, SHA-256, SHA-512 ve daha fazlası arasında özetler
+      oluşturun{" "}
+      <a href="/tools/hash-generator">özet oluşturucu</a> ile. Bunu,
+      bu özetlerin koruyacağı girdiler için{" "}
+      <a href="/tools/password-generator">şifre oluşturucu</a>
+      {" "}ve bir özetin aşırı olacağı benzersiz, hassas olmayan
+      kimliklere ihtiyacınız olduğunda{" "}
+      <a href="/tools/uuid-generator">UUID oluşturucu</a> ile
+      eşleştirin.
     </p>
   </>
 );

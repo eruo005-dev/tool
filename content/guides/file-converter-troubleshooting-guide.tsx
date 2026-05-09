@@ -3,239 +3,226 @@
 export const intro = (
   <>
     <p>
-      Converters fail. Browsers run out of memory mid-conversion, output
-      files are corrupted, OCR returns gibberish, and the &ldquo;30
-      seconds&rdquo; turns into 30 minutes of waiting. This guide is the
-      systematic troubleshooting playbook — what to check, in what order,
-      and the recovery options when things go truly wrong.
+      Dönüştürücüler başarısız olur. Tarayıcılar dönüşüm sırasında belleği tüketir,
+      çıktı dosyaları bozulur, OCR anlamsız karakterler döndürür ve &ldquo;30
+      saniye&rdquo; 30 dakikalık bir bekleyişe dönüşür. Bu kılavuz sistematik bir
+      sorun giderme rehberidir — neyi kontrol etmeli, hangi sırayla ve
+      işler gerçekten ters gittiğinde kurtarma seçenekleri.
     </p>
   </>
 );
 
 export const toc = [
-  { id: "common-failures", label: "Common failure modes" },
-  { id: "speed", label: "Why conversions take so long" },
-  { id: "large-files", label: "Handling very large files" },
-  { id: "speed-tips", label: "Tips to convert faster" },
-  { id: "recovery", label: "When a converter fails" },
+  { id: "common-failures", label: "Yaygın hata türleri" },
+  { id: "speed", label: "Dönüşümler neden uzun sürer" },
+  { id: "large-files", label: "Çok büyük dosyaları işleme" },
+  { id: "speed-tips", label: "Daha hızlı dönüşüm ipuçları" },
+  { id: "recovery", label: "Dönüştürücü başarısız olduğunda" },
 ];
 
 export const body = (
   <>
-    <h2 id="common-failures">Common failure modes (in order of frequency)</h2>
+    <h2 id="common-failures">Yaygın hata türleri (sıklık sırasına göre)</h2>
 
-    <h3>1. Output looks corrupted or garbled</h3>
+    <h3>1. Çıktı bozuk veya anlamsız karakterler içeriyor</h3>
     <p>
-      Almost always one of: wrong source format detected, encoding mismatch
-      (UTF-8 vs Latin-1), or the file was a different format than its
-      extension claimed. Diagnostic:
+      Neredeyse her zaman şunlardan biri: yanlış kaynak formatı algılandı, kodlama uyuşmazlığı
+      (UTF-8 vs Latin-1) veya dosya uzantısının belirttiğinden farklı bir formattaydı. Teşhis:
     </p>
     <ul>
-      <li>Open the source in a hex editor (HxD on Windows, xxd on Mac/Linux). The first few bytes are usually a magic number identifying the actual format.</li>
-      <li>Check the file extension matches the magic number. .pdf with no &ldquo;%PDF&rdquo; in the first 4 bytes is a renamed file.</li>
-      <li>For text: check encoding. iconv (Mac/Linux) or Notepad++ &ldquo;Encoding&rdquo; menu (Windows) lets you re-save with explicit UTF-8.</li>
+      <li>Kaynağı bir hex düzenleyicide açın (Windows'ta HxD, Mac/Linux'ta xxd). İlk birkaç bayt genellikle gerçek formatı tanımlayan bir sihirli sayıdır.</li>
+      <li>Dosya uzantısının sihirli sayıyla eşleşip eşleşmediğini kontrol edin. İlk 4 baytta &ldquo;%PDF&rdquo; olmayan bir .pdf dosyası yeniden adlandırılmış bir dosyadır.</li>
+      <li>Metin için: kodlamayı kontrol edin. iconv (Mac/Linux) veya Notepad++ &ldquo;Encoding&rdquo; menüsü (Windows) ile açıkça UTF-8 olarak yeniden kaydedebilirsiniz.</li>
     </ul>
 
-    <h3>2. Browser tab crashes or hangs</h3>
+    <h3>2. Tarayıcı sekmesi çöküyor veya donuyor</h3>
     <p>
-      Memory exhaustion. Browser-side conversion holds the entire file in
-      RAM, sometimes multiple times (during decoding, during processing,
-      during encoding). For very large files, browser tabs are limited to
-      around 2-4 GB of memory.
+      Bellek yetersiz. İstemci tarafı dönüşüm, tüm dosyayı RAM'de tutar,
+      bazen birden çok kez (kod çözme, işleme ve kodlama sırasında). Çok büyük dosyalar için,
+      tarayıcı sekmeleri yaklaşık 2-4 GB bellek ile sınırlıdır.
     </p>
-    <p>Fixes:</p>
+    <p>Çözümler:</p>
     <ul>
-      <li>Close other tabs to free memory.</li>
-      <li>Try Chrome instead of Safari (Chrome handles big tabs better in our experience).</li>
-      <li>Split the file before converting — split a 1 GB PDF into 4 chunks of 250 MB.</li>
-      <li>Switch to a desktop tool (FFmpeg, ImageMagick, Pandoc) for files &gt; 500 MB.</li>
+      <li>Belleği boşaltmak için diğer sekmeleri kapatın.</li>
+      <li>Safari yerine Chrome'u deneyin (Chrome, deneyimlerimize göre büyük sekmeleri daha iyi yönetir).</li>
+      <li>Dönüşümden önce dosyayı bölün — 1 GB'lık bir PDF'i her biri 250 MB'lık 4 parçaya bölün.</li>
+      <li>500 MB'tan büyük dosyalar için bir masaüstü aracına geçin (FFmpeg, ImageMagick, Pandoc).</li>
     </ul>
 
-    <h3>3. OCR returns gibberish</h3>
+    <h3>3. OCR anlamsız karakterler döndürüyor</h3>
     <p>
-      Tesseract gibberish usually means: low-resolution input, language
-      mismatch (asking English OCR to parse Spanish text), or non-text
-      content (a photograph mistaken for a scan). Fixes:
-    </p>
-    <ul>
-      <li>Verify language selection matches the source.</li>
-      <li>If the source is a scanned photo with poor lighting, retake or scan with better lighting before OCR.</li>
-      <li>For mixed-language documents, run OCR per page or section with the right language each time.</li>
-      <li>For low-resolution scans (under 200 DPI), upscale first using <a href="/tools/image-resizer">image resizer</a> with bicubic interpolation, then OCR.</li>
-    </ul>
-
-    <h3>4. PDF won&rsquo;t open in target app</h3>
-    <p>
-      The PDF is corrupted, password-protected, or uses a feature the target
-      app doesn&rsquo;t support (XFA forms, layered PDFs). Diagnostic:
+      Tesseract anlamsız karakterleri genellikle şu anlama gelir: düşük çözünürlüklü girdi,
+      dil uyuşmazlığı (İngilizce OCR'den İspanyolca metni ayrıştırmasını istemek) veya metin olmayan
+      içerik (taramayla karıştırılan bir fotoğraf). Çözümler:
     </p>
     <ul>
-      <li>Try opening in a different app (Adobe Reader, Preview, Chrome). If it opens elsewhere, the original target has a feature gap.</li>
-      <li>Check for password protection — converters often fail silently on encrypted PDFs.</li>
-      <li>For corrupted PDFs: <a href="/tools/pdf-organizer">our PDF organizer</a> or pdf-lib-based tools can sometimes salvage the readable pages.</li>
+      <li>Dil seçiminin kaynakla eşleştiğini doğrulayın.</li>
+      <li>Kaynak, kötü aydınlatılmış taranmış bir fotoğrafsa, OCR'dan önce daha iyi aydınlatmayla yeniden çekin veya yeniden tarayın.</li>
+      <li>Çok dilli belgeler için, her seferinde doğru dille sayfa veya bölüm başına OCR çalıştırın.</li>
+      <li>Düşük çözünürlüklü taramalar (200 DPI altı) için, önce <a href="/tools/image-resizer">görüntü yeniden boyutlandırıcı</a> ile bikübik enterpolasyon kullanarak büyütün, ardından OCR yapın.</li>
     </ul>
 
-    <h3>5. Conversion completes but output is empty</h3>
+    <h3>4. PDF hedef uygulamada açılmıyor</h3>
     <p>
-      Usually the source had no extractable content for the requested target.
-      Examples: scanned PDF (no extractable text — needs OCR), image with
-      transparency lost in flat conversion, encrypted document.
+      PDF bozuk, parola korumalı veya hedef uygulamanın desteklemediği bir özellik kullanıyor
+      (XFA formları, katmanlı PDF'ler). Teşhis:
+    </p>
+    <ul>
+      <li>Farklı bir uygulamada (Adobe Reader, Preview, Chrome) açmayı deneyin. Başka bir yerde açılırsa, orijinal hedefte bir özellik eksikliği vardır.</li>
+      <li>Parola korumasını kontrol edin — dönüştürücüler genellikle şifrelenmiş PDF'lerde sessizce başarısız olur.</li>
+      <li>Bozuk PDF'ler için: <a href="/tools/pdf-organizer">PDF düzenleyicimiz</a> veya pdf-lib tabanlı araçlar bazen okunabilir sayfaları kurtarabilir.</li>
+    </ul>
+
+    <h3>5. Dönüşüm tamamlanıyor ancak çıktı boş</h3>
+    <p>
+      Genellikle kaynak, istenen hedef için çıkarılabilir içeriğe sahip değildir.
+      Örnekler: taranmış PDF (çıkarılabilir metin yok — OCR gerekli), düz bir dönüşümde saydamlığını kaybeden görüntü, şifrelenmiş belge.
     </p>
 
-    <h3>6. Special characters or accents missing</h3>
+    <h3>6. Özel karakterler veya aksan işaretleri eksik</h3>
     <p>
-      Encoding problem. Re-save the source as UTF-8, retry. If the source
-      was Windows-1252 (common for Excel exports on Western European
-      machines), the conversion needs to know to re-encode.
+      Kodlama sorunu. Kaynağı UTF-8 olarak yeniden kaydedin ve tekrar deneyin. Kaynak
+      Windows-1252 ise (Batı Avrupa makinelerinde Excel dışa aktarımlarında yaygın), dönüşümün
+      yeniden kodlamayı bilmesi gerekir.
     </p>
 
-    <h2 id="speed">Why some file conversions take so long</h2>
+    <h2 id="speed">Bazı dosya dönüşümleri neden çok uzun sürer</h2>
     <p>
-      Speed depends on:
+      Hız şunlara bağlıdır:
     </p>
     <ul>
       <li>
-        <strong>Input file size and complexity.</strong> A 500 MB PDF takes
-        longer than a 5 MB one. Multi-column or image-heavy PDFs are slower
-        than text-only.
+        <strong>Girdi dosyası boyutu ve karmaşıklığı.</strong> 500 MB'lık bir PDF,
+        5 MB'lık bir PDF'den daha uzun sürer. Çok sütunlu veya görüntü yoğun PDF'ler,
+        yalnızca metin içerenlerden daha yavaştır.
       </li>
       <li>
-        <strong>Conversion type.</strong> Lossless reformats (PNG to BMP) are
-        fast. Reflow + restructure (PDF to DOCX preserving layout) are slow.
+        <strong>Dönüşüm türü.</strong> Kayıpsız yeniden biçimlendirme (PNG'den BMP'ye)
+        hızlıdır. Yeniden akış + yeniden yapılandırma (PDF'den DOCX'e düzeni koruyarak) yavaştır.
       </li>
       <li>
-        <strong>Browser-side vs cloud.</strong> Cloud servers have GPUs and
-        more RAM. Browser-side relies on your CPU. Slower but private.
+        <strong>İstemci tarafı vs bulut.</strong> Bulut sunucularında GPU'lar ve
+        daha fazla RAM bulunur. İstemci tarafı CPU'nuzu kullanır. Daha yavaş ancak özeldir.
       </li>
       <li>
-        <strong>OCR specifically.</strong> Always slow. 5–15 seconds per page
-        for browser-side Tesseract. 1–2 seconds per page for cloud GPU OCR.
+        <strong>Özellikle OCR.</strong> Her zaman yavaştır. İstemci tarafı Tesseract,
+        sayfa başına 5-15 saniye sürer. Bulut GPU OCR, sayfa başına 1-2 saniye sürer.
       </li>
       <li>
-        <strong>Background tabs.</strong> Browsers throttle CPU on background
-        tabs. Keep the conversion tab in foreground.
+        <strong>Arka plan sekmeleri.</strong> Tarayıcılar, arka plan sekmeleri için CPU'yu kısar.
+        Dönüşüm sekmesini ön planda tutun.
       </li>
     </ul>
 
-    <h2 id="large-files">Converting large files: does size matter?</h2>
+    <h2 id="large-files">Büyük dosyaları dönüştürme: boyut önemli mi?</h2>
     <p>
-      Yes, in three ways:
+      Evet, üç şekilde:
     </p>
     <ol>
       <li>
-        <strong>Memory pressure.</strong> Browser tabs cap around 2-4 GB.
-        Files over 500 MB are at risk of running out of memory mid-conversion.
-        Symptoms: hang, crash, &ldquo;page unresponsive&rdquo; warnings.
+        <strong>Bellek baskısı.</strong> Tarayıcı sekmeleri yaklaşık 2-4 GB ile sınırlıdır.
+        500 MB üzeri dosyalar, dönüşüm sırasında belleğin tükenmesi riski altındadır.
+        Belirtiler: donma, çökme, &ldquo;sayfa yanıt vermiyor&rdquo; uyarıları.
       </li>
       <li>
-        <strong>Linear-or-worse time complexity.</strong> Some conversions
-        scale linearly with file size (bytes processed). Others scale
-        super-linearly (image processing, video encoding). 10× the file size
-        is rarely 10× the time.
+        <strong>Doğrusal veya daha kötü zaman karmaşıklığı.</strong> Bazı dönüşümler
+        dosya boyutuyla doğrusal olarak ölçeklenir (işlenen baytlar). Diğerleri
+        doğrusalın üzerinde ölçeklenir (görüntü işleme, video kodlama). 10 kat dosya boyutu
+        nadiren 10 kat zaman anlamına gelir.
       </li>
       <li>
-        <strong>Upload bandwidth (if cloud-based).</strong> A 1 GB upload to
-        cloud OCR over a 10 Mbps connection takes 13 minutes just to upload —
-        before any processing.
+        <strong>Yükleme bant genişliği (bulut tabanlıysa).</strong> 10 Mbps bağlantı üzerinden
+        bulut OCR'ye 1 GB yüklemek, herhangi bir işlemden önce yalnızca yükleme için 13 dakika sürer.
       </li>
     </ol>
     <p>
-      For files &gt; 500 MB, browser-only converters become unreliable. Switch
-      to a desktop tool: FFmpeg for video, ImageMagick for images, Pandoc or
-      LibreOffice headless for documents. They handle gigabytes without breaking
-      a sweat.
+      500 MB'tan büyük dosyalar için, yalnızca tarayıcı tabanlı dönüştürücüler güvenilmez hale gelir.
+      Bir masaüstü aracına geçin: video için FFmpeg, görüntüler için ImageMagick, belgeler için Pandoc veya
+      LibreOffice headless. Gigabayt boyutundaki dosyaları sorunsuzca işlerler.
     </p>
 
-    <h2 id="speed-tips">Tips to convert files faster</h2>
+    <h2 id="speed-tips">Dosyaları daha hızlı dönüştürmek için ipuçları</h2>
     <ul>
       <li>
-        <strong>Keep the conversion tab in foreground.</strong> Browser
-        background tabs are throttled.
+        <strong>Dönüşüm sekmesini ön planda tutun.</strong> Tarayıcı
+        arka plan sekmelerini kısar.
       </li>
       <li>
-        <strong>Close other tabs.</strong> Free up memory and CPU for the
-        conversion.
+        <strong>Diğer sekmeleri kapatın.</strong> Dönüşüm için bellek ve CPU'yu boşaltın.
       </li>
       <li>
-        <strong>Use lower-quality settings if you don&rsquo;t need pristine
-        output.</strong> 90% JPG is visually identical to 100% but converts
-        faster. 720p video instead of 1080p halves encoding time.
+        <strong>Mükemmel çıktıya ihtiyacınız yoksa daha düşük kalite ayarları kullanın.</strong>
+        %90 JPG, %100 ile görsel olarak aynıdır ancak daha hızlı dönüşür. 1080p yerine 720p video,
+        kodlama süresini yarıya indirir.
       </li>
       <li>
-        <strong>Process in batches.</strong> Don&rsquo;t convert 100 files
-        sequentially in 100 separate operations. Use a batch tool (FFmpeg,
-        Pandoc) that re-uses the loaded engine.
+        <strong>Toplu işlem.</strong> 100 dosyayı 100 ayrı işlemde sırayla dönüştürmeyin.
+        Yüklenen motoru yeniden kullanan bir toplu iş aracı (FFmpeg,
+        Pandoc) kullanın.
       </li>
       <li>
-        <strong>Skip unnecessary intermediate steps.</strong> PDF → DOCX → PDF
-        is wasteful if you just need a different PDF. Find the direct path.
+        <strong>Gereksiz ara adımları atlayın.</strong> Yalnızca farklı bir PDF'e ihtiyacınız varsa PDF → DOCX → PDF israftır. Doğrudan yolu bulun.
       </li>
       <li>
-        <strong>Pre-process if possible.</strong> Strip pages you don&rsquo;t
-        need before OCR. Resize huge images before format conversion. Don&rsquo;t
-        OCR pages that are already text-extractable.
+        <strong>Mümkün olduğunda ön işleme yapın.</strong> OCR'dan önce ihtiyacınız olmayan sayfaları kırpın. Biçim dönüşümünden önce büyük görüntüleri yeniden boyutlandırın. Metnin zaten çıkarılabilir olduğu sayfalarda OCR yapmayın.
       </li>
     </ul>
 
-    <h2 id="recovery">What happens when a file converter fails: recovery options</h2>
+    <h2 id="recovery">Bir dosya dönüştürücü başarısız olduğunda ne olur: kurtarma seçenekleri</h2>
     <p>
-      Failure recovery in priority order:
+      Öncelik sırasına göre hata kurtarma:
     </p>
     <ol>
       <li>
-        <strong>Retry with a different tool.</strong> If browser-only fails,
-        try desktop. If one cloud service fails, try another. Different
-        engines have different failure modes — what one chokes on, another
-        handles fine.
+        <strong>Farklı bir araçla yeniden deneyin.</strong> Yalnızca tarayıcı tabanlı başarısız olursa,
+        masaüstünü deneyin. Bir bulut hizmeti başarısız olursa, diğerini deneyin. Farklı
+        motorların farklı hata türleri vardır — biri çalışırken diğeri takılıp kalabilir.
       </li>
       <li>
-        <strong>Verify the source isn&rsquo;t corrupted.</strong> Open the
-        source file in its native app. If it opens fine there, the converter
-        is the problem. If it doesn&rsquo;t open, the source is the problem.
+        <strong>Kaynağın bozuk olmadığını doğrulayın.</strong> Kaynak dosyayı kendi
+        yerel uygulamasında açın. Orada sorunsuz açılıyorsa, sorun dönüştürücüdür. Açılmıyorsa,
+        sorun kaynaktır.
       </li>
       <li>
-        <strong>Try converting via an intermediate format.</strong> Direct PDF
-        → DOCX failing? Try PDF → ODT → DOCX, or PDF → Markdown → DOCX. The
-        intermediate often dodges whatever the direct path is choking on.
+        <strong>Bir ara biçim üzerinden dönüştürmeyi deneyin.</strong> Doğrudan PDF
+        → DOCX başarısız mı oluyor? PDF → ODT → DOCX veya PDF → Markdown → DOCX deneyin. Ara biçim
+        genellikle doğrudan yolun takılıp kaldığı noktayı atlar.
       </li>
       <li>
-        <strong>Salvage what you can.</strong> If the conversion partially
-        succeeds (50 pages converted out of 100), accept the partial result
-        and re-process only the failed pages.
+        <strong>Yapabildiğinizi kurtarın.</strong> Dönüşüm kısmen başarılıysa
+        (100 sayfadan 50'si dönüştürüldü), kısmi sonucu kabul edin ve yalnızca başarısız sayfaları yeniden işleyin.
       </li>
       <li>
-        <strong>Recover from backup or original.</strong> Always keep the
-        original. If the conversion eats the file, you have the master.
+        <strong>Yedekten veya orijinalden kurtarın.</strong> Orijinali her zaman saklayın.
+        Dönüşüm dosyayı yok ederse, ana kopyanız hâlâ durur.
       </li>
       <li>
-        <strong>If genuinely stuck:</strong> post on r/SoftwareRecs or
-        SuperUser with the source file format, target format, and exact
-        error. Specific edge cases often have community-known solutions.
+        <strong>Gerçekten takılı kaldıysanız:</strong> Kaynak dosya biçimi, hedef biçim ve tam hatayla birlikte r/SoftwareRecs veya SuperUser'a gönderi yapın. Belirli uç durumlar için genellikle topluluk tarafından bilinen çözümler vardır.
       </li>
     </ol>
   </>
 );
 
 export const cta = {
-  label: "Try our PDF OCR tool (handles tricky scans)",
+  label: "PDF OCR aracımızı deneyin (zorlu taramaları işler)",
   targetSlug: "pdf-ocr-to-text",
 };
 
 export const faq = [
   {
-    q: "My file converter isn't working — what do I do?",
-    a: "Systematic checks: (1) verify source file isn't corrupted (opens in native app?), (2) check magic-number vs file extension match, (3) for browser hangs, close other tabs / try Chrome / split the file, (4) for gibberish output, check encoding (UTF-8 vs Latin-1) and OCR language. If still stuck, try a different converter or convert via an intermediate format.",
+    q: "Dosya dönüştürücüm çalışmıyor — ne yapmalıyım?",
+    a: "Sistematik kontroller: (1) kaynak dosyanın bozuk olmadığını doğrulayın (kendi yerel uygulamasında açılıyor mu?), (2) sihirli sayı ile dosya uzantısı eşleşmesini kontrol edin, (3) tarayıcı donmaları için diğer sekmeleri kapatın / Chrome'u deneyin / dosyayı bölün, (4) anlamsız karakter çıktısı için kodlamayı (UTF-8 vs Latin-1) ve OCR dilini kontrol edin. Hâlâ takılıysa, farklı bir dönüştürücü deneyin veya bir ara biçim üzerinden dönüştürün.",
   },
   {
-    q: "What happens when a file converter fails?",
-    a: "Recovery options: retry with a different tool, verify source isn't corrupted, try an intermediate format (PDF → ODT → DOCX often works when direct PDF → DOCX fails), salvage partial output, recover from original (always keep masters). Last resort: post on r/SoftwareRecs with format details — specific edge cases have community-known fixes.",
+    q: "Bir dosya dönüştürücü başarısız olduğunda ne olur?",
+    a: "Kurtarma seçenekleri: farklı bir araçla yeniden deneyin, kaynağın bozuk olmadığını doğrulayın, bir ara biçim deneyin (doğrudan PDF → DOCX başarısız olduğunda PDF → ODT → DOCX genellikle işe yarar), kısmi çıktıyı kurtarın, orijinalden kurtarın (her zaman ana kopyaları saklayın). Son çare: biçim ayrıntılarıyla r/SoftwareRecs'e gönderi yapın — belirli uç durumların topluluk tarafından bilinen çözümleri vardır.",
   },
   {
-    q: "Why do file conversions take so long?",
-    a: "Five factors: file size and complexity, conversion type (lossless reformats are fast, reflow + restructure are slow), browser-side vs cloud (cloud has GPUs), OCR is always slow, browser background tabs get CPU-throttled. To speed up: keep tab in foreground, close other tabs, use lower quality where acceptable, batch with desktop tools.",
+    q: "Dosya dönüşümleri neden bu kadar uzun sürüyor?",
+    a: "Beş faktör: dosya boyutu ve karmaşıklığı, dönüşüm türü (kayıpsız yeniden biçimlendirme hızlıdır, yeniden akış + yeniden yapılandırma yavaştır), istemci tarafı vs bulut (bulutta GPU'lar vardır), OCR her zaman yavaştır, tarayıcı arka plan sekmeleri CPU tarafından kısılır. Hızlandırmak için: sekmeyi ön planda tutun, diğer sekmeleri kapatın, kabul edilebilir olduğunda daha düşük kalite kullanın, masaüstü araçlarıyla toplu işlem yapın.",
   },
   {
-    q: "Does file size affect conversion speed?",
-    a: "Yes. Memory pressure caps browser tabs around 2-4 GB. Time complexity is linear-or-worse with size. Upload bandwidth matters for cloud tools. Files over 500 MB push browser tools to their limits — switch to FFmpeg / ImageMagick / Pandoc / LibreOffice headless desktop tools for gigabyte-scale files.",
+    q: "Dosya boyutu dönüşüm hızını etkiler mi?",
+    a: "Evet. Bellek baskısı tarayıcı sekmelerini yaklaşık 2-4 GB ile sınırlar. Zaman karmaşıklığı boyutla doğrusal veya daha kötüdür. Yükleme bant genişliği bulut araçları için önemlidir. 500 MB üzeri dosyalar tarayıcı araçlarını sınırlarına iter — gigabayt ölçeğindeki dosyalar için FFmpeg / ImageMagick / Pandoc / LibreOffice headless gibi masaüstü araçlarına geçin.",
   },
 ];
