@@ -44,3 +44,4 @@ print(reply)`}</pre>
     <p>Özellikle Azure'da, araştırma düzeyinde bir çerçeve yerine güçlü tipleme ve gözlemlenebilirliğe sahip desteklenen bir SDK isteyen, Copilot tarzı özellikler oluşturan kurumsal ekipler.</p>
   </>
 );
+===END FILE===

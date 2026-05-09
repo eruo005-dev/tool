@@ -33,3 +33,4 @@ docker run -it --gpus all \\
     <p>Güvenlik bilincine sahip ekipler, düzenlemeye tabi sektörler, hava boşluklu ortamlar ve SaaS aboneliği olmadan Copilot tarzı tamamlamalar isteyen hobiciler.</p>
   </>
 );
+===END FILE===

@@ -1,14 +1,14 @@
 import { type ReactElement } from "react";
 
-export const intro: ReactElement = (<p>Dify, tek bir yığında görsel iş akışları, ajanlar, veri kümeleri ve API'ler sunan açık kaynaklı bir LLMOps platformudur.</p>);
+export const intro: ReactElement = (<p>Dify, görsel iş akışları, ajanlar, veri kümeleri ve API'leri tek bir yığında sunan açık kaynaklı bir LLMOps platformudur.</p>);
 
 export const body: ReactElement = (
   <>
-    <p>Dify, &ldquo;kodsuz oluşturucu&rdquo; ile &ldquo;tam LLMOps platformu&rdquo; arasında bir yerde konumlanır. Tarayıcıda promptlar ve ajanlar tasarlar, RAG için veri kümeleri eklersiniz ve platform bunları kimlik doğrulama, hız sınırları ve analitiklerle REST API'leri olarak sunar. Kendi sunucunuzda ücretsiz olarak barındırın veya yönetilen bulutu kullanın.</p>
-    <h2>Nedir</h2>
-    <p>Bir Python arka ucu (Flask + Celery + Postgres + Redis + bir vektör deposu) artı bir Next.js ön ucu. Uygulamalar dört çeşittir: sohbet, ajan, iş akışı ve metin oluşturma. Veri kümeleri alım ve almayı yönetir; modeller, 30'dan fazla satıcıyı destekleyen bir sağlayıcı kaydı aracılığıyla bağlanır.</p>
-    <h2>Kurulum / yapılandırma</h2>
-    <pre>{`# docker compose ile kendi kendine barındırma
+    <p>Dify, &ldquo;kodsuz oluşturucu&rdquo; ile &ldquo;tam LLMOps platformu&rdquo; arasında konumlanır. Tarayıcıda promptlar ve ajanlar tasarlar, RAG için veri kümeleri eklersiniz ve platform bunları kimlik doğrulama, hız sınırları ve analitiklerle REST API'leri olarak sunar. Ücretsiz olarak kendi sunucunuzda barındırın veya yönetilen bulutu kullanın.</p>
+    <h2>Ne olduğu</h2>
+    <p>Bir Python arka ucu (Flask + Celery + Postgres + Redis + bir vektör deposu) artı bir Next.js ön yüzü. Uygulamalar dört çeşittir: sohbet, ajan, iş akışı ve metin oluşturma. Veri kümeleri alım ve almayı yönetir; modeller, 30'dan fazla satıcının desteklendiği bir sağlayıcı kaydı aracılığıyla bağlanır.</p>
+    <h2>Kurulum / ayarlama</h2>
+    <pre>{`# docker compose ile kendi sunucunda barındır
 git clone https://github.com/langgenius/dify
 cd dify/docker
 cp .env.example .env
@@ -25,11 +25,10 @@ docker compose up -d`}</pre>
       <li>Deterministik ardışık düzenler için HTTP çağrılarını, <a href="/learn/llm">LLM</a> düğümlerini, kod bloklarını ve koşulları zincirlemek için İş Akışı uygulama türünü kullanın.</li>
       <li>Oluşturulan web uygulaması URL'sini gömerek veya mevcut ürününüzden API'yi çağırarak bir dahili araç yayınlayın.</li>
     </ul>
-    <h2>Püf noktaları ve ipuçları</h2>
-    <p>Docker Compose yığını birçok imaj çeker (Postgres, Redis, Weaviate, sandbox, SSRF proxy). En az 4&ndash;6 GB RAM ayırın ve 1 GB VPS'de çalıştırmayın. <code>sandbox</code> kabı, kullanıcı kodunu yürütür ve <code>privileged</code> veya bir seccomp profili gerektirir &mdash; Dify'yi herkese açmadan önce güvenlik belgelerini okuyun.</p>
-    <p>Sürüm yükseltmeleri bazen otomatik olmayan veritabanı geçişleri gerektirir. <code>docker compose pull</code> çalıştırmadan önce Postgres biriminizin anlık görüntüsünü alın. Ekip hızlı hareket eder ve küçük sürümler arasında bozucu değişiklikler olabilir.</p>
-    <h2>Kimler içindir</h2>
-    <p>Platform katmanını oluşturmadan LLM özellikleri göndermek isteyen ürün ekipleri. Promptlar, veri kümeleri, kimlik doğrulama, günlükler ve bir API ağ geçidini tek bir pakette istiyorsanız, Dify bugün mevcut olan en kapsamlı açık kaynak seçeneğidir.</p>
+    <h2>Tuzaklar ve ipuçları</h2>
+    <p>Docker Compose yığını birçok imaj çeker (Postgres, Redis, Weaviate, sandbox, SSRF proxy). Minimum 4&ndash;6 GB RAM ayırın ve 1 GB VPS'te çalıştırmayın. <code>sandbox</code> kapsayıcısı kullanıcı kodunu çalıştırır ve <code>privileged</code> veya bir seccomp profili gerektirir &mdash; Dify'yi herkese açmadan önce güvenlik belgelerini okuyun.</p>
+    <p>Sürüm yükseltmeleri bazen otomatik olmayan veritabanı geçişleri gerektirir. <code>docker compose pull</code> işleminden önce Postgres biriminizin anlık görüntüsünü alın. Ekip hızlı hareket eder ve küçük sürümler arasında kırıcı değişiklikler olabilir.</p>
+    <h2>Kimler için</h2>
+    <p>Platform katmanını oluşturmadan LLM özellikleri sunmak isteyen ürün ekipleri. Promptlar, veri kümeleri, kimlik doğrulama, günlükler ve bir API ağ geçidini tek bir pakette istiyorsanız, Dify bugün en kapsamlı açık kaynak seçeneğidir.</p>
   </>
 );
-===END FILE===
