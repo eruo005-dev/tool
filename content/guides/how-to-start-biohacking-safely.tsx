@@ -1,12 +1,12 @@
 import { type ReactElement } from "react";
 
 export const intro: ReactElement = (
-  <p>Biyohackleme, 400 dolarlık kırmızı ışık panelleri ve peptit enjeksiyonları olarak satıldı. Gerçek faydanın yüzde doksanı ücretsiz, sıkıcı ve bu gece uygulanabilir. İşte karaciğerinizi veya banka hesabınızı mahvetmeden nasıl başlayacağınız.</p>
+  <p>Biohacking, 400 dolarlık kırmızı ışık panelleri ve peptit enjeksiyonları olarak satılıyor. Gerçek faydanın yüzde doksanı ücretsiz, sıkıcı ve bu gece uygulanabilir. İşte karaciğerinizi veya banka hesabınızı mahvetmeden nasıl başlayacağınız.</p>
 );
 
 export const body: ReactElement = (
   <>
-    <p>Biyohackleme, biyolojinizi kasıtlı olarak optimize etmek anlamına gelir. İyi yapıldığında, uyku, beslenme, hareket ve ölçüme yönelik yapılandırılmış bir yaklaşımdır. Kötü yapıldığında, şüpheli bir siteden sipariş ettiği araştırma peptitlerini enjekte eden TikTok'taki bir adamdır. Bu tıbbi bir tavsiye değildir &mdash; özellikle takviyeler, oruç veya iğne içeren herhangi bir şey konusunda anlamlı değişiklikler yapmadan önce bir profesyonele danışın.</p>
+    <p>Biohacking, biyolojinizi kasıtlı olarak optimize etmek anlamına gelir. İyi yapıldığında, uyku, beslenme, hareket ve ölçüme yönelik yapılandırılmış bir yaklaşımdır. Kötü yapıldığında, şüpheli bir siteden sipariş ettiği araştırma peptitlerini enjekte eden TikTok'taki bir adamdır. Bu tıbbi bir tavsiye değildir &mdash; özellikle takviyeler, oruç veya iğne içeren herhangi bir şey konusunda anlamlı değişiklikler yapmadan önce bir profesyonele danışın.</p>
 
     <h2>Ücretsiz olanlarla başlayın</h2>
     <p>En yüksek kaldıraçlı müdahaleler hiçbir şeye mal olmaz:</p>
